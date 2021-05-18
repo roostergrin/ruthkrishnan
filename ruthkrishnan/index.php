@@ -1,6 +1,6 @@
 <?php
 
-get_header(); ?>
+wp_header(); ?>
 
 <h1>Ruth Krishnan</h1>
 
@@ -12,4 +12,4 @@ if ( have_posts() ) :
 endif;
 ?>
 
-<?php get_footer(); ?>
+<?php wp_footer(); ?>
