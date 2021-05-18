@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+/*
+Theme Name: Ruth Krishnan
+Author: Rooster Grin Media
+Author URI: https://www.roostergrin.com/
+Description: Custom Wordpress Site for Ruth Krishnan made by Rooster Grin Media
+Version: 0.1
+Tags: rooster-grin-media, custom-site
+*/
+
+/* Global Variables */
+:root {
+	/* Colors */
+	--global-black: #000;
+}
