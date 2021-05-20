@@ -11,10 +11,23 @@ console.log('hello world');
 
 /***/ }),
 
-/***/ "./src/test.sass":
-/*!***********************!*\
-  !*** ./src/test.sass ***!
-  \***********************/
+/***/ "./src/global.sass":
+/*!*************************!*\
+  !*** ./src/global.sass ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/homepage.sass":
+/*!***************************!*\
+  !*** ./src/homepage.sass ***!
+  \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -109,8 +122,9 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"/scripts/test": 0,
-/******/ 			"styles/test": 0
+/******/ 			"/js/test": 0,
+/******/ 			"styles/homepage": 0,
+/******/ 			"styles/global": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -158,8 +172,9 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["styles/test"], () => (__webpack_require__("./src/test.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/test"], () => (__webpack_require__("./src/test.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/homepage","styles/global"], () => (__webpack_require__("./src/test.js")))
+/******/ 	__webpack_require__.O(undefined, ["styles/homepage","styles/global"], () => (__webpack_require__("./src/global.sass")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/homepage","styles/global"], () => (__webpack_require__("./src/homepage.sass")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

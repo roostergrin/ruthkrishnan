@@ -3,5 +3,6 @@
 let mix = require('laravel-mix');
 
 mix
-.sass('src/test.sass', 'styles/')
-.js('src/test.js', 'scripts/')
+.sass('src/global.sass', 'styles/')
+.sass('src/homepage.sass', 'styles/')
+.js('src/test.js', 'js/')
