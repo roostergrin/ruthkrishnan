@@ -1,0 +1,8 @@
+# Dependency directories
+ruthkrishnan/node_modules/
+
+# Wordpress
+index.php
+
+# Mac OSX
+.DS_Store
