@@ -1,6 +1,15 @@
 <?php
 
-// load stylesheets
+/**
+ *
+ *  Functions and Definitions
+ *
+ */
+
+// include additional functionality -------------------------
+include_once(get_template_directory() . '/functions/custom-post.php');
+
+// load stylesheets -------------------------
 function theme_enqueue_styles() {
   wp_enqueue_style( 'global', get_template_directory_uri() . '/styles/global.css' );
   if( is_home() || is_front_page() ) :
@@ -9,7 +18,7 @@ function theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 
-// load scripts
+// load scripts -------------------------
 function theme_enqueue_scripts() {
   wp_enqueue_script( 'test', get_template_directory_uri() . '/js/test.js' );
 }
