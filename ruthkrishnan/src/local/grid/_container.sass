@@ -1,0 +1,24 @@
+// --------------------------------------------------------
+// containers
+// --------------------------------------------------------
+  
+@mixin container
+  @include desktop
+    max-width: $max-width
+  @include tablet
+    padding: 0 2rem
+  @include phone-lg
+    padding: 0 1rem
+  display: flex
+  position: relative
+  flex-wrap: wrap
+  margin: 0 auto
+  padding: 0 calc((#{$outside-gutter} / 2) - #{$gutter / 2})
+  width: 100%
+  max-width: calc(#{$width} + #{$outside-gutter})
+
+@mixin container--large
+  @include container
+  @include desktop
+    max-width: $max-width-large
+  max-width: $width-large

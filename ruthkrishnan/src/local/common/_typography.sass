@@ -1,0 +1,43 @@
+%all
+  box-sizing: border-box
+
+%body
+  @include desktop
+    font-size: rem-calc(18)
+  @include phone
+    font-size: rem-calc(14)
+  text-rendering: optimizeLegibility
+  line-height: 1.467
+  font-family: $font
+  font-size: rem-calc(16)
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+%h1
+  font-size: rem-calc(40)
+  font-weight: 800
+
+%h2
+  font-size: rem-calc(40)
+  font-weight: bold
+
+%h3
+  font-size: rem-calc(30)
+  font-weight: 500
+
+%h4
+  font-size: rem-calc(25)
+  font-weight: bold
+
+%h5
+  font-size: rem-calc(20)
+
+%h6
+  font-size: rem-calc(18)
+
+%a
+  text-decoration: none
+  color: $black
+
+%no-margin
+  margin: 0

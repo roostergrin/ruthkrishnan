@@ -1,0 +1,8 @@
+@mixin hover-supported
+  @media not all and (pointer: coarse)
+    &:hover
+      @content
+
+@mixin ie11-support
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+    @content    
