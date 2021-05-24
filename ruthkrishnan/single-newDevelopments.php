@@ -259,10 +259,11 @@
                   <?php endforeach; ?>
                <?php endif; ?>
             <!-- END Developments Categories Loop -->
-            
+
          <?php endwhile; ?>
       <?php endif; ?>
       <!-- End The Loop -->
    </div>
 
    <?php get_footer(); ?>
+   
