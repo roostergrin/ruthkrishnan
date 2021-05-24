@@ -9,12 +9,11 @@ function app_init() {
 		'show_ui' => true,
 		'capability_type' => 'post',
 		'hierarchical' => false,
-		'rewrite' => array('slug' => 'newDevelopments'),
+		'rewrite' => array('slug' => 'new-developments'),
 		'query_var' => true,
 		'menu_icon' => 'dashicons-building',
 		'supports' => array(
 			'title',
-			'editor',
 			'custom-fields',)
 	);
 
@@ -30,7 +29,6 @@ function app_init() {
 		'menu_icon' => 'dashicons-store',
 		'supports' => array(
 			'title',
-			'editor',
 			'custom-fields',)
   );
 
