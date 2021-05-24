@@ -23,3 +23,9 @@ function theme_enqueue_scripts() {
   wp_enqueue_script( 'test', get_template_directory_uri() . '/js/test.js' );
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts');
+
+// google api -------------------------
+function my_acf_init() {
+	acf_update_setting('google_api_key', 'AIzaSyBiifcKk2OyOUEMprGC7VFm92OeRq5ZKWo');
+}
+add_action('acf/init', 'my_acf_init');

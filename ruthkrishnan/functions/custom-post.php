@@ -9,6 +9,7 @@ function app_init() {
 		'show_ui' => true,
 		'capability_type' => 'post',
 		'hierarchical' => false,
+		'has_archive' => false,
 		'rewrite' => array('slug' => 'new-developments'),
 		'query_var' => true,
 		'menu_icon' => 'dashicons-building',
@@ -24,6 +25,7 @@ function app_init() {
 		'show_ui' => true,
 		'capability_type' => 'post',
 		'hierarchical' => false,
+		'has_archive' => false,
 		'rewrite' => array('slug' => 'neighborhoods'),
 		'query_var' => true,
 		'menu_icon' => 'dashicons-store',
@@ -32,7 +34,7 @@ function app_init() {
 			'custom-fields',)
   );
 
-    register_post_type( 'newDevelopments', $argsNd );
+    register_post_type( 'newdevelopments', $argsNd );
     register_post_type( 'neighborhoods', $argsNb );
 }
 
