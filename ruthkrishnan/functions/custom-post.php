@@ -15,7 +15,10 @@ function app_init() {
 		'menu_icon' => 'dashicons-building',
 		'supports' => array(
 			'title',
-			'custom-fields',)
+			'custom-fields',),
+    'taxonomies' => array(
+      'category'
+    )
 	);
 
   $argsNb = array (
@@ -31,7 +34,10 @@ function app_init() {
 		'menu_icon' => 'dashicons-store',
 		'supports' => array(
 			'title',
-			'custom-fields',)
+			'custom-fields',),
+    'taxonomies' => array(
+      'category'
+    )
   );
 
     register_post_type( 'newdevelopments', $argsNd );

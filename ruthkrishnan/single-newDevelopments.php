@@ -15,13 +15,14 @@
       <?php if ( have_posts() ) :
          while ( have_posts() ) : the_post(); ?>
 
+            <?php get_template_part('template-parts/hero/site-hero'); ?>
             <h2><?php the_title(); ?></h2>
             <?php the_content(); ?>
 
             <!-- Start Developments Categories Loop -->
-            <?php 
+            <?php
                $categories = get_field('development_categories');
-               if ( $categories ) : 
+               if ( $categories ) :
                   foreach( $categories as $category ) : ?>
 
                      <?php if ( $category === 'general_building_information') : ?>
@@ -34,7 +35,7 @@
                            </div>
 
                         <?php endif; ?>
-                        
+
                      <!-- END The Building Information -->
                      <?php endif; ?>
 
@@ -49,7 +50,7 @@
                            </div>
 
                         <?php endif; ?>
-                        
+
                      <!-- END Amenities Information -->
                      <?php endif; ?>
 
@@ -64,10 +65,10 @@
                            </div>
 
                         <?php endif; ?>
-                        
+
                      <!-- END Residence Features Information -->
                      <?php endif; ?>
-                     
+
                      <?php if ( $category === 'location') : ?>
                      <!-- Location Information -->
                         <?php if ( have_rows('location') ) :
@@ -86,7 +87,7 @@
 
                            <?php endwhile; ?>
                         <?php endif; ?>
-                        
+
                      <!-- END Location Information -->
                      <?php endif; ?>
 
@@ -109,10 +110,10 @@
 
                            <?php endwhile; ?>
                         <?php endif; ?>
-                        
+
                      <!-- END Neighborhood Information -->
                      <?php endif; ?>
-                     
+
                      <?php if ( $category === 'current_status') : ?>
                      <!-- Current Status Information -->
                         <?php if ( have_rows('current_status') ) :
@@ -122,7 +123,7 @@
                               $num_of_homes = get_sub_field('number_of_homes');
                               $in_contract = get_sub_field('in_contract');
                               $closed = get_sub_field('closed');
-                              $available = get_sub_field('available'); 
+                              $available = get_sub_field('available');
                               $additional_info = get_sub_field('additional_information'); ?>
 
                               <div class='post-developments-information__current-status'>
@@ -142,12 +143,12 @@
                                  <?php if ( $closed ) : ?>
                                     <div class='post-developments-information__current-status-info'>Closed: <?php echo $closed; ?></div>
                                  <?php endif; ?>
-                                 
+
                                  <?php if ( $available ) : ?>
                                     <div class='post-developments-information__current-status-info'>Available: <?php echo $available; ?></div>
                                  <?php endif; ?>
 
-                                 <?php if ( have_rows('additional_information') ) : 
+                                 <?php if ( have_rows('additional_information') ) :
                                     while ( have_rows('additional_information') ) : the_row();
                                        $title = get_sub_field('title');
                                        $text = get_sub_field('text') ?>
@@ -162,7 +163,7 @@
 
                            <?php endwhile; ?>
                         <?php endif; ?>
-                        
+
                      <!-- END Current Status Information -->
                      <?php endif; ?>
 
@@ -177,7 +178,7 @@
                            </div>
 
                         <?php endif; ?>
-                        
+
                      <!-- END Parking Information -->
                      <?php endif; ?>
 
@@ -192,7 +193,7 @@
                            </div>
 
                         <?php endif; ?>
-                        
+
                      <!-- END Requirements Information -->
                      <?php endif; ?>
 
@@ -207,10 +208,10 @@
                            </div>
 
                         <?php endif; ?>
-                        
+
                      <!-- END Average HOA Fees Information -->
                      <?php endif; ?>
-                           
+
                      <?php if ( $category === 'price_range') : ?>
                      <!-- Price Range Information -->
                         <?php $price_range = get_field('price_range');
@@ -222,7 +223,7 @@
                            </div>
 
                         <?php endif; ?>
-                        
+
                      <!-- END Price Range Information -->
                      <?php endif; ?>
 
@@ -237,7 +238,7 @@
                            </div>
 
                         <?php endif; ?>
-                        
+
                      <!-- END Units Information -->
                      <?php endif; ?>
 
@@ -252,7 +253,7 @@
                            </div>
 
                         <?php endif; ?>
-                        
+
                      <!-- END Availability Information -->
                      <?php endif; ?>
 
@@ -266,4 +267,3 @@
    </div>
 
    <?php get_footer(); ?>
-   
