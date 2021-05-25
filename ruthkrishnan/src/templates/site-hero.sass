@@ -1,0 +1,28 @@
+.hero-template
+  position: relative
+  height: 80vh
+
+  &__background
+    @extend %absolute
+    background-repeat: no-repeat
+    background-size: cover
+
+  &__overlay
+    @extend %absolute
+    background: rgba($black, .3)
+    z-index: 1
+
+  &__container
+    @include container
+    justify-content: center
+    align-items: center
+    height: 100%
+    z-index: 2
+
+  &__content
+    @include col (12)
+    color: $white
+    text-align: center
+
+  &__title
+    text-transform: uppercase 
