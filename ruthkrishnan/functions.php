@@ -9,6 +9,15 @@
 // include additional functionality -------------------------
 include_once(get_template_directory() . '/functions/custom-post.php');
 
+// remove wysiwyg editors -------------------------
+
+function remove_wysiwyg_editor () {
+  remove_post_type_support( 'post', 'editor');
+  remove_post_type_support( 'page', 'editor');
+}
+
+add_action( 'init', 'remove_wysiwyg_editor' );
+
 // load stylesheets -------------------------
 function theme_enqueue_styles() {
   wp_enqueue_style( 'global', get_template_directory_uri() . '/styles/global.css' );
