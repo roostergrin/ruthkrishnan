@@ -16,6 +16,7 @@
          while ( have_posts() ) : the_post(); ?>
 
             <?php get_template_part('template-parts/hero/site-hero'); ?>
+            
             <h2><?php the_title(); ?></h2>
             <?php the_content(); ?>
 
@@ -260,6 +261,8 @@
                   <?php endforeach; ?>
                <?php endif; ?>
             <!-- END Developments Categories Loop -->
+         
+            <?php get_template_part('template-parts/maps/newdevelopments-posts-map'); ?>
 
          <?php endwhile; ?>
       <?php endif; ?>

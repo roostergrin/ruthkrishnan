@@ -1,6 +1,6 @@
 <?php
 /**
- * Displays the site navigation.
+ * Displays the site Hero.
  *
  * @package WordPress
  * @subpackage ruthkrishnan

@@ -1,5 +1,6 @@
 {
-    "/js/test.js": "/js/test.js",
+    "/js/gmaps.js": "/js/gmaps.js",
     "/styles/homepage.css": "/styles/homepage.css",
-    "/styles/global.css": "/styles/global.css"
+    "/styles/global.css": "/styles/global.css",
+    "/js/mapStyles.json": "/js/mapStyles.json"
 }
