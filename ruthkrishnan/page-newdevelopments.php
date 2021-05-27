@@ -3,12 +3,14 @@
  * Template Name: New Developments 
  * @package WordPress
  * @subpackage ruthkrishnan
- * @version 1.0.0
+ * @version 1.0
  */
 
 get_header(); ?>
 
-<h1>New Developments Page</h1>
+  <h1>New Developments Page</h1>
+
+  <?php get_template_part('template-parts/hero/site-hero'); ?>
 
   <?php
     $args = array(  
