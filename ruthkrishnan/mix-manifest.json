@@ -1,5 +1,7 @@
 {
     "/js/gmaps.js": "/js/gmaps.js",
+    "/js/gmap-development.js": "/js/gmap-development.js",
+    "/styles/newdevelopments-page.css": "/styles/newdevelopments-page.css",
     "/styles/homepage.css": "/styles/homepage.css",
     "/styles/global.css": "/styles/global.css",
     "/js/mapStyles.json": "/js/mapStyles.json"

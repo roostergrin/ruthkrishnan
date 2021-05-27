@@ -67,6 +67,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/newdevelopments-page.sass":
+/*!***************************************!*\
+  !*** ./src/newdevelopments-page.sass ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./src/resources/mapStyles.json":
 /*!**************************************!*\
   !*** ./src/resources/mapStyles.json ***!
@@ -163,6 +175,7 @@ module.exports = JSON.parse('[{"elementType":"geometry","stylers":[{"color":"#f5
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/gmaps": 0,
+/******/ 			"styles/newdevelopments-page": 0,
 /******/ 			"styles/homepage": 0,
 /******/ 			"styles/global": 0
 /******/ 		};
@@ -212,9 +225,10 @@ module.exports = JSON.parse('[{"elementType":"geometry","stylers":[{"color":"#f5
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["styles/homepage","styles/global"], () => (__webpack_require__("./src/resources/gmaps.js")))
-/******/ 	__webpack_require__.O(undefined, ["styles/homepage","styles/global"], () => (__webpack_require__("./src/global.sass")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/homepage","styles/global"], () => (__webpack_require__("./src/homepage.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments-page","styles/homepage","styles/global"], () => (__webpack_require__("./src/resources/gmaps.js")))
+/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments-page","styles/homepage","styles/global"], () => (__webpack_require__("./src/global.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments-page","styles/homepage","styles/global"], () => (__webpack_require__("./src/homepage.sass")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/newdevelopments-page","styles/homepage","styles/global"], () => (__webpack_require__("./src/newdevelopments-page.sass")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
