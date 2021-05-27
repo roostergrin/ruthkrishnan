@@ -1,0 +1,29 @@
+@import '../local/index.sass'
+
+.page-new-developments
+  position: relative
+
+  &__container
+    @include container
+
+  &__filters
+    @include col(8)
+    display: flex
+    justify-content: center
+    width: 100%
+
+  &__filter
+
+    &--active
+      color: $c5
+
+  &__map
+    width: 100%
+    height: rem-calc(800)
+
+  &__development
+    display: none
+
+    &--active
+      display: block
+
