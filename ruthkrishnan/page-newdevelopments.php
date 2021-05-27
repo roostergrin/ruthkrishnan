@@ -18,9 +18,9 @@ get_header(); ?>
     <div class="page-new-developments__container">
 
       <div class="page-new-developments__filters">
-        <div class="page-new-developments__filter">Available Now</div>
-        <div class="page-new-developments__filter">Coming Soon</div>
-        <div class="page-new-developments__filter">Sold Out</div>
+        <a href='javascript:void(0)' data-filter='available-now' class="page-new-developments__filter page-new-developments__filter--active">Available Now</a>
+        <a href='javascript:void(0)' data-filter='coming-soon' class="page-new-developments__filter">Coming Soon</a>
+        <a href='javascript:void(0)' data-filter='sold-out' class="page-new-developments__filter">Sold Out</a>
       </div>
 
       <div id="gmapdev" class='page-new-developments__map'></div>
@@ -48,7 +48,7 @@ get_header(); ?>
                   $city_state = get_sub_field('city_and_state');
                   $zip = get_sub_field('zip_code'); 
                 ?>
-                  <div class="page-new-developments__development-address" data-address='<?php echo $address_1 . ' ' . $city_state; ?>'>
+                  <div class="page-new-developments__development-address page-new-developments__development-address--<?php echo $category[0]->slug; ?>" data-address='<?php echo $address_1 . ' ' . $city_state; ?>'>
                     <p><span><?php echo $address_1; ?> </span><span><?php echo $address_2; ?></span></p>
                     <p><span><?php echo $city_state; ?> </span><span><?php echo $zip; ?></span></p>
                   </div>
