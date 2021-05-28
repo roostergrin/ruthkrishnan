@@ -4,6 +4,7 @@ export const setMap = (category) => {
 
   const geocoder = new google.maps.Geocoder()
   const developments = document.querySelectorAll(`.page-new-developments__development-address--${category}`)
+  let openWindow = null
 
   const map = new google.maps.Map(document.getElementById('gmapdev'), {
     center: { lat: 37.7606805, lng: -122.4508183 },
@@ -20,7 +21,6 @@ export const setMap = (category) => {
         const infoTitle = development.dataset.title
         const infoAddress = results[0].formatted_address.slice(0, -5)
         const infoSlug = development.dataset.slug
-        let openWindow = null
         
         const content = `
         <h4>${infoTitle}</h4>
@@ -38,11 +38,17 @@ export const setMap = (category) => {
         })
 
         marker.addListener('click', () => {
-          if (openWindow) {
+          if (openWindow === infoWindow) {
             openWindow.close()
+            openWindow = null
+          } else if (openWindow) {
+            openWindow.close()
+            infoWindow.open(map, marker)
+            openWindow = infoWindow
+          } else {
+            infoWindow.open(map, marker)
+            openWindow = infoWindow
           }
-          infoWindow.open(map, marker)
-          openWindow = infoWindow
         })
       }
     })

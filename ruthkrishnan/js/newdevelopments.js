@@ -67,6 +67,7 @@ __webpack_require__.r(__webpack_exports__);
 var setMap = function setMap(category) {
   var geocoder = new google.maps.Geocoder();
   var developments = document.querySelectorAll(".page-new-developments__development-address--".concat(category));
+  var openWindow = null;
   var map = new google.maps.Map(document.getElementById('gmapdev'), {
     center: {
       lat: 37.7606805,
@@ -86,7 +87,6 @@ var setMap = function setMap(category) {
         var infoTitle = development.dataset.title;
         var infoAddress = results[0].formatted_address.slice(0, -5);
         var infoSlug = development.dataset.slug;
-        var openWindow = null;
         var content = "\n        <h4>".concat(infoTitle, "</h4>\n        <p>").concat(infoAddress, "</p>\n        <a href='https://dev.ruthkrishnan.com/new-developments/").concat(infoSlug, "'>view property</a>\n        ");
         var infoWindow = new google.maps.InfoWindow({
           content: content
@@ -99,12 +99,17 @@ var setMap = function setMap(category) {
           map: map
         });
         marker.addListener('click', function () {
-          if (openWindow) {
+          if (openWindow === infoWindow) {
             openWindow.close();
+            openWindow = null;
+          } else if (openWindow) {
+            openWindow.close();
+            infoWindow.open(map, marker);
+            openWindow = infoWindow;
+          } else {
+            infoWindow.open(map, marker);
+            openWindow = infoWindow;
           }
-
-          infoWindow.open(map, marker);
-          openWindow = infoWindow;
         });
       }
     });
