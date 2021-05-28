@@ -2,6 +2,65 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/resources/gmaps.js":
+/*!****************************************!*\
+  !*** ./src/scripts/resources/gmaps.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "setMap": () => (/* binding */ setMap)
+/* harmony export */ });
+/* harmony import */ var _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mapStyles.json */ "./src/scripts/resources/mapStyles.json");
+
+var setMap = function setMap() {
+  var geocoder = new google.maps.Geocoder();
+  var address = document.querySelector('#gmapnd').getAttribute('data-address');
+  geocoder.geocode({
+    address: address
+  }, function (results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      var lat = results[0].geometry.location.lat();
+      var lng = results[0].geometry.location.lng();
+
+      if (google) {
+        var map = new google.maps.Map(document.getElementById('gmapnd'), {
+          center: {
+            lat: lat,
+            lng: lng
+          },
+          zoom: 17,
+          fullscreenControl: false,
+          styles: _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__
+        });
+        new google.maps.Marker({
+          position: map.getCenter(),
+          map: map
+        });
+      }
+    }
+  });
+};
+
+/***/ }),
+
+/***/ "./src/scripts/resources/photo-gallery.js":
+/*!************************************************!*\
+  !*** ./src/scripts/resources/photo-gallery.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "photoGallery": () => (/* binding */ photoGallery)
+/* harmony export */ });
+var photoGallery = function photoGallery() {
+  console.log('photo gallery script');
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/mapStyles.json":
 /*!**********************************************!*\
   !*** ./src/scripts/resources/mapStyles.json ***!
@@ -39,6 +98,23 @@ module.exports = JSON.parse('[{"elementType":"geometry","stylers":[{"color":"#f5
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -54,40 +130,17 @@ module.exports = JSON.parse('[{"elementType":"geometry","stylers":[{"color":"#f5
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!****************************************!*\
-  !*** ./src/scripts/resources/gmaps.js ***!
-  \****************************************/
+/*!*****************************************************!*\
+  !*** ./src/scripts/pages/single-newdevelopments.js ***!
+  \*****************************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mapStyles.json */ "./src/scripts/resources/mapStyles.json");
+/* harmony import */ var _resources_gmaps__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/gmaps */ "./src/scripts/resources/gmaps.js");
+/* harmony import */ var _resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/photo-gallery */ "./src/scripts/resources/photo-gallery.js");
+
 
 document.addEventListener('DOMContentLoaded', function () {
-  var setMap = function setMap() {
-    var geocoder = new google.maps.Geocoder();
-    var address = document.querySelector('#gmapnd').getAttribute('data-address');
-    geocoder.geocode({
-      address: address
-    }, function (results, status) {
-      if (status === google.maps.GeocoderStatus.OK) {
-        var lat = results[0].geometry.location.lat();
-        var lng = results[0].geometry.location.lng();
-        var map = new google.maps.Map(document.getElementById('gmapnd'), {
-          center: {
-            lat: lat,
-            lng: lng
-          },
-          zoom: 17,
-          fullscreenControl: false,
-          styles: _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__
-        });
-        new google.maps.Marker({
-          position: map.getCenter(),
-          map: map
-        });
-      }
-    });
-  };
-
-  setMap();
+  (0,_resources_gmaps__WEBPACK_IMPORTED_MODULE_0__.setMap)();
+  (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__.photoGallery)();
 });
 })();
 

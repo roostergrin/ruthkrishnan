@@ -261,6 +261,8 @@
                 <?php endforeach; ?>
               <?php endif; ?>
           <!-- END Developments Categories Loop -->
+
+          <?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
         
           <?php get_template_part('template-parts/maps/newdevelopments-posts-map'); ?>
 

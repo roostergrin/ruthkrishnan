@@ -54,7 +54,20 @@ get_header(); ?>
                   </div>
                 <?php endwhile; ?>
               <?php endif; ?>
+
               <a href="/new-developments/<?php echo get_post()->post_name; ?>" class="page-new-developments__development-link">View</a>
+
+              <?php if ( have_rows('background_image') ) :
+                while ( have_rows('background_image' ) ) : the_row();
+
+                $image = get_sub_field('image');
+              ?>
+                <?php echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'page-new-developments__development-image' ]); ?>
+            
+                <?php endwhile;
+              endif;
+              ?>
+
             </div>
           <?php endwhile;
         endif;

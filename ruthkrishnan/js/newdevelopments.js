@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/scripts/newdevelopments/newdevelopments.js":
-/*!********************************************************!*\
-  !*** ./src/scripts/newdevelopments/newdevelopments.js ***!
-  \********************************************************/
+/***/ "./src/scripts/pages/newdevelopments.js":
+/*!**********************************************!*\
+  !*** ./src/scripts/pages/newdevelopments.js ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -312,7 +312,7 @@ module.exports = JSON.parse('[{"elementType":"geometry","stylers":[{"color":"#f5
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/scripts/newdevelopments/newdevelopments.js")))
+/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/scripts/pages/newdevelopments.js")))
 /******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/global.sass")))
 /******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/homepage.sass")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/newdevelopments.sass")))
