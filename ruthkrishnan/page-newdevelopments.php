@@ -48,7 +48,7 @@ get_header(); ?>
                   $city_state = get_sub_field('city_and_state');
                   $zip = get_sub_field('zip_code'); 
                 ?>
-                  <div class="page-new-developments__development-address page-new-developments__development-address--<?php echo $category[0]->slug; ?>" data-address='<?php echo $address_1 . ' ' . $city_state; ?>'>
+                  <div class="page-new-developments__development-address page-new-developments__development-address--<?php echo $category[0]->slug; ?>" data-address='<?php echo $address_1 . ' ' . $city_state; ?>' data-title='<?php echo the_title(); ?>' data-slug='<?php echo get_post()->post_name; ?>'>
                     <p><span><?php echo $address_1; ?> </span><span><?php echo $address_2; ?></span></p>
                     <p><span><?php echo $city_state; ?> </span><span><?php echo $zip; ?></span></p>
                   </div>

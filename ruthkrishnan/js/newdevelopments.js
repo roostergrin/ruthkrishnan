@@ -16,7 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var setMap = function setMap(category) {
   var geocoder = new google.maps.Geocoder();
-  var addresses = document.querySelectorAll(".page-new-developments__development-address--".concat(category));
+  var developments = document.querySelectorAll(".page-new-developments__development-address--".concat(category));
   var map = new google.maps.Map(document.getElementById('gmapdev'), {
     center: {
       lat: 37.7606805,
@@ -26,19 +26,35 @@ var setMap = function setMap(category) {
     fullscreenControl: false,
     styles: _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__
   });
-  addresses.forEach(function (address, i) {
+  developments.forEach(function (development, i) {
     geocoder.geocode({
-      address: address.dataset.address
+      address: development.dataset.address
     }, function (results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         var lat = results[0].geometry.location.lat();
         var lng = results[0].geometry.location.lng();
-        new google.maps.Marker({
+        var infoTitle = development.dataset.title;
+        var infoAddress = results[0].formatted_address.slice(0, -5);
+        var infoSlug = development.dataset.slug;
+        var openWindow = null;
+        var content = "\n        <h4>".concat(infoTitle, "</h4>\n        <p>").concat(infoAddress, "</p>\n        <a href='https://dev.ruthkrishnan.com/new-developments/").concat(infoSlug, "'>view property</a>\n        ");
+        var infoWindow = new google.maps.InfoWindow({
+          content: content
+        });
+        var marker = new google.maps.Marker({
           position: {
             lat: lat,
             lng: lng
           },
           map: map
+        });
+        marker.addListener('click', function () {
+          if (openWindow) {
+            openWindow.close();
+          }
+
+          infoWindow.open(map, marker);
+          openWindow = infoWindow;
         });
       }
     });
@@ -57,18 +73,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../resources/gmap-development */ "./src/resources/gmap-development.js");
 
 document.addEventListener('DOMContentLoaded', function () {
+  var allDevelopments = document.querySelectorAll('.page-new-developments__development');
   var availableNowElems = document.querySelectorAll('.page-new-developments__development--available-now');
   var comingSoonElems = document.querySelectorAll('.page-new-developments__development--coming-soon');
   var soldOutElems = document.querySelectorAll('.page-new-developments__development--sold-out');
+  var filtersArr = document.querySelectorAll('.page-new-developments__filter');
   (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__.setMap)('available-now');
   availableNowElems.forEach(function (el) {
     el.classList.add('page-new-developments__development--active');
   });
-  var filtersArr = document.querySelectorAll('.page-new-developments__filter');
   filtersArr.forEach(function (el, i) {
     el.addEventListener('click', function () {
       (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__.setMap)(el.dataset.filter);
-      var allDevelopments = document.querySelectorAll('.page-new-developments__development');
       allDevelopments.forEach(function (elem) {
         return elem.classList.remove('page-new-developments__development--active');
       });
@@ -85,6 +101,11 @@ document.addEventListener('DOMContentLoaded', function () {
         soldOutElems.forEach(function (elem) {
           elem.classList.add('page-new-developments__development--active');
         });
+      }
+
+      if (!el.classList.contains('page-new-developments__filter--active')) {
+        document.querySelector('.page-new-developments__filter--active').classList.remove('page-new-developments__filter--active');
+        el.classList.add('page-new-developments__filter--active');
       }
     });
   });
