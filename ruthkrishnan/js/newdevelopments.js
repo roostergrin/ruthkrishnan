@@ -2,17 +2,67 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/resources/gmap-development.js":
-/*!*******************************************!*\
-  !*** ./src/resources/gmap-development.js ***!
-  \*******************************************/
+/***/ "./src/scripts/newdevelopments/newdevelopments.js":
+/*!********************************************************!*\
+  !*** ./src/scripts/newdevelopments/newdevelopments.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/gmap-development */ "./src/scripts/resources/gmap-development.js");
+
+document.addEventListener('DOMContentLoaded', function () {
+  var allDevelopments = document.querySelectorAll('.page-new-developments__development');
+  var availableNowElems = document.querySelectorAll('.page-new-developments__development--available-now');
+  var comingSoonElems = document.querySelectorAll('.page-new-developments__development--coming-soon');
+  var soldOutElems = document.querySelectorAll('.page-new-developments__development--sold-out');
+  var filtersArr = document.querySelectorAll('.page-new-developments__filter');
+  (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__.setMap)('available-now');
+  availableNowElems.forEach(function (el) {
+    el.classList.add('page-new-developments__development--active');
+  });
+  filtersArr.forEach(function (el, i) {
+    el.addEventListener('click', function () {
+      (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__.setMap)(el.dataset.filter);
+      allDevelopments.forEach(function (elem) {
+        return elem.classList.remove('page-new-developments__development--active');
+      });
+
+      if (el.dataset.filter === 'available-now') {
+        availableNowElems.forEach(function (availableElem) {
+          availableElem.classList.add('page-new-developments__development--active');
+        });
+      } else if (el.dataset.filter === 'coming-soon') {
+        comingSoonElems.forEach(function (elem) {
+          elem.classList.add('page-new-developments__development--active');
+        });
+      } else if (el.dataset.filter === 'sold-out') {
+        soldOutElems.forEach(function (elem) {
+          elem.classList.add('page-new-developments__development--active');
+        });
+      }
+
+      if (!el.classList.contains('page-new-developments__filter--active')) {
+        document.querySelector('.page-new-developments__filter--active').classList.remove('page-new-developments__filter--active');
+        el.classList.add('page-new-developments__filter--active');
+      }
+    });
+  });
+});
+
+/***/ }),
+
+/***/ "./src/scripts/resources/gmap-development.js":
+/*!***************************************************!*\
+  !*** ./src/scripts/resources/gmap-development.js ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "setMap": () => (/* binding */ setMap)
 /* harmony export */ });
-/* harmony import */ var _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mapStyles.json */ "./src/resources/mapStyles.json");
+/* harmony import */ var _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mapStyles.json */ "./src/scripts/resources/mapStyles.json");
 
 var setMap = function setMap(category) {
   var geocoder = new google.maps.Geocoder();
@@ -63,60 +113,10 @@ var setMap = function setMap(category) {
 
 /***/ }),
 
-/***/ "./src/scripts/newdevelopments/newdevelopments.js":
-/*!********************************************************!*\
-  !*** ./src/scripts/newdevelopments/newdevelopments.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../resources/gmap-development */ "./src/resources/gmap-development.js");
-
-document.addEventListener('DOMContentLoaded', function () {
-  var allDevelopments = document.querySelectorAll('.page-new-developments__development');
-  var availableNowElems = document.querySelectorAll('.page-new-developments__development--available-now');
-  var comingSoonElems = document.querySelectorAll('.page-new-developments__development--coming-soon');
-  var soldOutElems = document.querySelectorAll('.page-new-developments__development--sold-out');
-  var filtersArr = document.querySelectorAll('.page-new-developments__filter');
-  (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__.setMap)('available-now');
-  availableNowElems.forEach(function (el) {
-    el.classList.add('page-new-developments__development--active');
-  });
-  filtersArr.forEach(function (el, i) {
-    el.addEventListener('click', function () {
-      (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__.setMap)(el.dataset.filter);
-      allDevelopments.forEach(function (elem) {
-        return elem.classList.remove('page-new-developments__development--active');
-      });
-
-      if (el.dataset.filter === 'available-now') {
-        availableNowElems.forEach(function (availableElem) {
-          availableElem.classList.add('page-new-developments__development--active');
-        });
-      } else if (el.dataset.filter === 'coming-soon') {
-        comingSoonElems.forEach(function (elem) {
-          elem.classList.add('page-new-developments__development--active');
-        });
-      } else if (el.dataset.filter === 'sold-out') {
-        soldOutElems.forEach(function (elem) {
-          elem.classList.add('page-new-developments__development--active');
-        });
-      }
-
-      if (!el.classList.contains('page-new-developments__filter--active')) {
-        document.querySelector('.page-new-developments__filter--active').classList.remove('page-new-developments__filter--active');
-        el.classList.add('page-new-developments__filter--active');
-      }
-    });
-  });
-});
-
-/***/ }),
-
-/***/ "./src/global.sass":
-/*!*************************!*\
-  !*** ./src/global.sass ***!
-  \*************************/
+/***/ "./src/sass/global.sass":
+/*!******************************!*\
+  !*** ./src/sass/global.sass ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -125,34 +125,34 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/homepage.sass":
-/*!***************************!*\
-  !*** ./src/homepage.sass ***!
-  \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/pages/newdevelopments.sass":
-/*!****************************************!*\
-  !*** ./src/pages/newdevelopments.sass ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/resources/mapStyles.json":
+/***/ "./src/sass/pages/homepage.sass":
 /*!**************************************!*\
-  !*** ./src/resources/mapStyles.json ***!
+  !*** ./src/sass/pages/homepage.sass ***!
   \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/sass/pages/newdevelopments.sass":
+/*!*********************************************!*\
+  !*** ./src/sass/pages/newdevelopments.sass ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/scripts/resources/mapStyles.json":
+/*!**********************************************!*\
+  !*** ./src/scripts/resources/mapStyles.json ***!
+  \**********************************************/
 /***/ ((module) => {
 
 module.exports = JSON.parse('[{"elementType":"geometry","stylers":[{"color":"#f5f5f5"}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"elementType":"labels.text.fill","stylers":[{"color":"#616161"}]},{"elementType":"labels.text.stroke","stylers":[{"color":"#f5f5f5"}]},{"featureType":"administrative.land_parcel","elementType":"labels.text.fill","stylers":[{"color":"#bdbdbd"}]},{"featureType":"poi","stylers":[{"visibility":"simplified"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#eeeeee"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"color":"#af5b5b"},{"lightness":45}]},{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"color":"#757575"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#e5e5e5"}]},{"featureType":"poi.park","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]},{"featureType":"road","elementType":"geometry","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#757575"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#dadada"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"color":"#616161"}]},{"featureType":"road.local","elementType":"labels.text.fill","stylers":[{"color":"#b0b0b0"}]},{"featureType":"road.local","elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"color":"#e5e5e5"}]},{"featureType":"transit.station","elementType":"geometry","stylers":[{"color":"#eeeeee"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#c9c9c9"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]}]');
@@ -308,9 +308,9 @@ module.exports = JSON.parse('[{"elementType":"geometry","stylers":[{"color":"#f5
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/scripts/newdevelopments/newdevelopments.js")))
-/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/global.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/homepage.sass")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/pages/newdevelopments.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/global.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/homepage.sass")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/newdevelopments.sass")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

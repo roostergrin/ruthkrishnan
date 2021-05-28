@@ -1,4 +1,4 @@
-import { setMap } from '../../resources/gmap-development'
+import { setMap } from '../resources/gmap-development'
 
 document.addEventListener('DOMContentLoaded', function () {
   const allDevelopments = document.querySelectorAll('.page-new-developments__development')
