@@ -1,3 +1,7 @@
+/* -----------------------
+   Typography
+   ----------------------- */
+
 %all
   box-sizing: border-box
 
@@ -7,32 +11,47 @@
   @include phone
     font-size: rem-calc(14)
   text-rendering: optimizeLegibility
-  line-height: 1.467
+  line-height: 1.5
+  color: $c1
   font-family: $font
-  font-size: rem-calc(16)
+  font-size: 1rem
+  font-weight: 500
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
 %h1
-  font-size: rem-calc(70)
-  font-weight: 700
+  @include desktop
+    font-size: rem-calc(58)
+  text-transform: uppercase
+  line-height: .714
+  letter-spacing: rem-calc(1.5)
+  font-size: rem-calc(56)
+  font-weight: 800
 
 %h2
-  font-size: rem-calc(40)
-  font-weight: bold
+  @include desktop
+    font-size: rem-calc(27)
+  line-height: 1.28
+  font-size: rem-calc(25)
+
+%h2-alt
+  @extend %h2
+  text-transform: uppercase
+  letter-spacing: .5px
+  font-weight: 700
 
 %h3
-  font-size: rem-calc(30)
-  font-weight: 500
+  @include desktop
+    font-size: rem-calc(22)
+  line-height: 1.6
+  font-size: rem-calc(20)
+  font-weight: 700
 
 %h4
-  font-size: rem-calc(25)
-  font-weight: bold
-
-%h5
-  font-size: rem-calc(20)
-
-%h6
+  @include desktop
+    font-size: rem-calc(20)
+  line-height: 1.3333
+  letter-spacing: rem-calc(1.5)
   font-size: rem-calc(18)
 
 %a
@@ -41,3 +60,9 @@
 
 %no-margin
   margin: 0
+
+%overflow-hidden
+  overflow: hidden
+
+%danger
+  color: $danger
