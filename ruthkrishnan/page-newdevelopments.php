@@ -54,6 +54,7 @@ get_header(); ?>
                   </div>
                 <?php endwhile; ?>
               <?php endif; ?>
+              <a href="/new-developments/<?php echo get_post()->post_name; ?>" class="page-new-developments__development-link">View</a>
             </div>
           <?php endwhile;
         endif;
