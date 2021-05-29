@@ -2,73 +2,31 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/resources/gmap-development.js":
-/*!*******************************************!*\
-  !*** ./src/resources/gmap-development.js ***!
-  \*******************************************/
+/***/ "./src/scripts/pages/newdevelopments.js":
+/*!**********************************************!*\
+  !*** ./src/scripts/pages/newdevelopments.js ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "setMap": () => (/* binding */ setMap)
-/* harmony export */ });
-/* harmony import */ var _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mapStyles.json */ "./src/resources/mapStyles.json");
+/* harmony import */ var _resources_site_hero__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/site-hero */ "./src/scripts/resources/site-hero.js");
+/* harmony import */ var _resources_gmap_development__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/gmap-development */ "./src/scripts/resources/gmap-development.js");
 
-var setMap = function setMap(category) {
-  var geocoder = new google.maps.Geocoder();
-  var addresses = document.querySelectorAll(".page-new-developments__development-address--".concat(category));
-  var map = new google.maps.Map(document.getElementById('gmapdev'), {
-    center: {
-      lat: 37.7606805,
-      lng: -122.4508183
-    },
-    zoom: 13,
-    fullscreenControl: false,
-    styles: _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__
-  });
-  addresses.forEach(function (address, i) {
-    geocoder.geocode({
-      address: address.dataset.address
-    }, function (results, status) {
-      if (status === google.maps.GeocoderStatus.OK) {
-        var lat = results[0].geometry.location.lat();
-        var lng = results[0].geometry.location.lng();
-        new google.maps.Marker({
-          position: {
-            lat: lat,
-            lng: lng
-          },
-          map: map
-        });
-      }
-    });
-  });
-};
-
-/***/ }),
-
-/***/ "./src/scripts/newdevelopments/newdevelopments.js":
-/*!********************************************************!*\
-  !*** ./src/scripts/newdevelopments/newdevelopments.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../resources/gmap-development */ "./src/resources/gmap-development.js");
 
 document.addEventListener('DOMContentLoaded', function () {
+  var allDevelopments = document.querySelectorAll('.page-new-developments__development');
   var availableNowElems = document.querySelectorAll('.page-new-developments__development--available-now');
   var comingSoonElems = document.querySelectorAll('.page-new-developments__development--coming-soon');
   var soldOutElems = document.querySelectorAll('.page-new-developments__development--sold-out');
-  (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__.setMap)('available-now');
+  var filtersArr = document.querySelectorAll('.page-new-developments__filter');
+  (0,_resources_site_hero__WEBPACK_IMPORTED_MODULE_0__.siteHero)();
+  (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_1__.setMap)('available-now');
   availableNowElems.forEach(function (el) {
     el.classList.add('page-new-developments__development--active');
   });
-  var filtersArr = document.querySelectorAll('.page-new-developments__filter');
   filtersArr.forEach(function (el, i) {
     el.addEventListener('click', function () {
-      (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__.setMap)(el.dataset.filter);
-      var allDevelopments = document.querySelectorAll('.page-new-developments__development');
+      (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_1__.setMap)(el.dataset.filter);
       allDevelopments.forEach(function (elem) {
         return elem.classList.remove('page-new-developments__development--active');
       });
@@ -86,16 +44,103 @@ document.addEventListener('DOMContentLoaded', function () {
           elem.classList.add('page-new-developments__development--active');
         });
       }
+
+      if (!el.classList.contains('page-new-developments__filter--active')) {
+        document.querySelector('.page-new-developments__filter--active').classList.remove('page-new-developments__filter--active');
+        el.classList.add('page-new-developments__filter--active');
+      }
     });
   });
 });
 
 /***/ }),
 
-/***/ "./src/global.sass":
-/*!*************************!*\
-  !*** ./src/global.sass ***!
-  \*************************/
+/***/ "./src/scripts/resources/gmap-development.js":
+/*!***************************************************!*\
+  !*** ./src/scripts/resources/gmap-development.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "setMap": () => (/* binding */ setMap)
+/* harmony export */ });
+/* harmony import */ var _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mapStyles.json */ "./src/scripts/resources/mapStyles.json");
+
+var setMap = function setMap(category) {
+  var geocoder = new google.maps.Geocoder();
+  var developments = document.querySelectorAll(".page-new-developments__development-address--".concat(category));
+  var openWindow = null;
+  var map = new google.maps.Map(document.getElementById('gmapdev'), {
+    center: {
+      lat: 37.7606805,
+      lng: -122.4508183
+    },
+    zoom: 13,
+    fullscreenControl: false,
+    styles: _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__
+  });
+  developments.forEach(function (development, i) {
+    geocoder.geocode({
+      address: development.dataset.address
+    }, function (results, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        var lat = results[0].geometry.location.lat();
+        var lng = results[0].geometry.location.lng();
+        var infoTitle = development.dataset.title;
+        var infoAddress = results[0].formatted_address.slice(0, -5);
+        var infoSlug = development.dataset.slug;
+        var content = "\n        <h4>".concat(infoTitle, "</h4>\n        <p>").concat(infoAddress, "</p>\n        <a href='https://dev.ruthkrishnan.com/new-developments/").concat(infoSlug, "'>view property</a>\n        ");
+        var infoWindow = new google.maps.InfoWindow({
+          content: content
+        });
+        var marker = new google.maps.Marker({
+          position: {
+            lat: lat,
+            lng: lng
+          },
+          map: map
+        });
+        marker.addListener('click', function () {
+          if (openWindow === infoWindow) {
+            openWindow.close();
+            openWindow = null;
+          } else if (openWindow) {
+            openWindow.close();
+            infoWindow.open(map, marker);
+            openWindow = infoWindow;
+          } else {
+            infoWindow.open(map, marker);
+            openWindow = infoWindow;
+          }
+        });
+      }
+    });
+  });
+};
+
+/***/ }),
+
+/***/ "./src/scripts/resources/site-hero.js":
+/*!********************************************!*\
+  !*** ./src/scripts/resources/site-hero.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "siteHero": () => (/* binding */ siteHero)
+/* harmony export */ });
+var siteHero = function siteHero() {
+  console.log('site hero script');
+};
+
+/***/ }),
+
+/***/ "./src/sass/global.sass":
+/*!******************************!*\
+  !*** ./src/sass/global.sass ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -104,34 +149,34 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/homepage.sass":
-/*!***************************!*\
-  !*** ./src/homepage.sass ***!
-  \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/pages/newdevelopments.sass":
-/*!****************************************!*\
-  !*** ./src/pages/newdevelopments.sass ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/resources/mapStyles.json":
+/***/ "./src/sass/pages/homepage.sass":
 /*!**************************************!*\
-  !*** ./src/resources/mapStyles.json ***!
+  !*** ./src/sass/pages/homepage.sass ***!
   \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/sass/pages/newdevelopments.sass":
+/*!*********************************************!*\
+  !*** ./src/sass/pages/newdevelopments.sass ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/scripts/resources/mapStyles.json":
+/*!**********************************************!*\
+  !*** ./src/scripts/resources/mapStyles.json ***!
+  \**********************************************/
 /***/ ((module) => {
 
 module.exports = JSON.parse('[{"elementType":"geometry","stylers":[{"color":"#f5f5f5"}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"elementType":"labels.text.fill","stylers":[{"color":"#616161"}]},{"elementType":"labels.text.stroke","stylers":[{"color":"#f5f5f5"}]},{"featureType":"administrative.land_parcel","elementType":"labels.text.fill","stylers":[{"color":"#bdbdbd"}]},{"featureType":"poi","stylers":[{"visibility":"simplified"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#eeeeee"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"color":"#af5b5b"},{"lightness":45}]},{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"color":"#757575"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#e5e5e5"}]},{"featureType":"poi.park","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]},{"featureType":"road","elementType":"geometry","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#757575"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#dadada"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"color":"#616161"}]},{"featureType":"road.local","elementType":"labels.text.fill","stylers":[{"color":"#b0b0b0"}]},{"featureType":"road.local","elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"color":"#e5e5e5"}]},{"featureType":"transit.station","elementType":"geometry","stylers":[{"color":"#eeeeee"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#c9c9c9"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]}]');
@@ -286,10 +331,10 @@ module.exports = JSON.parse('[{"elementType":"geometry","stylers":[{"color":"#f5
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/scripts/newdevelopments/newdevelopments.js")))
-/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/global.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/homepage.sass")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/pages/newdevelopments.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/scripts/pages/newdevelopments.js")))
+/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/global.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/homepage.sass")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/newdevelopments.sass")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

@@ -48,12 +48,26 @@ get_header(); ?>
                   $city_state = get_sub_field('city_and_state');
                   $zip = get_sub_field('zip_code'); 
                 ?>
-                  <div class="page-new-developments__development-address page-new-developments__development-address--<?php echo $category[0]->slug; ?>" data-address='<?php echo $address_1 . ' ' . $city_state; ?>'>
+                  <div class="page-new-developments__development-address page-new-developments__development-address--<?php echo $category[0]->slug; ?>" data-address='<?php echo $address_1 . ' ' . $city_state; ?>' data-title='<?php echo the_title(); ?>' data-slug='<?php echo get_post()->post_name; ?>'>
                     <p><span><?php echo $address_1; ?> </span><span><?php echo $address_2; ?></span></p>
                     <p><span><?php echo $city_state; ?> </span><span><?php echo $zip; ?></span></p>
                   </div>
                 <?php endwhile; ?>
               <?php endif; ?>
+
+              <a href="/new-developments/<?php echo get_post()->post_name; ?>" class="page-new-developments__development-link">View</a>
+
+              <?php if ( have_rows('background_image') ) :
+                while ( have_rows('background_image' ) ) : the_row();
+
+                $image = get_sub_field('image');
+              ?>
+                <?php echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'page-new-developments__development-image' ]); ?>
+            
+                <?php endwhile;
+              endif;
+              ?>
+
             </div>
           <?php endwhile;
         endif;

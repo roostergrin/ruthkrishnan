@@ -37,7 +37,7 @@
  * Typography
  * ----------------------- */
 /* -----------------------
- * New Developments Page
+ *  New Developments Page
  * ----------------------- */
 .page-new-developments {
   position: relative;
@@ -80,7 +80,7 @@
   }
 }
 .page-new-developments__filter--active {
-  color: #E9E8E8;
+  color: #AF5B5B;
 }
 .page-new-developments__map {
   width: 100%;
