@@ -9,7 +9,9 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/gmap-development */ "./src/scripts/resources/gmap-development.js");
+/* harmony import */ var _resources_site_hero__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/site-hero */ "./src/scripts/resources/site-hero.js");
+/* harmony import */ var _resources_gmap_development__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/gmap-development */ "./src/scripts/resources/gmap-development.js");
+
 
 document.addEventListener('DOMContentLoaded', function () {
   var allDevelopments = document.querySelectorAll('.page-new-developments__development');
@@ -17,13 +19,14 @@ document.addEventListener('DOMContentLoaded', function () {
   var comingSoonElems = document.querySelectorAll('.page-new-developments__development--coming-soon');
   var soldOutElems = document.querySelectorAll('.page-new-developments__development--sold-out');
   var filtersArr = document.querySelectorAll('.page-new-developments__filter');
-  (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__.setMap)('available-now');
+  (0,_resources_site_hero__WEBPACK_IMPORTED_MODULE_0__.siteHero)();
+  (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_1__.setMap)('available-now');
   availableNowElems.forEach(function (el) {
     el.classList.add('page-new-developments__development--active');
   });
   filtersArr.forEach(function (el, i) {
     el.addEventListener('click', function () {
-      (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__.setMap)(el.dataset.filter);
+      (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_1__.setMap)(el.dataset.filter);
       allDevelopments.forEach(function (elem) {
         return elem.classList.remove('page-new-developments__development--active');
       });
@@ -114,6 +117,22 @@ var setMap = function setMap(category) {
       }
     });
   });
+};
+
+/***/ }),
+
+/***/ "./src/scripts/resources/site-hero.js":
+/*!********************************************!*\
+  !*** ./src/scripts/resources/site-hero.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "siteHero": () => (/* binding */ siteHero)
+/* harmony export */ });
+var siteHero = function siteHero() {
+  console.log('site hero script');
 };
 
 /***/ }),

@@ -61,6 +61,22 @@ var photoGallery = function photoGallery() {
 
 /***/ }),
 
+/***/ "./src/scripts/resources/site-hero.js":
+/*!********************************************!*\
+  !*** ./src/scripts/resources/site-hero.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "siteHero": () => (/* binding */ siteHero)
+/* harmony export */ });
+var siteHero = function siteHero() {
+  console.log('site hero script');
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/mapStyles.json":
 /*!**********************************************!*\
   !*** ./src/scripts/resources/mapStyles.json ***!
@@ -134,13 +150,16 @@ var __webpack_exports__ = {};
   !*** ./src/scripts/pages/single-newdevelopments.js ***!
   \*****************************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _resources_gmaps__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/gmaps */ "./src/scripts/resources/gmaps.js");
-/* harmony import */ var _resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/photo-gallery */ "./src/scripts/resources/photo-gallery.js");
+/* harmony import */ var _resources_site_hero__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/site-hero */ "./src/scripts/resources/site-hero.js");
+/* harmony import */ var _resources_gmaps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/gmaps */ "./src/scripts/resources/gmaps.js");
+/* harmony import */ var _resources_photo_gallery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../resources/photo-gallery */ "./src/scripts/resources/photo-gallery.js");
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  (0,_resources_gmaps__WEBPACK_IMPORTED_MODULE_0__.setMap)();
-  (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__.photoGallery)();
+  (0,_resources_site_hero__WEBPACK_IMPORTED_MODULE_0__.siteHero)();
+  (0,_resources_gmaps__WEBPACK_IMPORTED_MODULE_1__.setMap)();
+  (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_2__.photoGallery)();
 });
 })();
 
