@@ -22,13 +22,13 @@
       ?>
 
       <div class='hero-template'>
-        <figure class='hero-template__wrapper'>
+        <figure class='hero-template__wrapper' data-position-x='<?php echo $xcoord ?>' data-position-y='<?php echo $ycoord ?>'>
           <div class='hero-template__overlay'></div>
           <?php if ( !empty($image) ) :
             echo wp_get_attachment_image( $image, 'full', false, [ 'class' => 'hero-template__background' ]);
           endif; ?>
         </figure>
-        <!-- <div class='hero-template__background' style='background-image: url( <?php echo $image; ?> ); background-position: <?php echo $xcoord; echo " "; echo $ycoord; ?> '></div> -->
+
         <div class='hero-template__container'>
           <div class='hero-template__content'>
             <h1 class='hero-template__title'>

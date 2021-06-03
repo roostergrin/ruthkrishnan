@@ -72,7 +72,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "siteHero": () => (/* binding */ siteHero)
 /* harmony export */ });
 var siteHero = function siteHero() {
-  var el = document.querySelector('.hero-template__wrapper');
+  var el = document.querySelector('.hero-template__wrapper'),
+      img = document.querySelector('.hero-template__background');
+  img.style.objectPosition = el.dataset.positionX + ' ' + el.dataset.positionY;
 
   var onScroll = function onScroll() {
     var windowWidth = window.innerWidth,
