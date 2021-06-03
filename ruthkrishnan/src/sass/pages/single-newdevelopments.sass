@@ -1,0 +1,60 @@
+@import '../local/index.sass'
+
+/* -----------------------
+    Single New Development Page
+   ----------------------- */
+
+.new-developments-single
+
+  &__info-section
+    @extend %section-padding-top
+
+  &__container
+    @include container
+
+  &__column--left
+    @include col (8)
+    // display: flex
+    // flex-wrap: wrap
+    // column-count: 2
+
+  &__column--right
+    @include col (3)
+    @include col--offset (1)
+    display: flex
+    flex-wrap: wrap
+    align-self: flex-start
+    justify-content: space-between
+
+  &__item
+    width: 100%
+    &:not(:last-child)
+      margin-bottom: 1.5rem
+
+    &--large
+      &:not(:last-child)
+        margin-bottom: 1.5rem
+
+      p
+        &:not(:last-child)
+          margin-bottom: .8rem
+
+      h1, h2, h3, h4, h5, h6
+        @include desktop
+          font-size: 1.125rem
+        text-transform: capitalize
+        font-size: 1rem
+        font-weight: 500
+
+      strong
+        font-weight: 500
+
+  &__title
+    @extend %h4
+    margin-bottom: .5rem
+    text-transform: uppercase
+    font-weight: 500
+
+    &--large
+      @include col (12)
+      margin-bottom: 1rem

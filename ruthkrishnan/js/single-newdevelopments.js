@@ -72,7 +72,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "siteHero": () => (/* binding */ siteHero)
 /* harmony export */ });
 var siteHero = function siteHero() {
-  console.log('site hero script');
+  var el = document.querySelector('.hero-template__wrapper');
+
+  var onScroll = function onScroll() {
+    var windowWidth = window.innerWidth,
+        transformValue = window.pageYOffset / windowWidth * 500;
+
+    if (windowWidth > 600) {
+      el.style.transform = "translateY(".concat(transformValue, "px)");
+    } else {
+      el.style.transform = 'translateY(0)';
+    }
+  };
+
+  window.addEventListener('scroll', onScroll);
 };
 
 /***/ }),

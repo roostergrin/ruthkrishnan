@@ -132,7 +132,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "siteHero": () => (/* binding */ siteHero)
 /* harmony export */ });
 var siteHero = function siteHero() {
-  console.log('site hero script');
+  var el = document.querySelector('.hero-template__wrapper');
+
+  var onScroll = function onScroll() {
+    var windowWidth = window.innerWidth,
+        transformValue = window.pageYOffset / windowWidth * 500;
+
+    if (windowWidth > 600) {
+      el.style.transform = "translateY(".concat(transformValue, "px)");
+    } else {
+      el.style.transform = 'translateY(0)';
+    }
+  };
+
+  window.addEventListener('scroll', onScroll);
 };
 
 /***/ }),
@@ -165,6 +178,18 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************!*\
   !*** ./src/sass/pages/newdevelopments.sass ***!
   \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/sass/pages/single-newdevelopments.sass":
+/*!****************************************************!*\
+  !*** ./src/sass/pages/single-newdevelopments.sass ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -281,6 +306,7 @@ module.exports = JSON.parse('[{"elementType":"geometry","stylers":[{"color":"#f5
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/newdevelopments": 0,
+/******/ 			"styles/single-newdevelopments": 0,
 /******/ 			"styles/newdevelopments": 0,
 /******/ 			"styles/homepage": 0,
 /******/ 			"styles/global": 0
@@ -331,10 +357,11 @@ module.exports = JSON.parse('[{"elementType":"geometry","stylers":[{"color":"#f5
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/scripts/pages/newdevelopments.js")))
-/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/global.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/homepage.sass")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/newdevelopments.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/scripts/pages/newdevelopments.js")))
+/******/ 	__webpack_require__.O(undefined, ["styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/global.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/homepage.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/newdevelopments.sass")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/single-newdevelopments.sass")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
