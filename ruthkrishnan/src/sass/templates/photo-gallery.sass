@@ -1,0 +1,69 @@
+/* -----------------------
+   Photo Gallery Template Styles
+   ----------------------- */
+
+.photo-gallery
+  @extend %section-padding
+
+  &__container
+    @include container--color
+    background: $c2
+    padding: 4rem 0 2rem
+
+  &__title
+    @include col (12)
+    margin-bottom: 2rem
+    text-align: center
+
+  &__slider
+    @include col (10)
+    @include col--offset (1)
+    @include desktop
+      height: rem-calc(662)
+    position: relative
+    height: rem-calc(494)
+
+  &__slide
+    @extend %centered
+    transition: opacity .3s ease
+    opacity: 0
+    width: 81%
+    height: 100%
+
+    &--active
+      opacity: 1
+
+  &__image
+    width: 100%
+    height: 100%
+    object-fit: cover
+    object-position: center
+
+  &__prev,
+  &__next
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    cursor: pointer
+
+  &__next
+    right: 0
+
+  &__indicators
+    @include col (12)
+    display: flex
+    justify-content: center
+    margin-top: 2rem
+
+  &__dot
+    transition: background .3s ease
+    margin: auto rem-calc(7)
+    border: $c1 solid 1px
+    border-radius: 50%
+    cursor: pointer
+    width: rem-calc(8)
+    height: rem-calc(8)
+    pointer-events: all
+
+    &--active
+      background: $c1
