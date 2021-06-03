@@ -22,8 +22,13 @@
       ?>
 
       <div class='hero-template'>
-        <div class='hero-template__overlay'></div>
-        <div class='hero-template__background' style='background-image: url( <?php echo $image; ?> ); background-position: <?php echo $xcoord; echo " "; echo $ycoord; ?> '></div>
+        <figure class='hero-template__wrapper'>
+          <div class='hero-template__overlay'></div>
+          <?php if ( !empty($image) ) :
+            echo wp_get_attachment_image( $image, 'full', false, [ 'class' => 'hero-template__background' ]);
+          endif; ?>
+        </figure>
+        <!-- <div class='hero-template__background' style='background-image: url( <?php echo $image; ?> ); background-position: <?php echo $xcoord; echo " "; echo $ycoord; ?> '></div> -->
         <div class='hero-template__container'>
           <div class='hero-template__content'>
             <h1 class='hero-template__title'>
