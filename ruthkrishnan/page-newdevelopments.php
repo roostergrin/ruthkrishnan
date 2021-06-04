@@ -31,10 +31,6 @@ get_header(); ?>
           <a data-filter='coming-soon' class="page-new-developments__filter">Coming Soon</a>
           <a data-filter='sold-out' class="page-new-developments__filter">Sold Out</a>
         </div>
-        <div class="page-new-developments__filters--mobile">
-          <!-- filter icon opens drawer, modal? to select options title above map shows which are availble -->
-          <!-- option 2, remove bgs, outlines underline active, make text Active above, inactive below -->
-        </div>
 
         <div id="gmapdev" class='page-new-developments__map'></div>
 
