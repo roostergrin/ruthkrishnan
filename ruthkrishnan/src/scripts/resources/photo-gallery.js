@@ -37,10 +37,10 @@ export const photoGallery = () => {
     setSlide();
   };
 
-  prev.addEventListener('click', event => { changeSlide('prev') });
-  next.addEventListener('click', event => { changeSlide('next') });
-  dot.forEach( function(dot, i) {
-    dot.addEventListener('click', event => { goToSlide(i) });
+  prev.addEventListener('click', () => { changeSlide('prev') });
+  next.addEventListener('click', () => { changeSlide('next') });
+  dot.forEach( (dot, i) => {
+    dot.addEventListener('click', () => { goToSlide(i) });
   });
 
 };

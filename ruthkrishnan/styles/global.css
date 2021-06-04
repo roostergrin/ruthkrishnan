@@ -232,12 +232,21 @@ template {
 }
 @media screen and (min-width: 1750px) {
   .photo-gallery {
-    padding: 3rem 0;
+    padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
   .photo-gallery {
     padding: 1rem 0;
+  }
+}
+
+.photo-gallery__title {
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 1750px) {
+  .photo-gallery__title {
+    margin-bottom: 2.5rem;
   }
 }
 
@@ -457,18 +466,12 @@ p, li, h2, h3, h4, h5 {
 .photo-gallery__title {
   padding: 0 calc(30px / 2);
   width: calc((12 / 12) * 100%);
-  margin-bottom: 2rem;
   text-align: center;
 }
 @media screen and (max-width: 768px) {
   .photo-gallery__title {
     padding: 0;
     width: 100%;
-  }
-}
-@media screen and (min-width: 1750px) {
-  .photo-gallery__title {
-    margin-bottom: 3rem;
   }
 }
 .photo-gallery__slider {

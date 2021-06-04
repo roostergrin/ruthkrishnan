@@ -97,14 +97,14 @@ var photoGallery = function photoGallery() {
     setSlide();
   };
 
-  prev.addEventListener('click', function (event) {
+  prev.addEventListener('click', function () {
     changeSlide('prev');
   });
-  next.addEventListener('click', function (event) {
+  next.addEventListener('click', function () {
     changeSlide('next');
   });
   dot.forEach(function (dot, i) {
-    dot.addEventListener('click', function (event) {
+    dot.addEventListener('click', function () {
       goToSlide(i);
     });
   });

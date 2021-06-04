@@ -69,11 +69,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var setMap = function setMap(category) {
   var geocoder = new google.maps.Geocoder();
-  var developments = document.querySelectorAll(".page-new-developments__development-address--".concat(category));
+  var developments = document.querySelectorAll(".page-new-developments__development-title-address--".concat(category));
   var openWindow = null;
   var map = new google.maps.Map(document.getElementById('gmapdev'), {
     center: {
-      lat: 37.7606805,
+      lat: 37.7766805,
       lng: -122.4508183
     },
     zoom: 13,
