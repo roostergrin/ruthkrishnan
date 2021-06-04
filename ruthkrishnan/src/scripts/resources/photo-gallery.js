@@ -16,7 +16,7 @@ export const photoGallery = () => {
     });
     dot.forEach( function(dot) {
       currSlide === +dot.dataset.index ? dot.classList.add('photo-gallery__dot--active') : dot.classList.remove('photo-gallery__dot--active')
-    })
+    });
   }
 
   setSlide();
@@ -35,7 +35,7 @@ export const photoGallery = () => {
   const goToSlide = (val) => {
     currSlide = val
     setSlide();
-  }
+  };
 
   prev.addEventListener('click', event => { changeSlide('prev') });
   next.addEventListener('click', event => { changeSlide('next') });

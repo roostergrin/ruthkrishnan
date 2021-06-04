@@ -7,11 +7,17 @@
 
   &__container
     @include container--color
+    @include desktop
+      padding: 5rem 0 3rem
+    @include tablet
+      padding: 3rem 0 2rem
     background: $c2
     padding: 4rem 0 2rem
 
   &__title
     @include col (12)
+    @include desktop
+      margin-bottom: 3rem
     margin-bottom: 2rem
     text-align: center
 
@@ -20,11 +26,17 @@
     @include col--offset (1)
     @include desktop
       height: rem-calc(662)
+    @include tablet-lg
+      height: 40vw
+    @include tablet
+      height: 50vw
     position: relative
     height: rem-calc(494)
 
   &__slide
     @extend %centered
+    @include tablet
+      width: 78%
     transition: opacity .3s ease
     opacity: 0
     width: 81%
@@ -46,18 +58,30 @@
     transform: translateY(-50%)
     cursor: pointer
 
+  &__prev
+    @include tablet
+      left: 2rem
+    @include phone-lg
+      left: 1rem
+
   &__next
+    @include tablet
+      right: 2rem
+    @include phone-lg
+      right: 1rem
     right: 0
 
   &__indicators
     @include col (12)
+    @include desktop
+      margin-top: 3rem
     display: flex
     justify-content: center
     margin-top: 2rem
 
   &__dot
     transition: background .3s ease
-    margin: auto rem-calc(7)
+    margin: auto rem-calc(4)
     border: $c1 solid 1px
     border-radius: 50%
     cursor: pointer

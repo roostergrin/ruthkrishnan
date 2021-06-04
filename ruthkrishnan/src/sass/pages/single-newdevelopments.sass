@@ -1,4 +1,5 @@
 @import '../local/index.sass'
+@import '../templates/newdevelopments-posts-map.sass'
 
 /* -----------------------
     Single New Development Page
@@ -14,6 +15,8 @@
 
   &__column--left
     @include col (8)
+    @include tablet
+      margin-bottom: 1rem 
     // display: flex
     // flex-wrap: wrap
     // column-count: 2
@@ -35,6 +38,7 @@
       &:not(:last-child)
         margin-bottom: 1.5rem
 
+      // normalize wysiwyg content
       p
         &:not(:last-child)
           margin-bottom: .8rem
@@ -58,3 +62,5 @@
     &--large
       @include col (12)
       margin-bottom: 1rem
+      text-transform: uppercase
+      font-weight: 700
