@@ -535,6 +535,9 @@ p, li, h2, h3, h4, h5 {
   transform: translateY(-50%);
   cursor: pointer;
 }
+.photo-gallery__prev {
+  left: 0;
+}
 @media screen and (max-width: 768px) {
   .photo-gallery__prev {
     left: 2rem;
@@ -557,6 +560,13 @@ p, li, h2, h3, h4, h5 {
   .photo-gallery__next {
     right: 1rem;
   }
+}
+.photo-gallery__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.photo-gallery__icon--prev {
+  transform: scale(-1);
 }
 .photo-gallery__indicators {
   padding: 0 calc(30px / 2);

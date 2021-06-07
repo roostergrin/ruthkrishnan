@@ -191,11 +191,11 @@
     padding: 0 1rem;
   }
 }
-.new-developments-neighborhood__description {
+.new-developments-neighborhood__description, .new-developments-neighborhood__additional-description {
   margin-bottom: 1rem;
 }
 @media screen and (min-width: 1750px) {
-  .new-developments-neighborhood__description {
+  .new-developments-neighborhood__description, .new-developments-neighborhood__additional-description {
     margin-bottom: 1.5rem;
   }
 }

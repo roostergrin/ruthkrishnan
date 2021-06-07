@@ -64,17 +64,29 @@ get_header(); ?>
                   ?>
                 </div>
 
-                <?php if ( have_rows('location') ) :
+                <?php $dev_categories = get_field('development_categories'); ?>
+
+                <?php if ( have_rows('location') && in_array('location', $dev_categories) ) :
                   while ( have_rows('location' ) ) : the_row();
                     $address_1 = get_sub_field('address_1');
                     $address_2 = get_sub_field('address_2');
                     $city_state = get_sub_field('city_and_state');
                     $zip = get_sub_field('zip_code');
                   ?>
-                  <div class="page-new-developments__development-title page-new-developments__development-title-address--<?php echo $category[0]->slug; ?>" data-address='<?php echo $address_1 . ' ' . $city_state; ?>' data-title='<?php echo the_title(); ?>' data-slug='<?php echo get_post()->post_name; ?>'>
+                    <?php if ( $address_1 ) : ?>
+                      <div class="page-new-developments__development-title page-new-developments__development-title-address--<?php echo $category[0]->slug; ?>" data-address='<?php echo $address_1 . ' ' . $city_state; ?>' data-title='<?php echo the_title(); ?>' data-slug='<?php echo get_post()->post_name; ?>'>
+                        <?php echo the_title(); ?>
+                      </div>
+                    <?php else : ?>
+                      <div class="page-new-developments__development-title page-new-developments__development-title-address--<?php echo $category[0]->slug; ?>">
+                        <?php echo the_title(); ?>
+                      </div>
+                    <?php endif; ?>
+                  <?php endwhile; ?>
+                <?php else : ?>
+                  <div class="page-new-developments__development-title page-new-developments__development-title-address--<?php echo $category[0]->slug; ?>">
                     <?php echo the_title(); ?>
                   </div>
-                  <?php endwhile; ?>
                 <?php endif; ?>
               </a>
             </div>
