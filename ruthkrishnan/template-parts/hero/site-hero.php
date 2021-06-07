@@ -21,21 +21,26 @@
 
       ?>
 
-      <div class='hero-template'>
-        <div class='hero-template__overlay'></div>
-        <div class='hero-template__background' style='background-image: url( <?php echo $image; ?> ); background-position: <?php echo $xcoord; echo " "; echo $ycoord; ?> '></div>
-        <div class='hero-template__container'>
-          <div class='hero-template__content'>
-            <h1 class='hero-template__title'>
-              <?php if ( get_field('title_option') ) :
-                echo get_field('title_option');
-                else : echo the_title();
+          <div class='hero-template'>
+            <figure class='hero-template__wrapper' data-position-x='<?php echo $xcoord ?>' data-position-y='<?php echo $ycoord ?>'>
+              <div class='hero-template__overlay'></div>
+              <?php if ( !empty($image) ) :
+                echo wp_get_attachment_image( $image, 'full', false, [ 'class' => 'hero-template__background' ]);
               endif; ?>
-          </div>
-        </div>
-      </div>
+            </figure>
 
-    <?php endwhile; ?> <!-- end positioning while -->
- <?php endif; ?> <!-- end positioning if -->
+            <div class='hero-template__container'>
+              <div class='hero-template__content'>
+                <h1 class='hero-template__title'>
+                  <?php if ( get_field('title_option') ) :
+                    echo get_field('title_option');
+                    else : echo the_title();
+                  endif; ?>
+              </div>
+            </div>
+          </div>
+
+        <?php endwhile; // end positioning while ?>
+      <?php endif; // end positioning if ?>
    <?php endwhile; ?>
 <?php endif; ?>

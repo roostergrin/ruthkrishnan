@@ -1,7 +1,7 @@
 // --------------------------------------------------------
 // containers
 // --------------------------------------------------------
-  
+
 @mixin container
   @include desktop
     max-width: $max-width
@@ -22,3 +22,9 @@
   @include desktop
     max-width: $max-width-large
   max-width: $width-large
+
+@mixin container--color
+  @include container
+  @include desktop
+    max-width: calc(#{$max-width} - #{$gutter})
+  max-width: calc(#{$width} - #{$gutter})      

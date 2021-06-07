@@ -30,6 +30,10 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'newdevelopments', get_template_directory_uri() . '/styles/newdevelopments.css' );
   }
 
+  if ( is_single() && get_post_type() === 'newdevelopments' ) {
+    wp_enqueue_style( 'single-newdevelopments', get_template_directory_uri() . '/styles/single-newdevelopments.css' );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -38,11 +42,11 @@ function theme_enqueue_scripts() {
   if ( is_page_template('page-newdevelopments.php') ) {
     wp_register_script( 'newdevelopments', get_template_directory_uri() . '/js/newdevelopments.js', array(), '', true);
     wp_enqueue_script( 'newdevelopments' );
-  } else if ( is_single() && get_post_type() === 'newdevelopments' ) { 
+  } else if ( is_single() && get_post_type() === 'newdevelopments' ) {
     wp_register_script('single-newdevelopments', get_template_directory_uri() . '/js/single-newdevelopments.js', array(), '', true);
     wp_enqueue_script('single-newdevelopments');
   }
-  
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts');
 
@@ -58,7 +62,7 @@ function google_maps_scripts() {
   if (!is_admin()) {
     wp_register_script('googlemapsapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBiifcKk2OyOUEMprGC7VFm92OeRq5ZKWo', array(), '', true);
     wp_enqueue_script('googlemapsapi');
-  } 
+  }
 }
 
 add_action('wp_enqueue_scripts', 'google_maps_scripts', 100);

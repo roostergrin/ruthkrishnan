@@ -5,11 +5,21 @@
 .hero-template
   position: relative
   height: 80vh
+  overflow: hidden
+
+  &__wrapper
+    position: absolute
+    top: 0
+    left: 0
+    margin: 0
+    width: 100%
+    height: 100%
+    will-change: transform
 
   &__background
     @extend %absolute
-    background-repeat: no-repeat
-    background-size: cover
+    object-fit: cover
+    object-position: center
 
   &__overlay
     @extend %absolute
@@ -20,7 +30,7 @@
     @include container
     align-items: center
     justify-content: center
-    z-index: 2
+    z-index: 3
     height: 100%
 
   &__content

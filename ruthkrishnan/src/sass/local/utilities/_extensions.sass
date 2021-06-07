@@ -13,7 +13,8 @@
 
 %button-text
   @include desktop
-    font-size: rem-calc(15)
+    font-size: 1rem
+  text-transform: lowercase
   line-height: 1.15
   letter-spacing: rem-calc(.2467)
   font-size: rem-calc(14)
@@ -23,3 +24,36 @@
     font-size: rem-calc(38)
   font-size: rem-calc(36)
   font-weight: 700
+
+%section-padding
+  @include desktop
+    padding: 2.5rem 0
+  @include nexus
+    padding: 1rem 0
+  padding: 2rem 0
+
+%section-padding-top
+  @include desktop
+    padding: 5rem 0 2.5rem
+  @include nexus
+    padding: 2rem 0 1rem
+  padding: 4rem 0 2rem
+
+%section-padding-bottom
+  @include desktop
+    padding: 2.5rem 0 5rem
+  @include nexus
+    padding: 1rem 0 2rem
+  padding: 2rem 0 4rem
+
+%section-padding-large
+  @include desktop
+    padding: 5rem 0
+  @include nexus
+    padding: 2rem 0
+  padding: 4rem 0
+
+%title-margin
+  @include desktop
+    margin-bottom: 2.5rem
+  margin-bottom: 2rem

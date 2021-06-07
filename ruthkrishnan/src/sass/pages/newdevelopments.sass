@@ -7,26 +7,164 @@
 .page-new-developments
   position: relative
 
+  &__gallery
+    @extend %section-padding-large
+    background: $c2
+
   &__container
     @include container
+    @include tablet
+      justify-content: space-between
 
   &__filters
-    @include col(8)
+    @include col(12)
+    @include max-width (650px)
+      justify-content: space-between
+    @include nexus
+      margin-bottom: 2rem
     display: flex
     justify-content: center
-    width: 100%
+    margin-bottom: 3rem
 
   &__filter
+    @extend %button-text
+    @include hover-supported
+      background: $c3
+      color: $white
+    @include max-width (650px)
+      margin: 0
+      padding: rem-calc(12) 0 rem-calc(10)
+      width: 30%
+      min-width: 0
+    @include phone-lg
+      border: 1px solid $c3  
+    @include phone
+      border: none
+      width: unset
+    transition: background .2s ease, color .2s ease
+    margin: auto calc(#{$gutter} / 2)
+    border: 2px solid $c3
+    cursor: pointer
+    padding: rem-calc(14) 2rem rem-calc(12)
+    min-width: rem-calc(172)
+    text-align: center
+    color: $c3
 
     &--active
-      color: $c3
+      @include phone
+        background: none
+        color: $c6
+        &:after
+          position: absolute
+          bottom: -.25rem
+          left: 50%
+          transform: translate(-50%)
+          border-radius: 50%
+          background: $c6
+          width: .5rem
+          height: .5rem
+          content: ''
+      position: relative
+      background: $c3
+      color: $white
 
   &__map
-    width: 100%
-    height: rem-calc(800)
+    @include col (12)
+    @include desktop
+      height: rem-calc(633)
+    @include tablet
+      margin: 0 0 3rem
+    @include phone-lg
+      margin: 0 0 2rem
+      height: 80vh
+    margin: 0 calc(#{$gutter} / 2) 3rem
+    height: rem-calc(550)
 
   &__development
+    @include col (4)
+    @include tablet
+      width: 48%
+    @include phone-lg
+      width: 100%
     display: none
+    margin-bottom: 2rem
 
     &--active
       display: block
+
+  &__development-container
+    @include hover-supported
+      .page-new-developments__development-image
+        transform: scale(1.1)
+      .page-new-developments__development-image-overlay
+        opacity: 1
+
+  &__development-image-container
+    @include desktop
+      height: calc((#{$max-width} / 3) * .75)
+    @include tablet
+      height: calc(48vw * .75)
+    @include phone-lg
+      height: calc(98vw * .75)
+    position: relative
+    width: 100%
+    height: calc((#{$width} / 3) * .75)
+    overflow: hidden
+
+  &__development-image-overlay
+    @extend %absolute
+    transition: opacity .5s ease
+    opacity: 0
+    z-index: 1
+    background: rgba($black, .26)
+
+  &__development-image
+    @extend %absolute
+    transition: transform .7s cubic-bezier(.215, .61, .355, 1)
+    object-fit: cover
+
+  &__development-title
+    @extend %h4
+    background: $white
+    padding: 1.5rem 0
+    text-align: center
+    text-transform: uppercase
+
+/* -----------------------
+    New Developments Welcome Section
+   ----------------------- */
+
+.new-developments-welcome
+  @extend %section-padding-large
+
+  &__container
+    @include container
+
+  &__title
+    @include col (12)
+    @extend %title-margin
+    text-align: center
+
+  &__content
+    @include col (8)
+    @include col--offset (2)
+
+  &__text
+    @include desktop
+      margin-bottom: 1.5rem
+    margin-bottom: 1rem
+
+  &__link
+    @extend %button-text
+    @include hover-supported
+      background: $c6
+    display: inline-block
+    position: relative
+    left: 50%
+    transform: translateX(-50%)
+    transition: background .2s ease
+    background: $c3
+    cursor: pointer
+    padding: rem-calc(14) 2rem rem-calc(12)
+    text-transform: lowercase
+    color: $white

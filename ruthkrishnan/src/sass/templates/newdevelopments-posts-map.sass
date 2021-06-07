@@ -1,0 +1,73 @@
+/* -----------------------
+   New Development Neighborhood Template Styles
+   ----------------------- */
+
+.new-developments-neighborhood
+  @extend %section-padding
+
+  &__container
+    @include container--color
+    @include desktop
+      padding: 5rem 0
+    @include tablet
+      padding: 3rem 0
+    background: $c2
+    padding: 4rem 0
+
+  &__title
+    @include col(10)
+    @include col--offset(1)
+    @extend %title-margin
+    text-align: center
+
+  &__content
+    @include col(8)
+    @include col--offset(2)
+    @include desktop
+      margin-bottom: 3rem
+    @include tablet
+      padding: 0 2rem
+    @include phone-lg
+      padding: 0 1rem
+    margin-bottom: 2rem
+
+  &__description
+    @include desktop
+      margin-bottom: 1.5rem
+    margin-bottom: 1rem
+
+  &__link
+    @include hover-supported
+      color: $c6
+      &:after
+        border-color: $c6
+    @extend %button-text
+    display: inline-block
+    position: relative
+    left: 50%
+    transform: translateX(-50%)
+    transition: color .2s ease
+    text-transform: lowercase
+    color: $c3
+
+    &:after
+      position: absolute
+      bottom: 0
+      left: 0
+      transition: border-color .2s ease
+      border-bottom: 1.5px solid $c3
+      padding-top: .25rem
+      width: 100%
+      content: ''
+
+  &__map
+    @include col (10)
+    @include col--offset (1)
+    @include desktop
+      height: rem-calc(500)
+    @include tablet
+      margin: auto 2rem
+    @include phone-lg
+      margin: auto 1rem
+    margin: 0 auto
+    height: rem-calc(364)
