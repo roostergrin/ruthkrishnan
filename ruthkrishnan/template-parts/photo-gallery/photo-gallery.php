@@ -23,8 +23,12 @@
           </div>
         <?php endforeach; ?>
 
-      <div class="photo-gallery__prev"> Prev </div>
-      <div class="photo-gallery__next"> Next </div>
+      <div class="photo-gallery__prev" aria-label='Previous Slide'> 
+        <?php get_template_part('icons/arrow', null, array( 'class' => 'photo-gallery__icon photo-gallery__icon--prev' )); ?>
+      </div>
+      <div class="photo-gallery__next" aria-label='Next Slide'> 
+        <?php get_template_part('icons/arrow', null, array( 'class' => 'photo-gallery__icon photo-gallery__icon--next' )); ?>
+      </div>
 
     </div>
     <div class='photo-gallery__indicators'>

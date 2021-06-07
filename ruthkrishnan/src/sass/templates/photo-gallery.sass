@@ -61,6 +61,7 @@
       left: 2rem
     @include phone-lg
       left: 1rem
+    left: 0
 
   &__next
     @include tablet
@@ -68,6 +69,13 @@
     @include phone-lg
       right: 1rem
     right: 0
+
+  &__icon
+    width: rem-calc(20)
+    height: rem-calc(20)
+
+    &--prev
+      transform: scale(-1)
 
   &__indicators
     @include col (12)
