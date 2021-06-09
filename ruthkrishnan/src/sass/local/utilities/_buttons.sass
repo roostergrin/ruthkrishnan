@@ -7,3 +7,15 @@
   border: 1px solid $background
   text-align: center
   color: $color
+
+@mixin button-solid($background, $color, $hover)
+  @include hover-supported
+    background: $hover
+  display: inline-block
+  position: relative
+  transition: background .2s ease
+  background: $background
+  cursor: pointer
+  padding: rem-calc(14) 2rem rem-calc(12)
+  text-transform: lowercase
+  color: $color

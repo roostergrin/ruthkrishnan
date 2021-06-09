@@ -18,6 +18,7 @@
     width: 25vw
     opacity: 0
     z-index: -1
+    cursor: pointer
 
     &--active
       opacity: 1
@@ -43,11 +44,28 @@
   &__content-column
     @include col(9)
     @include col--offset(1)
+    position: relative
 
   &__content-wrapper
     @extend %absolute
     transition: opacity .5s ease
     opacity: 0
+    height: 100%
+    pointer-events: none
 
     &--active
       opacity: 1
+      pointer-events: auto
+
+  &__content
+    @extend %section-padding
+
+    &-title
+      margin-bottom: 1rem
+
+    &-description
+      margin-bottom: 1rem
+
+    &-link
+      @extend %button-text
+      @include button-solid($c3, $white, $c6)

@@ -1,15 +1,16 @@
 export const sliderNeighborhoods = () => {
   const slides = Array.from(document.querySelectorAll('.slider-neighborhoods__slide')),
         contentWrapper = Array.from(document.querySelectorAll('.slider-neighborhoods__content-wrapper')),
+        contentColumn = document.querySelector('.slider-neighborhoods__content-column'),
         content = Array.from(document.querySelectorAll('.slider-neighborhoods__content')),
         maxHeight = Math.max(...content.map(el => el.clientHeight));
 
   let currContent = 0;
   
-  // 0. Build new array of slide objects
+  // Build slide array of objects
   const slidesArr = slides.map((el, i) => ({ position: i, active: false, elem: el }))
   
-  // 1. Set/Layout slides
+  // Set/Layout slides
   const setSlide = () => {
     slidesArr.forEach((el) => {
       el.elem.style.transform = `translate3d(${((el.elem.clientWidth * el.position) - el.elem.clientWidth) - (el.elem.clientWidth / 2)}px, 0, 0)`
@@ -29,14 +30,13 @@ export const sliderNeighborhoods = () => {
   };
   setSlide();
   
-  // 2. function to move slides (one for move left, one for move right)
+  // move slides (one for move left, one for move right)
   const changeSlide = (i) => {
 
     const mod = (n, m) => {
       return ((n % m) + m) % m
     }
     
-    console.log(i, 'index');
     slidesArr.forEach((el) => {
       const newTranslate = mod(((el.elem.clientWidth * (el.position + 1)) - (el.elem.clientWidth * (i - 1))), (el.elem.clientWidth * slidesArr.length))
       el.elem.style.transform = `translate3d(${(newTranslate - el.elem.clientWidth) - (el.elem.clientWidth / 2)}px, 0, 0)`
@@ -55,12 +55,9 @@ export const sliderNeighborhoods = () => {
 
     })
   };
-  // 3. make sure we can transition the move
-  // 4. z-index for non-visible slides
-  // 5. set active class
 
-
-  contentWrapper.map(el => el.style.height = `${maxHeight / 16}rem`);
+  // set height of column to be the height of largest content
+  contentColumn.style.height = `${maxHeight / 16}rem`;
 
   const changeContent = (i) => {
     currContent = i;
@@ -68,9 +65,11 @@ export const sliderNeighborhoods = () => {
       +el.dataset.index === i ? el.classList.add('slider-neighborhoods__content-wrapper--active') : el.classList.remove('slider-neighborhoods__content-wrapper--active')
     });
   }
+
+  // set the correct content active on first load
   changeContent(2);
 
-  // 6. Add event listener to all slides
+  // Add event listener to all slides
   document.querySelectorAll('.slider-neighborhoods__slide').forEach((el, i) => { 
     el.addEventListener('click', () => { 
       changeSlide(i);

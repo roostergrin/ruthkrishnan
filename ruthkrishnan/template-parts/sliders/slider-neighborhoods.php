@@ -10,8 +10,6 @@
 ?>
 
 <div class="slider-neighborhoods">
-  <h2 class="slider-neighborhoods__title">This is the Neighborhoods Slider Template Part</h2>
-
   <div class="slider-neighborhoods__slider">
     <?php
       $args = array(
@@ -54,11 +52,11 @@
             while ( $query->have_posts() ) : $query->the_post(); ?>
               <div class="slider-neighborhoods__content-wrapper" data-index='<?php echo $query->current_post; ?>'>
                 <div class="slider-neighborhoods__content">
-                  <?php echo the_title(); ?>
-                  <br>
-                  <?php echo get_field('description'); ?>
-                  <br>
-                  <a href="/neighborhoods/<?php echo get_post()->post_name; ?>">Learn More</a>
+                  <h3 class="slider-neighborhoods__content-title"><?php echo the_title(); ?></h3>
+                  <div class="slider-neighborhoods__content-description">
+                    <?php echo get_field('description'); ?>
+                  </div>
+                  <a class="slider-neighborhoods__content-link" href="/neighborhoods/<?php echo get_post()->post_name; ?>">Learn More</a>
                 </div>
               </div>
 
