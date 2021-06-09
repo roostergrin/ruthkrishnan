@@ -86,7 +86,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }; // set height of column to be the height of largest content
 
 
-  contentColumn.style.height = "".concat(maxHeight / 16, "rem");
+  contentColumn.style.height = "".concat(maxHeight / 16, "rem"); // change the active content slide by adding active class
 
   var changeContent = function changeContent(i) {
     currContent = i;
@@ -103,7 +103,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       changeSlide(i);
       changeContent(i);
     });
-  });
+  }); // change content and slide when neigborhood in map clicked
 
   var mapSelectNeighborhood = function mapSelectNeighborhood(targetEl) {
     var targetSlide = slidesArr.find(function (el) {
@@ -111,7 +111,8 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     });
     changeSlide(targetSlide.position);
     changeContent(targetSlide.position);
-  };
+  }; // add event listener to all map neighborhoods
+
 
   document.querySelectorAll('.map-neighborhoods__icon-neighborhood').forEach(function (el) {
     return el.addEventListener('click', function () {

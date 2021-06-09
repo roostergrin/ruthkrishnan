@@ -59,6 +59,7 @@ export const sliderNeighborhoods = () => {
   // set height of column to be the height of largest content
   contentColumn.style.height = `${maxHeight / 16}rem`;
 
+  // change the active content slide by adding active class
   const changeContent = (i) => {
     currContent = i;
     contentWrapper.forEach((el) => {
@@ -76,13 +77,15 @@ export const sliderNeighborhoods = () => {
       changeContent(i);
     });
   }); 
-
+  
+  // change content and slide when neigborhood in map clicked
   const mapSelectNeighborhood = (targetEl) => {
     const targetSlide = slidesArr.find(el => el.neighborhood === targetEl.id)
     changeSlide(targetSlide.position)
     changeContent(targetSlide.position)
   }
 
+  // add event listener to all map neighborhoods
   document.querySelectorAll('.map-neighborhoods__icon-neighborhood').forEach(el => el.addEventListener('click', () => {
     mapSelectNeighborhood(el);
   }))
