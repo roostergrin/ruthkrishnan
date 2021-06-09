@@ -8,7 +8,7 @@ export const sliderNeighborhoods = () => {
   let currContent = 0;
   
   // Build slide array of objects
-  const slidesArr = slides.map((el, i) => ({ position: i, active: false, elem: el }))
+  const slidesArr = slides.map((el, i) => ({ position: i, neighborhood: el.dataset.neighborhood, elem: el }))
   
   // Set/Layout slides
   const setSlide = () => {
@@ -76,5 +76,15 @@ export const sliderNeighborhoods = () => {
       changeContent(i);
     });
   }); 
+
+  const mapSelectNeighborhood = (targetEl) => {
+    const targetSlide = slidesArr.find(el => el.neighborhood === targetEl.id)
+    changeSlide(targetSlide.position)
+    changeContent(targetSlide.position)
+  }
+
+  document.querySelectorAll('.map-neighborhoods__icon-neighborhood').forEach(el => el.addEventListener('click', () => {
+    mapSelectNeighborhood(el);
+  }))
 
 }

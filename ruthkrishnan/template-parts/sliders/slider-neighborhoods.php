@@ -10,6 +10,9 @@
 ?>
 
 <div class="slider-neighborhoods">
+  
+  <?php get_template_part('template-parts/maps/neighborhoods-map'); ?>
+
   <div class="slider-neighborhoods__slider">
     <?php
       $args = array(
@@ -31,7 +34,7 @@
                 while ( have_rows('background_image') ) : the_row(); 
                   $image = get_sub_field('image'); ?>
 
-                  <div class="slider-neighborhoods__slide">
+                  <div class="slider-neighborhoods__slide" data-neighborhood='<?php echo get_post()->post_name; ?>'>
                     <div class="slider-neighborhoods__image-container">
                       <?php echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'slider-neighborhoods__image' ]); ?>
                     </div>

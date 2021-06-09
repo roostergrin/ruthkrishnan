@@ -37,7 +37,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   var slidesArr = slides.map(function (el, i) {
     return {
       position: i,
-      active: false,
+      neighborhood: el.dataset.neighborhood,
       elem: el
     };
   }); // Set/Layout slides
@@ -102,6 +102,20 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     el.addEventListener('click', function () {
       changeSlide(i);
       changeContent(i);
+    });
+  });
+
+  var mapSelectNeighborhood = function mapSelectNeighborhood(targetEl) {
+    var targetSlide = slidesArr.find(function (el) {
+      return el.neighborhood === targetEl.id;
+    });
+    changeSlide(targetSlide.position);
+    changeContent(targetSlide.position);
+  };
+
+  document.querySelectorAll('.map-neighborhoods__icon-neighborhood').forEach(function (el) {
+    return el.addEventListener('click', function () {
+      mapSelectNeighborhood(el);
     });
   });
 };

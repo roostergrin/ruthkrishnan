@@ -81,6 +81,20 @@
   }
 }
 
+.map-neighborhoods__icon {
+  padding: 2rem 0 4rem;
+}
+@media screen and (min-width: 1750px) {
+  .map-neighborhoods__icon {
+    padding: 2.5rem 0 5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .map-neighborhoods__icon {
+    padding: 1rem 0 2rem;
+  }
+}
+
 /* -----------------------
  * Typography
  * ----------------------- */
@@ -190,4 +204,51 @@
   .slider-neighborhoods__content-link:hover {
     background: #963636;
   }
+}
+
+/* -------------------------------------------
+ *  Neighborhoods Map Template Styles
+ * ------------------------------------------- */
+.map-neighborhoods__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+}
+@media screen and (min-width: 1750px) {
+  .map-neighborhoods__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .map-neighborhoods__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .map-neighborhoods__container {
+    padding: 0 1rem;
+  }
+}
+.map-neighborhoods__column {
+  padding: 0 calc(30px / 2);
+  width: calc((8 / 12) * 100%);
+  margin-left: calc((2 / 12) * 100%);
+}
+@media screen and (max-width: 768px) {
+  .map-neighborhoods__column {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .map-neighborhoods__column {
+    margin-left: 0;
+  }
+}
+.map-neighborhoods__icon-neighborhood {
+  cursor: pointer;
 }
