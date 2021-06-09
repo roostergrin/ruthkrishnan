@@ -7,10 +7,10 @@ export const sliderNeighborhoods = () => {
 
   let currContent = 0;
   
-  // Build slide array of objects
+  // * Build slide array of objects *
   const slidesArr = slides.map((el, i) => ({ position: i, neighborhood: el.dataset.neighborhood, elem: el }))
   
-  // Set/Layout slides
+  // * Set/Layout slides *
   const setSlide = () => {
     slidesArr.forEach((el) => {
       el.elem.style.transform = `translate3d(${((el.elem.clientWidth * el.position) - el.elem.clientWidth) - (el.elem.clientWidth / 2)}px, 0, 0)`
@@ -30,7 +30,7 @@ export const sliderNeighborhoods = () => {
   };
   setSlide();
   
-  // move slides (one for move left, one for move right)
+  // * move slides (one for move left, one for move right) *
   const changeSlide = (i) => {
 
     const mod = (n, m) => {
@@ -56,10 +56,10 @@ export const sliderNeighborhoods = () => {
     })
   };
 
-  // set height of column to be the height of largest content
+  // * set height of column to be the height of largest content *
   contentColumn.style.height = `${maxHeight / 16}rem`;
 
-  // change the active content slide by adding active class
+  // * change the active content slide by adding active class *
   const changeContent = (i) => {
     currContent = i;
     contentWrapper.forEach((el) => {
@@ -67,10 +67,10 @@ export const sliderNeighborhoods = () => {
     });
   }
 
-  // set the correct content active on first load
+  // * set the correct content active on first load *
   changeContent(2);
 
-  // Add event listener to all slides
+  // * Add event listener to all slides *
   document.querySelectorAll('.slider-neighborhoods__slide').forEach((el, i) => { 
     el.addEventListener('click', () => { 
       changeSlide(i);
@@ -78,14 +78,14 @@ export const sliderNeighborhoods = () => {
     });
   }); 
   
-  // change content and slide when neigborhood in map clicked
+  // * change content and slide when neigborhood in map clicked *
   const mapSelectNeighborhood = (targetEl) => {
     const targetSlide = slidesArr.find(el => el.neighborhood === targetEl.id)
     changeSlide(targetSlide.position)
     changeContent(targetSlide.position)
   }
 
-  // add event listener to all map neighborhoods
+  // * add event listener to all map neighborhoods *
   document.querySelectorAll('.map-neighborhoods__icon-neighborhood').forEach(el => el.addEventListener('click', () => {
     mapSelectNeighborhood(el);
   }))
