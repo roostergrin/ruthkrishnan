@@ -35,9 +35,7 @@ function app_init() {
 		'supports' => array(
 			'title',
 			'custom-fields',),
-    'taxonomies' => array(
-      'category'
-    )
+    'taxonomies' => array()
   );
 
     register_post_type( 'newdevelopments', $argsNd );
