@@ -4,20 +4,23 @@
 
 .slider-neighborhoods
   @extend %section-padding-top
+  overflow: hidden
+
+  &__images
+    @include container
 
   &__slide-wrapper
+    display: flex
     position: relative
+    transition: transform .5s ease
     width: 100%
-    height: calc(25vw - 2rem)
-    overflow: hidden
 
   &__slide
-    @extend %absolute
-    transition: transform .5s ease, opacity .25s ease .1s
+    @include col(4)
+    position: relative
     padding: 0 1rem
-    width: 25vw
-    opacity: 0
-    z-index: -1
+    min-width: calc((4 / 12) * #{$max-width})
+    height: calc(((4 / 12) * #{$max-width}) - 2rem)
     cursor: pointer
 
     &--active

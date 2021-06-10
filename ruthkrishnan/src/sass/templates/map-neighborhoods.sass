@@ -7,9 +7,27 @@
   &__container
     @include container
 
+
   &__column
     @include col(8)
     @include col--offset(2)
+  
+  &__tooltip
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 0
+    z-index: 5
+    transition: transform .5s ease
+    background: $white
+    border: 1px solid $black
+    padding: .5rem
+    width: rem-calc(150)
+
+    &-close
+      position: absolute
+      top: .5rem
+      right: 1rem
 
   &__icon
     @extend %section-padding-bottom

@@ -26,97 +26,95 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 var sliderNeighborhoods = function sliderNeighborhoods() {
   var slides = Array.from(document.querySelectorAll('.slider-neighborhoods__slide')),
+      slideWrapper = document.querySelector('.slider-neighborhoods__slide-wrapper'),
       contentWrapper = Array.from(document.querySelectorAll('.slider-neighborhoods__content-wrapper')),
       contentColumn = document.querySelector('.slider-neighborhoods__content-column'),
       content = Array.from(document.querySelectorAll('.slider-neighborhoods__content')),
       maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
     return el.clientHeight;
-  })));
-  var currContent = 0; // Build slide array of objects
+  }))); // * Build slide array of objects *
 
   var slidesArr = slides.map(function (el, i) {
     return {
+      name: el.dataset.name,
       position: i,
       neighborhood: el.dataset.neighborhood,
-      elem: el
+      elem: el,
+      mapinfo: JSON.parse(el.dataset.mapinfo)
     };
-  }); // Set/Layout slides
+  }); // * move slides *
 
-  var setSlide = function setSlide() {
-    slidesArr.forEach(function (el) {
-      el.elem.style.transform = "translate3d(".concat(el.elem.clientWidth * el.position - el.elem.clientWidth - el.elem.clientWidth / 2, "px, 0, 0)");
-
-      if (el.elem.clientWidth * el.position - el.elem.clientWidth / 2 < el.elem.clientWidth * 5 && el.elem.clientWidth * el.position - el.elem.clientWidth / 2 > el.elem.clientWidth * -1) {
-        el.elem.classList.add('slider-neighborhoods__slide--active');
+  var changeSlide = function changeSlide(el, pos) {
+    slideWrapper.style.transform = "translate3d(".concat(el.clientWidth * -pos - 16, "px, 0, 0)");
+    slidesArr.forEach(function (slide) {
+      if (slide.position === pos) {
+        slide.elem.classList.add('slider-neighborhoods__slide--curr');
       } else {
-        el.elem.classList.remove('slider-neighborhoods__slide--active');
+        slide.elem.classList.remove('slider-neighborhoods__slide--curr');
       }
+    });
+  }; // * set the correct slide active on first load *
 
-      if (el.elem.clientWidth * el.position - el.elem.clientWidth / 2 === el.elem.clientWidth * 1.5) {
-        el.elem.classList.add('slider-neighborhoods__slide--curr');
-      } else {
-        el.elem.classList.remove('slider-neighborhoods__slide--curr');
+
+  changeSlide(slidesArr[0].elem, 0); // * set height of column to be the height of largest content *
+
+  contentColumn.style.height = "".concat(maxHeight / 16, "rem"); // * change the active content slide by adding active class *
+
+  var changeContent = function changeContent(i) {
+    contentWrapper.forEach(function (el) {
+      +el.dataset.index === i ? el.classList.add('slider-neighborhoods__content-wrapper--active') : el.classList.remove('slider-neighborhoods__content-wrapper--active');
+    });
+  }; // * set the correct content active on first load *
+
+
+  changeContent(0); // * Add event listener to all slides *
+
+  slidesArr.forEach(function (el, i) {
+    el.elem.addEventListener('click', function () {
+      changeSlide(el.elem, el.position);
+      changeContent(el.position);
+    });
+  }); // * change content and slide when neigborhood in map clicked *
+
+  var mapSelectNeighborhood = function mapSelectNeighborhood(targetEl) {
+    slidesArr.forEach(function (el) {
+      if (el.neighborhood === targetEl.id) {
+        changeSlide(el.elem, el.position);
+        changeContent(el.position);
       }
     });
   };
 
-  setSlide(); // move slides (one for move left, one for move right)
+  var openTooltip = function openTooltip(event, el) {
+    var targetEl = slidesArr.find(function (elem) {
+      return elem.neighborhood === el.id;
+    }),
+        tooltipContainer = document.querySelector('.map-neighborhoods__tooltip'),
+        tooltipContent = document.getElementById('tooltip-content');
+    var mapContent = '';
+    mapContent += "<h5>".concat(targetEl.name, "</h5>");
 
-  var changeSlide = function changeSlide(i) {
-    var mod = function mod(n, m) {
-      return (n % m + m) % m;
-    };
-
-    slidesArr.forEach(function (el) {
-      var newTranslate = mod(el.elem.clientWidth * (el.position + 1) - el.elem.clientWidth * (i - 1), el.elem.clientWidth * slidesArr.length);
-      el.elem.style.transform = "translate3d(".concat(newTranslate - el.elem.clientWidth - el.elem.clientWidth / 2, "px, 0, 0)");
-
-      if (newTranslate - el.elem.clientWidth - el.elem.clientWidth / 2 < el.elem.clientWidth * 5 - el.elem.clientWidth / 2 && newTranslate - el.elem.clientWidth - el.elem.clientWidth / 2 > el.elem.clientWidth * -1.5) {
-        el.elem.classList.add('slider-neighborhoods__slide--active');
-      } else {
-        el.elem.classList.remove('slider-neighborhoods__slide--active');
+    if (targetEl.mapinfo) {
+      if (targetEl.mapinfo.house_median_price) {
+        mapContent += "<p>House Median Price: ".concat(targetEl.mapinfo.house_median_price, "</p>");
       }
 
-      if (newTranslate - el.elem.clientWidth - el.elem.clientWidth / 2 === el.elem.clientWidth / 2) {
-        el.elem.classList.add('slider-neighborhoods__slide--curr');
-      } else {
-        el.elem.classList.remove('slider-neighborhoods__slide--curr');
+      if (targetEl.mapinfo.condo_median_price) {
+        mapContent += "<p>Condo Median Price: ".concat(targetEl.mapinfo.condo_median_price, "</p>");
       }
-    });
-  }; // set height of column to be the height of largest content
+    }
 
-
-  contentColumn.style.height = "".concat(maxHeight / 16, "rem"); // change the active content slide by adding active class
-
-  var changeContent = function changeContent(i) {
-    currContent = i;
-    contentWrapper.forEach(function (el) {
-      +el.dataset.index === i ? el.classList.add('slider-neighborhoods__content-wrapper--active') : el.classList.remove('slider-neighborhoods__content-wrapper--active');
-    });
-  }; // set the correct content active on first load
-
-
-  changeContent(2); // Add event listener to all slides
-
-  document.querySelectorAll('.slider-neighborhoods__slide').forEach(function (el, i) {
-    el.addEventListener('click', function () {
-      changeSlide(i);
-      changeContent(i);
-    });
-  }); // change content and slide when neigborhood in map clicked
-
-  var mapSelectNeighborhood = function mapSelectNeighborhood(targetEl) {
-    var targetSlide = slidesArr.find(function (el) {
-      return el.neighborhood === targetEl.id;
-    });
-    changeSlide(targetSlide.position);
-    changeContent(targetSlide.position);
-  }; // add event listener to all map neighborhoods
+    tooltipContent.innerHTML = mapContent;
+    tooltipContainer.style.opacity = 1;
+    tooltipContainer.style.top = "".concat(event.pageY - tooltipContainer.clientHeight - 5, "px");
+    tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth / 2, "px");
+  }; // * add event listener to all map neighborhoods *
 
 
   document.querySelectorAll('.map-neighborhoods__icon-neighborhood').forEach(function (el) {
-    return el.addEventListener('click', function () {
+    return el.addEventListener('click', function (event) {
       mapSelectNeighborhood(el);
+      openTooltip(event, el);
     });
   });
 };
