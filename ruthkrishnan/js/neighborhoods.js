@@ -26,85 +26,95 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 var sliderNeighborhoods = function sliderNeighborhoods() {
   var slides = Array.from(document.querySelectorAll('.slider-neighborhoods__slide')),
+      slideWrapper = document.querySelector('.slider-neighborhoods__slide-wrapper'),
       contentWrapper = Array.from(document.querySelectorAll('.slider-neighborhoods__content-wrapper')),
+      contentColumn = document.querySelector('.slider-neighborhoods__content-column'),
       content = Array.from(document.querySelectorAll('.slider-neighborhoods__content')),
       maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
     return el.clientHeight;
-  })));
-  var currContent = 0; // 0. Build new array of slide objects
+  }))); // * Build slide array of objects *
 
   var slidesArr = slides.map(function (el, i) {
     return {
+      name: el.dataset.name,
       position: i,
-      active: false,
-      elem: el
+      neighborhood: el.dataset.neighborhood,
+      elem: el,
+      mapinfo: JSON.parse(el.dataset.mapinfo)
     };
-  }); // 1. Set/Layout slides
+  }); // * move slides *
 
-  var setSlide = function setSlide() {
-    slidesArr.forEach(function (el) {
-      el.elem.style.transform = "translate3d(".concat(el.elem.clientWidth * el.position - el.elem.clientWidth - el.elem.clientWidth / 2, "px, 0, 0)");
-
-      if (el.elem.clientWidth * el.position - el.elem.clientWidth / 2 < el.elem.clientWidth * 5 && el.elem.clientWidth * el.position - el.elem.clientWidth / 2 > el.elem.clientWidth * -1) {
-        el.elem.classList.add('slider-neighborhoods__slide--active');
+  var changeSlide = function changeSlide(el, pos) {
+    slideWrapper.style.transform = "translate3d(".concat(el.clientWidth * -pos - 16, "px, 0, 0)");
+    slidesArr.forEach(function (slide) {
+      if (slide.position === pos) {
+        slide.elem.classList.add('slider-neighborhoods__slide--curr');
       } else {
-        el.elem.classList.remove('slider-neighborhoods__slide--active');
-      }
-
-      if (el.elem.clientWidth * el.position - el.elem.clientWidth / 2 === el.elem.clientWidth * 1.5) {
-        el.elem.classList.add('slider-neighborhoods__slide--curr');
-      } else {
-        el.elem.classList.remove('slider-neighborhoods__slide--curr');
+        slide.elem.classList.remove('slider-neighborhoods__slide--curr');
       }
     });
-  };
-
-  setSlide(); // 2. function to move slides (one for move left, one for move right)
-
-  var changeSlide = function changeSlide(i) {
-    var mod = function mod(n, m) {
-      return (n % m + m) % m;
-    };
-
-    console.log(i, 'index');
-    slidesArr.forEach(function (el) {
-      var newTranslate = mod(el.elem.clientWidth * (el.position + 1) - el.elem.clientWidth * (i - 1), el.elem.clientWidth * slidesArr.length);
-      el.elem.style.transform = "translate3d(".concat(newTranslate - el.elem.clientWidth - el.elem.clientWidth / 2, "px, 0, 0)");
-
-      if (newTranslate - el.elem.clientWidth - el.elem.clientWidth / 2 < el.elem.clientWidth * 5 - el.elem.clientWidth / 2 && newTranslate - el.elem.clientWidth - el.elem.clientWidth / 2 > el.elem.clientWidth * -1.5) {
-        el.elem.classList.add('slider-neighborhoods__slide--active');
-      } else {
-        el.elem.classList.remove('slider-neighborhoods__slide--active');
-      }
-
-      if (newTranslate - el.elem.clientWidth - el.elem.clientWidth / 2 === el.elem.clientWidth / 2) {
-        el.elem.classList.add('slider-neighborhoods__slide--curr');
-      } else {
-        el.elem.classList.remove('slider-neighborhoods__slide--curr');
-      }
-    });
-  }; // 3. make sure we can transition the move
-  // 4. z-index for non-visible slides
-  // 5. set active class
+  }; // * set the correct slide active on first load *
 
 
-  contentWrapper.map(function (el) {
-    return el.style.height = "".concat(maxHeight / 16, "rem");
-  });
+  changeSlide(slidesArr[0].elem, 0); // * set height of column to be the height of largest content *
+
+  contentColumn.style.height = "".concat(maxHeight / 16, "rem"); // * change the active content slide by adding active class *
 
   var changeContent = function changeContent(i) {
-    currContent = i;
     contentWrapper.forEach(function (el) {
       +el.dataset.index === i ? el.classList.add('slider-neighborhoods__content-wrapper--active') : el.classList.remove('slider-neighborhoods__content-wrapper--active');
     });
+  }; // * set the correct content active on first load *
+
+
+  changeContent(0); // * Add event listener to all slides *
+
+  slidesArr.forEach(function (el, i) {
+    el.elem.addEventListener('click', function () {
+      changeSlide(el.elem, el.position);
+      changeContent(el.position);
+    });
+  }); // * change content and slide when neigborhood in map clicked *
+
+  var mapSelectNeighborhood = function mapSelectNeighborhood(targetEl) {
+    slidesArr.forEach(function (el) {
+      if (el.neighborhood === targetEl.id) {
+        changeSlide(el.elem, el.position);
+        changeContent(el.position);
+      }
+    });
   };
 
-  changeContent(2); // 6. Add event listener to all slides
+  var openTooltip = function openTooltip(event, el) {
+    var targetEl = slidesArr.find(function (elem) {
+      return elem.neighborhood === el.id;
+    }),
+        tooltipContainer = document.querySelector('.map-neighborhoods__tooltip'),
+        tooltipContent = document.getElementById('tooltip-content');
+    var mapContent = '';
+    mapContent += "<h5>".concat(targetEl.name, "</h5>");
 
-  document.querySelectorAll('.slider-neighborhoods__slide').forEach(function (el, i) {
-    el.addEventListener('click', function () {
-      changeSlide(i);
-      changeContent(i);
+    if (targetEl.mapinfo) {
+      if (targetEl.mapinfo.house_median_price) {
+        mapContent += "<p>House Median Price: ".concat(targetEl.mapinfo.house_median_price, "</p>");
+      }
+
+      if (targetEl.mapinfo.condo_median_price) {
+        mapContent += "<p>Condo Median Price: ".concat(targetEl.mapinfo.condo_median_price, "</p>");
+      }
+    }
+
+    tooltipContent.innerHTML = mapContent;
+    tooltipContainer.style.opacity = 1;
+    tooltipContainer.style.top = "".concat(event.pageY - tooltipContainer.clientHeight - 5, "px");
+    tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth / 2, "px");
+  }; // * add event listener to all map neighborhoods *
+
+
+  document.querySelectorAll('.map-neighborhoods__icon-neighborhood').forEach(function (el) {
+    return el.addEventListener('click', function (event) {
+      mapSelectNeighborhood(el);
+      openTooltip(event, el);
     });
   });
 };

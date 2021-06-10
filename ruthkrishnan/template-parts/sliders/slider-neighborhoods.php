@@ -10,7 +10,8 @@
 ?>
 
 <div class="slider-neighborhoods">
-  <h2 class="slider-neighborhoods__title">This is the Neighborhoods Slider Template Part</h2>
+  
+  <?php get_template_part('template-parts/maps/neighborhoods-map'); ?>
 
   <div class="slider-neighborhoods__slider">
     <?php
@@ -32,12 +33,13 @@
               if ( have_rows('background_image') ) :
                 while ( have_rows('background_image') ) : the_row(); 
                   $image = get_sub_field('image'); ?>
-
-                  <div class="slider-neighborhoods__slide">
+                  
+                  <div class="slider-neighborhoods__slide" data-name='<?php echo the_title(); ?>' data-mapinfo='<?php echo json_encode(get_field('map_info_window')); ?>' data-neighborhood='<?php echo get_post()->post_name; ?>' >
                     <div class="slider-neighborhoods__image-container">
                       <?php echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'slider-neighborhoods__image' ]); ?>
                     </div>
                   </div>
+                    
 
                 <?php endwhile;
               endif; ?>
@@ -54,11 +56,11 @@
             while ( $query->have_posts() ) : $query->the_post(); ?>
               <div class="slider-neighborhoods__content-wrapper" data-index='<?php echo $query->current_post; ?>'>
                 <div class="slider-neighborhoods__content">
-                  <?php echo the_title(); ?>
-                  <br>
-                  <?php echo get_field('description'); ?>
-                  <br>
-                  <a href="/neighborhoods/<?php echo get_post()->post_name; ?>">Learn More</a>
+                  <h3 class="slider-neighborhoods__content-title"><?php echo the_title(); ?></h3>
+                  <div class="slider-neighborhoods__content-description">
+                    <?php echo get_field('description'); ?>
+                  </div>
+                  <a class="slider-neighborhoods__content-link" href="/neighborhoods/<?php echo get_post()->post_name; ?>">Learn More</a>
                 </div>
               </div>
 
