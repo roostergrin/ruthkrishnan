@@ -18,6 +18,11 @@ function remove_wysiwyg_editor () {
 
 add_action( 'init', 'remove_wysiwyg_editor' );
 
+add_action( 'admin_menu', 'my_remove_admin_menus' );
+function my_remove_admin_menus() {
+    remove_menu_page( 'edit-comments.php' );
+}
+
 // load stylesheets -------------------------
 function theme_enqueue_styles() {
   wp_enqueue_style( 'global', get_template_directory_uri() . '/styles/global.css' );
@@ -46,8 +51,8 @@ function theme_enqueue_scripts() {
   if ( is_page_template('page-newdevelopments.php') ) {
     wp_register_script( 'newdevelopments', get_template_directory_uri() . '/js/newdevelopments.js', array(), '', true);
     wp_enqueue_script( 'newdevelopments' );
-  } 
-  
+  }
+
   if ( is_single() && get_post_type() === 'newdevelopments' ) {
     wp_register_script('single-newdevelopments', get_template_directory_uri() . '/js/single-newdevelopments.js', array(), '', true);
     wp_enqueue_script('single-newdevelopments');
@@ -56,7 +61,7 @@ function theme_enqueue_scripts() {
   if ( is_page_template('page-neighborhoods.php') ) {
     wp_register_script( 'neighborhoods', get_template_directory_uri() . '/js/neighborhoods.js', array(), '', true);
     wp_enqueue_script( 'neighborhoods' );
-  } 
+  }
 
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts');
