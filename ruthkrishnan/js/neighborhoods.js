@@ -26,13 +26,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 var sliderNeighborhoods = function sliderNeighborhoods() {
   var slides = Array.from(document.querySelectorAll('.slider-neighborhoods__slide')),
-      slideWrapper = document.querySelector('.slider-neighborhoods__slide-wrapper'),
+      slideWrapper = document.querySelector('.slider-neighborhoods__track'),
       contentWrapper = Array.from(document.querySelectorAll('.slider-neighborhoods__content-wrapper')),
       contentColumn = document.querySelector('.slider-neighborhoods__content-column'),
       content = Array.from(document.querySelectorAll('.slider-neighborhoods__content')),
       maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
     return el.clientHeight;
-  }))); // * Build slide array of objects *
+  })));
+  var debounceLastTimeout = null; // * Build slide array of objects *
 
   var slidesArr = slides.map(function (el, i) {
     return {
@@ -90,8 +91,10 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       return elem.neighborhood === el.id;
     }),
         tooltipContainer = document.querySelector('.map-neighborhoods__tooltip'),
-        tooltipContent = document.getElementById('tooltip-content');
-    var mapContent = '';
+        tooltipContent = document.getElementById('tooltip-content'),
+        closeContainer = document.getElementById('tooltip-close');
+    var mapContent = ''; // add tooltip information
+
     mapContent += "<div class='map-neighborhoods__tooltip-title'>".concat(targetEl.name, "</div>");
 
     if (targetEl.mapinfo) {
@@ -100,10 +103,12 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
           mapContent += "<div class='map-neighborhoods__tooltip-info'>".concat(info.text, "</div>");
         });
       }
-    }
+    } // append tooltip information
 
-    tooltipContent.innerHTML = mapContent;
-    tooltipContainer.style.opacity = 1;
+
+    tooltipContent.innerHTML = mapContent; // show tooltip info window
+
+    tooltipContainer.style.opacity = 1; // keep info window on screen (no overflow)
 
     if (event.clientY < tooltipContainer.clientHeight + 32) {
       tooltipContainer.style.top = "".concat(event.pageY, "px");
@@ -117,7 +122,12 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth, "px");
     } else {
       tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth / 2, "px");
-    }
+    } // close tooltip
+
+
+    closeContainer.addEventListener('click', function () {
+      tooltipContainer.style.opacity = 0;
+    });
   }; // * add event listener to all map neighborhoods *
 
 
@@ -126,6 +136,105 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       mapSelectNeighborhood(el);
       openTooltip(event, el);
     });
+  }); // debounce function
+
+  var debounce = function debounce(func, args, wait, immediate) {
+    var later = function later() {
+      debounceLastTimeout = null;
+
+      if (!immediate) {
+        func(args);
+      }
+    };
+
+    var callNow = immediate && !debounceLastTimeout;
+    clearTimeout(debounceLastTimeout);
+    debounceLastTimeout = setTimeout(later, wait);
+
+    if (callNow) {
+      func(args);
+    }
+  }; // resets the slide transform
+
+
+  var resetSlide = function resetSlide() {
+    var currElem = document.querySelector('.slider-neighborhoods__slide--curr'),
+        currSlide = slidesArr.find(function (el) {
+      return el.name === currElem.dataset.name;
+    });
+    changeSlide(currSlide.elem, currSlide.position);
+  }; // watch screen resize to reset slide transform
+
+
+  window.addEventListener('resize', function () {
+    debounce(resetSlide, null, 250);
+  }); // go to the next slide
+
+  var toNextSlide = function toNextSlide() {
+    var currElem = document.querySelector('.slider-neighborhoods__slide--curr'),
+        currSlide = slidesArr.find(function (el) {
+      return el.name === currElem.dataset.name;
+    }),
+        nextSlide = slidesArr.find(function (el) {
+      return el.position === currSlide.position + 1;
+    });
+
+    if (nextSlide) {
+      changeSlide(nextSlide.elem, nextSlide.position);
+      changeContent(nextSlide.position);
+    }
+  }; // go to the previous slide
+
+
+  var toPrevSlide = function toPrevSlide() {
+    var currElem = document.querySelector('.slider-neighborhoods__slide--curr'),
+        currSlide = slidesArr.find(function (el) {
+      return el.name === currElem.dataset.name;
+    }),
+        prevSlide = slidesArr.find(function (el) {
+      return el.position === currSlide.position - 1;
+    });
+
+    if (prevSlide) {
+      changeSlide(prevSlide.elem, prevSlide.position);
+      changeContent(prevSlide.position);
+    }
+  };
+
+  var swipedir,
+      startX,
+      distX,
+      threshold = 1,
+      elapsedTime,
+      startTime;
+
+  var handleSwipe = function handleSwipe(swipedir) {
+    if (swipedir === 'left') {
+      toNextSlide();
+    }
+
+    if (swipedir === 'right') {
+      toPrevSlide();
+    }
+  };
+
+  var sliderContainer = document.getElementById('slider-container');
+  sliderContainer.addEventListener('touchstart', function (e) {
+    var touchObj = e.changedTouches[0];
+    swipedir = 'none';
+    startX = touchObj.pageX;
+    startTime = new Date().getTime();
+  });
+  sliderContainer.addEventListener('touchend', function (e) {
+    var touchObj = e.changedTouches[0];
+    distX = touchObj.pageX - startX;
+    elapsedTime = new Date().getTimeDF - startTime;
+
+    if (Math.abs(distX) >= threshold) {
+      swipedir = distX < 0 ? 'left' : 'right';
+    }
+
+    handleSwipe(swipedir);
   });
 };
 
