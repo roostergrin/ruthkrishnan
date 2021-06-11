@@ -136,7 +136,7 @@ export const sliderNeighborhoods = () => {
 
   // watch screen resize to reset slide transform
   window.addEventListener('resize', () => {
-    debounce(resetSlide, null, 250);
+    debounce(resetSlide, null, 500);
   })
 
   // go to the next slide
@@ -172,9 +172,11 @@ export const sliderNeighborhoods = () => {
   
   const handleSwipe = (swipedir) => {
     if (swipedir === 'left') {
+      // debounce(toNextSlide, null, 500);
       toNextSlide();
     }
     if (swipedir === 'right') {
+      // debounce(toPrevSlide, null, 500);
       toPrevSlide();
     }
   }
