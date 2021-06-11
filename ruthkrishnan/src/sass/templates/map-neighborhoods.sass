@@ -9,8 +9,9 @@
 
 
   &__column
-    @include col(8)
-    @include col--offset(2)
+    width: 100%
+  //   @include col(8)
+  //   @include col--offset(2)
   
   &__tooltip
     position: absolute
@@ -22,15 +23,27 @@
     background: $white
     border: 1px solid $black
     padding: .5rem
-    width: rem-calc(150)
+    width: rem-calc(250)
 
     &-close
       position: absolute
       top: .5rem
       right: 1rem
+    
+    &-content
+      font-size: rem-calc(16)
+
+    &-title
+      margin-bottom: .5rem
+      font-weight: 700
+
+    &-info
+      &:not(:last-of-type)
+        margin-bottom: .5rem
 
   &__icon
     @extend %section-padding-bottom
+    width: 100%
 
     &-neighborhood
       cursor: pointer
