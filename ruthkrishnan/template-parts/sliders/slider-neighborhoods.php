@@ -17,16 +17,17 @@
     <?php
       $args = array(
         'post_type' => 'neighborhoods',
+        'posts_per_page' => -1,
         'post_status' => 'publish',
-        'orderby' => 'date',
+        'orderby' => 'title',
         'order' => 'ASC',
       );
 
       $query = new WP_Query( $args ); ?>
 
       <!-- Loops through posts and displays the neighborhood images -->
-      <div class="slider-neighborhoods__images">
-        <div class="slider-neighborhoods__slide-wrapper">
+      <div id="slider-container" class="slider-neighborhoods__slider-container">
+        <div class="slider-neighborhoods__track">
           <?php if ( $query->have_posts() ) :
             while ( $query->have_posts() ) : $query->the_post();
 
@@ -69,5 +70,4 @@
         </div>
       </div>
   </div>
-
 </div>

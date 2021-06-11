@@ -11,7 +11,7 @@
 
 <div class="map-neighborhoods">
   <div class="map-neighborhoods__tooltip">
-    <div class="map-neighborhoods__tooltip-close"></div>
+    <div id="tooltip-close" class="map-neighborhoods__tooltip-close">X</div>
     <div id="tooltip-content" class="map-neighborhoods__tooltip-content"></div>
   </div>
   <div class="map-neighborhoods__container">

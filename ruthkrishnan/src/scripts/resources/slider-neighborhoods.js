@@ -1,10 +1,12 @@
 export const sliderNeighborhoods = () => {
   const slides = Array.from(document.querySelectorAll('.slider-neighborhoods__slide')),
-        slideWrapper = document.querySelector('.slider-neighborhoods__slide-wrapper'),
+        slideWrapper = document.querySelector('.slider-neighborhoods__track'),
         contentWrapper = Array.from(document.querySelectorAll('.slider-neighborhoods__content-wrapper')),
         contentColumn = document.querySelector('.slider-neighborhoods__content-column'),
         content = Array.from(document.querySelectorAll('.slider-neighborhoods__content')),
         maxHeight = Math.max(...content.map(el => el.clientHeight));
+  
+  let debounceLastTimeout = null;
 
   // * Build slide array of objects *
   const slidesArr = slides.map((el, i) => ({ name: el.dataset.name, position: i, neighborhood: el.dataset.neighborhood, elem: el, mapinfo: JSON.parse(el.dataset.mapinfo) }))
@@ -58,10 +60,12 @@ export const sliderNeighborhoods = () => {
   const openTooltip = (event, el) => {
     const targetEl = slidesArr.find(elem => elem.neighborhood === el.id),
           tooltipContainer = document.querySelector('.map-neighborhoods__tooltip'),
-          tooltipContent = document.getElementById('tooltip-content');
+          tooltipContent = document.getElementById('tooltip-content'),
+          closeContainer = document.getElementById('tooltip-close');
 
     let mapContent = '';
 
+    // add tooltip information
     mapContent += `<div class='map-neighborhoods__tooltip-title'>${targetEl.name}</div>`;
 
     if (targetEl.mapinfo) {
@@ -71,11 +75,13 @@ export const sliderNeighborhoods = () => {
         })
       }
     }
-
+    // append tooltip information
     tooltipContent.innerHTML = mapContent;
 
+    // show tooltip info window
     tooltipContainer.style.opacity = 1;
 
+    // keep info window on screen (no overflow)
     if (event.clientY < tooltipContainer.clientHeight + 32) {
       tooltipContainer.style.top = `${event.pageY}px`;
     } else {
@@ -89,6 +95,11 @@ export const sliderNeighborhoods = () => {
     } else {
       tooltipContainer.style.left = `${event.pageX - (tooltipContainer.clientWidth / 2)}px`;
     }
+
+    // close tooltip
+    closeContainer.addEventListener('click', () => {
+      tooltipContainer.style.opacity = 0;
+    })
   }
 
 
@@ -97,5 +108,96 @@ export const sliderNeighborhoods = () => {
     mapSelectNeighborhood(el);
     openTooltip(event, el);
   }))
+
+  // debounce function
+  const debounce = (func, args, wait, immediate) => {
+    const later = () => {
+      debounceLastTimeout = null
+      if (!immediate) {
+        func(args)
+      }
+    };
+  
+    const callNow = immediate && !debounceLastTimeout
+    clearTimeout(debounceLastTimeout)
+    debounceLastTimeout = setTimeout(later, wait)
+    if (callNow) {
+      func(args)
+    }
+  }
+  
+  // resets the slide transform
+  const resetSlide = () => {
+    const currElem = document.querySelector('.slider-neighborhoods__slide--curr'),
+          currSlide = slidesArr.find(el => el.name === currElem.dataset.name);
+  
+    changeSlide(currSlide.elem, currSlide.position);
+  }
+
+  // watch screen resize to reset slide transform
+  window.addEventListener('resize', () => {
+    debounce(resetSlide, null, 250);
+  })
+
+  // go to the next slide
+  const toNextSlide = () => {
+    const currElem = document.querySelector('.slider-neighborhoods__slide--curr'),
+          currSlide = slidesArr.find(el => el.name === currElem.dataset.name),
+          nextSlide = slidesArr.find(el => el.position === currSlide.position + 1);
+
+    if (nextSlide) {
+      changeSlide(nextSlide.elem, nextSlide.position);
+      changeContent(nextSlide.position);
+    }
+  }
+
+  // go to the previous slide
+  const toPrevSlide = () => {
+    const currElem = document.querySelector('.slider-neighborhoods__slide--curr'),
+          currSlide = slidesArr.find(el => el.name === currElem.dataset.name),
+          prevSlide = slidesArr.find(el => el.position === currSlide.position - 1);
+
+    if (prevSlide) {
+      changeSlide(prevSlide.elem, prevSlide.position);
+      changeContent(prevSlide.position);
+    }
+  }
+
+  var swipedir,
+      startX,
+      distX,
+      threshold = 1, 
+      elapsedTime,
+      startTime;
+  
+  const handleSwipe = (swipedir) => {
+    if (swipedir === 'left') {
+      toNextSlide();
+    }
+    if (swipedir === 'right') {
+      toPrevSlide();
+    }
+  }
+
+  const sliderContainer = document.getElementById('slider-container');
+
+  sliderContainer.addEventListener('touchstart', (e) => {
+    const touchObj = e.changedTouches[0];
+    swipedir = 'none';
+    startX = touchObj.pageX;
+    startTime = new Date().getTime();
+  })
+  
+  sliderContainer.addEventListener('touchend', (e) => {
+    const touchObj = e.changedTouches[0];
+    distX  = touchObj.pageX - startX;
+    elapsedTime = new Date().getTimeDF - startTime;
+
+    if (Math.abs(distX) >= threshold) {
+      swipedir = (distX < 0) ? 'left' : 'right';
+    }
+
+    handleSwipe(swipedir);
+  })
 
 }
