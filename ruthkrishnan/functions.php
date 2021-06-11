@@ -82,3 +82,14 @@ function google_maps_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'google_maps_scripts', 100);
+
+// Add Menus
+function theme_menu() {
+  register_nav_menus(
+    array(
+      'main-menu' => ( 'Main Menu' ),
+      'footer-menu' => ( 'Footer Menu' )
+    )
+  );
+}
+add_action( 'init', 'theme_menu');

@@ -12,5 +12,16 @@
 
 <?php wp_footer(); ?>
 
+<footer>
+  this is the footer
+  <?php 
+    wp_nav_menu( array(
+      'theme_location' => 'footer-menu',
+      'menu_class' => 'footer__links',
+      'container' => 'ul'
+    ) );
+  ?>
+</footer>
+
 </body>
 </html>

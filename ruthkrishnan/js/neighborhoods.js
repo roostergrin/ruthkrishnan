@@ -167,7 +167,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
 
   window.addEventListener('resize', function () {
-    debounce(resetSlide, null, 250);
+    debounce(resetSlide, null, 500);
   }); // go to the next slide
 
   var toNextSlide = function toNextSlide() {
@@ -210,10 +210,12 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
   var handleSwipe = function handleSwipe(swipedir) {
     if (swipedir === 'left') {
+      // debounce(toNextSlide, null, 500);
       toNextSlide();
     }
 
     if (swipedir === 'right') {
+      // debounce(toPrevSlide, null, 500);
       toPrevSlide();
     }
   };
