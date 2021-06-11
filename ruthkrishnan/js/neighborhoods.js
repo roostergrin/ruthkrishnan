@@ -92,22 +92,32 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
         tooltipContainer = document.querySelector('.map-neighborhoods__tooltip'),
         tooltipContent = document.getElementById('tooltip-content');
     var mapContent = '';
-    mapContent += "<h5>".concat(targetEl.name, "</h5>");
+    mapContent += "<div class='map-neighborhoods__tooltip-title'>".concat(targetEl.name, "</div>");
 
     if (targetEl.mapinfo) {
-      if (targetEl.mapinfo.house_median_price) {
-        mapContent += "<p>House Median Price: ".concat(targetEl.mapinfo.house_median_price, "</p>");
-      }
-
-      if (targetEl.mapinfo.condo_median_price) {
-        mapContent += "<p>Condo Median Price: ".concat(targetEl.mapinfo.condo_median_price, "</p>");
+      if (targetEl.mapinfo.information) {
+        targetEl.mapinfo.information.forEach(function (info) {
+          mapContent += "<div class='map-neighborhoods__tooltip-info'>".concat(info.text, "</div>");
+        });
       }
     }
 
     tooltipContent.innerHTML = mapContent;
     tooltipContainer.style.opacity = 1;
-    tooltipContainer.style.top = "".concat(event.pageY - tooltipContainer.clientHeight - 5, "px");
-    tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth / 2, "px");
+
+    if (event.clientY < tooltipContainer.clientHeight + 32) {
+      tooltipContainer.style.top = "".concat(event.pageY, "px");
+    } else {
+      tooltipContainer.style.top = "".concat(event.pageY - tooltipContainer.clientHeight - 5, "px");
+    }
+
+    if (event.clientX < tooltipContainer.clientWidth / 2 + 32) {
+      tooltipContainer.style.left = "".concat(event.pageX + 16, "px");
+    } else if (window.innerWidth - event.pageX < tooltipContainer.clientWidth / 2 + 32) {
+      tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth, "px");
+    } else {
+      tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth / 2, "px");
+    }
   }; // * add event listener to all map neighborhoods *
 
 

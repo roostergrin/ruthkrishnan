@@ -268,20 +268,7 @@
   }
 }
 .map-neighborhoods__column {
-  padding: 0 calc(30px / 2);
-  width: calc((8 / 12) * 100%);
-  margin-left: calc((2 / 12) * 100%);
-}
-@media screen and (max-width: 768px) {
-  .map-neighborhoods__column {
-    padding: 0;
-    width: 100%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .map-neighborhoods__column {
-    margin-left: 0;
-  }
+  width: 100%;
 }
 .map-neighborhoods__tooltip {
   position: absolute;
@@ -293,12 +280,25 @@
   background: #fff;
   border: 1px solid #000;
   padding: 0.5rem;
-  width: 9.375rem;
+  width: 15.625rem;
 }
 .map-neighborhoods__tooltip-close {
   position: absolute;
   top: 0.5rem;
   right: 1rem;
+}
+.map-neighborhoods__tooltip-content {
+  font-size: 1rem;
+}
+.map-neighborhoods__tooltip-title {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+.map-neighborhoods__tooltip-info:not(:last-of-type) {
+  margin-bottom: 0.5rem;
+}
+.map-neighborhoods__icon {
+  width: 100%;
 }
 .map-neighborhoods__icon-neighborhood {
   cursor: pointer;

@@ -62,20 +62,33 @@ export const sliderNeighborhoods = () => {
 
     let mapContent = '';
 
-    mapContent += `<h5>${targetEl.name}</h5>`;
+    mapContent += `<div class='map-neighborhoods__tooltip-title'>${targetEl.name}</div>`;
+
     if (targetEl.mapinfo) {
-      if (targetEl.mapinfo.house_median_price) {
-        mapContent += `<p>House Median Price: ${targetEl.mapinfo.house_median_price}</p>`
-      }
-      if (targetEl.mapinfo.condo_median_price) {
-        mapContent += `<p>Condo Median Price: ${targetEl.mapinfo.condo_median_price}</p>`
+      if (targetEl.mapinfo.information) {
+        targetEl.mapinfo.information.forEach((info) => {
+          mapContent += `<div class='map-neighborhoods__tooltip-info'>${info.text}</div>`;
+        })
       }
     }
+
     tooltipContent.innerHTML = mapContent;
 
     tooltipContainer.style.opacity = 1;
-    tooltipContainer.style.top = `${event.pageY - tooltipContainer.clientHeight - 5}px`;
-    tooltipContainer.style.left = `${event.pageX - (tooltipContainer.clientWidth / 2)}px`;
+
+    if (event.clientY < tooltipContainer.clientHeight + 32) {
+      tooltipContainer.style.top = `${event.pageY}px`;
+    } else {
+      tooltipContainer.style.top = `${event.pageY - tooltipContainer.clientHeight - 5}px`;
+    }
+
+    if (event.clientX < (tooltipContainer.clientWidth / 2) + 32) {
+      tooltipContainer.style.left = `${event.pageX + 16}px`;
+    } else if (window.innerWidth - event.pageX < (tooltipContainer.clientWidth / 2) + 32) {
+      tooltipContainer.style.left = `${event.pageX - (tooltipContainer.clientWidth)}px`;
+    } else {
+      tooltipContainer.style.left = `${event.pageX - (tooltipContainer.clientWidth / 2)}px`;
+    }
   }
 
 
