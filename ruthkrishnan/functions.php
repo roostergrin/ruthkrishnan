@@ -25,8 +25,10 @@ function my_remove_admin_menus() {
 
 // load stylesheets -------------------------
 function theme_enqueue_styles() {
+  // global styles
   wp_enqueue_style( 'global', get_template_directory_uri() . '/styles/global.css' );
 
+  // page specific styles
   if ( is_home() || is_front_page() ) {
     wp_enqueue_style( 'homepage', get_template_directory_uri() . '/styles/homepage.css' );
   }
@@ -48,6 +50,11 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 
 // load scripts -------------------------
 function theme_enqueue_scripts() {
+  // global scripts
+  wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array(), '', true);
+  wp_enqueue_script( 'global' );
+  
+  // page specific scripts
   if ( is_page_template('page-newdevelopments.php') ) {
     wp_register_script( 'newdevelopments', get_template_directory_uri() . '/js/newdevelopments.js', array(), '', true);
     wp_enqueue_script( 'newdevelopments' );
