@@ -13,7 +13,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "navigation": () => (/* binding */ navigation)
 /* harmony export */ });
 var navigation = function navigation() {
-  console.log('this is the navigation scripts');
+  var scrollPos = window.pageYOffset;
+  var el = document.querySelector('.site-navigation');
+
+  var handleScroll = function handleScroll() {
+    var currPos = window.pageYOffset;
+
+    if (scrollPos > window.innerHeight * 0.25) {
+      el.classList.add('site-navigation--active');
+    } else {
+      el.classList.remove('site-navigation--active');
+    }
+
+    scrollPos = currPos;
+  };
+
+  handleScroll();
+  window.addEventListener('scroll', function () {
+    handleScroll();
+  });
 };
 
 /***/ })

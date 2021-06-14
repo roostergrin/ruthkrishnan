@@ -4,7 +4,8 @@
 
 .hero-template
   position: relative
-  height: 80vh
+  height: 85vh
+  min-height: rem-calc(580)
   overflow: hidden
 
   &__wrapper
@@ -24,7 +25,7 @@
   &__overlay
     @extend %absolute
     z-index: 1
-    background: rgba($black, .3)
+    background: linear-gradient(to bottom, rgba($black, .55), rgba($black, .3) 80%)
 
   &__container
     @include container
