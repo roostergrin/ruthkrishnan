@@ -2,59 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/scripts/pages/newdevelopments.js":
-/*!**********************************************!*\
-  !*** ./src/scripts/pages/newdevelopments.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _resources_site_hero__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/site-hero */ "./src/scripts/resources/site-hero.js");
-/* harmony import */ var _resources_gmap_development__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/gmap-development */ "./src/scripts/resources/gmap-development.js");
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  var allDevelopments = document.querySelectorAll('.page-new-developments__development');
-  var availableNowElems = document.querySelectorAll('.page-new-developments__development--available-now');
-  var comingSoonElems = document.querySelectorAll('.page-new-developments__development--coming-soon');
-  var soldOutElems = document.querySelectorAll('.page-new-developments__development--sold-out');
-  var filtersArr = document.querySelectorAll('.page-new-developments__filter');
-  (0,_resources_site_hero__WEBPACK_IMPORTED_MODULE_0__.siteHero)();
-  (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_1__.setMap)('available-now');
-  availableNowElems.forEach(function (el) {
-    el.classList.add('page-new-developments__development--active');
-  });
-  filtersArr.forEach(function (el, i) {
-    el.addEventListener('click', function () {
-      (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_1__.setMap)(el.dataset.filter);
-      allDevelopments.forEach(function (elem) {
-        return elem.classList.remove('page-new-developments__development--active');
-      });
-
-      if (el.dataset.filter === 'available-now') {
-        availableNowElems.forEach(function (availableElem) {
-          availableElem.classList.add('page-new-developments__development--active');
-        });
-      } else if (el.dataset.filter === 'coming-soon') {
-        comingSoonElems.forEach(function (elem) {
-          elem.classList.add('page-new-developments__development--active');
-        });
-      } else if (el.dataset.filter === 'sold-out') {
-        soldOutElems.forEach(function (elem) {
-          elem.classList.add('page-new-developments__development--active');
-        });
-      }
-
-      if (!el.classList.contains('page-new-developments__filter--active')) {
-        document.querySelector('.page-new-developments__filter--active').classList.remove('page-new-developments__filter--active');
-        el.classList.add('page-new-developments__filter--active');
-      }
-    });
-  });
-});
-
-/***/ }),
-
 /***/ "./src/scripts/resources/gmap-development.js":
 /*!***************************************************!*\
   !*** ./src/scripts/resources/gmap-development.js ***!
@@ -123,97 +70,6 @@ var setMap = function setMap(category) {
 
 /***/ }),
 
-/***/ "./src/scripts/resources/site-hero.js":
-/*!********************************************!*\
-  !*** ./src/scripts/resources/site-hero.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "siteHero": () => (/* binding */ siteHero)
-/* harmony export */ });
-var siteHero = function siteHero() {
-  var el = document.querySelector('.hero-template__wrapper'),
-      img = document.querySelector('.hero-template__background');
-  img.style.objectPosition = el.dataset.positionX + ' ' + el.dataset.positionY;
-
-  var onScroll = function onScroll() {
-    var windowWidth = window.innerWidth,
-        transformValue = window.pageYOffset / windowWidth * 500;
-
-    if (windowWidth > 600) {
-      el.style.transform = "translateY(".concat(transformValue, "px)");
-    } else {
-      el.style.transform = 'translateY(0)';
-    }
-  };
-
-  window.addEventListener('scroll', onScroll);
-};
-
-/***/ }),
-
-/***/ "./src/sass/global.sass":
-/*!******************************!*\
-  !*** ./src/sass/global.sass ***!
-  \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/sass/pages/homepage.sass":
-/*!**************************************!*\
-  !*** ./src/sass/pages/homepage.sass ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/sass/pages/newdevelopments.sass":
-/*!*********************************************!*\
-  !*** ./src/sass/pages/newdevelopments.sass ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/sass/pages/single-newdevelopments.sass":
-/*!****************************************************!*\
-  !*** ./src/sass/pages/single-newdevelopments.sass ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/sass/pages/neighborhoods.sass":
-/*!*******************************************!*\
-  !*** ./src/sass/pages/neighborhoods.sass ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
 /***/ "./src/scripts/resources/mapStyles.json":
 /*!**********************************************!*\
   !*** ./src/scripts/resources/mapStyles.json ***!
@@ -250,41 +106,7 @@ module.exports = JSON.parse('[{"elementType":"geometry","stylers":[{"color":"#f5
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					result = fn();
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -313,74 +135,55 @@ module.exports = JSON.parse('[{"elementType":"geometry","stylers":[{"color":"#f5
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"/js/newdevelopments": 0,
-/******/ 			"styles/neighborhoods": 0,
-/******/ 			"styles/single-newdevelopments": 0,
-/******/ 			"styles/newdevelopments": 0,
-/******/ 			"styles/homepage": 0,
-/******/ 			"styles/global": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			for(moduleId in moreModules) {
-/******/ 				if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 					__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 				}
-/******/ 			}
-/******/ 			if(runtime) var result = runtime(__webpack_require__);
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkIds[i]] = 0;
-/******/ 			}
-/******/ 			return __webpack_require__.O(result);
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkruthkrishnan"] = self["webpackChunkruthkrishnan"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
-/******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/scripts/pages/newdevelopments.js")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/global.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/homepage.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/newdevelopments.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/single-newdevelopments.sass")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/neighborhoods.sass")))
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!**********************************************!*\
+  !*** ./src/scripts/pages/newdevelopments.js ***!
+  \**********************************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/gmap-development */ "./src/scripts/resources/gmap-development.js");
+
+document.addEventListener('DOMContentLoaded', function () {
+  var allDevelopments = document.querySelectorAll('.page-new-developments__development');
+  var availableNowElems = document.querySelectorAll('.page-new-developments__development--available-now');
+  var comingSoonElems = document.querySelectorAll('.page-new-developments__development--coming-soon');
+  var soldOutElems = document.querySelectorAll('.page-new-developments__development--sold-out');
+  var filtersArr = document.querySelectorAll('.page-new-developments__filter');
+  (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__.setMap)('available-now');
+  availableNowElems.forEach(function (el) {
+    el.classList.add('page-new-developments__development--active');
+  });
+  filtersArr.forEach(function (el, i) {
+    el.addEventListener('click', function () {
+      (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__.setMap)(el.dataset.filter);
+      allDevelopments.forEach(function (elem) {
+        return elem.classList.remove('page-new-developments__development--active');
+      });
+
+      if (el.dataset.filter === 'available-now') {
+        availableNowElems.forEach(function (availableElem) {
+          availableElem.classList.add('page-new-developments__development--active');
+        });
+      } else if (el.dataset.filter === 'coming-soon') {
+        comingSoonElems.forEach(function (elem) {
+          elem.classList.add('page-new-developments__development--active');
+        });
+      } else if (el.dataset.filter === 'sold-out') {
+        soldOutElems.forEach(function (elem) {
+          elem.classList.add('page-new-developments__development--active');
+        });
+      }
+
+      if (!el.classList.contains('page-new-developments__filter--active')) {
+        document.querySelector('.page-new-developments__filter--active').classList.remove('page-new-developments__filter--active');
+        el.classList.add('page-new-developments__filter--active');
+      }
+    });
+  });
+});
+})();
+
 /******/ })()
 ;

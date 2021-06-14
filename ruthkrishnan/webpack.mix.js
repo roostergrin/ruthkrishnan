@@ -4,11 +4,12 @@ let mix = require('laravel-mix');
 
 mix
 .sass('src/sass/global.sass', 'styles/')
+.js('src/scripts/global.js', 'js/')
+.js('src/scripts/resources/site-hero.js', 'js/')
 .sass('src/sass/pages/homepage.sass', 'styles/')
 .sass('src/sass/pages/newdevelopments.sass', 'styles/')
-.sass('src/sass/pages/single-newdevelopments.sass', 'styles/')
 .js('src/scripts/pages/newdevelopments.js', 'js/')
+.sass('src/sass/pages/single-newdevelopments.sass', 'styles/')
 .js('src/scripts/pages/single-newdevelopments.js', 'js/')
 .sass('src/sass/pages/neighborhoods.sass', 'styles/')
 .js('src/scripts/pages/neighborhoods.js', 'js/')
-.js('src/scripts/global.js', 'js/')

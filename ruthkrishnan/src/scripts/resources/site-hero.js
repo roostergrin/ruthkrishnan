@@ -1,20 +1,27 @@
-export const siteHero = () => {
-  const el = document.querySelector('.hero-template__wrapper'),
-        img = document.querySelector('.hero-template__background');
+document.addEventListener('DOMContentLoaded', function () {
 
-  img.style.objectPosition = el.dataset.positionX + ' ' + el.dataset.positionY
+  const siteHero = () => {
+    
+    const el = document.querySelector('.hero-template__wrapper'),
+          img = document.querySelector('.hero-template__background');
 
-  const onScroll = () => {
-    let windowWidth = window.innerWidth,
-        transformValue = window.pageYOffset / windowWidth * 500;
+    img.style.objectPosition = el.dataset.positionX + ' ' + el.dataset.positionY
 
-    if ( windowWidth > 600 ) {
-      el.style.transform = `translateY(${transformValue}px)`
-    } else {
-      el.style.transform = 'translateY(0)'
-    }
-  };
+    const onScroll = () => {
+      let windowWidth = window.innerWidth,
+          transformValue = window.pageYOffset / windowWidth * 500;
 
-  window.addEventListener('scroll', onScroll);
+      if ( windowWidth > 600 ) {
+        el.style.transform = `translateY(${transformValue}px)`
+      } else {
+        el.style.transform = 'translateY(0)'
+      }
+    };
 
-}
+    window.addEventListener('scroll', onScroll);
+
+  }
+
+  siteHero();
+
+});
