@@ -1,2 +1,101 @@
-.navigation
-  color: $c3
+.site-navigation
+  position: fixed
+  top: 0
+  left: 0
+  transition: background .4s ease-in
+  z-index: 9999
+  // background: $white
+  padding: 1rem 0
+  width: 100%
+
+  &--active
+    background: $white
+
+  &__container
+    @include container
+
+  &__navbar
+    @include col (12)
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+  &__home
+    @include desktop
+      width: rem-calc(159)
+      height: rem-calc(80)
+    width: rem-calc(120)
+    height: rem-calc(60)
+
+  &__logo
+    transition: fill .4s ease
+    width: 100%
+    height: 100%
+    fill: $white
+
+    .site-navigation--active &
+      fill: $c1
+
+  &__menu
+    display: flex
+    margin: 0
+    padding: 0
+
+    .menu-item
+      @include hover-supported
+        &:after
+          opacity: 1
+      position: relative
+      margin: auto 1rem
+      list-style: none
+
+      &:after
+        @include desktop
+          width: rem-calc(6)
+          height: rem-calc(6)
+        position: absolute
+        bottom: -.85rem
+        left: 50%
+        transform: translate(-50%)
+        transition: background .4s ease, opacity .2s ease
+        opacity: 0
+        border-radius: 50%
+        background: $white
+        width: 4px
+        height: 4px
+        content: ''
+
+        .site-navigation--active &
+          background: $c1
+
+      &.current-menu-item
+        &:after
+          opacity: 1
+
+    a
+      @include desktop
+        font-size: 1rem
+      transition: color .4s ease
+      text-transform: lowercase
+      letter-spacing: .25px
+      color: $white
+      font-size: rem-calc(14)
+
+      .site-navigation--active &
+        color: $c1
+
+    .current-menu-item
+      -webkit-text-stroke-width: .75px
+
+  &__btn
+    @extend %button-text
+    @include hover-supported
+      background: $c6
+    display: block
+    position: relative
+    transition: background .2s ease
+    background: $c3
+    cursor: pointer
+    padding: rem-calc(14) 2rem rem-calc(12)
+    text-transform: lowercase
+    color: $white
