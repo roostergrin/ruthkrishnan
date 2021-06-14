@@ -1,0 +1,153 @@
+/* -----------------------
+ * Fonts
+ * ----------------------- */
+@font-face {
+  font-family: "Avenir Next";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://dev.ruthkrishnan.com/wp-content/themes/ruthkrishnan/fonts/AvenirNext-Regular.woff") format("woff");
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Avenir Next";
+  font-weight: 500;
+  font-style: normal;
+  src: url("https://dev.ruthkrishnan.com/wp-content/themes/ruthkrishnan/fonts/AvenirNext-Medium.woff") format("woff");
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Avenir Next";
+  font-weight: 700;
+  font-style: normal;
+  src: url("https://dev.ruthkrishnan.com/wp-content/themes/ruthkrishnan/fonts/AvenirNext-Bold.woff") format("woff");
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Avenir Next";
+  font-weight: 800;
+  font-style: normal;
+  src: url("https://dev.ruthkrishnan.com/wp-content/themes/ruthkrishnan/fonts/AvenirNext-Heavy.woff") format("woff");
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+.blog-navigation__categories {
+  padding: 2rem 0;
+}
+@media screen and (min-width: 1750px) {
+  .blog-navigation__categories {
+    padding: 2.5rem 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .blog-navigation__categories {
+    padding: 1rem 0;
+  }
+}
+
+/* -----------------------
+ * Typography
+ * ----------------------- */
+/* -----------------------
+ *  Blog Navigation Styles
+ * ----------------------- */
+.blog-navigation {
+  background: #F4F0F0;
+}
+.blog-navigation__categories-container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+}
+@media screen and (min-width: 1750px) {
+  .blog-navigation__categories-container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .blog-navigation__categories-container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .blog-navigation__categories-container {
+    padding: 0 1rem;
+  }
+}
+.blog-navigation__categories {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.blog-navigation__category--active {
+  position: relative;
+  font-weight: 700;
+}
+.blog-navigation__category--active::after {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  border-radius: 50%;
+  width: 0.3125rem;
+  height: 0.3125rem;
+  content: "";
+}
+
+/* -----------------------
+ *  Blog Main Styles
+ * ----------------------- */
+.page-blog-main__intro-container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+}
+@media screen and (min-width: 1750px) {
+  .page-blog-main__intro-container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .page-blog-main__intro-container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .page-blog-main__intro-container {
+    padding: 0 1rem;
+  }
+}
+.page-blog-main__intro {
+  padding: 0 calc(30px / 2);
+  width: calc((8 / 12) * 100%);
+  margin-left: calc((2 / 12) * 100%);
+}
+@media screen and (max-width: 768px) {
+  .page-blog-main__intro {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .page-blog-main__intro {
+    margin-left: 0;
+  }
+}
+.page-blog-main__intro-title {
+  width: 100%;
+  text-align: center;
+}
+.page-blog-main__posts {
+  background: #F4F0F0;
+}

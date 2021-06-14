@@ -13,3 +13,4 @@ mix
 .js('src/scripts/pages/single-newdevelopments.js', 'js/')
 .sass('src/sass/pages/neighborhoods.sass', 'styles/')
 .js('src/scripts/pages/neighborhoods.js', 'js/')
+.sass('src/sass/pages/blog.sass', 'styles/')

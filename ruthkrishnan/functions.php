@@ -46,6 +46,10 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'neighborhoods', get_template_directory_uri() . '/styles/neighborhoods.css' );
   }
 
+  if ( is_category() || is_page_template('page-blog.php') ) {
+    wp_enqueue_style( 'blog', get_template_directory_uri() . '/styles/blog.css' );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 

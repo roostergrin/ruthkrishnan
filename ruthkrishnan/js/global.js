@@ -33,6 +33,18 @@ var navigation = function navigation() {
 
 /***/ }),
 
+/***/ "./src/sass/pages/blog.sass":
+/*!**********************************!*\
+  !*** ./src/sass/pages/blog.sass ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./src/sass/global.sass":
 /*!******************************!*\
   !*** ./src/sass/global.sass ***!
@@ -195,7 +207,8 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 			"styles/single-newdevelopments": 0,
 /******/ 			"styles/newdevelopments": 0,
 /******/ 			"styles/homepage": 0,
-/******/ 			"styles/global": 0
+/******/ 			"styles/global": 0,
+/******/ 			"styles/blog": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -243,12 +256,13 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/scripts/global.js")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/global.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/homepage.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/newdevelopments.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/single-newdevelopments.sass")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global"], () => (__webpack_require__("./src/sass/pages/neighborhoods.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/blog"], () => (__webpack_require__("./src/scripts/global.js")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/blog"], () => (__webpack_require__("./src/sass/global.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/blog"], () => (__webpack_require__("./src/sass/pages/homepage.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/blog"], () => (__webpack_require__("./src/sass/pages/newdevelopments.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/blog"], () => (__webpack_require__("./src/sass/pages/single-newdevelopments.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/blog"], () => (__webpack_require__("./src/sass/pages/neighborhoods.sass")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/blog"], () => (__webpack_require__("./src/sass/pages/blog.sass")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
