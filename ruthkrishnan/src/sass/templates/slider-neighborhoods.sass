@@ -33,12 +33,14 @@
       min-width: 80vw
       height: calc(80vw - 2rem)
     position: relative
+    transition: opacity .5s ease
+    opacity: .32
+    cursor: pointer
     padding: 0 1rem
     min-width: calc((4 / 12) * #{$width})
     height: calc(((4 / 12) * #{$width}) - 2rem)
-    cursor: pointer
 
-    &--active
+    &--curr
       opacity: 1
       z-index: 1
 
@@ -47,7 +49,7 @@
     background: $gray
     width: 100%
     height: 100%
-  
+
   &__image
     @extend %absolute
     transition: filter .5s ease

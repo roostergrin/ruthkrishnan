@@ -148,10 +148,12 @@
   padding: 0 calc(30px / 2);
   width: calc((4 / 12) * 100%);
   position: relative;
+  transition: opacity 0.5s ease;
+  opacity: 0.32;
+  cursor: pointer;
   padding: 0 1rem;
   min-width: calc((4 / 12) * 1146px);
   height: calc(((4 / 12) * 1146px) - 2rem);
-  cursor: pointer;
 }
 @media screen and (max-width: 768px) {
   .slider-neighborhoods__slide {
@@ -179,7 +181,7 @@
     height: calc(80vw - 2rem);
   }
 }
-.slider-neighborhoods__slide--active {
+.slider-neighborhoods__slide--curr {
   opacity: 1;
   z-index: 1;
 }
