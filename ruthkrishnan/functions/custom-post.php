@@ -17,7 +17,7 @@ function app_init() {
 			'title',
 			'custom-fields',),
     'taxonomies' => array(
-      'category'
+      'development-category'
     )
 	);
 
