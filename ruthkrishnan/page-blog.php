@@ -27,13 +27,13 @@ get_header(); ?>
     if ($category_id) : 
       $args = array(
         'post_status' => 'publish',
-        'posts_per_page' => -1,
+        'posts_per_page' => 1,
         'cat' => $category_id
       );
     else :
       $args = array(
         'post_status' => 'publish',
-        'posts_per_page' => -1
+        'posts_per_page' => 1
       );
     endif;
     $blog_intro = get_field('introduction');
@@ -42,7 +42,6 @@ get_header(); ?>
     get_template_part('template-parts/blog/blog-main', null, array( 'query_args' => $args, 'introduction' => $blog_intro ));
 
   ?>
-    
 
 </div>
 

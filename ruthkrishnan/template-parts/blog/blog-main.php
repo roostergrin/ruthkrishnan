@@ -28,10 +28,11 @@
         ?>
     
           <?php echo the_title(); ?>
+          <?php next_posts_link(); ?>
 
         <?php endwhile;
       else : ?>
-        <p>Sorry, no posts found.</p>
+        <p>Coming Soon.</p>
       <?php endif;
     ?>
   </div>
