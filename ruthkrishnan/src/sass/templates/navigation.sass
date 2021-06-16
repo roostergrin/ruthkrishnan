@@ -52,6 +52,8 @@
       @include hover-supported
         &:after
           opacity: 1
+      @include desktop
+        margin: auto 1.25rem
       position: relative
       margin: auto 1rem
       list-style: none
@@ -80,13 +82,9 @@
           opacity: 1
 
     a
-      @include desktop
-        font-size: 1rem
+      @extend %link-text
       transition: color .4s ease
-      text-transform: lowercase
-      letter-spacing: .25px
       color: $white
-      font-size: rem-calc(14)
 
       .site-navigation--active &
         color: $c1
@@ -192,6 +190,8 @@
           transform: rotate(-45deg)
 
   &__overlay
+    @include min-width (1025px)
+      display: none
     position: fixed
     top: 0
     left: 0
@@ -206,6 +206,8 @@
       opacity: 1
 
   &__drawer
+    @include min-width (1025px)
+      display: none
     @include ipad-pro
       justify-content: flex-start
       padding-top: rem-calc(200)
@@ -215,7 +217,7 @@
       width: 100%
       max-width: 100%
     display: flex
-    position: fixed
+    position: absolute
     top: 0
     right: 0
     flex-direction: column
@@ -227,10 +229,12 @@
     width: 60%
     max-width: rem-calc(480)
     height: 100vh
+    pointer-events: none
 
     &--active
       transform: translateX(0)
       transition: transform .465s cubic-bezier(.34, .615, .4, .985)
+      pointer-events: auto
 
   &__upper
     transition: opacity .2s ease
