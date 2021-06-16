@@ -61,6 +61,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       contentWrapper = Array.from(document.querySelectorAll('.slider-neighborhoods__content-wrapper')),
       contentColumn = document.querySelector('.slider-neighborhoods__content-column'),
       content = Array.from(document.querySelectorAll('.slider-neighborhoods__content')),
+      iconArr = document.querySelectorAll('.map-neighborhoods__icon-neighborhood'),
       maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
     return el.clientHeight;
   })));
@@ -109,17 +110,23 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }); // * change content and slide when neigborhood in map clicked *
 
   var mapSelectNeighborhood = function mapSelectNeighborhood(targetEl) {
+    iconArr.forEach(function (icon) {
+      return icon.classList.contains('map-neighborhoods__icon-neighborhood--active') ? icon.classList.remove('map-neighborhoods__icon-neighborhood--active') : null;
+    });
     slidesArr.forEach(function (el) {
-      if (el.neighborhood === targetEl.id) {
+      if (el.neighborhood === targetEl.dataset.name) {
         changeSlide(el.elem, el.position);
         changeContent(el.position);
+        targetEl.classList.add('map-neighborhoods__icon-neighborhood--active');
       }
+
+      ;
     });
   };
 
   var openTooltip = function openTooltip(event, el) {
     var targetEl = slidesArr.find(function (elem) {
-      return elem.neighborhood === el.id;
+      return elem.neighborhood === el.dataset.name;
     }),
         tooltipContainer = document.querySelector('.map-neighborhoods__tooltip'),
         tooltipContent = document.getElementById('tooltip-content'),
@@ -162,8 +169,9 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }; // * add event listener to all map neighborhoods *
 
 
-  document.querySelectorAll('.map-neighborhoods__icon-neighborhood').forEach(function (el) {
+  iconArr.forEach(function (el) {
     return el.addEventListener('click', function (event) {
+      console.log('hello');
       mapSelectNeighborhood(el);
       openTooltip(event, el);
     });

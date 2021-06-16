@@ -13,14 +13,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "navigation": () => (/* binding */ navigation)
 /* harmony export */ });
 var navigation = function navigation() {
-  var scrollPos = window.pageYOffset;
+  var scrollPos = 0;
   var el = document.querySelector('.site-navigation'),
       hamburger = document.querySelector('.site-navigation__hamburger'),
       overlay = document.querySelector('.site-navigation__overlay'),
-      drawer = document.querySelector('.site-navigation__drawer');
+      drawer = document.querySelector('.site-navigation__drawer'); // close drawer when opening new page
+
+  drawer.classList.remove('site-navigation__drawer--active');
 
   var handleScroll = function handleScroll() {
     var currPos = window.pageYOffset;
+    console.log(scrollPos, currPos);
 
     if (scrollPos > window.innerHeight * 0.25) {
       el.classList.add('site-navigation--active');
@@ -31,14 +34,13 @@ var navigation = function navigation() {
     scrollPos = currPos;
   };
 
-  handleScroll();
-
   var toggleMenu = function toggleMenu() {
     hamburger.classList.contains('site-navigation__hamburger--active') ? hamburger.classList.remove('site-navigation__hamburger--active') : hamburger.classList.add('site-navigation__hamburger--active');
     overlay.classList.contains('site-navigation__overlay--active') ? overlay.classList.remove('site-navigation__overlay--active') : overlay.classList.add('site-navigation__overlay--active');
     drawer.classList.contains('site-navigation__drawer--active') ? drawer.classList.remove('site-navigation__drawer--active') : drawer.classList.add('site-navigation__drawer--active');
   };
 
+  handleScroll();
   window.addEventListener('scroll', function () {
     handleScroll();
   });

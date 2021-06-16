@@ -10,16 +10,16 @@
   &__column
     @include col(8)
     @include col--offset(2)
-  
+
   &__tooltip
     position: absolute
     top: 0
     left: 0
-    z-index: 5
-    opacity: 0
     transition: transform .5s ease
-    background: $white
+    opacity: 0
+    z-index: 5
     border: 1px solid $black
+    background: $white
     padding: .5rem
     width: rem-calc(150)
 
@@ -28,7 +28,7 @@
       top: .5rem
       right: 1rem
       cursor: pointer
-    
+
     &-content
       font-size: rem-calc(16)
 
@@ -45,4 +45,16 @@
     width: 100%
 
     &-neighborhood
+      @include hover-supported
+        .a5879aaa-2562-415b-b382-b032ebfff121
+          fill: $c6
       cursor: pointer
+      .a5879aaa-2562-415b-b382-b032ebfff121
+        transition: fill .2s ease
+
+      &--active
+        .a5879aaa-2562-415b-b382-b032ebfff121
+          fill: $c6
+
+    &--new
+      width: 25%

@@ -4,16 +4,17 @@ export const sliderNeighborhoods = () => {
         contentWrapper = Array.from(document.querySelectorAll('.slider-neighborhoods__content-wrapper')),
         contentColumn = document.querySelector('.slider-neighborhoods__content-column'),
         content = Array.from(document.querySelectorAll('.slider-neighborhoods__content')),
+        iconArr = document.querySelectorAll('.map-neighborhoods__icon-neighborhood'),
         maxHeight = Math.max(...content.map(el => el.clientHeight));
-  
+
   let debounceLastTimeout = null;
 
   // * Build slide array of objects *
   const slidesArr = slides.map((el, i) => ({ name: el.dataset.name, position: i, neighborhood: el.dataset.neighborhood, elem: el, mapinfo: JSON.parse(el.dataset.mapinfo) }))
-  
+
   // * move slides *
   const changeSlide = (el, pos) => {
-    
+
     slideWrapper.style.transform = `translate3d(${(el.clientWidth * -pos) - 16}px, 0, 0)`;
 
     slidesArr.forEach((slide) => {
@@ -24,6 +25,7 @@ export const sliderNeighborhoods = () => {
       }
     })
   };
+
   // * set the correct slide active on first load *
   changeSlide(slidesArr[0].elem, 0);
 
@@ -36,29 +38,32 @@ export const sliderNeighborhoods = () => {
       +el.dataset.index === i ? el.classList.add('slider-neighborhoods__content-wrapper--active') : el.classList.remove('slider-neighborhoods__content-wrapper--active')
     });
   }
+
   // * set the correct content active on first load *
   changeContent(0);
 
   // * Add event listener to all slides *
-  slidesArr.forEach((el, i) => { 
-    el.elem.addEventListener('click', () => { 
+  slidesArr.forEach((el, i) => {
+    el.elem.addEventListener('click', () => {
       changeSlide(el.elem, el.position);
       changeContent(el.position);
     });
-  }); 
-  
+  });
+
   // * change content and slide when neigborhood in map clicked *
   const mapSelectNeighborhood = (targetEl) => {
+    iconArr.forEach((icon) => icon.classList.contains('map-neighborhoods__icon-neighborhood--active') ? icon.classList.remove('map-neighborhoods__icon-neighborhood--active') : null )
     slidesArr.forEach((el) => {
-      if (el.neighborhood === targetEl.id) {
+      if (el.neighborhood === targetEl.dataset.name) {
         changeSlide(el.elem, el.position);
         changeContent(el.position);
-      }
+        targetEl.classList.add('map-neighborhoods__icon-neighborhood--active')
+      };
     })
   }
 
   const openTooltip = (event, el) => {
-    const targetEl = slidesArr.find(elem => elem.neighborhood === el.id),
+    const targetEl = slidesArr.find(elem => elem.neighborhood === el.dataset.name),
           tooltipContainer = document.querySelector('.map-neighborhoods__tooltip'),
           tooltipContent = document.getElementById('tooltip-content'),
           closeContainer = document.getElementById('tooltip-close');
@@ -104,7 +109,8 @@ export const sliderNeighborhoods = () => {
 
 
   // * add event listener to all map neighborhoods *
-  document.querySelectorAll('.map-neighborhoods__icon-neighborhood').forEach(el => el.addEventListener('click', (event) => {
+  iconArr.forEach(el => el.addEventListener('click', (event) => {
+    console.log('hello')
     mapSelectNeighborhood(el);
     openTooltip(event, el);
   }))
@@ -117,7 +123,7 @@ export const sliderNeighborhoods = () => {
         func(args)
       }
     };
-  
+
     const callNow = immediate && !debounceLastTimeout
     clearTimeout(debounceLastTimeout)
     debounceLastTimeout = setTimeout(later, wait)
@@ -125,12 +131,12 @@ export const sliderNeighborhoods = () => {
       func(args)
     }
   }
-  
+
   // resets the slide transform
   const resetSlide = () => {
     const currElem = document.querySelector('.slider-neighborhoods__slide--curr'),
           currSlide = slidesArr.find(el => el.name === currElem.dataset.name);
-  
+
     changeSlide(currSlide.elem, currSlide.position);
   }
 
@@ -166,10 +172,10 @@ export const sliderNeighborhoods = () => {
   var swipedir,
       startX,
       distX,
-      threshold = 1, 
+      threshold = 1,
       elapsedTime,
       startTime;
-  
+
   const handleSwipe = (swipedir) => {
     if (swipedir === 'left') {
       // debounce(toNextSlide, null, 500);
@@ -189,7 +195,7 @@ export const sliderNeighborhoods = () => {
     startX = touchObj.pageX;
     startTime = new Date().getTime();
   })
-  
+
   sliderContainer.addEventListener('touchend', (e) => {
     const touchObj = e.changedTouches[0];
     distX  = touchObj.pageX - startX;
