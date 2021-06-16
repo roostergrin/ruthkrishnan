@@ -8,6 +8,7 @@
  */
 
 ?>
+
 <?php 
   global $post;
   $active_slug = $post->post_name;

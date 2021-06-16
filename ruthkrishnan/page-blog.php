@@ -24,16 +24,20 @@ get_header(); ?>
       endif;
     endforeach;
 
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
     if ($category_id) : 
       $args = array(
         'post_status' => 'publish',
-        'posts_per_page' => 1,
+        'posts_per_page' => 3,
+        'paged' => $paged,
         'cat' => $category_id
       );
     else :
       $args = array(
         'post_status' => 'publish',
-        'posts_per_page' => 1
+        'posts_per_page' => 3,
+        'paged' => $paged
       );
     endif;
     $blog_intro = get_field('introduction');
