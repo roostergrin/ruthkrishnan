@@ -38,7 +38,6 @@ var navigation = function navigation() {
 
   var handleScroll = function handleScroll() {
     var currPos = window.pageYOffset;
-    console.log(scrollPos, currPos);
 
     if (scrollPos > window.innerHeight * 0.25) {
       el.classList.add('site-navigation--active');
