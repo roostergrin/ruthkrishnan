@@ -320,11 +320,11 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 5;
-  opacity: 0;
   transition: transform 0.5s ease;
-  background: #fff;
+  opacity: 0;
+  z-index: 5;
   border: 1px solid #000;
+  background: #fff;
   padding: 0.5rem;
   width: 9.375rem;
 }
@@ -349,4 +349,18 @@
 }
 .map-neighborhoods__icon-neighborhood {
   cursor: pointer;
+}
+@media not all and (pointer: coarse) {
+  .map-neighborhoods__icon-neighborhood:hover .a5879aaa-2562-415b-b382-b032ebfff121 {
+    fill: #963636;
+  }
+}
+.map-neighborhoods__icon-neighborhood .a5879aaa-2562-415b-b382-b032ebfff121 {
+  transition: fill 0.2s ease;
+}
+.map-neighborhoods__icon-neighborhood--active .a5879aaa-2562-415b-b382-b032ebfff121 {
+  fill: #963636;
+}
+.map-neighborhoods__icon--new {
+  width: 25%;
 }
