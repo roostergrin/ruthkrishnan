@@ -9,6 +9,12 @@
   &__container
     @include container
   
-  img
-    width: 100%
-    height: auto
+  &__content
+    @extend %section-padding-top
+  
+    p
+      margin: 1rem 0
+      
+    img
+      width: 100%
+      height: auto
