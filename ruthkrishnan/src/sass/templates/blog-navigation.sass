@@ -1,0 +1,32 @@
+/* -----------------------
+    Blog Navigation Styles
+   ----------------------- */
+
+.blog-navigation
+  background: $c2
+
+  &__categories-container
+    @include container
+
+  &__categories
+    @extend %section-padding
+    display: flex
+    justify-content: space-between
+    width: 100%
+
+  &__category
+  
+    &--active
+      position: relative
+      font-weight: 700
+    
+      &::after
+        position: absolute
+        top: calc(100% + 5px)
+        left: 50%
+        transform: translateX(-50%)
+        background: $black
+        border-radius: 50%
+        width: rem-calc(5)
+        height: rem-calc(5)
+        content: ''

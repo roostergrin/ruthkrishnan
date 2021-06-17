@@ -7,6 +7,7 @@
  */
 
 // include additional functionality -------------------------
+include_once(get_template_directory() . '/functions/custom-taxonomies.php');
 include_once(get_template_directory() . '/functions/custom-post.php');
 
 // remove wysiwyg editors -------------------------
@@ -45,6 +46,14 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'neighborhoods', get_template_directory_uri() . '/styles/neighborhoods.css' );
   }
 
+  if ( is_category() || is_page_template('page-blog.php') ) {
+    wp_enqueue_style( 'blog', get_template_directory_uri() . '/styles/blog.css' );
+  }
+
+  if ( is_single() && get_post_type() === 'post' ) {
+    wp_enqueue_style( 'single-blog', get_template_directory_uri() . '/styles/single-blog.css' );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -55,6 +64,11 @@ function theme_enqueue_scripts() {
   wp_enqueue_script( 'global' );
   
   // page specific scripts
+  if ( !is_home() && !is_front_page() && get_post_type() !== 'propertylistings' ) {
+    wp_register_script( 'siteHero', get_template_directory_uri() . '/js/site-hero.js', array(), '', true);
+    wp_enqueue_script( 'siteHero' );
+  }
+
   if ( is_page_template('page-newdevelopments.php') ) {
     wp_register_script( 'newdevelopments', get_template_directory_uri() . '/js/newdevelopments.js', array(), '', true);
     wp_enqueue_script( 'newdevelopments' );
@@ -100,3 +114,5 @@ function theme_menu() {
   );
 }
 add_action( 'init', 'theme_menu');
+
+

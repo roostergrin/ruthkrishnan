@@ -1,11 +1,14 @@
 {
+    "/js/global.js": "/js/global.js",
+    "/js/site-hero.js": "/js/site-hero.js",
     "/js/newdevelopments.js": "/js/newdevelopments.js",
     "/js/single-newdevelopments.js": "/js/single-newdevelopments.js",
     "/js/neighborhoods.js": "/js/neighborhoods.js",
-    "/js/global.js": "/js/global.js",
     "/styles/neighborhoods.css": "/styles/neighborhoods.css",
     "/styles/single-newdevelopments.css": "/styles/single-newdevelopments.css",
     "/styles/newdevelopments.css": "/styles/newdevelopments.css",
     "/styles/homepage.css": "/styles/homepage.css",
-    "/styles/global.css": "/styles/global.css"
+    "/styles/global.css": "/styles/global.css",
+    "/styles/single-blog.css": "/styles/single-blog.css",
+    "/styles/blog.css": "/styles/blog.css"
 }

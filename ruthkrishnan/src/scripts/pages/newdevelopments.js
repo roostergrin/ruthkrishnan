@@ -1,4 +1,3 @@
-import { siteHero } from '../resources/site-hero'
 import { setMap } from '../resources/gmap-development'
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -8,8 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const soldOutElems = document.querySelectorAll('.page-new-developments__development--sold-out')
   const filtersArr = document.querySelectorAll('.page-new-developments__filter')
   
-  siteHero();
-
   setMap('available-now');
   availableNowElems.forEach((el) => {
     el.classList.add('page-new-developments__development--active')

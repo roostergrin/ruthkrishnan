@@ -1,0 +1,52 @@
+/* -----------------------
+    Blog Main Styles
+   ----------------------- */
+
+.page-blog-main
+
+  &__intro-container
+    @include container
+  
+  &__intro
+    @include col(8)
+    @include col--offset(2)
+
+    &-title
+      @include desktop
+        padding: 5rem 0 1rem
+      @include nexus
+        padding: 2rem 0 1rem
+      padding: 4rem 0 1rem
+      width: 100%
+      text-align: center
+    
+    &-text
+      @include desktop
+        padding-bottom: 5rem
+      @include nexus
+        padding-bottom: 2rem
+      padding-bottom: 4rem
+    
+  &__posts
+    @extend %section-padding
+    background: $c2
+  
+  &__posts-container
+    @include container
+  
+  &__post
+    @include col(4)
+
+    &-container
+      background: $white
+
+    &-image
+      position: relative
+      width: 100%
+      padding-top: 80%
+    
+    &-background
+      @extend %absolute
+      object-fit: cover
+
+    
