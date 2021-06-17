@@ -7,6 +7,7 @@
           'label' => __( 'Categories' ),
           'rewrite' => array( 'slug' => 'development-category' ),
           'hierarchical' => true,
+          'show_admin_column' => true
       )
     );
   }
