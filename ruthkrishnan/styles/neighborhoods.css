@@ -261,6 +261,7 @@
   display: inline-block;
   position: relative;
   transition: background 0.2s ease;
+  border: 0.0625rem solid #AF5B5B;
   background: #AF5B5B;
   cursor: pointer;
   padding: 0.875rem 2rem 0.75rem;
@@ -270,6 +271,7 @@
 @media not all and (pointer: coarse) {
   .slider-neighborhoods__content-link:hover {
     background: #963636;
+    color: #AF5B5B;
   }
 }
 
@@ -351,16 +353,13 @@
   cursor: pointer;
 }
 @media not all and (pointer: coarse) {
-  .map-neighborhoods__icon-neighborhood:hover .a5879aaa-2562-415b-b382-b032ebfff121 {
+  .map-neighborhoods__icon-neighborhood:hover .bfa9d4ac-6583-4cd9-ad32-16abf80279d0 {
     fill: #963636;
   }
 }
-.map-neighborhoods__icon-neighborhood .a5879aaa-2562-415b-b382-b032ebfff121 {
+.map-neighborhoods__icon-neighborhood .bfa9d4ac-6583-4cd9-ad32-16abf80279d0 {
   transition: fill 0.2s ease;
 }
-.map-neighborhoods__icon-neighborhood--active .a5879aaa-2562-415b-b382-b032ebfff121 {
+.map-neighborhoods__icon-neighborhood--active .bfa9d4ac-6583-4cd9-ad32-16abf80279d0 {
   fill: #963636;
-}
-.map-neighborhoods__icon--new {
-  width: 25%;
 }

@@ -8,13 +8,40 @@
 
   &__container
     @include container
+
+  &__column
+    @include col(8)
+    @include col--offset(2)
   
   &__content
     @extend %section-padding-top
   
-    p
+    p, h1, h2, h3, h4, h5, h6
       margin: 1rem 0
       
     img
       width: 100%
       height: auto
+
+  &__infobar
+    @extend %section-padding
+    display: flex
+    justify-content: space-between
+    background: $c2
+    padding-right: rem-calc(48.5)
+    padding-left: rem-calc(48.5)
+    width: 100%
+
+  &__navigation
+    @extend %section-padding-bottom
+    display: flex
+    justify-content: space-between
+
+    &-prev
+      @extend %button-text
+      @include button($c3, $c3)
+      padding: rem-calc(14) 2rem rem-calc(12)
+    
+    &-next
+      @extend %button-text
+      @include button-solid($c3, $white, $white)

@@ -12,8 +12,20 @@
     @include col--offset(2)
 
     &-title
+      @include desktop
+        padding: 5rem 0 1rem
+      @include nexus
+        padding: 2rem 0 1rem
+      padding: 4rem 0 1rem
       width: 100%
       text-align: center
+    
+    &-text
+      @include desktop
+        padding-bottom: 5rem
+      @include nexus
+        padding-bottom: 2rem
+      padding-bottom: 4rem
     
   &__posts
     @extend %section-padding

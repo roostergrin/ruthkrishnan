@@ -11,9 +11,11 @@
 @mixin button-solid($background, $color, $hover)
   @include hover-supported
     background: $hover
+    color: $background
   display: inline-block
   position: relative
   transition: background .2s ease
+  border: rem-calc(1) solid $background
   background: $background
   cursor: pointer
   padding: rem-calc(14) 2rem rem-calc(12)
