@@ -31,9 +31,21 @@
               </div>
             </div>
 
-            <div class="post-blog__navigation">
-              <div class="post-blog__navigation-prev">previous</div>
-              <div class="post-blog__navigation-next">next</div>
+            <?php
+              $prev_post = get_previous_post();
+              $next_post = get_next_post(); 
+            ?>
+
+            <div class="post-blog__navigation <?php echo $next_post && !$prev_post ? 'post-blog__navigation--justify-end' : null; ?>">
+
+              <?php if ( $prev_post ) : ?>
+                <a href="<?php echo get_the_permalink( $prev_post->ID ); ?>" class="post-blog__navigation-prev">previous</a>
+              <?php endif; ?>
+
+              <?php if ( $next_post ) : ?>
+                <a href="<?php echo get_the_permalink( $next_post->ID ); ?>" class="post-blog__navigation-next">next</a>
+              <?php endif; ?>
+
             </div>
 
           <?php endwhile;
