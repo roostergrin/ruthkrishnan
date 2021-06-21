@@ -29,14 +29,14 @@ get_header(); ?>
     if ($category_id) : 
       $args = array(
         'post_status' => 'publish',
-        'posts_per_page' => 3,
+        'posts_per_page' => 12,
         'paged' => $paged,
         'cat' => $category_id
       );
     else :
       $args = array(
         'post_status' => 'publish',
-        'posts_per_page' => 3,
+        'posts_per_page' => 12,
         'paged' => $paged
       );
     endif;

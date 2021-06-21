@@ -27,26 +27,105 @@
         padding-bottom: 2rem
       padding-bottom: 4rem
     
-  &__posts
-    @extend %section-padding
+  &__posts-row
+    @include desktop
+      padding: 5rem 0
+    @include tablet
+      padding: 0
     background: $c2
+    padding: 4rem 0
+
+    &--alt
+      @include tablet
+        background: $c2
+      background: none
+
+    &:first-of-type
+      @include tablet
+        padding-top: 4rem
+      @include nexus
+        padding-top: 2rem
+        
+
+    &:last-of-type
+      @include tablet
+        padding-bottom: 4rem
+      @include nexus
+        padding-bottom: 2rem
+    
   
   &__posts-container
     @include container
-  
+    @include tablet
+      justify-content: center
+    align-items: stretch
+
   &__post
     @include col(4)
+    @include tablet
+      width: 75%
+      margin-bottom: 2rem
+    @include phone-lg
+      width: 100%
 
     &-container
+      display: flex
+      flex-direction: column
       background: $white
+      height: 100%
+      
+      @include hover-supported
+        .page-blog-main__post-background
+          transform: scale(1.1)
+        .page-blog-main__post-image-overlay
+          opacity: 1
+
+      .page-blog-main__posts-row--alt &
+        @include tablet
+          background: $white
+        background: $c2
 
     &-image
+      @include desktop
+        height: calc((#{$max-width} / 3) * .75)
+      @include tablet
+        height: calc(48vw * .75)
+      @include phone-lg
+        height: calc(98vw * .75)
       position: relative
       width: 100%
-      padding-top: 80%
+      height: calc((#{$width} / 3) * .75)
+      overflow: hidden
+    
+    &-image-overlay
+      @extend %absolute
+      transition: opacity .5s ease
+      opacity: 0
+      z-index: 1
+      background: rgba($black, .26)
     
     &-background
       @extend %absolute
+      transition: transform .7s cubic-bezier(.215, .61, .355, 1)
       object-fit: cover
-
     
+    &-content
+      width: 100%
+
+    &-top
+      padding: 1rem
+      width: 100%
+
+    &-bottom
+      display: flex
+      margin-top: auto
+      margin-bottom: 0
+      padding: 0 1rem 1rem 1rem
+      width: 100%
+    
+    &-date
+      width: 50%
+
+  &__coming-soon
+    width: 100%
+    text-align: center

@@ -32,8 +32,8 @@
             </div>
 
             <?php
-              $prev_post = get_previous_post();
-              $next_post = get_next_post(); 
+              $prev_post = get_previous_post( $in_same_term = true, $excluded_terms = '', $taxonomy = 'category' );
+              $next_post = get_next_post( $in_same_term = true, $excluded_terms = '', $taxonomy = 'category' ); 
             ?>
 
             <div class="post-blog__navigation <?php echo $next_post && !$prev_post ? 'post-blog__navigation--justify-end' : null; ?>">
@@ -53,6 +53,8 @@
       ?>
     </div>
   </div>
+
+  <?php get_template_part('template-parts/blog/blog-recent'); ?>
 </div>
 
 <?php get_footer(); ?>

@@ -19,34 +19,46 @@
     </div>
   </div>
 
-  <div class="page-blog-main__posts">
-    <div class="page-blog-main__posts-container">
-      <?php 
-        $query = new WP_Query( $args["query_args"] );
-
-        if ( $query->have_posts() ) :
-          while ( $query->have_posts() ) : $query->the_post();
+  <?php 
+    $query = new WP_Query( $args["query_args"] ); 
+    $blogCount = $query->found_posts > $query->query['posts_per_page'] ? $query->query['posts_per_page'] : $query->found_posts;
+    if ( $query->query['paged'] > 1 ) :
+      $blogCount = $query->found_posts - ($query->query['posts_per_page'] * ($query->query['paged'] - 1));
+    endif;
+    ?>
+    <div class="page-blog-main__posts">
+      <?php if ( $query->have_posts() ) :
+        while ( $query->have_posts() ) : $query->the_post(); ?>
+        
+          <?php
+            if ($query->current_post === 0) :
+              echo '<div class="page-blog-main__posts-row"><div class="page-blog-main__posts-container">';
+              // echo 'start';
+            endif;
           ?>
-            <div class="page-blog-main__post">
-              <div class="page-blog-main__post-container">
-                <?php if ( have_rows('background_image') ) :
-                  while ( have_rows('background_image') ) : the_row();
 
-                    $image = get_sub_field('image'); ?>
+          <div class="page-blog-main__post">
+            <div class="page-blog-main__post-container">
+              <?php if ( have_rows('background_image') ) :
+                while ( have_rows('background_image') ) : the_row();
 
-                    <a href="<?php echo the_permalink(); ?>">
-                      <div class="page-blog-main__post-image">
-                        <?php echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'page-blog-main__post-background' ]); ?>
-                      </div>
-                    </a>
+                  $image = get_sub_field('image'); ?>
 
-                  <?php endwhile;
-                endif; ?>
+                  <a href="<?php echo the_permalink(); ?>" class="page-blog-main__post-image">
+                    <div class="page-blog-main__post-image-overlay"></div>
+                    <?php echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'page-blog-main__post-background' ]); ?>
+                  </a>
 
+                <?php endwhile;
+              endif; ?>
+
+              <div class="page-blog-main__post-top">
                 <a href="<?php echo the_permalink(); ?>">
                   <h2 class="page-blog-main__post-title"><?php echo the_title(); ?></h2>
                 </a>
+              </div>
 
+              <div class="page-blog-main__post-bottom">
                 <div class="page-blog-main__post-date">
                     <?php echo get_the_date(); ?>
                 </div>
@@ -57,17 +69,35 @@
                   </a>
                 </div>
               </div>
+
             </div>
+          </div>
 
-          <?php endwhile;
-        else : ?>
-          <p>Coming Soon.</p>
-        <?php endif;
-      ?>
-
+          <?php 
+            if ( $query->current_post > 0 && ($query->current_post + 1) % 3 === 0 && $blogCount > 3 ) :
+              $blogCount -= 3;
+              
+              echo '</div></div><div class="page-blog-main__posts-row"><div class="page-blog-main__posts-container">';
+              // echo 'end start';
+            elseif ( $query->current_post === $query->query['posts_per_page'] - 1 && $blogCount === 3) :
+              $blogCount -= 3;
+              echo '</div></div>';
+              // echo 'end';
+            elseif ( $blogCount < 3 && $query->current_post === $query->found_posts - ($query->query['posts_per_page'] * ($query->query['paged'] - 1)) - 1) :
+              echo '</div></div>';
+              // echo 'end';
+            endif; 
+          ?>
+        <?php endwhile;
+      else : ?>
+        <div class="page-blog-main__posts">
+          <div class="page-blog-main__posts-container">
+            <div class="page-blog-main__coming-soon">Coming Soon.</div>
+          </div>
+        </div>
+      <?php endif; ?>
     </div>
-  </div>
-
+    
   <?php
     $total_pages = $query->max_num_pages;
 
@@ -99,12 +129,9 @@
           <?php endif; ?> 
       </nav>
 
-    <?php endif; ?>
+    <?php endif;
+  ?>
 
-    <?php get_template_part('template-parts/blog/blog-archive'); ?>
+  <?php get_template_part('template-parts/blog/blog-archive'); ?>
 
 </div>
-
-
-
-

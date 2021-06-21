@@ -84,6 +84,11 @@ function theme_enqueue_scripts() {
     wp_enqueue_script( 'neighborhoods' );
   }
 
+  if ( is_page_template('page-blog.php') ) {
+    wp_register_script( 'blog', get_template_directory_uri() . '/js/blog.js', array(), '', true);
+    wp_enqueue_script( 'blog' );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts');
 
