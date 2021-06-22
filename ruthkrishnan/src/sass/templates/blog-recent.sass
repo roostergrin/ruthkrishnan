@@ -61,10 +61,16 @@
     transition: transform .7s cubic-bezier(.215, .61, .355, 1)
     object-fit: cover
 
+  &__post-container
+    display: flex
+    flex-direction: column
+    height: 100%
+
   &__post-title
     display: block
     margin: rem-calc(8) 0
     font-weight: 700
+    line-height: 1.4
   
   &__post-date
     font-size: rem-calc(14)

@@ -208,10 +208,16 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
+.blog-recent__post-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 .blog-recent__post-title {
   display: block;
   margin: 0.5rem 0;
   font-weight: 700;
+  line-height: 1.4;
 }
 .blog-recent__post-date {
   font-size: 0.875rem;

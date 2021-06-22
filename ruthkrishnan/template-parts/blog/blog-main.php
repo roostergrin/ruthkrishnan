@@ -33,7 +33,6 @@
           <?php
             if ($query->current_post === 0) :
               echo '<div class="page-blog-main__posts-row"><div class="page-blog-main__posts-container">';
-              // echo 'start';
             endif;
           ?>
 
@@ -60,13 +59,28 @@
 
               <div class="page-blog-main__post-bottom">
                 <div class="page-blog-main__post-date">
-                    <?php echo get_the_date(); ?>
+
+                  <span class="page-blog-main__post-date-icon"><?php get_template_part('icons/clock'); ?></span>
+
+                  <span><?php echo get_the_date(); ?></span>
+
                 </div>
 
-                <div class="page-blog-main__post-category">
-                  <a href="/blog/<?php echo get_the_category()[0]->slug ?>">
-                    <?php echo get_the_category()[0]->name; ?>
-                  </a>
+                <div class="page-blog-main__post-categories">
+
+                  <span class="page-blog-main__post-category-icon"><?php get_template_part('icons/tag'); ?></span>
+
+                  <?php foreach ( get_the_category() as $key=>$category ) : ?>
+                    
+                    <a href="/blog/<?php echo $category->slug ?>" class="page-blog-main__post-category">
+                      <?php echo $category->name; ?>
+                    </a>
+
+                    <?php if ($key !== count(get_the_category()) - 1) : ?>
+                      <span>, </span>
+                    <?php endif; ?>
+
+                  <?php endforeach; ?>
                 </div>
               </div>
 
@@ -78,14 +92,11 @@
               $blogCount -= 3;
               
               echo '</div></div><div class="page-blog-main__posts-row"><div class="page-blog-main__posts-container">';
-              // echo 'end start';
             elseif ( $query->current_post === $query->query['posts_per_page'] - 1 && $blogCount === 3) :
               $blogCount -= 3;
               echo '</div></div>';
-              // echo 'end';
             elseif ( $blogCount < 3 && $query->current_post === $query->found_posts - ($query->query['posts_per_page'] * ($query->query['paged'] - 1)) - 1) :
               echo '</div></div>';
-              // echo 'end';
             endif; 
           ?>
         <?php endwhile;
@@ -104,29 +115,33 @@
     if ( $total_pages > 1 ) : ?>
     
       <nav class="page-blog-main__pagination" role="navigation" aria-label="Pagination Navigation">
-        <?php 
-          $paged = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
-          
-          if ( $paged > 1 ) : ?>
-            <a href="<?php echo get_pagenum_link($paged - 1); ?>"><</a>
-          <?php endif; ?>
-          
-
-          <?php for ( $x = 1; $x <= $total_pages; $x++ ) : 
-
-            if ( $paged === 1 && $x === 1 ) : ?>
-              <span class="page-blog-main__pagination-page page-blog-main__pagination-page--active">o</span>
-            <?php elseif ( get_query_var('paged') === $x ) : ?>
-              <span class="page-blog-main__pagination-page page-blog-main__pagination-page--active">o</span>
-            <?php else : ?>
-              <a href="<?php echo get_pagenum_link($x) ?>" class="page-blog-main__pagination-page">o</a>
+        <div class="page-blog-main__pagination-container">
+          <?php 
+            $paged = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
+            
+            if ( $paged > 1 ) : ?>
+              <a href="<?php echo get_pagenum_link($paged - 1); ?>" class="page-blog-main__pagination-prev"><?php get_template_part('icons/arrow'); ?></a>
             <?php endif; ?>
+            
 
-          <?php endfor; ?>
+            <?php for ( $x = 1; $x <= $total_pages; $x++ ) : 
 
-          <?php if ( $paged < $total_pages ) : ?>
-            <a href="<?php echo get_pagenum_link($paged + 1); ?>">></a>
-          <?php endif; ?> 
+              if ( $paged === 1 && $x === 1 ) : ?>
+                <span class="page-blog-main__pagination-dot page-blog-main__pagination-dot--active"></span>
+              <?php elseif ( get_query_var('paged') === $x ) : ?>
+                <span class="page-blog-main__pagination-dot page-blog-main__pagination-dot--active"></span>
+              <?php else : ?>
+                <a href="<?php echo get_pagenum_link($x) ?>" class="page-blog-main__pagination-dot"></a>
+              <?php endif; ?>
+
+            <?php endfor; ?>
+
+            <?php if ( $paged < $total_pages ) : ?>
+              <a href="<?php echo get_pagenum_link($paged + 1); ?>" class="page-blog-main__pagination-next"><?php get_template_part('icons/arrow'); ?></a>
+            <?php endif; ?> 
+
+          <div class="page-blog-main__pagination-number"><?php echo $query->query['paged'] . '/' . $total_pages; ?></div>
+        </div>
       </nav>
 
     <?php endif;
