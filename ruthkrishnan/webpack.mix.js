@@ -16,3 +16,4 @@ mix
 .sass('src/sass/pages/blog.sass', 'styles/')
 .sass('src/sass/pages/single-blog.sass', 'styles/')
 .js('src/scripts/pages/blog.js', 'js/')
+.js('src/scripts/pages/single-blog.js', 'js/')

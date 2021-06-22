@@ -89,6 +89,11 @@ function theme_enqueue_scripts() {
     wp_enqueue_script( 'blog' );
   }
 
+  if ( is_single() && get_post_type() === 'post' ) {
+    wp_register_script( 'single-blog', get_template_directory_uri() . '/js/single-blog.js', array(), '', true);
+    wp_enqueue_script( 'single-blog' );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts');
 

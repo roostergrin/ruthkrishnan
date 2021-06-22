@@ -33,11 +33,33 @@
   &__infobar
     @extend %section-padding
     display: flex
+    align-items: center
     justify-content: space-between
     background: $c2
     padding-right: rem-calc(48.5)
     padding-left: rem-calc(48.5)
     width: 100%
+
+    &-column
+      @include col(4)
+
+      svg
+        margin-right: rem-calc(8)
+        width: 1rem
+
+    &-date
+      text-align: center
+    
+    &-categories
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      justify-content: flex-end
+      
+    &-category
+      @include hover-supported
+        color: $c3
+      transition: color .15s ease
 
   &__navigation
     @extend %section-padding-bottom
