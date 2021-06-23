@@ -9,8 +9,12 @@ get_header(); ?>
 
 <div class='site-wrapper'>
   <main id='content' role='main'>
+    <div class="page-home">
+      <div class="page-home__loader"></div>
+      <?php get_template_part('template-parts/hero/home-hero'); ?>
+      <?php get_template_part('template-parts/testimonials/testimonials'); ?>
+    </div>
     <h1>Home Page</h1>
-    <?php get_template_part('template-parts/testimonials/testimonials'); ?>
   </main>
 </div>
 
