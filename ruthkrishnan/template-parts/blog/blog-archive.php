@@ -10,6 +10,8 @@
 ?>
 
 <div class="blog-archives">
-  <h2 class="blog-archives__title">Archives</h2>
-  <?php wp_get_archives(); ?>
+  <div class="blog-archives__container">
+    <h2 class="blog-archives__title">Archives</h2>
+    <?php wp_get_archives(); ?>
+  </div>
 </div>

@@ -9,13 +9,17 @@
 
 ?>
 
-<?php if ( have_rows('background_image') ) :
-   while ( have_rows('background_image' ) ) : the_row();
+<?php
+
+  $blogID = get_page_by_title('Blog')->ID;
+
+  if ( have_rows('background_image', $blogID) ) :
+    while ( have_rows('background_image', $blogID) ) : the_row();
 
       $image = get_sub_field('image');
 
-      if ( have_rows('positioning') ) :
-        while (have_rows('positioning') ) : the_row();
+      if ( have_rows('positioning', $blogID) ) :
+        while (have_rows('positioning', $blogID) ) : the_row();
           $xcoord  = get_sub_field('x_coordinates');
           $ycoord = get_sub_field('y_coordinates');
 
@@ -31,12 +35,7 @@
 
             <div class='hero-template__container'>
               <div class='hero-template__content'>
-                <h1 class='hero-template__title'>
-                  <?php if ( get_field('title_option') ) :
-                    echo get_field('title_option');
-                    else : echo the_title();
-                  endif; ?>
-                </h1>
+                <h1 class='hero-template__title'>Archives</h1>
               </div>
             </div>
           </div>
