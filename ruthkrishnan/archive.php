@@ -10,9 +10,9 @@
 
 get_header() ?>
 
-<div class="page-archive">
+<?php get_template_part('template-parts/hero/site-hero-archive'); ?>
 
-  <?php get_template_part('template-parts/hero/site-hero-archive'); ?>
+<div class="page-archive">
 
   <div class="page-archive__intro-container">
     <div class="page-archive__intro">
@@ -74,6 +74,8 @@ get_header() ?>
     </div>
   </div>
 
+  <?php get_template_part('template-parts/blog/blog-archive'); ?>
+  
 </div>
 
 <?php get_footer(); ?>
