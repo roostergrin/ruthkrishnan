@@ -33,6 +33,7 @@
   &__infobar
     @extend %section-padding
     display: flex
+    position: relative
     align-items: center
     justify-content: space-between
     background: $c2
@@ -42,10 +43,55 @@
 
     &-column
       @include col(4)
+      position: relative
 
       svg
         margin-right: rem-calc(8)
         width: 1rem
+
+    &-share
+      cursor: pointer
+    
+    &-share-popup
+      position: absolute
+      top: calc(100% + .5rem)
+      left: rem-calc(-48.5)
+      transition: opacity .25s ease
+      background: $c2
+      opacity: 0
+      border: 1px solid $black
+      padding: 1rem rem-calc(46)
+      pointer-events: none
+
+      &--active
+        opacity: 1
+        pointer-events: auto
+
+    &-copy
+      display: flex
+
+      &-input
+        border: 1px solid $gray
+        border-radius: rem-calc(5) 0 0 rem-calc(5)
+        padding: rem-calc(6)
+
+        &:focus
+          outline: none
+
+      &-button
+        @include hover-supported
+          background: darken(#e1e1e1, 10%)
+        position: relative
+        transition: background .5s ease
+        background: #e1e1e1
+        border: 1px solid $gray
+        border-left: none
+        border-radius: 0 rem-calc(5) rem-calc(5) 0
+        cursor: pointer
+        width: 2rem
+
+      &-icon
+        @extend %centered
 
     &-date
       text-align: center

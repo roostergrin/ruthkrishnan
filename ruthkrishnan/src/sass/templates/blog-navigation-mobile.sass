@@ -1,0 +1,112 @@
+/* --------------------------------
+    Blog Navigation Mobile Styles
+   -------------------------------- */
+
+.blog-navigation-mobile
+  @extend %section-padding
+  background: $c2
+
+  &__container
+    @include container
+    align-items: center
+    justify-content: space-between
+  
+  &__categories
+    width: calc(100% / 3)
+    text-align: left
+  
+  &__category
+    display: none
+
+    &--active
+      display: block
+  
+  &__archive
+    width: calc(100% / 3)
+    text-align: center
+
+  &__filter
+    cursor: pointer
+    width: calc(100% / 3)
+    text-align: right
+
+  &__fixed-nav
+    position: fixed
+    top: 0
+    left: 0
+    transition: opacity .4s ease-in
+    opacity: 0
+    z-index: 6
+    background: $c2
+    box-shadow: 0px 2px 5px 1px rgba($c1, .07)
+    padding: 1rem 0
+    width: 100%
+
+    &--active
+      opacity: 1
+
+  &__popup
+    @include tablet
+      padding: 1rem 0
+    display: flex
+    position: fixed
+    top: 0
+    left: 0
+    justify-content: center
+    transition: opacity .25s ease
+    opacity: 0
+    z-index: -5
+    padding: 2rem 0
+    width: 100%
+    height: 100%
+    pointer-events: none
+
+    &--active
+      opacity: 1
+      z-index: 5
+      pointer-events: auto
+    
+    &-overlay
+      @extend %absolute
+      background: rgba($c1, .7)
+      cursor: pointer
+      z-index: -1
+
+    &-container
+      @include col(8)
+      max-width: calc(100% - 2rem)
+      height: auto
+
+    
+    &-card
+      @include tablet
+        margin-bottom: 1rem
+        padding: 2rem 0 1rem
+      background: $c2
+      padding: 2rem 0 1rem
+      margin-bottom: 2rem
+
+    &-icon
+      @include tablet
+        margin-bottom: rem-calc(8)
+      display: flex
+      justify-content: center
+      margin-bottom: 1rem
+      width: 100%
+
+      svg
+        width: rem-calc(28)
+        height: auto
+      
+    &-categories
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+
+    &-category
+      @include tablet
+        margin: rem-calc(12) rem-calc(8)
+      margin: 1rem
+
+      &--active
+        font-weight: 700

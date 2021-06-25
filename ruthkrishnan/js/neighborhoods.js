@@ -140,7 +140,6 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
   iconArr.forEach(function (el) {
     return el.addEventListener('click', function (event) {
-      console.log('hello');
       mapSelectNeighborhood(el);
       openTooltip(event, el);
     });

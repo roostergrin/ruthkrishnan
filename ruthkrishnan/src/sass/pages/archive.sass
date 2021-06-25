@@ -1,6 +1,7 @@
 @import '../local/index.sass'
 @import '../templates/blog-main.sass'
 @import '../templates/blog-archives.sass'
+@import '../templates/blog-archives-mobile.sass'
 
 .page-archive
 
@@ -110,3 +111,14 @@
       @include hover-supported
         color: $c3
       transition: color .15s ease
+  
+  &__archive-slider
+
+    &--desktop
+      @include tablet-lg
+        display: none
+
+    &--mobile
+      @include tablet-lg
+        display: block
+      display: none

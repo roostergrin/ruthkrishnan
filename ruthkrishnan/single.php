@@ -24,11 +24,18 @@
             <div class="post-blog__infobar">
             
               <div class="post-blog__infobar-column post-blog__infobar-column--left">
-                <div class="post-blog__infobar-share">
+                <div id="blog-share" class="post-blog__infobar-share">
                   <span><?php get_template_part('icons/share'); ?></span>
-                  <span id="blog-share" data-link="<?php echo  the_permalink(); ?>">share</span>
+                  <span>Share</span>
+                </div>
+                <div id="share-popup" class="post-blog__infobar-share-popup">
+                  <div class="post-blog__infobar-copy">
+                    <input name="share-copy-link" id="share-copy-link" class="post-blog__infobar-copy-input" value="<?php echo the_permalink(); ?>" />
+                    <div id="share-copy-button" class="post-blog__infobar-copy-button"><?php get_template_part( 'icons/copy', null, array( 'class' => 'post-blog__infobar-copy-icon' ) ); ?></div>
+                  </div>
                 </div>
               </div>
+            
 
               <div class="post-blog__infobar-column post-blog__infobar-column--center">
                 <div class="post-blog__infobar-date">

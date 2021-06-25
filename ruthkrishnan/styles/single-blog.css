@@ -33,6 +33,13 @@
   font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+.post-blog__infobar-copy-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .blog-recent__image, .blog-recent__image-overlay {
   position: absolute;
   top: 0;
@@ -285,6 +292,7 @@
 }
 .post-blog__infobar {
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: space-between;
   background: #F4F0F0;
@@ -295,6 +303,7 @@
 .post-blog__infobar-column {
   padding: 0 calc(30px / 2);
   width: calc((4 / 12) * 100%);
+  position: relative;
 }
 @media screen and (max-width: 768px) {
   .post-blog__infobar-column {
@@ -305,6 +314,50 @@
 .post-blog__infobar-column svg {
   margin-right: 0.5rem;
   width: 1rem;
+}
+.post-blog__infobar-share {
+  cursor: pointer;
+}
+.post-blog__infobar-share-popup {
+  position: absolute;
+  top: calc(100% + .5rem);
+  left: -3.03125rem;
+  transition: opacity 0.25s ease;
+  background: #F4F0F0;
+  opacity: 0;
+  border: 1px solid #000;
+  padding: 1rem 2.875rem;
+  pointer-events: none;
+}
+.post-blog__infobar-share-popup--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.post-blog__infobar-copy {
+  display: flex;
+}
+.post-blog__infobar-copy-input {
+  border: 1px solid #ccc;
+  border-radius: 0.3125rem 0 0 0.3125rem;
+  padding: 0.375rem;
+}
+.post-blog__infobar-copy-input:focus {
+  outline: none;
+}
+.post-blog__infobar-copy-button {
+  position: relative;
+  transition: background 0.5s ease;
+  background: #e1e1e1;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 0.3125rem 0.3125rem 0;
+  cursor: pointer;
+  width: 2rem;
+}
+@media not all and (pointer: coarse) {
+  .post-blog__infobar-copy-button:hover {
+    background: #c8c8c8;
+  }
 }
 .post-blog__infobar-date {
   text-align: center;

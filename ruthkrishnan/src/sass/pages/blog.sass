@@ -1,4 +1,21 @@
 @import '../local/index.sass'
 @import '../templates/blog-navigation.sass'
+@import '../templates/blog-navigation-mobile.sass'
 @import '../templates/blog-main.sass'
 @import '../templates/blog-archives.sass'
+@import '../templates/blog-archives-mobile.sass'
+
+.page-blog
+
+  &__navigation-desktop
+    @include tablet-lg
+      display: none
+
+  &__navigation-mobile
+    @include tablet-lg
+      display: block
+    display: none
+
+  &__archive-desktop
+    @include tablet-lg
+      display: none

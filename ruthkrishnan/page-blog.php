@@ -8,11 +8,18 @@
 
 get_header(); ?>
 
+
 <div class='page-blog'>
 
   <?php get_template_part('template-parts/hero/site-hero'); ?>
 
-  <?php get_template_part('template-parts/blog/blog-navigation'); ?>
+  <div class="page-blog__navigation-desktop">
+    <?php get_template_part('template-parts/blog/blog-navigation'); ?>
+  </div>
+
+  <div class="page-blog__navigation-mobile">
+    <?php get_template_part('template-parts/blog/blog-navigation-mobile'); ?>
+  </div>
 
   <?php
     global $post;
@@ -46,6 +53,10 @@ get_header(); ?>
     get_template_part('template-parts/blog/blog-main', null, array( 'query_args' => $args, 'introduction' => $blog_intro ));
 
   ?>
+
+  <div class="page-blog__archive-desktop">
+    <?php get_template_part('template-parts/blog/blog-archive'); ?>
+  </div>
 
 </div>
 

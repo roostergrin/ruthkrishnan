@@ -2,7 +2,7 @@
     Blog Archives Styles
    ----------------------- */
 
-.blog-archives
+.blog-archives-mobile
 
   .page-archive &
     background: $c2
@@ -13,20 +13,24 @@
   
   &__title
     @extend %section-padding-top
-    padding-bottom: 0
+    padding-bottom: 1rem
   
   &__slides-container
-    @include desktop
-      margin: 2.5rem 0 5rem
-    @include nexus
-      margin: 1rem 0 2rem
     position: relative
-    margin: 2rem 0 4rem
+    margin: 1rem 0
     width: 100%
+
+    .page-archive &
+      @include desktop
+        margin: 2.5rem 0 5rem
+      @include nexus
+        margin: 1rem 0 2rem
+      margin: 2rem 0 4rem
 
   &__navigation
     position: absolute
     top: 50%
+    z-index: 1
     width: 1rem
     cursor: pointer
 
@@ -61,18 +65,16 @@
   
   &__slide-column
     padding: 0 1rem
-    width: calc(100% / 5)
+    width: calc(92% / 2)
     text-align: center
-
-  &__dates-column
-    @include col(2)
-    padding-bottom: 1rem
 
   &__date
     &:not(:last-of-type)
       margin-bottom: 1rem
     
     a
+      @include nexus
+        font-size: rem-calc(14)
       position: relative
       transition: font-weight .1s ease
       cursor: pointer

@@ -74,8 +74,14 @@ get_header() ?>
     </div>
   </div>
 
-  <?php get_template_part('template-parts/blog/blog-archive'); ?>
+  <div class="page-archive__archive-slider--desktop">
+    <?php get_template_part('template-parts/blog/blog-archive'); ?>
+  </div>
   
+  <div class="page-archive__archive-slider--mobile">
+    <?php get_template_part('template-parts/blog/blog-archive-mobile'); ?>
+  </div>
+
 </div>
 
 <?php get_footer(); ?>
