@@ -33,6 +33,71 @@
   font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+.home-hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 /* -----------------------
  * Typography
  * ----------------------- */
+.home-hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+@media screen and (max-width: 1024px) and (min-height: 1366px) {
+  .home-hero {
+    height: 56.25vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .home-hero {
+    height: 70vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .home-hero {
+    height: 60vh;
+  }
+}
+.home-hero__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
+  .home-hero__video {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.home-hero__overlay {
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.125) 24%, rgba(0, 0, 0, 0.05) 99%);
+}
+
+.page-home {
+  position: relative;
+}
+.page-home__loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease-in;
+  z-index: 99999;
+  background: #fff;
+  width: 100%;
+  height: 100vh;
+}
+.page-home__loader--loaded {
+  opacity: 0;
+  pointer-events: none;
+}

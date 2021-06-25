@@ -1,1 +1,19 @@
 @import '../local/index.sass'
+@import '../templates/home-hero.sass'
+
+.page-home
+  position: relative
+
+  &__loader
+    position: fixed
+    top: 0
+    left: 0
+    transition: opacity .3s ease-in
+    z-index: 99999
+    background: $white
+    width: 100%
+    height: 100vh
+
+    &--loaded
+      opacity: 0
+      pointer-events: none

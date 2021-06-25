@@ -18,3 +18,4 @@ mix
 .js('src/scripts/pages/blog.js', 'js/')
 .js('src/scripts/pages/single-blog.js', 'js/')
 .sass('src/sass/pages/archive.sass', 'styles/')
+.js('src/scripts/pages/homepage.js', 'js/')
