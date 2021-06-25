@@ -1,0 +1,27 @@
+.home-hero
+  @include ipad-pro
+    height: 56.25vw
+  @include tablet
+    height: 70vw 
+  @include nexus
+    height: 60vh
+  position: relative
+  height: 100vh
+  overflow: hidden
+
+  &__video
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: auto
+    overflow: hidden
+
+    @supports (object-fit: cover)
+      height: 100%
+      object-fit: cover
+
+  &__overlay
+    @extend %absolute
+    z-index: 1
+    background: linear-gradient(180deg, rgba($black, .45), rgba($black, .125) 24%, rgba($black, 0.05) 99%)

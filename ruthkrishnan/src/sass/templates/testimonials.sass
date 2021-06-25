@@ -1,0 +1,134 @@
+/* -----------------------
+   Testimonials Template Styles
+   ----------------------- */
+
+.testimonials-section
+  @extend %section-padding
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$gutter * 2})
+    @include tablet
+      padding-top: 3rem
+    padding-top: 4rem
+    max-width: #{$width}
+
+  &__color-block
+    @extend %absolute
+    z-index: -1
+    background: $c2
+    height: 75%
+
+  &__col
+    @include col (6)
+    @include col--offset (3)
+    @include tablet
+      margin: 0 auto
+      max-width: 75%
+    @include phone-lg
+      max-width: 85%
+    z-index: 2
+
+  &__images-slider
+    @include desktop
+      height: calc(((#{$max-width / 2}) - 2rem ) *.7)
+    @include tablet
+      height: calc(70vw * .7)
+    @include phone-lg
+      height: calc(80vw * .7)
+    position: relative
+    background: $c2
+    width: 100%
+    height: calc(((#{$width / 2}) - 2rem ) *.7)
+
+  &__image-slide,
+  &__image
+    @extend %absolute
+
+  &__image-slide
+    transition: opacity .3s ease
+    opacity: 0
+
+    &--active
+      opacity: 1
+
+  &__image
+    object-fit: cover
+
+  &__content-col
+    @include col (10)
+    @include col--offset(1)
+    margin-top: -4rem
+
+  &__content-slider
+    @include tablet
+      padding: 6rem 0 4rem
+    position: relative
+    border: 1px solid $c1
+    background: #F7F7F7
+    padding: 8rem 0 4rem
+
+  &__background-image
+    @extend %absolute
+
+  &__title
+    position: relative
+    z-index: 2
+    margin-bottom: rem-calc(40)
+    padding: 0 .5rem
+    text-align: center
+
+  &__content-wrapper
+    position: relative
+    margin: 0 auto
+    width: 80%
+
+  &__content-slide
+    @extend %absolute
+    transition: opacity .3s ease
+    opacity: 0
+
+    &--active
+      opacity: 1
+
+  &__name
+    margin-top: rem-calc(40)
+    text-align: center
+    font-weight: 700
+
+  &__indicators
+    @include desktop
+      transform: translate(0, calc(-50% - 2rem))
+    @include tablet
+      display: flex
+      top: unset
+      right: unset
+      bottom: -2rem
+      left: 50%
+      transform: translate(-50%, 0)
+    position: absolute
+    top: 50%
+    right: -2rem
+    transform: translate(0, calc(-50% - 20px))
+
+  &__dot
+    @include desktop
+      margin: rem-calc(6) auto
+      width: rem-calc(10)
+      height: rem-calc(10)
+    @include tablet
+      margin: auto rem-calc(4)
+    @include hover-supported
+      background: $c1
+    transition: background .3s ease
+    margin: rem-calc(4) auto
+    border: $c1 solid 1px
+    border-radius: 50%
+    cursor: pointer
+    width: rem-calc(8)
+    height: rem-calc(8)
+    pointer-events: all
+
+    &--active
+      background: $c1

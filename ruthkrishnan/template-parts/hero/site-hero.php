@@ -1,6 +1,6 @@
 <?php
 /**
- * Displays the site Hero.
+ * Displays the website Hero component.
  *
  * @package WordPress
  * @subpackage ruthkrishnan

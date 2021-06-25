@@ -62,8 +62,13 @@ function theme_enqueue_scripts() {
   // global scripts
   wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array(), '', true);
   wp_enqueue_script( 'global' );
-  
+
   // page specific scripts
+  if ( is_home() || is_front_page() ) {
+    wp_register_script( 'homepage', get_template_directory_uri() . '/js/homepage.js', array(), '', true );
+    wp_enqueue_script( 'homepage' );
+  }
+
   if ( !is_home() && !is_front_page() && get_post_type() !== 'propertylistings' ) {
     wp_register_script( 'siteHero', get_template_directory_uri() . '/js/site-hero.js', array(), '', true);
     wp_enqueue_script( 'siteHero' );
@@ -114,5 +119,3 @@ function theme_menu() {
   );
 }
 add_action( 'init', 'theme_menu');
-
-
