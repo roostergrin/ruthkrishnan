@@ -48,11 +48,9 @@
   &__popup
     @include tablet
       padding: 1rem 0
-    display: flex
     position: fixed
     top: 0
     left: 0
-    justify-content: center
     transition: opacity .25s ease
     opacity: 0
     z-index: -5
@@ -74,8 +72,8 @@
 
     &-container
       @include col(8)
+      margin: auto
       max-width: calc(100% - 2rem)
-      height: auto
 
     
     &-card

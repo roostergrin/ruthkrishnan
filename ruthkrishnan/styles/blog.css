@@ -190,11 +190,9 @@
   opacity: 1;
 }
 .blog-navigation-mobile__popup {
-  display: flex;
   position: fixed;
   top: 0;
   left: 0;
-  justify-content: center;
   transition: opacity 0.25s ease;
   opacity: 0;
   z-index: -5;
@@ -221,8 +219,8 @@
 .blog-navigation-mobile__popup-container {
   padding: 0 calc(30px / 2);
   width: calc((8 / 12) * 100%);
+  margin: auto;
   max-width: calc(100% - 2rem);
-  height: auto;
 }
 @media screen and (max-width: 768px) {
   .blog-navigation-mobile__popup-container {

@@ -359,6 +359,13 @@
     background: #c8c8c8;
   }
 }
+.post-blog__infobar-social {
+  margin-top: 1rem;
+}
+.post-blog__infobar-social .heateor_sss_sharing_ul {
+  display: flex;
+  justify-content: space-evenly;
+}
 .post-blog__infobar-date {
   text-align: center;
 }
