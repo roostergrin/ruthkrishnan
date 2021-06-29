@@ -47,7 +47,7 @@
                 </div>
               </div>
 
-              <div class="post-blog__infobar-column post-blog__infobar-column--rightnst">
+              <div class="post-blog__infobar-column post-blog__infobar-column--right">
                 <div class="post-blog__infobar-categories">
                   <?php get_template_part('icons/tag'); ?>
                   <?php foreach ( get_the_category() as $key=>$category ) : ?>

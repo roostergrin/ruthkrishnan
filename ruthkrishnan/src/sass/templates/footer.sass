@@ -1,0 +1,100 @@
+/* --------------------------
+    Footer Styles
+   -------------------------- */
+
+.footer
+  @include desktop
+    padding: 6rem 0
+  @include nexus
+    padding: 3rem 0
+  background: $c1
+  padding: 5rem 0
+  color: $c2
+
+  &__container
+    @include container
+  
+  &__column
+    @include col(3)
+    display: flex
+    flex-direction: column
+
+  &__title
+    @extend %h2
+    margin-bottom: 2rem
+  
+  &__link
+    @include hover-supported
+      opacity: .6
+    transition: opacity .186s ease
+    color: $c2
+  
+  &__contact-group
+    margin-top: rem-calc(24)
+  
+  &__home
+    width: 66.7%
+
+  &__logo
+    fill: $c2
+
+  &__post
+    &:not(:last-of-type)
+      margin-bottom: rem-calc(24)
+  
+  &__post-link
+    @include hover-supported
+      opacity: .5
+    transition: opacity .186s ease
+    color: $c2
+
+  &__learnmore
+    align-items: flex-end
+
+  &__navigation
+    margin: 0
+    padding: 0
+
+    .menu-item
+      list-style: none
+
+      &:not(:last-of-type)
+        margin-bottom: 1rem
+
+      a
+        @include hover-supported
+          opacity: .5
+        transition: opacity .186s ease
+        color: $c2
+
+    .current-menu-item
+      opacity: .5
+
+  &__follow
+    align-items: flex-end
+
+  &__social
+    display: flex
+    margin-bottom: rem-calc(24)
+
+    &-link
+      &:not(:first-of-type)
+        margin-left: .5rem
+
+    &-icon
+      @include hover-supported
+        opacity: .5
+      transition: opacity .186s ease
+      width: rem-calc(32)
+      fill: $c2
+
+  &__affiliate-logos
+    display: flex
+    flex-direction: column
+  
+  &__affiliate-icon
+    width: rem-calc(165)
+
+    &:not(:last-of-type)
+      margin-bottom: 1rem
+
