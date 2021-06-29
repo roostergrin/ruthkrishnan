@@ -1,0 +1,98 @@
+/* -----------------------
+    Blog Archives Styles
+   ----------------------- */
+
+.blog-archives
+
+  .page-archive &
+    background: $c2
+
+  &__container
+    @include container
+    justify-content: center
+  
+  &__title
+    @extend %section-padding-top
+    padding-bottom: 0
+  
+  &__slides-container
+    @include desktop
+      margin: 2.5rem 0 5rem
+    @include nexus
+      margin: 1rem 0 2rem
+    position: relative
+    margin: 2rem 0 4rem
+    width: 100%
+
+  &__navigation
+    position: absolute
+    top: 50%
+    width: 1rem
+    cursor: pointer
+
+    &--prev
+      left: 0
+      transform: translate3d(0, -50%, 0) scale(-1)
+    
+    &--next
+      right: 0
+      transform: translate3d(0, -50%, 0)
+
+  &__slides
+    @include col(10)
+    @include col--offset(1)
+    display: none
+    position: relative
+    padding: 0
+    list-style: none
+  
+  &__slide
+    @extend %absolute
+    display: flex
+    justify-content: center
+    transition: opacity .5s ease
+    opacity: 0
+    width: 100%
+    pointer-events: none
+
+    &--active
+      opacity: 1
+      pointer-events: auto
+  
+  &__slide-column
+    padding: 0 1rem
+    width: calc(100% / 5)
+    text-align: center
+
+  &__dates-column
+    @include col(2)
+    padding-bottom: 1rem
+
+  &__date
+    &:not(:last-of-type)
+      margin-bottom: 1rem
+    
+    a
+      position: relative
+      transition: font-weight .1s ease
+      cursor: pointer
+
+      @include hover-supported
+        &::after
+          opacity: 1
+
+      &::after
+        position: absolute
+        top: calc(100% + 2px)
+        left: 50%
+        transition: opacity .2s ease
+        transform: translate3d(-50%, 0, 0)
+        background: $black
+        border-radius: 50%
+        opacity: 0
+        width: rem-calc(7)
+        height: rem-calc(7)
+        content: ''
+
+    &--active
+      font-weight: 700

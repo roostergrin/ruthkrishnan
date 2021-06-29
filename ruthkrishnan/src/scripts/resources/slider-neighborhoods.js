@@ -110,7 +110,6 @@ export const sliderNeighborhoods = () => {
 
   // * add event listener to all map neighborhoods *
   iconArr.forEach(el => el.addEventListener('click', (event) => {
-    console.log('hello')
     mapSelectNeighborhood(el);
     openTooltip(event, el);
   }))

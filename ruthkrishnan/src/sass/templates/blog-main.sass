@@ -27,26 +27,176 @@
         padding-bottom: 2rem
       padding-bottom: 4rem
     
-  &__posts
-    @extend %section-padding
+  &__posts-row
+    @include desktop
+      padding: 5rem 0
+    @include tablet-lg
+      padding: 0
     background: $c2
+    padding: 4rem 0
+
+    &--alt
+      @include tablet-lg
+        background: $c2
+      background: none
+
+    &:first-of-type
+      @include tablet-lg
+        padding-top: 4rem
+      @include nexus
+        padding-top: 2rem
+        
+
+    &:last-of-type
+      @include tablet-lg
+        padding-bottom: 4rem
+      @include nexus
+        padding-bottom: 2rem
+    
   
   &__posts-container
     @include container
-  
+    @include tablet-lg
+      justify-content: center
+    align-items: stretch
+
   &__post
     @include col(4)
+    @include tablet-lg
+      width: 60%
+      margin-bottom: 2rem
+    @include tablet
+      width: 75%
+    @include phone-lg
+      width: 100%
 
     &-container
+      display: flex
+      flex-direction: column
       background: $white
+      height: 100%
+      
+      .page-blog-main__posts-row--alt &
+        @include tablet-lg
+          background: $white
+        background: $c2
 
     &-image
+      @include desktop
+        height: calc((#{$max-width} / 3) * .75)
+      @include tablet
+        height: calc(48vw * .75)
+      @include phone-lg
+        height: calc(98vw * .75)
       position: relative
       width: 100%
-      padding-top: 80%
+      height: calc((#{$width} / 3) * .75)
+      overflow: hidden
+
+      @include hover-supported
+        .page-blog-main__post-background
+          transform: scale(1.1)
+        .page-blog-main__post-image-overlay
+          opacity: 1
+    
+    &-image-overlay
+      @extend %absolute
+      transition: opacity .5s ease
+      opacity: 0
+      z-index: 1
+      background: rgba($black, .26)
     
     &-background
       @extend %absolute
+      transition: transform .7s cubic-bezier(.215, .61, .355, 1)
       object-fit: cover
-
     
+    &-content
+      width: 100%
+
+    &-top
+      padding: 1rem
+      width: 100%
+
+    &-title
+      @include hover-supported
+        color: $c3
+      display: inline-block
+      transition: color .15s ease
+
+    &-bottom
+      display: flex
+      flex-wrap: wrap
+      margin-top: auto
+      margin-bottom: 0
+      padding: 0 1rem 1rem 1rem
+      width: 100%
+      
+    &-date
+      width: 50%
+
+    &-date-icon
+      position: relative
+      margin-right: rem-calc(8)
+    
+      svg
+        width: 1rem
+
+    &-category-icon
+      margin-right: rem-calc(8)
+
+      svg
+        width: 1rem
+    
+    &-category
+      @include hover-supported
+        color: $c3
+      transition: color .15s ease
+
+  &__coming-soon
+    width: 100%
+    text-align: center
+
+  &__pagination
+    @extend %section-padding
+    background: $c2
+  
+    &-container
+      @include container
+      justify-content: center
+      align-items: center
+
+    &-dot
+      @include phone-lg
+        margin: rem-calc(5)
+      transition: background .3s ease
+      border: 1px solid $black
+      border-radius: 50%
+      margin: rem-calc(8)
+      cursor: pointer
+      width: rem-calc(8)
+      height: rem-calc(8)
+      content: ''
+
+      &--active
+        background: $black
+
+      @include hover-supported
+        background: $black
+
+    &-next
+      display: flex
+      align-items: center
+      width: rem-calc(16)
+
+    &-prev
+      display: flex
+      align-items: center
+      transform: rotate(180deg)
+      width: rem-calc(16)
+
+    &-number
+      margin-top: 1rem
+      width: 100%
+      text-align: center
+
