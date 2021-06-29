@@ -1,0 +1,124 @@
+@import '../local/index.sass'
+@import '../templates/blog-main.sass'
+@import '../templates/blog-archives.sass'
+@import '../templates/blog-archives-mobile.sass'
+
+.page-archive
+
+  &__intro-container
+    @extend %section-padding-top
+  
+  &__intro
+    @include container
+
+    &-title
+      @include col(8)
+      @include col--offset(2)
+      text-align: center
+  
+  &__posts
+    @extend %section-padding-bottom
+
+  &__posts-container
+    @include container
+    @include tablet-lg
+      justify-content: center
+    align-items: stretch
+
+  &__post
+    @include col(4)
+    @include tablet-lg
+      margin-bottom: 2rem
+      padding: 0 rem-calc(15)
+      width: 60%
+    @include tablet
+      width: 75%
+    @include phone-lg
+      width: 100%
+    padding: rem-calc(15)
+
+    &-container
+      display: flex
+      flex-direction: column
+      background: $c2
+      height: 100%
+
+    &-image
+      @include desktop
+        height: calc((#{$max-width} / 3) * .75)
+      @include tablet
+        height: calc(48vw * .75)
+      @include phone-lg
+        height: calc(98vw * .75)
+      position: relative
+      width: 100%
+      height: calc((#{$width} / 3) * .75)
+      overflow: hidden
+
+      @include hover-supported
+        .page-archive__post-background
+          transform: scale(1.1)
+        .page-archive__post-image-overlay
+          opacity: 1
+    
+    &-image-overlay
+      @extend %absolute
+      transition: opacity .5s ease
+      opacity: 0
+      z-index: 1
+      background: rgba($black, .26)
+    
+    &-background
+      @extend %absolute
+      transition: transform .7s cubic-bezier(.215, .61, .355, 1)
+      object-fit: cover
+
+    &-top
+      padding: 1rem
+      width: 100%
+
+    &-title
+      @include hover-supported
+        color: $c3
+      display: inline-block
+      transition: color .15s ease
+
+    &-bottom
+      display: flex
+      flex-wrap: wrap
+      margin-top: auto
+      margin-bottom: 0
+      padding: 0 1rem 1rem 1rem
+      width: 100%
+      
+    &-date
+      width: 50%
+
+    &-date-icon
+      position: relative
+      margin-right: rem-calc(8)
+    
+      svg
+        width: 1rem
+
+    &-category-icon
+      margin-right: rem-calc(8)
+
+      svg
+        width: 1rem
+    
+    &-category
+      @include hover-supported
+        color: $c3
+      transition: color .15s ease
+  
+  &__archive-slider
+
+    &--desktop
+      @include tablet-lg
+        display: none
+
+    &--mobile
+      @include tablet-lg
+        display: block
+      display: none
