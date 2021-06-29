@@ -14,7 +14,6 @@ get_header(); ?>
       <?php get_template_part('template-parts/hero/home-hero'); ?>
 
       <!-- Home Welcome Section -->
-
       <section class="home-welcome">
         <div class="home-welcome__color-box"></div>
         <h2 class="home-welcome__title home-welcome__title--mobile">
