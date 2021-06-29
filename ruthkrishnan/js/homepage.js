@@ -85,11 +85,39 @@ __webpack_require__.r(__webpack_exports__);
 
 document.addEventListener('DOMContentLoaded', function () {
   var loader = document.querySelector('.page-home__loader'),
-      video = document.querySelector('.home-hero__video');
+      video = document.querySelector('.home-hero__video'),
+      welcomeVideo = document.querySelector('.home-welcome__video'),
+      videoModal = document.querySelector('.home-welcome__video-modal'),
+      playBtn = document.querySelector('.home-welcome__play-btn'),
+      closeBtn = document.querySelector('.home-welcome__close-btn'),
+      overlay = document.querySelector('.home-welcome__modal-overlay'); // Hero Video
+
   video.addEventListener('loadeddata', function () {
     loader.classList.add('page-home__loader--loaded');
   });
-  (0,_resources_home_hero_js__WEBPACK_IMPORTED_MODULE_0__.homeHero)();
+  (0,_resources_home_hero_js__WEBPACK_IMPORTED_MODULE_0__.homeHero)(); // Home Welcome
+
+  var openModal = function openModal() {
+    videoModal.classList.add('home-welcome__video-modal--open');
+    setTimeout(function () {
+      welcomeVideo.play();
+    }, 250);
+  };
+
+  var closeModal = function closeModal() {
+    videoModal.classList.remove('home-welcome__video-modal--open');
+    welcomeVideo.pause();
+  };
+
+  playBtn.addEventListener('click', function () {
+    openModal();
+  });
+  overlay.addEventListener('click', function () {
+    closeModal();
+  });
+  closeBtn.addEventListener('click', function () {
+    closeModal();
+  });
 });
 })();
 

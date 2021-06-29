@@ -1,6 +1,10 @@
 @import '../local/index.sass'
 @import '../templates/home-hero.sass'
 
+/* -----------------------
+   Home Page Styles
+   ----------------------- */
+
 .page-home
   position: relative
 
@@ -17,3 +21,187 @@
     &--loaded
       opacity: 0
       pointer-events: none
+
+/* -----------------------
+   Home Page Styles
+   ----------------------- */
+
+.home-welcome
+  @extend %section-padding-top
+  @include max-width (1250px)
+    margin-top: 0
+  @include tablet-md
+    background: $c1
+  position: relative
+  margin-top: 5rem
+
+  &__color-box
+    @extend %absolute
+    @include desktop
+      max-width: calc(#{$max-width} + #{$gutter})
+    @include max-width (1250px)
+      display: none
+    left: 50%
+    transform: translateX(-50%)
+    z-index: -1
+    background: $c2
+    max-width: calc(#{$width} + #{$outside-gutter})
+    height: 80%
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include max-width (1250px)
+      max-width: calc(100vw - 3rem)
+    @include tablet-md
+      flex-direction: column-reverse
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    background: $c1
+    padding: 0
+    max-width: $width
+
+  &__content
+    @include col (4)
+    @include col--offset (1)
+    @include desktop
+      padding: 7rem 0
+    @include laptop
+      margin-left: 0
+      padding-left: 2rem
+      width: calc((5/12) * 100%)
+    @include tablet-md
+      padding: 3rem 0
+      width: 100%
+    padding: 5rem 0
+
+  &__image-col
+    @include col (7)
+    @include tablet-md
+      padding: 0
+      width: 100%
+      height: 60vw
+    padding-right: 0
+
+  &__image-container
+    position: relative
+    width: 100%
+    height: 100%
+
+  &__thumbnail
+    @extend %absolute
+    object-fit: cover
+
+  &__title
+    @include tablet-md
+      display: none
+    margin-bottom: rem-calc(20)
+    color: $white
+
+    &--mobile
+      @include tablet-md
+        display: block
+      @include phone-lg
+        padding: 0 1rem
+      display: none
+      padding: 0 2rem
+
+  &__text
+    color: $white
+
+    p
+      &:not(:last-child)
+        margin-bottom: 1rem
+
+  &__play-btn
+    @extend %centered
+    @include hover-supported
+      .home-welcome__icon
+        opacity: .7
+    z-index: 3
+    cursor: pointer
+
+  &__icon
+    transition: opacity .2s ease
+    width: 3rem
+    height: 3rem
+    fill: $c1
+
+  &__button
+    @extend %button-text
+    @include hover-supported
+      background: $c6
+      color: $white
+    display: inline-block
+    position: relative
+    transition: background .2s ease, color .2s ease
+    margin-top: 2rem
+    background: $c2
+    cursor: pointer
+    padding: rem-calc(14) 2rem rem-calc(12)
+    text-transform: lowercase
+
+  &__video-modal
+    position: fixed
+    top: 0
+    left: 0
+    transition: opacity .3s ease
+    opacity: 0
+    z-index: 9999
+    width: 100%
+    height: 100%
+    pointer-events: none
+
+    &--open
+      opacity: 1
+      pointer-events: all
+
+  &__modal-overlay
+    @extend %absolute
+    background: rgba($black, .6)
+
+  &__modal-container
+    @extend %centered
+    @include tablet
+      width: 95vw
+      height: calc(95vw * .5625)
+    width: 70vw
+    height: calc(70vw * .5625)
+
+  &__video
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: auto
+    overflow: hidden
+
+    @supports (object-fit: cover)
+      height: 100%
+      object-fit: cover
+
+  &__close-btn
+    position: absolute
+    top: 1rem
+    right: 1rem
+    z-index: 2
+    cursor: pointer
+    width: 2rem
+    height: 2rem
+
+    span
+      display: block
+      position: absolute
+      top: 50%
+      left: 0
+      background: $white
+      width: 100%
+      height: 3px
+
+      &:first-child
+        transform: rotate(45deg)
+      &:last-child
+        transform: rotate(-45deg)
