@@ -48,23 +48,20 @@
       <a href='/contact-us' class="site-navigation__btn--mobile"> schedule consultation</a>
     </div>
     <div class="site-navigation__lower">
-      <a href="tel:1-415-735-5867" class="site-navigation__phone">(415) 735-5867</a>
+      <a href="<?php echo get_field('phone_link', 'options'); ?>" class="site-navigation__phone"><?php echo get_field('phone_number', 'options'); ?></a>
       <div class="site-navigation__social-media">
-        <a href="#" aria-label='Facebook page (opens in a new tab)'>
-          <?php get_template_part('icons/facebook', null, array( 'class' => 'site-navigation__social-icon' )); ?>
-        </a>
-        <a href="#" aria-label='Instagram page (opens in a new tab)'>
-          <?php get_template_part('icons/instagram', null, array( 'class' => 'site-navigation__social-icon' )); ?>
-        </a>
-        <a href="#" aria-label='LinkedIn page (opens in a new tab)'>
-          <?php get_template_part('icons/linkedin', null, array( 'class' => 'site-navigation__social-icon' )); ?>
-        </a>
-        <a href="#" aria-label='Yelp page (opens in a new tab)'>
-          <?php get_template_part('icons/yelp', null, array( 'class' => 'site-navigation__social-icon' )); ?>
-        </a>
-        <a href="#" aria-label='YouTube page (opens in a new tab)'>
-          <?php get_template_part('icons/youtube', null, array( 'class' => 'site-navigation__social-icon' )); ?>
-        </a>
+        <?php if ( have_rows('social_media', 'options') ) :
+          while ( have_rows('social_media', 'options') ) : the_row(); 
+            $icon = get_sub_field('icon_name');
+            $link = get_sub_field('link');
+          ?>
+
+            <a href="<?php echo $link; ?>" aria-label="<?php echo $icon; ?> page (opens in a new tab)" target="_blank">
+              <?php get_template_part('icons/' . $icon, null, array( 'class' => 'site-navigation__social-icon' )); ?>
+            </a>
+
+          <?php endwhile;
+        endif; ?>
       </div>
     </div>
   </div>
