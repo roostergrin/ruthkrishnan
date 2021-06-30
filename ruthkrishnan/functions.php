@@ -133,3 +133,15 @@ function theme_menu() {
   );
 }
 add_action( 'init', 'theme_menu');
+
+// Add ACF Options Page
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page( array(
+    'page_title' => 'Global Data',
+    'menu_title' => 'Global Data',
+    'menu_slug' => 'globaldata',
+    'icon_url' => 'dashicons-admin-site-alt3'
+  ) );
+	
+}
