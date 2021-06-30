@@ -53,7 +53,6 @@ get_header(); ?>
 
       <?php get_template_part('template-parts/testimonials/testimonials'); ?>
     </div>
-    <h1>Home Page</h1>
   </main>
 </div>
 
