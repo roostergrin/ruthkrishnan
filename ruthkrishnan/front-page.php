@@ -52,6 +52,8 @@ get_header(); ?>
       </div> <!-- End Home Welcome Section -->
 
       <?php get_template_part('template-parts/testimonials/testimonials'); ?>
+
+      <?php get_template_part('template-parts/forms/form-get-in-touch'); ?>
     </div>
   </main>
 </div>

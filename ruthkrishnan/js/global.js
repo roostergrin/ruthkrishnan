@@ -91,53 +91,55 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 var testimonials = function testimonials() {
-  var imageSlide = document.querySelectorAll('.testimonials-section__image-slide'),
-      contentSlide = document.querySelectorAll('.testimonials-section__content-slide'),
-      sliderLength = document.querySelector('.testimonials-section__images-slider').dataset.imageSliderLength,
-      dot = document.querySelectorAll('.testimonials-section__dot'),
-      content = Array.from(document.querySelectorAll('.testimonials-section__content')),
-      contentWrapper = document.querySelector('.testimonials-section__content-wrapper');
-  var currSlide = 0,
-      maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
-    return el.clientHeight;
-  })));
-  contentWrapper.style.height = maxHeight + 'px';
-  window.addEventListener('resize', function () {
-    maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
+  if (document.querySelector('.testimonials-section')) {
+    var imageSlide = document.querySelectorAll('.testimonials-section__image-slide'),
+        contentSlide = document.querySelectorAll('.testimonials-section__content-slide'),
+        sliderLength = document.querySelector('.testimonials-section__images-slider').dataset.imageSliderLength,
+        dot = document.querySelectorAll('.testimonials-section__dot'),
+        content = Array.from(document.querySelectorAll('.testimonials-section__content')),
+        contentWrapper = document.querySelector('.testimonials-section__content-wrapper');
+    var currSlide = 0,
+        maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
       return el.clientHeight;
     })));
     contentWrapper.style.height = maxHeight + 'px';
-  });
+    window.addEventListener('resize', function () {
+      maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
+        return el.clientHeight;
+      })));
+      contentWrapper.style.height = maxHeight + 'px';
+    });
 
-  var setSlide = function setSlide() {
-    imageSlide.forEach(function (image) {
-      currSlide === +image.dataset.imageIndex - 1 ? image.classList.add('testimonials-section__image-slide--active') : image.classList.remove('testimonials-section__image-slide--active');
-    });
-    contentSlide.forEach(function (content) {
-      currSlide === +content.dataset.contentIndex - 1 ? content.classList.add('testimonials-section__content-slide--active') : content.classList.remove('testimonials-section__content-slide--active');
-    });
-    dot.forEach(function (dot) {
-      currSlide === +dot.dataset.index ? dot.classList.add('photo-gallery__dot--active') : dot.classList.remove('photo-gallery__dot--active');
-    });
-  };
+    var setSlide = function setSlide() {
+      imageSlide.forEach(function (image) {
+        currSlide === +image.dataset.imageIndex - 1 ? image.classList.add('testimonials-section__image-slide--active') : image.classList.remove('testimonials-section__image-slide--active');
+      });
+      contentSlide.forEach(function (content) {
+        currSlide === +content.dataset.contentIndex - 1 ? content.classList.add('testimonials-section__content-slide--active') : content.classList.remove('testimonials-section__content-slide--active');
+      });
+      dot.forEach(function (dot) {
+        currSlide === +dot.dataset.index ? dot.classList.add('photo-gallery__dot--active') : dot.classList.remove('photo-gallery__dot--active');
+      });
+    };
 
-  setSlide();
-  var autoSlide = setInterval(function () {
-    currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++;
     setSlide();
-  }, 7000);
+    var autoSlide = setInterval(function () {
+      currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++;
+      setSlide();
+    }, 7000);
 
-  var goToSlide = function goToSlide(val) {
-    clearInterval(autoSlide);
-    currSlide = val;
-    setSlide();
-  };
+    var goToSlide = function goToSlide(val) {
+      clearInterval(autoSlide);
+      currSlide = val;
+      setSlide();
+    };
 
-  dot.forEach(function (dot, i) {
-    dot.addEventListener('click', function () {
-      goToSlide(i);
+    dot.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        goToSlide(i);
+      });
     });
-  });
+  }
 };
 
 /***/ }),
