@@ -17,8 +17,7 @@
   <div class="map-neighborhoods__container">
     <div class="map-neighborhoods__column">
       <h2>This is the Neighborhood Map</h2>
-      <?php get_template_part('icons/test-map', null, array( 'class' => 'map-neighborhoods__icon' )); ?>
-      <?php get_template_part('icons/test-map-2', null, array( 'class' => 'map-neighborhoods__icon--new' )); ?>
+      <?php get_template_part('icons/map', null, array( 'class' => 'map-neighborhoods__icon' )); ?>
     </div>
   </div>
 </div>

@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="form-subscribe">
+<section class="form-subscribe">
   <div class="form-subscribe__container">
     <div class="form-subscribe__content">
       <h2 class="form-subscribe__title"><?php echo get_field('subscribe_title', 'options'); ?></h2>
@@ -24,4 +24,4 @@
       <button type="submit" for="subscribe-form" class="form-subscribe__submit"><?php get_template_part('icons/arrow', null, array( 'class' => 'form-subscribe__arrow' )); ?></button>
     </div>
   </div>
-</div>
+</section>

@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="form-get-in-touch">
+<section class="form-get-in-touch">
     <?php if ( have_rows('get_in_touch') ) :
       while ( have_rows('get_in_touch') ) : the_row();
       $image = get_sub_field('background_image'); 
@@ -75,4 +75,4 @@
       <?php endwhile;
     endif; ?>
       
-</div>
+</section>
