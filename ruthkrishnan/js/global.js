@@ -40,15 +40,13 @@ var navigation = function navigation() {
   drawer.classList.remove('site-navigation__drawer--active');
 
   var handleScroll = function handleScroll() {
-    var currPos = window.pageYOffset;
+    scrollPos = window.pageYOffset;
 
     if (scrollPos > window.innerHeight * 0.25) {
       el.classList.add('site-navigation--active');
     } else {
       el.classList.remove('site-navigation--active');
     }
-
-    scrollPos = currPos;
   };
 
   var toggleMenu = function toggleMenu() {
@@ -172,6 +170,18 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************!*\
   !*** ./src/sass/pages/archive.sass ***!
   \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/sass/pages/about.sass":
+/*!***********************************!*\
+  !*** ./src/sass/pages/about.sass ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -343,6 +353,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 			"styles/newdevelopments": 0,
 /******/ 			"styles/homepage": 0,
 /******/ 			"styles/global": 0,
+/******/ 			"styles/about": 0,
 /******/ 			"styles/archive": 0,
 /******/ 			"styles/single-blog": 0,
 /******/ 			"styles/blog": 0
@@ -393,15 +404,16 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/scripts/global.js")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/global.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/homepage.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/newdevelopments.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/single-newdevelopments.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/neighborhoods.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/blog.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/single-blog.sass")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/archive.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/scripts/global.js")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/global.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/homepage.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/newdevelopments.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/single-newdevelopments.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/neighborhoods.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/blog.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/single-blog.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/archive.sass")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/about.sass")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
