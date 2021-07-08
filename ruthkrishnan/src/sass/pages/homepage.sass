@@ -3,7 +3,7 @@
 @import '../templates/form-get-in-touch.sass'
 
 /* -----------------------
-   Home Page Styles
+    Home Page Styles
    ----------------------- */
 
 .page-home
@@ -23,9 +23,9 @@
       opacity: 0
       pointer-events: none
 
-/* -----------------------
-   Home Page Styles
-   ----------------------- */
+/* -----------------------------
+    Home Welcome Section Styles
+   ----------------------------- */
 
 .home-welcome
   @extend %section-padding-top
@@ -206,3 +206,25 @@
         transform: rotate(45deg)
       &:last-child
         transform: rotate(-45deg)
+
+/* -----------------------------
+    Home Welcome Section Styles
+   ----------------------------- */
+
+.home-committed
+  @extend %section-padding
+  @include nexus
+    padding: 2rem 0 1rem
+  position: relative
+
+  &__container
+    @include container
+    padding: 0
+    justify-content: center
+  
+  &__column
+    @include col(6)
+    text-align: center
+
+  &__title
+    margin-bottom: 1rem

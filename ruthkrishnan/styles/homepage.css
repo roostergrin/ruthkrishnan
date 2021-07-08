@@ -60,16 +60,16 @@
   }
 }
 
-.form-get-in-touch__form-container {
+.home-committed, .form-get-in-touch__form-container {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .form-get-in-touch__form-container {
+  .home-committed, .form-get-in-touch__form-container {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .form-get-in-touch__form-container {
+  .home-committed, .form-get-in-touch__form-container {
     padding: 1rem 0;
   }
 }
@@ -315,7 +315,7 @@
 }
 
 /* -----------------------
- * Home Page Styles
+ *  Home Page Styles
  * ----------------------- */
 .page-home {
   position: relative;
@@ -335,9 +335,9 @@
   pointer-events: none;
 }
 
-/* -----------------------
- * Home Page Styles
- * ----------------------- */
+/* -----------------------------
+ *  Home Welcome Section Styles
+ * ----------------------------- */
 .home-welcome {
   position: relative;
   margin-top: 5rem;
@@ -607,4 +607,56 @@
 }
 .home-welcome__close-btn span:last-child {
   transform: rotate(-45deg);
+}
+
+/* -----------------------------
+ *  Home Welcome Section Styles
+ * ----------------------------- */
+.home-committed {
+  position: relative;
+}
+@media screen and (max-width: 600px) {
+  .home-committed {
+    padding: 2rem 0 1rem;
+  }
+}
+.home-committed__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  padding: 0;
+  justify-content: center;
+}
+@media screen and (min-width: 1750px) {
+  .home-committed__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .home-committed__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .home-committed__container {
+    padding: 0 1rem;
+  }
+}
+.home-committed__column {
+  padding: 0 calc(30px / 2);
+  width: calc((6 / 12) * 100%);
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .home-committed__column {
+    padding: 0;
+    width: 100%;
+  }
+}
+.home-committed__title {
+  margin-bottom: 1rem;
 }
