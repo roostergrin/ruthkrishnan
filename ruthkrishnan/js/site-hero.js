@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     };
 
+    onScroll();
     window.addEventListener('scroll', onScroll);
   };
 

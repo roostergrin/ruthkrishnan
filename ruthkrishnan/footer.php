@@ -10,7 +10,7 @@
  */
 ?>
 
-<?php wp_footer(); ?>
+<?php get_template_part('template-parts/forms/form-subscribe'); ?>
 
 <footer class="footer">
   <div class="footer__container">
@@ -42,7 +42,7 @@
             while ( $query->have_posts() ) : $query->the_post(); ?>
               <div class="footer__post">
                 <a href="<?php echo the_permalink(); ?>" class="footer__post-link">
-                  <?php echo the_title() . " | " . get_the_date(); ?>
+                  <?php echo the_title(); ?>
                 </a>
               </div>
             <?php endwhile;
@@ -117,6 +117,8 @@
 
   </div>
 </footer>
+
+<?php wp_footer(); ?>
 
 </body>
 </html>

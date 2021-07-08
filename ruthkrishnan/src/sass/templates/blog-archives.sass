@@ -27,8 +27,14 @@
   &__navigation
     position: absolute
     top: 50%
+    opacity: 0
     width: 1rem
     cursor: pointer
+    pointer-events: none
+
+    &--active
+      opacity: 1
+      pointer-events: auto
 
     &--prev
       left: 0

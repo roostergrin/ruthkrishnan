@@ -49,11 +49,30 @@ get_header(); ?>
           </div>
           <video class="home-welcome__video" src="<?php echo get_field('welcome_video') ?>" type='video/mp4' controls></video>
         </div>
-      </div> <!-- End Home Welcome Section -->
+      </div>
+      <!-- END Home Welcome Section -->
 
+      <!-- Home Committed Section -->
+      <div class="home-committed">
+        <div class="home-committed__background">
+        </div>
+        <div class="home-committed__container">
+          <div class="home-committed__column">
+            <h2 class="home-committed__title"><?php echo get_field('committed_title'); ?></h2>
+            <div class="home-committed__text"><?php echo get_field('committed_text'); ?></div>
+          </div>
+        </div>
+      </div>
+      <!-- END Home Committed Section -->
+
+      <!-- Testimonials Section Template Part -->
       <?php get_template_part('template-parts/testimonials/testimonials'); ?>
+      <!-- END Testimonials Section Template Part -->
+
+      <!-- Get In Touch Form Template Part -->
+      <?php get_template_part('template-parts/forms/form-get-in-touch'); ?>
+      <!-- END Get In Touch Form Template Part -->
     </div>
-    <h1>Home Page</h1>
   </main>
 </div>
 

@@ -182,6 +182,13 @@ var blogArchives = function blogArchives() {
 
       while (colArr.length > 0) {
         slidesArr.push(colArr.splice(0, 5));
+      }
+
+      if (slidesArr.length > 1) {
+        var slideNavs = Array.from(document.querySelectorAll('.blog-archives__navigation'));
+        slideNavs.forEach(function (slide) {
+          return slide.classList.add('blog-archives__navigation--active');
+        });
       } // append links to columns, then columns into slides and then slides into slides container
 
 

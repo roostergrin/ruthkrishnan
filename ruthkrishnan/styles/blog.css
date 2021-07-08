@@ -667,8 +667,14 @@
 .blog-archives__navigation {
   position: absolute;
   top: 50%;
+  opacity: 0;
   width: 1rem;
   cursor: pointer;
+  pointer-events: none;
+}
+.blog-archives__navigation--active {
+  opacity: 1;
+  pointer-events: auto;
 }
 .blog-archives__navigation--prev {
   left: 0;
