@@ -1,0 +1,134 @@
+/* -----------------------
+ * Fonts
+ * ----------------------- */
+@font-face {
+  font-family: "Avenir Next";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://dev.ruthkrishnan.com/wp-content/themes/ruthkrishnan/fonts/AvenirNext-Regular.woff") format("woff");
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Avenir Next";
+  font-weight: 500;
+  font-style: normal;
+  src: url("https://dev.ruthkrishnan.com/wp-content/themes/ruthkrishnan/fonts/AvenirNext-Medium.woff") format("woff");
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Avenir Next";
+  font-weight: 700;
+  font-style: normal;
+  src: url("https://dev.ruthkrishnan.com/wp-content/themes/ruthkrishnan/fonts/AvenirNext-Bold.woff") format("woff");
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Avenir Next";
+  font-weight: 800;
+  font-style: normal;
+  src: url("https://dev.ruthkrishnan.com/wp-content/themes/ruthkrishnan/fonts/AvenirNext-Heavy.woff") format("woff");
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+.hero-listings__iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-listings__overlay, .hero-listings__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* -----------------------
+ * Typography
+ * ----------------------- */
+/* -----------------------
+ *  Hero Listings Styles
+ * ----------------------- */
+.hero-listings {
+  position: relative;
+  height: 85vh;
+  min-height: 36.25rem;
+  overflow: hidden;
+}
+.hero-listings__wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+.hero-listings__background {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.hero-listings__iframe {
+  width: 177.778vh;
+  min-width: 100%;
+  height: 56.25vw;
+  min-height: 100%;
+}
+.hero-listings__overlay {
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.3) 80%);
+}
+.hero-listings__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  height: 100%;
+}
+@media screen and (min-width: 1750px) {
+  .hero-listings__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero-listings__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .hero-listings__container {
+    padding: 0 1rem;
+  }
+}
+.hero-listings__content {
+  padding: 0 calc(30px / 2);
+  width: calc((12 / 12) * 100%);
+  text-align: center;
+  color: #fff;
+}
+@media screen and (max-width: 768px) {
+  .hero-listings__content {
+    padding: 0;
+    width: 100%;
+  }
+}
+.hero-listings__title {
+  text-transform: uppercase;
+}
+
+/* -------------------------
+ *  Single Listings Styles
+ * ------------------------- */

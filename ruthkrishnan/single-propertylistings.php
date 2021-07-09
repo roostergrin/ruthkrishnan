@@ -8,6 +8,8 @@
 
   get_header(); ?>
 
+<?php get_template_part('template-parts/hero/listings-hero'); ?>
+
 <h1>Property Listing</h1>
 
 <?php
