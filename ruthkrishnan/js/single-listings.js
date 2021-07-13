@@ -100,7 +100,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_listings_hero__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/listings-hero */ "./src/scripts/resources/listings-hero.js");
 
 document.addEventListener('DOMContentLoaded', function () {
+  var playBtn = document.querySelector('.listings-single__play-btn'),
+      modalCloseBtn = document.querySelector('.listings-single__modal-close'),
+      videoModal = document.querySelector('.listings-single__modal-tour'),
+      modalOverlay = document.querySelector('.listings-single__modal-overlay'),
+      iframeVideo = document.querySelector('.listings-single__modal-video'); // Listings Hero Functionality
+
   (0,_resources_listings_hero__WEBPACK_IMPORTED_MODULE_0__.listingsHero)();
+
+  var openVideoModal = function openVideoModal() {
+    videoModal.classList.add('listings-single__modal-tour--open');
+    iframeVideo.src = iframeVideo.dataset.src;
+  };
+
+  var closeVideoModal = function closeVideoModal() {
+    videoModal.classList.remove('listings-single__modal-tour--open');
+    iframeVideo.src = '';
+  };
+
+  playBtn.addEventListener('click', openVideoModal);
+  modalCloseBtn.addEventListener('click', closeVideoModal);
+  modalOverlay.addEventListener('click', closeVideoModal);
 });
 })();
 

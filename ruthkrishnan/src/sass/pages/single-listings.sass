@@ -4,3 +4,185 @@
 /* -------------------------
     Single Listings Styles
    ------------------------- */
+
+.listings-single
+  position: relative
+
+  &__container
+    @include container
+
+  &__title-container
+    @extend %section-padding-top
+    text-align: center
+    width: 100%
+  
+  &__title
+    @extend %h2
+    width: 100%
+    font-weight: 700
+    text-align: center
+    text-transform: capitalize
+
+    &-text
+      @include nexus
+        display: block
+        margin-bottom: rem-calc(8)
+
+      &::after
+        @include nexus
+          display: none
+        display: inline-block
+        margin: 0 rem-calc(3)
+        content: '|'
+
+  &__subtitle
+    padding-top: 1rem
+
+  &__main-column
+    @include col(8)
+    @include col--offset(2)
+
+  //  -------------------------
+  //    Virtual Tour Styles
+  //  -------------------------
+
+.listings-single
+
+  &__tour-title
+    @extend %section-padding
+    text-align: center
+    width: 100%
+
+  &__tour
+    position: relative
+    margin: 0
+
+    &-thumbnail
+      width: 100%
+      height: auto
+
+    &-video
+      width: 100%
+      height: auto
+    
+  &__play-btn
+    @extend %centered
+    @include hover-supported
+      opacity: .7
+    transition: opacity .2s ease
+    z-index: 3
+    cursor: pointer
+    width: 3rem
+    height: 3rem
+
+  &__modal-tour
+    position: fixed
+    top: 0
+    left: 0
+    transition: opacity .3s ease
+    opacity: 0
+    z-index: 9999
+    width: 100%
+    height: 100%
+    pointer-events: none
+
+    &--open
+      opacity: 1
+      pointer-events: all
+
+  &__modal-overlay
+    @extend %absolute
+    background: rgba($black, .6)
+    cursor: pointer
+
+  &__modal-container
+    @extend %centered
+    @include tablet
+      width: 95vw
+      height: calc(95vw * .5625)
+    background: $white
+    width: 70vw
+    height: calc(70vw * .5625)
+
+  &__modal-video
+    @extend %absolute
+    padding: 1.5rem
+    overflow: hidden
+
+    @supports (object-fit: cover)
+      height: 100%
+      object-fit: cover
+
+  &__modal-close
+    position: absolute
+    top: .5rem
+    right: .5rem
+    z-index: 2
+    cursor: pointer
+    width: 1rem
+    height: 1rem
+
+    span
+      display: block
+      position: absolute
+      top: 50%
+      left: 50%
+      transition: background .2s ease
+      background: $c1
+      width: 100%
+      height: 3px
+
+      &:first-child
+        transform: translateX(-50%) rotate(45deg)
+      &:last-child
+        transform: translateX(-50%) rotate(-45deg)
+
+    @include hover-supported
+      span
+        background: lighten($c1, 25%)
+
+  //  -------------------------
+  //     Intro Text Styles
+  //  -------------------------
+
+  &__intro-text
+    @extend %section-padding-bottom
+
+    p:not(:last-of-type)
+      margin-bottom: 1rem
+
+  //  -------------------------
+  //    About The Home Styles
+  //  -------------------------
+
+  &__about-home
+    @include col(10)
+    @include col--offset(1)
+    background: $c2
+  
+    &-container
+      @extend %section-padding-top
+      text-align: center
+    
+    &-icons
+      @extend %section-padding
+      display: flex
+      justify-content: center
+
+    &-icon
+      display: flex
+      justify-content: center
+      width: calc((2 / 10) * 100%)
+      
+  //  -------------------------
+  //      Features Styles
+  //  -------------------------
+
+  &__features
+
+    &-container
+      @extend %section-padding-large
+    
+    &-title
+      text-align: center
+

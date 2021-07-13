@@ -329,6 +329,7 @@
   background: #fff;
   padding: 0.5rem;
   width: 9.375rem;
+  pointer-events: none;
 }
 .map-neighborhoods__tooltip-close {
   position: absolute;

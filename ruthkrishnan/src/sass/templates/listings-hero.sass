@@ -3,7 +3,10 @@
    ----------------------- */
 
 .hero-listings
+  @include nexus
+    height: 60vh
   position: relative
+  background: $black
   height: 85vh
   min-height: rem-calc(580)
   overflow: hidden
@@ -24,15 +27,16 @@
 
   &__iframe
     @extend %centered
-    width: 177.778vh // Given a 16:9 aspect ratio, 16/9 * 100 = 177.778
+    width: 177.778vh
     min-width: 100%
-    height: 56.25vw // Given a 16:9 aspect ratio, 9/16 * 100 = 56.25
+    height: 56.25vw
     min-height: 100%
 
   &__overlay
     @extend %absolute
     z-index: 1
     background: linear-gradient(to bottom, rgba($black, .55), rgba($black, .3) 80%)
+    pointer-events: none
 
   &__container
     @include container

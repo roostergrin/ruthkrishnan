@@ -85,6 +85,7 @@ export const sliderNeighborhoods = () => {
 
     // show tooltip info window
     tooltipContainer.style.opacity = 1;
+    tooltipContainer.style.pointerEvents = 'auto';
 
     // keep info window on screen (no overflow)
     if (event.clientY < tooltipContainer.clientHeight + 32) {
@@ -104,6 +105,7 @@ export const sliderNeighborhoods = () => {
     // close tooltip
     closeContainer.addEventListener('click', () => {
       tooltipContainer.style.opacity = 0;
+      tooltipContainer.style.pointerEvents = 'none';
     })
   }
 

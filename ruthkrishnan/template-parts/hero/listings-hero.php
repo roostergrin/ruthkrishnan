@@ -39,6 +39,19 @@
       <?php endwhile;
     endif; ?> 
     <!-- END Hero Image -->
+    <div class='hero-listings__container'>
+      <div class='hero-listings__content'>
+        <h1 class='hero-listings__title'>
+          <?php if ( get_field('hero_type') === 'image') :
+            if ( get_field('title_option') ) :
+              echo get_field('title_option');
+            else :
+              echo the_title();
+            endif; 
+          endif;?>
+        </h1>
+      </div>
+    </div>
       
   <?php else : ?>
     
@@ -48,9 +61,8 @@
 
         <?php if ( !empty(get_field('background_video')) ) : ?>
           <div class="hero-listings__background">
-            <iframe src="<?php echo get_field('background_video') ?>?background=1" class="hero-listings__iframe" muted frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="<?php echo get_field('background_video') ?>?portrait=0&byline=0&title=0&autoplay=1&loop=1&muted=1" class="hero-listings__iframe" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
           </div>
-          <!-- <script src="https://player.vimeo.com/api/player.js"></script> -->
         <?php endif; ?>
 
     </figure>
@@ -58,17 +70,4 @@
 
   <?php endif; ?>
 
-  <div class='hero-listings__container'>
-    <div class='hero-listings__content'>
-      <h1 class='hero-listings__title'>
-        <?php if ( get_field('hero_type') === 'image') :
-          if ( get_field('title_option') ) :
-            echo get_field('title_option');
-          else :
-            echo the_title();
-          endif; 
-        endif;?>
-      </h1>
-    </div>
-  </div>
 </div>
