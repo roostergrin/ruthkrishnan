@@ -9,7 +9,7 @@
 
 ?>
 
-<svg width="124" height="80" viewBox="0 0 124 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="124" height="80" viewBox="0 0 124 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="<?php echo $args['class']; ?>">
   <path d="M29.3684 76C26.3533 76 23.4618 74.8024 21.3298 72.6704C19.1978 70.5384 18 67.6467 18 64.6316C18 61.6165 19.1978 58.7248 21.3298 56.5929C23.4618 54.4609 26.3533 53.2632 29.3684 53.2632" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M18 15.3684C18 12.3533 19.1978 9.46166 21.3298 7.32967C23.4618 5.19767 26.3533 4 29.3684 4" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M93.7882 76H29.3672" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

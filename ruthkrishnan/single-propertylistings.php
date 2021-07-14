@@ -65,10 +65,70 @@ get_header(); ?>
 				<div class="listings-single__about-home-container">
 					<h2 class="listings-single__about-home-title">About the Home</h2>
 					<div class="listings-single__about-home-icons">
-						<div class="listings-single__about-home-icon">a</div>
-						<div class="listings-single__about-home-icon">b</div>
-						<div class="listings-single__about-home-icon">c</div>
-						<div class="listings-single__about-home-icon">d</div>
+						
+
+						
+						<?php
+						$icons_arr = get_field('about_home_icons');
+
+						if ( have_rows('about_the_home') && count($icons_arr) > 0 ) :
+							while ( have_rows('about_the_home') ) : the_row(); 
+								$bedrooms = get_sub_field('bedrooms');
+								$bathrooms = get_sub_field('bathrooms');
+								$square_feet = get_sub_field('square_feet');
+								$parking_spot = get_sub_field('parking_spot');
+								$year_built = get_sub_field('year_built'); ?>
+
+								<?php foreach ( $icons_arr as $icon ) : ?>
+									<div class="listings-single__about-home-column">
+
+										<?php get_template_part('icons/' . $icon, null , array( 'class' => 'listings-single__about-home-icon')); ?>
+
+										<?php if ( $icon === 'bed' ) : ?>
+											<div class="listings-single__about-home-icon-number"><?php echo $bedrooms; ?></div>
+											<div class="listings-single__about-home-icon-text">
+												<?php if ( intval($bedrooms) === 1 ) : ?>
+													Bedroom
+												<?php else : ?>
+													Bedrooms
+												<?php endif; ?>
+											</div>
+
+										<?php elseif ( $icon === 'bath' ) : ?>
+											<div class="listings-single__about-home-icon-number"><?php echo $bathrooms; ?></div>
+											<div class="listings-single__about-home-icon-text">
+												<?php if ( intval($bathrooms) === 1 ) : ?>
+													Bathroom
+												<?php else : ?>
+													Bathrooms
+												<?php endif; ?>
+											</div>
+
+										<?php elseif ( $icon === 'square_feet' ) : ?>
+											<div class="listings-single__about-home-icon-number"><?php echo $square_feet; ?></div>
+											<div class="listings-single__about-home-icon-text">Square Feet</div>
+
+										<?php elseif ( $icon === 'parking' ) : ?>
+											<div class="listings-single__about-home-icon-number"><?php echo $parking_spot; ?></div>
+											<div class="listings-single__about-home-icon-text">
+												<?php if ( intval($parking_spot) === 1 ) : ?>
+													Parking Spot
+												<?php else : ?>
+													Parking Spots
+												<?php endif; ?>
+											</div>
+
+										<?php elseif ( $icon === 'year' ) : ?>
+											<div class="listings-single__about-home-icon-number"><?php echo $year_built; ?></div>
+											<div class="listings-single__about-home-icon-text">Year Built</div>
+										<?php endif; ?>
+
+									</div>
+								<?php endforeach; ?>
+
+							<?php endwhile;
+						endif; ?>
+
 					</div>
 				</div>
 				</div>
@@ -78,6 +138,11 @@ get_header(); ?>
 				<div class="listings-single__features listings-single__main-column">
 					<div class="listings-single__features-container">
 						<h2 class="listings-single__features-title">Features</h2>
+						<div class="listings-single__features-list-container">
+							<div class="listings-single__features-list"><?php echo get_field('features'); ?></div>
+							<div class="listings-single__features-overlay"></div>
+						</div>
+						<div class="listings-single__features-see-more"><span class="listings-single__features-see-more-btn">see more</span></div>
 					</div>
 				</div>
 				<!-- END Features -->

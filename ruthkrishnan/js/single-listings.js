@@ -104,9 +104,13 @@ document.addEventListener('DOMContentLoaded', function () {
       modalCloseBtn = document.querySelector('.listings-single__modal-close'),
       videoModal = document.querySelector('.listings-single__modal-tour'),
       modalOverlay = document.querySelector('.listings-single__modal-overlay'),
-      iframeVideo = document.querySelector('.listings-single__modal-video'); // Listings Hero Functionality
+      iframeVideo = document.querySelector('.listings-single__modal-video'),
+      featSeeMoreBtn = document.querySelector('.listings-single__features-see-more'),
+      featList = document.querySelector('.listings-single__features-list'),
+      featOverlay = document.querySelector('.listings-single__features-overlay');
+  var featExpanded = false; // Listings Hero Functionality
 
-  (0,_resources_listings_hero__WEBPACK_IMPORTED_MODULE_0__.listingsHero)();
+  (0,_resources_listings_hero__WEBPACK_IMPORTED_MODULE_0__.listingsHero)(); // Virtual Tour Video Modal
 
   var openVideoModal = function openVideoModal() {
     videoModal.classList.add('listings-single__modal-tour--open');
@@ -120,7 +124,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
   playBtn.addEventListener('click', openVideoModal);
   modalCloseBtn.addEventListener('click', closeVideoModal);
-  modalOverlay.addEventListener('click', closeVideoModal);
+  modalOverlay.addEventListener('click', closeVideoModal); // Features See More
+
+  var toggleFeatures = function toggleFeatures() {
+    var featBtn = document.querySelector('.listings-single__features-see-more-btn');
+
+    if (featExpanded) {
+      featList.style.height = '425px';
+      featOverlay.style.opacity = 1;
+      featExpanded = false;
+      setTimeout(function () {
+        featBtn.innerHTML = 'see more';
+      }, 250);
+    } else {
+      featList.style.height = featList.scrollHeight + 'px';
+      featOverlay.style.opacity = 0;
+      featExpanded = true;
+      setTimeout(function () {
+        featBtn.innerHTML = 'see less';
+      }, 250);
+    }
+  };
+
+  if (featList.scrollHeight < 457) {
+    featList.style.height = 'auto';
+    featSeeMoreBtn.style.display = 'none';
+    featOverlay.style.display = 'none';
+  } else {
+    featSeeMoreBtn.addEventListener('click', toggleFeatures);
+  }
 });
 })();
 

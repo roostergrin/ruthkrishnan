@@ -98,7 +98,7 @@
   &__modal-container
     @extend %centered
     @include tablet
-      width: 95vw
+      width: 90vw
       height: calc(95vw * .5625)
     background: $white
     width: 70vw
@@ -106,7 +106,7 @@
 
   &__modal-video
     @extend %absolute
-    padding: 1.5rem
+    padding: 1rem
     overflow: hidden
 
     @supports (object-fit: cover)
@@ -115,8 +115,8 @@
 
   &__modal-close
     position: absolute
-    top: .5rem
-    right: .5rem
+    top: .25rem
+    right: .25rem
     z-index: 2
     cursor: pointer
     width: 1rem
@@ -163,16 +163,45 @@
     &-container
       @extend %section-padding-top
       text-align: center
+
+    &-title
+      @include nexus
+        margin-bottom: 1rem
     
     &-icons
-      @extend %section-padding
       display: flex
+      flex-wrap: wrap
       justify-content: center
 
-    &-icon
+    &-column
+      @extend %section-padding
+      @include tablet-lg
+        padding: 1rem 0
+        width: 33.33%
+      @include nexus
+        padding: .5rem 0
+        width: 75%
       display: flex
-      justify-content: center
-      width: calc((2 / 10) * 100%)
+      flex-direction: column
+      align-items: center
+      justify-content: space-between
+      width: 20%
+    
+    &-icon
+      @include tablet-lg
+        margin-bottom: 0
+        width: 35% 
+      @include nexus
+        width: 25%
+      margin-bottom: rem-calc(24)
+    
+    &-icon-number
+      @extend %h2
+      font-weight: 700
+
+    &-icon-text
+      @extend %h4
+      text-transform: uppercase
       
   //  -------------------------
   //      Features Styles
@@ -181,8 +210,53 @@
   &__features
 
     &-container
-      @extend %section-padding-large
+      @extend %section-padding-bottom
     
     &-title
+      @extend %section-padding
       text-align: center
 
+    &-list-container
+      position: relative
+
+    &-list
+      transition: height .5s ease
+      height: rem-calc(425)
+      overflow: hidden
+    
+    &-overlay
+      position: absolute
+      bottom: 0
+      left: 0
+      transition: opacity .5s ease
+      background: linear-gradient(rgba($white, 0), $white 100%)
+      width: 100%
+      height: 5rem
+
+    &-see-more
+      margin-top: 2rem
+      text-align: center
+
+    &-see-more-btn
+      position: relative
+      transition: color .2s ease
+      padding-bottom: 4px
+      cursor: pointer
+      color: $c3
+
+      &::after
+        position: absolute
+        bottom: 0
+        left: 0
+        transition: background .2s ease,
+        background: $c3
+        width: 100%
+        height: 2px
+        content: ''
+
+      @include hover-supported
+        color: $c6
+        font-weight: 600
+
+        &::after
+          background: $c6
