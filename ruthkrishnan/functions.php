@@ -119,6 +119,9 @@ function theme_enqueue_scripts() {
   if ( is_single() && get_post_type() === 'propertylistings' ) {
     wp_register_script( 'single-listings', get_template_directory_uri() . '/js/single-listings.js', array(), '', true);
     wp_enqueue_script( 'single-listings' );
+
+    wp_register_script( 'vimeo-player', 'https://player.vimeo.com/api/player.js', array(), '', true);
+    wp_enqueue_script( 'vimeo-player' );
   }
 
 }

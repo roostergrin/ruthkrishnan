@@ -1,5 +1,6 @@
 @import '../local/index.sass'
 @import '../templates/listings-hero.sass'
+@import '../templates/listings-neighborhood.sass'
 
 /* -------------------------
     Single Listings Styles
@@ -223,6 +224,12 @@
       transition: height .5s ease
       height: rem-calc(425)
       overflow: hidden
+
+      ul
+        margin: 0 0 1rem 0
+      
+      p:not(:last-of-type)
+        margin-bottom: 1rem
     
     &-overlay
       position: absolute
@@ -260,3 +267,23 @@
 
         &::after
           background: $c6
+
+  //  -----------------------------------
+  //    The Home: Photo Gallery Styles
+  //  -----------------------------------
+
+  &__photo-gallery
+    width: 100%
+
+  //  -----------------------------------
+  //    About the Neighborhood Styles
+  //  -----------------------------------
+
+  &__about-neighborhood
+    @extend %section-padding
+
+    &-title
+      text-align: center
+
+    &-description
+      @extend %section-padding

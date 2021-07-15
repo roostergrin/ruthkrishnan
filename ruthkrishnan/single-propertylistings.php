@@ -146,6 +146,36 @@ get_header(); ?>
 					</div>
 				</div>
 				<!-- END Features -->
+
+				<!-- The Home: Photo Gallery -->
+				<div class="listings-single__photo-gallery">
+					<?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
+				</div>
+				<!-- END The Home: Photo Gallery -->
+
+				<!-- About the Neighborhood -->
+				<div class="listings-single__main-column">
+					<div class="listings-single__about-neighborhood">
+						<h2 class="listings-single__about-neighborhood-title">About the Neighborhood</h2>
+						<div class="listings-single__about-neighborhood-description">
+
+							<?php $neighborhood = get_field('neighborhood'); ?>
+
+							<?php if ( get_field('custom_neighborhood') && !empty(get_field('about_the_neighborhood')) ) :
+								echo get_field('about_the_neighborhood');
+							else :
+								echo get_field('description', $neighborhood->ID);
+							endif; ?> 
+
+						</div>
+					</div>
+				</div>
+				<!-- END About the Neighborhood -->
+
+				<!-- The Neighborhood -->
+					<?php get_template_part('template-parts/listings/listings-neighborhood'); ?>
+				<!-- END The Neighborhood -->
+
 			</div>
 
 		<?php endwhile;
@@ -155,5 +185,4 @@ get_header(); ?>
 
 
 
-<script src="https://player.vimeo.com/api/player.js"></script>
 <?php get_footer(); ?>

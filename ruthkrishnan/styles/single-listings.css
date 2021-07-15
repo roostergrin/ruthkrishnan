@@ -33,7 +33,7 @@
   font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-.listings-single__modal-container, .listings-single__play-btn, .hero-listings__iframe {
+.listings-single__modal-container, .listings-single__play-btn, .listings-neighborhood__photo-gallery-slide, .hero-listings__iframe {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -48,16 +48,16 @@
   height: 100%;
 }
 
-.listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title {
+.listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .listings-neighborhood__title {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title {
+  .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .listings-neighborhood__title {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title {
+  .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .listings-neighborhood__title {
     padding: 1rem 0;
   }
 }
@@ -76,16 +76,16 @@
   }
 }
 
-.listings-single__features-container, .listings-single__intro-text {
+.listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
   padding: 2rem 0 4rem;
 }
 @media screen and (min-width: 1750px) {
-  .listings-single__features-container, .listings-single__intro-text {
+  .listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
     padding: 2.5rem 0 5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .listings-single__features-container, .listings-single__intro-text {
+  .listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
     padding: 1rem 0 2rem;
   }
 }
@@ -199,6 +199,223 @@
 }
 .hero-listings__title {
   text-transform: uppercase;
+}
+
+/* -------------------------------
+ *  Listings Neighborhood Styles
+ * ------------------------------- */
+.listings-neighborhood {
+  display: flex;
+  flex-wrap: wrap;
+  background: #F4F0F0;
+  width: 100%;
+}
+.listings-neighborhood__title {
+  width: 100%;
+  text-align: center;
+}
+.listings-neighborhood__photo-gallery {
+  width: 100%;
+}
+.listings-neighborhood__photo-gallery-container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  max-width: calc(1146px - 30px);
+  background: #F4F0F0;
+  padding-bottom: 2rem;
+}
+@media screen and (min-width: 1750px) {
+  .listings-neighborhood__photo-gallery-container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .listings-neighborhood__photo-gallery-container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .listings-neighborhood__photo-gallery-container {
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .listings-neighborhood__photo-gallery-container {
+    max-width: calc(1528px - 30px);
+  }
+}
+@media screen and (min-width: 1750px) {
+  .listings-neighborhood__photo-gallery-container {
+    padding-bottom: 2.5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .listings-neighborhood__photo-gallery-container {
+    padding-bottom: 1rem;
+  }
+}
+.listings-neighborhood__photo-gallery-slider {
+  padding: 0 calc(30px / 2);
+  width: calc((10 / 12) * 100%);
+  margin-left: calc((1 / 12) * 100%);
+  position: relative;
+  height: 30.875rem;
+}
+@media screen and (max-width: 768px) {
+  .listings-neighborhood__photo-gallery-slider {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .listings-neighborhood__photo-gallery-slider {
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .listings-neighborhood__photo-gallery-slider {
+    height: 41.375rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .listings-neighborhood__photo-gallery-slider {
+    height: 40vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .listings-neighborhood__photo-gallery-slider {
+    height: 50vw;
+  }
+}
+.listings-neighborhood__photo-gallery-slide {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  width: 81%;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .listings-neighborhood__photo-gallery-slide {
+    width: 78%;
+  }
+}
+.listings-neighborhood__photo-gallery-slide--active {
+  opacity: 1;
+}
+.listings-neighborhood__photo-gallery-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.listings-neighborhood__photo-gallery-prev, .listings-neighborhood__photo-gallery-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.listings-neighborhood__photo-gallery-prev {
+  left: 0;
+}
+@media screen and (max-width: 768px) {
+  .listings-neighborhood__photo-gallery-prev {
+    left: 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .listings-neighborhood__photo-gallery-prev {
+    left: 1rem;
+  }
+}
+.listings-neighborhood__photo-gallery-next {
+  right: 0;
+}
+@media screen and (max-width: 768px) {
+  .listings-neighborhood__photo-gallery-next {
+    right: 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .listings-neighborhood__photo-gallery-next {
+    right: 1rem;
+  }
+}
+.listings-neighborhood__photo-gallery-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.listings-neighborhood__photo-gallery-icon--prev {
+  transform: scale(-1);
+}
+.listings-neighborhood__photo-gallery-indicators {
+  padding: 0 calc(30px / 2);
+  width: calc((12 / 12) * 100%);
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .listings-neighborhood__photo-gallery-indicators {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .listings-neighborhood__photo-gallery-indicators {
+    margin-top: 3rem;
+  }
+}
+.listings-neighborhood__photo-gallery-dot {
+  transition: background 0.3s ease;
+  margin: auto 0.25rem;
+  border: #232323 solid 1px;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 0.5rem;
+  height: 0.5rem;
+  pointer-events: all;
+}
+.listings-neighborhood__photo-gallery-dot--active {
+  background: #232323;
+}
+.listings-neighborhood__map {
+  padding: 0 calc(30px / 2);
+  width: calc((10 / 12) * 100%);
+  margin-left: calc((1 / 12) * 100%);
+  margin: 0 auto;
+  height: 22.75rem;
+}
+@media screen and (max-width: 768px) {
+  .listings-neighborhood__map {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .listings-neighborhood__map {
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .listings-neighborhood__map {
+    height: 31.25rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .listings-neighborhood__map {
+    margin: auto 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .listings-neighborhood__map {
+    margin: auto 1rem;
+  }
 }
 
 /* -------------------------
@@ -459,6 +676,12 @@
   height: 26.5625rem;
   overflow: hidden;
 }
+.listings-single__features-list ul {
+  margin: 0 0 1rem 0;
+}
+.listings-single__features-list p:not(:last-of-type) {
+  margin-bottom: 1rem;
+}
 .listings-single__features-overlay {
   position: absolute;
   bottom: 0;
@@ -497,4 +720,10 @@
   .listings-single__features-see-more-btn:hover::after {
     background: #963636;
   }
+}
+.listings-single__photo-gallery {
+  width: 100%;
+}
+.listings-single__about-neighborhood-title {
+  text-align: center;
 }

@@ -1,4 +1,8 @@
-import { listingsHero } from '../resources/listings-hero'
+import { listingsHero } from '../resources/listings-hero';
+import { photoGallery } from '../resources/photo-gallery';
+import { listingsNeighborhhodGallery } from '../resources/listings-neighborhood-gallery';
+import { setMap } from '../resources/gmaps';
+
 
 document.addEventListener('DOMContentLoaded', function () {
   const playBtn = document.querySelector('.listings-single__play-btn'),
@@ -12,8 +16,21 @@ document.addEventListener('DOMContentLoaded', function () {
   
   let featExpanded = false;
 
+  // Imported Scripts ------------------------
+
   // Listings Hero Functionality
   listingsHero();
+
+  // Photo Gallery Functionality
+  photoGallery();
+
+  // Listings Neighborhood Functionality
+  listingsNeighborhhodGallery();
+
+  // Google Map
+  setMap();
+
+  // END Imported Scripts -------------------
 
   // Virtual Tour Video Modal
   const openVideoModal = () => {
@@ -40,14 +57,14 @@ document.addEventListener('DOMContentLoaded', function () {
       featExpanded = false;
       setTimeout(() => {
         featBtn.innerHTML = 'see more';
-      }, 250)
+      }, 150)
     } else {
       featList.style.height = featList.scrollHeight + 'px';
       featOverlay.style.opacity = 0;
       featExpanded = true;
       setTimeout(() => {
         featBtn.innerHTML = 'see less';
-      }, 250)
+      }, 150)
     }
   }
 

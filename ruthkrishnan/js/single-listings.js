@@ -2,6 +2,49 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/resources/gmaps.js":
+/*!****************************************!*\
+  !*** ./src/scripts/resources/gmaps.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "setMap": () => (/* binding */ setMap)
+/* harmony export */ });
+/* harmony import */ var _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mapStyles.json */ "./src/scripts/resources/mapStyles.json");
+
+var setMap = function setMap() {
+  var geocoder = new google.maps.Geocoder();
+  var address = document.querySelector('#gmapnd').getAttribute('data-address');
+  geocoder.geocode({
+    address: address
+  }, function (results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      var lat = results[0].geometry.location.lat();
+      var lng = results[0].geometry.location.lng();
+
+      if (google) {
+        var map = new google.maps.Map(document.getElementById('gmapnd'), {
+          center: {
+            lat: lat,
+            lng: lng
+          },
+          zoom: 17,
+          fullscreenControl: false,
+          styles: _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__
+        });
+        new google.maps.Marker({
+          position: map.getCenter(),
+          map: map
+        });
+      }
+    }
+  });
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/listings-hero.js":
 /*!************************************************!*\
   !*** ./src/scripts/resources/listings-hero.js ***!
@@ -31,6 +74,152 @@ var listingsHero = function listingsHero() {
   onScroll();
   window.addEventListener('scroll', onScroll);
 };
+
+/***/ }),
+
+/***/ "./src/scripts/resources/listings-neighborhood-gallery.js":
+/*!****************************************************************!*\
+  !*** ./src/scripts/resources/listings-neighborhood-gallery.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "listingsNeighborhhodGallery": () => (/* binding */ listingsNeighborhhodGallery)
+/* harmony export */ });
+var listingsNeighborhhodGallery = function listingsNeighborhhodGallery() {
+  if (document.querySelector('.listings-neighborhood__photo-gallery')) {
+    var currSlide = 0;
+    var slider = document.querySelector('.listings-neighborhood__photo-gallery-slider'),
+        sliderLength = slider.dataset.sliderLength,
+        slide = document.querySelectorAll('.listings-neighborhood__photo-gallery-slide'),
+        dot = document.querySelectorAll('.listings-neighborhood__photo-gallery-dot'),
+        prev = document.querySelector('.listings-neighborhood__photo-gallery-prev'),
+        next = document.querySelector('.listings-neighborhood__photo-gallery-next'),
+        img = document.querySelectorAll('.listings-neighborhood__photo-gallery-image');
+
+    var setSlide = function setSlide() {
+      slide.forEach(function (slide) {
+        currSlide === +slide.dataset.index ? slide.classList.add('listings-neighborhood__photo-gallery-slide--active') : slide.classList.remove('listings-neighborhood__photo-gallery-slide--active');
+      });
+      dot.forEach(function (dot) {
+        currSlide === +dot.dataset.index ? dot.classList.add('listings-neighborhood__photo-gallery-dot--active') : dot.classList.remove('listings-neighborhood__photo-gallery-dot--active');
+      });
+    };
+
+    setSlide();
+
+    var changeSlide = function changeSlide(str) {
+      if (str === 'prev') {
+        currSlide === 0 ? currSlide = sliderLength - 1 : currSlide--;
+        setSlide();
+      }
+
+      ;
+
+      if (str === 'next') {
+        currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++;
+        setSlide();
+      }
+
+      ;
+    };
+
+    var goToSlide = function goToSlide(val) {
+      currSlide = val;
+      setSlide();
+    };
+
+    prev.addEventListener('click', function () {
+      changeSlide('prev');
+    });
+    next.addEventListener('click', function () {
+      changeSlide('next');
+    });
+    dot.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        goToSlide(i);
+      });
+    });
+  }
+};
+
+/***/ }),
+
+/***/ "./src/scripts/resources/photo-gallery.js":
+/*!************************************************!*\
+  !*** ./src/scripts/resources/photo-gallery.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "photoGallery": () => (/* binding */ photoGallery)
+/* harmony export */ });
+var photoGallery = function photoGallery() {
+  var currSlide = 0;
+  var slider = document.querySelector('.photo-gallery__slider'),
+      sliderLength = slider.dataset.sliderLength,
+      slide = document.querySelectorAll('.photo-gallery__slide'),
+      dot = document.querySelectorAll('.photo-gallery__dot'),
+      prev = document.querySelector('.photo-gallery__prev'),
+      next = document.querySelector('.photo-gallery__next'),
+      img = document.querySelectorAll('.photo-gallery__image');
+
+  var setSlide = function setSlide() {
+    slide.forEach(function (slide) {
+      currSlide === +slide.dataset.index ? slide.classList.add('photo-gallery__slide--active') : slide.classList.remove('photo-gallery__slide--active');
+    });
+    dot.forEach(function (dot) {
+      currSlide === +dot.dataset.index ? dot.classList.add('photo-gallery__dot--active') : dot.classList.remove('photo-gallery__dot--active');
+    });
+  };
+
+  setSlide();
+
+  var changeSlide = function changeSlide(str) {
+    if (str === 'prev') {
+      currSlide === 0 ? currSlide = sliderLength - 1 : currSlide--;
+      setSlide();
+    }
+
+    ;
+
+    if (str === 'next') {
+      currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++;
+      setSlide();
+    }
+
+    ;
+  };
+
+  var goToSlide = function goToSlide(val) {
+    currSlide = val;
+    setSlide();
+  };
+
+  prev.addEventListener('click', function () {
+    changeSlide('prev');
+  });
+  next.addEventListener('click', function () {
+    changeSlide('next');
+  });
+  dot.forEach(function (dot, i) {
+    dot.addEventListener('click', function () {
+      goToSlide(i);
+    });
+  });
+};
+
+/***/ }),
+
+/***/ "./src/scripts/resources/mapStyles.json":
+/*!**********************************************!*\
+  !*** ./src/scripts/resources/mapStyles.json ***!
+  \**********************************************/
+/***/ ((module) => {
+
+module.exports = JSON.parse('[{"elementType":"geometry","stylers":[{"color":"#f5f5f5"}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"elementType":"labels.text.fill","stylers":[{"color":"#616161"}]},{"elementType":"labels.text.stroke","stylers":[{"color":"#f5f5f5"}]},{"featureType":"administrative.land_parcel","elementType":"labels.text.fill","stylers":[{"color":"#bdbdbd"}]},{"featureType":"poi","stylers":[{"visibility":"simplified"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#eeeeee"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"color":"#af5b5b"},{"lightness":45}]},{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"color":"#757575"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#e5e5e5"}]},{"featureType":"poi.park","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]},{"featureType":"road","elementType":"geometry","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#757575"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#dadada"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"color":"#616161"}]},{"featureType":"road.local","elementType":"labels.text.fill","stylers":[{"color":"#b0b0b0"}]},{"featureType":"road.local","elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"color":"#e5e5e5"}]},{"featureType":"transit.station","elementType":"geometry","stylers":[{"color":"#eeeeee"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#c9c9c9"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]}]');
 
 /***/ })
 
@@ -98,6 +287,12 @@ var __webpack_exports__ = {};
   \**********************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_listings_hero__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/listings-hero */ "./src/scripts/resources/listings-hero.js");
+/* harmony import */ var _resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/photo-gallery */ "./src/scripts/resources/photo-gallery.js");
+/* harmony import */ var _resources_listings_neighborhood_gallery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../resources/listings-neighborhood-gallery */ "./src/scripts/resources/listings-neighborhood-gallery.js");
+/* harmony import */ var _resources_gmaps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../resources/gmaps */ "./src/scripts/resources/gmaps.js");
+
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
   var playBtn = document.querySelector('.listings-single__play-btn'),
@@ -108,9 +303,17 @@ document.addEventListener('DOMContentLoaded', function () {
       featSeeMoreBtn = document.querySelector('.listings-single__features-see-more'),
       featList = document.querySelector('.listings-single__features-list'),
       featOverlay = document.querySelector('.listings-single__features-overlay');
-  var featExpanded = false; // Listings Hero Functionality
+  var featExpanded = false; // Imported Scripts ------------------------
+  // Listings Hero Functionality
 
-  (0,_resources_listings_hero__WEBPACK_IMPORTED_MODULE_0__.listingsHero)(); // Virtual Tour Video Modal
+  (0,_resources_listings_hero__WEBPACK_IMPORTED_MODULE_0__.listingsHero)(); // Photo Gallery Functionality
+
+  (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__.photoGallery)(); // Listings Neighborhood Functionality
+
+  (0,_resources_listings_neighborhood_gallery__WEBPACK_IMPORTED_MODULE_2__.listingsNeighborhhodGallery)(); // Google Map
+
+  (0,_resources_gmaps__WEBPACK_IMPORTED_MODULE_3__.setMap)(); // END Imported Scripts -------------------
+  // Virtual Tour Video Modal
 
   var openVideoModal = function openVideoModal() {
     videoModal.classList.add('listings-single__modal-tour--open');
@@ -135,14 +338,14 @@ document.addEventListener('DOMContentLoaded', function () {
       featExpanded = false;
       setTimeout(function () {
         featBtn.innerHTML = 'see more';
-      }, 250);
+      }, 150);
     } else {
       featList.style.height = featList.scrollHeight + 'px';
       featOverlay.style.opacity = 0;
       featExpanded = true;
       setTimeout(function () {
         featBtn.innerHTML = 'see less';
-      }, 250);
+      }, 150);
     }
   };
 
