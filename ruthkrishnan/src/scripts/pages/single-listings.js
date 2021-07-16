@@ -2,7 +2,7 @@ import { listingsHero } from '../resources/listings-hero';
 import { photoGallery } from '../resources/photo-gallery';
 import { listingsNeighborhhodGallery } from '../resources/listings-neighborhood-gallery';
 import { setMap } from '../resources/gmaps';
-
+import { testimonials } from '../resources/testimonials';
 
 document.addEventListener('DOMContentLoaded', function () {
   const playBtn = document.querySelector('.listings-single__play-btn'),
@@ -30,22 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
   // Google Map
   setMap();
 
+  // Testimonials
+  testimonials();
+
   // END Imported Scripts -------------------
-
-  // Virtual Tour Video Modal
-  const openVideoModal = () => {
-    videoModal.classList.add('listings-single__modal-tour--open');
-    iframeVideo.src = iframeVideo.dataset.src;
-  }
-
-  const closeVideoModal = () => {
-    videoModal.classList.remove('listings-single__modal-tour--open');
-    iframeVideo.src = '';
-  }
-
-  playBtn.addEventListener('click', openVideoModal);
-  modalCloseBtn.addEventListener('click', closeVideoModal);
-  modalOverlay.addEventListener('click', closeVideoModal);
 
   // Features See More
   const toggleFeatures = () => {

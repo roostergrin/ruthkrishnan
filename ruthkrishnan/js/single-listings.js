@@ -213,6 +213,82 @@ var photoGallery = function photoGallery() {
 
 /***/ }),
 
+/***/ "./src/scripts/resources/testimonials.js":
+/*!***********************************************!*\
+  !*** ./src/scripts/resources/testimonials.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "testimonials": () => (/* binding */ testimonials)
+/* harmony export */ });
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var testimonials = function testimonials() {
+  if (document.querySelector('.testimonials-section')) {
+    var imageSlide = document.querySelectorAll('.testimonials-section__image-slide'),
+        contentSlide = document.querySelectorAll('.testimonials-section__content-slide'),
+        sliderLength = document.querySelector('.testimonials-section__images-slider').dataset.imageSliderLength,
+        dot = document.querySelectorAll('.testimonials-section__dot'),
+        content = Array.from(document.querySelectorAll('.testimonials-section__content')),
+        contentWrapper = document.querySelector('.testimonials-section__content-wrapper');
+    var currSlide = 0,
+        maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
+      return el.clientHeight;
+    })));
+    contentWrapper.style.height = maxHeight + 'px';
+    window.addEventListener('resize', function () {
+      maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
+        return el.clientHeight;
+      })));
+      contentWrapper.style.height = maxHeight + 'px';
+    });
+
+    var setSlide = function setSlide() {
+      imageSlide.forEach(function (image) {
+        currSlide === +image.dataset.imageIndex - 1 ? image.classList.add('testimonials-section__image-slide--active') : image.classList.remove('testimonials-section__image-slide--active');
+      });
+      contentSlide.forEach(function (content) {
+        currSlide === +content.dataset.contentIndex - 1 ? content.classList.add('testimonials-section__content-slide--active') : content.classList.remove('testimonials-section__content-slide--active');
+      });
+      dot.forEach(function (dot) {
+        currSlide === +dot.dataset.index ? dot.classList.add('photo-gallery__dot--active') : dot.classList.remove('photo-gallery__dot--active');
+      });
+    };
+
+    setSlide();
+    var autoSlide = setInterval(function () {
+      currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++;
+      setSlide();
+    }, 7000);
+
+    var goToSlide = function goToSlide(val) {
+      clearInterval(autoSlide);
+      currSlide = val;
+      setSlide();
+    };
+
+    dot.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        goToSlide(i);
+      });
+    });
+  }
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/mapStyles.json":
 /*!**********************************************!*\
   !*** ./src/scripts/resources/mapStyles.json ***!
@@ -290,6 +366,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/photo-gallery */ "./src/scripts/resources/photo-gallery.js");
 /* harmony import */ var _resources_listings_neighborhood_gallery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../resources/listings-neighborhood-gallery */ "./src/scripts/resources/listings-neighborhood-gallery.js");
 /* harmony import */ var _resources_gmaps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../resources/gmaps */ "./src/scripts/resources/gmaps.js");
+/* harmony import */ var _resources_testimonials__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../resources/testimonials */ "./src/scripts/resources/testimonials.js");
+
 
 
 
@@ -312,22 +390,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   (0,_resources_listings_neighborhood_gallery__WEBPACK_IMPORTED_MODULE_2__.listingsNeighborhhodGallery)(); // Google Map
 
-  (0,_resources_gmaps__WEBPACK_IMPORTED_MODULE_3__.setMap)(); // END Imported Scripts -------------------
-  // Virtual Tour Video Modal
+  (0,_resources_gmaps__WEBPACK_IMPORTED_MODULE_3__.setMap)(); // Testimonials
 
-  var openVideoModal = function openVideoModal() {
-    videoModal.classList.add('listings-single__modal-tour--open');
-    iframeVideo.src = iframeVideo.dataset.src;
-  };
-
-  var closeVideoModal = function closeVideoModal() {
-    videoModal.classList.remove('listings-single__modal-tour--open');
-    iframeVideo.src = '';
-  };
-
-  playBtn.addEventListener('click', openVideoModal);
-  modalCloseBtn.addEventListener('click', closeVideoModal);
-  modalOverlay.addEventListener('click', closeVideoModal); // Features See More
+  (0,_resources_testimonials__WEBPACK_IMPORTED_MODULE_4__.testimonials)(); // END Imported Scripts -------------------
+  // Features See More
 
   var toggleFeatures = function toggleFeatures() {
     var featBtn = document.querySelector('.listings-single__features-see-more-btn');

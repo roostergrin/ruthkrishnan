@@ -15,7 +15,6 @@ get_header(); ?>
 	if ( have_posts() ) :
 		while ( have_posts() ) : the_post(); ?>
 			<div class="listings-single__container">
-				<!-- Virtual Tour -->
 				<?php if ( get_field('hero_type') === 'video' && !empty(get_field('title_option')) ) : ?>
 					<div class="listings-single__title-container">
 						<h1 class="listings-single__title">
@@ -32,24 +31,15 @@ get_header(); ?>
 						</h2>
 					</div>
 				<?php endif; ?>
+				
+				<!-- Virtual Tour -->
 				<div class="listings-single__main-column">
 					<?php if ( get_field('virtual_tour_video') ) : ?>
 						<h2 class="listings-single__tour-title">Take a Virtual Tour</h2>
-						<figure class="listings-single__tour">
-								<?php echo wp_get_attachment_image( get_field('virtual_tour_thumbnail'), 'full', false, [ 'class' => 'listings-single__tour-thumbnail' ]); ?>
-                <?php get_template_part('icons/play', null, array('class' => 'listings-single__play-btn')); ?>
-						</figure>
-
-						<div class="listings-single__modal-tour">
-							<div class="listings-single__modal-overlay"></div>
-							<div class="listings-single__modal-container">
-								<div class="listings-single__modal-close">
-									<span></span>
-									<span></span>
-								</div>
-								<iframe data-src="<?php echo get_field('virtual_tour_video') ?>?autoplay=1" class="listings-single__modal-video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-							</div>
+						<div class="listings-single__tour">
+							<iframe src="<?php echo get_field('virtual_tour_video') ?>" class="listings-single__tour-video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 						</div>
+
 					<?php endif; ?>
 					<!-- END Virtual Tour -->
 
@@ -159,11 +149,14 @@ get_header(); ?>
 						<h2 class="listings-single__about-neighborhood-title">About the Neighborhood</h2>
 						<div class="listings-single__about-neighborhood-description">
 
-							<?php $neighborhood = get_field('neighborhood'); ?>
+							<?php 
+								$neighborhood = get_field('neighborhood');
+								$custom_sections = get_field('custom_neighborhood_sections');
+							?>
 
-							<?php if ( get_field('custom_neighborhood') && !empty(get_field('about_the_neighborhood')) ) :
+							<?php if ( in_array('custom_description', $custom_sections) ) :
 								echo get_field('about_the_neighborhood');
-							else :
+							elseif ( $neighborhood ) :
 								echo get_field('description', $neighborhood->ID);
 							endif; ?> 
 
@@ -173,16 +166,41 @@ get_header(); ?>
 				<!-- END About the Neighborhood -->
 
 				<!-- The Neighborhood -->
-					<?php get_template_part('template-parts/listings/listings-neighborhood'); ?>
+				<?php get_template_part('template-parts/listings/listings-neighborhood'); ?>
 				<!-- END The Neighborhood -->
 
+				<!-- Floor Plan -->
+				<div class="listings-single__plan listings-single__main-column">
+					<div class="listings-single__plan-container">
+						<?php echo wp_get_attachment_image(get_field('floor_plan'), 'full', false, [ 'class' => 'listings-single__plan-image' ]); ?>
+						<div class="listings-single__plan-text"><?php echo get_field('floor_plan_text'); ?></div>
+					</div>
+				</div>
+				<!-- END Floor Plan -->
+
+				<!-- Covid Rules -->
+				<?php get_template_part('template-parts/listings/listings-covid-rules'); ?>
+				<!-- END Covid Rules -->
+
 			</div>
+
 
 		<?php endwhile;
 	endif;
 	?>
+
+	<!-- Testimonials -->
+	<div class="listings-single__testimonials">
+		<?php get_template_part('template-parts/testimonials/testimonials'); ?>
+	</div>
+	<!-- END Testimonials -->
+
+	<!-- Get in Touch Form -->
+	<div class="listings-single__get-in-touch">
+		<?php get_template_part('template-parts/forms/form-get-in-touch'); ?>
+	</div>
+	<!-- END Get in Touch Form -->
+
 </div>
-
-
 
 <?php get_footer(); ?>

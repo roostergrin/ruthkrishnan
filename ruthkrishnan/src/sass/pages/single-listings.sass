@@ -1,6 +1,8 @@
 @import '../local/index.sass'
 @import '../templates/listings-hero.sass'
 @import '../templates/listings-neighborhood.sass'
+@import '../templates/form-get-in-touch.sass'
+@import '../templates/listings-covid-rules.sass'
 
 /* -------------------------
     Single Listings Styles
@@ -57,90 +59,12 @@
   &__tour
     position: relative
     margin: 0
-
-    &-thumbnail
-      width: 100%
-      height: auto
+    padding-top: calc(100% * (9/16))
+    width: 100%
 
     &-video
-      width: 100%
-      height: auto
-    
-  &__play-btn
-    @extend %centered
-    @include hover-supported
-      opacity: .7
-    transition: opacity .2s ease
-    z-index: 3
-    cursor: pointer
-    width: 3rem
-    height: 3rem
-
-  &__modal-tour
-    position: fixed
-    top: 0
-    left: 0
-    transition: opacity .3s ease
-    opacity: 0
-    z-index: 9999
-    width: 100%
-    height: 100%
-    pointer-events: none
-
-    &--open
-      opacity: 1
-      pointer-events: all
-
-  &__modal-overlay
-    @extend %absolute
-    background: rgba($black, .6)
-    cursor: pointer
-
-  &__modal-container
-    @extend %centered
-    @include tablet
-      width: 90vw
-      height: calc(95vw * .5625)
-    background: $white
-    width: 70vw
-    height: calc(70vw * .5625)
-
-  &__modal-video
-    @extend %absolute
-    padding: 1rem
-    overflow: hidden
-
-    @supports (object-fit: cover)
-      height: 100%
+      @extend %absolute
       object-fit: cover
-
-  &__modal-close
-    position: absolute
-    top: .25rem
-    right: .25rem
-    z-index: 2
-    cursor: pointer
-    width: 1rem
-    height: 1rem
-
-    span
-      display: block
-      position: absolute
-      top: 50%
-      left: 50%
-      transition: background .2s ease
-      background: $c1
-      width: 100%
-      height: 3px
-
-      &:first-child
-        transform: translateX(-50%) rotate(45deg)
-      &:last-child
-        transform: translateX(-50%) rotate(-45deg)
-
-    @include hover-supported
-      span
-        background: lighten($c1, 25%)
 
   //  -------------------------
   //     Intro Text Styles
@@ -287,3 +211,41 @@
 
     &-description
       @extend %section-padding
+
+      p:not(:last-of-type)
+        margin-bottom: 1rem
+  
+  //  -----------------------
+  //    Floor Plan Styles
+  //  -----------------------
+
+  &__plan
+
+    &-container
+      @extend %section-padding-top
+
+    &-image
+      width: 100%
+      height: auto
+    
+    &-text
+      @extend %section-padding
+      margin: auto
+      width: 80%
+      text-align: center
+
+      p:not(:last-of-type)
+        margin-bottom: 1rem
+      
+      a
+        @include hover-supported
+          opacity: .7
+        transition: opacity .2s ease
+        text-decoration: underline
+
+  //  -------------------------
+  //    Testimonials Styles
+  //  -------------------------
+
+  &__testimonials
+    @extend %section-padding
