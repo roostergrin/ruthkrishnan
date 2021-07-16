@@ -11,7 +11,13 @@
 
 <div class="photo-gallery">
   <div class="photo-gallery__container">
-    <h2 class="photo-gallery__title">Photo Gallery</h2>
+    <h2 class="photo-gallery__title">
+      <?php if ( !empty(get_field('photo_gallery_alternate_title')) ) :
+        echo get_field('photo_gallery_alternate_title');
+      else : 
+        echo 'Photo Gallery';
+      endif; ?>
+    </h2>
 
       <?php $images = get_field('photo_gallery'); ?>
 

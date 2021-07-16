@@ -115,7 +115,8 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
     tooltipContent.innerHTML = mapContent; // show tooltip info window
 
-    tooltipContainer.style.opacity = 1; // keep info window on screen (no overflow)
+    tooltipContainer.style.opacity = 1;
+    tooltipContainer.style.pointerEvents = 'auto'; // keep info window on screen (no overflow)
 
     if (event.clientY < tooltipContainer.clientHeight + 32) {
       tooltipContainer.style.top = "".concat(event.pageY, "px");
@@ -134,6 +135,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
     closeContainer.addEventListener('click', function () {
       tooltipContainer.style.opacity = 0;
+      tooltipContainer.style.pointerEvents = 'none';
     });
   }; // * add event listener to all map neighborhoods *
 

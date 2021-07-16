@@ -1,0 +1,251 @@
+@import '../local/index.sass'
+@import '../templates/listings-hero.sass'
+@import '../templates/listings-neighborhood.sass'
+@import '../templates/form-get-in-touch.sass'
+@import '../templates/listings-covid-rules.sass'
+
+/* -------------------------
+    Single Listings Styles
+   ------------------------- */
+
+.listings-single
+  position: relative
+
+  &__container
+    @include container
+
+  &__title-container
+    @extend %section-padding-top
+    text-align: center
+    width: 100%
+  
+  &__title
+    @extend %h2
+    width: 100%
+    font-weight: 700
+    text-align: center
+    text-transform: capitalize
+
+    &-text
+      @include nexus
+        display: block
+        margin-bottom: rem-calc(8)
+
+      &::after
+        @include nexus
+          display: none
+        display: inline-block
+        margin: 0 rem-calc(3)
+        content: '|'
+
+  &__subtitle
+    padding-top: 1rem
+
+  &__main-column
+    @include col(8)
+    @include col--offset(2)
+
+  //  -------------------------
+  //    Virtual Tour Styles
+  //  -------------------------
+
+.listings-single
+
+  &__tour-title
+    @extend %section-padding
+    text-align: center
+    width: 100%
+
+  &__tour
+    position: relative
+    margin: 0
+    padding-top: calc(100% * (9/16))
+    width: 100%
+
+    &-video
+      @extend %absolute
+      object-fit: cover
+
+  //  -------------------------
+  //     Intro Text Styles
+  //  -------------------------
+
+  &__intro-text
+    @extend %section-padding-bottom
+
+    p:not(:last-of-type)
+      margin-bottom: 1rem
+
+  //  -------------------------
+  //    About The Home Styles
+  //  -------------------------
+
+  &__about-home
+    @include col(10)
+    @include col--offset(1)
+    background: $c2
+  
+    &-container
+      @extend %section-padding-top
+      text-align: center
+
+    &-title
+      @include nexus
+        margin-bottom: 1rem
+    
+    &-icons
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+
+    &-column
+      @extend %section-padding
+      @include tablet-lg
+        padding: 1rem 0
+        width: 33.33%
+      @include nexus
+        padding: .5rem 0
+        width: 75%
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: space-between
+      width: 20%
+    
+    &-icon
+      @include tablet-lg
+        margin-bottom: 0
+        width: 35% 
+      @include nexus
+        width: 25%
+      margin-bottom: rem-calc(24)
+    
+    &-icon-number
+      @extend %h2
+      font-weight: 700
+
+    &-icon-text
+      @extend %h4
+      text-transform: uppercase
+      
+  //  -------------------------
+  //      Features Styles
+  //  -------------------------
+
+  &__features
+
+    &-container
+      @extend %section-padding-bottom
+    
+    &-title
+      @extend %section-padding
+      text-align: center
+
+    &-list-container
+      position: relative
+
+    &-list
+      transition: height .5s ease
+      height: rem-calc(425)
+      overflow: hidden
+
+      ul
+        margin: 0 0 1rem 0
+      
+      p:not(:last-of-type)
+        margin-bottom: 1rem
+    
+    &-overlay
+      position: absolute
+      bottom: 0
+      left: 0
+      transition: opacity .5s ease
+      background: linear-gradient(rgba($white, 0), $white 100%)
+      width: 100%
+      height: 5rem
+
+    &-see-more
+      margin-top: 2rem
+      text-align: center
+
+    &-see-more-btn
+      position: relative
+      transition: color .2s ease
+      padding-bottom: 4px
+      cursor: pointer
+      color: $c3
+
+      &::after
+        position: absolute
+        bottom: 0
+        left: 0
+        transition: background .2s ease,
+        background: $c3
+        width: 100%
+        height: 2px
+        content: ''
+
+      @include hover-supported
+        color: $c6
+        font-weight: 600
+
+        &::after
+          background: $c6
+
+  //  -----------------------------------
+  //    The Home: Photo Gallery Styles
+  //  -----------------------------------
+
+  &__photo-gallery
+    width: 100%
+
+  //  -----------------------------------
+  //    About the Neighborhood Styles
+  //  -----------------------------------
+
+  &__about-neighborhood
+    @extend %section-padding
+
+    &-title
+      text-align: center
+
+    &-description
+      @extend %section-padding
+
+      p:not(:last-of-type)
+        margin-bottom: 1rem
+  
+  //  -----------------------
+  //    Floor Plan Styles
+  //  -----------------------
+
+  &__plan
+
+    &-container
+      @extend %section-padding-top
+
+    &-image
+      width: 100%
+      height: auto
+    
+    &-text
+      @extend %section-padding
+      margin: auto
+      width: 80%
+      text-align: center
+
+      p:not(:last-of-type)
+        margin-bottom: 1rem
+      
+      a
+        @include hover-supported
+          opacity: .7
+        transition: opacity .2s ease
+        text-decoration: underline
+
+  //  -------------------------
+  //    Testimonials Styles
+  //  -------------------------
+
+  &__testimonials
+    @extend %section-padding
