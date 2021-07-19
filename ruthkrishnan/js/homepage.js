@@ -13,7 +13,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "homeHero": () => (/* binding */ homeHero)
 /* harmony export */ });
 var homeHero = function homeHero() {
-  var video = document.querySelector('.home-hero__video');
+  var video = document.querySelector('.home-hero__video'),
+      loader = document.querySelector('.page-home__loader');
+  video.addEventListener('loadeddata', function () {
+    loader.classList.add('page-home__loader--loaded');
+  });
+  video.src = video.dataset.src;
 };
 
 /***/ })
@@ -84,17 +89,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_home_hero_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/home-hero.js */ "./src/scripts/resources/home-hero.js");
 
 document.addEventListener('DOMContentLoaded', function () {
-  var loader = document.querySelector('.page-home__loader'),
-      video = document.querySelector('.home-hero__video'),
-      welcomeVideo = document.querySelector('.home-welcome__video'),
+  var welcomeVideo = document.querySelector('.home-welcome__video'),
       videoModal = document.querySelector('.home-welcome__video-modal'),
       playBtn = document.querySelector('.home-welcome__play-btn'),
       closeBtn = document.querySelector('.home-welcome__close-btn'),
-      overlay = document.querySelector('.home-welcome__modal-overlay'); // Hero Video
-
-  video.addEventListener('loadeddata', function () {
-    loader.classList.add('page-home__loader--loaded');
-  });
+      overlay = document.querySelector('.home-welcome__modal-overlay');
   (0,_resources_home_hero_js__WEBPACK_IMPORTED_MODULE_0__.homeHero)(); // Home Welcome
 
   var openModal = function openModal() {
