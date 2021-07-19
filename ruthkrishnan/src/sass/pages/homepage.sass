@@ -221,3 +221,86 @@
 
   &__title
     margin-bottom: 1rem
+
+/* -----------------------------
+    Home Stats Section Styles
+   ----------------------------- */
+
+.home-stats
+
+  &__container
+    @include container
+  
+  &__title
+    @include desktop
+      margin: 1rem auto 2rem
+    margin: 1rem auto
+    text-align: center
+
+  &__cards
+    @include col(10)
+    @include col--offset(1)
+    @include tablet-lg
+      justify-content: space-between
+    display: flex
+    flex-wrap: wrap
+  
+  &__card
+    @include col(4)
+    @include tablet-lg
+      width: calc(50% - 1rem)
+    @include tablet
+      margin-top: 2rem
+      padding-top: rem-calc(89)
+    @include nexus
+      margin-top: 2rem
+      padding-top: rem-calc(55)
+    margin-top: 3rem
+    padding-top: rem-calc(89)
+
+    &-container
+      @include nexus
+        height: rem-calc(150)
+      position: relative
+      display: flex
+      align-items: flex-end
+      justify-content: center
+      position: relative
+      background: $black
+      padding: rem-calc(27)
+      height: rem-calc(200)
+    
+    &-circle
+      @include nexus
+        width: rem-calc(110)
+        height: rem-calc(110)
+      position: absolute
+      display: flex
+      top: 0
+      left: 50%
+      align-items: center
+      justify-content: center
+      background: $white
+      border: 4px solid $black
+      border-radius: 50%
+      transform: translate3d(-50%, -50%, 0)
+      padding: 12.5%
+      width: rem-calc(178)
+      height: rem-calc(178)
+      text-align: center
+
+    &-title
+      @extend %h2
+      @include nexus
+        font-size: rem-calc(16)
+      line-height: 1.25
+      font-weight: 700
+      text-transform: uppercase
+
+
+    &-text
+      @include nexus
+        font-size: rem-calc(14)
+      color: $white
+      font-weight: 700
+      text-align: center

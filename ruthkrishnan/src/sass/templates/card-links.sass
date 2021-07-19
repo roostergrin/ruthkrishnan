@@ -6,8 +6,9 @@
   @extend %section-padding
   @include max-width (1250px)
     margin-top: 0
-  // @include tablet-md
-  //   background: $c1
+    margin-bottom: 4rem
+  @include nexus
+    margin-bottom: 2rem
   position: relative
 
   &__background
@@ -61,6 +62,8 @@
 
   &__card
     @include col(4)
+    @include desktop
+      height: rem-calc(300)
     @include tablet-md
       margin-bottom: 1rem
       width: 75%
