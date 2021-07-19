@@ -48,56 +48,56 @@
   height: 100%;
 }
 
-.home-welcome__button, .form-get-in-touch__submit {
+.home-welcome__button, .cta-text-btn__btn, .form-get-in-touch__submit {
   text-transform: lowercase;
   line-height: 1.15;
   letter-spacing: 0.01541875rem;
   font-size: 0.875rem;
 }
 @media screen and (min-width: 1750px) {
-  .home-welcome__button, .form-get-in-touch__submit {
+  .home-welcome__button, .cta-text-btn__btn, .form-get-in-touch__submit {
     font-size: 1rem;
   }
 }
 
-.card-links__cards, .card-links, .form-get-in-touch__form-container {
+.home-handle-listing, .card-links__cards, .card-links, .form-get-in-touch__form-container {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .card-links__cards, .card-links, .form-get-in-touch__form-container {
+  .home-handle-listing, .card-links__cards, .card-links, .form-get-in-touch__form-container {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .card-links__cards, .card-links, .form-get-in-touch__form-container {
+  .home-handle-listing, .card-links__cards, .card-links, .form-get-in-touch__form-container {
     padding: 1rem 0;
   }
 }
 
-.home-welcome {
+.home-ready-buy-sell-cta, .home-welcome {
   padding: 4rem 0 2rem;
 }
 @media screen and (min-width: 1750px) {
-  .home-welcome {
+  .home-ready-buy-sell-cta, .home-welcome {
     padding: 5rem 0 2.5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .home-welcome {
+  .home-ready-buy-sell-cta, .home-welcome {
     padding: 2rem 0 1rem;
   }
 }
 
-.home-committed {
+.home-educate-realestate-cta, .home-committed {
   padding: 2rem 0 4rem;
 }
 @media screen and (min-width: 1750px) {
-  .home-committed {
+  .home-educate-realestate-cta, .home-committed {
     padding: 2.5rem 0 5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .home-committed {
+  .home-educate-realestate-cta, .home-committed {
     padding: 1rem 0 2rem;
   }
 }
@@ -440,6 +440,12 @@
   width: 100%;
   text-align: center;
 }
+@media screen and (max-width: 600px) {
+  .card-links__title {
+    margin: auto;
+    max-width: 75%;
+  }
+}
 .card-links__cards {
   display: flex;
   flex-wrap: wrap;
@@ -512,6 +518,74 @@
 @media screen and (max-width: 1100px) {
   .card-links__card-text {
     width: 85%;
+  }
+}
+
+/* ----------------------------
+ *  CTA Text & Button Styles
+ * ---------------------------- */
+.cta-text-btn__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+}
+@media screen and (min-width: 1750px) {
+  .cta-text-btn__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .cta-text-btn__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .cta-text-btn__container {
+    padding: 0 1rem;
+  }
+}
+.cta-text-btn__column {
+  padding: 0 calc(30px / 2);
+  width: calc((8 / 12) * 100%);
+  margin-left: calc((2 / 12) * 100%);
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .cta-text-btn__column {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .cta-text-btn__column {
+    margin-left: 0;
+  }
+}
+.cta-text-btn__title {
+  margin-bottom: 1rem;
+}
+.cta-text-btn__text {
+  margin-bottom: 1rem;
+}
+.cta-text-btn__btn {
+  display: inline-block;
+  position: relative;
+  transition: background 0.2s ease;
+  border: 0.0625rem solid #AF5B5B;
+  background: #AF5B5B;
+  cursor: pointer;
+  padding: 0.875rem 2rem 0.75rem;
+  text-transform: lowercase;
+  color: #fff;
+}
+@media not all and (pointer: coarse) {
+  .cta-text-btn__btn:hover {
+    background: #fff;
+    color: #AF5B5B;
   }
 }
 
@@ -887,13 +961,8 @@
   }
 }
 .home-stats__title {
-  margin: 1rem auto;
+  margin: auto;
   text-align: center;
-}
-@media screen and (min-width: 1750px) {
-  .home-stats__title {
-    margin: 1rem auto 2rem;
-  }
 }
 .home-stats__cards {
   padding: 0 calc(30px / 2);
@@ -980,6 +1049,7 @@
 }
 @media screen and (max-width: 600px) {
   .home-stats__card-circle {
+    border: 2px solid #000;
     width: 6.875rem;
     height: 6.875rem;
   }
@@ -1002,5 +1072,96 @@
 @media screen and (max-width: 600px) {
   .home-stats__card-text {
     font-size: 0.875rem;
+  }
+}
+
+/* ---------------------------------
+ *  Ready to sell or buy CTA Styles
+ * --------------------------------- */
+/* ------------------------------
+ *  Home Handle Listing Styles
+ * ------------------------------ */
+.home-handle-listing__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  justify-content: center;
+  padding: 4rem 0;
+  max-width: 1146px;
+  background: #232323;
+}
+@media screen and (min-width: 1750px) {
+  .home-handle-listing__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .home-handle-listing__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .home-handle-listing__container {
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .home-handle-listing__container {
+    max-width: calc(1528px - 60px);
+  }
+}
+@media screen and (max-width: 768px) {
+  .home-handle-listing__container {
+    padding: 3rem 0;
+  }
+}
+.home-handle-listing__text {
+  padding: 0 calc(30px / 2);
+  width: calc((6 / 12) * 100%);
+  color: #fff;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .home-handle-listing__text {
+    padding: 0;
+    width: 100%;
+  }
+}
+
+/* ----------------------------
+ *  Home Real Estate Styles
+ * ---------------------------- */
+.home-real-estate {
+  padding: 1.5rem 0 0;
+}
+@media screen and (min-width: 1750px) {
+  .home-real-estate {
+    padding: 2.5rem 0 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .home-real-estate {
+    padding: -1.5rem 0 0;
+  }
+}
+
+/* ---------------------------------
+ *  Ready to sell or buy CTA Styles
+ * --------------------------------- */
+.home-educate-realestate-cta {
+  padding-top: 0;
+}
+@media screen and (min-width: 1750px) {
+  .home-educate-realestate-cta {
+    padding-top: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .home-educate-realestate-cta {
+    padding-top: 0;
   }
 }
