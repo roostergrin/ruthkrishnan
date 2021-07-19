@@ -1,0 +1,23 @@
+/* ----------------------------
+    CTA Text & Button Styles
+   ---------------------------- */
+
+.cta-text-btn
+
+  &__container
+    @include container
+
+  &__column
+    @include col(8)
+    @include col--offset(2)
+    text-align: center
+
+  &__title
+    margin-bottom: 1rem  
+
+  &__text
+    margin-bottom: 1rem  
+  
+  &__btn
+    @extend %button-text
+    @include button-solid($c3, $white, $white)

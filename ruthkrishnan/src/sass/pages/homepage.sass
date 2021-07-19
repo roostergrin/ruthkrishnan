@@ -2,6 +2,7 @@
 @import '../templates/home-hero.sass'
 @import '../templates/form-get-in-touch.sass'
 @import '../templates/card-links.sass'
+@import '../templates/cta-text-btn.sass'
 
 /* -----------------------
     Home Page Styles
@@ -232,9 +233,7 @@
     @include container
   
   &__title
-    @include desktop
-      margin: 1rem auto 2rem
-    margin: 1rem auto
+    margin: auto
     text-align: center
 
   &__cards
@@ -272,6 +271,7 @@
     
     &-circle
       @include nexus
+        border: 2px solid $black
         width: rem-calc(110)
         height: rem-calc(110)
       position: absolute
@@ -297,10 +297,63 @@
       font-weight: 700
       text-transform: uppercase
 
-
     &-text
       @include nexus
         font-size: rem-calc(14)
       color: $white
       font-weight: 700
       text-align: center
+
+/* ---------------------------------
+    Ready to sell or buy CTA Styles
+   --------------------------------- */
+
+.home-ready-buy-sell-cta
+  @extend %section-padding-top
+
+/* ------------------------------
+    Home Handle Listing Styles
+   ------------------------------ */
+
+.home-handle-listing
+  @extend %section-padding
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$gutter * 2})
+    @include tablet
+      padding: 3rem 0
+    justify-content: center
+    padding: 4rem 0
+    max-width: #{$width}
+    background: $c1
+
+  &__text
+    @include col(6)
+    color: $white
+    text-align: center
+  
+
+/* ----------------------------
+    Home Real Estate Styles
+   ---------------------------- */
+
+.home-real-estate
+  @include desktop
+    padding: 2.5rem 0 0
+  @include nexus
+    padding: -1.5rem 0 0
+  padding: 1.5rem 0 0
+
+/* ---------------------------------
+    Ready to sell or buy CTA Styles
+   --------------------------------- */
+
+.home-educate-realestate-cta
+  @extend %section-padding-bottom
+  @include desktop
+    padding-top: 0
+  @include nexus
+    padding-top: 0 
+  padding-top: 0 

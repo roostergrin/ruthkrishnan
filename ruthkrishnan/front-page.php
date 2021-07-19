@@ -63,9 +63,9 @@ get_header(); ?>
       </div>
       <!-- END Home Committed Section -->
 
-      <!-- Card Links Template Part -->
+      <!-- Card Links Template Part (Let's Work Together Section) -->
       <?php get_template_part('template-parts/card-links/card-links', null, array( 'acf_group' => 'card_links')); ?>
-      <!-- END Card Links Template Part -->
+      <!-- END Card Links Template Part (Let's Work Together Section) -->
 
       <!-- Home Stats Section -->
       <div class="home-stats">
@@ -94,9 +94,35 @@ get_header(); ?>
       </div>
       <!-- END Home Stats Section -->
 
+      <!-- CTA Text & Button Template Part -->
+      <div class="home-ready-buy-sell-cta">
+        <?php get_template_part('template-parts/cta/cta-text-btn', null, array( 'acf_group' => 'ready_to_buy_or_sell_cta' )); ?>
+      </div>
+      <!-- END CTA Text & Button Template Part -->
+
       <!-- Testimonials Section Template Part -->
       <?php get_template_part('template-parts/testimonials/testimonials'); ?>
       <!-- END Testimonials Section Template Part -->
+
+      <!-- Home Handle Listings -->
+      <div class="home-handle-listing">
+        <div class="home-handle-listing__container">
+          <h2 class="home-handle-listing__text"><?php echo get_field('home_handle_listing_text'); ?></h2>
+        </div>
+      </div>
+      <!-- END Home Handle Listings -->
+
+      <!-- Card Links Template Part (Real Estate Section) -->
+      <div class="home-real-estate">
+        <?php get_template_part('template-parts/card-links/card-links', null, array( 'acf_group' => 'home_real_estate')); ?>
+      </div>
+      <!-- END Card Links Template Part (Real Estate Section) -->
+      
+      <!-- CTA Text & Button Template Part -->
+      <div class="home-educate-realestate-cta">
+        <?php get_template_part('template-parts/cta/cta-text-btn', null, array( 'acf_group' => 'educate_about_real_estate' )); ?>
+      </div>
+      <!-- END CTA Text & Button Template Part -->
 
       <!-- Get In Touch Form Template Part -->
       <?php get_template_part('template-parts/forms/form-get-in-touch'); ?>
