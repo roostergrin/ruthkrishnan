@@ -79,6 +79,9 @@ function theme_enqueue_scripts() {
   if ( is_home() || is_front_page() ) {
     wp_register_script( 'homepage', get_template_directory_uri() . '/js/homepage.js', array(), '', true );
     wp_enqueue_script( 'homepage' );
+    
+    wp_register_script( 'vimeo-player', 'https://player.vimeo.com/api/player.js', array(), '', true);
+    wp_enqueue_script( 'vimeo-player' );
   }
 
   if ( !is_home() && !is_front_page() && get_post_type() !== 'propertylistings' ) {

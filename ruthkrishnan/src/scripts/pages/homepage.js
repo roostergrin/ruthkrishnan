@@ -20,13 +20,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const openModal = () => {
     videoModal.classList.add('home-welcome__video-modal--open')
     setTimeout(() => {
-      welcomeVideo.play()
+      welcomeVideo.src = welcomeVideo.dataset.src
     }, 250)
   };
 
   const closeModal = () => {
     videoModal.classList.remove('home-welcome__video-modal--open')
-    welcomeVideo.pause()
+    welcomeVideo.src = ''
   };
 
   playBtn.addEventListener('click', () => { openModal() });
