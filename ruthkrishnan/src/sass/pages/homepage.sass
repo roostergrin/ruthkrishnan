@@ -1,6 +1,7 @@
 @import '../local/index.sass'
 @import '../templates/home-hero.sass'
 @import '../templates/form-get-in-touch.sass'
+@import '../templates/card-links.sass'
 
 /* -----------------------
     Home Page Styles
@@ -185,36 +186,28 @@
       object-fit: cover
 
   &__close-btn
+    @include hover-supported
+      color: $c4
     position: absolute
-    top: 1rem
+    top: -.5rem
     right: 1rem
+    transition: color .2s ease
     z-index: 2
     cursor: pointer
     width: 2rem
     height: 2rem
-
-    span
-      display: block
-      position: absolute
-      top: 50%
-      left: 0
-      background: $white
-      width: 100%
-      height: 3px
-
-      &:first-child
-        transform: rotate(45deg)
-      &:last-child
-        transform: rotate(-45deg)
+    color: $white
 
 /* -----------------------------
     Home Welcome Section Styles
    ----------------------------- */
 
 .home-committed
-  @extend %section-padding
+  @extend %section-padding-bottom
+  @include tablet-md
+    padding: 4rem 0
   @include nexus
-    padding: 2rem 0 1rem
+    padding: 2rem 0
   position: relative
 
   &__container

@@ -43,11 +43,9 @@ get_header(); ?>
       <div class="home-welcome__video-modal">
         <div class="home-welcome__modal-overlay"></div>
         <div class="home-welcome__modal-container">
-          <div class="home-welcome__close-btn">
-            <span></span>
-            <span></span>
-          </div>
-          <video class="home-welcome__video" src="<?php echo get_field('welcome_video') ?>" type='video/mp4' controls></video>
+          <div class="home-welcome__close-btn">close</div>
+          <iframe class="home-welcome__video" data-src="<?php echo get_field('welcome_video') ?>?title=0&byline=0&portrait=0&autoplay=true" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <!-- <video class="home-welcome__video" src="<?php echo get_field('welcome_video') ?>" type='video/mp4' controls></video> -->
         </div>
       </div>
       <!-- END Home Welcome Section -->
@@ -64,6 +62,10 @@ get_header(); ?>
         </div>
       </div>
       <!-- END Home Committed Section -->
+
+      <!-- Card Links Template Part -->
+      <?php get_template_part('template-parts/card-links/card-links', null, array( 'acf_group' => 'card_links')); ?>
+      <!-- END Card Links Template Part -->
 
       <!-- Testimonials Section Template Part -->
       <?php get_template_part('template-parts/testimonials/testimonials'); ?>

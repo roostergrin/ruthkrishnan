@@ -33,14 +33,14 @@
 
   &__rule
     @extend %section-padding
-    @include tablet
+    @include laptop-sm
       width: 50%
     @include nexus
       width: 100%
     width: 33.3%
 
     &-container
-      @include tablet
+      @include laptop-sm
         margin: auto
         width: 90%
       @include phone-lg
@@ -55,7 +55,7 @@
         width: 90%
 
     &-icon
-      @include tablet
+      @include laptop-sm
         width: 40%
       margin-bottom: 1rem
 
@@ -65,7 +65,7 @@
   &__text-container
     @include col(10)
     @include col--offset(1)
-    @include tablet
+    @include laptop-sm
       padding: 0 2rem
     @include phone-lg
       padding: 0 1rem

@@ -100,13 +100,13 @@ document.addEventListener('DOMContentLoaded', function () {
   var openModal = function openModal() {
     videoModal.classList.add('home-welcome__video-modal--open');
     setTimeout(function () {
-      welcomeVideo.play();
+      welcomeVideo.src = welcomeVideo.dataset.src;
     }, 250);
   };
 
   var closeModal = function closeModal() {
     videoModal.classList.remove('home-welcome__video-modal--open');
-    welcomeVideo.pause();
+    welcomeVideo.src = '';
   };
 
   playBtn.addEventListener('click', function () {

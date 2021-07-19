@@ -669,7 +669,7 @@
 .listings-covid__rule {
   width: 33.3%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1100px) {
   .listings-covid__rule {
     width: 50%;
   }
@@ -686,7 +686,7 @@
   padding: 0 2rem;
   width: 75%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1100px) {
   .listings-covid__rule-container {
     margin: auto;
     width: 90%;
@@ -703,7 +703,7 @@
 .listings-covid__rule-icon {
   margin-bottom: 1rem;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1100px) {
   .listings-covid__rule-icon {
     width: 40%;
   }
@@ -727,7 +727,7 @@
     margin-left: 0;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1100px) {
   .listings-covid__text-container {
     padding: 0 2rem;
   }
