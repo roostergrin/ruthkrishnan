@@ -67,6 +67,33 @@ get_header(); ?>
       <?php get_template_part('template-parts/card-links/card-links', null, array( 'acf_group' => 'card_links')); ?>
       <!-- END Card Links Template Part -->
 
+      <!-- Home Stats Section -->
+      <div class="home-stats">
+        <div class="home-stats__container">
+          <h2 class="home-stats__title"><?php echo get_field('home_stats_title'); ?></h2>
+          <div class="home-stats__cards">
+            <?php if ( have_rows('home_stats_cards') ) :
+              while ( have_rows('home_stats_cards') ) : the_row();
+                
+                $title = get_sub_field('title');
+                $text = get_sub_field('text'); ?>
+
+                <div class="home-stats__card">
+                  <div class="home-stats__card-container">
+                    <div class="home-stats__card-circle">
+                      <h3 class="home-stats__card-title"><?php echo $title; ?></h3>
+                    </div>
+                    <div class="home-stats__card-text"><?php echo $text; ?></div>
+                  </div>
+                </div>
+              
+              <?php endwhile;
+            endif; ?>
+          </div>
+        </div>
+      </div>
+      <!-- END Home Stats Section -->
+
       <!-- Testimonials Section Template Part -->
       <?php get_template_part('template-parts/testimonials/testimonials'); ?>
       <!-- END Testimonials Section Template Part -->
