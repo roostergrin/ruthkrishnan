@@ -227,14 +227,14 @@ template {
   height: 100%;
 }
 
-.site-navigation__btn--mobile, .site-navigation__btn {
+.form-subscribe__button, .site-navigation__btn--mobile, .site-navigation__btn {
   text-transform: lowercase;
   line-height: 1.15;
   letter-spacing: 0.01541875rem;
   font-size: 0.875rem;
 }
 @media screen and (min-width: 1750px) {
-  .site-navigation__btn--mobile, .site-navigation__btn {
+  .form-subscribe__button, .site-navigation__btn--mobile, .site-navigation__btn {
     font-size: 1rem;
   }
 }
@@ -747,7 +747,7 @@ p, li, h2, h3, h4, h5 {
 }
 .form-subscribe__content {
   padding: 0 calc(30px / 2);
-  width: calc((5 / 12) * 100%);
+  width: calc((6 / 12) * 100%);
 }
 @media screen and (max-width: 768px) {
   .form-subscribe__content {
@@ -758,6 +758,7 @@ p, li, h2, h3, h4, h5 {
 @media screen and (max-width: 768px) {
   .form-subscribe__content {
     margin-bottom: 1.5rem;
+    text-align: center;
   }
 }
 .form-subscribe__title {
@@ -767,6 +768,7 @@ p, li, h2, h3, h4, h5 {
   padding: 0 calc(30px / 2);
   width: calc((6 / 12) * 100%);
   display: flex;
+  justify-content: center;
   padding-right: 0;
 }
 @media screen and (max-width: 768px) {
@@ -775,35 +777,24 @@ p, li, h2, h3, h4, h5 {
     width: 100%;
   }
 }
-.form-subscribe__form {
-  display: flex;
-  width: 100%;
+.form-subscribe__button {
+  display: inline-block;
+  position: relative;
+  transition: background 0.2s ease;
+  border: 0.0625rem solid #AF5B5B;
+  background: #AF5B5B;
+  cursor: pointer;
+  padding: 0.875rem 2rem 0.75rem;
+  text-transform: lowercase;
+  color: #fff;
+  min-width: 35%;
+  text-align: center;
 }
-.form-subscribe__label {
-  display: none;
-}
-.form-subscribe__input {
-  border: 2px solid #232323;
-  border-right: none;
-  width: 100%;
-  height: 3rem;
-}
-.form-subscribe__input:focus-visible {
-  outline: none;
-}
-.form-subscribe__submit {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #232323;
-  border: 2px solid #232323;
-  width: 3rem;
-  height: 3rem;
-}
-.form-subscribe__arrow {
-  width: 1rem;
-  height: 1.5rem;
-  fill: #fff;
+@media not all and (pointer: coarse) {
+  .form-subscribe__button:hover {
+    background: #fff;
+    color: #AF5B5B;
+  }
 }
 
 /* --------------------------

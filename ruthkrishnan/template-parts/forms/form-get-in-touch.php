@@ -45,7 +45,7 @@
           </div>
           <div class="form-get-in-touch__form-column">
             <div class="form-get-in-touch__form-container">
-              <form action="" class="form-get-in-touch__form">
+              <form action="" class="form-get-in-touch__form" id="get-in-touch-form">
                 <div class="form-get-in-touch__form-group">
                   <label for="fullname" class="form-get-in-touch__label">First and Last Name</label>
                   <input type="text" name="fullname" id="fullname" placeholder="First and Last Name" class="form-get-in-touch__input">

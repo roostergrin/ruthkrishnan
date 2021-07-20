@@ -69,6 +69,10 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'single-listings', get_template_directory_uri() . '/styles/single-listings.css' );
   }
 
+  if ( is_page_template('page-thankyou.php') ) {
+    wp_enqueue_style( 'thankyou', get_template_directory_uri() . '/styles/thankyou.css' );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -80,11 +84,14 @@ function theme_enqueue_scripts() {
   wp_enqueue_script( 'axios' );
   
   // global scripts
-  wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array(), '', true);
-  wp_enqueue_script( 'global' );
+  if ( !is_page_template('page-thankyou.php') ) {
+    wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array(), '', true);
+    wp_enqueue_script( 'global' );
+  }
 
-  wp_register_script( 'form-subscribe', get_template_directory_uri() . '/js/form-subscribe.js', array(), '', true);
-  wp_enqueue_script( 'form-subscribe' );
+  // Form Subscribe send email 
+  // wp_register_script( 'form-subscribe', get_template_directory_uri() . '/js/form-subscribe.js', array(), '', false);
+  // wp_enqueue_script( 'form-subscribe' );
 
   // page specific scripts
   if ( is_home() || is_front_page() ) {
@@ -95,7 +102,7 @@ function theme_enqueue_scripts() {
     wp_enqueue_script( 'vimeo-player' );
   }
 
-  if ( !is_home() && !is_front_page() && get_post_type() !== 'propertylistings' ) {
+  if ( !is_home() && !is_front_page() && get_post_type() !== 'propertylistings' && !is_page_template('page-thankyou.php') ) {
     wp_register_script( 'siteHero', get_template_directory_uri() . '/js/site-hero.js', array(), '', true);
     wp_enqueue_script( 'siteHero' );
   }
@@ -136,6 +143,11 @@ function theme_enqueue_scripts() {
 
     wp_register_script( 'vimeo-player', 'https://player.vimeo.com/api/player.js', array(), '', true);
     wp_enqueue_script( 'vimeo-player' );
+  }
+
+  if ( is_page_template('page-thankyou.php') ) {
+    wp_register_script( 'thankyou', get_template_directory_uri() . '/js/thankyou.js', array(), '', true);
+    wp_enqueue_script( 'thankyou' );
   }
 
 }

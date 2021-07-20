@@ -1,0 +1,24 @@
+@import '../local/index.sass'
+
+/* -------------------
+    Thank You Page
+   ------------------- */
+
+.page-thank-you
+
+  &__container
+    @include container
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    min-height: rem-calc(280)
+  
+  &__title
+    margin-bottom: rem-calc(8)
+
+  &__button
+    margin-top: 1rem
+  
+  &__button
+    @extend %button-text
+    @include button-solid($c3, $white, $white)
