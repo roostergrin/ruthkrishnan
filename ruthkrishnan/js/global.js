@@ -11,17 +11,16 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_navigation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./resources/navigation */ "./src/scripts/resources/navigation.js");
 /* harmony import */ var _resources_testimonials__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./resources/testimonials */ "./src/scripts/resources/testimonials.js");
-/* harmony import */ var _resources_form_subscribe__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./resources/form-subscribe */ "./src/scripts/resources/form-subscribe.js");
-/* harmony import */ var _resources_form_get_in_touch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./resources/form-get-in-touch */ "./src/scripts/resources/form-get-in-touch.js");
+/* harmony import */ var _resources_form_get_in_touch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./resources/form-get-in-touch */ "./src/scripts/resources/form-get-in-touch.js");
 
-
+ // import { formSubscribe } from './resources/form-subscribe'
 
 
 document.addEventListener('DOMContentLoaded', function () {
   (0,_resources_navigation__WEBPACK_IMPORTED_MODULE_0__.navigation)();
-  (0,_resources_testimonials__WEBPACK_IMPORTED_MODULE_1__.testimonials)();
-  (0,_resources_form_subscribe__WEBPACK_IMPORTED_MODULE_2__.formSubscribe)();
-  (0,_resources_form_get_in_touch__WEBPACK_IMPORTED_MODULE_3__.formGetInTouch)();
+  (0,_resources_testimonials__WEBPACK_IMPORTED_MODULE_1__.testimonials)(); // formSubscribe();
+
+  (0,_resources_form_get_in_touch__WEBPACK_IMPORTED_MODULE_2__.formGetInTouch)();
 });
 
 /***/ }),
@@ -50,40 +49,6 @@ var formGetInTouch = function formGetInTouch() {
       formElem.email.value = '';
       formElem.phone.value = '';
       formElem.message.value = '';
-      setTimeout(function () {
-        window.location.href = 'https://dev.ruthkrishnan.com/thank-you';
-      }, 150);
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  };
-
-  formElem.addEventListener('submit', function (event) {
-    event.preventDefault();
-    sendEmail();
-  });
-};
-
-/***/ }),
-
-/***/ "./src/scripts/resources/form-subscribe.js":
-/*!*************************************************!*\
-  !*** ./src/scripts/resources/form-subscribe.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "formSubscribe": () => (/* binding */ formSubscribe)
-/* harmony export */ });
-var formSubscribe = function formSubscribe() {
-  var formElem = document.getElementById('subscribe-form');
-
-  var sendEmail = function sendEmail() {
-    axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-subscribe', {
-      email: formElem.email.value
-    }).then(function (res) {
-      formElem.email.value = '';
       setTimeout(function () {
         window.location.href = 'https://dev.ruthkrishnan.com/thank-you';
       }, 150);
