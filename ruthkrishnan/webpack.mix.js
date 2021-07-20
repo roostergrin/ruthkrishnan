@@ -23,3 +23,4 @@ mix
 .js('src/scripts/pages/about.js', 'js/')
 .sass('src/sass/pages/single-listings.sass', 'styles/')
 .js('src/scripts/pages/single-listings.js', 'js/')
+.sass('src/sass/pages/thankyou.sass', 'styles/')

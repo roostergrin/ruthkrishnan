@@ -16,7 +16,7 @@
       <div class="form-subscribe__text"><?php echo get_field('subscribe_text', 'options'); ?></div>
     </div>
     <div class="form-subscribe__form-column">
-      <form action="" id="subscribe-form" class="form-subscribe__form" onsubmit="event.preventDefault(); sendEmail(this);">
+      <form action="" id="subscribe-form" class="form-subscribe__form">
         <label for="email" class="form-subscribe__label">Email</label>
         <input type="email" name="email" id="mail" class="form-subscribe__input">
 
@@ -25,17 +25,3 @@
     </div>
   </div>
 </section>
-
-<script type="text/javascript">
-  const sendEmail = (data) => {
-    console.log(data.email.value)
-    axios.post('http://localhost:8888/rg-mail/v1/contact', {
-      email: data.email.value
-    })
-    .then( res => {
-      data.email.value = ''
-      console.log('sent')
-    })
-    .catch( err => { console.log(err) })
-  }
-</script>
