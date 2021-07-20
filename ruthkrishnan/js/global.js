@@ -40,7 +40,7 @@ var formGetInTouch = function formGetInTouch() {
   var formElem = document.getElementById('get-in-touch-form');
 
   var sendEmail = function sendEmail() {
-    axios.post('http://localhost:8888/wp-json/rg-mail/v1/form-get-in-touch', {
+    axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-get-in-touch', {
       fullname: formElem.fullname.value,
       email: formElem.email.value,
       phone: formElem.phone.value,
@@ -51,7 +51,7 @@ var formGetInTouch = function formGetInTouch() {
       formElem.phone.value = '';
       formElem.message.value = '';
       setTimeout(function () {
-        window.location.href = 'http://localhost:8888/thank-you';
+        window.location.href = 'https://dev.ruthkrishnan.com/thank-you';
       }, 150);
     })["catch"](function (err) {
       console.log(err);
@@ -80,12 +80,12 @@ var formSubscribe = function formSubscribe() {
   var formElem = document.getElementById('subscribe-form');
 
   var sendEmail = function sendEmail() {
-    axios.post('http://localhost:8888/wp-json/rg-mail/v1/form-subscribe', {
+    axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-subscribe', {
       email: formElem.email.value
     }).then(function (res) {
       formElem.email.value = '';
       setTimeout(function () {
-        window.location.href = 'http://localhost:8888/thank-you';
+        window.location.href = 'https://dev.ruthkrishnan.com/thank-you';
       }, 150);
     })["catch"](function (err) {
       console.log(err);

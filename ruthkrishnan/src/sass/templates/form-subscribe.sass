@@ -12,9 +12,10 @@
     align-items: center
 
   &__content
-    @include col(5)
+    @include col(6)
     @include tablet
       margin-bottom: rem-calc(24)
+      text-align: center
 
   &__title
     margin-bottom: rem-calc(8)
@@ -22,34 +23,41 @@
   &__form-column
     @include col(6)
     display: flex
+    justify-content: center
     padding-right: 0
 
-  &__form
-    display: flex
-    width: 100%
+  &__button
+    @extend %button-text
+    @include button-solid($c3, $white, $white)
+    min-width: 35%
+    text-align: center
 
-  &__label
-    display: none
+  // &__form
+  //   display: flex
+  //   width: 100%
 
-  &__input
-    border: 2px solid $c1
-    border-right: none
-    width: 100%
-    height: rem-calc(48) 
+  // &__label
+  //   display: none
 
-    &:focus-visible
-      outline: none
+  // &__input
+  //   border: 2px solid $c1
+  //   border-right: none
+  //   width: 100%
+  //   height: rem-calc(48) 
 
-  &__submit
-    display: flex
-    align-items: center
-    justify-content: center
-    background: $c1
-    border: 2px solid $c1
-    width: rem-calc(48)
-    height: rem-calc(48)
+  //   &:focus-visible
+  //     outline: none
+
+  // &__submit
+  //   display: flex
+  //   align-items: center
+  //   justify-content: center
+  //   background: $c1
+  //   border: 2px solid $c1
+  //   width: rem-calc(48)
+  //   height: rem-calc(48)
   
-  &__arrow
-    width: 1rem
-    height: 1.5rem
-    fill: $white
+  // &__arrow
+  //   width: 1rem
+  //   height: 1.5rem
+  //   fill: $white

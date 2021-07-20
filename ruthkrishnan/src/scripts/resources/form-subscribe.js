@@ -3,13 +3,13 @@ export const formSubscribe = () => {
   const formElem = document.getElementById('subscribe-form');
 
   const sendEmail = () => {
-    axios.post('http://localhost:8888/wp-json/rg-mail/v1/form-subscribe', {
+    axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-subscribe', {
       email: formElem.email.value
     })
     .then( (res) => {
       formElem.email.value = '';
       setTimeout(() => {
-        window.location.href = 'http://localhost:8888/thank-you'
+        window.location.href = 'https://dev.ruthkrishnan.com/thank-you'
       }, 150);
     })
     .catch( (err) => { console.log(err) })

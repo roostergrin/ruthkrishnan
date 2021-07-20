@@ -33,6 +33,18 @@
   font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+.page-thank-you__button {
+  text-transform: lowercase;
+  line-height: 1.15;
+  letter-spacing: 0.01541875rem;
+  font-size: 0.875rem;
+}
+@media screen and (min-width: 1750px) {
+  .page-thank-you__button {
+    font-size: 1rem;
+  }
+}
+
 /* -----------------------
  * Typography
  * ----------------------- */
@@ -47,6 +59,10 @@
   padding: 0 calc((64px / 2) - 15px);
   width: 100%;
   max-width: calc(1146px + 64px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 17.5rem;
 }
 @media screen and (min-width: 1750px) {
   .page-thank-you__container {
@@ -61,5 +77,28 @@
 @media screen and (max-width: 480px) {
   .page-thank-you__container {
     padding: 0 1rem;
+  }
+}
+.page-thank-you__title {
+  margin-bottom: 0.5rem;
+}
+.page-thank-you__button {
+  margin-top: 1rem;
+}
+.page-thank-you__button {
+  display: inline-block;
+  position: relative;
+  transition: background 0.2s ease;
+  border: 0.0625rem solid #AF5B5B;
+  background: #AF5B5B;
+  cursor: pointer;
+  padding: 0.875rem 2rem 0.75rem;
+  text-transform: lowercase;
+  color: #fff;
+}
+@media not all and (pointer: coarse) {
+  .page-thank-you__button:hover {
+    background: #fff;
+    color: #AF5B5B;
   }
 }

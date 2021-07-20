@@ -3,7 +3,7 @@ export const formGetInTouch = () => {
   const formElem = document.getElementById('get-in-touch-form');
 
   const sendEmail = () => {
-    axios.post('http://localhost:8888/wp-json/rg-mail/v1/form-get-in-touch', {
+    axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-get-in-touch', {
       fullname: formElem.fullname.value,
       email: formElem.email.value,
       phone: formElem.phone.value,
@@ -15,7 +15,7 @@ export const formGetInTouch = () => {
       formElem.phone.value = '';
       formElem.message.value = '';
       setTimeout(() => {
-        window.location.href = 'http://localhost:8888/thank-you'
+        window.location.href = 'https://dev.ruthkrishnan.com/thank-you'
       }, 150);
     })
     .catch( (err) => { console.log(err) })

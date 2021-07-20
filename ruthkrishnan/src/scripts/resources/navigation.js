@@ -1,4 +1,5 @@
 export const navigation = () => {
+
   let scrollPos = 0;
   const el = document.querySelector('.site-navigation'),
         hamburger = document.querySelector('.site-navigation__hamburger'),
