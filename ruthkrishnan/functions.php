@@ -1,5 +1,8 @@
 <?php
 
+// include additional functionality -------------------------
+include_once(get_template_directory() . '/email.php');
+
 /**
  *
  *  Functions and Definitions
@@ -71,9 +74,17 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 
 // load scripts -------------------------
 function theme_enqueue_scripts() {
+
+  // Third Party Scripts
+  wp_register_script( 'axios', 'https://unpkg.com/axios/dist/axios.min.js', array(), '', true);
+  wp_enqueue_script( 'axios' );
+  
   // global scripts
   wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array(), '', true);
   wp_enqueue_script( 'global' );
+
+  wp_register_script( 'form-subscribe', get_template_directory_uri() . '/js/form-subscribe.js', array(), '', true);
+  wp_enqueue_script( 'form-subscribe' );
 
   // page specific scripts
   if ( is_home() || is_front_page() ) {

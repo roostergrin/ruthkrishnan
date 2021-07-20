@@ -776,6 +776,7 @@ p, li, h2, h3, h4, h5 {
   }
 }
 .form-subscribe__form {
+  display: flex;
   width: 100%;
 }
 .form-subscribe__label {
