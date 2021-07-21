@@ -177,3 +177,41 @@
     &-text
       margin-top: auto
       margin-bottom: 0
+
+/* --------------------------
+    About Giving Back Styles
+  --------------------------- */
+
+.about-giving-back
+  @extend %section-padding
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include tablet-md
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    background: $c1
+    padding: 0
+    max-width: $width
+    color: $white
+  
+  &__title
+    @include desktop
+      padding-top: 5rem
+    @include nexus
+      padding-top: 2rem
+    padding-top: 4rem
+    width: 100%
+    text-align: center
+
+  &__content
+    @include col(8)
+    @include col--offset(2)
+
+  &__text
+    @extend %section-padding-bottom
+    @extend %wysiwyg-styles

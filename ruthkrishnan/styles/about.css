@@ -60,30 +60,30 @@
   }
 }
 
-.about-ruth__content, .slider-team__intro-column {
+.about-giving-back, .about-ruth__content, .slider-team__intro-column {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .about-ruth__content, .slider-team__intro-column {
+  .about-giving-back, .about-ruth__content, .slider-team__intro-column {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .about-ruth__content, .slider-team__intro-column {
+  .about-giving-back, .about-ruth__content, .slider-team__intro-column {
     padding: 1rem 0;
   }
 }
 
-.about-video__links {
+.about-giving-back__text, .about-video__links {
   padding: 2rem 0 4rem;
 }
 @media screen and (min-width: 1750px) {
-  .about-video__links {
+  .about-giving-back__text, .about-video__links {
     padding: 2.5rem 0 5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .about-video__links {
+  .about-giving-back__text, .about-video__links {
     padding: 1rem 0 2rem;
   }
 }
@@ -136,11 +136,11 @@
   }
 }
 
-.about-ruth__slide-text p:not(:last-of-type), .slider-team__bio p:not(:last-of-type) {
+.about-giving-back__text p:not(:last-of-type), .about-ruth__slide-text p:not(:last-of-type), .slider-team__bio p:not(:last-of-type) {
   font-weight: 500;
   margin-bottom: 1rem;
 }
-.about-ruth__slide-text span, .slider-team__bio span {
+.about-giving-back__text span, .about-ruth__slide-text span, .slider-team__bio span {
   font-weight: 500;
 }
 
@@ -828,4 +828,83 @@
 .about-promise__card-text {
   margin-top: auto;
   margin-bottom: 0;
+}
+
+/* --------------------------
+ *  About Giving Back Styles
+ * --------------------------- */
+.about-giving-back__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  background: #232323;
+  padding: 0;
+  max-width: 1146px;
+  color: #fff;
+}
+@media screen and (min-width: 1750px) {
+  .about-giving-back__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-giving-back__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .about-giving-back__container {
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .about-giving-back__container {
+    max-width: calc(1528px - 64px);
+  }
+}
+@media screen and (max-width: 880px) {
+  .about-giving-back__container {
+    padding: 0 2rem;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .about-giving-back__container {
+    padding: 0 1rem;
+  }
+}
+.about-giving-back__title {
+  padding-top: 4rem;
+  width: 100%;
+  text-align: center;
+}
+@media screen and (min-width: 1750px) {
+  .about-giving-back__title {
+    padding-top: 5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .about-giving-back__title {
+    padding-top: 2rem;
+  }
+}
+.about-giving-back__content {
+  padding: 0 calc(30px / 2);
+  width: calc((8 / 12) * 100%);
+  margin-left: calc((2 / 12) * 100%);
+}
+@media screen and (max-width: 768px) {
+  .about-giving-back__content {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-giving-back__content {
+    margin-left: 0;
+  }
 }

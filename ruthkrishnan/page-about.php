@@ -50,11 +50,11 @@ get_header(); ?>
 
   <!-- END About Video Section -->
 
-  <!-- Team Slider Template Part -->
+  <!-- About Team Slider Template Part -->
   <?php get_template_part('template-parts/sliders/slider-team'); ?>
-  <!-- END Team Slider Template Part -->
+  <!-- END About Team Slider Template Part -->
 
-  <!-- Our Promise Section -->
+  <!-- About Our Promise Section -->
   <div class="about-promise">
     <div class="about-promise__color-box"></div>
     <div class="about-promise__container">
@@ -78,11 +78,22 @@ get_header(); ?>
       </div>
     </div>
   </div>
-  <!-- END Our Promise Section -->
+  <!-- END About Our Promise Section -->
 
   <!-- Testimonials Template Part -->
   <?php get_template_part('template-parts/testimonials/testimonials'); ?>
   <!-- END Testimonials Template Part -->
+
+  <!-- About Giving Back Section -->
+  <div class="about-giving-back">
+    <div class="about-giving-back__container">
+      <h2 class="about-giving-back__title"><?php echo get_field('about_giving_back_title'); ?></h2>
+      <div class="about-giving-back__content">
+        <div class="about-giving-back__text"><?php echo get_field('about_giving_back_text'); ?></div>
+      </div>
+    </div>
+  </div>
+  <!-- END About Giving Back Section -->
 
 </div>
 
