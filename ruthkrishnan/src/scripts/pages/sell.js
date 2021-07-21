@@ -1,7 +1,12 @@
+import { resourcesLinks } from '../resources/resources-links'
+
 document.addEventListener('DOMContentLoaded', function () {
   const playButton = document.querySelector('.sell-video__play-btn'),
         thumbnail = document.querySelector('.sell-video__thumbnail'),
         video = document.querySelector('.sell-video__video');
+      
+  // External Scripts
+  resourcesLinks();
 
   video.addEventListener('loadeddata', () => {
     

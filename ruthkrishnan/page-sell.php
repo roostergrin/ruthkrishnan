@@ -95,9 +95,13 @@ get_header(); ?>
   <?php get_template_part('template-parts/testimonials/testimonials'); ?>
   <!-- END Testimonials Template Part -->
 
-  <!-- Sell Process Template Part -->
+  <!-- Process Steps Template Part -->
   <?php get_template_part('template-parts/process-steps/process-steps'); ?>
-  <!-- END Sell Process Template Part -->
+  <!-- END Process Steps Template Part -->
+
+  <!-- Resources Links Template Part -->
+  <?php get_template_part('template-parts/resources-links/resources-links'); ?>
+  <!-- END Resources Links Template Part -->
 
 </div>
 
