@@ -73,7 +73,7 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'thankyou', get_template_directory_uri() . '/styles/thankyou.css' );
   }
 
-  if ( is_page_template('sell.php') ) {
+  if ( is_page_template('page-sell.php') ) {
     wp_enqueue_style( 'sell', get_template_directory_uri() . '/styles/sell.css' );
   }
 

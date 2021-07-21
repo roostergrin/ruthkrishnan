@@ -3,3 +3,24 @@
 /* -----------------------
     Sell Page Styles
    ----------------------- */
+
+/* ------------------------------
+    Sell Welcome Section Styles
+   ------------------------------ */
+  
+.sell-welcome
+  @extend %section-padding-top
+
+  &__container
+    @include container
+
+  &__column
+    @include col(8)
+    @include col--offset(2)
+
+  &__title
+    @include nexus
+      padding-bottom: 1rem
+    padding-bottom: 2rem
+    width: 100%
+    text-align: center
