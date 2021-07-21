@@ -1,0 +1,51 @@
+/* --------------------------
+    Our Performance Styles
+   -------------------------- */
+
+.our-performance
+  @extend %section-padding
+  position: relative
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include tablet-md
+      max-width: 100%
+      margin: 0 2rem
+    @include nexus
+      margin: 0 1rem
+    justify-content: center
+    background: $c2
+    padding: 0
+    max-width: $width
+
+  &__title
+    @extend %section-padding-top
+    width: 100%
+    text-align: center
+
+  &__content
+    @include col(10)
+    @include col--offset(1)
+    @include desktop
+      padding-bottom: 5rem
+    @include nexus
+      padding-bottom: 2rem
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: space-between
+    padding-bottom: 4rem
+  
+  &__text
+    @include tablet-md
+      margin-bottom: 1rem
+      width: 100%
+    width: calc((100% * (3 / 10)) - #{$gutter})
+
+  &__image
+    @include tablet-md
+      width: 100%
+    width: calc(100% * (7 / 10))
+    height: auto

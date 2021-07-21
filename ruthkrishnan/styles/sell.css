@@ -33,16 +33,30 @@
   font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-.sell-welcome {
+.our-performance {
+  padding: 2rem 0;
+}
+@media screen and (min-width: 1750px) {
+  .our-performance {
+    padding: 2.5rem 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .our-performance {
+    padding: 1rem 0;
+  }
+}
+
+.sell-welcome, .our-performance__title {
   padding: 4rem 0 2rem;
 }
 @media screen and (min-width: 1750px) {
-  .sell-welcome {
+  .sell-welcome, .our-performance__title {
     padding: 5rem 0 2.5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .sell-welcome {
+  .sell-welcome, .our-performance__title {
     padding: 2rem 0 1rem;
   }
 }
@@ -50,12 +64,116 @@
 /* -----------------------
  * Typography
  * ----------------------- */
+/* --------------------------
+ *  Our Performance Styles
+ * -------------------------- */
+.our-performance {
+  position: relative;
+}
+.our-performance__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  justify-content: center;
+  background: #F4F0F0;
+  padding: 0;
+  max-width: 1146px;
+}
+@media screen and (min-width: 1750px) {
+  .our-performance__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .our-performance__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .our-performance__container {
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .our-performance__container {
+    max-width: calc(1528px - 64px);
+  }
+}
+@media screen and (max-width: 880px) {
+  .our-performance__container {
+    max-width: 100%;
+    margin: 0 2rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .our-performance__container {
+    margin: 0 1rem;
+  }
+}
+.our-performance__title {
+  width: 100%;
+  text-align: center;
+}
+.our-performance__content {
+  padding: 0 calc(30px / 2);
+  width: calc((10 / 12) * 100%);
+  margin-left: calc((1 / 12) * 100%);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 4rem;
+}
+@media screen and (max-width: 768px) {
+  .our-performance__content {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .our-performance__content {
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .our-performance__content {
+    padding-bottom: 5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .our-performance__content {
+    padding-bottom: 2rem;
+  }
+}
+.our-performance__text {
+  width: calc((100% * (3 / 10)) - 30px);
+}
+@media screen and (max-width: 880px) {
+  .our-performance__text {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+}
+.our-performance__image {
+  width: calc(100% * (7 / 10));
+  height: auto;
+}
+@media screen and (max-width: 880px) {
+  .our-performance__image {
+    width: 100%;
+  }
+}
+
 /* -----------------------
  *  Sell Page Styles
  * ----------------------- */
-/* ------------------------------
- *  Sell Welcome Section Styles
- * ------------------------------ */
+/* ----------------------
+ *  Sell Welcome Styles
+ * ---------------------- */
 .sell-welcome__container {
   display: flex;
   position: relative;
