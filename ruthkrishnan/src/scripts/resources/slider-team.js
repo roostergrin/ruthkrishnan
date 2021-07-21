@@ -51,7 +51,10 @@ export const sliderTeam = () => {
   const setInfoHeight = () => {
     const memberInfoContainer = document.querySelector('.slider-team__members-container');
 
-    memberInfoContainer.style.height = Math.max(...memberInfoSlides.map(slide => slide.scrollHeight)) + 'px';
+    const memberHeights = memberInfoSlides.map(slide => slide.scrollHeight);
+    const maxHeight = Math.max(...memberHeights);
+
+    memberInfoContainer.style.height = maxHeight + 'px';
   }
 
   setInfoHeight();
@@ -87,11 +90,15 @@ export const sliderTeam = () => {
     changeImageSlide(+currSlide.dataset.index - 1);
   }
 
+  const resets = () => {
+    resizeBackgroundHeight();
+    setInfoHeight();
+    resetImageSlide();
+  }
+
   // window resize event listener 
   window.addEventListener('resize', () => {
-    debounce(resizeBackgroundHeight, null, 500);
-    debounce(setInfoHeight, null, 500);
-    debounce(resetImageSlide, null, 500)
+    debounce(resets, null, 300);
   })
 
     // go to the next slide

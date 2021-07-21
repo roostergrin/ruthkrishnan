@@ -106,7 +106,7 @@
     @include col(10)
   
   &__members-container
-    @extend %section-margin-bottom
+    @extend %section-margins
     position: relative
 
   &__member-slide
@@ -114,6 +114,7 @@
     transition: opacity .5s ease
     opacity: 0
     pointer-events: none
+    height: auto
 
     &--active
       opacity: 1
@@ -123,7 +124,4 @@
     padding-bottom: rem-calc(24)
 
   &__bio
-    padding-bottom: rem-calc(24)
-    
-    p:not(:last-of-type)
-      margin-bottom: 1em
+    @extend %wysiwyg-styles

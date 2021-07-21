@@ -1,6 +1,179 @@
 @import '../local/index.sass'
 @import '../templates/slider-team.sass'
+@import '../templates/about-ruth-krishnan.sass'
 
 /* -----------------------
     About Page Styles
   ----------------------- */
+.page-about
+  position: relative 
+
+/* -----------------------
+    About Video Styles
+  ----------------------- */
+
+.about-video
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include tablet-md
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    max-width: $width
+  
+  &__video-container
+    position: relative
+    width: 100%
+    height: calc(70vw * .5625)
+
+  &__thumbnail
+    @extend %absolute
+    transition: opacity .5s ease
+    object-fit: cover
+    opacity: 1
+    pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: none
+  
+  &__video
+    @extend %absolute
+    transition: opacity .5s ease
+    opacity: 0
+    pointer-events: none
+
+    &--active
+      opacity: 1
+      pointer-events: auto
+
+  &__play-btn
+    @extend %centered
+    @include hover-supported
+      .about-video__icon
+        opacity: .7
+    opacity: 1
+    z-index: 3
+    cursor: pointer
+    pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: none
+
+  &__icon
+    transition: opacity .2s ease
+    width: 3rem
+    height: 3rem
+    fill: $c1
+
+  &__content
+    @include col(8)
+    @include col--offset(2)
+    
+  &__text
+    @include desktop
+      padding-top: 2.5rem
+    @include nexus
+      padding-top: 1rem
+    padding-top: 2rem
+    text-align: center
+
+  &__links
+    @extend %section-padding-bottom
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    width: 100%
+
+  &__link-container
+    @include col(2)
+    @include tablet-md
+      width: 50%
+    @include nexus
+      width: 100%
+      text-align: center
+
+  &__link
+    @extend %button-text
+    @include button-solid($c3, $white, $white)
+    @include tablet-md
+      margin: .5rem auto
+      width: calc(100% - 1rem)
+    @include nexus
+      width: 55%
+    width: 100%
+    text-align: center
+
+/* -----------------------
+    About Promise Styles
+  ----------------------- */
+
+.about-promise
+  @extend %section-margins
+  @extend %section-padding-large
+  position: relative
+
+  &__color-box
+    @include desktop
+      max-width: calc(#{$max-width} + #{$gutter})
+    position: absolute
+    bottom: 0
+    left: 50%
+    transform: translateX(-50%)
+    z-index: -1
+    background: $c4
+    width: 100%
+    max-width: calc(#{$width} + #{$outside-gutter})
+    height: 100%
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include tablet-md
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    justify-content: center
+    padding: 0
+    max-width: $width
+
+  &__title
+    @include desktop
+      margin-bottom: 2.5rem
+    @include tablet-md
+      margin-bottom: 0
+    margin-bottom: 2rem
+    color: $white
+
+  &__cards
+    @include tablet-md
+      flex-direction: column
+      align-items: center
+    display: flex
+    flex-wrap: wrap
+    width: 100%
+  
+  &__card
+    @include col(3)
+    @include tablet-md
+      margin-top: 2rem
+      width: 50%
+    @include nexus
+      width: 80%
+    color: $white
+    text-align: center
+
+    &-icon
+      margin: 1rem auto
+      width: 33.33%
+
+    &-text
+      margin-top: auto
+      margin-bottom: 0

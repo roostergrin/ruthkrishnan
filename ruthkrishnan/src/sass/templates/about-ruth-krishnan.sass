@@ -1,0 +1,118 @@
+/* ------------------------------
+    About Ruth Krishnan Styles
+  ------------------------------- */
+
+.about-ruth
+  @extend %section-margins-large
+  position: relative
+  padding-bottom: rem-calc(33)
+
+  &__color-box
+    @include desktop
+      max-width: calc(#{$max-width} + #{$gutter})
+    position: absolute
+    bottom: 0
+    left: 50%
+    transform: translateX(-50%)
+    z-index: -1
+    background: $c2
+    width: 100%
+    max-width: calc(#{$width} + #{$outside-gutter})
+    height: 100%
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include tablet-md
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    padding: 0
+    max-width: $width
+
+  &__col-left
+    @include col(5)
+    @include tablet-md
+      width: 100%
+  
+  &__image-container
+    @include tablet-md
+      margin: auto
+      padding-top: 50%
+      width: 75%
+    @include nexus
+      padding-top: 100%
+      width: 100%
+    position: relative
+    width: 100%
+    height: 100%
+
+  &__image
+    @extend %absolute
+    @include tablet-md
+      object-position: center 25%
+    object-fit: cover
+
+  &__col-right
+    @include col(7)
+    @include tablet-md
+      width: 100%
+  
+  &__title
+    @include tablet-md
+      padding-top: 1rem
+      padding-bottom: 0
+    padding-bottom: 1rem
+
+  &__content
+    @extend %section-padding
+    @include tablet-md
+      padding-top: 1rem
+
+  &__navigation
+    display: flex
+    margin-bottom: 1.5rem
+  
+  &__nav-link
+    display: flex
+    align-items: center
+    cursor: pointer
+    margin-right: 1rem
+
+    @include hover-supported
+      &::before
+        opacity: 1
+
+    &::before
+      transition: opacity .2s ease
+      background: $c1
+      border-radius: 50%
+      opacity: 0
+      margin-right: rem-calc(8)
+      width: rem-calc(6)
+      height: rem-calc(6)
+      content: ''
+    
+    &--active
+      font-weight: 700
+
+      &::before
+        opacity: 1
+  
+  &__slides
+    position: relative
+    min-height: rem-calc(250)
+
+  &__slide
+    @extend %absolute
+    transition: opacity .5s ease
+    opacity: 0
+    height: auto
+
+    &--active
+      opacity: 1
+
+  &__slide-text
+    @extend %wysiwyg-styles

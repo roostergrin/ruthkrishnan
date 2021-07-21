@@ -38,29 +38,31 @@ __webpack_require__.r(__webpack_exports__);
 var formGetInTouch = function formGetInTouch() {
   var formElem = document.getElementById('get-in-touch-form');
 
-  var sendEmail = function sendEmail() {
-    axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-get-in-touch', {
-      fullname: formElem.fullname.value,
-      email: formElem.email.value,
-      phone: formElem.phone.value,
-      message: formElem.message.value
-    }).then(function (res) {
-      formElem.fullname.value = '';
-      formElem.email.value = '';
-      formElem.phone.value = '';
-      formElem.message.value = '';
-      setTimeout(function () {
-        window.location.href = 'https://dev.ruthkrishnan.com/thank-you';
-      }, 150);
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  };
+  if (formElem) {
+    var sendEmail = function sendEmail() {
+      axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-get-in-touch', {
+        fullname: formElem.fullname.value,
+        email: formElem.email.value,
+        phone: formElem.phone.value,
+        message: formElem.message.value
+      }).then(function (res) {
+        formElem.fullname.value = '';
+        formElem.email.value = '';
+        formElem.phone.value = '';
+        formElem.message.value = '';
+        setTimeout(function () {
+          window.location.href = 'https://dev.ruthkrishnan.com/thank-you';
+        }, 150);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    };
 
-  formElem.addEventListener('submit', function (event) {
-    event.preventDefault();
-    sendEmail();
-  });
+    formElem.addEventListener('submit', function (event) {
+      event.preventDefault();
+      sendEmail();
+    });
+  }
 };
 
 /***/ }),

@@ -2,6 +2,119 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/resources/about-ruth-krishnan.js":
+/*!******************************************************!*\
+  !*** ./src/scripts/resources/about-ruth-krishnan.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "aboutRuth": () => (/* binding */ aboutRuth)
+/* harmony export */ });
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var aboutRuth = function aboutRuth() {
+  var navElems = Array.from(document.querySelectorAll('.about-ruth__nav-link')),
+      slides = Array.from(document.querySelectorAll('.about-ruth__slide')),
+      slidesContainer = document.querySelector('.about-ruth__slides');
+  var debounceLastTimeout = null; // debounce function
+
+  var debounce = function debounce(func, args, wait, immediate) {
+    var later = function later() {
+      debounceLastTimeout = null;
+
+      if (!immediate) {
+        func(args);
+      }
+    };
+
+    var callNow = immediate && !debounceLastTimeout;
+    clearTimeout(debounceLastTimeout);
+    debounceLastTimeout = setTimeout(later, wait);
+
+    if (callNow) {
+      func(args);
+    }
+  };
+
+  var setSliderHeight = function setSliderHeight() {
+    // Set slide container height
+    var slideHeights = slides.map(function (slide) {
+      return slide.scrollHeight;
+    });
+    var maxHeight = Math.max.apply(Math, _toConsumableArray(slideHeights));
+    slidesContainer.style.height = maxHeight + 'px';
+  }; // Set Data Index for nav and slides. Sets first nav/slide as active
+
+
+  var initSlider = function initSlider() {
+    // Set dataset.index for nav items
+    navElems.forEach(function (nav, i) {
+      nav.dataset.index = i;
+    }); // Set dataset.index for slide items
+
+    slides.forEach(function (slide, i) {
+      slide.dataset.index = i;
+    });
+    setSliderHeight();
+  };
+
+  initSlider(); // Set Color Box height
+
+  var setBgHeight = function setBgHeight() {
+    var section = document.querySelector('.about-ruth'),
+        title = document.querySelector('.about-ruth__title'),
+        image = document.querySelector('.about-ruth__image-container'),
+        background = document.querySelector('.about-ruth__color-box');
+
+    if (window.innerWidth > 880) {
+      background.style.height = "".concat(section.offsetHeight - title.offsetHeight, "px");
+    } else {
+      background.style.height = "".concat(section.offsetHeight - image.offsetHeight * 0.75, "px");
+    }
+  };
+
+  setBgHeight();
+
+  var setActive = function setActive(index) {
+    navElems.forEach(function (nav) {
+      +nav.dataset.index === index ? nav.classList.add('about-ruth__nav-link--active') : nav.classList.remove('about-ruth__nav-link--active');
+    });
+    slides.forEach(function (slide) {
+      +slide.dataset.index === index ? slide.classList.add('about-ruth__slide--active') : slide.classList.remove('about-ruth__slide--active');
+    });
+  };
+
+  setActive(0);
+  navElems.forEach(function (nav) {
+    nav.addEventListener('click', function () {
+      setActive(+nav.dataset.index);
+    });
+  });
+
+  var resetHeights = function resetHeights() {
+    setSliderHeight();
+    setBgHeight();
+  };
+
+  window.addEventListener('resize', function () {
+    debounce(resetHeights, null, 300);
+  });
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/slider-team.js":
 /*!**********************************************!*\
   !*** ./src/scripts/resources/slider-team.js ***!
@@ -72,9 +185,11 @@ var sliderTeam = function sliderTeam() {
 
   var setInfoHeight = function setInfoHeight() {
     var memberInfoContainer = document.querySelector('.slider-team__members-container');
-    memberInfoContainer.style.height = Math.max.apply(Math, _toConsumableArray(memberInfoSlides.map(function (slide) {
+    var memberHeights = memberInfoSlides.map(function (slide) {
       return slide.scrollHeight;
-    }))) + 'px';
+    });
+    var maxHeight = Math.max.apply(Math, _toConsumableArray(memberHeights));
+    memberInfoContainer.style.height = maxHeight + 'px';
   };
 
   setInfoHeight(); // debounce function
@@ -108,13 +223,17 @@ var sliderTeam = function sliderTeam() {
   var resetImageSlide = function resetImageSlide() {
     var currSlide = document.querySelector('.slider-team__images-slide--active');
     changeImageSlide(+currSlide.dataset.index - 1);
+  };
+
+  var resets = function resets() {
+    resizeBackgroundHeight();
+    setInfoHeight();
+    resetImageSlide();
   }; // window resize event listener 
 
 
   window.addEventListener('resize', function () {
-    debounce(resizeBackgroundHeight, null, 500);
-    debounce(setInfoHeight, null, 500);
-    debounce(resetImageSlide, null, 500);
+    debounce(resets, null, 300);
   }); // go to the next slide
 
   var toNextSlide = function toNextSlide() {
@@ -247,9 +366,23 @@ var __webpack_exports__ = {};
   \************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_slider_team__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/slider-team */ "./src/scripts/resources/slider-team.js");
+/* harmony import */ var _resources_about_ruth_krishnan__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/about-ruth-krishnan */ "./src/scripts/resources/about-ruth-krishnan.js");
+
 
 document.addEventListener('DOMContentLoaded', function () {
+  var playButton = document.querySelector('.about-video__play-btn'),
+      thumbnail = document.querySelector('.about-video__thumbnail'),
+      video = document.querySelector('.about-video__video'); // external scripts
+
   (0,_resources_slider_team__WEBPACK_IMPORTED_MODULE_0__.sliderTeam)();
+  (0,_resources_about_ruth_krishnan__WEBPACK_IMPORTED_MODULE_1__.aboutRuth)();
+  video.addEventListener('loadeddata', function () {});
+  playButton.addEventListener('click', function () {
+    video.src = video.dataset.src;
+    playButton.classList.add('about-video__play-btn--hidden');
+    thumbnail.classList.add('about-video__thumbnail--hidden');
+    video.classList.add('about-video__video--active');
+  });
 });
 })();
 

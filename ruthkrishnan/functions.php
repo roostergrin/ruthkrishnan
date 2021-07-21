@@ -89,10 +89,6 @@ function theme_enqueue_scripts() {
     wp_enqueue_script( 'global' );
   }
 
-  // Form Subscribe send email 
-  // wp_register_script( 'form-subscribe', get_template_directory_uri() . '/js/form-subscribe.js', array(), '', false);
-  // wp_enqueue_script( 'form-subscribe' );
-
   // page specific scripts
   if ( is_home() || is_front_page() ) {
     wp_register_script( 'homepage', get_template_directory_uri() . '/js/homepage.js', array(), '', true );
