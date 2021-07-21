@@ -71,9 +71,34 @@ get_header(); ?>
   </div>
   <!-- END Sell Commission Section -->
 
+  <!-- Sell Video Section -->
+  <div class="sell-video">
+    <div class="sell-video__container">
+      <div class="sell-video__column">
+        <div class="sell-video__video-container">
+          <iframe class="sell-video__video" data-src="<?php echo get_field('sell_video_src') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <?php echo wp_get_attachment_image(get_field('sell_video_thumbnail'), 'full', false, [ 'class' => 'sell-video__thumbnail' ]); ?>
+          <div class="sell-video__play-btn">
+            <?php get_template_part('icons/play', null, array('class' => 'sell-video__icon')); ?>
+          </div>
+        </div>
+        <div class="sell-video__content">
+          <h2 class="sell-video__text"><?php echo get_field('sell_video_text'); ?></h2>
+          <a href="<?php echo get_field('sell_video_button_link'); ?>" class="sell-video__link"><?php echo get_field('sell_video_button_text'); ?></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END Sell Video Section -->
+
   <!-- Testimonials Template Part -->
   <?php get_template_part('template-parts/testimonials/testimonials'); ?>
   <!-- END Testimonials Template Part -->
+
+  <!-- Sell Process Template Part -->
+  <?php get_template_part('template-parts/process-steps/process-steps'); ?>
+  <!-- END Sell Process Template Part -->
+
 </div>
 
 <?php get_footer(); ?>

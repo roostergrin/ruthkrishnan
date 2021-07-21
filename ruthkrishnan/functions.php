@@ -150,6 +150,11 @@ function theme_enqueue_scripts() {
     wp_enqueue_script( 'thankyou' );
   }
 
+  if ( is_page_template('page-sell.php') ) {
+    wp_register_script( 'sell', get_template_directory_uri() . '/js/sell.js', array(), '', true);
+    wp_enqueue_script( 'sell' );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts');
 
