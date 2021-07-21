@@ -39,26 +39,26 @@
 
   &__link
     @include hover-supported
-      color: $c6
+      opacity: .7
       &:after
-        border-color: $c6
+        opacity: .7
     @extend %button-text
     display: inline-block
     position: relative
     left: 50%
     transform: translateX(-50%)
-    transition: color .2s ease
+    transition: opacity .2s ease
     text-transform: lowercase
     color: $c3
 
     &:after
       position: absolute
-      bottom: 0
+      bottom: -.25rem
       left: 0
-      transition: border-color .2s ease
-      border-bottom: 1.5px solid $c3
-      padding-top: .25rem
+      transition: opacity .2s ease
+      background: $c3
       width: 100%
+      height: rem-calc(2)
       content: ''
 
   &__map

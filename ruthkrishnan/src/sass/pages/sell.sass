@@ -25,3 +25,169 @@
     padding-bottom: 2rem
     width: 100%
     text-align: center
+
+/* ----------------------
+    Sell Prices Styles
+   ---------------------- */
+
+.sell-prices
+  @extend %section-padding
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$gutter * 2})
+    max-width: #{$width}
+
+  &__column
+    @include col(10)
+    @include col--offset(1)
+    @include desktop
+      padding: 5rem 0
+    @include tablet
+      padding: 4rem 0
+    @include nexus
+      padding: 2rem 0
+    display: flex
+    position: relative
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+    border: 2px solid $c1
+    padding: 4rem 0
+
+  &__background
+    @extend %absolute
+    z-index: -1
+    object-fit: cover
+
+  &__content
+    @include tablet-md
+      margin-bottom: 2rem
+      width: 100%
+      padding: 0 2rem
+    @include nexus
+      padding: 0 1rem
+    padding: 0 calc(#{$gutter} / 2)
+    width: 40%
+
+  &__title
+    @extend %h3
+    @include tablet-md
+      text-align: center
+    margin-bottom: 1rem
+
+  &__text
+    margin-bottom: 1rem
+  
+  &__links
+    @include tablet-md
+      justify-content: center
+    display: flex
+
+  &__btn
+    @extend %button-text
+    @include tablet-md
+      margin: 0 .5rem
+    display: inline-block
+    position: relative
+    transition: opacity .2s ease
+    text-transform: lowercase
+    color: $c3
+    font-weight: 500
+
+    @include hover-supported
+      opacity: .7
+    
+      &:after
+        opacity: .7
+
+    &:after
+      position: absolute
+      bottom: -.25rem
+      left: 0
+      transition: opacity .2s ease
+      background: $c3
+      width: 100%
+      height: rem-calc(2)
+      content: ''
+    
+    &:not(:first-of-type)
+      margin-left: 1rem
+
+  &__image
+    @include tablet-md
+      padding: 0 2rem
+      width: 75%
+    @include nexus
+      padding: 0 1rem
+      width: 100%
+    padding: 0 calc(#{$gutter} / 2)
+    width: 40%
+    height: auto
+
+/* --------------------------
+    Sell Commission Styles
+   -------------------------- */
+
+.sell-commission
+  @extend %section-padding
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$gutter * 2})
+    max-width: #{$width}
+
+  &__column
+    @include col(10)
+    @include col--offset(1)
+    @include desktop
+      padding: 5rem 0
+    @include tablet
+      padding: 4rem 0
+    @include nexus
+      padding: 2rem 0
+    display: flex
+    position: relative
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+    background: $c2
+    padding: 4rem 0
+
+  &__title
+    @extend %h3
+    margin-bottom: 1rem
+  
+  &__text
+    @include tablet-md
+      padding: 0 2rem
+      width: 100%
+    @include nexus
+      padding: 0 1rem
+    margin-bottom: rem-calc(24)
+    padding: 0 calc(#{$gutter} / 2)
+    width: calc(100% * (4 / 5))
+
+  &__images
+    @include tablet-md
+      flex-direction: column
+      align-items: center
+    display: flex
+    flex-wrap: wrap
+    width: calc(100% * (4 / 5))
+
+  &__image
+    @include tablet-md
+      padding: 0 1rem
+      width: 75%
+    @include nexus
+      width: 100%
+    padding: 0 calc(#{$gutter} / 2)
+    width: 50%
+    height: auto
+
+    &:not(:first-of-type)
+      @include tablet-md
+        padding-top: 1rem

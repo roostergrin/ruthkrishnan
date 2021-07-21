@@ -33,14 +33,43 @@ get_header(); ?>
   <div class="sell-prices">
     <div class="sell-prices__container">
       <div class="sell-prices__column">
+        <?php echo wp_get_attachment_image(get_field('sell_prices_background'), 'full', false, [ 'class' => 'sell-prices__background' ]); ?>
         <div class="sell-prices__content">
-          <h3 class="sell-prices__title">Sales Price to List Price</h3>
+          <h2 class="sell-prices__title"><?php echo get_field('sell_prices_title'); ?></h2>
+          <div class="sell-prices__text"><?php echo get_field('sell_prices_text'); ?></div>
+          <div class="sell-prices__links">
+            <?php if ( have_rows('sell_prices_links') ) :
+              while ( have_rows('sell_prices_links') ) : the_row();
+
+                $text = get_sub_field('text');
+                $link = get_sub_field('link'); ?>
+
+                <a href="<?php echo $link; ?>" class="sell-prices__btn"><?php echo $text; ?></a>
+
+              <?php endwhile;
+            endif; ?>
+          </div>
         </div>
-        <!-- <?php echo wp_get_attachment_image(get_field('performance_image'), 'full', false, [ 'class' => 'sell-prices__image' ]); ?> -->
+        <?php echo wp_get_attachment_image(get_field('sell_prices_image'), 'full', false, [ 'class' => 'sell-prices__image' ]); ?>
       </div>
     </div>
   </div>
   <!-- END Sell Prices Section -->
+
+  <!-- Sell Commission Section -->
+  <div class="sell-commission">
+    <div class="sell-commission__container">
+      <div class="sell-commission__column">
+        <h2 class="sell-commission__title"><?php echo get_field('sell_commission_title'); ?></h2>
+        <div class="sell-commission__text"><?php echo get_field('sell_commission_text'); ?></div>
+        <div class="sell-commission__images">
+          <?php echo wp_get_attachment_image(get_field('sell_commission_team_image'), 'full', false, [ 'class' => 'sell-commission__image' ]); ?>
+          <?php echo wp_get_attachment_image(get_field('sell_commission_agent_image'), 'full', false, [ 'class' => 'sell-commission__image' ]); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END Sell Commission Section -->
 
   <!-- Testimonials Template Part -->
   <?php get_template_part('template-parts/testimonials/testimonials'); ?>
