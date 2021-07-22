@@ -568,6 +568,14 @@
 .cta-text-btn__title {
   margin-bottom: 1rem;
 }
+.cta-text-btn__title span {
+  display: block;
+}
+@media screen and (max-width: 480px) {
+  .cta-text-btn__title span {
+    display: inline;
+  }
+}
 .cta-text-btn__text {
   margin-bottom: 1rem;
 }

@@ -193,7 +193,6 @@
   padding: 0 calc((64px / 2) - 15px);
   width: 100%;
   max-width: calc(1146px + 64px);
-  justify-content: center;
   background: #F4F0F0;
   padding: 0;
   max-width: 1146px;
@@ -230,6 +229,7 @@
 }
 @media screen and (max-width: 480px) {
   .our-performance__container {
+    width: calc(100% - 2rem);
     max-width: calc(100% - 2rem);
   }
 }
@@ -476,6 +476,7 @@
 }
 @media screen and (max-width: 480px) {
   .resources-links__container {
+    width: calc(100% - 2rem);
     max-width: calc(100% - 2rem);
   }
 }
