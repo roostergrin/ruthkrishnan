@@ -1,22 +1,22 @@
 import { resourcesLinks } from '../resources/resources-links'
 
 document.addEventListener('DOMContentLoaded', function () {
-  // const playButton = document.querySelector('.sell-video__play-btn'),
-  //       thumbnail = document.querySelector('.sell-video__thumbnail'),
-  //       video = document.querySelector('.sell-video__video');
+  const playButton = document.querySelector('.buy-welcome__play-btn'),
+        thumbnail = document.querySelector('.buy-welcome__thumbnail'),
+        video = document.querySelector('.buy-welcome__video');
       
   // External Scripts
-  // resourcesLinks();
+  resourcesLinks();
 
-  // video.addEventListener('loadeddata', () => {
+  video.addEventListener('loadeddata', () => {
     
-  // })
+  })
 
-  // playButton.addEventListener('click', () => {
-  //   video.src = video.dataset.src;
-  //   playButton.classList.add('sell-video__play-btn--hidden');
-  //   thumbnail.classList.add('sell-video__thumbnail--hidden');
-  //   video.classList.add('sell-video__video--active');
-  // })
+  playButton.addEventListener('click', () => {
+    video.src = video.dataset.src;
+    playButton.classList.add('buy-welcome__play-btn--hidden');
+    thumbnail.classList.add('buy-welcome__thumbnail--hidden');
+    video.classList.add('buy-welcome__video--active');
+  })
 
 });

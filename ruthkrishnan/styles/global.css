@@ -1348,6 +1348,9 @@ p, li, h2, h3, h4, h5 {
   background: #F4F0F0;
   height: 75%;
 }
+.page-buy .testimonials-section__color-block {
+  background: #828282;
+}
 .testimonials-section__col {
   padding: 0 calc(30px / 2);
   width: calc((6 / 12) * 100%);
