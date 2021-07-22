@@ -1,0 +1,167 @@
+/* ------------------------------
+    Case Studies Template Styles
+   ------------------------------ */
+
+.case-studies
+  @extend %section-padding-bottom
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include max-width(1210px)
+      width: calc(100% - 4rem)
+    @include tablet-md
+      max-width: calc(100% - 4rem)
+    @include phone-lg
+      max-width: calc(100% - 2rem)
+    padding: 0
+    max-width: $width
+
+  &__background
+    @extend %absolute
+    @include desktop
+      max-width: calc(#{$max-width} + #{$gutter})
+    @include nexus
+      background: $c2
+    left: 50%
+    transform: translateX(-50%)
+    background: $c2
+    z-index: -1
+    max-width: calc(#{$width} + #{$outside-gutter})
+    height: 48%
+
+  &__title
+    @include col(12)
+    @extend %section-margins-top
+    margin-bottom: 1rem
+    text-align: center
+
+  &__text
+    @include col(5)
+    @include col--offset(3.5)
+    margin-bottom: 1rem
+    text-align: center
+
+  &__link
+    @include col(6)
+    margin: 0 auto 2rem
+    text-align: center
+
+  &__btn
+    @extend %button-text
+    @include tablet-md
+      margin: 0 .5rem
+    display: inline-block
+    position: relative
+    transition: opacity .2s ease
+    text-transform: lowercase
+    color: $c3
+    font-weight: 500
+
+    @include hover-supported
+      opacity: .7
+    
+      &:after
+        opacity: .7
+
+    &:after
+      position: absolute
+      bottom: -.25rem
+      left: 0
+      transition: opacity .2s ease
+      background: $c3
+      width: 100%
+      height: rem-calc(2)
+      content: ''
+
+  &__slider
+    @include col (10)
+    @include col--offset (1)
+    @include desktop
+      height: rem-calc(380)
+    @include tablet-lg
+      height: 75vw
+    @include tablet
+      height: 85vw
+    position: relative
+    height: rem-calc(310)
+
+  &__slide
+    @extend %centered
+    @include tablet-lg
+      flex-direction: column
+    @include tablet-lg
+      width: 80%
+    @include tablet
+      width: 90%
+    @include nexus
+      width: 100%
+    display: flex
+    justify-content: space-between
+    transition: opacity .3s ease
+    opacity: 0
+    padding: 0 calc(#{$gutter} / 2)
+    width: calc(100% - (#{$gutter} / 2))
+    height: 100%
+
+    &--active
+      opacity: 1
+
+  &__image
+    @include tablet-lg
+      width: 100%
+      height: calc(50% - .5rem)
+    width: calc(50% - (#{$gutter} / 2))
+    height: 100%
+    object-fit: cover
+    object-position: center
+
+  &__prev,
+  &__next
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    cursor: pointer
+
+  &__prev
+    @include tablet
+      left: -1rem
+    @include phone-lg
+      left: -.5rem
+    left: -$gutter
+
+  &__next
+    @include tablet
+      right: -1rem
+    @include phone-lg
+      right: -.5rem
+    right: -$gutter
+
+  &__icon
+    width: rem-calc(20)
+    height: rem-calc(20)
+
+    &--prev
+      transform: scale(-1)
+
+  &__indicators
+    @include col(12)
+    @include phone-lg
+      margin-top: 1rem
+    margin-top: 2rem
+    display: flex
+    justify-content: center
+
+  &__dot
+    transition: background .3s ease
+    margin: auto rem-calc(4)
+    border: $c1 solid 1px
+    border-radius: 50%
+    cursor: pointer
+    width: rem-calc(8)
+    height: rem-calc(8)
+    pointer-events: all
+
+    &--active
+      background: $c1

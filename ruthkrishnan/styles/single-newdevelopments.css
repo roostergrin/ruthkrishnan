@@ -204,26 +204,26 @@
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
   text-transform: lowercase;
   color: #AF5B5B;
 }
 @media not all and (pointer: coarse) {
   .new-developments-neighborhood__link:hover {
-    color: #963636;
+    opacity: 0.7;
   }
   .new-developments-neighborhood__link:hover:after {
-    border-color: #963636;
+    opacity: 0.7;
   }
 }
 .new-developments-neighborhood__link:after {
   position: absolute;
-  bottom: 0;
+  bottom: -0.25rem;
   left: 0;
-  transition: border-color 0.2s ease;
-  border-bottom: 1.5px solid #AF5B5B;
-  padding-top: 0.25rem;
+  transition: opacity 0.2s ease;
+  background: #AF5B5B;
   width: 100%;
+  height: 0.125rem;
   content: "";
 }
 .new-developments-neighborhood__map {

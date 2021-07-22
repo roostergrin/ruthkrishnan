@@ -1,0 +1,72 @@
+/* -----------------------
+    Process Steps Styles
+   ----------------------- */
+
+.process-steps
+  @extend %section-padding
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$gutter * 2})
+    background: $c1
+    max-width: #{$width}
+    color: $white
+  
+  &__column-sm
+    @extend %section-margins-large
+    @include col(3)
+    @include col--offset(1)
+    @include tablet
+      margin-bottom: 1rem
+
+  &__title
+    @include tablet
+      text-align: center
+      
+    .page-sell &
+      @include tablet-lg
+        width: 100%
+      width: 75%
+
+    span
+      @include tablet
+        display: inline-block
+      display: block
+
+  &__text
+    margin-top: 1rem
+  
+  &__column-lg
+    @extend %section-margins-large
+    @include col(7)
+    @include tablet
+      margin-top: 1rem
+  
+  &__list
+    @include tablet
+      padding: 0 2rem
+    @include phone-lg
+      padding: 0 1rem
+    list-style: none
+
+    &-item
+      display: flex
+      align-items: center
+
+      &:not(:last-of-type)
+        margin-bottom: rem-calc(40)
+    
+    &-number
+      @include desktop
+        font-size: rem-calc(36)
+      @include nexus
+        font-size: rem-calc(28)
+      opacity: .5
+      margin-right: 1rem
+      color: $c5
+      font-size: rem-calc(34)
+      font-weight: 700
+    
+    &-text
+      text-transform: uppercase
