@@ -58,7 +58,7 @@ get_header(); ?>
     <div class="buy-neighborhood__container">
       <div class="buy-neighborhood__column">
         <div class="buy-neighborhood__background"></div>
-        <h2 class="buy-neighborhood__title">Which Neighborhood is Right for You?</h2>
+        <h2 class="buy-neighborhood__title"><?php echo get_field('buy_neighborhood_title'); ?></h2>
         <div class="buy-neighborhood__map-container">
           <?php get_template_part('icons/map', null, array( 'class' => 'buy-neighborhood__map')); ?>
         </div>
