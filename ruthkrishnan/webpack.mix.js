@@ -29,3 +29,5 @@ mix
 .js('src/scripts/pages/sell.js', 'js/')
 .sass('src/sass/pages/buy.sass', 'styles/')
 .js('src/scripts/pages/buy.js', 'js/')
+.sass('src/sass/pages/single-neighborhoods.sass', 'styles/')
+.js('src/scripts/pages/single-neighborhoods.js', 'js/')
