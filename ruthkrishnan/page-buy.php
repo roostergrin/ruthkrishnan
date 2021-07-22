@@ -40,6 +40,7 @@ get_header(); ?>
   <?php get_template_part('template-parts/testimonials/testimonials'); ?>
   <!-- END Testimonials Template Part -->
 
+  <!-- CTA Text & Button Template Part -->
   <div class="buy-schedule-talk">
     <?php get_template_part('template-parts/cta/cta-text-btn', null, array( 'acf_group' => 'schedule_time_to_talk_cta' )); ?>
   </div>

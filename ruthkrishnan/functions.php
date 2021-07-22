@@ -81,6 +81,10 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'buy', get_template_directory_uri() . '/styles/buy.css' );
   }
 
+  if ( is_single() && get_post_type() === 'neighborhoods' ) {
+    wp_enqueue_style( 'single-neighborhoods', get_template_directory_uri() . '/styles/single-neighborhoods.css' );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -162,6 +166,11 @@ function theme_enqueue_scripts() {
   if ( is_page_template('page-buy.php') ) {
     wp_register_script( 'buy', get_template_directory_uri() . '/js/buy.js', array(), '', true);
     wp_enqueue_script( 'buy' );
+  }
+
+  if ( is_single() && get_post_type() === 'neighborhoods' ) {
+    wp_register_script( 'single-neighborhoods', get_template_directory_uri() . '/js/single-neighborhoods.js', array(), '', true);
+    wp_enqueue_script( 'single-neighborhoods' );
   }
 
 }
