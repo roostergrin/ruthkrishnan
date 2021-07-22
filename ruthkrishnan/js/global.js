@@ -273,6 +273,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/sass/pages/buy.sass":
+/*!*********************************!*\
+  !*** ./src/sass/pages/buy.sass ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./src/sass/global.sass":
 /*!******************************!*\
   !*** ./src/sass/global.sass ***!
@@ -436,6 +448,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 			"styles/newdevelopments": 0,
 /******/ 			"styles/homepage": 0,
 /******/ 			"styles/global": 0,
+/******/ 			"styles/buy": 0,
 /******/ 			"styles/sell": 0,
 /******/ 			"styles/thankyou": 0,
 /******/ 			"styles/single-listings": 0,
@@ -490,19 +503,20 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/scripts/global.js")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/global.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/homepage.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/newdevelopments.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/single-newdevelopments.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/neighborhoods.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/blog.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/single-blog.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/archive.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/about.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/single-listings.sass")))
-/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/thankyou.sass")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/sell.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/buy","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/scripts/global.js")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/buy","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/global.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/buy","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/homepage.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/buy","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/newdevelopments.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/buy","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/single-newdevelopments.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/buy","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/neighborhoods.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/buy","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/blog.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/buy","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/single-blog.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/buy","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/archive.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/buy","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/about.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/buy","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/single-listings.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/buy","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/thankyou.sass")))
+/******/ 	__webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/buy","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/sell.sass")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["styles/neighborhoods","styles/single-newdevelopments","styles/newdevelopments","styles/homepage","styles/global","styles/buy","styles/sell","styles/thankyou","styles/single-listings","styles/about","styles/archive","styles/single-blog","styles/blog"], () => (__webpack_require__("./src/sass/pages/buy.sass")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

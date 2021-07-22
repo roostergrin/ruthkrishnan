@@ -77,6 +77,10 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'sell', get_template_directory_uri() . '/styles/sell.css' );
   }
 
+  if ( is_page_template('page-buy.php') ) {
+    wp_enqueue_style( 'buy', get_template_directory_uri() . '/styles/buy.css' );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -153,6 +157,11 @@ function theme_enqueue_scripts() {
   if ( is_page_template('page-sell.php') ) {
     wp_register_script( 'sell', get_template_directory_uri() . '/js/sell.js', array(), '', true);
     wp_enqueue_script( 'sell' );
+  }
+
+  if ( is_page_template('page-buy.php') ) {
+    wp_register_script( 'buy', get_template_directory_uri() . '/js/buy.js', array(), '', true);
+    wp_enqueue_script( 'buy' );
   }
 
 }
