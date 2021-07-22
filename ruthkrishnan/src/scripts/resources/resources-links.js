@@ -21,7 +21,7 @@ export const resourcesLinks = () => {
   }
 
   const setLinkHeights = () => {
-    const linkHeights = links.map(link => link.clientHeight),
+    const linkHeights = links.map(link => link.scrollHeight),
           maxHeight = Math.max(...linkHeights);
     
     links.forEach((link) => {

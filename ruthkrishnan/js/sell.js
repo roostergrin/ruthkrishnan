@@ -48,7 +48,7 @@ var resourcesLinks = function resourcesLinks() {
 
   var setLinkHeights = function setLinkHeights() {
     var linkHeights = links.map(function (link) {
-      return link.clientHeight;
+      return link.scrollHeight;
     }),
         maxHeight = Math.max.apply(Math, _toConsumableArray(linkHeights));
     links.forEach(function (link) {
@@ -59,6 +59,140 @@ var resourcesLinks = function resourcesLinks() {
   setLinkHeights();
   window.addEventListener('resize', function () {
     debounce(setLinkHeights, null, 300);
+  });
+};
+
+/***/ }),
+
+/***/ "./src/scripts/resources/slider-before-after.js":
+/*!******************************************************!*\
+  !*** ./src/scripts/resources/slider-before-after.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "beforeAfter": () => (/* binding */ beforeAfter)
+/* harmony export */ });
+var beforeAfter = function beforeAfter() {
+  var currSlide = 0;
+  var slider = document.querySelector('.before-after__slider'),
+      sliderLength = slider.dataset.sliderLength,
+      slide = document.querySelectorAll('.before-after__slide'),
+      dot = document.querySelectorAll('.before-after__dot'),
+      prev = document.querySelector('.before-after__prev'),
+      next = document.querySelector('.before-after__next'),
+      img = document.querySelectorAll('.before-after__image');
+
+  var setSlide = function setSlide() {
+    slide.forEach(function (slide) {
+      currSlide === +slide.dataset.index ? slide.classList.add('before-after__slide--active') : slide.classList.remove('before-after__slide--active');
+    });
+    dot.forEach(function (dot) {
+      currSlide === +dot.dataset.index ? dot.classList.add('before-after__dot--active') : dot.classList.remove('before-after__dot--active');
+    });
+  };
+
+  setSlide();
+
+  var changeSlide = function changeSlide(str) {
+    if (str === 'prev') {
+      currSlide === 0 ? currSlide = sliderLength - 1 : currSlide--;
+      setSlide();
+    }
+
+    ;
+
+    if (str === 'next') {
+      currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++;
+      setSlide();
+    }
+
+    ;
+  };
+
+  var goToSlide = function goToSlide(val) {
+    currSlide = val;
+    setSlide();
+  };
+
+  prev.addEventListener('click', function () {
+    changeSlide('prev');
+  });
+  next.addEventListener('click', function () {
+    changeSlide('next');
+  });
+  dot.forEach(function (dot, i) {
+    dot.addEventListener('click', function () {
+      goToSlide(i);
+    });
+  });
+};
+
+/***/ }),
+
+/***/ "./src/scripts/resources/slider-case-studies.js":
+/*!******************************************************!*\
+  !*** ./src/scripts/resources/slider-case-studies.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "caseStudies": () => (/* binding */ caseStudies)
+/* harmony export */ });
+var caseStudies = function caseStudies() {
+  var currSlide = 0;
+  var slider = document.querySelector('.case-studies__slider'),
+      sliderLength = slider.dataset.sliderLength,
+      slide = document.querySelectorAll('.case-studies__slide'),
+      dot = document.querySelectorAll('.case-studies__dot'),
+      prev = document.querySelector('.case-studies__prev'),
+      next = document.querySelector('.case-studies__next'),
+      img = document.querySelectorAll('.case-studies__image');
+
+  var setSlide = function setSlide() {
+    slide.forEach(function (slide) {
+      currSlide === +slide.dataset.index ? slide.classList.add('case-studies__slide--active') : slide.classList.remove('case-studies__slide--active');
+    });
+    dot.forEach(function (dot) {
+      currSlide === +dot.dataset.index ? dot.classList.add('case-studies__dot--active') : dot.classList.remove('case-studies__dot--active');
+    });
+  };
+
+  setSlide();
+
+  var changeSlide = function changeSlide(str) {
+    if (str === 'prev') {
+      currSlide === 0 ? currSlide = sliderLength - 1 : currSlide--;
+      setSlide();
+    }
+
+    ;
+
+    if (str === 'next') {
+      currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++;
+      setSlide();
+    }
+
+    ;
+  };
+
+  var goToSlide = function goToSlide(val) {
+    currSlide = val;
+    setSlide();
+  };
+
+  prev.addEventListener('click', function () {
+    changeSlide('prev');
+  });
+  next.addEventListener('click', function () {
+    changeSlide('next');
+  });
+  dot.forEach(function (dot, i) {
+    dot.addEventListener('click', function () {
+      goToSlide(i);
+    });
   });
 };
 
@@ -128,6 +262,10 @@ var __webpack_exports__ = {};
   \***********************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_resources_links__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/resources-links */ "./src/scripts/resources/resources-links.js");
+/* harmony import */ var _resources_slider_before_after__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/slider-before-after */ "./src/scripts/resources/slider-before-after.js");
+/* harmony import */ var _resources_slider_case_studies__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../resources/slider-case-studies */ "./src/scripts/resources/slider-case-studies.js");
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
   var playButton = document.querySelector('.sell-video__play-btn'),
@@ -135,6 +273,8 @@ document.addEventListener('DOMContentLoaded', function () {
       video = document.querySelector('.sell-video__video'); // External Scripts
 
   (0,_resources_resources_links__WEBPACK_IMPORTED_MODULE_0__.resourcesLinks)();
+  (0,_resources_slider_before_after__WEBPACK_IMPORTED_MODULE_1__.beforeAfter)();
+  (0,_resources_slider_case_studies__WEBPACK_IMPORTED_MODULE_2__.caseStudies)();
   video.addEventListener('loadeddata', function () {});
   playButton.addEventListener('click', function () {
     video.src = video.dataset.src;

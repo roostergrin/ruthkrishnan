@@ -103,6 +103,14 @@ get_header(); ?>
   <?php get_template_part('template-parts/resources-links/resources-links'); ?>
   <!-- END Resources Links Template Part -->
 
+  <!-- Before and After Gallery Template Part -->
+  <?php get_template_part('template-parts/sliders/before-after'); ?>
+  <!-- END Before and After Gallery Template Part -->
+
+  <!-- Case Studies Template Part -->
+  <?php get_template_part('template-parts/sliders/case-studies'); ?>
+  <!-- END Case Studies Template Part -->
+
 </div>
 
 <?php get_footer(); ?>

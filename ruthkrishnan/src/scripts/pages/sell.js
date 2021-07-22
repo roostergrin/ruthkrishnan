@@ -1,4 +1,6 @@
 import { resourcesLinks } from '../resources/resources-links'
+import { beforeAfter } from '../resources/slider-before-after'
+import { caseStudies } from '../resources/slider-case-studies'
 
 document.addEventListener('DOMContentLoaded', function () {
   const playButton = document.querySelector('.sell-video__play-btn'),
@@ -7,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
       
   // External Scripts
   resourcesLinks();
+  beforeAfter();
+  caseStudies();
 
   video.addEventListener('loadeddata', () => {
     
