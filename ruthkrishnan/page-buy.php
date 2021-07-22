@@ -53,6 +53,20 @@ get_header(); ?>
   <?php get_template_part('template-parts/resources-links/resources-links'); ?>
   <!-- END Resources Links Template Part -->
 
+  <!-- Buy Neighborhood Section -->
+  <div class="buy-neighborhood">
+    <div class="buy-neighborhood__container">
+      <div class="buy-neighborhood__column">
+        <div class="buy-neighborhood__background"></div>
+        <h2 class="buy-neighborhood__title">Which Neighborhood is Right for You?</h2>
+        <div class="buy-neighborhood__map-container">
+          <?php get_template_part('icons/map', null, array( 'class' => 'buy-neighborhood__map')); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END Buy Neighborhood Section -->
+
   <!-- Buy - Rent vs Buy Section -->
   <div class="buy-rent-vs-buy">
     <div class="buy-rent-vs-buy__container">

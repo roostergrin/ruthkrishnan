@@ -229,6 +229,7 @@
 }
 @media screen and (max-width: 480px) {
   .our-performance__container {
+    width: calc(100% - 2rem);
     max-width: calc(100% - 2rem);
   }
 }
@@ -475,6 +476,7 @@
 }
 @media screen and (max-width: 480px) {
   .resources-links__container {
+    width: calc(100% - 2rem);
     max-width: calc(100% - 2rem);
   }
 }

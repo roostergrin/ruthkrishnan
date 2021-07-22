@@ -92,6 +92,54 @@
     fill: $c1
 
 /* --------------------------
+    Buy Neighborhood Styles
+   -------------------------- */
+
+.buy-neighborhood
+  @extend %section-padding
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include tablet-md
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    max-width: $width
+  
+  &__column
+    @include col(10)
+    @include col--offset(1)
+    position: relative
+    padding: 0
+
+  &__background
+    @extend %absolute
+    background: $c4
+    z-index: -1
+    height: 35%
+
+  &__title
+    @extend %section-padding-large
+    width: 100%
+    text-align: center
+    color: $white
+  
+  &__map-container
+    @include col(8)
+    @include col--offset(2)
+    background: $c2
+
+  .map-neighborhoods__icon-neighborhood
+    @include hover-supported
+      opacity: .5
+    transtition: opacity .2s ease
+    cursor: pointer
+
+
+/* --------------------------
     Buy - Rent vs Buy Styles
    -------------------------- */
 

@@ -40,7 +40,7 @@
   transform: translate(-50%, -50%);
 }
 
-.buy-welcome__video, .buy-welcome__thumbnail, .resources-links__background {
+.buy-neighborhood__background, .buy-welcome__video, .buy-welcome__thumbnail, .resources-links__background {
   position: absolute;
   top: 0;
   left: 0;
@@ -60,16 +60,16 @@
   }
 }
 
-.buy-schedule-talk, .resources-links, .process-steps, .our-performance {
+.buy-schedule-talk, .buy-neighborhood, .resources-links, .process-steps, .our-performance {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .buy-schedule-talk, .resources-links, .process-steps, .our-performance {
+  .buy-schedule-talk, .buy-neighborhood, .resources-links, .process-steps, .our-performance {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .buy-schedule-talk, .resources-links, .process-steps, .our-performance {
+  .buy-schedule-talk, .buy-neighborhood, .resources-links, .process-steps, .our-performance {
     padding: 1rem 0;
   }
 }
@@ -99,6 +99,20 @@
 @media screen and (max-width: 600px) {
   .buy-rent-vs-buy {
     padding: 1rem 0 2rem;
+  }
+}
+
+.buy-neighborhood__title {
+  padding: 4rem 0;
+}
+@media screen and (min-width: 1750px) {
+  .buy-neighborhood__title {
+    padding: 5rem 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .buy-neighborhood__title {
+    padding: 2rem 0;
   }
 }
 
@@ -235,6 +249,7 @@
 }
 @media screen and (max-width: 480px) {
   .our-performance__container {
+    width: calc(100% - 2rem);
     max-width: calc(100% - 2rem);
   }
 }
@@ -343,6 +358,14 @@
 }
 .cta-text-btn__title {
   margin-bottom: 1rem;
+}
+.cta-text-btn__title span {
+  display: block;
+}
+@media screen and (max-width: 480px) {
+  .cta-text-btn__title span {
+    display: inline;
+  }
 }
 .cta-text-btn__text {
   margin-bottom: 1rem;
@@ -549,6 +572,7 @@
 }
 @media screen and (max-width: 480px) {
   .resources-links__container {
+    width: calc(100% - 2rem);
     max-width: calc(100% - 2rem);
   }
 }
@@ -744,6 +768,105 @@
   width: 3rem;
   height: 3rem;
   fill: #232323;
+}
+
+/* --------------------------
+ *  Buy Neighborhood Styles
+ * -------------------------- */
+.buy-neighborhood__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  max-width: 1146px;
+}
+@media screen and (min-width: 1750px) {
+  .buy-neighborhood__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .buy-neighborhood__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .buy-neighborhood__container {
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .buy-neighborhood__container {
+    max-width: calc(1528px - 64px);
+  }
+}
+@media screen and (max-width: 880px) {
+  .buy-neighborhood__container {
+    padding: 0 2rem;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .buy-neighborhood__container {
+    padding: 0 1rem;
+  }
+}
+.buy-neighborhood__column {
+  padding: 0 calc(30px / 2);
+  width: calc((10 / 12) * 100%);
+  margin-left: calc((1 / 12) * 100%);
+  position: relative;
+  padding: 0;
+}
+@media screen and (max-width: 768px) {
+  .buy-neighborhood__column {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .buy-neighborhood__column {
+    margin-left: 0;
+  }
+}
+.buy-neighborhood__background {
+  background: #828282;
+  z-index: -1;
+  height: 35%;
+}
+.buy-neighborhood__title {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+.buy-neighborhood__map-container {
+  padding: 0 calc(30px / 2);
+  width: calc((8 / 12) * 100%);
+  margin-left: calc((2 / 12) * 100%);
+  background: #F4F0F0;
+}
+@media screen and (max-width: 768px) {
+  .buy-neighborhood__map-container {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .buy-neighborhood__map-container {
+    margin-left: 0;
+  }
+}
+.buy-neighborhood .map-neighborhoods__icon-neighborhood {
+  transtition: opacity 0.2s ease;
+  cursor: pointer;
+}
+@media not all and (pointer: coarse) {
+  .buy-neighborhood .map-neighborhoods__icon-neighborhood:hover {
+    opacity: 0.5;
+  }
 }
 
 /* --------------------------
