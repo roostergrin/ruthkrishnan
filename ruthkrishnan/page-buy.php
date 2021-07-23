@@ -40,6 +40,22 @@ get_header(); ?>
   <?php get_template_part('template-parts/testimonials/testimonials'); ?>
   <!-- END Testimonials Template Part -->
 
+  <!-- Buy Testimonial Video Section -->
+  <div class="buy-testimonial-video">
+    <div class="buy-testimonial-video__container">
+      <div class="buy-testimonial-video__column">
+        <div class="buy-testimonial-video__video-container">
+          <iframe class="buy-testimonial-video__video" data-src="<?php echo get_field('buy_testimonial_video') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <?php echo wp_get_attachment_image(get_field('buy_testimonial_thumbnail'), 'full', false, [ 'class' => 'buy-testimonial-video__thumbnail' ]); ?>
+          <div class="buy-testimonial-video__play-btn">
+            <?php get_template_part('icons/play', null, array('class' => 'buy-testimonial-video__icon')); ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END Buy Testimonial Video Section -->
+
   <!-- CTA Text & Button Template Part -->
   <div class="buy-schedule-talk">
     <?php get_template_part('template-parts/cta/cta-text-btn', null, array( 'acf_group' => 'schedule_time_to_talk_cta' )); ?>

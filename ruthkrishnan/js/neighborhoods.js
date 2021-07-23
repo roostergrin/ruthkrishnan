@@ -31,9 +31,6 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       contentColumn = document.querySelector('.slider-neighborhoods__content-column'),
       content = Array.from(document.querySelectorAll('.slider-neighborhoods__content')),
       iconArr = document.querySelectorAll('.map-neighborhoods__icon-neighborhood'),
-      maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
-    return el.clientHeight;
-  }))),
       tooltipContainer = document.querySelector('.map-neighborhoods__tooltip'),
       tooltipContent = document.getElementById('tooltip-content'),
       closeContainer = document.getElementById('tooltip-close');
@@ -60,12 +57,43 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       }
     });
     sectionActive ? closeToolTip() : null;
+
+    if (window.innerWidth < 768) {
+      if (content[pos].scrollHeight > window.innerHeight / 2) {
+        document.querySelector('.slider-neighborhoods__content-fade').style.opacity = 1;
+      }
+    }
   }; // * set the correct slide active on first load *
 
 
   changeSlide(slidesArr[0].elem, 0); // * set height of column to be the height of largest content *
 
-  contentColumn.style.height = "".concat(maxHeight / 16, "rem"); // * change the active content slide by adding active class *
+  var setContentHeight = function setContentHeight() {
+    var maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
+      return el.clientHeight;
+    }))),
+        contentContainer = document.querySelector('.slider-neighborhoods__content-container');
+
+    if (window.innerWidth > 768) {
+      contentColumn.style.height = "".concat(maxHeight / 16, "rem");
+    } else {
+      contentContainer.style.height = '50vh';
+      content.forEach(function (el) {
+        if (el.scrollHeight > window.innerHeight / 2) {
+          el.style.overflowY = 'scroll';
+          el.addEventListener('scroll', function () {
+            if (el.scrollTop === el.scrollHeight - window.innerHeight / 2) {
+              document.querySelector('.slider-neighborhoods__content-fade').style.opacity = 0;
+            } else {
+              document.querySelector('.slider-neighborhoods__content-fade').style.opacity = 1;
+            }
+          });
+        }
+      });
+    }
+  };
+
+  setContentHeight(); // * change the active content slide by adding active class *
 
   var changeContent = function changeContent(i) {
     contentWrapper.forEach(function (el) {
@@ -215,6 +243,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     });
     changeSlide(currSlide.elem, currSlide.position);
     closeToolTip();
+    setContentHeight();
   }; // watch screen resize to reset slide transform
 
 
@@ -232,6 +261,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     });
 
     if (nextSlide) {
+      highlight(nextSlide);
       changeSlide(nextSlide.elem, nextSlide.position);
       changeContent(nextSlide.position);
     }
@@ -248,6 +278,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     });
 
     if (prevSlide) {
+      highlight(prevSlide);
       changeSlide(prevSlide.elem, prevSlide.position);
       changeContent(prevSlide.position);
     }

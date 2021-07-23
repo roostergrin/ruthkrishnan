@@ -85,6 +85,10 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'single-neighborhoods', get_template_directory_uri() . '/styles/single-neighborhoods.css' );
   }
 
+  if ( is_page_template('page-contact.php') ) {
+    wp_enqueue_style( 'contact', get_template_directory_uri() . '/styles/contact.css' );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 

@@ -3,7 +3,10 @@ import { resourcesLinks } from '../resources/resources-links'
 document.addEventListener('DOMContentLoaded', function () {
   const playButton = document.querySelector('.buy-welcome__play-btn'),
         thumbnail = document.querySelector('.buy-welcome__thumbnail'),
-        video = document.querySelector('.buy-welcome__video');
+        video = document.querySelector('.buy-welcome__video'),
+        testimonialPlayButton = document.querySelector('.buy-testimonial-video__play-btn'),
+        testimonialThumbnail = document.querySelector('.buy-testimonial-video__thumbnail'),
+        testimonialVideo = document.querySelector('.buy-testimonial-video__video');
         
   let debounceLastTimeout = null;
 
@@ -15,6 +18,13 @@ document.addEventListener('DOMContentLoaded', function () {
     playButton.classList.add('buy-welcome__play-btn--hidden');
     thumbnail.classList.add('buy-welcome__thumbnail--hidden');
     video.classList.add('buy-welcome__video--active');
+  })
+
+  testimonialPlayButton.addEventListener('click', () => {
+    testimonialVideo.src = testimonialVideo.dataset.src;
+    testimonialPlayButton.classList.add('buy-testimonial-video__play-btn--hidden');
+    testimonialThumbnail.classList.add('buy-testimonial-video__thumbnail--hidden');
+    testimonialVideo.classList.add('buy-testimonial-video__video--active');
   })
 
   // Map InfoWindow------------------------------------------------
