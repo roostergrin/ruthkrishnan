@@ -1,3 +1,42 @@
 @import '../local/index.sass'
 @import '../templates/slider-neighborhoods.sass'
 @import '../templates/map-neighborhoods.sass'
+@import '../templates/cta-text-btn.sass'
+
+/* ------------------------
+    Neighborhoods Styles
+   ------------------------ */
+
+/* -----------------------------
+    Neighborhoods Intro Styles
+   ----------------------------- */
+
+.neighborhoods-intro
+  @include desktop
+    padding: 5rem 0 0
+  @include nexus
+    padding: 2rem 0 0
+  padding: 4rem 0 0
+
+  &__container
+    @include container
+
+  &__column
+    @include col(8)
+    @include col--offset(2)
+    text-align: center
+  
+  &__title
+    margin-bottom: 1rem
+  
+  &__text
+    @include desktop
+      width: 95%
+    width: 100%
+
+/* ----------------------------
+    Neighborhoods CTA Styles
+  ----------------------------- */
+
+.neighborhoods-cta
+  @extend %section-padding-bottom

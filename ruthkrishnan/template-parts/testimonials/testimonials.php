@@ -6,7 +6,7 @@
  * @subpackage ruthkrishnan
  * @version 1.0
  */
-
+wp_reset_query();
 ?>
 
 <div class="testimonials-section">
@@ -16,11 +16,11 @@
     <div class="testimonials-section__col">
       <div class="testimonials-section__images-slider" data-image-slider-length='<?php echo count(get_field('testimonials')); ?>'>
         <?php if ( have_rows('testimonials') ) :
-           while ( have_rows('testimonials' ) ) : the_row();
+          while ( have_rows('testimonials' ) ) : the_row();
 
-           $image = get_sub_field('image');
+          $image = get_sub_field('image');
 
-           ?>
+          ?>
           <div class="testimonials-section__image-slide" data-image-index='<?php echo get_row_index(); ?>'>
             <?php echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'testimonials-section__image' ]); ?>
           </div>
@@ -36,25 +36,23 @@
           <h2><?php echo get_field('title')?></h2>
         </div>
         <div class="testimonials-section__content-wrapper">
-            <?php if ( have_rows('testimonials') ) :
-               while ( have_rows('testimonials' ) ) : the_row();
+          <?php if ( have_rows('testimonials') ) :
+            while ( have_rows('testimonials' ) ) : the_row();
 
-               $text = get_sub_field('content');
-               $name = get_sub_field('name');
-
-               ?>
+              $text = get_sub_field('content');
+              $name = get_sub_field('name');
+              ?>
               <div class="testimonials-section__content-slide" data-content-index='<?php echo get_row_index(); ?>'>
                 <div class="testimonials-section__content">
                   <div class="testimonials-section__text"><?php echo $text ?></div>
                   <div class="testimonials-section__name"><?php echo $name ?></div>
                 </div>
               </div>
-              <?php endwhile; ?>
-            <?php endif; ?>
+            <?php endwhile; ?>
+          <?php endif; ?>
           <div class="testimonials-section__indicators">
-            <?php
-              foreach (get_field('testimonials') as $key=>$dot) : ?>
-                <div class="testimonials-section__dot" data-index='<?php echo $key; ?>'></div>
+            <?php foreach (get_field('testimonials') as $key=>$dot) : ?>
+              <div class="testimonials-section__dot" data-index='<?php echo $key; ?>'></div>
             <?php endforeach; ?>
           </div>
         </div>

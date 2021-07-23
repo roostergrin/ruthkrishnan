@@ -3,8 +3,13 @@
    ------------------------------------------- */
 
 .slider-neighborhoods
-  @extend %section-padding-top
+  @extend %section-padding
   overflow: hidden
+
+  &__slider
+    @include laptop-lg
+      padding: 0
+    padding: 0 2rem
 
   &__slider-container
     @include container
@@ -90,3 +95,26 @@
     &-link
       @extend %button-text
       @include button-solid($c3, $white, $c6)
+
+    &-icons
+      @include tablet
+        flex-direction: column
+        align-items: center
+      display: flex
+      flex-wrap: wrap
+      margin-bottom: rem-calc(24)
+
+    &-icon-container
+      @include desktop
+        max-width: rem-calc(150)
+      flex: 1
+      margin: 2rem 2rem 0
+      max-width: rem-calc(120)
+      text-align: center
+
+    &-icon
+      margin-bottom: .5rem
+    
+    &-icon-text
+      @extend %h4
+      text-transform: uppercase 
