@@ -61,9 +61,9 @@
                   <div class="slider-neighborhoods__content-description">
                     <?php echo get_field('description'); ?>
                   </div>
-                  <?php if ( have_rows('icons') ) : ?>
+                  <?php if ( have_rows('single_neighborhoods_icons') ) : ?>
                     <div class="slider-neighborhoods__content-icons">
-                      <?php while ( have_rows('icons') ) : the_row();
+                      <?php while ( have_rows('single_neighborhoods_icons') ) : the_row();
 
                         $icon = get_sub_field('icon');
                         $text = get_sub_field('text'); ?>
