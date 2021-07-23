@@ -33,8 +33,12 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       iconArr = document.querySelectorAll('.map-neighborhoods__icon-neighborhood'),
       maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
     return el.clientHeight;
-  })));
-  var debounceLastTimeout = null; // * Build slide array of objects *
+  }))),
+      tooltipContainer = document.querySelector('.map-neighborhoods__tooltip'),
+      tooltipContent = document.getElementById('tooltip-content'),
+      closeContainer = document.getElementById('tooltip-close');
+  var debounceLastTimeout = null,
+      sectionActive = false; // * Build slide array of objects *
 
   var slidesArr = slides.map(function (el, i) {
     return {
@@ -69,10 +73,22 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }; // * set the correct content active on first load *
 
 
-  changeContent(0); // * Add event listener to all slides *
+  changeContent(0);
+
+  var highlight = function highlight(el) {
+    iconArr.forEach(function (icon) {
+      if (icon.dataset.name !== el.neighborhood) {
+        icon.classList.add('map-neighborhoods__icon-neighborhood--deactive');
+      } else {
+        icon.classList.remove('map-neighborhoods__icon-neighborhood--deactive');
+      }
+    });
+  }; // * Add event listener to all slides *
+
 
   slidesArr.forEach(function (el, i) {
     el.elem.addEventListener('click', function () {
+      highlight(el);
       changeSlide(el.elem, el.position);
       changeContent(el.position);
     });
@@ -93,55 +109,80 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     });
   };
 
+  var closeToolTip = function closeToolTip() {
+    if (sectionActive) {
+      tooltipContainer.style.opacity = 0;
+      tooltipContainer.style.pointerEvents = 'none';
+      sectionActive.classList.add('map-neighborhoods__icon-neighborhood--matched');
+      sectionActive = false;
+    }
+  };
+
   var openTooltip = function openTooltip(event, el) {
     var targetEl = slidesArr.find(function (elem) {
       return elem.neighborhood === el.dataset.name;
-    }),
-        tooltipContainer = document.querySelector('.map-neighborhoods__tooltip'),
-        tooltipContent = document.getElementById('tooltip-content'),
-        closeContainer = document.getElementById('tooltip-close');
-    var mapContent = ''; // add tooltip information
-
-    mapContent += "<div class='map-neighborhoods__tooltip-title'>".concat(targetEl.name, "</div>");
-
-    if (targetEl.mapinfo) {
-      if (targetEl.mapinfo.information) {
-        targetEl.mapinfo.information.forEach(function (info) {
-          mapContent += "<div class='map-neighborhoods__tooltip-info'>".concat(info.text, "</div>");
-        });
-      }
-    } // append tooltip information
-
-
-    tooltipContent.innerHTML = mapContent; // show tooltip info window
-
-    tooltipContainer.style.opacity = 1;
-    tooltipContainer.style.pointerEvents = 'auto'; // keep info window on screen (no overflow)
-
-    if (event.clientY < tooltipContainer.clientHeight + 32) {
-      tooltipContainer.style.top = "".concat(event.pageY, "px");
-    } else {
-      tooltipContainer.style.top = "".concat(event.pageY - tooltipContainer.clientHeight - 5, "px");
-    }
-
-    if (event.clientX < tooltipContainer.clientWidth / 2 + 32) {
-      tooltipContainer.style.left = "".concat(event.pageX + 16, "px");
-    } else if (window.innerWidth - event.pageX < tooltipContainer.clientWidth / 2 + 32) {
-      tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth, "px");
-    } else {
-      tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth / 2, "px");
-    } // close tooltip
-
-
-    closeContainer.addEventListener('click', function () {
-      tooltipContainer.style.opacity = 0;
-      tooltipContainer.style.pointerEvents = 'none';
     });
-  }; // * add event listener to all map neighborhoods *
+    var mapContent = '';
 
+    if (!sectionActive) {
+      // add tooltip information
+      mapContent += "<div class='map-neighborhoods__tooltip-title'>".concat(targetEl.name, "</div>");
+
+      if (targetEl.mapinfo) {
+        if (targetEl.mapinfo.information) {
+          targetEl.mapinfo.information.forEach(function (info) {
+            mapContent += "<div class='map-neighborhoods__tooltip-info'>".concat(info.text, "</div>");
+          });
+        }
+      } // append tooltip information
+
+
+      tooltipContent.innerHTML = mapContent; // show tooltip info window
+
+      tooltipContainer.style.opacity = 1;
+      tooltipContainer.style.pointerEvents = 'auto'; // keep info window on screen (no overflow)
+
+      if (event.clientY - 110 < tooltipContainer.clientHeight + 32) {
+        tooltipContainer.style.top = "".concat(event.pageY, "px");
+      } else {
+        tooltipContainer.style.top = "".concat(event.pageY - tooltipContainer.clientHeight - 5, "px");
+      }
+
+      if (event.clientX < tooltipContainer.clientWidth / 2 + 32) {
+        tooltipContainer.style.left = "".concat(event.pageX + 16, "px");
+      } else if (window.innerWidth - event.pageX < tooltipContainer.clientWidth / 2 + 32) {
+        tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth, "px");
+      } else {
+        tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth / 2, "px");
+      }
+
+      iconArr.forEach(function (icon) {
+        if (icon.dataset.name !== el.dataset.name) {
+          icon.classList.add('map-neighborhoods__icon-neighborhood--deactive');
+        } else {
+          icon.classList.remove('map-neighborhoods__icon-neighborhood--deactive');
+          icon.classList.remove('map-neighborhoods__icon-neighborhood--matched');
+        }
+      });
+      sectionActive = el;
+    }
+  }; // close tooltip
+
+
+  closeContainer.addEventListener('click', function () {
+    closeToolTip();
+  }); // * add event listener to all map neighborhoods *
 
   iconArr.forEach(function (el) {
-    return el.addEventListener('click', function (event) {
+    var activeEl = slidesArr.find(function (elem) {
+      return elem.neighborhood === el.dataset.name;
+    });
+
+    if (activeEl) {
+      el.classList.add('map-neighborhoods__icon-neighborhood--matched');
+    }
+
+    el.addEventListener('click', function (event) {
       mapSelectNeighborhood(el);
       openTooltip(event, el);
     });
@@ -166,17 +207,18 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }; // resets the slide transform
 
 
-  var resetSlide = function resetSlide() {
+  var reset = function reset() {
     var currElem = document.querySelector('.slider-neighborhoods__slide--curr'),
         currSlide = slidesArr.find(function (el) {
       return el.name === currElem.dataset.name;
     });
     changeSlide(currSlide.elem, currSlide.position);
+    closeToolTip();
   }; // watch screen resize to reset slide transform
 
 
   window.addEventListener('resize', function () {
-    debounce(resetSlide, null, 500);
+    debounce(reset, null, 500);
   }); // go to the next slide
 
   var toNextSlide = function toNextSlide() {

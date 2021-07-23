@@ -5,9 +5,13 @@ export const sliderNeighborhoods = () => {
         contentColumn = document.querySelector('.slider-neighborhoods__content-column'),
         content = Array.from(document.querySelectorAll('.slider-neighborhoods__content')),
         iconArr = document.querySelectorAll('.map-neighborhoods__icon-neighborhood'),
-        maxHeight = Math.max(...content.map(el => el.clientHeight));
+        maxHeight = Math.max(...content.map(el => el.clientHeight)),
+        tooltipContainer = document.querySelector('.map-neighborhoods__tooltip'),
+        tooltipContent = document.getElementById('tooltip-content'),
+        closeContainer = document.getElementById('tooltip-close');
 
-  let debounceLastTimeout = null;
+  let debounceLastTimeout = null,
+      sectionActive = false;
 
   // * Build slide array of objects *
   const slidesArr = slides.map((el, i) => ({ name: el.dataset.name, position: i, neighborhood: el.dataset.neighborhood, elem: el, mapinfo: JSON.parse(el.dataset.mapinfo) }))
@@ -24,6 +28,7 @@ export const sliderNeighborhoods = () => {
         slide.elem.classList.remove('slider-neighborhoods__slide--curr');
       }
     })
+
   };
 
   // * set the correct slide active on first load *
@@ -42,9 +47,20 @@ export const sliderNeighborhoods = () => {
   // * set the correct content active on first load *
   changeContent(0);
 
+  const highlight = (el) => {
+    iconArr.forEach((icon) => {
+      if (icon.dataset.name !== el.neighborhood) {
+        icon.classList.add('map-neighborhoods__icon-neighborhood--deactive');
+      } else {
+        icon.classList.remove('map-neighborhoods__icon-neighborhood--deactive');
+      }
+    })
+  }
+
   // * Add event listener to all slides *
   slidesArr.forEach((el, i) => {
     el.elem.addEventListener('click', () => {
+      highlight(el);
       changeSlide(el.elem, el.position);
       changeContent(el.position);
     });
@@ -62,59 +78,84 @@ export const sliderNeighborhoods = () => {
     })
   }
 
+  const closeToolTip = () => {
+    if (sectionActive) {
+      tooltipContainer.style.opacity = 0;
+      tooltipContainer.style.pointerEvents = 'none';
+      sectionActive.classList.add('map-neighborhoods__icon-neighborhood--matched')
+      sectionActive = false;
+    }
+  }
+
   const openTooltip = (event, el) => {
-    const targetEl = slidesArr.find(elem => elem.neighborhood === el.dataset.name),
-          tooltipContainer = document.querySelector('.map-neighborhoods__tooltip'),
-          tooltipContent = document.getElementById('tooltip-content'),
-          closeContainer = document.getElementById('tooltip-close');
+    const targetEl = slidesArr.find(elem => elem.neighborhood === el.dataset.name);
 
     let mapContent = '';
 
-    // add tooltip information
-    mapContent += `<div class='map-neighborhoods__tooltip-title'>${targetEl.name}</div>`;
-
-    if (targetEl.mapinfo) {
-      if (targetEl.mapinfo.information) {
-        targetEl.mapinfo.information.forEach((info) => {
-          mapContent += `<div class='map-neighborhoods__tooltip-info'>${info.text}</div>`;
-        })
+    if (!sectionActive) {
+      // add tooltip information
+      mapContent += `<div class='map-neighborhoods__tooltip-title'>${targetEl.name}</div>`;
+  
+      if (targetEl.mapinfo) {
+        if (targetEl.mapinfo.information) {
+          targetEl.mapinfo.information.forEach((info) => {
+            mapContent += `<div class='map-neighborhoods__tooltip-info'>${info.text}</div>`;
+          })
+        }
       }
+      // append tooltip information
+      tooltipContent.innerHTML = mapContent;
+  
+      // show tooltip info window
+      tooltipContainer.style.opacity = 1;
+      tooltipContainer.style.pointerEvents = 'auto';
+  
+      // keep info window on screen (no overflow)
+      if (event.clientY - 110 < tooltipContainer.clientHeight + 32) {
+        tooltipContainer.style.top = `${event.pageY}px`;
+      } else {
+        tooltipContainer.style.top = `${event.pageY - tooltipContainer.clientHeight - 5}px`;
+      }
+  
+      if (event.clientX < (tooltipContainer.clientWidth / 2) + 32) {
+        tooltipContainer.style.left = `${event.pageX + 16}px`;
+      } else if (window.innerWidth - event.pageX < (tooltipContainer.clientWidth / 2) + 32) {
+        tooltipContainer.style.left = `${event.pageX - (tooltipContainer.clientWidth)}px`;
+      } else {
+        tooltipContainer.style.left = `${event.pageX - (tooltipContainer.clientWidth / 2)}px`;
+      }
+      iconArr.forEach((icon) => {
+        if (icon.dataset.name !== el.dataset.name) {
+          icon.classList.add('map-neighborhoods__icon-neighborhood--deactive');
+        } else {
+          icon.classList.remove('map-neighborhoods__icon-neighborhood--deactive');
+          icon.classList.remove('map-neighborhoods__icon-neighborhood--matched');
+        }
+      })
+
+      sectionActive = el;
     }
-    // append tooltip information
-    tooltipContent.innerHTML = mapContent;
-
-    // show tooltip info window
-    tooltipContainer.style.opacity = 1;
-    tooltipContainer.style.pointerEvents = 'auto';
-
-    // keep info window on screen (no overflow)
-    if (event.clientY < tooltipContainer.clientHeight + 32) {
-      tooltipContainer.style.top = `${event.pageY}px`;
-    } else {
-      tooltipContainer.style.top = `${event.pageY - tooltipContainer.clientHeight - 5}px`;
-    }
-
-    if (event.clientX < (tooltipContainer.clientWidth / 2) + 32) {
-      tooltipContainer.style.left = `${event.pageX + 16}px`;
-    } else if (window.innerWidth - event.pageX < (tooltipContainer.clientWidth / 2) + 32) {
-      tooltipContainer.style.left = `${event.pageX - (tooltipContainer.clientWidth)}px`;
-    } else {
-      tooltipContainer.style.left = `${event.pageX - (tooltipContainer.clientWidth / 2)}px`;
-    }
-
-    // close tooltip
-    closeContainer.addEventListener('click', () => {
-      tooltipContainer.style.opacity = 0;
-      tooltipContainer.style.pointerEvents = 'none';
-    })
   }
-
+  
+  // close tooltip
+  closeContainer.addEventListener('click', () => {
+    closeToolTip();
+  })
 
   // * add event listener to all map neighborhoods *
-  iconArr.forEach(el => el.addEventListener('click', (event) => {
-    mapSelectNeighborhood(el);
-    openTooltip(event, el);
-  }))
+  iconArr.forEach((el) => {
+    const activeEl = slidesArr.find(elem => elem.neighborhood === el.dataset.name);
+
+    if (activeEl) {
+      el.classList.add('map-neighborhoods__icon-neighborhood--matched')
+    }
+
+    el.addEventListener('click', (event) => {
+      mapSelectNeighborhood(el);
+      openTooltip(event, el);
+    })
+
+  })
 
   // debounce function
   const debounce = (func, args, wait, immediate) => {
@@ -134,16 +175,19 @@ export const sliderNeighborhoods = () => {
   }
 
   // resets the slide transform
-  const resetSlide = () => {
+  const reset = () => {
     const currElem = document.querySelector('.slider-neighborhoods__slide--curr'),
           currSlide = slidesArr.find(el => el.name === currElem.dataset.name);
 
     changeSlide(currSlide.elem, currSlide.position);
+
+    closeToolTip();
+
   }
 
   // watch screen resize to reset slide transform
   window.addEventListener('resize', () => {
-    debounce(resetSlide, null, 500);
+    debounce(reset, null, 500);
   })
 
   // go to the next slide
