@@ -117,6 +117,11 @@
     padding: 0;
   }
 }
+@media screen and (max-width: 480px) {
+  .slider-neighborhoods__slider {
+    padding: 0;
+  }
+}
 .slider-neighborhoods__slider-container {
   display: flex;
   position: relative;
@@ -139,6 +144,11 @@
 @media screen and (max-width: 480px) {
   .slider-neighborhoods__slider-container {
     padding: 0 1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .slider-neighborhoods__slider-container {
+    margin-bottom: 1rem;
   }
 }
 .slider-neighborhoods__track {
@@ -237,6 +247,16 @@
     padding: 0 1rem;
   }
 }
+.slider-neighborhoods__content-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(rgba(255, 255, 255, 0), white);
+  z-index: 3;
+  width: 100%;
+  height: 5rem;
+}
 .slider-neighborhoods__content-column {
   padding: 0 calc(30px / 2);
   width: calc((9 / 12) * 100%);
@@ -263,6 +283,18 @@
 .slider-neighborhoods__content-wrapper--active {
   opacity: 1;
   pointer-events: auto;
+}
+.slider-neighborhoods__content {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+@media screen and (max-width: 768px) {
+  .slider-neighborhoods__content {
+    max-height: 50vh;
+  }
+}
+.slider-neighborhoods__content::-webkit-scrollbar {
+  display: none;
 }
 .slider-neighborhoods__content-title {
   margin-bottom: 1rem;
@@ -292,12 +324,6 @@
   flex-wrap: wrap;
   margin-bottom: 1.5rem;
 }
-@media screen and (max-width: 768px) {
-  .slider-neighborhoods__content-icons {
-    flex-direction: column;
-    align-items: center;
-  }
-}
 .slider-neighborhoods__content-icon-container {
   flex: 1;
   margin: 2rem 2rem 0;
@@ -307,6 +333,19 @@
 @media screen and (min-width: 1750px) {
   .slider-neighborhoods__content-icon-container {
     max-width: 9.375rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .slider-neighborhoods__content-icon-container {
+    width: calc(50% - 4rem);
+  }
+}
+.slider-neighborhoods__content-icon-container:first-of-type {
+  margin-left: 0;
+}
+@media screen and (max-width: 768px) {
+  .slider-neighborhoods__content-icon-container:first-of-type {
+    margin-left: 2rem;
   }
 }
 .slider-neighborhoods__content-icon {

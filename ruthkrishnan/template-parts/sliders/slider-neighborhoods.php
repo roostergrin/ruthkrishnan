@@ -52,6 +52,7 @@
 
       <!-- Loops through the posts and displays neighborhood descriptions -->
       <div class="slider-neighborhoods__content-container">
+        <div class="slider-neighborhoods__content-fade"></div>
         <div class="slider-neighborhoods__content-column">
           <?php if ( $query->have_posts() ) : 
             while ( $query->have_posts() ) : $query->the_post(); ?>

@@ -752,7 +752,7 @@
   .home-welcome__image-col {
     padding: 0;
     width: 100%;
-    height: 60vw;
+    height: 50vw;
   }
 }
 .home-welcome__image-container {
@@ -760,9 +760,37 @@
   width: 100%;
   height: 100%;
 }
+.home-welcome__no-modal-video-container {
+  position: relative;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  width: 100%;
+  height: calc(60vw * .5625);
+  pointer-events: none;
+}
+@media screen and (max-width: 1280px) {
+  .home-welcome__no-modal-video-container {
+    height: calc(75vw * .5625);
+  }
+}
+@media screen and (max-width: 480px) {
+  .home-welcome__no-modal-video-container {
+    height: 50vw;
+  }
+}
+.home-welcome__no-modal-video-container--active {
+  opacity: 1;
+  pointer-events: auto;
+}
 .home-welcome__thumbnail {
+  transition: opacity 0.5s ease;
   -o-object-fit: cover;
      object-fit: cover;
+  pointer-events: auto;
+}
+.home-welcome__thumbnail--hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 .home-welcome__title {
   margin-bottom: 1.25rem;
@@ -794,13 +822,19 @@
   margin-bottom: 1rem;
 }
 .home-welcome__play-btn {
+  transition: opacity 0.5s ease;
   z-index: 3;
   cursor: pointer;
+  pointer-events: auto;
 }
 @media not all and (pointer: coarse) {
   .home-welcome__play-btn:hover .home-welcome__icon {
     opacity: 0.7;
   }
+}
+.home-welcome__play-btn--hidden {
+  opacity: 0;
+  pointer-events: non;
 }
 .home-welcome__icon {
   transition: opacity 0.2s ease;
@@ -850,6 +884,11 @@
   .home-welcome__modal-container {
     width: 95vw;
     height: calc(95vw * .5625);
+  }
+}
+@media screen and (max-width: 480px) {
+  .home-welcome__modal-container {
+    height: 60vw;
   }
 }
 .home-welcome__video {
@@ -1036,7 +1075,8 @@
 }
 @media screen and (max-width: 600px) {
   .home-stats__card-container {
-    height: 9.375rem;
+    align-items: center;
+    padding-top: 5.0625rem;
   }
 }
 .home-stats__card-circle {
@@ -1137,6 +1177,12 @@
   .home-handle-listing__text {
     padding: 0;
     width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .home-handle-listing__text {
+    padding: 0 1rem;
+    width: 95%;
   }
 }
 

@@ -132,7 +132,10 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener('DOMContentLoaded', function () {
   var playButton = document.querySelector('.buy-welcome__play-btn'),
       thumbnail = document.querySelector('.buy-welcome__thumbnail'),
-      video = document.querySelector('.buy-welcome__video');
+      video = document.querySelector('.buy-welcome__video'),
+      testimonialPlayButton = document.querySelector('.buy-testimonial-video__play-btn'),
+      testimonialThumbnail = document.querySelector('.buy-testimonial-video__thumbnail'),
+      testimonialVideo = document.querySelector('.buy-testimonial-video__video');
   var debounceLastTimeout = null; // External Scripts
 
   (0,_resources_resources_links__WEBPACK_IMPORTED_MODULE_0__.resourcesLinks)();
@@ -141,6 +144,12 @@ document.addEventListener('DOMContentLoaded', function () {
     playButton.classList.add('buy-welcome__play-btn--hidden');
     thumbnail.classList.add('buy-welcome__thumbnail--hidden');
     video.classList.add('buy-welcome__video--active');
+  });
+  testimonialPlayButton.addEventListener('click', function () {
+    testimonialVideo.src = testimonialVideo.dataset.src;
+    testimonialPlayButton.classList.add('buy-testimonial-video__play-btn--hidden');
+    testimonialThumbnail.classList.add('buy-testimonial-video__thumbnail--hidden');
+    testimonialVideo.classList.add('buy-testimonial-video__video--active');
   }); // Map InfoWindow------------------------------------------------
 
   var postsData = Array.from(document.querySelectorAll('.buy-neighborhood__neighborhood-post')),

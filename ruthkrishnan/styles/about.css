@@ -656,6 +656,11 @@
     height: calc(80vw * .5625);
   }
 }
+@media screen and (max-width: 480px) {
+  .about-video__video-container {
+    height: 50vw;
+  }
+}
 .about-video__thumbnail {
   transition: opacity 0.5s ease;
   -o-object-fit: cover;

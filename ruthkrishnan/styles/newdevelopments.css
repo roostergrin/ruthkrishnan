@@ -234,7 +234,7 @@
 @media screen and (max-width: 480px) {
   .page-new-developments__map {
     margin: 0 0 2rem;
-    height: 80vh;
+    height: 80vw;
   }
 }
 .page-new-developments__development {

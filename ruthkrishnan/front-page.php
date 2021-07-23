@@ -31,6 +31,9 @@ get_header(); ?>
           </div>
           <div class="home-welcome__image-col">
             <div class="home-welcome__image-container">
+              <div class="home-welcome__no-modal-video-container">
+                <iframe class="home-welcome__no-modal-video" data-src="<?php echo get_field('welcome_video') ?>?title=0&byline=0&portrait=0&autoplay=true" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+              </div>
               <?php echo wp_get_attachment_image(get_field('welcome_thumbnail'), 'medium_large', false, [ 'class' => 'home-welcome__thumbnail' ]); ?>
               <div class="home-welcome__play-btn">
                 <?php get_template_part('icons/play', null, array('class' => 'home-welcome__icon')); ?>

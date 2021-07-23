@@ -86,7 +86,7 @@
     @include tablet-md
       padding: 0
       width: 100%
-      height: 60vw
+      height: 50vw
     padding-right: 0
 
   &__image-container
@@ -94,9 +94,31 @@
     width: 100%
     height: 100%
 
+  &__no-modal-video-container
+    @include laptop
+      height: calc(75vw * .5625)
+    @include phone-lg
+      height: 50vw
+    position: relative
+    transition: opacity .5s ease
+    opacity: 0
+    width: 100%
+    height: calc(60vw * .5625)
+    pointer-events: none
+
+    &--active
+      opacity: 1
+      pointer-events: auto
+
   &__thumbnail
     @extend %absolute
+    transition: opacity .5s ease
     object-fit: cover
+    pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: none
 
   &__title
     @include tablet-md
@@ -124,8 +146,14 @@
     @include hover-supported
       .home-welcome__icon
         opacity: .7
+    transition: opacity .5s ease
     z-index: 3
     cursor: pointer
+    pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: non
 
   &__icon
     transition: opacity .2s ease
@@ -171,6 +199,8 @@
     @include tablet
       width: 95vw
       height: calc(95vw * .5625)
+    @include phone-lg
+      height: 60vw
     width: 70vw
     height: calc(70vw * .5625)
 
@@ -259,7 +289,8 @@
 
     &-container
       @include nexus
-        height: rem-calc(150)
+        align-items: center
+        padding-top: rem-calc(81)
       position: relative
       display: flex
       align-items: flex-end
@@ -331,6 +362,9 @@
 
   &__text
     @include col(6)
+    @include phone-lg
+      padding: 0 1rem
+      width: 95%
     color: $white
     text-align: center
   
