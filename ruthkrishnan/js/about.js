@@ -2,6 +2,62 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/resources/about-logos.js":
+/*!**********************************************!*\
+  !*** ./src/scripts/resources/about-logos.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "aboutLogos": () => (/* binding */ aboutLogos)
+/* harmony export */ });
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var aboutLogos = function aboutLogos() {
+  var logoArr = Array.from(document.querySelectorAll('.about-logos__logo-container'));
+  var posArray = [],
+      logoMargin = 64,
+      logoWidth = 180;
+  posArray = logoArr.reduce(function (acc, item, i) {
+    return [].concat(_toConsumableArray(acc), [(item.offsetWidth + logoMargin) * i]);
+  }, []);
+
+  var setPosition = function setPosition() {
+    logoArr.forEach(function (logo, i) {
+      logo.style.transform = "translate3d(".concat(+(posArray[i] - logoWidth - logoMargin), "px, 0, 0)");
+    });
+  };
+
+  setPosition();
+
+  var mod = function mod(n, m) {
+    return (n % m + m) % m;
+  };
+
+  var moveLeft = function moveLeft() {
+    var tempArray = posArray.map(function (el, i) {
+      return mod(el - 1, (logoArr[0].offsetWidth + logoMargin) * posArray.length);
+    });
+    posArray = tempArray;
+    setPosition();
+  };
+
+  setInterval(moveLeft, 1000 / 30);
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/about-ruth-krishnan.js":
 /*!******************************************************!*\
   !*** ./src/scripts/resources/about-ruth-krishnan.js ***!
@@ -367,6 +423,8 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_slider_team__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/slider-team */ "./src/scripts/resources/slider-team.js");
 /* harmony import */ var _resources_about_ruth_krishnan__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/about-ruth-krishnan */ "./src/scripts/resources/about-ruth-krishnan.js");
+/* harmony import */ var _resources_about_logos__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../resources/about-logos */ "./src/scripts/resources/about-logos.js");
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -376,6 +434,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   (0,_resources_slider_team__WEBPACK_IMPORTED_MODULE_0__.sliderTeam)();
   (0,_resources_about_ruth_krishnan__WEBPACK_IMPORTED_MODULE_1__.aboutRuth)();
+  (0,_resources_about_logos__WEBPACK_IMPORTED_MODULE_2__.aboutLogos)();
   video.addEventListener('loadeddata', function () {});
   playButton.addEventListener('click', function () {
     video.src = video.dataset.src;

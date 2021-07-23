@@ -40,7 +40,7 @@
   transform: translate(-50%, -50%);
 }
 
-.about-video__video, .about-video__thumbnail, .about-ruth__slide, .about-ruth__image, .slider-team__member-slide, .slider-team__image, .slider-team__background-image, .slider-team__background {
+.about-video__video, .about-video__thumbnail, .about-logos__logo-container, .about-ruth__slide, .about-ruth__image, .slider-team__member-slide, .slider-team__image, .slider-team__background-image, .slider-team__background {
   position: absolute;
   top: 0;
   left: 0;
@@ -74,16 +74,16 @@
   }
 }
 
-.about-giving-back__text, .about-video__links {
+.about-giving-back__text, .about-video__links, .about-logos {
   padding: 2rem 0 4rem;
 }
 @media screen and (min-width: 1750px) {
-  .about-giving-back__text, .about-video__links {
+  .about-giving-back__text, .about-video__links, .about-logos {
     padding: 2.5rem 0 5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .about-giving-back__text, .about-video__links {
+  .about-giving-back__text, .about-video__links, .about-logos {
     padding: 1rem 0 2rem;
   }
 }
@@ -523,6 +523,78 @@
 .about-ruth__slide--active {
   opacity: 1;
 }
+/* --------------------------
+ *  About Giving Back Styles
+ * --------------------------- */
+.about-logos__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  padding: 0;
+  max-width: 1146px;
+  overflow: hidden;
+}
+@media screen and (min-width: 1750px) {
+  .about-logos__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-logos__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .about-logos__container {
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .about-logos__container {
+    max-width: calc(1528px - 64px);
+  }
+}
+@media screen and (max-width: 880px) {
+  .about-logos__container {
+    padding: 0 2rem;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .about-logos__container {
+    padding: 0 1rem;
+  }
+}
+.about-logos__track {
+  position: relative;
+  height: 8.0625rem;
+}
+@media screen and (max-width: 768px) {
+  .about-logos__track {
+    height: 6.25rem;
+  }
+}
+.about-logos__logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  width: 11.25rem;
+  height: 100%;
+  text-align: center;
+  will-change: transform;
+}
+.about-logos__logo {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
 /* -----------------------
  *  About Page Styles
  * ----------------------- */

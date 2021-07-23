@@ -95,6 +95,10 @@ get_header(); ?>
   </div>
   <!-- END About Giving Back Section -->
 
+  <!-- About Logo Template Part -->
+  <?php get_template_part('template-parts/about/about-logos'); ?>
+  <!-- END About Logo Template Part -->
+
 </div>
 
 <?php get_footer(); ?>

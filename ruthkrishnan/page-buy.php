@@ -56,13 +56,32 @@ get_header(); ?>
 
   <!-- Buy Neighborhood Section -->
   <div class="buy-neighborhood">
+    <?php
+      $query = new WP_Query( array(
+        'post_type' => 'neighborhoods',
+        'post_status' => 'publish',
+        'posts_per_page' => -1
+      ) );
+
+      if ( $query->have_posts() ) :
+        while ( $query->have_posts() ) : $query->the_post(); ?>
+
+          <div class="buy-neighborhood__neighborhood-post" data-name="<?php echo $post->post_name; ?>" data-mapinfo='<?php echo json_encode(get_field('map_info_window')); ?>' data-link="<?php echo the_permalink(); ?>"></div>
+
+        <?php endwhile;
+      endif;
+      wp_reset_query();
+    ?>
+
+    <div class="buy-neighborhood__tooltip">
+      <div id="tooltip-content" class="buy-neighborhood__tooltip-content"></div>
+      <div id="tooltip-close" class="buy-neighborhood__tooltip-close"></div>
+    </div>
     <div class="buy-neighborhood__container">
-      <div class="buy-neighborhood__column">
-        <div class="buy-neighborhood__background"></div>
-        <h2 class="buy-neighborhood__title"><?php echo get_field('buy_neighborhood_title'); ?></h2>
-        <div class="buy-neighborhood__map-container">
-          <?php get_template_part('icons/map', null, array( 'class' => 'buy-neighborhood__map')); ?>
-        </div>
+      <div class="buy-neighborhood__background"></div>
+      <h2 class="buy-neighborhood__title"><?php echo get_field('buy_neighborhood_title'); ?></h2>
+      <div class="buy-neighborhood__map-container">
+        <?php get_template_part('icons/map', null, array( 'class' => 'buy-neighborhood__map')); ?>
       </div>
     </div>
   </div>
