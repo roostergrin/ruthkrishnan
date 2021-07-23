@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
       slidesArr = postsData.map(function (el, i) {
     return {
       name: el.dataset.name,
+      title: el.dataset.title,
       elem: el,
       mapinfo: JSON.parse(el.dataset.mapinfo),
       link: el.dataset.link
@@ -179,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!sectionActive) {
       if (targetEl) {
         // add tooltip information
-        mapContent += "<div class='buy-neighborhood__tooltip-title'>".concat(targetEl.name, "</div>");
+        mapContent += "<div class='buy-neighborhood__tooltip-title'>".concat(targetEl.title, "</div>");
 
         if (targetEl.mapinfo) {
           if (targetEl.mapinfo.information) {
