@@ -132,15 +132,133 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener('DOMContentLoaded', function () {
   var playButton = document.querySelector('.buy-welcome__play-btn'),
       thumbnail = document.querySelector('.buy-welcome__thumbnail'),
-      video = document.querySelector('.buy-welcome__video'); // External Scripts
+      video = document.querySelector('.buy-welcome__video');
+  var debounceLastTimeout = null; // External Scripts
 
   (0,_resources_resources_links__WEBPACK_IMPORTED_MODULE_0__.resourcesLinks)();
-  video.addEventListener('loadeddata', function () {});
   playButton.addEventListener('click', function () {
     video.src = video.dataset.src;
     playButton.classList.add('buy-welcome__play-btn--hidden');
     thumbnail.classList.add('buy-welcome__thumbnail--hidden');
     video.classList.add('buy-welcome__video--active');
+  }); // Map InfoWindow------------------------------------------------
+
+  var postsData = Array.from(document.querySelectorAll('.buy-neighborhood__neighborhood-post')),
+      slidesArr = postsData.map(function (el, i) {
+    return {
+      name: el.dataset.name,
+      elem: el,
+      mapinfo: JSON.parse(el.dataset.mapinfo),
+      link: el.dataset.link
+    };
+  }),
+      tooltipContainer = document.querySelector('.buy-neighborhood__tooltip'),
+      tooltipContent = document.getElementById('tooltip-content'),
+      closeContainer = document.getElementById('tooltip-close'),
+      iconArr = document.querySelectorAll('.map-neighborhoods__icon-neighborhood');
+  var sectionActive = false;
+
+  var closeToolTip = function closeToolTip() {
+    if (sectionActive) {
+      tooltipContainer.style.opacity = 0;
+      tooltipContainer.style.pointerEvents = 'none';
+      iconArr.forEach(function (icon) {
+        return icon.classList.remove('map-neighborhoods__icon-neighborhood--deactive');
+      });
+      sectionActive.classList.add('map-neighborhoods__icon-neighborhood--matched');
+      sectionActive = false;
+    }
+  };
+
+  var openTooltip = function openTooltip(event, el) {
+    var targetEl = slidesArr.find(function (elem) {
+      return elem.name === el.dataset.name;
+    });
+    var mapContent = '';
+
+    if (!sectionActive) {
+      if (targetEl) {
+        // add tooltip information
+        mapContent += "<div class='buy-neighborhood__tooltip-title'>".concat(targetEl.name, "</div>");
+
+        if (targetEl.mapinfo) {
+          if (targetEl.mapinfo.information) {
+            targetEl.mapinfo.information.forEach(function (info) {
+              mapContent += "<div class='buy-neighborhood__tooltip-info'>".concat(info.text, "</div>");
+            });
+          }
+        }
+
+        mapContent += "<a href='".concat(targetEl.link, "' class='buy-neighborhood__tooltip-link'>learn more</a>"); // append tooltip information
+
+        tooltipContent.innerHTML = mapContent; // show tooltip info window
+
+        tooltipContainer.style.opacity = 1;
+        tooltipContainer.style.pointerEvents = 'auto'; // keep info window on screen (no overflow)
+
+        if (event.clientY - 110 < tooltipContainer.clientHeight + 32) {
+          tooltipContainer.style.top = "".concat(event.pageY, "px");
+        } else {
+          tooltipContainer.style.top = "".concat(event.pageY - tooltipContainer.clientHeight - 5, "px");
+        }
+
+        if (event.clientX < tooltipContainer.clientWidth / 2 + 32) {
+          tooltipContainer.style.left = "".concat(event.pageX + 16, "px");
+        } else if (window.innerWidth - event.pageX < tooltipContainer.clientWidth / 2 + 32) {
+          tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth, "px");
+        } else {
+          tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth / 2, "px");
+        }
+      }
+
+      iconArr.forEach(function (icon) {
+        if (icon.dataset.name !== el.dataset.name) {
+          icon.classList.add('map-neighborhoods__icon-neighborhood--deactive');
+        } else {
+          icon.classList.remove('map-neighborhoods__icon-neighborhood--deactive');
+          icon.classList.remove('map-neighborhoods__icon-neighborhood--matched');
+        }
+      });
+      sectionActive = el;
+    }
+  }; // * add event listener to all map neighborhoods *
+
+
+  iconArr.forEach(function (el) {
+    var activeEl = slidesArr.find(function (elem) {
+      return elem.name === el.dataset.name;
+    });
+
+    if (activeEl) {
+      el.classList.add('map-neighborhoods__icon-neighborhood--matched');
+    }
+
+    el.addEventListener('click', function (event) {
+      openTooltip(event, el);
+    });
+  });
+  closeContainer.addEventListener('click', closeToolTip); // debounce function
+
+  var debounce = function debounce(func, args, wait, immediate) {
+    var later = function later() {
+      debounceLastTimeout = null;
+
+      if (!immediate) {
+        func(args);
+      }
+    };
+
+    var callNow = immediate && !debounceLastTimeout;
+    clearTimeout(debounceLastTimeout);
+    debounceLastTimeout = setTimeout(later, wait);
+
+    if (callNow) {
+      func(args);
+    }
+  };
+
+  window.addEventListener('resize', function () {
+    debounce(closeToolTip, null, 200);
   });
 });
 })();
