@@ -66,7 +66,7 @@ get_header(); ?>
       if ( $query->have_posts() ) :
         while ( $query->have_posts() ) : $query->the_post(); ?>
 
-          <div class="buy-neighborhood__neighborhood-post" data-name="<?php echo $post->post_name; ?>" data-mapinfo='<?php echo json_encode(get_field('map_info_window')); ?>' data-link="<?php echo the_permalink(); ?>"></div>
+          <div class="buy-neighborhood__neighborhood-post" data-name="<?php echo $post->post_name; ?>" data-title="<?php echo the_title(); ?>" data-mapinfo='<?php echo json_encode(get_field('map_info_window')); ?>' data-link="<?php echo the_permalink(); ?>"></div>
 
         <?php endwhile;
       endif;

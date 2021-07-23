@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Map InfoWindow------------------------------------------------
   const postsData = Array.from(document.querySelectorAll('.buy-neighborhood__neighborhood-post')),
-        slidesArr = postsData.map((el, i) => ({ name: el.dataset.name, elem: el, mapinfo: JSON.parse(el.dataset.mapinfo), link: el.dataset.link })),
+        slidesArr = postsData.map((el, i) => ({ name: el.dataset.name, title: el.dataset.title, elem: el, mapinfo: JSON.parse(el.dataset.mapinfo), link: el.dataset.link })),
         tooltipContainer = document.querySelector('.buy-neighborhood__tooltip'),
         tooltipContent = document.getElementById('tooltip-content'),
         closeContainer = document.getElementById('tooltip-close'),
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!sectionActive) {
       if (targetEl) {
         // add tooltip information
-        mapContent += `<div class='buy-neighborhood__tooltip-title'>${targetEl.name}</div>`;
+        mapContent += `<div class='buy-neighborhood__tooltip-title'>${targetEl.title}</div>`;
     
         if (targetEl.mapinfo) {
           if (targetEl.mapinfo.information) {
