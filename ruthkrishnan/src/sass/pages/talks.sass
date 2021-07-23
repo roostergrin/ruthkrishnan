@@ -1,0 +1,148 @@
+@import '../local/index.sass'
+@import '../templates/form-get-in-touch.sass'
+
+/* -----------------------
+    Talks Page Styles
+   ----------------------- */
+
+.page-talks
+
+  &__testimonials
+    @include desktop
+      margin-bottom: 2.5rem
+    @include nexus
+      marign-botom: 1rem
+    margin-bottom: 2rem
+
+/* -----------------------
+    Talks Intro Styles
+   ----------------------- */
+
+.talks-intro
+  @extend %section-padding-top
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$gutter * 2})
+    max-width: #{$width}
+
+  &__column
+    @include col(8)
+    @include col--offset(2)
+    display: flex
+    position: relative
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+
+  &__title
+    @extend %title-margin
+    text-align: center
+
+  &__video-container
+    @include laptop
+      height: calc(55vw * .5625)
+    @include tablet
+      height: 45vw
+    position: relative
+    width: 100%
+    height: calc(50vw * .5625)
+
+  &__thumbnail
+    @extend %absolute
+    transition: opacity .5s ease
+    object-fit: cover
+    opacity: 1
+    pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: none
+  
+  &__video
+    @extend %absolute
+    transition: opacity .5s ease
+    opacity: 0
+    pointer-events: none
+
+    &--active
+      opacity: 1
+      pointer-events: auto
+
+  &__play-btn
+    @extend %centered
+    @include hover-supported
+      .about-video__icon
+        opacity: .7
+    opacity: 1
+    z-index: 3
+    cursor: pointer
+    pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: none
+
+  &__icon
+    transition: opacity .2s ease
+    width: 3rem
+    height: 3rem
+    fill: $c1
+
+  &__text
+    @extend %wysiwyg-styles
+    @include desktop
+      margin-top: 2.5rem
+    margin-top: 2rem
+
+/* -----------------------
+    Talks Learn Styles
+   ----------------------- */
+
+.talks-learn
+  @extend %section-padding
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include max-width(1210px)
+      width: calc(100% - 4rem)
+    @include tablet-md
+      max-width: calc(100% - 4rem)
+    @include phone-lg
+      width: calc(100% - 2rem)
+      max-width: calc(100% - 2rem)
+    background: $c1
+    padding: 0
+    max-width: $width
+    color: $white
+
+  &__column
+    @extend %section-margins-large
+    @include col(10)
+    @include col--offset(1)
+    padding: 0 $gutter
+
+  &__title
+    @include tablet-md
+      width: 100%
+    margin: 0 auto 1rem 
+    width: 50%
+    text-align: center
+
+  &__content-container
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    width: 100%
+
+  &__content
+    @include tablet-md
+      width: 100%
+    width: calc(50% - (#{$gutter} / 2))
+
+    ul
+      @include tablet-md
+        margin: 0
