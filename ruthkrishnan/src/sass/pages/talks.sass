@@ -15,6 +15,88 @@
     margin-bottom: 2rem
 
 /* -----------------------
+    Talks Intro Styles
+   ----------------------- */
+
+.talks-intro
+  @extend %section-padding-top
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$gutter * 2})
+    max-width: #{$width}
+
+  &__column
+    @include col(8)
+    @include col--offset(2)
+    display: flex
+    position: relative
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+
+  &__title
+    @extend %title-margin
+    text-align: center
+
+  &__video-container
+    @include laptop
+      height: calc(55vw * .5625)
+    @include tablet
+      height: 45vw
+    position: relative
+    width: 100%
+    height: calc(50vw * .5625)
+
+  &__thumbnail
+    @extend %absolute
+    transition: opacity .5s ease
+    object-fit: cover
+    opacity: 1
+    pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: none
+  
+  &__video
+    @extend %absolute
+    transition: opacity .5s ease
+    opacity: 0
+    pointer-events: none
+
+    &--active
+      opacity: 1
+      pointer-events: auto
+
+  &__play-btn
+    @extend %centered
+    @include hover-supported
+      .about-video__icon
+        opacity: .7
+    opacity: 1
+    z-index: 3
+    cursor: pointer
+    pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: none
+
+  &__icon
+    transition: opacity .2s ease
+    width: 3rem
+    height: 3rem
+    fill: $c1
+
+  &__text
+    @extend %wysiwyg-styles
+    @include desktop
+      margin-top: 2.5rem
+    margin-top: 2rem
+
+/* -----------------------
     Talks Learn Styles
    ----------------------- */
 
