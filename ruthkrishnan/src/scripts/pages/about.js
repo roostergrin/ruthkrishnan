@@ -1,5 +1,6 @@
 import { sliderTeam } from '../resources/slider-team'
 import { aboutRuth } from '../resources/about-ruth-krishnan'
+import { aboutLogos } from '../resources/about-logos'
 
 document.addEventListener('DOMContentLoaded', function () {
   const playButton = document.querySelector('.about-video__play-btn'),
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // external scripts
   sliderTeam();
   aboutRuth();
+  aboutLogos();
 
   video.addEventListener('loadeddata', () => {
     

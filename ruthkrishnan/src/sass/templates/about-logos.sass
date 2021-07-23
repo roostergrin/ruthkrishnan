@@ -1,0 +1,42 @@
+/* --------------------------
+    About Giving Back Styles
+  --------------------------- */
+
+.about-logos
+  @extend %section-padding-bottom
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include tablet-md
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    padding: 0
+    max-width: $width
+    overflow: hidden
+  
+  &__track
+    @include tablet
+      height: rem-calc(100)
+    position: relative
+    height: rem-calc(129)
+  
+  &__logo-container
+    @extend %absolute
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 0 1rem
+    width: rem-calc(180) 
+    height: 100%
+    text-align: center
+    will-change: transform
+  
+  &__logo
+    width: auto
+    max-width: 100%
+    height: auto
+    max-height: 100%
