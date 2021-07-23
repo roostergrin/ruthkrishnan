@@ -3,13 +3,23 @@
    ------------------------------------------- */
 
 .map-neighborhoods
+  margin-bottom: 1rem
 
   &__container
     @include container
-
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include tablet-md
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    max-width: $width
+  
   &__column
     @include col(8)
     @include col--offset(2)
+    background: $c2
 
   &__tooltip
     position: absolute
@@ -27,8 +37,29 @@
     &-close
       position: absolute
       top: .5rem
-      right: 1rem
+      right: .5rem
       cursor: pointer
+      width: rem-calc(14)
+      height: rem-calc(14)
+
+      @include hover-supported
+        &::before,
+        &::after
+          opacity: .5
+
+      &::before,
+      &::after
+        @extend %centered
+        transform: translate(-50%, -50%) rotate(45deg)
+        transition: opacity .2s ease
+        background: $c1
+        cursor: pointer
+        width: 100%
+        height: 2px
+        content: ''
+      
+      &::after
+        transform: translate(-50%, -50%) rotate(-45deg)
 
     &-content
       font-size: rem-calc(16)
@@ -42,17 +73,19 @@
         margin-bottom: .5rem
 
   &__icon
-    @extend %section-padding-bottom
     width: 100%
 
-    &-neighborhood
-      @include hover-supported
-        .bfa9d4ac-6583-4cd9-ad32-16abf80279d0
-          fill: $c6
-      cursor: pointer
-      .bfa9d4ac-6583-4cd9-ad32-16abf80279d0
-        transition: fill .2s ease
+  .map-neighborhoods__icon-neighborhood
+    transition: opacity .5s ease
 
-      &--active
-        .bfa9d4ac-6583-4cd9-ad32-16abf80279d0
-          fill: $c6
+    &--deactive
+      opacity: .5
+
+    &--matched
+      @include hover-supported
+        opacity: .5
+      cursor: pointer
+
+  .map-neighborhoods__icon-neighborhood--matched.map-neighborhoods__icon-neighborhood--deactive
+    @include hover-supported
+      opacity: 1
