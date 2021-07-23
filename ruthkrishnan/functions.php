@@ -89,6 +89,10 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'contact', get_template_directory_uri() . '/styles/contact.css' );
   }
 
+  if ( is_page_template('page-talks.php') ) {
+    wp_enqueue_style( 'talks', get_template_directory_uri() . '/styles/talks.css' );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -175,6 +179,11 @@ function theme_enqueue_scripts() {
   if ( is_single() && get_post_type() === 'neighborhoods' ) {
     wp_register_script( 'single-neighborhoods', get_template_directory_uri() . '/js/single-neighborhoods.js', array(), '', true);
     wp_enqueue_script( 'single-neighborhoods' );
+  }
+
+  if ( is_page_template('page-talks.php') ) {
+    wp_register_script( 'talks', get_template_directory_uri() . '/js/talks.js', array(), '', true);
+    wp_enqueue_script( 'talks' );
   }
 
 }
