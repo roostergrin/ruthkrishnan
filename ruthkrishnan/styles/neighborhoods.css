@@ -48,54 +48,74 @@
   height: 100%;
 }
 
-.slider-neighborhoods__content-link {
+.cta-text-btn__btn, .slider-neighborhoods__content-link {
   text-transform: lowercase;
   line-height: 1.15;
   letter-spacing: 0.01541875rem;
   font-size: 0.875rem;
 }
 @media screen and (min-width: 1750px) {
-  .slider-neighborhoods__content-link {
+  .cta-text-btn__btn, .slider-neighborhoods__content-link {
     font-size: 1rem;
   }
 }
 
-.slider-neighborhoods__content {
+.slider-neighborhoods__content, .slider-neighborhoods {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .slider-neighborhoods__content {
+  .slider-neighborhoods__content, .slider-neighborhoods {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .slider-neighborhoods__content {
+  .slider-neighborhoods__content, .slider-neighborhoods {
     padding: 1rem 0;
   }
 }
 
-.slider-neighborhoods {
-  padding: 4rem 0 2rem;
+.neighborhoods-cta {
+  padding: 2rem 0 4rem;
 }
 @media screen and (min-width: 1750px) {
-  .slider-neighborhoods {
-    padding: 5rem 0 2.5rem;
+  .neighborhoods-cta {
+    padding: 2.5rem 0 5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .slider-neighborhoods {
-    padding: 2rem 0 1rem;
+  .neighborhoods-cta {
+    padding: 1rem 0 2rem;
   }
 }
 
 /* -----------------------
  * Typography
  * ----------------------- */
+.slider-neighborhoods__content-icon-text {
+  line-height: 1.3333;
+  letter-spacing: 0.09375rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+@media screen and (min-width: 1750px) {
+  .slider-neighborhoods__content-icon-text {
+    font-size: 1.25rem;
+  }
+}
+
 /* -------------------------------------------
  *  Slider Neighborhoods Template Styles
  * ------------------------------------------- */
 .slider-neighborhoods {
   overflow: hidden;
+}
+.slider-neighborhoods__slider {
+  padding: 0 2rem;
+}
+@media screen and (min-width: 1440px) {
+  .slider-neighborhoods__slider {
+    padding: 0;
+  }
 }
 .slider-neighborhoods__slider-container {
   display: flex;
@@ -267,6 +287,34 @@
     color: #AF5B5B;
   }
 }
+.slider-neighborhoods__content-icons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+@media screen and (max-width: 768px) {
+  .slider-neighborhoods__content-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.slider-neighborhoods__content-icon-container {
+  flex: 1;
+  margin: 2rem 2rem 0;
+  max-width: 7.5rem;
+  text-align: center;
+}
+@media screen and (min-width: 1750px) {
+  .slider-neighborhoods__content-icon-container {
+    max-width: 9.375rem;
+  }
+}
+.slider-neighborhoods__content-icon {
+  margin-bottom: 0.5rem;
+}
+.slider-neighborhoods__content-icon-text {
+  text-transform: uppercase;
+}
 
 /* -------------------------------------------
  *  Neighborhoods Map Template Styles
@@ -402,3 +450,155 @@
     opacity: 1;
   }
 }
+
+/* ----------------------------
+ *  CTA Text & Button Styles
+ * ---------------------------- */
+.cta-text-btn__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+}
+@media screen and (min-width: 1750px) {
+  .cta-text-btn__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .cta-text-btn__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .cta-text-btn__container {
+    padding: 0 1rem;
+  }
+}
+.cta-text-btn__column {
+  padding: 0 calc(30px / 2);
+  width: calc((8 / 12) * 100%);
+  margin-left: calc((2 / 12) * 100%);
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .cta-text-btn__column {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .cta-text-btn__column {
+    margin-left: 0;
+  }
+}
+.cta-text-btn__title {
+  margin-bottom: 1rem;
+}
+.cta-text-btn__title span {
+  display: block;
+}
+@media screen and (max-width: 480px) {
+  .cta-text-btn__title span {
+    display: inline;
+  }
+}
+.cta-text-btn__text {
+  margin-bottom: 1rem;
+}
+.cta-text-btn__btn {
+  display: inline-block;
+  position: relative;
+  transition: background 0.2s ease;
+  border: 0.0625rem solid #AF5B5B;
+  background: #AF5B5B;
+  cursor: pointer;
+  padding: 0.875rem 2rem 0.75rem;
+  text-transform: lowercase;
+  color: #fff;
+}
+@media not all and (pointer: coarse) {
+  .cta-text-btn__btn:hover {
+    background: #fff;
+    color: #AF5B5B;
+  }
+}
+
+/* ------------------------
+ *  Neighborhoods Styles
+ * ------------------------ */
+/* -----------------------------
+ *  Neighborhoods Intro Styles
+ * ----------------------------- */
+.neighborhoods-intro {
+  padding: 4rem 0 0;
+}
+@media screen and (min-width: 1750px) {
+  .neighborhoods-intro {
+    padding: 5rem 0 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .neighborhoods-intro {
+    padding: 2rem 0 0;
+  }
+}
+.neighborhoods-intro__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+}
+@media screen and (min-width: 1750px) {
+  .neighborhoods-intro__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .neighborhoods-intro__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .neighborhoods-intro__container {
+    padding: 0 1rem;
+  }
+}
+.neighborhoods-intro__column {
+  padding: 0 calc(30px / 2);
+  width: calc((8 / 12) * 100%);
+  margin-left: calc((2 / 12) * 100%);
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .neighborhoods-intro__column {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .neighborhoods-intro__column {
+    margin-left: 0;
+  }
+}
+.neighborhoods-intro__title {
+  margin-bottom: 1rem;
+}
+.neighborhoods-intro__text {
+  width: 100%;
+}
+@media screen and (min-width: 1750px) {
+  .neighborhoods-intro__text {
+    width: 95%;
+  }
+}
+
+/* ----------------------------
+ *  Neighborhoods CTA Styles
+ * ----------------------------- */

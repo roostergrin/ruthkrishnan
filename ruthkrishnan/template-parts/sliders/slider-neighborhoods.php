@@ -61,6 +61,21 @@
                   <div class="slider-neighborhoods__content-description">
                     <?php echo get_field('description'); ?>
                   </div>
+                  <?php if ( have_rows('icons') ) : ?>
+                    <div class="slider-neighborhoods__content-icons">
+                      <?php while ( have_rows('icons') ) : the_row();
+
+                        $icon = get_sub_field('icon');
+                        $text = get_sub_field('text'); ?>
+
+                        <div class="slider-neighborhoods__content-icon-container">
+                          <?php get_template_part('icons/' . $icon, null, array( 'class' => 'slider-neighborhoods__content-icon')); ?>
+                          <div class="slider-neighborhoods__content-icon-text"><?php echo $text; ?></div>
+                        </div>
+                      
+                      <?php endwhile; ?>
+                    </div>
+                  <?php endif; ?>
                   <a class="slider-neighborhoods__content-link" href="/neighborhoods/<?php echo get_post()->post_name; ?>">Learn More</a>
                 </div>
               </div>

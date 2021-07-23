@@ -29,6 +29,8 @@ export const sliderNeighborhoods = () => {
       }
     })
 
+    sectionActive ? closeToolTip() : null;
+
   };
 
   // * set the correct slide active on first load *
@@ -252,5 +254,6 @@ export const sliderNeighborhoods = () => {
 
     handleSwipe(swipedir);
   })
+
 
 }

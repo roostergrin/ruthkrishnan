@@ -59,6 +59,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
         slide.elem.classList.remove('slider-neighborhoods__slide--curr');
       }
     });
+    sectionActive ? closeToolTip() : null;
   }; // * set the correct slide active on first load *
 
 
