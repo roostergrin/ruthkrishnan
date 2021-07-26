@@ -45,7 +45,7 @@ get_header(); ?>
               $thumbnail = wp_get_attachment_image($slide['video_thumbnail'], 'medium_large', false, [ 'class' => 'talks-video-slider__slide-image' ]);
               $title = $slide['video_title']; ?>
 
-              <div class="talks-video-slider__slide" data-video='<?php echo $video; ?>' data-thumbnail='<?php echo $thumbnail; ?>' data-title='<?php echo $title; ?>'>
+              <div class="talks-video-slider__slide" data-video="<?php echo $video; ?>" data-thumbnail='<?php echo strval($thumbnail); ?>' data-title="<?php echo $title; ?>">
                 <div class="talks-video-slider__slide-container">
                   <div class="talks-video-slider__slide-image-container">
                     <?php echo $thumbnail; ?>
