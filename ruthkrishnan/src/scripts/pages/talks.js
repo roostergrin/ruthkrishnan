@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
   const createSlides = () => {
     // create slides Array
-    slidesArr = slidesData.map((slide, i) => ({ index: i, el: slide, video: slide.dataset.video, thumbnail: slide.dataset.thumbnail, title: slide.dataset.title }));
+    slidesArr = slidesData.map((slide, i) => ({ index: i, el: slide }));
 
     // clone slides
     if (slidesArr.length === 4 && window.innerWidth > 768) {
