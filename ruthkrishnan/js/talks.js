@@ -47,10 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     slidesArr = slidesData.map(function (slide, i) {
       return {
         index: i,
-        el: slide,
-        video: slide.dataset.video,
-        thumbnail: slide.dataset.thumbnail,
-        title: slide.dataset.title
+        el: slide
       };
     }); // clone slides
 
