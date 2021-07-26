@@ -96,6 +96,189 @@
       margin-top: 2.5rem
     margin-top: 2rem
 
+/* ----------------------------
+    Talks Video Slider Styles
+   ---------------------------- */
+
+.talks-video-slider
+  @extend %section-margins
+  @extend %section-padding-large
+  background: $c2
+
+  &__container
+    @include container
+    padding: 0
+
+  &__column
+    @include col(12)
+    
+  &__title
+    @extend %title-margin
+    text-align: center
+
+  &__slides
+    position: relative
+    display: flex
+    width: 100%
+    overflow: hidden
+
+  &__slide
+    @include col(4)
+    position: absolute
+    top: 0
+    left: 0
+    transition: transform .5s ease, opacity .5s ease-out
+
+    &-container
+      @include hover-supported
+        .talks-video-slider__slide-icon
+          opacity: .7
+      @include tablet
+        margin: auto
+        width: 75%
+      cursor: pointer
+
+    &-image-container
+      @include tablet
+        height: 35vw
+      position: relative
+      width: 100%
+      height: calc(25vw * .5625)
+    
+    &-image
+      @extend %absolute
+      object-fit: cover
+    
+    &-play-btn
+      @extend %centered
+      display: flex
+      align-items: center
+      justify-content: center
+      opacity: 1
+      z-index: 3
+      cursor: pointer
+      pointer-events: auto
+
+      &--hidden
+        opacity: 0
+        pointer-events: none
+
+    &-icon
+      transition: opacity .2s ease
+      width: 3rem
+      height: 3rem
+      fill: $c1
+
+    &-title
+      background: $white
+      padding: 1rem
+      font-weight: 700
+
+  &__prev,
+  &__next
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    cursor: pointer
+
+    &--hidden
+      display: none
+
+  &__prev
+    @include tablet
+      left: 1rem
+    left: 0
+
+  &__next
+    @include tablet
+      right: 1rem
+    right: 0
+
+  &__icon
+    width: rem-calc(20)
+    height: rem-calc(20)
+
+    &--prev
+      transform: scale(-1)
+  
+  &__indicators
+    @include col (12)
+    @include desktop
+      margin-top: 3rem
+    display: flex
+    justify-content: center
+    margin-top: 2rem
+
+    &--hidden
+      display: none
+
+  &__dot
+    transition: background .3s ease
+    margin: auto rem-calc(4)
+    border: $c1 solid 1px
+    border-radius: 50%
+    width: rem-calc(8)
+    height: rem-calc(8)
+    pointer-events: all
+
+    &--active
+      background: $c1
+
+  &__video-modal
+    position: fixed
+    top: 0
+    left: 0
+    transition: opacity .3s ease
+    opacity: 0
+    z-index: 9999
+    width: 100%
+    height: 100%
+    pointer-events: none
+
+    &--open
+      opacity: 1
+      pointer-events: all
+
+  &__modal-overlay
+    @extend %absolute
+    background: rgba($black, .6)
+    cursor: pointer
+
+  &__modal-container
+    @extend %centered
+    @include tablet
+      width: 95vw
+      height: calc(95vw * .5625)
+    @include phone-lg
+      height: 60vw
+    width: 70vw
+    height: calc(70vw * .5625)
+
+  &__video
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: auto
+    overflow: hidden
+
+    @supports (object-fit: cover)
+      height: 100%
+      object-fit: cover
+
+  &__close-btn
+    @include hover-supported
+      color: $c4
+    position: absolute
+    top: -2rem
+    right: 1rem
+    transition: color .2s ease
+    z-index: 2
+    cursor: pointer
+    width: 2rem
+    height: 2rem
+    color: $white
+
 /* -----------------------
     Talks Learn Styles
    ----------------------- */
