@@ -31,13 +31,13 @@ document.addEventListener('DOMContentLoaded', function () {
   
   const createSlides = () => {
     // create slides Array
-    slidesArr = slidesData.map((slide, i) => ({ index: i, el: slide }));
+    slidesArr = slidesData.map((slide, i) => ({ index: i, el: slide, video: slide.dataset.video }));
 
     // clone slides
     if (slidesArr.length === 4 && window.innerWidth > 768) {
-      slidesArr.forEach((slide, i) => { slidesArr.push({ index: i + 4, el: slide.el.cloneNode(true), video: slide.video, thumbnail: slide.thumbnail, title: slide.title }) })
+      slidesArr.forEach((slide, i) => { slidesArr.push({ index: i + 4, el: slide.el.cloneNode(true), video: slide.video }) })
     } else if (slidesArr.length === 2 && window.innerWidth < 769) {
-      slidesArr.forEach((slide, i) => { slidesArr.push({ index: i + 2, el: slide.el.cloneNode(true), video: slide.video, thumbnail: slide.thumbnail, title: slide.title }) })
+      slidesArr.forEach((slide, i) => { slidesArr.push({ index: i + 2, el: slide.el.cloneNode(true), video: slide.video }) })
     }
   }
   createSlides();

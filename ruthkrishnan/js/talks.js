@@ -47,7 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
     slidesArr = slidesData.map(function (slide, i) {
       return {
         index: i,
-        el: slide
+        el: slide,
+        video: slide.dataset.video
       };
     }); // clone slides
 
@@ -56,9 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesArr.push({
           index: i + 4,
           el: slide.el.cloneNode(true),
-          video: slide.video,
-          thumbnail: slide.thumbnail,
-          title: slide.title
+          video: slide.video
         });
       });
     } else if (slidesArr.length === 2 && window.innerWidth < 769) {
@@ -66,9 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesArr.push({
           index: i + 2,
           el: slide.el.cloneNode(true),
-          video: slide.video,
-          thumbnail: slide.thumbnail,
-          title: slide.title
+          video: slide.video
         });
       });
     }
