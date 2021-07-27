@@ -93,6 +93,10 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'talks', get_template_directory_uri() . '/styles/talks.css' );
   }
 
+  if ( is_page_template('page-coaching.php') ) {
+    wp_enqueue_style( 'coaching', get_template_directory_uri() . '/styles/coaching.css' );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -184,6 +188,11 @@ function theme_enqueue_scripts() {
   if ( is_page_template('page-talks.php') ) {
     wp_register_script( 'talks', get_template_directory_uri() . '/js/talks.js', array(), '', true);
     wp_enqueue_script( 'talks' );
+  }
+
+  if ( is_page_template('page-coaching.php') ) {
+    wp_register_script( 'coaching', get_template_directory_uri() . '/js/coaching.js', array(), '', true);
+    wp_enqueue_script( 'coaching' );
   }
 
 }

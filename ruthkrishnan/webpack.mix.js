@@ -34,3 +34,5 @@ mix
 .sass('src/sass/pages/contact.sass', 'styles/')
 .sass('src/sass/pages/talks.sass', 'styles/')
 .js('src/scripts/pages/talks.js', 'js/')
+.sass('src/sass/pages/coaching.sass', 'styles/')
+.js('src/scripts/pages/coaching.js', 'js/')

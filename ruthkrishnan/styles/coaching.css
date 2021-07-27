@@ -1,0 +1,649 @@
+/* -----------------------
+ * Fonts
+ * ----------------------- */
+@font-face {
+  font-family: "Avenir Next";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://dev.ruthkrishnan.com/wp-content/themes/ruthkrishnan/fonts/AvenirNext-Regular.woff") format("woff");
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Avenir Next";
+  font-weight: 500;
+  font-style: normal;
+  src: url("https://dev.ruthkrishnan.com/wp-content/themes/ruthkrishnan/fonts/AvenirNext-Medium.woff") format("woff");
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Avenir Next";
+  font-weight: 700;
+  font-style: normal;
+  src: url("https://dev.ruthkrishnan.com/wp-content/themes/ruthkrishnan/fonts/AvenirNext-Bold.woff") format("woff");
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Avenir Next";
+  font-weight: 800;
+  font-style: normal;
+  src: url("https://dev.ruthkrishnan.com/wp-content/themes/ruthkrishnan/fonts/AvenirNext-Heavy.woff") format("woff");
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+.coaching-intro__image, .form-get-in-touch__label, .form-get-in-touch__background, .about-ruth__slide, .about-ruth__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.coaching-intro__link, .form-get-in-touch__submit {
+  text-transform: lowercase;
+  line-height: 1.15;
+  letter-spacing: 0.01541875rem;
+  font-size: 0.875rem;
+}
+@media screen and (min-width: 1750px) {
+  .coaching-intro__link, .form-get-in-touch__submit {
+    font-size: 1rem;
+  }
+}
+
+.form-get-in-touch__form-container, .about-ruth__content {
+  padding: 2rem 0;
+}
+@media screen and (min-width: 1750px) {
+  .form-get-in-touch__form-container, .about-ruth__content {
+    padding: 2.5rem 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .form-get-in-touch__form-container, .about-ruth__content {
+    padding: 1rem 0;
+  }
+}
+
+.coaching-intro {
+  padding: 4rem 0 2rem;
+}
+@media screen and (min-width: 1750px) {
+  .coaching-intro {
+    padding: 5rem 0 2.5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .coaching-intro {
+    padding: 2rem 0 1rem;
+  }
+}
+
+.form-get-in-touch {
+  padding: 4rem 0;
+}
+@media screen and (min-width: 1750px) {
+  .form-get-in-touch {
+    padding: 5rem 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .form-get-in-touch {
+    padding: 2rem 0;
+  }
+}
+
+.page-coaching .about-ruth {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 1750px) {
+  .page-coaching .about-ruth {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .page-coaching .about-ruth {
+    marign-top: 1rem;
+    marign-botom: 1rem;
+  }
+}
+
+.about-ruth {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+@media screen and (min-width: 1750px) {
+  .about-ruth {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .about-ruth {
+    marign-top: 2rem;
+    marign-botom: 2rem;
+  }
+}
+
+.coaching-intro__title {
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 1750px) {
+  .coaching-intro__title {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.about-ruth__slide-text p:not(:last-of-type) {
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.about-ruth__slide-text span {
+  font-weight: 500;
+}
+
+/* -----------------------
+ * Typography
+ * ----------------------- */
+/* ------------------------------
+ *  About Ruth Krishnan Styles
+ * ------------------------------- */
+.about-ruth {
+  position: relative;
+  padding-bottom: 2.0625rem;
+}
+.about-ruth__color-box {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  background: #F4F0F0;
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  height: 100%;
+}
+@media screen and (min-width: 1750px) {
+  .about-ruth__color-box {
+    max-width: calc(1528px + 30px);
+  }
+}
+.about-ruth__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  padding: 0;
+  max-width: 1146px;
+}
+@media screen and (min-width: 1750px) {
+  .about-ruth__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-ruth__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .about-ruth__container {
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .about-ruth__container {
+    max-width: calc(1528px - 64px);
+  }
+}
+@media screen and (max-width: 880px) {
+  .about-ruth__container {
+    padding: 0 2rem;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .about-ruth__container {
+    padding: 0 1rem;
+  }
+}
+.about-ruth__col-left {
+  padding: 0 calc(30px / 2);
+  width: calc((5 / 12) * 100%);
+}
+@media screen and (max-width: 768px) {
+  .about-ruth__col-left {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 880px) {
+  .about-ruth__col-left {
+    width: 100%;
+  }
+}
+.about-ruth__image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 880px) {
+  .about-ruth__image-container {
+    margin: auto;
+    padding-top: 50%;
+    width: 75%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .about-ruth__image-container {
+    padding-top: 100%;
+    width: 100%;
+  }
+}
+.about-ruth__image {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (max-width: 880px) {
+  .about-ruth__image {
+    -o-object-position: center 25%;
+       object-position: center 25%;
+  }
+}
+.about-ruth__col-right {
+  padding: 0 calc(30px / 2);
+  width: calc((7 / 12) * 100%);
+}
+@media screen and (max-width: 768px) {
+  .about-ruth__col-right {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 880px) {
+  .about-ruth__col-right {
+    width: 100%;
+  }
+}
+.about-ruth__title {
+  padding-bottom: 1rem;
+}
+@media screen and (max-width: 880px) {
+  .about-ruth__title {
+    padding-top: 1rem;
+    padding-bottom: 0;
+  }
+}
+@media screen and (max-width: 880px) {
+  .about-ruth__content {
+    padding-top: 1rem;
+  }
+}
+.about-ruth__navigation {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+.about-ruth__nav-link {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+@media not all and (pointer: coarse) {
+  .about-ruth__nav-link:hover::before {
+    opacity: 1;
+  }
+}
+.about-ruth__nav-link::before {
+  transition: opacity 0.2s ease;
+  background: #232323;
+  border-radius: 50%;
+  opacity: 0;
+  margin-right: 0.5rem;
+  width: 0.375rem;
+  height: 0.375rem;
+  content: "";
+}
+.about-ruth__nav-link--active {
+  font-weight: 700;
+}
+.about-ruth__nav-link--active::before {
+  opacity: 1;
+}
+.about-ruth__slides {
+  position: relative;
+  min-height: 15.625rem;
+}
+.about-ruth__slide {
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  height: auto;
+}
+.about-ruth__slide--active {
+  opacity: 1;
+}
+/* ----------------------------
+ *  Get In Touch Form Styles
+ * ----------------------------- */
+.form-get-in-touch {
+  position: relative;
+}
+.form-get-in-touch__background {
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+.form-get-in-touch__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+}
+@media screen and (min-width: 1750px) {
+  .form-get-in-touch__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .form-get-in-touch__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .form-get-in-touch__container {
+    padding: 0 1rem;
+  }
+}
+.form-get-in-touch__info {
+  padding: 0 calc(30px / 2);
+  width: calc((3 / 12) * 100%);
+}
+@media screen and (max-width: 768px) {
+  .form-get-in-touch__info {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .form-get-in-touch__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+}
+.form-get-in-touch__text {
+  margin: 1rem 0;
+  width: 66.7%;
+}
+@media screen and (max-width: 768px) {
+  .form-get-in-touch__text {
+    text-align: center;
+  }
+}
+.form-get-in-touch__address {
+  margin-top: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .form-get-in-touch__address {
+    text-align: center;
+  }
+}
+.form-get-in-touch__form-column {
+  padding: 0 calc(30px / 2);
+  width: calc((8 / 12) * 100%);
+  background: #fff;
+  border: 2px solid #000;
+}
+@media screen and (max-width: 768px) {
+  .form-get-in-touch__form-column {
+    padding: 0;
+    width: 100%;
+  }
+}
+.form-get-in-touch__form-container {
+  margin: auto;
+  width: 75%;
+}
+.form-get-in-touch__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.form-get-in-touch__form-group {
+  position: relative;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+.form-get-in-touch__form-group--half {
+  width: calc(50% - 15px);
+}
+@media screen and (max-width: 768px) {
+  .form-get-in-touch__form-group--half {
+    width: 100%;
+  }
+}
+.form-get-in-touch__label {
+  display: none;
+  top: 0.25rem;
+  left: 0.25rem;
+}
+.form-get-in-touch__input {
+  border-bottom: 2px solid #000;
+  padding: 0.75rem 0;
+  width: 100%;
+}
+.form-get-in-touch__input:focus-visible {
+  outline: none;
+}
+.form-get-in-touch__input::-moz-placeholder {
+  color: #000;
+  opacity: 1;
+}
+.form-get-in-touch__input:-ms-input-placeholder {
+  color: #000;
+  opacity: 1;
+}
+.form-get-in-touch__input::placeholder {
+  color: #000;
+  opacity: 1;
+}
+.form-get-in-touch__textarea {
+  border-bottom: 2px solid #000;
+  width: 100%;
+}
+.form-get-in-touch__textarea:focus-visible {
+  outline: none;
+}
+.form-get-in-touch__textarea::-moz-placeholder {
+  color: #000;
+  opacity: 1;
+}
+.form-get-in-touch__textarea:-ms-input-placeholder {
+  color: #000;
+  opacity: 1;
+}
+.form-get-in-touch__textarea::placeholder {
+  color: #000;
+  opacity: 1;
+}
+.form-get-in-touch__submit {
+  display: inline-block;
+  position: relative;
+  transition: background 0.2s ease;
+  border: 0.0625rem solid #AF5B5B;
+  background: #AF5B5B;
+  cursor: pointer;
+  padding: 0.875rem 2rem 0.75rem;
+  text-transform: lowercase;
+  color: #fff;
+}
+@media not all and (pointer: coarse) {
+  .form-get-in-touch__submit:hover {
+    background: #963636;
+    color: #AF5B5B;
+  }
+}
+
+/* -----------------------
+ *  Coaching Page Styles
+ * ----------------------- */
+.page-coaching__get-in-touch {
+  margin-top: 2rem;
+}
+@media screen and (min-width: 1750px) {
+  .page-coaching__get-in-touch {
+    margin-top: 2.5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .page-coaching__get-in-touch {
+    marign-top: 1rem;
+  }
+}
+
+/* -----------------------
+ *  Coaching Intro Styles
+ * ----------------------- */
+.coaching-intro__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  padding: 0;
+  max-width: 1146px;
+}
+@media screen and (min-width: 1750px) {
+  .coaching-intro__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .coaching-intro__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .coaching-intro__container {
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .coaching-intro__container {
+    max-width: calc(1528px - 64px);
+  }
+}
+@media screen and (max-width: 880px) {
+  .coaching-intro__container {
+    padding: 0 2rem;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .coaching-intro__container {
+    padding: 0 1rem;
+  }
+}
+.coaching-intro__wrapper {
+  padding: 0 calc(30px / 2);
+  width: calc((12 / 12) * 100%);
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 768px) {
+  .coaching-intro__wrapper {
+    padding: 0;
+    width: 100%;
+  }
+}
+.coaching-intro__title {
+  width: 100%;
+  text-align: center;
+}
+@media screen and (max-width: 1024px) {
+  .coaching-intro__title {
+    order: 1;
+  }
+}
+.coaching-intro__column {
+  padding: 0 calc(30px / 2);
+  width: calc((6 / 12) * 100%);
+}
+@media screen and (max-width: 768px) {
+  .coaching-intro__column {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .coaching-intro__column {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .coaching-intro__column--content {
+    order: 3;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .coaching-intro__column--image {
+    order: 2;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .coaching-intro__link-container {
+    text-align: center;
+  }
+}
+.coaching-intro__link {
+  display: inline-block;
+  position: relative;
+  transition: background 0.2s ease;
+  border: 0.0625rem solid #AF5B5B;
+  background: #AF5B5B;
+  cursor: pointer;
+  padding: 0.875rem 2rem 0.75rem;
+  text-transform: lowercase;
+  color: #fff;
+  margin-top: 1rem;
+}
+@media not all and (pointer: coarse) {
+  .coaching-intro__link:hover {
+    background: #fff;
+    color: #AF5B5B;
+  }
+}
+.coaching-intro__image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 1024px) {
+  .coaching-intro__image-container {
+    margin: 0 auto 2rem;
+    height: 45vw;
+    width: 75%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .coaching-intro__image-container {
+    width: 100%;
+  }
+}
+.coaching-intro__image {
+  -o-object-fit: cover;
+     object-fit: cover;
+}

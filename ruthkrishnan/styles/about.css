@@ -102,18 +102,18 @@
   }
 }
 
-.about-promise, .slider-team__members-container {
+.about-promise, .page-coaching .about-ruth, .slider-team__members-container {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
 @media screen and (min-width: 1750px) {
-  .about-promise, .slider-team__members-container {
+  .about-promise, .page-coaching .about-ruth, .slider-team__members-container {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .about-promise, .slider-team__members-container {
+  .about-promise, .page-coaching .about-ruth, .slider-team__members-container {
     marign-top: 1rem;
     marign-botom: 1rem;
   }
