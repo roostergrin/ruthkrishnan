@@ -7,6 +7,9 @@
   position: relative
   padding-bottom: rem-calc(33)
 
+  .page-coaching &
+    @extend %section-margins
+
   &__color-box
     @include desktop
       max-width: calc(#{$max-width} + #{$gutter})
