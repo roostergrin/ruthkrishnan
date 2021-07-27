@@ -1,0 +1,71 @@
+@import '../local/index.sass'
+@import '../templates/form-get-in-touch.sass'
+
+/* -----------------------
+    Careers Page Styles
+  ----------------------- */
+
+/* -----------------------
+    Careers Intro Styles
+  ----------------------- */
+
+.page-careers
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include tablet-md
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    padding: 0
+    max-width: $width
+
+  &__intro
+    @extend %section-padding-top
+
+  &__title
+    @extend %title-margin
+    text-align: center
+
+  &__posts
+    @extend %section-padding-bottom
+  
+  &__post
+    &:not(:last-of-type)
+      @include desktop
+        margin-bottom: 5rem
+      @include nexus
+        marign-botom: 2rem
+      margin-bottom: 4rem
+
+  &__post-title
+    margin-bottom: 1rem
+
+  &__post-link
+    @extend %button-text
+    display: inline-block
+    position: relative
+    transition: opacity .2s ease
+    margin-top: 1rem
+    text-transform: lowercase
+    color: $c3
+    font-weight: 500
+
+    @include hover-supported
+      opacity: .7
+    
+      &:after
+        opacity: .7
+
+    &:after
+      position: absolute
+      bottom: -.25rem
+      left: 0
+      transition: opacity .2s ease
+      background: $c3
+      width: 100%
+      height: rem-calc(2)
+      content: ''

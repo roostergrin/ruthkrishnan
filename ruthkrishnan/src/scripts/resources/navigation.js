@@ -13,7 +13,7 @@ export const navigation = () => {
 
     scrollPos = window.pageYOffset
 
-    if (scrollPos > (window.innerHeight * 0.25)) {
+    if (scrollPos > (window.innerHeight * 0.25) || window.location.href.includes('careers')) {
       el.classList.add('site-navigation--active')
     } else {
       el.classList.remove('site-navigation--active')
