@@ -33,7 +33,7 @@
   font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-.coaching-intro__image, .form-get-in-touch__label, .form-get-in-touch__background, .about-ruth__slide, .about-ruth__image {
+.marketing-image-text__image, .marketing-image-text__color-box, .form-get-in-touch__label, .form-get-in-touch__background, .about-ruth__slide, .about-ruth__image {
   position: absolute;
   top: 0;
   left: 0;
@@ -41,42 +41,42 @@
   height: 100%;
 }
 
-.coaching-intro__link, .form-get-in-touch__submit {
+.marketing-points__link, .form-get-in-touch__submit {
   text-transform: lowercase;
   line-height: 1.15;
   letter-spacing: 0.01541875rem;
   font-size: 0.875rem;
 }
 @media screen and (min-width: 1750px) {
-  .coaching-intro__link, .form-get-in-touch__submit {
+  .marketing-points__link, .form-get-in-touch__submit {
     font-size: 1rem;
   }
 }
 
-.form-get-in-touch__form-container, .about-ruth__content {
+.marketing-points, .form-get-in-touch__form-container, .about-ruth__content {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .form-get-in-touch__form-container, .about-ruth__content {
+  .marketing-points, .form-get-in-touch__form-container, .about-ruth__content {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .form-get-in-touch__form-container, .about-ruth__content {
+  .marketing-points, .form-get-in-touch__form-container, .about-ruth__content {
     padding: 1rem 0;
   }
 }
 
-.coaching-intro {
+.marketing-image-text {
   padding: 4rem 0 2rem;
 }
 @media screen and (min-width: 1750px) {
-  .coaching-intro {
+  .marketing-image-text {
     padding: 5rem 0 2.5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .coaching-intro {
+  .marketing-image-text {
     padding: 2rem 0 1rem;
   }
 }
@@ -129,11 +129,28 @@
   }
 }
 
-.coaching-intro__title {
+.marketing-points__link {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+@media screen and (min-width: 1750px) {
+  .marketing-points__link {
+    margin-top: 2.5rem;
+    margin-bottom: 5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .marketing-points__link {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.marketing-points__text, .marketing-points__title {
   margin-bottom: 2rem;
 }
 @media screen and (min-width: 1750px) {
-  .coaching-intro__title {
+  .marketing-points__text, .marketing-points__title {
     margin-bottom: 2.5rem;
   }
 }
@@ -495,19 +512,19 @@
   }
 }
 
-/* -----------------------
- *  Coaching Page Styles
- * ----------------------- */
-.page-coaching__get-in-touch {
+/* ---------------------------------
+ *  Marketing Campaign Page Styles
+ * ---------------------------------- */
+.page-marketing__get-in-touch {
   margin-top: 2rem;
 }
 @media screen and (min-width: 1750px) {
-  .page-coaching__get-in-touch {
+  .page-marketing__get-in-touch {
     margin-top: 2.5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .page-coaching__get-in-touch {
+  .page-marketing__get-in-touch {
     marign-top: 1rem;
   }
 }
@@ -515,7 +532,20 @@
 /* -----------------------
  *  Coaching Intro Styles
  * ----------------------- */
-.coaching-intro__container {
+.marketing-intro {
+  margin-top: 2rem;
+}
+@media screen and (min-width: 1750px) {
+  .marketing-intro {
+    margin-top: 2.5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .marketing-intro {
+    marign-top: 1rem;
+  }
+}
+.marketing-intro__container {
   display: flex;
   position: relative;
   flex-wrap: wrap;
@@ -527,123 +557,383 @@
   max-width: 1146px;
 }
 @media screen and (min-width: 1750px) {
-  .coaching-intro__container {
+  .marketing-intro__container {
     max-width: 1528px;
   }
 }
 @media screen and (max-width: 768px) {
-  .coaching-intro__container {
+  .marketing-intro__container {
     padding: 0 2rem;
   }
 }
 @media screen and (max-width: 480px) {
-  .coaching-intro__container {
+  .marketing-intro__container {
     padding: 0 1rem;
   }
 }
 @media screen and (min-width: 1750px) {
-  .coaching-intro__container {
+  .marketing-intro__container {
     max-width: calc(1528px - 64px);
   }
 }
 @media screen and (max-width: 880px) {
-  .coaching-intro__container {
+  .marketing-intro__container {
     padding: 0 2rem;
     max-width: 100%;
   }
 }
 @media screen and (max-width: 480px) {
-  .coaching-intro__container {
+  .marketing-intro__container {
     padding: 0 1rem;
   }
 }
-.coaching-intro__wrapper {
+.marketing-intro__column {
   padding: 0 calc(30px / 2);
-  width: calc((12 / 12) * 100%);
-  display: flex;
-  flex-wrap: wrap;
+  width: calc((8 / 12) * 100%);
+  margin-left: calc((2 / 12) * 100%);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 @media screen and (max-width: 768px) {
-  .coaching-intro__wrapper {
+  .marketing-intro__column {
     padding: 0;
     width: 100%;
   }
 }
-.coaching-intro__title {
+@media screen and (max-width: 768px) {
+  .marketing-intro__column {
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .marketing-intro__column {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .marketing-intro__column {
+    marign-top: 1rem;
+    marign-botom: 1rem;
+  }
+}
+.marketing-intro__title {
+  margin-bottom: 1rem;
   width: 100%;
   text-align: center;
 }
-@media screen and (max-width: 1024px) {
-  .coaching-intro__title {
-    order: 1;
+
+/* -----------------------------
+ *  Home Welcome Section Styles
+ * ----------------------------- */
+.marketing-image-text {
+  position: relative;
+  margin-top: 2rem;
+}
+@media screen and (max-width: 1250px) {
+  .marketing-image-text {
+    margin-top: 0;
   }
 }
-.coaching-intro__column {
-  padding: 0 calc(30px / 2);
-  width: calc((6 / 12) * 100%);
+@media screen and (max-width: 880px) {
+  .marketing-image-text {
+    background: #232323;
+  }
+}
+.marketing-image-text__color-box {
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  background: #F4F0F0;
+  max-width: calc(1146px + 64px);
+  height: 80%;
+}
+@media screen and (min-width: 1750px) {
+  .marketing-image-text__color-box {
+    max-width: calc(1528px + 30px);
+  }
+}
+@media screen and (max-width: 1250px) {
+  .marketing-image-text__color-box {
+    display: none;
+  }
+}
+.marketing-image-text__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  background: #232323;
+  padding: 0;
+  max-width: 1146px;
+}
+@media screen and (min-width: 1750px) {
+  .marketing-image-text__container {
+    max-width: 1528px;
+  }
 }
 @media screen and (max-width: 768px) {
-  .coaching-intro__column {
+  .marketing-image-text__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .marketing-image-text__container {
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .marketing-image-text__container {
+    max-width: calc(1528px - 64px);
+  }
+}
+@media screen and (max-width: 1250px) {
+  .marketing-image-text__container {
+    max-width: calc(100vw - 3rem);
+  }
+}
+@media screen and (max-width: 880px) {
+  .marketing-image-text__container {
+    flex-direction: column-reverse;
+    padding: 0 2rem;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .marketing-image-text__container {
+    padding: 0 1rem;
+  }
+}
+.marketing-image-text__content {
+  padding: 0 calc(30px / 2);
+  width: calc((4 / 12) * 100%);
+  margin-left: calc((1 / 12) * 100%);
+  padding: 5rem 0;
+}
+@media screen and (max-width: 768px) {
+  .marketing-image-text__content {
     padding: 0;
     width: 100%;
   }
 }
-@media screen and (max-width: 1024px) {
-  .coaching-intro__column {
+@media screen and (max-width: 768px) {
+  .marketing-image-text__content {
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .marketing-image-text__content {
+    padding: 7rem 0;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .marketing-image-text__content {
+    margin-left: 0;
+    padding-left: 2rem;
+    width: calc((5/12) * 100%);
+  }
+}
+@media screen and (max-width: 880px) {
+  .marketing-image-text__content {
+    padding: 3rem 0;
     width: 100%;
   }
 }
-@media screen and (max-width: 1024px) {
-  .coaching-intro__column--content {
-    order: 3;
+.marketing-image-text__image-col {
+  padding: 0 calc(30px / 2);
+  width: calc((7 / 12) * 100%);
+  padding-right: 0;
+}
+@media screen and (max-width: 768px) {
+  .marketing-image-text__image-col {
+    padding: 0;
+    width: 100%;
   }
 }
-@media screen and (max-width: 1024px) {
-  .coaching-intro__column--image {
-    order: 2;
+@media screen and (max-width: 880px) {
+  .marketing-image-text__image-col {
+    padding: 0;
+    width: 100%;
+    height: 50vw;
   }
 }
-@media screen and (max-width: 1024px) {
-  .coaching-intro__link-container {
-    text-align: center;
-  }
-}
-.coaching-intro__link {
-  display: inline-block;
-  position: relative;
-  transition: background 0.2s ease;
-  border: 0.0625rem solid #AF5B5B;
-  background: #AF5B5B;
-  cursor: pointer;
-  padding: 0.875rem 2rem 0.75rem;
-  text-transform: lowercase;
-  color: #fff;
-  margin-top: 1rem;
-}
-@media not all and (pointer: coarse) {
-  .coaching-intro__link:hover {
-    background: #fff;
-    color: #AF5B5B;
-  }
-}
-.coaching-intro__image-container {
+.marketing-image-text__image-container {
   position: relative;
   width: 100%;
   height: 100%;
 }
-@media screen and (max-width: 1024px) {
-  .coaching-intro__image-container {
-    margin: 0 auto 2rem;
-    height: 45vw;
-    width: 75%;
+.marketing-image-text__image {
+  transition: opacity 0.5s ease;
+  -o-object-fit: cover;
+     object-fit: cover;
+  pointer-events: auto;
+}
+.marketing-image-text__image--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.marketing-image-text__title {
+  margin-bottom: 1.25rem;
+  color: #fff;
+}
+@media screen and (max-width: 880px) {
+  .marketing-image-text__title {
+    display: none;
+  }
+}
+.marketing-image-text__title--mobile {
+  display: none;
+  padding: 0 2rem;
+  text-align: center;
+}
+@media screen and (max-width: 880px) {
+  .marketing-image-text__title--mobile {
+    display: block;
+  }
+}
+@media screen and (max-width: 480px) {
+  .marketing-image-text__title--mobile {
+    padding: 0 1rem;
+  }
+}
+.marketing-image-text__text {
+  color: #fff;
+}
+.marketing-image-text__text p:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+/* --------------------------
+ *  Marketing Points Styles
+ * --------------------------- */
+.marketing-points__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  background: #828282;
+  padding: 0;
+  max-width: 1146px;
+  color: #fff;
+}
+@media screen and (min-width: 1750px) {
+  .marketing-points__container {
+    max-width: 1528px;
   }
 }
 @media screen and (max-width: 768px) {
-  .coaching-intro__image-container {
+  .marketing-points__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .marketing-points__container {
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .marketing-points__container {
+    max-width: calc(1528px - 64px);
+  }
+}
+@media screen and (max-width: 880px) {
+  .marketing-points__container {
+    padding: 0 2rem;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .marketing-points__container {
+    padding: 0 1rem;
+  }
+}
+.marketing-points__title {
+  padding-top: 4rem;
+  width: 100%;
+  text-align: center;
+}
+@media screen and (min-width: 1750px) {
+  .marketing-points__title {
+    padding-top: 5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .marketing-points__title {
+    padding-top: 2rem;
+  }
+}
+.marketing-points__content {
+  padding: 0 calc(30px / 2);
+  width: calc((10 / 12) * 100%);
+  margin-left: calc((1 / 12) * 100%);
+}
+@media screen and (max-width: 768px) {
+  .marketing-points__content {
+    padding: 0;
     width: 100%;
   }
 }
-.coaching-intro__image {
-  -o-object-fit: cover;
-     object-fit: cover;
+@media screen and (max-width: 768px) {
+  .marketing-points__content {
+    margin-left: 0;
+  }
+}
+.marketing-points__points {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+@media screen and (max-width: 1024px) {
+  .marketing-points__points {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.marketing-points__point {
+  width: 25%;
+  text-align: center;
+}
+@media screen and (max-width: 1024px) {
+  .marketing-points__point {
+    margin-bottom: 2rem;
+    width: 75%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .marketing-points__point {
+    width: 100%;
+  }
+}
+.marketing-points__point-icon {
+  width: 3rem;
+  height: 3rem;
+}
+.marketing-points__point-title {
+  margin-top: 1rem;
+}
+.marketing-points__link-container {
+  text-align: center;
+}
+.marketing-points__link {
+  display: inline-block;
+  position: relative;
+  transition: background 0.2s ease;
+  border: 0.0625rem solid #fff;
+  background: #fff;
+  cursor: pointer;
+  padding: 0.875rem 2rem 0.75rem;
+  text-transform: lowercase;
+  color: #232323;
+}
+@media not all and (pointer: coarse) {
+  .marketing-points__link:hover {
+    background: transparent;
+    color: #fff;
+  }
 }

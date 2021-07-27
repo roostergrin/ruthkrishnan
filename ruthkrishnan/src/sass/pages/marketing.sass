@@ -1,0 +1,229 @@
+@import '../local/index.sass'
+@import '../templates/about-ruth-krishnan.sass'
+@import '../templates/form-get-in-touch.sass'
+
+/* ---------------------------------
+    Marketing Campaign Page Styles
+  ---------------------------------- */
+
+.page-marketing
+
+  &__get-in-touch
+    @include desktop
+      margin-top: 2.5rem
+    @include nexus
+      marign-top: 1rem
+    margin-top: 2rem
+
+/* -----------------------
+    Coaching Intro Styles
+  ----------------------- */
+
+.marketing-intro
+  @include desktop
+    margin-top: 2.5rem
+  @include nexus
+    marign-top: 1rem
+  margin-top: 2rem
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include tablet-md
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    padding: 0
+    max-width: $width
+
+  &__column
+    @include col(8)
+    @include col--offset(2)
+    @include desktop
+      margin-top: 2.5rem
+      margin-bottom: 2.5rem
+    @include nexus
+      marign-top: 1rem
+      marign-botom: 1rem
+    margin-top: 2rem
+    margin-bottom: 2rem
+
+  &__title
+    margin-bottom: 1rem
+    width: 100%
+    text-align: center
+
+/* -----------------------------
+    Home Welcome Section Styles
+   ----------------------------- */
+
+.marketing-image-text
+  @extend %section-padding-top
+  @include max-width (1250px)
+    margin-top: 0
+  @include tablet-md
+    background: $c1
+  position: relative
+  margin-top: 2rem
+
+  &__color-box
+    @extend %absolute
+    @include desktop
+      max-width: calc(#{$max-width} + #{$gutter})
+    @include max-width (1250px)
+      display: none
+    left: 50%
+    transform: translateX(-50%)
+    z-index: -1
+    background: $c2
+    max-width: calc(#{$width} + #{$outside-gutter})
+    height: 80%
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include max-width (1250px)
+      max-width: calc(100vw - 3rem)
+    @include tablet-md
+      flex-direction: column-reverse
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    background: $c1
+    padding: 0
+    max-width: $width
+
+  &__content
+    @include col (4)
+    @include col--offset (1)
+    @include desktop
+      padding: 7rem 0
+    @include laptop
+      margin-left: 0
+      padding-left: 2rem
+      width: calc((5/12) * 100%)
+    @include tablet-md
+      padding: 3rem 0
+      width: 100%
+    padding: 5rem 0
+
+  &__image-col
+    @include col (7)
+    @include tablet-md
+      padding: 0
+      width: 100%
+      height: 50vw
+    padding-right: 0
+
+  &__image-container
+    position: relative
+    width: 100%
+    height: 100%
+
+  &__image
+    @extend %absolute
+    transition: opacity .5s ease
+    object-fit: cover
+    pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: none
+
+  &__title
+    @include tablet-md
+      display: none
+    margin-bottom: rem-calc(20)
+    color: $white
+
+    &--mobile
+      @include tablet-md
+        display: block
+      @include phone-lg
+        padding: 0 1rem
+      display: none
+      padding: 0 2rem
+      text-align: center
+
+  &__text
+    color: $white
+
+    p
+      &:not(:last-child)
+        margin-bottom: 1rem
+
+/* --------------------------
+    Marketing Points Styles
+  --------------------------- */
+
+.marketing-points
+  @extend %section-padding
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include tablet-md
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    background: $c4
+    padding: 0
+    max-width: $width
+    color: $white
+  
+  &__title
+    @include desktop
+      padding-top: 5rem
+    @include nexus
+      padding-top: 2rem
+    padding-top: 4rem
+    width: 100%
+    text-align: center
+
+  &__content
+    @include col(10)
+    @include col--offset(1)
+
+  &__title
+    @extend %title-margin
+
+  &__text
+    @extend %title-margin
+
+  &__points
+    @include tablet-lg
+      flex-direction: column
+      align-items: center
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+  &__point
+    @include tablet-lg
+      margin-bottom: 2rem
+      width: 75%
+    @include nexus
+      width: 100%
+    width: 25%
+    text-align: center
+
+    &-icon
+      width: 3rem
+      height: 3rem
+
+    &-title
+      margin-top: 1rem
+
+  &__link-container
+    text-align: center
+
+  &__link
+    @extend %section-margins-bottom
+    @extend %button-text
+    @include button-solid($white, $c1, transparent)

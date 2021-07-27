@@ -42,3 +42,5 @@ mix
 .js('src/scripts/pages/single-careers.js', 'js/')
 .sass('src/sass/pages/privacy.sass', 'styles/')
 .js('src/scripts/pages/privacy.js', 'js/')
+.sass('src/sass/pages/marketing.sass', 'styles/')
+.js('src/scripts/pages/marketing.js', 'js/')

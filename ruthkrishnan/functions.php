@@ -109,6 +109,10 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'privacy', get_template_directory_uri() . '/styles/privacy.css' );
   }
 
+  if ( is_page_template('page-marketing.php') ) {
+    wp_enqueue_style( 'marketing', get_template_directory_uri() . '/styles/marketing.css' );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -220,6 +224,11 @@ function theme_enqueue_scripts() {
   if ( is_page_template('page-privacy.php') ) {
     wp_register_script( 'privacy', get_template_directory_uri() . '/js/privacy.js', array(), '', true);
     wp_enqueue_script( 'privacy' );
+  }
+  
+  if ( is_page_template('page-marketing.php') ) {
+    wp_register_script( 'marketing', get_template_directory_uri() . '/js/marketing.js', array(), '', true);
+    wp_enqueue_script( 'marketing' );
   }
 
 }
