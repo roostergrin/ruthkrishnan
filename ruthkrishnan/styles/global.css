@@ -1124,6 +1124,11 @@ p, li, h2, h3, h4, h5 {
 .hero-template__title {
   text-transform: uppercase;
 }
+.hero-template__subheader {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 
 /* -----------------------
  * Photo Gallery Template Styles

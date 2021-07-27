@@ -37,6 +37,9 @@
                     else : echo the_title();
                   endif; ?>
                 </h1>
+                <?php if ( get_field('sub-header_option') ) : ?>
+                  <h2 class="hero-template__subheader"><?php echo get_field('sub-header_option'); ?></h2>
+                <?php endif; ?>
               </div>
             </div>
           </div>
