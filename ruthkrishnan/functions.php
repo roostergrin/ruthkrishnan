@@ -97,6 +97,14 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'coaching', get_template_directory_uri() . '/styles/coaching.css' );
   }
 
+  if ( is_page_template('page-careers.php') ) {
+    wp_enqueue_style( 'careers', get_template_directory_uri() . '/styles/careers.css' );
+  }
+
+  if ( is_single() && get_post_type() === 'careers' ) {
+    wp_enqueue_style( 'single-careers', get_template_directory_uri() . '/styles/single-careers.css' );
+  } 
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -122,7 +130,7 @@ function theme_enqueue_scripts() {
     wp_enqueue_script( 'vimeo-player' );
   }
 
-  if ( !is_home() && !is_front_page() && get_post_type() !== 'propertylistings' && !is_page_template('page-thankyou.php') ) {
+  if ( !is_home() && !is_front_page() && get_post_type() !== 'propertylistings' && !is_page_template('page-thankyou.php') && !is_page_template('page-careers.php') ) {
     wp_register_script( 'siteHero', get_template_directory_uri() . '/js/site-hero.js', array(), '', true);
     wp_enqueue_script( 'siteHero' );
   }
@@ -193,6 +201,16 @@ function theme_enqueue_scripts() {
   if ( is_page_template('page-coaching.php') ) {
     wp_register_script( 'coaching', get_template_directory_uri() . '/js/coaching.js', array(), '', true);
     wp_enqueue_script( 'coaching' );
+  }
+
+  if ( is_page_template('page-careers.php') ) {
+    wp_register_script( 'careers', get_template_directory_uri() . '/js/careers.js', array(), '', true);
+    wp_enqueue_script( 'careers' );
+  }
+
+  if ( is_single() && get_post_type() === 'careers' ) {
+    wp_register_script('single-careers', get_template_directory_uri() . '/js/single-careers.js', array(), '', true);
+    wp_enqueue_script('single-careers');
   }
 
 }

@@ -36,3 +36,7 @@ mix
 .js('src/scripts/pages/talks.js', 'js/')
 .sass('src/sass/pages/coaching.sass', 'styles/')
 .js('src/scripts/pages/coaching.js', 'js/')
+.sass('src/sass/pages/careers.sass', 'styles/')
+.js('src/scripts/pages/careers.js', 'js/')
+.sass('src/sass/pages/single-careers.sass', 'styles/')
+.js('src/scripts/pages/single-careers.js', 'js/')
