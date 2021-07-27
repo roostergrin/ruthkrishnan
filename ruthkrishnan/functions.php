@@ -251,6 +251,8 @@ function google_maps_scripts() {
 
 add_action('wp_enqueue_scripts', 'google_maps_scripts', 100);
 
+add_theme_support( 'title-tag' );
+
 // Add Menus
 function theme_menu() {
   register_nav_menus(
