@@ -1,0 +1,39 @@
+@import '../local/index.sass'
+@import '../templates/form-get-in-touch.sass'
+
+/* ----------------------------
+    Privacy Policy Page Styles
+  ----------------------------- */
+
+.page-privacy
+
+  &__content
+    @extend %section-padding-large
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include tablet-md
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    justify-content: center
+    padding: 0
+    max-width: $width
+
+  &__title
+    @extend %title-margin
+    text-align: center
+
+  &__text
+    @extend %wysiwyg-styles
+
+    h4
+      @include desktop
+        margin: 5rem 0 1rem 
+      @include nexus
+        margin: 2rem 0 1rem
+      margin: 4rem 0 1rem
+      text-transform: uppercase
