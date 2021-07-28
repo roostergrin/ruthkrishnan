@@ -14,9 +14,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var homeHero = function homeHero() {
   var video = document.querySelector('.home-hero__video'),
-      loader = document.querySelector('.page-home__loader'); // video.src = video.dataset.src
-
-  loader.classList.add('page-home__loader--loaded');
+      loader = document.querySelector('.page-home__loader');
+  video.addEventListener('loadeddata', function () {
+    loader.classList.add('page-home__loader--loaded');
+  });
 };
 
 /***/ })
