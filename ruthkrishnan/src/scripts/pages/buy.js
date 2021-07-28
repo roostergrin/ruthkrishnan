@@ -111,11 +111,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (activeEl) {
       el.classList.add('map-neighborhoods__icon-neighborhood--matched')
+      el.addEventListener('click', (event) => {
+        openTooltip(event, el);
+      })
     }
 
-    el.addEventListener('click', (event) => {
-      openTooltip(event, el);
-    })
 
   });
 

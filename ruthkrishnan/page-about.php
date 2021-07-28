@@ -51,7 +51,9 @@ get_header(); ?>
   <!-- END About Video Section -->
 
   <!-- About Team Slider Template Part -->
-  <?php get_template_part('template-parts/sliders/slider-team'); ?>
+  <div id="meet-our-team">
+    <?php get_template_part('template-parts/sliders/slider-team'); ?>
+  </div>
   <!-- END About Team Slider Template Part -->
 
   <!-- About Our Promise Section -->

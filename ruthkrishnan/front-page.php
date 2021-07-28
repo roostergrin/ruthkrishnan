@@ -27,7 +27,7 @@ get_header(); ?>
             <div class="home-welcome__text">
               <?php echo get_field('welcome_text') ?>
             </div>
-            <a href='/about-us#meet-our-team' class="home-welcome__button">meet our team</a>
+            <a href='/about#meet-our-team' class="home-welcome__button">meet our team</a>
           </div>
           <div class="home-welcome__image-col">
             <div class="home-welcome__image-container">
