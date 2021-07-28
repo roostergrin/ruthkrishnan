@@ -12,9 +12,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "homeHero": () => (/* binding */ homeHero)
 /* harmony export */ });
-var homeHero = function homeHero() {// const video = document.querySelector('.home-hero__video'),
-  //       loader = document.querySelector('.page-home__loader');
-  // loader.classList.add('page-home__loader--loaded')
+var homeHero = function homeHero() {
+  var video = document.querySelector('.home-hero__video'),
+      loader = document.querySelector('.page-home__loader');
+  setTimeout(function () {
+    loader.classList.add('page-home__loader--loaded');
+  }, 500);
 };
 
 /***/ })

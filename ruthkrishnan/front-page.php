@@ -10,7 +10,7 @@ get_header(); ?>
 <div class='site-wrapper'>
   <main id='content' role='main'>
     <div class="page-home">
-      <!-- <div class="page-home__loader"></div> -->
+      <div class="page-home__loader"></div>
       <?php get_template_part('template-parts/hero/home-hero'); ?>
 
       <!-- Home Welcome Section -->
