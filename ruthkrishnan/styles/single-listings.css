@@ -400,7 +400,7 @@
 }
 .listings-neighborhood__photo-gallery-dot {
   transition: background 0.3s ease;
-  margin: auto 0.25rem;
+  margin: 0.25rem;
   border: #232323 solid 1px;
   border-radius: 50%;
   cursor: pointer;
