@@ -8,12 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
         playBtn = document.querySelector('.home-welcome__play-btn'),
         videoThumbnail = document.querySelector('.home-welcome__thumbnail'),
         closeBtn = document.querySelector('.home-welcome__close-btn'),
-        overlay = document.querySelector('.home-welcome__modal-overlay'),
-        loader = document.querySelector('.page-home__loader');
+        overlay = document.querySelector('.home-welcome__modal-overlay');
 
   let debounceLastTimeout = null;
-        
-  loader.classList.add('page-home__loader--loaded')
+
+  homeHero();
 
   // Home Welcome
   const openModal = () => {

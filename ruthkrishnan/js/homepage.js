@@ -94,10 +94,9 @@ document.addEventListener('DOMContentLoaded', function () {
       playBtn = document.querySelector('.home-welcome__play-btn'),
       videoThumbnail = document.querySelector('.home-welcome__thumbnail'),
       closeBtn = document.querySelector('.home-welcome__close-btn'),
-      overlay = document.querySelector('.home-welcome__modal-overlay'),
-      loader = document.querySelector('.page-home__loader');
+      overlay = document.querySelector('.home-welcome__modal-overlay');
   var debounceLastTimeout = null;
-  loader.classList.add('page-home__loader--loaded'); // Home Welcome
+  (0,_resources_home_hero_js__WEBPACK_IMPORTED_MODULE_0__.homeHero)(); // Home Welcome
 
   var openModal = function openModal() {
     videoModal.classList.add('home-welcome__video-modal--open');
