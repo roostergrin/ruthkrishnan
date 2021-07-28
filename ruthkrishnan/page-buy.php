@@ -21,7 +21,7 @@ get_header(); ?>
         <h2 class="buy-welcome__title"><?php echo get_field('buy_welcome_title'); ?></h2>
         <div class="buy-welcome__text"><?php echo get_field('buy_welcome_text'); ?></div>
         <div class="buy-welcome__video-container">
-          <iframe class="buy-welcome__video" data-src="<?php echo get_field('buy_welcome_video') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="buy-welcome__video" data-src="<?php echo get_field('buy_welcome_video') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
           <?php echo wp_get_attachment_image(get_field('buy_welcome_thumbnail'), 'full', false, [ 'class' => 'buy-welcome__thumbnail' ]); ?>
           <div class="buy-welcome__play-btn">
             <?php get_template_part('icons/play', null, array('class' => 'buy-welcome__icon')); ?>
@@ -45,7 +45,7 @@ get_header(); ?>
     <div class="buy-testimonial-video__container">
       <div class="buy-testimonial-video__column">
         <div class="buy-testimonial-video__video-container">
-          <iframe class="buy-testimonial-video__video" data-src="<?php echo get_field('buy_testimonial_video') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="buy-testimonial-video__video" data-src="<?php echo get_field('buy_testimonial_video') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
           <?php echo wp_get_attachment_image(get_field('buy_testimonial_thumbnail'), 'full', false, [ 'class' => 'buy-testimonial-video__thumbnail' ]); ?>
           <div class="buy-testimonial-video__play-btn">
             <?php get_template_part('icons/play', null, array('class' => 'buy-testimonial-video__icon')); ?>

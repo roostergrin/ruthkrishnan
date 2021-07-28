@@ -32,7 +32,7 @@ get_header(); ?>
           <div class="home-welcome__image-col">
             <div class="home-welcome__image-container">
               <div class="home-welcome__no-modal-video-container">
-                <iframe class="home-welcome__no-modal-video" data-src="<?php echo get_field('welcome_video') ?>?title=0&byline=0&portrait=0&autoplay=true" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="home-welcome__no-modal-video" data-src="<?php echo get_field('welcome_video') ?>?title=0&byline=0&portrait=0&autoplay=true" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
               </div>
               <?php echo wp_get_attachment_image(get_field('welcome_thumbnail'), 'medium_large', false, [ 'class' => 'home-welcome__thumbnail' ]); ?>
               <div class="home-welcome__play-btn">
@@ -47,7 +47,7 @@ get_header(); ?>
         <div class="home-welcome__modal-overlay"></div>
         <div class="home-welcome__modal-container">
           <div class="home-welcome__close-btn">close</div>
-          <iframe class="home-welcome__video" data-src="<?php echo get_field('welcome_video') ?>?title=0&byline=0&portrait=0&autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="home-welcome__video" data-src="<?php echo get_field('welcome_video') ?>?title=0&byline=0&portrait=0&autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
           <!-- <video class="home-welcome__video" src="<?php echo get_field('welcome_video') ?>" type='video/mp4' controls></video> -->
         </div>
       </div>

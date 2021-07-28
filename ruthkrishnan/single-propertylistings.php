@@ -41,7 +41,7 @@ get_header(); ?>
 					<?php if ( get_field('virtual_tour_video') ) : ?>
 						<h2 class="listings-single__tour-title">Take a Virtual Tour</h2>
 						<div class="listings-single__tour">
-							<iframe src="<?php echo get_field('virtual_tour_video') ?>" class="listings-single__tour-video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+							<iframe src="<?php echo get_field('virtual_tour_video') ?>" class="listings-single__tour-video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
 						</div>
 
 					<?php endif; ?>
