@@ -890,6 +890,16 @@ p, li, h2, h3, h4, h5 {
 .footer__contact-info {
   color: #fff;
 }
+.footer__accessibility {
+  transition: opacity 0.186s ease;
+  cursor: pointer;
+  color: #F4F0F0;
+}
+@media not all and (pointer: coarse) {
+  .footer__accessibility:hover {
+    opacity: 0.5;
+  }
+}
 .footer__home {
   width: 66.7%;
 }

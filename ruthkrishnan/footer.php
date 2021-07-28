@@ -26,6 +26,9 @@
         <div class="footer__contact-info">CalBRE# <?php echo get_field('calbre', 'options'); ?></div>
         <a href="mailto:<?php echo get_field('email_address', 'options'); ?>" class="footer__link"><?php echo get_field('email_address', 'options'); ?></a>
       </div>
+      <div class="footer__contact-group">
+        <div class="footer__accessibility" id="accessibilityWidget" tabindex="0">Click for Accessibility</div>
+      </div>
     </div>
 
     <div class="footer__column footer__recent">
@@ -122,5 +125,9 @@
 
 <!-- RubyChat -->
 <script>window.rubyApi={l:[],t:[],on:function(){this.l.push(arguments)},trigger:function(){this.t.push(arguments)}};(function(){var e="09af067c-d163-465e-9bb2-8a972fce43de";var a=false;var t=document.createElement("script");t.async=true;t.type="text/javascript";t.src="https://chatwidget.ruby.com/"+e;document.getElementsByTagName("HEAD").item(0).appendChild(t);t.onreadystatechange=t.onload=function(t){if(!a&&(!this.readyState||this.readyState=="loaded"||this.readyState=="complete")){if(window.RubyChat)window.RubyChat({c:e});a=true}}})();</script>
+
+<!-- Userway -->
+<script>(function(d){var s = d.createElement("script");s.setAttribute("data-account", "D3656BNpyD");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)</script><noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website accessibility</a></noscript>
+<!-- END Userway -->
 </body>
 </html>
