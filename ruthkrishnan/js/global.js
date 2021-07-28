@@ -109,6 +109,15 @@ var navigation = function navigation() {
   hamburger.addEventListener('click', function () {
     toggleMenu();
   });
+
+  var setActiveItem = function setActiveItem() {
+    var items = Array.from(document.querySelectorAll('.menu-item'));
+    items.forEach(function (item) {
+      window.location.href.includes(item.children[0].href) ? item.classList.add('current-menu-item') : item.classList.remove('current-menu-item');
+    });
+  };
+
+  setActiveItem();
 };
 
 /***/ }),
