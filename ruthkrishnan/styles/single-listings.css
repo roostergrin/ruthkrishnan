@@ -383,6 +383,7 @@
   padding: 0 calc(30px / 2);
   width: calc((12 / 12) * 100%);
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-top: 2rem;
 }
