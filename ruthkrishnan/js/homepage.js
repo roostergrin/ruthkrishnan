@@ -97,9 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
       overlay = document.querySelector('.home-welcome__modal-overlay'),
       loader = document.querySelector('.page-home__loader');
   var debounceLastTimeout = null;
-  setTimeout(function () {
-    loader.classList.add('page-home__loader--loaded');
-  }, 500); // Home Welcome
+  loader.classList.add('page-home__loader--loaded'); // Home Welcome
 
   var openModal = function openModal() {
     videoModal.classList.add('home-welcome__video-modal--open');

@@ -13,9 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let debounceLastTimeout = null;
         
-  setTimeout(() => {
-    loader.classList.add('page-home__loader--loaded')
-  }, 500)
+  loader.classList.add('page-home__loader--loaded')
 
   // Home Welcome
   const openModal = () => {
