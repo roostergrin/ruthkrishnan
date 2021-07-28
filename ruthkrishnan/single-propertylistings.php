@@ -192,11 +192,11 @@ get_header(); ?>
 	?>
 
 	<!-- Testimonials -->
-	<?php if ( get_field('testimonials') ) : ?>
 	<div class="listings-single__testimonials">
+	<?php if ( get_field('testimonials') ) : ?>
 		<?php get_template_part('template-parts/testimonials/testimonials'); ?>
-	</div>
 	<?php endif; ?>
+	</div>
 	<!-- END Testimonials -->
 
 	<!-- Get in Touch Form -->
