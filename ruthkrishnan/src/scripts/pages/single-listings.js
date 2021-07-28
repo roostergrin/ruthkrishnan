@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
         iframeVideo = document.querySelector('.listings-single__modal-video'),
         featSeeMoreBtn = document.querySelector('.listings-single__features-see-more'),
         featList = document.querySelector('.listings-single__features-list'),
-        featOverlay = document.querySelector('.listings-single__features-overlay');
+        featOverlay = document.querySelector('.listings-single__features-overlay'),
+        photoGalleryElem = document.querySelector('.photo-gallery');
   
   let featExpanded = false;
 
@@ -22,7 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
   listingsHero();
 
   // Photo Gallery Functionality
-  photoGallery();
+  if (photoGalleryElem) {
+    photoGallery();
+  }
 
   // Listings Neighborhood Functionality
   listingsNeighborhhodGallery();
