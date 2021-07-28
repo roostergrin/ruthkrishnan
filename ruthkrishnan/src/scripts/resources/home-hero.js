@@ -3,8 +3,6 @@ export const homeHero = () => {
         loader = document.querySelector('.page-home__loader');
         
   
-  video.addEventListener('loadeddata', () => {
-    loader.classList.add('page-home__loader--loaded')
-  });
+  loader.classList.add('page-home__loader--loaded')
 
 }
