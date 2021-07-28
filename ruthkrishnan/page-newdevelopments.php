@@ -34,67 +34,69 @@ get_header(); ?>
 
         <div id="gmapdev" class='page-new-developments__map'></div>
 
-        <?php
-          $args = array(
-            'post_type' => 'newdevelopments',
-            'post_status' => 'publish',
-            'posts_per_page' => -1,
-            'orderby' => 'date',
-            'order' => 'ASC',
-          );
+        <div class="page-new-developments__developments">
+          <?php
+            $args = array(
+              'post_type' => 'newdevelopments',
+              'post_status' => 'publish',
+              'posts_per_page' => -1,
+              'orderby' => 'date',
+              'order' => 'ASC',
+            );
 
-          $query = new WP_Query( $args );
-          if ( $query->have_posts() ) :
-            while ( $query->have_posts() ) : $query->the_post();
-              $category = get_the_terms(get_post()->ID, 'development-category'); 
-            ?>
-            
-              <div class='page-new-developments__development page-new-developments__development--<?php echo $category[0]->slug; ?>'>
-                <a class="page-new-developments__development-container" href="/new-developments/<?php echo get_post()->post_name; ?>">
-                  <div class="page-new-developments__development-image-container">
-                    <div class="page-new-developments__development-image-overlay"></div>
-                    <?php if ( have_rows('background_image') ) :
-                      while ( have_rows('background_image' ) ) : the_row();
-
-                        $image = get_sub_field('image');
-
-                        echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'page-new-developments__development-image' ]);
-
-                      endwhile;
-                    endif;
-                    ?>
-                  </div>
-
-                  <?php $dev_categories = get_field('development_categories'); ?>
-
-                  <?php if ( have_rows('location') && in_array('location', $dev_categories) ) :
-                    while ( have_rows('location' ) ) : the_row();
-                      $address_1 = get_sub_field('address_1');
-                      $address_2 = get_sub_field('address_2');
-                      $city_state = get_sub_field('city_and_state');
-                      $zip = get_sub_field('zip_code');
-                    ?>
-                      <?php if ( $address_1 ) : ?>
-                        <div class="page-new-developments__development-title page-new-developments__development-title-address--<?php echo $category[0]->slug; ?>" data-address='<?php echo $address_1 . ' ' . $city_state; ?>' data-title='<?php echo the_title(); ?>' data-slug='<?php echo get_post()->post_name; ?>'>
-                          <?php echo the_title(); ?>
-                        </div>
-                      <?php else : ?>
-                        <div class="page-new-developments__development-title page-new-developments__development-title-address--<?php echo $category[0]->slug; ?>">
-                          <?php echo the_title(); ?>
-                        </div>
-                      <?php endif; ?>
-                    <?php endwhile; ?>
-                  <?php else : ?>
-                    <div class="page-new-developments__development-title page-new-developments__development-title-address--<?php echo $category[0]->slug; ?>">
-                      <?php echo the_title(); ?>
-                    </div>
-                  <?php endif; ?>
-                </a>
-              </div>
+            $query = new WP_Query( $args );
+            if ( $query->have_posts() ) :
+              while ( $query->have_posts() ) : $query->the_post();
+                $category = get_the_terms(get_post()->ID, 'development-category'); 
+              ?>
               
-            <?php endwhile;
-          endif;
-        ?>
+                <div class='page-new-developments__development page-new-developments__development--<?php echo $category[0]->slug; ?>'>
+                  <a class="page-new-developments__development-container" href="/new-developments/<?php echo get_post()->post_name; ?>">
+                    <div class="page-new-developments__development-image-container">
+                      <div class="page-new-developments__development-image-overlay"></div>
+                      <?php if ( have_rows('background_image') ) :
+                        while ( have_rows('background_image' ) ) : the_row();
+
+                          $image = get_sub_field('image');
+
+                          echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'page-new-developments__development-image' ]);
+
+                        endwhile;
+                      endif;
+                      ?>
+                    </div>
+
+                    <?php $dev_categories = get_field('development_categories'); ?>
+
+                    <?php if ( have_rows('location') && in_array('location', $dev_categories) ) :
+                      while ( have_rows('location' ) ) : the_row();
+                        $address_1 = get_sub_field('address_1');
+                        $address_2 = get_sub_field('address_2');
+                        $city_state = get_sub_field('city_and_state');
+                        $zip = get_sub_field('zip_code');
+                      ?>
+                        <?php if ( $address_1 ) : ?>
+                          <div class="page-new-developments__development-title page-new-developments__development-title-address--<?php echo $category[0]->slug; ?>" data-address='<?php echo $address_1 . ' ' . $city_state; ?>' data-title='<?php echo the_title(); ?>' data-slug='<?php echo get_post()->post_name; ?>'>
+                            <?php echo the_title(); ?>
+                          </div>
+                        <?php else : ?>
+                          <div class="page-new-developments__development-title page-new-developments__development-title-address--<?php echo $category[0]->slug; ?>">
+                            <?php echo the_title(); ?>
+                          </div>
+                        <?php endif; ?>
+                      <?php endwhile; ?>
+                    <?php else : ?>
+                      <div class="page-new-developments__development-title page-new-developments__development-title-address--<?php echo $category[0]->slug; ?>">
+                        <?php echo the_title(); ?>
+                      </div>
+                    <?php endif; ?>
+                  </a>
+                </div>
+                
+              <?php endwhile;
+            endif;
+          ?>
+        </div>
     </div>
   </section>
 </div>
