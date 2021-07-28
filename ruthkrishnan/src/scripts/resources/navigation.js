@@ -29,4 +29,14 @@ export const navigation = () => {
   handleScroll();
   window.addEventListener('scroll', () => { handleScroll(); });
   hamburger.addEventListener('click', () => { toggleMenu(); });
+
+  const setActiveItem = () => {
+    const items = Array.from(document.querySelectorAll('.menu-item'));
+
+    items.forEach((item) => {
+      window.location.href.includes(item.children[0].href) ? item.classList.add('current-menu-item') : item.classList.remove('current-menu-item')
+    })
+  }
+  setActiveItem();
+
 }
