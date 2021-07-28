@@ -120,5 +120,7 @@
 
 <?php wp_footer(); ?>
 
+<!-- RubyChat -->
+<script>window.rubyApi={l:[],t:[],on:function(){this.l.push(arguments)},trigger:function(){this.t.push(arguments)}};(function(){var e="09af067c-d163-465e-9bb2-8a972fce43de";var a=false;var t=document.createElement("script");t.async=true;t.type="text/javascript";t.src="https://chatwidget.ruby.com/"+e;document.getElementsByTagName("HEAD").item(0).appendChild(t);t.onreadystatechange=t.onload=function(t){if(!a&&(!this.readyState||this.readyState=="loaded"||this.readyState=="complete")){if(window.RubyChat)window.RubyChat({c:e});a=true}}})();</script>
 </body>
 </html>

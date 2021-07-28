@@ -62,7 +62,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 17.5rem;
+  height: 100vh;
 }
 @media screen and (min-width: 1750px) {
   .page-thank-you__container {
@@ -83,7 +83,7 @@
   margin-bottom: 0.5rem;
 }
 .page-thank-you__button {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 .page-thank-you__button {
   display: inline-block;
