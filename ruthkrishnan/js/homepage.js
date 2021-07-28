@@ -12,12 +12,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "homeHero": () => (/* binding */ homeHero)
 /* harmony export */ });
-var homeHero = function homeHero() {
-  var video = document.querySelector('.home-hero__video'),
-      loader = document.querySelector('.page-home__loader');
-  setTimeout(function () {
-    loader.classList.add('page-home__loader--loaded');
-  }, 500);
+var homeHero = function homeHero() {// const video = document.querySelector('.home-hero__video'),
+  //       loader = document.querySelector('.page-home__loader');
+  // setTimeout(() => {
+  //   loader.classList.add('page-home__loader--loaded')
+  // }, 500)
 };
 
 /***/ })
@@ -95,9 +94,12 @@ document.addEventListener('DOMContentLoaded', function () {
       playBtn = document.querySelector('.home-welcome__play-btn'),
       videoThumbnail = document.querySelector('.home-welcome__thumbnail'),
       closeBtn = document.querySelector('.home-welcome__close-btn'),
-      overlay = document.querySelector('.home-welcome__modal-overlay');
+      overlay = document.querySelector('.home-welcome__modal-overlay'),
+      loader = document.querySelector('.page-home__loader');
   var debounceLastTimeout = null;
-  (0,_resources_home_hero_js__WEBPACK_IMPORTED_MODULE_0__.homeHero)(); // Home Welcome
+  setTimeout(function () {
+    loader.classList.add('page-home__loader--loaded');
+  }, 500); // Home Welcome
 
   var openModal = function openModal() {
     videoModal.classList.add('home-welcome__video-modal--open');

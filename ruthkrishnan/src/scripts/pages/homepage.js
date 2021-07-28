@@ -8,11 +8,14 @@ document.addEventListener('DOMContentLoaded', function () {
         playBtn = document.querySelector('.home-welcome__play-btn'),
         videoThumbnail = document.querySelector('.home-welcome__thumbnail'),
         closeBtn = document.querySelector('.home-welcome__close-btn'),
-        overlay = document.querySelector('.home-welcome__modal-overlay');
+        overlay = document.querySelector('.home-welcome__modal-overlay'),
+        loader = document.querySelector('.page-home__loader');
 
   let debounceLastTimeout = null;
-
-  homeHero();
+        
+  setTimeout(() => {
+    loader.classList.add('page-home__loader--loaded')
+  }, 500)
 
   // Home Welcome
   const openModal = () => {
