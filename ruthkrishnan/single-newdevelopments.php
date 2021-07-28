@@ -71,6 +71,95 @@
 
                           <!-- END Residence Features Information -->
                           <?php endif; ?>
+                          <?php if ( $category === 'parking') : ?>
+                        <!-- Parking Information -->
+                          <?php $parking = get_field('parking');
+                          if ( $parking ) : ?>
+                          <div class='new-developments-single__item--large'>
+                              <div class='new-developments-single__parking'>
+                                <div class='new-developments-single__title'>Parking</div>
+                                <?php echo $parking; ?>
+                              </div>
+                          </div>
+                          <?php endif; ?>
+
+                        <!-- END Parking Information -->
+                        <?php endif; ?>
+
+                        <?php if ( $category === 'average_hoa_fees') : ?>
+                        <!-- Average HOA Fees Information -->
+                          <?php $hoa_fees = get_field('average_hoa_fees');
+                          if ( $hoa_fees ) : ?>
+                          <div class='new-developments-single__item--large'>
+                              <div class='new-developments-single__hoa-fees'>
+                                <div class='new-developments-single__title'>Average HOA Fees</div>
+                                <?php echo $hoa_fees; ?>
+                              </div>
+                            </div>
+                          <?php endif; ?>
+
+                        <!-- END Average HOA Fees Information -->
+                        <?php endif; ?>
+
+                        <?php if ( $category === 'price_range') : ?>
+                        <!-- Price Range Information -->
+                          <?php $price_range = get_field('price_range');
+                          if ( $price_range ) : ?>
+                          <div class='new-developments-single__item--large'>
+                              <div class='new-developments-single__price-range'>
+                                <div class='new-developments-single__title'>Price Range</div>
+                                <?php echo $price_range; ?>
+                              </div>
+                            </div>
+                          <?php endif; ?>
+
+                        <!-- END Price Range Information -->
+                        <?php endif; ?>
+
+                        <?php if ( $category === 'units') : ?>
+                        <!-- Units Information -->
+                          <?php $units = get_field('units');
+                          if ( $units ) : ?>
+                          <div class='new-developments-single__item--large'>
+                              <div class='new-developments-single__units'>
+                                <div class='new-developments-single__title'>Units</div>
+                                <?php echo $units; ?>
+                              </div>
+                            </div>
+                          <?php endif; ?>
+
+                        <!-- END Units Information -->
+                        <?php endif; ?>
+
+                        <?php if ( $category === 'availability') : ?>
+                        <!-- Availability Information -->
+                          <?php $availability = get_field('availability');
+                          if ( $availability ) : ?>
+                          <div class='new-developments-single__item--large'>
+                              <div class='new-developments-single__availability'>
+                                <div class='new-developments-single__title'>Availability</div>
+                                <?php echo $availability; ?>
+                              </div>
+                            </div>
+                          <?php endif; ?>
+
+                        <!-- END Availability Information -->
+                        <?php endif; ?>
+
+                        <?php if ( $category === 'requirements') : ?>
+                        <!-- Requirements Information -->
+                          <?php $requirements = get_field('requirements');
+                          if ( $requirements ) : ?>
+                          <div class='new-developments-single__item--large'>
+                              <div class='new-developments-single__requirements'>
+                                <div class='new-developments-single__title'>Requirements</div>
+                                <?php echo $requirements; ?>
+                              </div>
+                            </div>
+                          <?php endif; ?>
+
+                        <!-- END Requirements Information -->
+                        <?php endif; ?>
                         <?php endforeach; ?>
                       <?php endif; ?>
                   </div>
@@ -178,96 +267,6 @@
                           <?php endif; ?>
 
                         <!-- END Current Status Information -->
-                        <?php endif; ?>
-
-                        <?php if ( $category === 'parking') : ?>
-                        <!-- Parking Information -->
-                          <?php $parking = get_field('parking');
-                          if ( $parking ) : ?>
-                          <div class='new-developments-single__item'>
-                              <div class='new-developments-single__parking'>
-                                <div class='new-developments-single__title'>Parking</div>
-                                <?php echo $parking; ?>
-                              </div>
-                          </div>
-                          <?php endif; ?>
-
-                        <!-- END Parking Information -->
-                        <?php endif; ?>
-
-                        <?php if ( $category === 'average_hoa_fees') : ?>
-                        <!-- Average HOA Fees Information -->
-                          <?php $hoa_fees = get_field('average_hoa_fees');
-                          if ( $hoa_fees ) : ?>
-                          <div class='new-developments-single__item'>
-                              <div class='new-developments-single__hoa-fees'>
-                                <div class='new-developments-single__title'>Average HOA Fees</div>
-                                <?php echo $hoa_fees; ?>
-                              </div>
-                            </div>
-                          <?php endif; ?>
-
-                        <!-- END Average HOA Fees Information -->
-                        <?php endif; ?>
-
-                        <?php if ( $category === 'price_range') : ?>
-                        <!-- Price Range Information -->
-                          <?php $price_range = get_field('price_range');
-                          if ( $price_range ) : ?>
-                          <div class='new-developments-single__item'>
-                              <div class='new-developments-single__price-range'>
-                                <div class='new-developments-single__title'>Price Range</div>
-                                <?php echo $price_range; ?>
-                              </div>
-                            </div>
-                          <?php endif; ?>
-
-                        <!-- END Price Range Information -->
-                        <?php endif; ?>
-
-                        <?php if ( $category === 'units') : ?>
-                        <!-- Units Information -->
-                          <?php $units = get_field('units');
-                          if ( $units ) : ?>
-                          <div class='new-developments-single__item'>
-                              <div class='new-developments-single__units'>
-                                <div class='new-developments-single__title'>Units</div>
-                                <?php echo $units; ?>
-                              </div>
-                            </div>
-                          <?php endif; ?>
-
-                        <!-- END Units Information -->
-                        <?php endif; ?>
-
-                        <?php if ( $category === 'availability') : ?>
-                        <!-- Availability Information -->
-                          <?php $availability = get_field('availability');
-                          if ( $availability ) : ?>
-                          <div class='new-developments-single__item'>
-                              <div class='new-developments-single__availability'>
-                                <div class='new-developments-single__title'>Availability</div>
-                                <?php echo $availability; ?>
-                              </div>
-                            </div>
-                          <?php endif; ?>
-
-                        <!-- END Availability Information -->
-                        <?php endif; ?>
-
-                        <?php if ( $category === 'requirements') : ?>
-                        <!-- Requirements Information -->
-                          <?php $requirements = get_field('requirements');
-                          if ( $requirements ) : ?>
-                          <div class='new-developments-single__item'>
-                              <div class='new-developments-single__requirements'>
-                                <div class='new-developments-single__title'>Requirements</div>
-                                <?php echo $requirements; ?>
-                              </div>
-                            </div>
-                          <?php endif; ?>
-
-                        <!-- END Requirements Information -->
                         <?php endif; ?>
 
                   <?php endforeach; ?>
