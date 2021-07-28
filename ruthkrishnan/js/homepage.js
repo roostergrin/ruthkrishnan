@@ -15,6 +15,10 @@ __webpack_require__.r(__webpack_exports__);
 var homeHero = function homeHero() {
   var video = document.querySelector('.home-hero__video'),
       loader = document.querySelector('.page-home__loader');
+  window.addEventListener('load', function () {
+    console.log('sc');
+    window.scroll(0, 1);
+  });
   video.src = video.dataset.src;
   video.addEventListener('loadeddata', function () {
     loader.classList.add('page-home__loader--loaded');
