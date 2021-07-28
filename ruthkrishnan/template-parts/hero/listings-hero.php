@@ -57,11 +57,11 @@
     
     <!-- Hero Video -->
     <figure class='hero-listings__wrapper' data-position-x='center' data-position-y='center'>
-      <div class='hero-listings__overlay'></div>
+      <!-- <div class='hero-listings__overlay'></div> -->
 
         <?php if ( !empty(get_field('background_video')) ) : ?>
           <div class="hero-listings__background">
-            <iframe src="<?php echo get_field('background_video') ?>?portrait=0&byline=0&title=0&autoplay=1&loop=1&muted=1" class="hero-listings__iframe" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="<?php echo get_field('background_video') ?>?portrait=0&byline=0&title=0" class="hero-listings__iframe" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
           </div>
         <?php endif; ?>
 
