@@ -19,7 +19,9 @@ get_header(); ?>
 					<div class="listings-single__title-container">
 						<h1 class="listings-single__title">
 							<span class="listings-single__title-text"><?php echo the_title(); ?></span>
-							<span class="listings-single__title-price"><?php echo get_field('listing_price'); ?></span>
+							<?php if ( !empty(get_field('listing_price')) ) : ?>
+								<span class="listings-single__title-price"><?php echo get_field('listing_price'); ?></span>
+							<?php endif; ?>
 						</h1>
 						<h2 class="listings-single__subtitle"><?php echo get_field('title_option'); ?></h2>
 					</div>
@@ -27,7 +29,9 @@ get_header(); ?>
 					<div class="listings-single__title-container">
 						<h2 class="listings-single__title">
 							<span class="listings-single__title-text"><?php echo the_title(); ?></span>
-							<span class="listings-single__title-price"><?php echo get_field('listing_price'); ?></span>
+							<?php if ( !empty(get_field('listing_price')) ) : ?>
+								<span class="listings-single__title-price"><?php echo get_field('listing_price'); ?></span>
+							<?php endif; ?>
 						</h2>
 					</div>
 				<?php endif; ?>

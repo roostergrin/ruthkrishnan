@@ -788,13 +788,13 @@
     margin-bottom: 0.5rem;
   }
 }
-.listings-single__title-text::after {
+.listings-single__title-price::before {
   display: inline-block;
   margin: 0 0.1875rem;
   content: "|";
 }
 @media screen and (max-width: 600px) {
-  .listings-single__title-text::after {
+  .listings-single__title-price::before {
     display: none;
   }
 }
