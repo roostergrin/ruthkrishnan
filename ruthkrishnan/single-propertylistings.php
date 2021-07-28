@@ -138,9 +138,11 @@ get_header(); ?>
 				<!-- END Features -->
 
 				<!-- The Home: Photo Gallery -->
+				<?php if ( !empty(get_field('photo_gallery')) ) : ?>
 				<div class="listings-single__photo-gallery">
 					<?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
 				</div>
+				<?php endif; ?>
 				<!-- END The Home: Photo Gallery -->
 
 				<!-- About the Neighborhood -->
@@ -190,9 +192,11 @@ get_header(); ?>
 	?>
 
 	<!-- Testimonials -->
+	<?php if ( get_field('testimonials') ) : ?>
 	<div class="listings-single__testimonials">
 		<?php get_template_part('template-parts/testimonials/testimonials'); ?>
 	</div>
+	<?php endif; ?>
 	<!-- END Testimonials -->
 
 	<!-- Get in Touch Form -->

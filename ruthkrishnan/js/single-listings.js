@@ -380,13 +380,17 @@ document.addEventListener('DOMContentLoaded', function () {
       iframeVideo = document.querySelector('.listings-single__modal-video'),
       featSeeMoreBtn = document.querySelector('.listings-single__features-see-more'),
       featList = document.querySelector('.listings-single__features-list'),
-      featOverlay = document.querySelector('.listings-single__features-overlay');
+      featOverlay = document.querySelector('.listings-single__features-overlay'),
+      photoGalleryElem = document.querySelector('.photo-gallery');
   var featExpanded = false; // Imported Scripts ------------------------
   // Listings Hero Functionality
 
   (0,_resources_listings_hero__WEBPACK_IMPORTED_MODULE_0__.listingsHero)(); // Photo Gallery Functionality
 
-  (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__.photoGallery)(); // Listings Neighborhood Functionality
+  if (photoGalleryElem) {
+    (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__.photoGallery)();
+  } // Listings Neighborhood Functionality
+
 
   (0,_resources_listings_neighborhood_gallery__WEBPACK_IMPORTED_MODULE_2__.listingsNeighborhhodGallery)(); // Google Map
 

@@ -10,37 +10,37 @@ export const photoGallery = () => {
         next = document.querySelector('.photo-gallery__next'),
         img = document.querySelectorAll('.photo-gallery__image');
 
-  const setSlide = () => {
-    slide.forEach( function(slide) {
-      currSlide === +slide.dataset.index ? slide.classList.add('photo-gallery__slide--active') : slide.classList.remove('photo-gallery__slide--active')
-    });
-    dot.forEach( function(dot) {
-      currSlide === +dot.dataset.index ? dot.classList.add('photo-gallery__dot--active') : dot.classList.remove('photo-gallery__dot--active')
-    });
-  }
-
-  setSlide();
-
-  const changeSlide = (str) => {
-    if (str === 'prev') {
-      currSlide === 0 ? currSlide = sliderLength - 1 : currSlide--
-      setSlide();
-    };
-    if (str === 'next') {
-      currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++
-      setSlide();
-    };
-  };
-
-  const goToSlide = (val) => {
-    currSlide = val
+    const setSlide = () => {
+      slide.forEach( function(slide) {
+        currSlide === +slide.dataset.index ? slide.classList.add('photo-gallery__slide--active') : slide.classList.remove('photo-gallery__slide--active')
+      });
+      dot.forEach( function(dot) {
+        currSlide === +dot.dataset.index ? dot.classList.add('photo-gallery__dot--active') : dot.classList.remove('photo-gallery__dot--active')
+      });
+    }
+  
     setSlide();
-  };
-
-  prev.addEventListener('click', () => { changeSlide('prev') });
-  next.addEventListener('click', () => { changeSlide('next') });
-  dot.forEach( (dot, i) => {
-    dot.addEventListener('click', () => { goToSlide(i) });
-  });
+  
+    const changeSlide = (str) => {
+      if (str === 'prev') {
+        currSlide === 0 ? currSlide = sliderLength - 1 : currSlide--
+        setSlide();
+      };
+      if (str === 'next') {
+        currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++
+        setSlide();
+      };
+    };
+  
+    const goToSlide = (val) => {
+      currSlide = val
+      setSlide();
+    };
+  
+    prev.addEventListener('click', () => { changeSlide('prev') });
+    next.addEventListener('click', () => { changeSlide('next') });
+    dot.forEach( (dot, i) => {
+      dot.addEventListener('click', () => { goToSlide(i) });
+    });
 
 };
