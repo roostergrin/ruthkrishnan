@@ -61,7 +61,7 @@
 
         <?php if ( !empty(get_field('background_video')) ) : ?>
           <div class="hero-listings__background">
-            <iframe src="<?php echo get_field('background_video') ?>?portrait=0&byline=0&title=0&autoplay=1&loop=1" class="hero-listings__iframe" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="<?php echo get_field('background_video') ?>?portrait=0&byline=0&title=0&autoplay=1&loop=1" class="hero-listings__iframe" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
           </div>
         <?php endif; ?>
 
