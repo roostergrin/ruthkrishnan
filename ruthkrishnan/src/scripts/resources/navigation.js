@@ -34,7 +34,11 @@ export const navigation = () => {
     const items = Array.from(document.querySelectorAll('.menu-item'));
 
     items.forEach((item) => {
-      window.location.href.includes(item.children[0].href) ? item.classList.add('current-menu-item') : item.classList.remove('current-menu-item')
+      if (window.location.href.includes(item.children[0].href) && item.children[0].innerHTML != 'Home') {
+        item.classList.add('current-menu-item')
+      } else if (item.children[0].innerHTML != 'Home') {
+        item.classList.remove('current-menu-item')
+      }
     })
   }
   setActiveItem();

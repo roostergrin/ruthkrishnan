@@ -150,7 +150,7 @@
 }
 @media screen and (max-width: 600px) {
   .home-hero {
-    height: 60vh;
+    height: 33vh;
   }
 }
 .home-hero__video {

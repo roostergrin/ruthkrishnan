@@ -258,6 +258,7 @@ function theme_menu() {
   register_nav_menus(
     array(
       'main-menu' => ( 'Main Menu' ),
+      'mobile-menu' => ( 'Mobile Menu' ),
       'footer-menu' => ( 'Footer Menu' )
     )
   );

@@ -39,7 +39,7 @@
       <nav class="site-navigation__mobile-menu">
         <?php
         wp_nav_menu( array(
-          'theme_location' => 'main-menu',
+          'theme_location' => 'mobile-menu',
           'menu_class' => 'site-navigation__menu--mobile',
           'container' => 'ul'
         ) );

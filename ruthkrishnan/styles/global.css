@@ -1077,6 +1077,12 @@ p, li, h2, h3, h4, h5 {
   min-height: 36.25rem;
   overflow: hidden;
 }
+@media screen and (max-width: 600px) {
+  .hero-template {
+    height: 33vh;
+    min-height: auto;
+  }
+}
 .hero-template__wrapper {
   position: absolute;
   top: 0;
