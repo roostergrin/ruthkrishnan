@@ -777,6 +777,11 @@ p, li, h2, h3, h4, h5 {
     width: 100%;
   }
 }
+@media screen and (max-width: 1024px) {
+  .form-subscribe__form-column {
+    justify-content: center;
+  }
+}
 .form-subscribe__button {
   display: inline-block;
   position: relative;
