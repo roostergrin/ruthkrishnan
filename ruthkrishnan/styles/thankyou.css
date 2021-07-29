@@ -98,7 +98,7 @@
 }
 @media not all and (pointer: coarse) {
   .page-thank-you__button:hover {
-    background: #fff;
-    color: #AF5B5B;
+    background: #963636;
+    color: #fff;
   }
 }

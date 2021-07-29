@@ -15,18 +15,29 @@
     width: 100%
 
   &__category
+    @include hover-supported
+      -webkit-text-stroke: rem-calc(.5)
+      &::after
+        opacity: 1
+    position: relative
+    transition: text-stroke .5s ease
+
+    &::after
+      position: absolute
+      top: calc(100% + 5px)
+      left: 50%
+      transition: opacity .5s ease
+      transform: translateX(-50%)
+      background: $black
+      opacity: 0
+      border-radius: 50%
+      width: rem-calc(5)
+      height: rem-calc(5)
+      content: ''
   
     &--active
       position: relative
       font-weight: 700
     
       &::after
-        position: absolute
-        top: calc(100% + 5px)
-        left: 50%
-        transform: translateX(-50%)
-        background: $black
-        border-radius: 50%
-        width: rem-calc(5)
-        height: rem-calc(5)
-        content: ''
+        opacity: 1

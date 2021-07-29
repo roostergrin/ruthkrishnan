@@ -476,6 +476,7 @@
   opacity: 1;
 }
 .form-get-in-touch__textarea {
+  position: relative;
   border-bottom: 2px solid #000;
   width: 100%;
 }
@@ -483,14 +484,23 @@
   outline: none;
 }
 .form-get-in-touch__textarea::-moz-placeholder {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
   color: #000;
   opacity: 1;
 }
 .form-get-in-touch__textarea:-ms-input-placeholder {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
   color: #000;
   opacity: 1;
 }
 .form-get-in-touch__textarea::placeholder {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
   color: #000;
   opacity: 1;
 }
@@ -504,11 +514,12 @@
   padding: 0.875rem 2rem 0.75rem;
   text-transform: lowercase;
   color: #fff;
+  font-weight: 500;
 }
 @media not all and (pointer: coarse) {
   .form-get-in-touch__submit:hover {
     background: #963636;
-    color: #AF5B5B;
+    color: #fff;
   }
 }
 
@@ -934,6 +945,6 @@
 @media not all and (pointer: coarse) {
   .marketing-points__link:hover {
     background: transparent;
-    color: #fff;
+    color: #232323;
   }
 }

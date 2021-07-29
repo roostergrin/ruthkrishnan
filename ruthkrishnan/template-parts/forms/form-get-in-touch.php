@@ -48,12 +48,12 @@
               <form action="" class="form-get-in-touch__form" id="get-in-touch-form">
                 <div class="form-get-in-touch__form-group">
                   <label for="fullname" class="form-get-in-touch__label">First and Last Name</label>
-                  <input type="text" name="fullname" id="fullname" placeholder="First and Last Name" class="form-get-in-touch__input">
+                  <input type="text" name="fullname" id="fullname" placeholder="First and Last Name" class="form-get-in-touch__input" required>
                 </div>
 
                 <div class="form-get-in-touch__form-group form-get-in-touch__form-group--half">
                   <label for="email" class="form-get-in-touch__label">Email</label>
-                  <input type="email" name="email" id="email" placeholder="Email" class="form-get-in-touch__input">
+                  <input type="email" name="email" id="email" placeholder="Email" class="form-get-in-touch__input" required>
                 </div>
 
                 <div class="form-get-in-touch__form-group form-get-in-touch__form-group--half">

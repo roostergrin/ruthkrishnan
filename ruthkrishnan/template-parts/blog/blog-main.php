@@ -13,9 +13,11 @@
   <div class="page-blog-main__intro-container">
     <div class="page-blog-main__intro">
       <h2 class="page-blog-main__intro-title"><?php echo the_title(); ?></h2>
-      <div class="page-blog-main__intro-text">
-        <?php echo $args["introduction"]; ?>
-      </div>
+      <?php if ( !empty($args["introduction"]) ) : ?>
+        <div class="page-blog-main__intro-text">
+          <?php echo $args["introduction"]; ?>
+        </div>
+      <?php endif; ?>
     </div>
   </div>
 

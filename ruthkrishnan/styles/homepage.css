@@ -303,6 +303,7 @@
   opacity: 1;
 }
 .form-get-in-touch__textarea {
+  position: relative;
   border-bottom: 2px solid #000;
   width: 100%;
 }
@@ -310,14 +311,23 @@
   outline: none;
 }
 .form-get-in-touch__textarea::-moz-placeholder {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
   color: #000;
   opacity: 1;
 }
 .form-get-in-touch__textarea:-ms-input-placeholder {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
   color: #000;
   opacity: 1;
 }
 .form-get-in-touch__textarea::placeholder {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
   color: #000;
   opacity: 1;
 }
@@ -331,11 +341,12 @@
   padding: 0.875rem 2rem 0.75rem;
   text-transform: lowercase;
   color: #fff;
+  font-weight: 500;
 }
 @media not all and (pointer: coarse) {
   .form-get-in-touch__submit:hover {
     background: #963636;
-    color: #AF5B5B;
+    color: #fff;
   }
 }
 
@@ -489,6 +500,9 @@
   .card-links__card:hover .card-links__card-image {
     transform: scale(1.1);
   }
+  .card-links__card:hover .card-links__card-overlay {
+    opacity: 0.46;
+  }
 }
 .card-links__card-container {
   display: flex;
@@ -500,8 +514,10 @@
   overflow: hidden;
 }
 .card-links__card-overlay {
+  transition: opacity 0.5s ease;
+  background: #000;
+  opacity: 0.26;
   z-index: -1;
-  background: rgba(0, 0, 0, 0.3);
 }
 .card-links__card-image {
   transition: transform 0.5s ease;
@@ -592,8 +608,8 @@
 }
 @media not all and (pointer: coarse) {
   .cta-text-btn__btn:hover {
-    background: #fff;
-    color: #AF5B5B;
+    background: #963636;
+    color: #fff;
   }
 }
 
@@ -641,7 +657,7 @@
   z-index: -1;
   background: #F4F0F0;
   max-width: calc(1146px + 64px);
-  height: 80%;
+  height: 55%;
 }
 @media screen and (min-width: 1750px) {
   .home-welcome__color-box {

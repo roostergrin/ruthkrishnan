@@ -185,6 +185,8 @@
     max-width: $width
 
   &__tooltip
+    @include nexus
+      width: rem-calc(220)
     position: absolute
     top: 0
     left: 0
@@ -194,7 +196,7 @@
     border: 1px solid $black
     background: $white
     padding: 1rem 1.5rem 1rem 1rem
-    width: rem-calc(180)
+    width: rem-calc(360)
     pointer-events: none
 
     &-close
@@ -280,15 +282,23 @@
     background: $c2
 
   .map-neighborhoods__icon-neighborhood
-    transition: opacity .5s ease
+    transition: fill .5s ease
 
     &--deactive
-      opacity: .5
+      & .b805b24c-8856-46da-a110-27049a7b5674,
+      & .fce01033-cae7-4eca-a313-518e59be67b0
+        fill: #C08384
 
     &--matched
       @include hover-supported
-        opacity: .5
+        & .b805b24c-8856-46da-a110-27049a7b5674,
+        & .fce01033-cae7-4eca-a313-518e59be67b0
+          fill: $c6
       cursor: pointer
+
+      & .b805b24c-8856-46da-a110-27049a7b5674,
+      & .fce01033-cae7-4eca-a313-518e59be67b0
+        fill: #C08384
 
 
 /* --------------------------

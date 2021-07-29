@@ -12,7 +12,7 @@
     align-items: center
 
   &__content
-    @include col(6)
+    @include col(8)
     @include tablet
       margin-bottom: rem-calc(24)
       text-align: center
@@ -21,14 +21,14 @@
     margin-bottom: rem-calc(8)
 
   &__form-column
-    @include col(6)
+    @include col(3)
     display: flex
-    justify-content: center
+    justify-content: flex-end
     padding-right: 0
 
   &__button
     @extend %button-text
-    @include button-solid($c3, $white, $white)
+    @include button-solid($c3, $white, $c6)
     min-width: 35%
     text-align: center
 

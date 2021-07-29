@@ -18,7 +18,7 @@
       <a class="footer__home" href="/">
         <?php get_template_part('icons/logo-main', null, array( 'class' => 'footer__logo' )); ?>
       </a>
-      <a href="<?php echo get_field('address_link', 'options') ?>" class="footer__contact-group footer__link footer__address">
+      <a href="<?php echo get_field('address_link', 'options') ?>" target="_blank" aria-label="go to google map of address (opens in new window)" class="footer__contact-group footer__link footer__address">
         <?php echo get_field('address_text', 'options'); ?>
       </a>
       <div class="footer__contact-group">
@@ -94,7 +94,7 @@
                 $link = get_sub_field('link'); 
                 ?>
 
-                <a href="<?php echo $link; ?>" class="footer__affiliate-link" aria-label="Affiliate Page (opens in a new tab)" target="_blank">
+                <a href="<?php echo $link; ?>" class="footer__affiliate-link" aria-label="Affiliate Page (opens in a new window)" target="_blank">
                   <?php echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'footer__affiliate-image' ]); ?>
                 </a>
 
@@ -103,7 +103,7 @@
                 $link = get_sub_field('link');
                 ?>
 
-                <a href="<?php echo $link; ?>" class="footer__affiliate-link" aria-label="Affiliate Page (opens in a new tab)" target="_blank">
+                <a href="<?php echo $link; ?>" class="footer__affiliate-link" aria-label="Affiliate Page (opens in a new window)" target="_blank">
                   <?php get_template_part('icons/' . $icon, null, array( 'class' => 'footer__affiliate-icon' )); ?>
                 </a>
               

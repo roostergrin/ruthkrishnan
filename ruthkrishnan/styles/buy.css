@@ -383,8 +383,8 @@
 }
 @media not all and (pointer: coarse) {
   .cta-text-btn__btn:hover {
-    background: #fff;
-    color: #AF5B5B;
+    background: #963636;
+    color: #fff;
   }
 }
 
@@ -947,8 +947,13 @@
   border: 1px solid #000;
   background: #fff;
   padding: 1rem 1.5rem 1rem 1rem;
-  width: 11.25rem;
+  width: 22.5rem;
   pointer-events: none;
+}
+@media screen and (max-width: 600px) {
+  .buy-neighborhood__tooltip {
+    width: 13.75rem;
+  }
 }
 .buy-neighborhood__tooltip-close {
   position: absolute;
@@ -1045,18 +1050,21 @@
   }
 }
 .buy-neighborhood .map-neighborhoods__icon-neighborhood {
-  transition: opacity 0.5s ease;
+  transition: fill 0.5s ease;
 }
-.buy-neighborhood .map-neighborhoods__icon-neighborhood--deactive {
-  opacity: 0.5;
+.buy-neighborhood .map-neighborhoods__icon-neighborhood--deactive .b805b24c-8856-46da-a110-27049a7b5674, .buy-neighborhood .map-neighborhoods__icon-neighborhood--deactive .fce01033-cae7-4eca-a313-518e59be67b0 {
+  fill: #C08384;
 }
 .buy-neighborhood .map-neighborhoods__icon-neighborhood--matched {
   cursor: pointer;
 }
 @media not all and (pointer: coarse) {
-  .buy-neighborhood .map-neighborhoods__icon-neighborhood--matched:hover {
-    opacity: 0.5;
+  .buy-neighborhood .map-neighborhoods__icon-neighborhood--matched:hover .b805b24c-8856-46da-a110-27049a7b5674, .buy-neighborhood .map-neighborhoods__icon-neighborhood--matched:hover .fce01033-cae7-4eca-a313-518e59be67b0 {
+    fill: #963636;
   }
+}
+.buy-neighborhood .map-neighborhoods__icon-neighborhood--matched .b805b24c-8856-46da-a110-27049a7b5674, .buy-neighborhood .map-neighborhoods__icon-neighborhood--matched .fce01033-cae7-4eca-a313-518e59be67b0 {
+  fill: #C08384;
 }
 
 /* --------------------------

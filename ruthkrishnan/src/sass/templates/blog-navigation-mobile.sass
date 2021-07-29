@@ -102,8 +102,11 @@
       justify-content: center
 
     &-category
+      @include hover-supported
+        -webkit-text-stroke: rem-calc(.5)
       @include tablet
         margin: rem-calc(12) rem-calc(8)
+      transition: text-stroke .5s ease
       margin: 1rem
 
       &--active

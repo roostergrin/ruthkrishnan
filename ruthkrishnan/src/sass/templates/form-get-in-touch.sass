@@ -77,6 +77,7 @@
       opacity: 1
 
   &__textarea
+    position: relative
     border-bottom: 2px solid $black
     width: 100%
 
@@ -84,10 +85,14 @@
       outline: none
     
     &::placeholder
+      position: absolute
+      bottom: 1rem
+      left: 0
       color: $black
       opacity: 1
 
   &__submit
     @extend %button-text
     @include button-solid($c3, $white, $c6)
+    font-weight: 500
 

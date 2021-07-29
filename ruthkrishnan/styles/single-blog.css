@@ -483,8 +483,8 @@
 }
 @media not all and (pointer: coarse) {
   .post-blog__navigation-next:hover {
-    background: #fff;
-    color: #AF5B5B;
+    background: #963636;
+    color: #fff;
   }
 }
 @media screen and (max-width: 1024px) {

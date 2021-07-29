@@ -78,6 +78,9 @@
     @include hover-supported
       & .card-links__card-image 
         transform: scale(1.1)
+
+      & .card-links__card-overlay
+        opacity: .46
   
     &-container
       display: flex
@@ -90,8 +93,10 @@
 
     &-overlay
       @extend %absolute
+      transition: opacity .5s ease
+      background: $black
+      opacity: .26
       z-index: -1
-      background: rgba($black, .3)
     
     &-image
       @extend %absolute

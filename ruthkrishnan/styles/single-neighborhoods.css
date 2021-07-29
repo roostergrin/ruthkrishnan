@@ -170,8 +170,8 @@
 }
 @media not all and (pointer: coarse) {
   .cta-text-btn__btn:hover {
-    background: #fff;
-    color: #AF5B5B;
+    background: #963636;
+    color: #fff;
   }
 }
 

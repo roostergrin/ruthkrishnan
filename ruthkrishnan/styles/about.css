@@ -774,8 +774,8 @@
 }
 @media not all and (pointer: coarse) {
   .about-video__link:hover {
-    background: #fff;
-    color: #AF5B5B;
+    background: #963636;
+    color: #fff;
   }
 }
 @media screen and (max-width: 880px) {

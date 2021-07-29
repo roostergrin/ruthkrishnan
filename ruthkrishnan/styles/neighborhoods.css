@@ -316,7 +316,7 @@
 @media not all and (pointer: coarse) {
   .slider-neighborhoods__content-link:hover {
     background: #963636;
-    color: #AF5B5B;
+    color: #fff;
   }
 }
 .slider-neighborhoods__content-icons {
@@ -429,8 +429,13 @@
   border: 1px solid #000;
   background: #fff;
   padding: 0.5rem;
-  width: 9.375rem;
+  width: 22.5rem;
   pointer-events: none;
+}
+@media screen and (max-width: 600px) {
+  .map-neighborhoods__tooltip {
+    width: 13.75rem;
+  }
 }
 .map-neighborhoods__tooltip-close {
   position: absolute;
@@ -472,6 +477,7 @@
 }
 .map-neighborhoods .map-neighborhoods__icon-neighborhood {
   transition: opacity 0.5s ease;
+  transition: fill 0.5s ease;
 }
 .map-neighborhoods .map-neighborhoods__icon-neighborhood--deactive {
   opacity: 0.5;
@@ -480,8 +486,8 @@
   cursor: pointer;
 }
 @media not all and (pointer: coarse) {
-  .map-neighborhoods .map-neighborhoods__icon-neighborhood--matched:hover {
-    opacity: 0.5;
+  .map-neighborhoods .map-neighborhoods__icon-neighborhood--matched:hover .b805b24c-8856-46da-a110-27049a7b5674, .map-neighborhoods .map-neighborhoods__icon-neighborhood--matched:hover .fce01033-cae7-4eca-a313-518e59be67b0 {
+    fill: #963636;
   }
 }
 @media not all and (pointer: coarse) {
@@ -561,8 +567,8 @@
 }
 @media not all and (pointer: coarse) {
   .cta-text-btn__btn:hover {
-    background: #fff;
-    color: #AF5B5B;
+    background: #963636;
+    color: #fff;
   }
 }
 

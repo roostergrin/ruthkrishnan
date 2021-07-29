@@ -8,24 +8,16 @@
     @include container
   
   &__intro
+    @extend %section-margins-large
     @include col(8)
     @include col--offset(2)
 
     &-title
-      @include desktop
-        padding: 5rem 0 1rem
-      @include nexus
-        padding: 2rem 0 1rem
-      padding: 4rem 0 1rem
       width: 100%
       text-align: center
     
     &-text
-      @include desktop
-        padding-bottom: 5rem
-      @include nexus
-        padding-bottom: 2rem
-      padding-bottom: 4rem
+      margin-top: 1rem
     
   &__posts-row
     @include desktop
@@ -119,30 +111,46 @@
       width: 100%
 
     &-title
+      @extend %body
       @include hover-supported
         color: $c3
       display: inline-block
       transition: color .15s ease
+      font-weight: 700
 
     &-bottom
       display: flex
-      flex-wrap: wrap
+      align-items: center
+      justify-content: space-between
       margin-top: auto
       margin-bottom: 0
       padding: 0 1rem 1rem 1rem
       width: 100%
       
     &-date
-      width: 50%
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      // margin-bottom: .5rem
+      font-size: rem-calc(14)
 
     &-date-icon
+      display: flex
+      align-items: center
       position: relative
       margin-right: rem-calc(8)
     
       svg
         width: 1rem
 
+    &-categories
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+
     &-category-icon
+      display: flex
+      align-items: center
       margin-right: rem-calc(8)
 
       svg
@@ -152,6 +160,7 @@
       @include hover-supported
         color: $c3
       transition: color .15s ease
+      font-size: rem-calc(14)
 
   &__coming-soon
     width: 100%

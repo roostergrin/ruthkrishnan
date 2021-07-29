@@ -76,25 +76,11 @@
       @include nexus
         font-size: rem-calc(14)
       position: relative
-      transition: font-weight .1s ease
+      transition: text-stroke .5s ease
       cursor: pointer
 
       @include hover-supported
-        &::after
-          opacity: 1
-
-      &::after
-        position: absolute
-        top: calc(100% + 2px)
-        left: 50%
-        transition: opacity .2s ease
-        transform: translate3d(-50%, 0, 0)
-        background: $black
-        border-radius: 50%
-        opacity: 0
-        width: rem-calc(7)
-        height: rem-calc(7)
-        content: ''
+        -webkit-text-stroke-width: rem-calc(.5)
 
     &--active
       font-weight: 700

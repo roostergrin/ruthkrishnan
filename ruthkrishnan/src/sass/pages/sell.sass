@@ -95,22 +95,23 @@
       margin: 0 .5rem
     display: inline-block
     position: relative
-    transition: opacity .2s ease
+    transition: color .2s ease, text-stroke .2s ease
     text-transform: lowercase
     color: $c3
     font-weight: 500
 
     @include hover-supported
-      opacity: .7
+      color: $c6
+      -webkit-text-stroke: rem-calc(.5)
     
       &:after
-        opacity: .7
+        transform: scaleY(1.2)
 
     &:after
       position: absolute
       bottom: -.25rem
       left: 0
-      transition: opacity .2s ease
+      transition: transform .2s ease
       background: $c3
       width: 100%
       height: rem-calc(2)
@@ -283,6 +284,6 @@
 
   &__link
     @extend %button-text
-    @include button-solid($c3, $white, $white)
+    @include button-solid($c3, $white, $c6)
     margin-top: 1rem
 

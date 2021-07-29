@@ -747,7 +747,7 @@ p, li, h2, h3, h4, h5 {
 }
 .form-subscribe__content {
   padding: 0 calc(30px / 2);
-  width: calc((6 / 12) * 100%);
+  width: calc((8 / 12) * 100%);
 }
 @media screen and (max-width: 768px) {
   .form-subscribe__content {
@@ -766,9 +766,9 @@ p, li, h2, h3, h4, h5 {
 }
 .form-subscribe__form-column {
   padding: 0 calc(30px / 2);
-  width: calc((6 / 12) * 100%);
+  width: calc((3 / 12) * 100%);
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   padding-right: 0;
 }
 @media screen and (max-width: 768px) {
@@ -792,8 +792,8 @@ p, li, h2, h3, h4, h5 {
 }
 @media not all and (pointer: coarse) {
   .form-subscribe__button:hover {
-    background: #fff;
-    color: #AF5B5B;
+    background: #963636;
+    color: #fff;
   }
 }
 
