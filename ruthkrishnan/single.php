@@ -25,7 +25,7 @@
             
               <div class="post-blog__infobar-column post-blog__infobar-column--left">
                 <div id="blog-share" class="post-blog__infobar-share">
-                  <span><?php get_template_part('icons/share'); ?></span>
+                  <?php get_template_part('icons/share'); ?>
                   <span>Share</span>
                 </div>
                 <div id="share-popup" class="post-blog__infobar-share-popup">
@@ -42,7 +42,7 @@
 
               <div class="post-blog__infobar-column post-blog__infobar-column--center">
                 <div class="post-blog__infobar-date">
-                  <span><?php get_template_part('icons/calendar'); ?></span>
+                  <?php get_template_part('icons/calendar'); ?>
                   <?php echo get_the_date(); ?>
                 </div>
               </div>

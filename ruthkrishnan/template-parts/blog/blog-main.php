@@ -79,7 +79,7 @@
                     </a>
 
                     <?php if ($key !== count(get_the_category()) - 1) : ?>
-                      <span>, </span>
+                      <span class="page-blog-main__post-category-spacer">, </span>
                     <?php endif; ?>
 
                   <?php endforeach; ?>

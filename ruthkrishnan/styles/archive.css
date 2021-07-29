@@ -392,6 +392,9 @@
     color: #AF5B5B;
   }
 }
+.page-blog-main__post-category-spacer {
+  margin-right: 0.25rem;
+}
 .page-blog-main__coming-soon {
   width: 100%;
   text-align: center;

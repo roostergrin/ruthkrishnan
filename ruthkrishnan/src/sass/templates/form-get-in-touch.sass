@@ -65,9 +65,11 @@
     left: rem-calc(4)
   
   &__input
+    border-radius: 0
     border-bottom: 2px solid $black
     padding: rem-calc(12) 0
     width: 100%
+    -webkit-appearance: none
 
     &:focus-visible
       outline: none
@@ -94,5 +96,7 @@
   &__submit
     @extend %button-text
     @include button-solid($c3, $white, $c6)
+    border-radius: 0
     font-weight: 500
+    -webkit-appearance: none
 

@@ -555,9 +555,11 @@
   left: 0.25rem;
 }
 .form-get-in-touch__input {
+  border-radius: 0;
   border-bottom: 2px solid #000;
   padding: 0.75rem 0;
   width: 100%;
+  -webkit-appearance: none;
 }
 .form-get-in-touch__input:focus-visible {
   outline: none;
@@ -613,7 +615,9 @@
   padding: 0.875rem 2rem 0.75rem;
   text-transform: lowercase;
   color: #fff;
+  border-radius: 0;
   font-weight: 500;
+  -webkit-appearance: none;
 }
 @media not all and (pointer: coarse) {
   .form-get-in-touch__submit:hover {

@@ -47,9 +47,9 @@
     padding-right: rem-calc(48.5)
     padding-left: rem-calc(48.5)
     width: 100%
+    font-weight: 400
 
     &-column
-      @include col(4)
       @include nexus
         width: auto
       position: relative
@@ -63,6 +63,9 @@
           display: none
 
     &-share
+      display: flex
+      flex-wrap: wrap
+      align-items: center
       cursor: pointer
     
     &-share-popup
@@ -119,13 +122,15 @@
     &-date
       @include nexus
         text-align: right
+      display: flex
+      flex-wrap: wrap
+      align-items: center
       text-align: center
     
     &-categories
       display: flex
       flex-wrap: wrap
       align-items: center
-      justify-content: flex-end
       
     &-category
       @include hover-supported
