@@ -553,17 +553,19 @@
 }
 .page-blog-main__post-bottom {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   margin-top: auto;
   margin-bottom: 0;
-  padding: 0 1rem 1rem 1rem;
+  padding: 0 1rem 0.5rem 1rem;
   width: 100%;
 }
 .page-blog-main__post-date {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  margin-bottom: 0.5rem;
   font-size: 0.875rem;
 }
 .page-blog-main__post-date-icon {
@@ -579,6 +581,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  margin-bottom: 0.5rem;
 }
 .page-blog-main__post-category-icon {
   display: flex;
