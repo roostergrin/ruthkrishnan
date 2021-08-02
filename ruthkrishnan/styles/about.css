@@ -751,12 +751,12 @@
 @media screen and (max-width: 880px) {
   .about-video__link-container {
     width: 50%;
+    text-align: center;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 370px) {
   .about-video__link-container {
     width: 100%;
-    text-align: center;
   }
 }
 .about-video__link {
@@ -781,12 +781,12 @@
 @media screen and (max-width: 880px) {
   .about-video__link {
     margin: 0.5rem auto;
-    width: calc(100% - 1rem);
+    width: calc(100% - .5rem);
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 370px) {
   .about-video__link {
-    width: 55%;
+    width: 100%;
   }
 }
 

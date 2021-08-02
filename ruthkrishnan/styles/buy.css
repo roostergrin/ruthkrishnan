@@ -175,6 +175,11 @@
     margin-bottom: 2.5rem;
   }
 }
+@media screen and (max-width: 600px) {
+  .buy-rent-vs-buy__text, .buy-welcome__title {
+    margin-bottom: 1rem;
+  }
+}
 
 .buy-rent-vs-buy__caption p:not(:last-of-type), .buy-rent-vs-buy__text p:not(:last-of-type), .buy-welcome__text p:not(:last-of-type) {
   font-weight: 500;

@@ -27,7 +27,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 var aboutLogos = function aboutLogos() {
   var logoArr = Array.from(document.querySelectorAll('.about-logos__logo-container'));
   var posArray = [],
-      logoMargin = 64,
+      logoMargin = 16,
       logoWidth = 180;
   posArray = logoArr.reduce(function (acc, item, i) {
     return [].concat(_toConsumableArray(acc), [(item.offsetWidth + logoMargin) * i]);
@@ -53,7 +53,7 @@ var aboutLogos = function aboutLogos() {
     setPosition();
   };
 
-  setInterval(moveLeft, 1000 / 30);
+  setInterval(moveLeft, 1000 / 60);
 };
 
 /***/ }),

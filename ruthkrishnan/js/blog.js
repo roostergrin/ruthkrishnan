@@ -342,6 +342,7 @@ var blogNavMobile = function blogNavMobile() {
 
       menuActive ? menuPopup.classList.add('blog-navigation-mobile__popup--active') : menuPopup.classList.remove('blog-navigation-mobile__popup--active');
       menuPopup.style.top = "".concat(siteNav.clientHeight + blogFixedNav.clientHeight, "px");
+      menuPopup.style.height = "calc(100% - ".concat(siteNav.clientHeight + blogFixedNav.clientHeight, "px)");
       setFixedNavPos();
     };
 

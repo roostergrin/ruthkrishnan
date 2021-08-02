@@ -65,6 +65,7 @@ export const blogNavMobile = () => {
   
       menuActive ? menuPopup.classList.add('blog-navigation-mobile__popup--active') : menuPopup.classList.remove('blog-navigation-mobile__popup--active');
       menuPopup.style.top = `${siteNav.clientHeight + blogFixedNav.clientHeight}px`;
+      menuPopup.style.height = `calc(100% - ${siteNav.clientHeight + blogFixedNav.clientHeight}px)`;
   
       setFixedNavPos();
     }

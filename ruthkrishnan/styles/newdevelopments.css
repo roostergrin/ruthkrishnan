@@ -67,15 +67,6 @@
   }
 }
 
-.new-developments-welcome__title {
-  margin-bottom: 2rem;
-}
-@media screen and (min-width: 1750px) {
-  .new-developments-welcome__title {
-    margin-bottom: 2.5rem;
-  }
-}
-
 /* -----------------------
  * Typography
  * ----------------------- */
@@ -353,6 +344,8 @@
 .new-developments-welcome__title {
   padding: 0 calc(30px / 2);
   width: calc((12 / 12) * 100%);
+  margin-bottom: 1rem;
+  line-height: 1;
   text-align: center;
 }
 @media screen and (max-width: 768px) {

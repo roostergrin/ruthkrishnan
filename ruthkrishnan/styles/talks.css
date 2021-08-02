@@ -144,6 +144,11 @@
     margin-bottom: 2.5rem;
   }
 }
+@media screen and (max-width: 600px) {
+  .talks-video-slider__title, .talks-intro__title {
+    margin-bottom: 1rem;
+  }
+}
 
 .talks-intro__text p:not(:last-of-type) {
   font-weight: 500;

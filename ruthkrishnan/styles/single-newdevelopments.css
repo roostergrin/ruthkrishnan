@@ -81,6 +81,11 @@
     margin-bottom: 2.5rem;
   }
 }
+@media screen and (max-width: 600px) {
+  .new-developments-neighborhood__title {
+    margin-bottom: 1rem;
+  }
+}
 
 /* -----------------------
  * Typography

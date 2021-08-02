@@ -154,6 +154,11 @@
     margin-bottom: 2.5rem;
   }
 }
+@media screen and (max-width: 600px) {
+  .marketing-points__text, .marketing-points__title {
+    margin-bottom: 1rem;
+  }
+}
 
 .about-ruth__slide-text p:not(:last-of-type) {
   font-weight: 500;

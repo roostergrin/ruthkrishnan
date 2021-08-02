@@ -3,7 +3,7 @@ export const aboutLogos = () => {
   const logoArr = Array.from(document.querySelectorAll('.about-logos__logo-container'));
 
   let posArray = [],
-      logoMargin = 64,
+      logoMargin = 16,
       logoWidth = 180;
   
   posArray = logoArr.reduce((acc, item, i) => ([ ...acc, (item.offsetWidth + logoMargin) * i ]), [])
@@ -28,6 +28,6 @@ export const aboutLogos = () => {
     setPosition();
   }
 
-  setInterval(moveLeft, (1000 / 30));
+  setInterval(moveLeft, (1000 / 60));
 
 }

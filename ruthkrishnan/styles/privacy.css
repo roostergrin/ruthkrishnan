@@ -89,6 +89,11 @@
     margin-bottom: 2.5rem;
   }
 }
+@media screen and (max-width: 600px) {
+  .page-privacy__title {
+    margin-bottom: 1rem;
+  }
+}
 
 .page-privacy__text p:not(:last-of-type) {
   font-weight: 500;

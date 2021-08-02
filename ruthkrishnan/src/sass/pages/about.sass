@@ -99,18 +99,18 @@
     @include col(2)
     @include tablet-md
       width: 50%
-    @include nexus
-      width: 100%
       text-align: center
+    @include phone
+      width: 100%
 
   &__link
     @extend %button-text
     @include button-solid($c3, $white, $c6)
     @include tablet-md
       margin: .5rem auto
-      width: calc(100% - 1rem)
-    @include nexus
-      width: 55%
+      width: calc(100% - .5rem)
+    @include phone
+      width: 100%
     width: 100%
     text-align: center
 
