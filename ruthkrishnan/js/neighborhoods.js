@@ -252,7 +252,8 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       distY,
       startX,
       distX,
-      threshold = 1,
+      thresholdY = 5,
+      thresholdX = 1,
       elapsedTime,
       startTime;
 
@@ -281,9 +282,8 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     distY = touchObj.pageY - startY;
     distX = touchObj.pageX - startX;
     elapsedTime = new Date().getTimeDF - startTime;
-    console.log(distY, distX);
 
-    if (Math.abs(distX) >= threshold && Math.abs(distY) === 0) {
+    if (Math.abs(distX) >= thresholdX && Math.abs(distY) < thresholdY) {
       swipedir = distX < 0 ? 'left' : 'right';
     }
 

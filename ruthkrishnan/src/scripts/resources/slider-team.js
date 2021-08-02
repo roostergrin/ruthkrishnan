@@ -132,7 +132,8 @@ export const sliderTeam = () => {
       distY,
       startX,
       distX,
-      threshold = 1,
+      thresholdY = 5,
+      thresholdX = 1,
       elapsedTime,
       startTime;
 
@@ -161,7 +162,7 @@ export const sliderTeam = () => {
     distX  = touchObj.pageX - startX;
     elapsedTime = new Date().getTimeDF - startTime;
 
-    if ((Math.abs(distX) >= threshold) && (Math.abs(distY) === 0)) {
+    if ((Math.abs(distX) >= thresholdX) && (Math.abs(distY) < thresholdY)) {
       swipedir = (distX < 0) ? 'left' : 'right';
     }
 
