@@ -252,7 +252,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       distY,
       startX,
       distX,
-      thresholdY = 5,
+      thresholdY = 7,
       thresholdX = 1,
       elapsedTime,
       startTime;
