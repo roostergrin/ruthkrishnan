@@ -645,7 +645,7 @@
  * ----------------------------- */
 .home-welcome {
   position: relative;
-  margin-top: 5rem;
+  margin-top: 4rem;
 }
 @media screen and (max-width: 1250px) {
   .home-welcome {
@@ -755,7 +755,7 @@
 }
 @media screen and (max-width: 880px) {
   .home-welcome__content {
-    padding: 3rem 0;
+    padding: 2rem 0;
     width: 100%;
   }
 }

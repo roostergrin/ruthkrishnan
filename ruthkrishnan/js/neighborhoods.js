@@ -12,18 +12,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "sliderNeighborhoods": () => (/* binding */ sliderNeighborhoods)
 /* harmony export */ });
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 var sliderNeighborhoods = function sliderNeighborhoods() {
   var slides = Array.from(document.querySelectorAll('.slider-neighborhoods__slide')),
       slideWrapper = document.querySelector('.slider-neighborhoods__track'),
@@ -57,48 +45,23 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       }
     });
     sectionActive ? closeToolTip() : null;
-
-    if (window.innerWidth < 768) {
-      if (content[pos].scrollHeight > window.innerHeight / 2) {
-        document.querySelector('.slider-neighborhoods__content-fade').style.opacity = 1;
-      }
-    }
   }; // * set the correct slide active on first load *
 
 
   changeSlide(slidesArr[0].elem, 0); // * set height of column to be the height of largest content *
 
   var setContentHeight = function setContentHeight() {
-    var maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
-      return el.clientHeight;
-    }))),
+    var currSlide = document.querySelector('.slider-neighborhoods__content-wrapper--active').children[0],
         contentContainer = document.querySelector('.slider-neighborhoods__content-container');
+    contentContainer.style.height = "".concat(currSlide.scrollHeight, "px");
+  }; // * change the active content slide by adding active class *
 
-    if (window.innerWidth > 768) {
-      contentColumn.style.height = "".concat(maxHeight / 16, "rem");
-    } else {
-      contentContainer.style.height = '50vh';
-      content.forEach(function (el) {
-        if (el.scrollHeight > window.innerHeight / 2) {
-          el.style.overflowY = 'scroll';
-          el.addEventListener('scroll', function () {
-            if (el.scrollTop === el.scrollHeight - window.innerHeight / 2) {
-              document.querySelector('.slider-neighborhoods__content-fade').style.opacity = 0;
-            } else {
-              document.querySelector('.slider-neighborhoods__content-fade').style.opacity = 1;
-            }
-          });
-        }
-      });
-    }
-  };
-
-  setContentHeight(); // * change the active content slide by adding active class *
 
   var changeContent = function changeContent(i) {
     contentWrapper.forEach(function (el) {
       +el.dataset.index === i ? el.classList.add('slider-neighborhoods__content-wrapper--active') : el.classList.remove('slider-neighborhoods__content-wrapper--active');
     });
+    setContentHeight();
   }; // * set the correct content active on first load *
 
 

@@ -135,6 +135,8 @@
 }
 .blog-recent__title {
   padding-bottom: 2rem;
+  width: 100%;
+  text-align: center;
 }
 @media screen and (max-width: 480px) {
   .blog-recent__title {

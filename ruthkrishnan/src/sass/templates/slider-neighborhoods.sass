@@ -3,7 +3,7 @@
    ------------------------------------------- */
 
 .slider-neighborhoods
-  @extend %section-padding
+  @extend %section-margins
   overflow: hidden
 
   &__slider
@@ -98,14 +98,19 @@
       pointer-events: auto
 
   &__content
-    @extend %section-padding
-    @include tablet
-      max-height: 50vh
+    @include desktop
+      padding-top: 2.5rem
+    @include nexus
+      padding-top: 1rem
+    padding-top: 2rem
     -ms-overflow-style: none
     scrollbar-width: none
 
     &::-webkit-scrollbar
       display: none
+
+    &-container
+      transition: height .5s ease
 
     &-title
       margin-bottom: 1rem

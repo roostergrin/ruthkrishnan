@@ -30,12 +30,6 @@ export const sliderNeighborhoods = () => {
 
     sectionActive ? closeToolTip() : null;
 
-    if (window.innerWidth < 768) {
-      if (content[pos].scrollHeight > window.innerHeight / 2) {
-        document.querySelector('.slider-neighborhoods__content-fade').style.opacity = 1
-      }
-    }
-
   };
 
   // * set the correct slide active on first load *
@@ -43,36 +37,20 @@ export const sliderNeighborhoods = () => {
 
   // * set height of column to be the height of largest content *
   const setContentHeight = () => {
-    const maxHeight = Math.max(...content.map(el => el.clientHeight)),
+    const currSlide = document.querySelector('.slider-neighborhoods__content-wrapper--active').children[0],
           contentContainer = document.querySelector('.slider-neighborhoods__content-container');
-    if (window.innerWidth > 768) {
-      contentColumn.style.height = `${maxHeight / 16}rem`;
-    } else {
-      contentContainer.style.height = '50vh';
-      content.forEach((el) => {
-        if (el.scrollHeight > window.innerHeight / 2) {
-          el.style.overflowY = 'scroll'
-          el.addEventListener('scroll', () => {
-            if (el.scrollTop === el.scrollHeight - (window.innerHeight / 2)) {
-              document.querySelector('.slider-neighborhoods__content-fade').style.opacity = 0
-            } else {
-              document.querySelector('.slider-neighborhoods__content-fade').style.opacity = 1
-            }
-          })
-        }
-      })
-    }
+
+    contentContainer.style.height = `${currSlide.scrollHeight}px`;
   }
-
-  setContentHeight();
-
+  
   // * change the active content slide by adding active class *
   const changeContent = (i) => {
     contentWrapper.forEach((el) => {
       +el.dataset.index === i ? el.classList.add('slider-neighborhoods__content-wrapper--active') : el.classList.remove('slider-neighborhoods__content-wrapper--active')
     });
+    setContentHeight();
   }
-
+  
   // * set the correct content active on first load *
   changeContent(0);
 
