@@ -66,9 +66,12 @@
       pointer-events: auto
   
   &__slide-column
-    padding: 0 1rem
+    padding-right: 1rem
     width: calc(100% / 5)
     text-align: center
+
+    &:first-of-type
+      padding-left: 1rem
 
   &__dates-column
     @include col(2)

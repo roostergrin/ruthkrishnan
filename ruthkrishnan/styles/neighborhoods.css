@@ -149,11 +149,6 @@
     padding: 0 1rem;
   }
 }
-@media screen and (max-width: 768px) {
-  .slider-neighborhoods__slider-container {
-    margin-bottom: 1rem;
-  }
-}
 .slider-neighborhoods__track {
   display: flex;
   position: relative;
@@ -299,7 +294,7 @@
 }
 @media screen and (max-width: 600px) {
   .slider-neighborhoods__content {
-    padding-top: 1rem;
+    padding-top: 0;
   }
 }
 .slider-neighborhoods__content::-webkit-scrollbar {
@@ -309,7 +304,8 @@
   transition: height 0.5s ease;
 }
 .slider-neighborhoods__content-title {
-  margin-bottom: 1rem;
+  line-height: 1;
+  margin: 1rem 0;
 }
 .slider-neighborhoods__content-description {
   margin-bottom: 1rem;

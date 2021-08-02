@@ -32,7 +32,8 @@
     <div class="blog-navigation-mobile__archive">Most Recent</div>
 
     <div id="blog-filter" class="blog-navigation-mobile__filter">
-      <?php get_template_part('icons/filter'); ?>
+      <?php get_template_part('icons/filter', null, array('class' => 'blog-navigation-mobile__filter-icon blog-navigation-mobile__icon')); ?>
+      <?php get_template_part('icons/check', null, array('class' => 'blog-navigation-mobile__check-icon blog-navigation-mobile__icon')); ?>
     </div>
   </div>
 
@@ -54,7 +55,8 @@
       <div class="blog-navigation-mobile__archive">Most Recent</div>
 
       <div id="blog-filter-fixed" class="blog-navigation-mobile__filter">
-        <?php get_template_part('icons/filter'); ?>
+        <?php get_template_part('icons/filter', null, array('class' => 'blog-navigation-mobile__filter-icon blog-navigation-mobile__icon')); ?>
+        <?php get_template_part('icons/check', null, array('class' => 'blog-navigation-mobile__check-icon blog-navigation-mobile__icon')); ?>
       </div>
     </div>
   </div>

@@ -51,9 +51,12 @@ var resourcesLinks = function resourcesLinks() {
       return link.scrollHeight;
     }),
         maxHeight = Math.max.apply(Math, _toConsumableArray(linkHeights));
-    links.forEach(function (link) {
-      link.style.height = maxHeight + 'px';
-    });
+
+    if (window.innerWidth > 768) {
+      links.forEach(function (link) {
+        link.style.height = maxHeight + 'px';
+      });
+    }
   };
 
   setLinkHeights();

@@ -287,7 +287,9 @@ var blogNavMobile = function blogNavMobile() {
       menuPopup = document.getElementById('blog-filter-popup'),
       filterButton = document.getElementById('blog-filter'),
       fixedFilterButton = document.getElementById('blog-filter-fixed'),
-      body = document.querySelector('body');
+      body = document.querySelector('body'),
+      filterIcon = Array.from(document.querySelectorAll('.blog-navigation-mobile__filter-icon')),
+      checkIcon = Array.from(document.querySelectorAll('.blog-navigation-mobile__check-icon'));
   var menuActive = false;
 
   if (blogMobileNav) {
@@ -317,12 +319,31 @@ var blogNavMobile = function blogNavMobile() {
         toggleFilterMenu();
       }
     });
+    filterIcon.forEach(function (icon) {
+      icon.classList.add('blog-navigation-mobile__icon--active');
+    });
 
     var toggleFilterMenu = function toggleFilterMenu() {
       var siteNav = document.querySelector('.site-navigation'),
           navActive = Array.from(siteNav.classList).includes('site-navigation--active');
       menuActive = !menuActive;
       menuActive ? body.classList.add('body-stop') : body.classList.remove('body-stop');
+
+      if (menuActive) {
+        filterIcon.forEach(function (icon) {
+          icon.classList.remove('blog-navigation-mobile__icon--active');
+        });
+        checkIcon.forEach(function (icon) {
+          icon.classList.add('blog-navigation-mobile__icon--active');
+        });
+      } else {
+        checkIcon.forEach(function (icon) {
+          icon.classList.remove('blog-navigation-mobile__icon--active');
+        });
+        filterIcon.forEach(function (icon) {
+          icon.classList.add('blog-navigation-mobile__icon--active');
+        });
+      }
 
       if (!navActive && menuActive) {
         siteNav.classList.add('site-navigation--active');

@@ -40,7 +40,7 @@ export const sliderNeighborhoods = () => {
     const currSlide = document.querySelector('.slider-neighborhoods__content-wrapper--active').children[0],
           contentContainer = document.querySelector('.slider-neighborhoods__content-container');
 
-    contentContainer.style.height = `${currSlide.scrollHeight}px`;
+    contentContainer.style.height = `${currSlide.scrollHeight + 18}px`;
   }
   
   // * change the active content slide by adding active class *

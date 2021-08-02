@@ -23,10 +23,12 @@ export const resourcesLinks = () => {
   const setLinkHeights = () => {
     const linkHeights = links.map(link => link.scrollHeight),
           maxHeight = Math.max(...linkHeights);
-    
-    links.forEach((link) => {
-      link.style.height = maxHeight + 'px';
-    })
+          
+    if (window.innerWidth > 768) {
+      links.forEach((link) => {
+        link.style.height = maxHeight + 'px';
+      })
+    }
   }
   setLinkHeights();
 

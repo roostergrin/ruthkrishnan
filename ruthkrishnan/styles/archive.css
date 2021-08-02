@@ -570,9 +570,12 @@
   pointer-events: auto;
 }
 .blog-archives__slide-column {
-  padding: 0 1rem;
+  padding-right: 1rem;
   width: calc(100% / 5);
   text-align: center;
+}
+.blog-archives__slide-column:first-of-type {
+  padding-left: 1rem;
 }
 .blog-archives__dates-column {
   padding: 0 calc(30px / 2);
@@ -715,9 +718,12 @@
   pointer-events: auto;
 }
 .blog-archives-mobile__slide-column {
-  padding: 0 1rem;
+  padding-right: 1rem;
   width: calc(92% / 2);
   text-align: center;
+}
+.blog-archives-mobile__slide-column:first-of-type {
+  padding-left: 1rem;
 }
 .blog-archives-mobile__date:not(:last-of-type) {
   margin-bottom: 1rem;

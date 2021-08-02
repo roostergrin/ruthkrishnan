@@ -64,9 +64,12 @@
       pointer-events: auto
   
   &__slide-column
-    padding: 0 1rem
+    padding-right: 1rem
     width: calc(92% / 2)
     text-align: center
+
+    &:first-of-type
+      padding-left: 1rem
 
   &__date
     &:not(:last-of-type)

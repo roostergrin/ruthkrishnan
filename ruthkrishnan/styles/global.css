@@ -1516,6 +1516,11 @@ p, li, h2, h3, h4, h5 {
   margin: 0 auto;
   width: 80%;
 }
+@media screen and (max-width: 480px) {
+  .testimonials-section__content-wrapper {
+    width: calc(100% - 2rem);
+  }
+}
 .testimonials-section__content-slide {
   transition: opacity 0.3s ease;
   opacity: 0;

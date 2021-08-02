@@ -22,7 +22,9 @@
     max-width: $width
 
   &__background
-    @extend %absolute
+    @extend %absolute 
+    @include phone-lg
+      object-position: right top
     z-index: -1
     object-fit: cover
 
@@ -56,6 +58,11 @@
 
   &__link-text
     @extend %h4
+    @include phone-lg
+      line-height: 1.53
+      letter-spacing: rem-calc(.75)
+      font-size: rem-calc(13)
+      font-weight: 500
     padding: 1rem
     max-width: calc(100% - 64px)
     text-transform: uppercase
