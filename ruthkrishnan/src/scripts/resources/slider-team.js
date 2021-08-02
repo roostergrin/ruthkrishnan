@@ -34,6 +34,19 @@ export const sliderTeam = () => {
 
   changeImageSlide(0);
 
+  // set member info sections height to tallest element
+  const setInfoHeight = () => {
+    const memberInfoContainer = document.querySelector('.slider-team__members-container'),
+          activeSlide = document.querySelector('.slider-team__member-slide--active');
+        
+    memberInfoContainer.style.height = `${activeSlide.scrollHeight}px`
+
+    // const memberHeights = memberInfoSlides.map(slide => slide.scrollHeight);
+    // const maxHeight = Math.max(...memberHeights);
+
+    // memberInfoContainer.style.height = maxHeight + 'px';
+  }
+  
   // changes the active info slide
   const changeInfoSlide = (pos) => {
     memberInfoSlides.forEach((slide) => {
@@ -43,21 +56,10 @@ export const sliderTeam = () => {
         slide.classList.remove('slider-team__member-slide--active');
       }
     })
+    setInfoHeight();
   }
 
   changeInfoSlide(0);
-  
-  // set member info sections height to tallest element
-  const setInfoHeight = () => {
-    const memberInfoContainer = document.querySelector('.slider-team__members-container');
-
-    const memberHeights = memberInfoSlides.map(slide => slide.scrollHeight);
-    const maxHeight = Math.max(...memberHeights);
-
-    memberInfoContainer.style.height = maxHeight + 'px';
-  }
-
-  setInfoHeight();
 
   // debounce function
   const debounce = (func, args, wait, immediate) => {
@@ -107,8 +109,6 @@ export const sliderTeam = () => {
       const currSlide = document.querySelector('.slider-team__images-slide--active'),
             nextSlide = imagesArr.find(el => el.position === +currSlide.dataset.index);
       
-      console.log(currSlide)
-  
       if (nextSlide) {
         changeImageSlide(nextSlide.position);
         changeInfoSlide(nextSlide.position);
@@ -128,6 +128,8 @@ export const sliderTeam = () => {
 
   // Swipe Functionality
   var swipedir,
+      startY,
+      distY,
       startX,
       distX,
       threshold = 1,
@@ -148,16 +150,18 @@ export const sliderTeam = () => {
   sliderContainer.addEventListener('touchstart', (e) => {
     const touchObj = e.changedTouches[0];
     swipedir = 'none';
+    startY = touchObj.pageY;
     startX = touchObj.pageX;
     startTime = new Date().getTime();
   })
 
   sliderContainer.addEventListener('touchend', (e) => {
     const touchObj = e.changedTouches[0];
+    distY  = touchObj.pageY - startY;
     distX  = touchObj.pageX - startX;
     elapsedTime = new Date().getTimeDF - startTime;
 
-    if (Math.abs(distX) >= threshold) {
+    if ((Math.abs(distX) >= threshold) && (Math.abs(distY) < 5)) {
       swipedir = (distX < 0) ? 'left' : 'right';
     }
 

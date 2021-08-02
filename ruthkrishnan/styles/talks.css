@@ -114,8 +114,8 @@
 }
 @media screen and (max-width: 600px) {
   .talks-video-slider {
-    marign-top: 1rem;
-    marign-botom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -131,8 +131,8 @@
 }
 @media screen and (max-width: 600px) {
   .talks-learn__column {
-    marign-top: 2rem;
-    marign-botom: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 

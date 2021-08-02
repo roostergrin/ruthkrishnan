@@ -248,6 +248,8 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   };
 
   var swipedir,
+      startY,
+      distY,
       startX,
       distX,
       threshold = 1,
@@ -270,15 +272,18 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   sliderContainer.addEventListener('touchstart', function (e) {
     var touchObj = e.changedTouches[0];
     swipedir = 'none';
+    startY = touchObj.pageY;
     startX = touchObj.pageX;
     startTime = new Date().getTime();
   });
   sliderContainer.addEventListener('touchend', function (e) {
     var touchObj = e.changedTouches[0];
+    distY = touchObj.pageY - startY;
     distX = touchObj.pageX - startX;
     elapsedTime = new Date().getTimeDF - startTime;
+    console.log(distY, distX);
 
-    if (Math.abs(distX) >= threshold) {
+    if (Math.abs(distX) >= threshold && Math.abs(distY) < 5) {
       swipedir = distX < 0 ? 'left' : 'right';
     }
 

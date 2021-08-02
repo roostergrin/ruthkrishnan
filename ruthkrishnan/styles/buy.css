@@ -128,8 +128,8 @@
 }
 @media screen and (max-width: 600px) {
   .process-steps__column-lg, .process-steps__column-sm {
-    marign-top: 2rem;
-    marign-botom: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 

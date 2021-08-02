@@ -114,8 +114,8 @@
 }
 @media screen and (max-width: 600px) {
   .about-promise, .page-coaching .about-ruth, .page-marketing .about-ruth, .slider-team__members-container {
-    marign-top: 1rem;
-    marign-botom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -131,8 +131,8 @@
 }
 @media screen and (max-width: 600px) {
   .about-ruth {
-    marign-top: 2rem;
-    marign-botom: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -237,6 +237,11 @@
     padding-bottom: 1.5rem;
   }
 }
+@media screen and (max-width: 600px) {
+  .slider-team__intro-column {
+    padding-top: 2rem;
+  }
+}
 .slider-team__title {
   margin-bottom: 1rem;
   text-align: center;
@@ -329,6 +334,7 @@
 }
 .slider-team__members-container {
   position: relative;
+  transition: height 0.5s ease;
 }
 .slider-team__member-slide {
   transition: opacity 0.5s ease;
@@ -343,12 +349,22 @@
 .slider-team__name {
   padding-bottom: 1.5rem;
 }
+@media screen and (max-width: 600px) {
+  .slider-team__name {
+    padding-bottom: 1rem;
+  }
+}
 /* ------------------------------
  *  About Ruth Krishnan Styles
  * ------------------------------- */
 .about-ruth {
   position: relative;
   padding-bottom: 2.0625rem;
+}
+@media screen and (max-width: 600px) {
+  .about-ruth {
+    padding-bottom: 0;
+  }
 }
 .about-ruth__color-box {
   position: absolute;

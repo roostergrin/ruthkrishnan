@@ -181,18 +181,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "sliderTeam": () => (/* binding */ sliderTeam)
 /* harmony export */ });
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 var sliderTeam = function sliderTeam() {
   var memberInfoSlides = Array.from(document.querySelectorAll('.slider-team__member-slide')),
       imageSlides = Array.from(document.querySelectorAll('.slider-team__images-slide')),
@@ -225,7 +213,16 @@ var sliderTeam = function sliderTeam() {
     });
   };
 
-  changeImageSlide(0); // changes the active info slide
+  changeImageSlide(0); // set member info sections height to tallest element
+
+  var setInfoHeight = function setInfoHeight() {
+    var memberInfoContainer = document.querySelector('.slider-team__members-container'),
+        activeSlide = document.querySelector('.slider-team__member-slide--active');
+    memberInfoContainer.style.height = "".concat(activeSlide.scrollHeight, "px"); // const memberHeights = memberInfoSlides.map(slide => slide.scrollHeight);
+    // const maxHeight = Math.max(...memberHeights);
+    // memberInfoContainer.style.height = maxHeight + 'px';
+  }; // changes the active info slide
+
 
   var changeInfoSlide = function changeInfoSlide(pos) {
     memberInfoSlides.forEach(function (slide) {
@@ -235,20 +232,10 @@ var sliderTeam = function sliderTeam() {
         slide.classList.remove('slider-team__member-slide--active');
       }
     });
+    setInfoHeight();
   };
 
-  changeInfoSlide(0); // set member info sections height to tallest element
-
-  var setInfoHeight = function setInfoHeight() {
-    var memberInfoContainer = document.querySelector('.slider-team__members-container');
-    var memberHeights = memberInfoSlides.map(function (slide) {
-      return slide.scrollHeight;
-    });
-    var maxHeight = Math.max.apply(Math, _toConsumableArray(memberHeights));
-    memberInfoContainer.style.height = maxHeight + 'px';
-  };
-
-  setInfoHeight(); // debounce function
+  changeInfoSlide(0); // debounce function
 
   var debounce = function debounce(func, args, wait, immediate) {
     var later = function later() {
@@ -297,7 +284,6 @@ var sliderTeam = function sliderTeam() {
         nextSlide = imagesArr.find(function (el) {
       return el.position === +currSlide.dataset.index;
     });
-    console.log(currSlide);
 
     if (nextSlide) {
       changeImageSlide(nextSlide.position);
@@ -320,6 +306,8 @@ var sliderTeam = function sliderTeam() {
 
 
   var swipedir,
+      startY,
+      distY,
       startX,
       distX,
       threshold = 1,
@@ -340,15 +328,17 @@ var sliderTeam = function sliderTeam() {
   sliderContainer.addEventListener('touchstart', function (e) {
     var touchObj = e.changedTouches[0];
     swipedir = 'none';
+    startY = touchObj.pageY;
     startX = touchObj.pageX;
     startTime = new Date().getTime();
   });
   sliderContainer.addEventListener('touchend', function (e) {
     var touchObj = e.changedTouches[0];
+    distY = touchObj.pageY - startY;
     distX = touchObj.pageX - startX;
     elapsedTime = new Date().getTimeDF - startTime;
 
-    if (Math.abs(distX) >= threshold) {
+    if (Math.abs(distX) >= threshold && Math.abs(distY) < 5) {
       swipedir = distX < 0 ? 'left' : 'right';
     }
 

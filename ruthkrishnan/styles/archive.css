@@ -95,8 +95,8 @@
 }
 @media screen and (max-width: 600px) {
   .page-blog-main__intro {
-    marign-top: 2rem;
-    marign-botom: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
