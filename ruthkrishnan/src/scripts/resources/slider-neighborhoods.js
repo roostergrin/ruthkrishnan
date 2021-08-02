@@ -263,7 +263,7 @@ export const sliderNeighborhoods = () => {
 
     console.log(distY, distX)
 
-    if ((Math.abs(distX) >= threshold) && (Math.abs(distY) < 5)) {
+    if ((Math.abs(distX) >= threshold) && (Math.abs(distY) === 0)) {
       swipedir = (distX < 0) ? 'left' : 'right';
     }
 
