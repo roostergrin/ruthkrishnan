@@ -230,8 +230,8 @@ export const sliderNeighborhoods = () => {
       distY,
       startX,
       distX,
-      thresholdY = 7,
-      thresholdX = 1,
+      threshold = 1,
+      allowedTime = 200,
       elapsedTime,
       startTime;
 
@@ -251,18 +251,24 @@ export const sliderNeighborhoods = () => {
   sliderContainer.addEventListener('touchstart', (e) => {
     const touchObj = e.changedTouches[0];
     swipedir = 'none';
+    distY = 0;
+    distX = 0;
     startY = touchObj.pageY;
     startX = touchObj.pageX;
     startTime = new Date().getTime();
+  })
+
+  sliderContainer.addEventListener('touchmove', (e) => {
+    e.preventDefault();
   })
 
   sliderContainer.addEventListener('touchend', (e) => {
     const touchObj = e.changedTouches[0];
     distY = touchObj.pageY - startY;
     distX  = touchObj.pageX - startX;
-    elapsedTime = new Date().getTimeDF - startTime;
+    elapsedTime = new Date().getTime() - startTime;
 
-    if ((Math.abs(distX) >= thresholdX) && (Math.abs(distY) < thresholdY)) {
+    if (elapsedTime <= allowedTime && Math.abs(distX) > threshold && Math.abs(distY) <= 100) {
       swipedir = (distX < 0) ? 'left' : 'right';
     }
 
