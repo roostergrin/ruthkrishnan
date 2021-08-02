@@ -1,4 +1,6 @@
 .site-navigation
+  @include phone-lg
+    padding: rem-calc(8) 0
   position: fixed
   top: 0
   left: 0
@@ -27,6 +29,9 @@
     @include tablet-lg
       width: rem-calc(96)
       height: 3rem
+    @include phone-lg
+      width: rem-calc(64)
+      height: 2rem
     width: rem-calc(120)
     height: rem-calc(60)
 
@@ -142,6 +147,8 @@
   &__hamburger
     @include min-width (1025px)
       display: none
+    @include phone-lg
+      height: 1rem
     position: relative
     z-index: 5
     cursor: pointer

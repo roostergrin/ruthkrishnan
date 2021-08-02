@@ -385,6 +385,11 @@ p, li, h2, h3, h4, h5 {
   padding: 1rem 0;
   width: 100%;
 }
+@media screen and (max-width: 480px) {
+  .site-navigation {
+    padding: 0.5rem 0;
+  }
+}
 .site-navigation--active {
   background: #fff;
 }
@@ -439,6 +444,12 @@ p, li, h2, h3, h4, h5 {
   .site-navigation__home {
     width: 6rem;
     height: 3rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .site-navigation__home {
+    width: 4rem;
+    height: 2rem;
   }
 }
 .site-navigation__logo {
@@ -577,6 +588,11 @@ p, li, h2, h3, h4, h5 {
 @media screen and (min-width: 1025px) {
   .site-navigation__hamburger {
     display: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .site-navigation__hamburger {
+    height: 1rem;
   }
 }
 .site-navigation__hamburger span {
