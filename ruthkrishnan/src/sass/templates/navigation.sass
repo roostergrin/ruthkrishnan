@@ -1,6 +1,6 @@
 .site-navigation
   @include phone-lg
-    padding: rem-calc(8) 0
+    padding: rem-calc(10) 0
   position: fixed
   top: 0
   left: 0
@@ -31,7 +31,7 @@
       height: 3rem
     @include phone-lg
       width: rem-calc(64)
-      height: 2rem
+      height: 2.25rem
     width: rem-calc(120)
     height: rem-calc(60)
 
@@ -161,20 +161,22 @@
       top: 0
       left: 0
       transform: rotate(0deg)
-      transition: all .3s ease
       border-radius: 10px
       background: $white
       width: 100%
       height: rem-calc(2)
 
       &:first-child
+        transition: top .3s ease .3s, transform .3s ease
         top: 0
 
       &:nth-child(2),
       &:nth-child(3)
+        transition: all .3s ease
         top: calc(50% - 1px)
 
       &:last-child
+        transition: top .3s ease .3s, transform .3s ease
         top: calc(100% - 2px)
 
     .site-navigation--active &
@@ -186,14 +188,21 @@
         background: $c1
         &:first-child,
         &:last-child
-          top: 50%
-          left: 50%
-          width: 0
+          transition: top .3s ease, transform .3s ease .3s
+          top: calc(50% - 1px)
+        
+        &:first-child
+          transform: rotate(45deg)
+          
+        &:last-child
+          transform: rotate(-45deg)
 
         &:nth-child(2)
+          transition: all .3s ease .3s
           transform: rotate(45deg)
 
         &:nth-child(3)
+          transition: all .3s ease .3s
           transform: rotate(-45deg)
 
   &__overlay
