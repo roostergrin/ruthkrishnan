@@ -21,7 +21,10 @@
           $link = get_sub_field('link'); ?>
 
           <a href="<?php echo $link; ?>" class="resources-links__link-container">
-            <h3 class="resources-links__link-text"><?php echo $text; ?></h3>
+            <div class="resources-links__link-text-container">
+              <div class="resources-links__link-background"></div>
+              <h3 class="resources-links__link-text"><?php echo $text; ?></h3>
+            </div>
             <div class="resources-links__icon-container">
               <?php get_template_part('icons/arrow-alt', null, array( 'class' => 'resources-links__icon' )); ?>
             </div>

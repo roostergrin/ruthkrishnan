@@ -43,18 +43,51 @@
     margin-top: 0
 
   &__link-container
-    @include hover-supported
-      opacity: .5
     @include tablet-md
       width: 100%
+    position: relative
     display: flex
     align-items: center
     justify-content: space-between
-    transition: opacity .2s ease
+    transition: all .5s ease
     background: $white
     border: 1px solid $c1
     margin-top: 1rem
     width: calc(50% - (#{$gutter} / 2))
+
+    @include hover-supported
+      border: 1px solid $white
+
+      & .resources-links__icon-container
+        border-left: 1px solid $white
+        background: $c1
+
+      & .resources-links__link-text
+        color: $white
+
+      & .resources-links__link-background
+        transform: translateX(100%)
+
+      & .resources-links__icon
+        stroke: $white
+
+  &__link-text-container
+    position: relative
+    display: flex
+    align-items: center
+    flex-grow: 1
+    width: calc(100% - 64px)
+    height: 100%
+    overflow: hidden
+
+  &__link-background
+    position: absolute
+    top: 0
+    left: -200%
+    transition: transform .55s ease
+    background: linear-gradient(45deg, $c1 75%, rgba($white, 0) 75%, rgba($white, 0) 100%)
+    width: 200%
+    height: 100%
 
   &__link-text
     @extend %h4
@@ -63,6 +96,8 @@
       letter-spacing: rem-calc(.75)
       font-size: rem-calc(13)
       font-weight: 500
+    transition: all .5s ease
+    z-index: 2
     padding: 1rem
     max-width: calc(100% - 64px)
     text-transform: uppercase
@@ -71,10 +106,13 @@
     display: flex
     align-items: center
     justify-content: center
+    transition: all .5s ease
+    border-left: 1px solid transparent
     background: $c2
     width: rem-calc(64)
     height: 100%
 
   &__icon
+    transition: all .5s ease
     width: 1rem
     height: 1rem

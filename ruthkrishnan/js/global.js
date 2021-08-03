@@ -155,7 +155,9 @@ var testimonials = function testimonials() {
         sliderLength = document.querySelector('.testimonials-section__images-slider').dataset.imageSliderLength,
         dot = document.querySelectorAll('.testimonials-section__dot'),
         content = Array.from(document.querySelectorAll('.testimonials-section__content')),
-        contentWrapper = document.querySelector('.testimonials-section__content-wrapper');
+        contentWrapper = document.querySelector('.testimonials-section__content-wrapper'),
+        prevArrow = document.querySelector('.testimonials-section__nav--prev'),
+        nextArrow = document.querySelector('.testimonials-section__nav--next');
     var currSlide = 0,
         maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
       return el.clientHeight;
@@ -192,6 +194,20 @@ var testimonials = function testimonials() {
       setSlide();
     };
 
+    var toPrevSlide = function toPrevSlide() {
+      clearInterval(autoSlide);
+      currSlide === 0 ? currSlide = sliderLength - 1 : currSlide--;
+      setSlide();
+    };
+
+    var toNextSlide = function toNextSlide() {
+      clearInterval(autoSlide);
+      currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++;
+      setSlide();
+    };
+
+    prevArrow.addEventListener('click', toPrevSlide);
+    nextArrow.addEventListener('click', toNextSlide);
     dot.forEach(function (dot, i) {
       dot.addEventListener('click', function () {
         goToSlide(i);

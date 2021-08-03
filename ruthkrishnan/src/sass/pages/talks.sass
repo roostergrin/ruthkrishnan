@@ -136,11 +136,15 @@
       @include tablet
         margin: auto
         width: 75%
+      @include phone-lg
+        width: 100%
       cursor: pointer
 
     &-image-container
       @include tablet
         height: 35vw
+      @include phone-lg
+        height: 50vw
       position: relative
       width: 100%
       height: calc(25vw * .5625)
@@ -176,6 +180,8 @@
 
   &__prev,
   &__next
+    @include tablet
+      display: none
     position: absolute
     top: 50%
     transform: translateY(-50%)

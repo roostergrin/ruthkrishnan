@@ -133,7 +133,7 @@ export const sliderTeam = () => {
       startX,
       distX,
       threshold = 1,
-      allowedTime = 200,
+      allowedTime = 300,
       elapsedTime,
       startTime;
 

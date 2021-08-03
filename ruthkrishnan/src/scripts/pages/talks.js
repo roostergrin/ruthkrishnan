@@ -226,5 +226,52 @@ document.addEventListener('DOMContentLoaded', function () {
 modalCloseBtn.addEventListener('click', closeModal)
 modalOverlay.addEventListener('click', closeModal)
 
+  var swipedir,
+      startY,
+      distY,
+      startX,
+      distX,
+      threshold = 1,
+      allowedTime = 300,
+      elapsedTime,
+      startTime;
+
+  const handleSwipe = (swipedir) => {
+    if (swipedir === 'left') {
+      toNextSlide();
+    }
+    if (swipedir === 'right') {
+      toPrevSlide();
+    }
+  }
+
+  const sliderContainer = document.querySelector('.talks-video-slider__slides');
+
+  sliderContainer.addEventListener('touchstart', (e) => {
+    const touchObj = e.changedTouches[0];
+          swipedir = 'none';
+          distY = 0;
+          distX = 0;
+          startY = touchObj.pageY;
+          startX = touchObj.pageX;
+          startTime = new Date().getTime();
+  })
+
+  sliderContainer.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+  })
+
+  sliderContainer.addEventListener('touchend', (e) => {
+    const touchObj = e.changedTouches[0];
+          distY = touchObj.pageY - startY;
+          distX  = touchObj.pageX - startX;
+          elapsedTime = new Date().getTime() - startTime;
+
+  if (elapsedTime <= allowedTime && Math.abs(distX) > threshold && Math.abs(distY) <= 100) {
+    swipedir = (distX < 0) ? 'left' : 'right';
+  }
+
+    handleSwipe(swipedir);
+  })
 
 });

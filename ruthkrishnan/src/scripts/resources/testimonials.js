@@ -5,7 +5,9 @@ export const testimonials = () => {
           sliderLength = document.querySelector('.testimonials-section__images-slider').dataset.imageSliderLength,
           dot = document.querySelectorAll('.testimonials-section__dot'),
           content = Array.from(document.querySelectorAll('.testimonials-section__content')),
-          contentWrapper = document.querySelector('.testimonials-section__content-wrapper');
+          contentWrapper = document.querySelector('.testimonials-section__content-wrapper'),
+          prevArrow = document.querySelector('.testimonials-section__nav--prev'),
+          nextArrow = document.querySelector('.testimonials-section__nav--next');
   
     let currSlide = 0,
         maxHeight = Math.max(...content.map(el => el.clientHeight));
@@ -41,6 +43,21 @@ export const testimonials = () => {
       currSlide = val
       setSlide();
     };
+
+    const toPrevSlide = () => {
+      clearInterval(autoSlide);
+      currSlide === 0 ? currSlide = sliderLength - 1 : currSlide--;
+      setSlide();
+    }
+
+    const toNextSlide = () => {
+      clearInterval(autoSlide);
+      currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++
+      setSlide();
+    }
+
+    prevArrow.addEventListener('click', toPrevSlide);
+    nextArrow.addEventListener('click', toNextSlide);
   
     dot.forEach( (dot, i) => {
       dot.addEventListener('click', () => { goToSlide(i) });
