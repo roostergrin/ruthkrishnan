@@ -81,7 +81,10 @@ document.addEventListener('DOMContentLoaded', function () {
           tooltipContainer.style.top = `${event.pageY - tooltipContainer.clientHeight - 5}px`;
         }
     
-        if (event.clientX < (tooltipContainer.clientWidth / 2) + 32) {
+        if (window.innerWidth < 601) {
+          tooltipContainer.style.left = '50%';
+          tooltipContainer.style.transform = `translateX(-50%)`;
+        } else if (event.clientX < (tooltipContainer.clientWidth / 2) + 32) {
           tooltipContainer.style.left = `${event.pageX + 16}px`;
         } else if (window.innerWidth - event.pageX < (tooltipContainer.clientWidth / 2) + 32) {
           tooltipContainer.style.left = `${event.pageX - (tooltipContainer.clientWidth)}px`;
