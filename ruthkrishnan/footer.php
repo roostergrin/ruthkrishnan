@@ -23,7 +23,7 @@
       </a>
       <div class="footer__contact-group">
         <a href="<?php echo get_field('phone_link', 'options'); ?>" class="footer__link footer__phone"><?php echo get_field('phone_number', 'options') ?></a>
-        <div class="footer__contact-info">CalBRE# <span class="footer__calbre-number"><?php echo get_field('calbre', 'options'); ?></span></div>
+        <p class="footer__contact-info">CalBRE# <span class="footer__calbre-number"><?php echo get_field('calbre', 'options'); ?></span></p>
         <a href="mailto:<?php echo get_field('email_address', 'options'); ?>" class="footer__link"><?php echo get_field('email_address', 'options'); ?></a>
       </div>
       <div class="footer__contact-group">
