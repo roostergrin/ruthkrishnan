@@ -1513,17 +1513,19 @@
 .sell-commission__image {
   padding: 0 calc(30px / 2);
   width: 50%;
-  height: auto;
+  height: 50%;
 }
 @media screen and (max-width: 880px) {
   .sell-commission__image {
     padding: 0 1rem;
     width: 75%;
+    height: 75%;
   }
 }
 @media screen and (max-width: 600px) {
   .sell-commission__image {
     width: 100%;
+    height: 100%;
   }
 }
 @media screen and (max-width: 880px) {
