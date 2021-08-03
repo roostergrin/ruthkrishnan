@@ -925,6 +925,9 @@ p, li, h2, h3, h4, h5 {
 .footer__contact-info {
   color: #fff;
 }
+.footer__calbre-number {
+  color: #fff;
+}
 .footer__accessibility {
   transition: opacity 0.186s ease;
   cursor: pointer;
