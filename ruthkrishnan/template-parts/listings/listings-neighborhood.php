@@ -29,20 +29,22 @@
                 </div>
               <?php endforeach; ?>
 
+
             <div class="listings-neighborhood__photo-gallery-prev" aria-label='Previous Slide'> 
-              <?php get_template_part('icons/arrow', null, array( 'class' => 'photo-gallery__icon photo-gallery__icon--prev' )); ?>
+              <?php get_template_part('icons/arrow', null, array( 'class' => 'listings-neighborhood__photo-gallery-icon listings-neighborhood__photo-gallery-icon--prev' )); ?>
             </div>
             <div class="listings-neighborhood__photo-gallery-next" aria-label='Next Slide'> 
               <?php get_template_part('icons/arrow', null, array( 'class' => 'listings-neighborhood__photo-gallery-icon listings-neighborhood__photo-gallery-icon--next' )); ?>
             </div>
-
           </div>
           <div class='listings-neighborhood__photo-gallery-indicators'>
-
-            <?php
-              foreach ($images as $key=>$dot) : ?>
+            <?php if ( count($images) > 8 ) : ?>
+              <div class="listings-neighborhood__numpagination" data-slides="<?php echo count($images); ?>"></div>
+            <?php else : ?>
+              <?php foreach ($images as $key=>$dot) : ?>
                 <div class="listings-neighborhood__photo-gallery-dot" data-index='<?php echo $key; ?>'></div>
-            <?php endforeach; ?>
+              <?php endforeach; ?>
+            <?php endif; ?>
           </div>
 
         </div>

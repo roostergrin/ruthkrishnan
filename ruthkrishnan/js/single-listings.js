@@ -89,22 +89,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var listingsNeighborhhodGallery = function listingsNeighborhhodGallery() {
   if (document.querySelector('.listings-neighborhood__photo-gallery')) {
-    var currSlide = 0;
+    var currSlide = 0,
+        paginationContent;
     var slider = document.querySelector('.listings-neighborhood__photo-gallery-slider'),
         sliderLength = slider.dataset.sliderLength,
         slide = document.querySelectorAll('.listings-neighborhood__photo-gallery-slide'),
         dot = document.querySelectorAll('.listings-neighborhood__photo-gallery-dot'),
-        prev = document.querySelector('.listings-neighborhood__photo-gallery-prev'),
-        next = document.querySelector('.listings-neighborhood__photo-gallery-next'),
+        numpagination = document.querySelector('.listings-neighborhood__numpagination'),
+        prev = document.querySelector('.listings-neighborhood__photo-gallery-icon--prev'),
+        next = document.querySelector('.listings-neighborhood__photo-gallery-icon--next'),
         img = document.querySelectorAll('.listings-neighborhood__photo-gallery-image');
 
     var setSlide = function setSlide() {
       slide.forEach(function (slide) {
         currSlide === +slide.dataset.index ? slide.classList.add('listings-neighborhood__photo-gallery-slide--active') : slide.classList.remove('listings-neighborhood__photo-gallery-slide--active');
       });
-      dot.forEach(function (dot) {
-        currSlide === +dot.dataset.index ? dot.classList.add('listings-neighborhood__photo-gallery-dot--active') : dot.classList.remove('listings-neighborhood__photo-gallery-dot--active');
-      });
+
+      if (numpagination) {
+        paginationContent = "".concat(currSlide + 1, " / ").concat(+numpagination.dataset.slides);
+        numpagination.innerHTML = paginationContent;
+      } else {
+        dot.forEach(function (dot) {
+          currSlide === +dot.dataset.index ? dot.classList.add('listings-neighborhood__photo-gallery-dot--active') : dot.classList.remove('listings-neighborhood__photo-gallery-dot--active');
+        });
+      }
     };
 
     setSlide();
@@ -157,11 +165,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "photoGallery": () => (/* binding */ photoGallery)
 /* harmony export */ });
 var photoGallery = function photoGallery() {
-  var currSlide = 0;
+  var currSlide = 0,
+      paginationContent;
   var slider = document.querySelector('.photo-gallery__slider'),
       sliderLength = slider.dataset.sliderLength,
       slide = document.querySelectorAll('.photo-gallery__slide'),
       dot = document.querySelectorAll('.photo-gallery__dot'),
+      numpagination = document.querySelector('.photo-gallery__numpagination'),
       prev = document.querySelector('.photo-gallery__prev'),
       next = document.querySelector('.photo-gallery__next'),
       img = document.querySelectorAll('.photo-gallery__image');
@@ -170,9 +180,15 @@ var photoGallery = function photoGallery() {
     slide.forEach(function (slide) {
       currSlide === +slide.dataset.index ? slide.classList.add('photo-gallery__slide--active') : slide.classList.remove('photo-gallery__slide--active');
     });
-    dot.forEach(function (dot) {
-      currSlide === +dot.dataset.index ? dot.classList.add('photo-gallery__dot--active') : dot.classList.remove('photo-gallery__dot--active');
-    });
+
+    if (numpagination) {
+      paginationContent = "".concat(currSlide + 1, " / ").concat(+numpagination.dataset.slides);
+      numpagination.innerHTML = paginationContent;
+    } else {
+      dot.forEach(function (dot) {
+        currSlide === +dot.dataset.index ? dot.classList.add('photo-gallery__dot--active') : dot.classList.remove('photo-gallery__dot--active');
+      });
+    }
   };
 
   setSlide();

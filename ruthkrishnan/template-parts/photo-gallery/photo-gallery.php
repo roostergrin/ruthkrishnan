@@ -40,10 +40,13 @@
       </div>
       <div class='photo-gallery__indicators'>
         <?php $images = get_field('photo_gallery'); ?>
-          <?php
-            foreach ($images as $key=>$dot) : ?>
-              <div class="photo-gallery__dot" data-index='<?php echo $key; ?>'></div>
-          <?php endforeach; ?>
+          <?php if ( count($images) > 8 ) : ?>
+            <div class="photo-gallery__numpagination" data-slides="<?php echo count($images); ?>"></div>
+          <?php else : ?>
+            <?php foreach ($images as $key=>$dot) : ?>
+                <div class="photo-gallery__dot" data-index='<?php echo $key; ?>'></div>
+            <?php endforeach; ?>
+          <?php endif; ?>
       </div>
 
 

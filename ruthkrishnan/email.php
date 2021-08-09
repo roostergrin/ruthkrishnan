@@ -18,7 +18,7 @@ function rg_serve_route_get_in_touch () {
 
   $data = json_decode(file_get_contents("php://input"), true);
   $from = 'info@wordpress.com';
-  $to = 'bryant@roostergrin.com';
+  $to = 'info@ruthkrishnan.com';
   $subject = 'Ruth Krishnan Contact Form';
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $message = '<!DOCTYPE html><html><body>';
@@ -89,7 +89,7 @@ function rg_serve_route_subscribe () {
 
   $data = json_decode(file_get_contents("php://input"), true);
   $from = 'info@wordpress.com';
-  $to = 'bryant@roostergrin.com';
+  $to = 'info@ruthkrishnan.com';
   $subject = 'Ruth Krishnan Email Subscribed';
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $message = '<!DOCTYPE html><html><body>';

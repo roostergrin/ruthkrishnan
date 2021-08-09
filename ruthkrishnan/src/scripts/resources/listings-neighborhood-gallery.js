@@ -2,23 +2,30 @@ export const listingsNeighborhhodGallery = () => {
 
   if (document.querySelector('.listings-neighborhood__photo-gallery')) {
 
-    let currSlide = 0;
+    let currSlide = 0,
+        paginationContent;
   
     const slider = document.querySelector('.listings-neighborhood__photo-gallery-slider'),
           sliderLength = slider.dataset.sliderLength,
           slide = document.querySelectorAll('.listings-neighborhood__photo-gallery-slide'),
           dot = document.querySelectorAll('.listings-neighborhood__photo-gallery-dot'),
-          prev = document.querySelector('.listings-neighborhood__photo-gallery-prev'),
-          next = document.querySelector('.listings-neighborhood__photo-gallery-next'),
+        numpagination = document.querySelector('.listings-neighborhood__numpagination'),
+          prev = document.querySelector('.listings-neighborhood__photo-gallery-icon--prev'),
+          next = document.querySelector('.listings-neighborhood__photo-gallery-icon--next'),
           img = document.querySelectorAll('.listings-neighborhood__photo-gallery-image');
 
     const setSlide = () => {
       slide.forEach( function(slide) {
         currSlide === +slide.dataset.index ? slide.classList.add('listings-neighborhood__photo-gallery-slide--active') : slide.classList.remove('listings-neighborhood__photo-gallery-slide--active')
       });
-      dot.forEach( function(dot) {
-        currSlide === +dot.dataset.index ? dot.classList.add('listings-neighborhood__photo-gallery-dot--active') : dot.classList.remove('listings-neighborhood__photo-gallery-dot--active')
-      });
+      if (numpagination) {
+        paginationContent = `${currSlide + 1} / ${+numpagination.dataset.slides}`
+        numpagination.innerHTML = paginationContent
+      } else {
+        dot.forEach( function(dot) {
+          currSlide === +dot.dataset.index ? dot.classList.add('listings-neighborhood__photo-gallery-dot--active') : dot.classList.remove('listings-neighborhood__photo-gallery-dot--active')
+        });
+      }
     }
   
     setSlide();

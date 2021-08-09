@@ -1306,7 +1306,7 @@ p, li, h2, h3, h4, h5 {
 }
 @media screen and (max-width: 768px) {
   .photo-gallery__prev {
-    left: 2rem;
+    left: 1rem;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1319,7 +1319,7 @@ p, li, h2, h3, h4, h5 {
 }
 @media screen and (max-width: 768px) {
   .photo-gallery__next {
-    right: 2rem;
+    right: 1rem;
   }
 }
 @media screen and (max-width: 480px) {

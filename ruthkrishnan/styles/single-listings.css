@@ -351,7 +351,7 @@
 }
 @media screen and (max-width: 768px) {
   .listings-neighborhood__photo-gallery-prev {
-    left: 2rem;
+    left: 1rem;
   }
 }
 @media screen and (max-width: 480px) {
@@ -364,7 +364,7 @@
 }
 @media screen and (max-width: 768px) {
   .listings-neighborhood__photo-gallery-next {
-    right: 2rem;
+    right: 1rem;
   }
 }
 @media screen and (max-width: 480px) {
