@@ -44,3 +44,5 @@ mix
 .js('src/scripts/pages/privacy.js', 'js/')
 .sass('src/sass/pages/marketing.sass', 'styles/')
 .js('src/scripts/pages/marketing.js', 'js/')
+.sass('src/sass/pages/404.sass', 'styles/')
+.js('src/scripts/pages/404.js', 'js/')

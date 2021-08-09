@@ -1,0 +1,21 @@
+@import '../local/index.sass'
+
+/* -----------------------
+    404 Page Styles
+   ----------------------- */
+
+.page-404
+  display: flex
+  flex-flow: column wrap
+  align-items: center
+  justify-content: center
+  text-align: center
+  height: 65vh
+
+  &__title
+    width: 100%
+    font-weight: 500
+
+  &__btn
+    @include button-solid($c3, $white, $c6)
+    margin-top: 2rem

@@ -113,6 +113,10 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'marketing', get_template_directory_uri() . '/styles/marketing.css' );
   }
 
+  if ( is_404() ) {
+    wp_enqueue_style( '404', get_template_directory_uri() . '/styles/404.css' );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -138,7 +142,7 @@ function theme_enqueue_scripts() {
     wp_enqueue_script( 'vimeo-player' );
   }
 
-  if ( !is_home() && !is_front_page() && get_post_type() !== 'propertylistings' && !is_page_template('page-thankyou.php') && !is_page_template('page-careers.php') && !is_page_template('page-privacy.php') ) {
+  if ( !is_home() && !is_front_page() && get_post_type() !== 'propertylistings' && !is_page_template('page-thankyou.php') && !is_page_template('page-careers.php') && !is_page_template('page-privacy.php') && !is_404() ) {
     wp_register_script( 'siteHero', get_template_directory_uri() . '/js/site-hero.js', array(), '', true);
     wp_enqueue_script( 'siteHero' );
   }
@@ -229,6 +233,11 @@ function theme_enqueue_scripts() {
   if ( is_page_template('page-marketing.php') ) {
     wp_register_script( 'marketing', get_template_directory_uri() . '/js/marketing.js', array(), '', true);
     wp_enqueue_script( 'marketing' );
+  }
+
+  if ( is_404() ) {
+    wp_register_script( '404', get_template_directory_uri() . '/js/404.js', array(), '', true);
+    wp_enqueue_script( '404' );
   }
 
 }
