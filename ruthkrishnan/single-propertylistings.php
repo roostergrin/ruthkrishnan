@@ -184,10 +184,6 @@ get_header(); ?>
 				</div>
 				<!-- END Floor Plan -->
 
-				<!-- Covid Rules -->
-				<?php get_template_part('template-parts/listings/listings-covid-rules'); ?>
-				<!-- END Covid Rules -->
-
 			</div>
 
 
