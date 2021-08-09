@@ -538,6 +538,19 @@
     marign-top: 1rem;
   }
 }
+.page-coaching__temp-testimonials-spacing {
+  margin-bottom: 4rem;
+}
+@media screen and (min-width: 1750px) {
+  .page-coaching__temp-testimonials-spacing {
+    margin-bottom: 5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .page-coaching__temp-testimonials-spacing {
+    margin-bottom: 2rem;
+  }
+}
 
 /* -----------------------
  *  Coaching Intro Styles

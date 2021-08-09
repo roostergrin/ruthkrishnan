@@ -530,6 +530,7 @@
 .talks-video-slider__slides {
   position: relative;
   display: flex;
+  justify-content: center;
   width: 100%;
   overflow: hidden;
 }
@@ -614,11 +615,6 @@
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-}
-@media screen and (max-width: 768px) {
-  .talks-video-slider__prev, .talks-video-slider__next {
-    display: none;
-  }
 }
 .talks-video-slider__prev--hidden, .talks-video-slider__next--hidden {
   display: none;

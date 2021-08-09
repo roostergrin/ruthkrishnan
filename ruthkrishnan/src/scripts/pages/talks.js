@@ -104,13 +104,20 @@ document.addEventListener('DOMContentLoaded', function () {
         slide.classList.remove('talks-video-slider__slide--next')
         slide.classList.add('talks-video-slider__slide--prev');
         slide.style.opacity = 0;
-        slide.style.transform = 'translateX(-100%)';
+        slide.style.transform = 'translateX(-150%)';
       } else if (currSlides.includes(+slide.dataset.index)) {
         slide.classList.remove('talks-video-slider__slide--prev')
         slide.classList.remove('talks-video-slider__slide--next')
         slide.classList.add('talks-video-slider__slide--curr')
         slide.style.opacity = 1;
-        slide.style.transform = `translateX(${100 * currSlides.indexOf(+slide.dataset.index)}%)`;
+        if (slidesArr.length === 2 && window.innerWidth > 768) {
+          slide.style.transform = `translateX(${100 * currSlides.indexOf(+slide.dataset.index) + 50}%)`;
+        } else if (slidesArr.length === 1 && window.innerWidth > 768) {
+          slide.style.transform = `translateX(${100 * currSlides.indexOf(+slide.dataset.index) + 100}%)`;
+        } else {
+          slide.style.transform = `translateX(${100 * currSlides.indexOf(+slide.dataset.index)}%)`;
+        }
+
       } else {
         slide.classList.remove('talks-video-slider__slide--prev')
         slide.classList.remove('talks-video-slider__slide--curr')

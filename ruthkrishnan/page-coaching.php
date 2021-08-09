@@ -22,7 +22,7 @@ get_header(); ?>
         <div class="coaching-intro__column coaching-intro__column--content">
           <div class="coaching-intro__text"><?php echo get_field('coaching_text'); ?></div>
           <div class="coaching-intro__link-container">
-            <a href="<?php echo get_field('coaching_link'); ?>" class="coaching-intro__link"><?php echo get_field('coaching_link_text'); ?></a>
+            <a href="<?php echo get_field('coaching_link'); ?>" class="coaching-intro__link" target="_blank" aria-label="Go to accelerator.com page (opens in new window)"><?php echo get_field('coaching_link_text'); ?></a>
           </div>
         </div>
         <div class="coaching-intro__column coaching-intro__column--image">
@@ -40,7 +40,11 @@ get_header(); ?>
   <!-- END About Ruth Krishnan Template Part -->
 
   <!-- Testimonials Template Part -->
-  <?php get_template_part('template-parts/testimonials/testimonials'); ?>
+  <div class="page-coaching__temp-testimonials-spacing">
+  </div>
+  <?php 
+  // get_template_part('template-parts/testimonials/testimonials');
+  ?>
   <!-- END Testimonials Template Part -->
 
   <!-- Get In Touch Form Template Part -->
