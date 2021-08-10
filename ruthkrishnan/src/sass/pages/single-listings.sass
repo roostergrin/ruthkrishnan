@@ -3,7 +3,7 @@
 @import '../templates/listings-neighborhood.sass'
 @import '../templates/form-get-in-touch.sass'
 @import '../templates/listings-covid-rules.sass'
-// @import '../templates/testimonials.sass'
+@import '../templates/blog-recent.sass'
 
 /* -------------------------
     Single Listings Styles
@@ -62,7 +62,7 @@
   &__tour
     position: relative
     margin: 0
-    padding-top: calc(100% * (9/16))
+    padding-top: 56.25%
     width: 100%
 
     &-video
@@ -232,8 +232,12 @@
       height: auto
     
     &-text
-      @extend %section-padding
+      @include desktop
+        padding-top: 2.5rem
+      @include nexus
+        padding-top: 1rem
       margin: auto
+      padding-top: 2rem
       width: 80%
       text-align: center
 
@@ -250,5 +254,9 @@
   //    Testimonials Styles
   //  -------------------------
 
-  &__testimonials
-    @extend %section-padding
+  // &__testimonials
+  //   @include desktop
+  //     padding-top: 2.5rem
+  //   @include nexus
+  //     padding-top: 1rem
+  //   padding-top: 2rem

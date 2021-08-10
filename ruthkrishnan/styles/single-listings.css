@@ -40,7 +40,7 @@
   transform: translate(-50%, -50%);
 }
 
-.listings-single__tour-video, .form-get-in-touch__label, .form-get-in-touch__background, .hero-listings__overlay, .hero-listings__background {
+.listings-single__tour-video, .blog-recent__image, .blog-recent__image-overlay, .form-get-in-touch__label, .form-get-in-touch__background, .hero-listings__overlay, .hero-listings__background {
   position: absolute;
   top: 0;
   left: 0;
@@ -60,16 +60,16 @@
   }
 }
 
-.listings-single__testimonials, .listings-single__plan-text, .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
+.listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .listings-single__testimonials, .listings-single__plan-text, .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
+  .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .listings-single__testimonials, .listings-single__plan-text, .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
+  .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
     padding: 1rem 0;
   }
 }
@@ -88,16 +88,16 @@
   }
 }
 
-.listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
+.listings-single__features-container, .listings-single__intro-text, .blog-recent, .listings-neighborhood {
   padding: 2rem 0 4rem;
 }
 @media screen and (min-width: 1750px) {
-  .listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
+  .listings-single__features-container, .listings-single__intro-text, .blog-recent, .listings-neighborhood {
     padding: 2.5rem 0 5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
+  .listings-single__features-container, .listings-single__intro-text, .blog-recent, .listings-neighborhood {
     padding: 1rem 0 2rem;
   }
 }
@@ -759,6 +759,134 @@
   text-align: center;
 }
 
+/* --------------------------
+ *  Blog Recent Posts Styles
+ * -------------------------- */
+.blog-recent__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  justify-content: center;
+}
+@media screen and (min-width: 1750px) {
+  .blog-recent__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .blog-recent__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .blog-recent__container {
+    padding: 0 1rem;
+  }
+}
+.blog-recent__title {
+  padding-bottom: 2rem;
+  width: 100%;
+  text-align: center;
+}
+@media screen and (max-width: 480px) {
+  .blog-recent__title {
+    padding-bottom: 1rem;
+  }
+}
+.blog-recent__posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+.blog-recent__post {
+  padding: 0 calc(30px / 2);
+  width: calc((3 / 12) * 100%);
+}
+@media screen and (max-width: 768px) {
+  .blog-recent__post {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .blog-recent__post {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .blog-recent__post {
+    padding: 0 calc(30px / 2) calc(30px / 2);
+  }
+}
+@media screen and (max-width: 480px) {
+  .blog-recent__post {
+    padding: 0 0 1rem;
+    width: 100%;
+  }
+}
+@media not all and (pointer: coarse) {
+  .blog-recent__post:hover .blog-recent__image {
+    transform: scale(1.1);
+  }
+  .blog-recent__post:hover .blog-recent__image-overlay {
+    opacity: 1;
+  }
+}
+.blog-recent__image-container {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: calc((1146px / 4) * .75);
+  cursor: pointer;
+  overflow: hidden;
+}
+@media screen and (min-width: 1750px) {
+  .blog-recent__image-container {
+    height: calc((1528px / 4) * .75);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .blog-recent__image-container {
+    height: calc(48vw * .75);
+  }
+}
+@media screen and (max-width: 480px) {
+  .blog-recent__image-container {
+    height: calc(98vw * .75);
+  }
+}
+.blog-recent__image-overlay {
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.26);
+}
+.blog-recent__image {
+  transition: transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.blog-recent__post-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.blog-recent__post-title {
+  display: block;
+  margin: 0.5rem 0;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.blog-recent__post-date {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
 /* -------------------------
  *  Single Listings Styles
  * ------------------------- */
@@ -842,7 +970,7 @@
 .listings-single__tour {
   position: relative;
   margin: 0;
-  padding-top: calc(100% * (9/16));
+  padding-top: 56.25%;
   width: 100%;
 }
 .listings-single__tour-video {
@@ -992,8 +1120,19 @@
 }
 .listings-single__plan-text {
   margin: auto;
+  padding-top: 2rem;
   width: 80%;
   text-align: center;
+}
+@media screen and (min-width: 1750px) {
+  .listings-single__plan-text {
+    padding-top: 2.5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .listings-single__plan-text {
+    padding-top: 1rem;
+  }
 }
 .listings-single__plan-text p:not(:last-of-type) {
   margin-bottom: 1rem;

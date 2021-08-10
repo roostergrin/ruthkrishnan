@@ -253,6 +253,10 @@ get_header(); ?>
 		</div>
 	</div>
 	<!-- END Testimonials -->
+	
+	<!-- Recent Blogs Template Part -->
+  <?php get_template_part('template-parts/blog/blog-recent'); ?>
+	<!-- END Recent Blogs Template Part -->
 
 	<!-- Get in Touch Form -->
 	<div class="listings-single__get-in-touch">
@@ -323,7 +327,7 @@ get_header(); ?>
       <?php endwhile;
     endif; ?>
       
-</section>
+	</section>
 	</div>
 	<!-- END Get in Touch Form -->
 
