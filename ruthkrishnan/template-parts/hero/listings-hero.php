@@ -57,7 +57,7 @@
     
     <!-- Hero Video -->
     <figure class='hero-listings__wrapper' data-position-x='center' data-position-y='center'>
-      <div class='hero-listings__overlay'></div>
+      <!-- <div class='hero-listings__overlay'></div> -->
 
         <?php if ( !empty(get_field('background_video')) ) : ?>
           <div class="hero-listings__background">
