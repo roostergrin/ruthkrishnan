@@ -2,6 +2,43 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/resources/form-exclusive-access.js":
+/*!********************************************************!*\
+  !*** ./src/scripts/resources/form-exclusive-access.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "formExclusiveAccess": () => (/* binding */ formExclusiveAccess)
+/* harmony export */ });
+var formExclusiveAccess = function formExclusiveAccess() {
+  var formElem = document.getElementById('exclusive-access-form');
+
+  if (formElem) {
+    var sendEmail = function sendEmail() {
+      console.log(formElem.email.value);
+      axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/exclusive-access', {
+        email: formElem.email.value
+      }).then(function (res) {
+        formElem.email.value = '';
+        setTimeout(function () {
+          window.location.href = 'https://dev.ruthkrishnan.com/thank-you';
+        }, 150);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    };
+
+    formElem.addEventListener('submit', function (event) {
+      event.preventDefault();
+      sendEmail();
+    });
+  }
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/gmaps.js":
 /*!****************************************!*\
   !*** ./src/scripts/resources/gmaps.js ***!
@@ -399,6 +436,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_listings_neighborhood_gallery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../resources/listings-neighborhood-gallery */ "./src/scripts/resources/listings-neighborhood-gallery.js");
 /* harmony import */ var _resources_gmaps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../resources/gmaps */ "./src/scripts/resources/gmaps.js");
 /* harmony import */ var _resources_testimonials__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../resources/testimonials */ "./src/scripts/resources/testimonials.js");
+/* harmony import */ var _resources_form_exclusive_access__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../resources/form-exclusive-access */ "./src/scripts/resources/form-exclusive-access.js");
+
 
 
 
@@ -428,7 +467,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   (0,_resources_gmaps__WEBPACK_IMPORTED_MODULE_3__.setMap)(); // Testimonials
 
-  (0,_resources_testimonials__WEBPACK_IMPORTED_MODULE_4__.testimonials)(); // END Imported Scripts -------------------
+  (0,_resources_testimonials__WEBPACK_IMPORTED_MODULE_4__.testimonials)(); // From Exclusive Access
+
+  (0,_resources_form_exclusive_access__WEBPACK_IMPORTED_MODULE_5__.formExclusiveAccess)(); // END Imported Scripts -------------------
   // Features See More
 
   var toggleFeatures = function toggleFeatures() {

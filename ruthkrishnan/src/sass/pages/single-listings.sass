@@ -250,13 +250,83 @@
         transition: opacity .2s ease
         text-decoration: underline
 
-  //  -------------------------
-  //    Testimonials Styles
-  //  -------------------------
+  //  ----------------------------
+  //    Exclusive Access Styles
+  //  ----------------------------
 
-  // &__testimonials
-  //   @include desktop
-  //     padding-top: 2.5rem
-  //   @include nexus
-  //     padding-top: 1rem
-  //   padding-top: 2rem
+  &__access
+    @extend %section-margins
+
+    &-container
+      @include container
+      color: $white
+
+    &-column
+      @include col(12)
+    
+    &-content
+      @extend %section-padding-large
+      @include tablet-lg
+        padding-right: 2rem
+        padding-left: 2rem
+      @include phone-lg
+        padding-right: 1rem
+        padding-left: 1rem
+      display: flex
+      flex-direction: column
+      align-items: center
+      background: $c1
+      text-align: center
+
+    &-title
+      width: 100%
+
+    &-text
+      @include col(6)
+      @extend %section-margins
+      @include tablet-lg
+        width: 100%
+
+    &-form
+      @include col(4)
+      @include tablet-lg
+        width: 75%
+      @include tablet
+        width: 100%
+      // display: flex
+      // flex-wrap: wrap
+      // justify-content: space-between
+
+    &-form-group
+      position: relative
+      margin-bottom: 2rem
+      width: 100%
+
+    &-label
+      @extend %absolute
+      display: none
+      top: rem-calc(4)
+      left: rem-calc(4)
+    
+    &-input
+      background: $c1
+      border-radius: 0
+      border-bottom: 2px solid $white
+      padding: rem-calc(12) 0
+      width: 100%
+      color: $white
+      -webkit-appearance: none
+
+      &:focus-visible
+        outline: none
+
+      &::placeholder
+        color: $white
+        opacity: 1
+
+    &-submit
+      @extend %button-text
+      @include button-solid($c3, $white, $c6)
+      border-radius: 0
+      font-weight: 500
+      -webkit-appearance: none

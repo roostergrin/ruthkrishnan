@@ -815,7 +815,7 @@ p, li, h2, h3, h4, h5 {
 .form-subscribe__button {
   display: inline-block;
   position: relative;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
   border: 0.0625rem solid #AF5B5B;
   background: #AF5B5B;
   cursor: pointer;
@@ -827,6 +827,7 @@ p, li, h2, h3, h4, h5 {
 }
 @media not all and (pointer: coarse) {
   .form-subscribe__button:hover {
+    border-color: #963636;
     background: #963636;
     color: #fff;
   }

@@ -378,7 +378,7 @@
 .cta-text-btn__btn {
   display: inline-block;
   position: relative;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
   border: 0.0625rem solid #AF5B5B;
   background: #AF5B5B;
   cursor: pointer;
@@ -388,6 +388,7 @@
 }
 @media not all and (pointer: coarse) {
   .cta-text-btn__btn:hover {
+    border-color: #963636;
     background: #963636;
     color: #fff;
   }

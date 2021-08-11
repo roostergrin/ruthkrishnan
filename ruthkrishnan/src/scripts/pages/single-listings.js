@@ -3,6 +3,7 @@ import { photoGallery } from '../resources/photo-gallery';
 import { listingsNeighborhhodGallery } from '../resources/listings-neighborhood-gallery';
 import { setMap } from '../resources/gmaps';
 import { testimonials } from '../resources/testimonials';
+import { formExclusiveAccess } from '../resources/form-exclusive-access';
 
 document.addEventListener('DOMContentLoaded', function () {
   const playBtn = document.querySelector('.listings-single__play-btn'),
@@ -35,6 +36,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Testimonials
   testimonials();
+
+  // From Exclusive Access
+  formExclusiveAccess();
 
   // END Imported Scripts -------------------
 
