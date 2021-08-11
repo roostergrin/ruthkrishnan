@@ -274,8 +274,18 @@
                   </div>
                 </div> <!-- container  -->
               </section>
+              <!-- Photo Gallery Template Part -->
               <?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
+              <!-- ENDPhoto Gallery Template Part -->
+
+              <!-- Google Maps Template Part -->
               <?php get_template_part('template-parts/maps/newdevelopments-posts-map'); ?>
+              <!-- END Google Maps Template Part -->
+
+              <!-- New Dev Contact Form Template Part -->
+              <?php get_template_part('template-parts/forms/form-new-dev'); ?>
+              <!-- END New Dev Contact Form Template Part -->
+              
             </div> <!-- page-wrapper  -->
 
         <?php endwhile; ?>

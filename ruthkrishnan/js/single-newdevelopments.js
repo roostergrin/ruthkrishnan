@@ -2,6 +2,52 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/resources/form-new-dev.js":
+/*!***********************************************!*\
+  !*** ./src/scripts/resources/form-new-dev.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "formNewDev": () => (/* binding */ formNewDev)
+/* harmony export */ });
+var formNewDev = function formNewDev() {
+  var formElem = document.getElementById('new-dev-form');
+
+  if (formElem) {
+    var sendEmail = function sendEmail() {
+      axios.post('http://localhost:8888/wp-json/rg-mail/v1/form-new-dev', {
+        fullname: formElem.fullname.value,
+        email: formElem.email.value,
+        phone: formElem.phone.value,
+        property: formElem.property.value,
+        address: formElem.address.value,
+        message: formElem.message.value
+      }).then(function (res) {
+        formElem.fullname.value = '';
+        formElem.email.value = '';
+        formElem.phone.value = '';
+        formElem.property.value = '';
+        formElem.property.value = '';
+        formElem.message.value = '';
+        setTimeout(function () {
+          window.location.href = 'https://dev.ruthkrishnan.com/thank-you';
+        }, 150);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    };
+
+    formElem.addEventListener('submit', function (event) {
+      event.preventDefault();
+      sendEmail();
+    });
+  }
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/gmaps.js":
 /*!****************************************!*\
   !*** ./src/scripts/resources/gmaps.js ***!
@@ -195,11 +241,14 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_gmaps__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/gmaps */ "./src/scripts/resources/gmaps.js");
 /* harmony import */ var _resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/photo-gallery */ "./src/scripts/resources/photo-gallery.js");
+/* harmony import */ var _resources_form_new_dev__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../resources/form-new-dev */ "./src/scripts/resources/form-new-dev.js");
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
   (0,_resources_gmaps__WEBPACK_IMPORTED_MODULE_0__.setMap)();
   (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__.photoGallery)();
+  (0,_resources_form_new_dev__WEBPACK_IMPORTED_MODULE_2__.formNewDev)();
 });
 })();
 
