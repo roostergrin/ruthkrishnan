@@ -6,9 +6,7 @@ var __webpack_exports__ = {};
 document.addEventListener('DOMContentLoaded', function () {
   var header = document.querySelector('.site-navigation'),
       returnButton = document.querySelector('.page-thank-you__button');
-  header.classList.add('site-navigation--active');
-  returnButton.href = document.referrer;
-  console.log(document.referrer); // let debounceLastTimeout = null;
+  header.classList.add('site-navigation--active'); // let debounceLastTimeout = null;
   // const setPageHeight = () => {
   //         subscribe = document.querySelector('.form-subscribe'),
   //         footer = document.querySelector('.footer'),
