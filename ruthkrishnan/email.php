@@ -87,7 +87,7 @@ function rg_serve_route_new_dev () {
 
   $data = json_decode(file_get_contents("php://input"), true);
   $from = 'no-reply@ruthkrishnan.com';
-  $to = 'bryant@roostergrin.com';
+  $to = 'info@ruthkrishnan.com';
   $subject = 'Ruth Krishnan New Development - Schedule Showing';
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $message = '<!DOCTYPE html><html><body>';
