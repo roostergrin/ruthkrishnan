@@ -51,6 +51,11 @@
     position: relative
     width: 100%
     height: calc(60vw * .5625)
+    cursor: pointer
+
+    @include hover-supported
+      .buy-welcome__icon
+        opacity: .7
 
   &__thumbnail
     @extend %absolute
@@ -75,9 +80,6 @@
 
   &__play-btn
     @extend %centered
-    @include hover-supported
-      .buy-welcome__icon
-        opacity: .7
     opacity: 1
     z-index: 3
     cursor: pointer
@@ -94,7 +96,7 @@
     fill: $c1
   
 /* -----------------------
-    Buy Welcome Styles
+    Buy Testimonial video Styles
    ----------------------- */ 
 
 .buy-testimonial-video
@@ -124,6 +126,11 @@
     position: relative
     width: 100%
     height: calc(60vw * .5625)
+    cursor: pointer
+
+    @include hover-supported
+      .buy-testimonial-video__icon
+        opacity: .7
 
   &__thumbnail
     @extend %absolute
@@ -148,9 +155,6 @@
 
   &__play-btn
     @extend %centered
-    @include hover-supported
-      .buy-testimonial-video__icon
-        opacity: .7
     opacity: 1
     z-index: 3
     cursor: pointer
@@ -164,7 +168,9 @@
     transition: opacity .2s ease
     width: 3rem
     height: 3rem
-    fill: $c1
+    border-radius: 50%
+    fill: $white
+    box-shadow: 1px 2px 3px rgba($black, .5)
 
 /* --------------------------
     Buy Neighborhood Styles

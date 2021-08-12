@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
   const playButton = document.querySelector('.talks-intro__play-btn'),
         thumbnail = document.querySelector('.talks-intro__thumbnail'),
-        video = document.querySelector('.talks-intro__video');
+        video = document.querySelector('.talks-intro__video'),
+        videoContainer = document.querySelector('.talks-intro__video-container');
         
-        playButton.addEventListener('click', () => {
+        videoContainer.addEventListener('click', () => {
           video.src = video.dataset.src;
           playButton.classList.add('talks-intro__play-btn--hidden');
           thumbnail.classList.add('talks-intro__thumbnail--hidden');

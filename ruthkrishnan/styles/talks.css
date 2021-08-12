@@ -423,6 +423,7 @@
   position: relative;
   width: 100%;
   height: calc(50vw * .5625);
+  cursor: pointer;
 }
 @media screen and (max-width: 1280px) {
   .talks-intro__video-container {
@@ -432,6 +433,11 @@
 @media screen and (max-width: 768px) {
   .talks-intro__video-container {
     height: 45vw;
+  }
+}
+@media not all and (pointer: coarse) {
+  .talks-intro__video-container:hover .talks-intro__icon {
+    opacity: 0.7;
   }
 }
 .talks-intro__thumbnail {
@@ -460,11 +466,6 @@
   cursor: pointer;
   pointer-events: auto;
 }
-@media not all and (pointer: coarse) {
-  .talks-intro__play-btn:hover .about-video__icon {
-    opacity: 0.7;
-  }
-}
 .talks-intro__play-btn--hidden {
   opacity: 0;
   pointer-events: none;
@@ -473,7 +474,9 @@
   transition: opacity 0.2s ease;
   width: 3rem;
   height: 3rem;
-  fill: #232323;
+  border-radius: 50%;
+  fill: #fff;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
 }
 .talks-intro__text {
   margin-top: 2rem;
@@ -604,7 +607,9 @@
   transition: opacity 0.2s ease;
   width: 3rem;
   height: 3rem;
-  fill: #232323;
+  border-radius: 50%;
+  fill: #fff;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
 }
 .talks-video-slider__slide-title {
   background: #fff;

@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
       tabletVideoContainer = document.querySelector('.home-welcome__no-modal-video-container'),
       tabletVideo = document.querySelector('.home-welcome__no-modal-video'),
       videoModal = document.querySelector('.home-welcome__video-modal'),
-      playBtn = document.querySelector('.home-welcome__play-btn'),
+      playBtn = document.querySelector('.home-welcome__image-container'),
       videoThumbnail = document.querySelector('.home-welcome__thumbnail'),
       closeBtn = document.querySelector('.home-welcome__close-btn'),
       overlay = document.querySelector('.home-welcome__modal-overlay');

@@ -40,7 +40,7 @@
   transform: translate(-50%, -50%);
 }
 
-.sell-video__video, .sell-video__thumbnail, .sell-prices__background, .case-studies__background, .before-after__background, .resources-links__background {
+.sell-prices__background, .sell-video__video, .sell-video__thumbnail, .case-studies__background, .before-after__background, .resources-links__background {
   position: absolute;
   top: 0;
   left: 0;
@@ -48,28 +48,28 @@
   height: 100%;
 }
 
-.sell-video__link, .sell-prices__btn, .case-studies__btn, .before-after__btn {
+.sell-prices__btn, .sell-video__link, .case-studies__btn, .before-after__btn {
   text-transform: lowercase;
   line-height: 1.15;
   letter-spacing: 0.01541875rem;
   font-size: 0.875rem;
 }
 @media screen and (min-width: 1750px) {
-  .sell-video__link, .sell-prices__btn, .case-studies__btn, .before-after__btn {
+  .sell-prices__btn, .sell-video__link, .case-studies__btn, .before-after__btn {
     font-size: 1rem;
   }
 }
 
-.sell-video, .sell-commission, .sell-prices, .before-after, .resources-links, .process-steps, .our-performance {
+.sell-commission, .sell-prices, .sell-video, .before-after, .resources-links, .process-steps, .our-performance {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .sell-video, .sell-commission, .sell-prices, .before-after, .resources-links, .process-steps, .our-performance {
+  .sell-commission, .sell-prices, .sell-video, .before-after, .resources-links, .process-steps, .our-performance {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .sell-video, .sell-commission, .sell-prices, .before-after, .resources-links, .process-steps, .our-performance {
+  .sell-commission, .sell-prices, .sell-video, .before-after, .resources-links, .process-steps, .our-performance {
     padding: 1rem 0;
   }
 }
@@ -1245,6 +1245,173 @@
   }
 }
 
+/* ---------------------
+ *  Sell Video Styles
+ * --------------------- */
+.sell-video__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  max-width: 1146px;
+}
+@media screen and (min-width: 1750px) {
+  .sell-video__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .sell-video__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .sell-video__container {
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .sell-video__container {
+    max-width: calc(1528px - 64px);
+  }
+}
+@media screen and (max-width: 880px) {
+  .sell-video__container {
+    padding: 0 2rem;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .sell-video__container {
+    padding: 0 1rem;
+  }
+}
+.sell-video__column {
+  padding: 0 calc(30px / 2);
+  width: calc((10 / 12) * 100%);
+  margin-left: calc((1 / 12) * 100%);
+  padding: 0;
+}
+@media screen and (max-width: 768px) {
+  .sell-video__column {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .sell-video__column {
+    margin-left: 0;
+  }
+}
+.sell-video__video-container {
+  position: relative;
+  width: 100%;
+  height: calc(60vw * .5625);
+  cursor: pointer;
+}
+@media screen and (max-width: 1280px) {
+  .sell-video__video-container {
+    height: calc(75vw * .5625);
+  }
+}
+@media screen and (max-width: 480px) {
+  .sell-video__video-container {
+    height: 50vw;
+  }
+}
+@media not all and (pointer: coarse) {
+  .sell-video__video-container:hover .sell-video__icon {
+    opacity: 0.7;
+  }
+}
+.sell-video__thumbnail {
+  transition: opacity 0.5s ease;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 1;
+  pointer-events: auto;
+}
+.sell-video__thumbnail--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.sell-video__video {
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.sell-video__video--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.sell-video__play-btn {
+  opacity: 1;
+  z-index: 3;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.sell-video__play-btn--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.sell-video__icon {
+  transition: opacity 0.2s ease;
+  width: 3rem;
+  height: 3rem;
+}
+.sell-video__content {
+  padding: 0 calc(30px / 2);
+  width: calc((8 / 12) * 100%);
+  margin-left: calc((2 / 12) * 100%);
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .sell-video__content {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .sell-video__content {
+    margin-left: 0;
+  }
+}
+.sell-video__text {
+  padding-top: 2rem;
+}
+@media screen and (min-width: 1750px) {
+  .sell-video__text {
+    padding-top: 2.5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .sell-video__text {
+    padding-top: 1rem;
+  }
+}
+.sell-video__link {
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s ease;
+  border: 0.0625rem solid #AF5B5B;
+  background: #AF5B5B;
+  cursor: pointer;
+  padding: 0.875rem 2rem 0.75rem;
+  text-transform: lowercase;
+  color: #fff;
+  margin-top: 1rem;
+}
+@media not all and (pointer: coarse) {
+  .sell-video__link:hover {
+    border-color: #963636;
+    background: #963636;
+    color: #fff;
+  }
+}
+
 /* ----------------------
  *  Sell Prices Styles
  * ---------------------- */
@@ -1531,172 +1698,5 @@
 @media screen and (max-width: 880px) {
   .sell-commission__image:not(:first-of-type) {
     padding-top: 1rem;
-  }
-}
-
-/* ---------------------
- *  Sell Video Styles
- * --------------------- */
-.sell-video__container {
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  padding: 0 calc((64px / 2) - 15px);
-  width: 100%;
-  max-width: calc(1146px + 64px);
-  max-width: 1146px;
-}
-@media screen and (min-width: 1750px) {
-  .sell-video__container {
-    max-width: 1528px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .sell-video__container {
-    padding: 0 2rem;
-  }
-}
-@media screen and (max-width: 480px) {
-  .sell-video__container {
-    padding: 0 1rem;
-  }
-}
-@media screen and (min-width: 1750px) {
-  .sell-video__container {
-    max-width: calc(1528px - 64px);
-  }
-}
-@media screen and (max-width: 880px) {
-  .sell-video__container {
-    padding: 0 2rem;
-    max-width: 100%;
-  }
-}
-@media screen and (max-width: 480px) {
-  .sell-video__container {
-    padding: 0 1rem;
-  }
-}
-.sell-video__column {
-  padding: 0 calc(30px / 2);
-  width: calc((10 / 12) * 100%);
-  margin-left: calc((1 / 12) * 100%);
-  padding: 0;
-}
-@media screen and (max-width: 768px) {
-  .sell-video__column {
-    padding: 0;
-    width: 100%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .sell-video__column {
-    margin-left: 0;
-  }
-}
-.sell-video__video-container {
-  position: relative;
-  width: 100%;
-  height: calc(60vw * .5625);
-}
-@media screen and (max-width: 1280px) {
-  .sell-video__video-container {
-    height: calc(75vw * .5625);
-  }
-}
-@media screen and (max-width: 480px) {
-  .sell-video__video-container {
-    height: 50vw;
-  }
-}
-.sell-video__thumbnail {
-  transition: opacity 0.5s ease;
-  -o-object-fit: cover;
-     object-fit: cover;
-  opacity: 1;
-  pointer-events: auto;
-}
-.sell-video__thumbnail--hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-.sell-video__video {
-  transition: opacity 0.5s ease;
-  opacity: 0;
-  pointer-events: none;
-}
-.sell-video__video--active {
-  opacity: 1;
-  pointer-events: auto;
-}
-.sell-video__play-btn {
-  opacity: 1;
-  z-index: 3;
-  cursor: pointer;
-  pointer-events: auto;
-}
-@media not all and (pointer: coarse) {
-  .sell-video__play-btn:hover .about-video__icon {
-    opacity: 0.7;
-  }
-}
-.sell-video__play-btn--hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-.sell-video__icon {
-  transition: opacity 0.2s ease;
-  width: 3rem;
-  height: 3rem;
-  fill: #232323;
-}
-.sell-video__content {
-  padding: 0 calc(30px / 2);
-  width: calc((8 / 12) * 100%);
-  margin-left: calc((2 / 12) * 100%);
-  text-align: center;
-}
-@media screen and (max-width: 768px) {
-  .sell-video__content {
-    padding: 0;
-    width: 100%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .sell-video__content {
-    margin-left: 0;
-  }
-}
-.sell-video__text {
-  padding-top: 2rem;
-}
-@media screen and (min-width: 1750px) {
-  .sell-video__text {
-    padding-top: 2.5rem;
-  }
-}
-@media screen and (max-width: 600px) {
-  .sell-video__text {
-    padding-top: 1rem;
-  }
-}
-.sell-video__link {
-  display: inline-block;
-  position: relative;
-  transition: all 0.2s ease;
-  border: 0.0625rem solid #AF5B5B;
-  background: #AF5B5B;
-  cursor: pointer;
-  padding: 0.875rem 2rem 0.75rem;
-  text-transform: lowercase;
-  color: #fff;
-  margin-top: 1rem;
-}
-@media not all and (pointer: coarse) {
-  .sell-video__link:hover {
-    border-color: #963636;
-    background: #963636;
-    color: #fff;
   }
 }

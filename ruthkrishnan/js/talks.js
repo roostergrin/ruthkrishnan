@@ -18,8 +18,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 document.addEventListener('DOMContentLoaded', function () {
   var playButton = document.querySelector('.talks-intro__play-btn'),
       thumbnail = document.querySelector('.talks-intro__thumbnail'),
-      video = document.querySelector('.talks-intro__video');
-  playButton.addEventListener('click', function () {
+      video = document.querySelector('.talks-intro__video'),
+      videoContainer = document.querySelector('.talks-intro__video-container');
+  videoContainer.addEventListener('click', function () {
     video.src = video.dataset.src;
     playButton.classList.add('talks-intro__play-btn--hidden');
     thumbnail.classList.add('talks-intro__thumbnail--hidden');

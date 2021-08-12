@@ -272,6 +272,7 @@ __webpack_require__.r(__webpack_exports__);
 
 document.addEventListener('DOMContentLoaded', function () {
   var playButton = document.querySelector('.sell-video__play-btn'),
+      videoContainer = document.querySelector('.sell-video__video-container'),
       thumbnail = document.querySelector('.sell-video__thumbnail'),
       video = document.querySelector('.sell-video__video'); // External Scripts
 
@@ -279,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function () {
   (0,_resources_slider_before_after__WEBPACK_IMPORTED_MODULE_1__.beforeAfter)();
   (0,_resources_slider_case_studies__WEBPACK_IMPORTED_MODULE_2__.caseStudies)();
   video.addEventListener('loadeddata', function () {});
-  playButton.addEventListener('click', function () {
+  videoContainer.addEventListener('click', function () {
     video.src = video.dataset.src;
     playButton.classList.add('sell-video__play-btn--hidden');
     thumbnail.classList.add('sell-video__thumbnail--hidden');

@@ -93,6 +93,24 @@
     position: relative
     width: 100%
     height: 100%
+    overflow: hidden
+    cursor: pointer
+
+    @include hover-supported
+      .home-welcome__thumbnail
+        transform: scale(1.07)
+
+      .home-welcome__image-overlay
+        opacity: .26
+
+      .home-welcome__icon
+        opacity: .7
+
+  &__image-overlay
+    @extend %absolute
+    transition: opacity .5s ease
+    background: $black
+    opacity: 0
 
   &__no-modal-video-container
     @include laptop
@@ -112,7 +130,7 @@
 
   &__thumbnail
     @extend %absolute
-    transition: opacity .5s ease
+    transition: opacity .5s ease, transform .5s ease
     object-fit: cover
     pointer-events: auto
 
@@ -143,9 +161,6 @@
 
   &__play-btn
     @extend %centered
-    @include hover-supported
-      .home-welcome__icon
-        opacity: .7
     transition: opacity .5s ease
     z-index: 3
     cursor: pointer
@@ -159,7 +174,9 @@
     transition: opacity .2s ease
     width: 3rem
     height: 3rem
-    fill: $c1
+    fill: $white
+    border-radius: 50%
+    box-shadow: 1px 2px 3px rgba($black, .5)
 
   &__button
     @extend %button-text

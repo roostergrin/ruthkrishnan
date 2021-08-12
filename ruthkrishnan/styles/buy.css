@@ -776,6 +776,7 @@
   position: relative;
   width: 100%;
   height: calc(60vw * .5625);
+  cursor: pointer;
 }
 @media screen and (max-width: 1280px) {
   .buy-welcome__video-container {
@@ -785,6 +786,11 @@
 @media screen and (max-width: 480px) {
   .buy-welcome__video-container {
     height: 50vw;
+  }
+}
+@media not all and (pointer: coarse) {
+  .buy-welcome__video-container:hover .buy-welcome__icon {
+    opacity: 0.7;
   }
 }
 .buy-welcome__thumbnail {
@@ -813,11 +819,6 @@
   cursor: pointer;
   pointer-events: auto;
 }
-@media not all and (pointer: coarse) {
-  .buy-welcome__play-btn:hover .buy-welcome__icon {
-    opacity: 0.7;
-  }
-}
 .buy-welcome__play-btn--hidden {
   opacity: 0;
   pointer-events: none;
@@ -830,7 +831,7 @@
 }
 
 /* -----------------------
- *  Buy Welcome Styles
+ *  Buy Testimonial video Styles
  * ----------------------- */ 
 .buy-testimonial-video__container {
   display: flex;
@@ -894,6 +895,7 @@
   position: relative;
   width: 100%;
   height: calc(60vw * .5625);
+  cursor: pointer;
 }
 @media screen and (max-width: 1280px) {
   .buy-testimonial-video__video-container {
@@ -903,6 +905,11 @@
 @media screen and (max-width: 480px) {
   .buy-testimonial-video__video-container {
     height: 50vw;
+  }
+}
+@media not all and (pointer: coarse) {
+  .buy-testimonial-video__video-container:hover .buy-testimonial-video__icon {
+    opacity: 0.7;
   }
 }
 .buy-testimonial-video__thumbnail {
@@ -931,11 +938,6 @@
   cursor: pointer;
   pointer-events: auto;
 }
-@media not all and (pointer: coarse) {
-  .buy-testimonial-video__play-btn:hover .buy-testimonial-video__icon {
-    opacity: 0.7;
-  }
-}
 .buy-testimonial-video__play-btn--hidden {
   opacity: 0;
   pointer-events: none;
@@ -944,7 +946,9 @@
   transition: opacity 0.2s ease;
   width: 3rem;
   height: 3rem;
-  fill: #232323;
+  border-radius: 50%;
+  fill: #fff;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* --------------------------

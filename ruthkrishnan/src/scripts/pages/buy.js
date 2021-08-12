@@ -4,23 +4,25 @@ document.addEventListener('DOMContentLoaded', function () {
   const playButton = document.querySelector('.buy-welcome__play-btn'),
         thumbnail = document.querySelector('.buy-welcome__thumbnail'),
         video = document.querySelector('.buy-welcome__video'),
+        videoContainer = document.querySelector('.buy-welcome__video-container'),
         testimonialPlayButton = document.querySelector('.buy-testimonial-video__play-btn'),
         testimonialThumbnail = document.querySelector('.buy-testimonial-video__thumbnail'),
-        testimonialVideo = document.querySelector('.buy-testimonial-video__video');
+        testimonialVideo = document.querySelector('.buy-testimonial-video__video'),
+        testimonialVideoContainer = document.querySelector('.buy-testimonial-video__video-container');
         
   let debounceLastTimeout = null;
 
   // External Scripts
   resourcesLinks();
 
-  playButton.addEventListener('click', () => {
+  videoContainer.addEventListener('click', () => {
     video.src = video.dataset.src;
     playButton.classList.add('buy-welcome__play-btn--hidden');
     thumbnail.classList.add('buy-welcome__thumbnail--hidden');
     video.classList.add('buy-welcome__video--active');
   })
 
-  testimonialPlayButton.addEventListener('click', () => {
+  testimonialVideoContainer.addEventListener('click', () => {
     testimonialVideo.src = testimonialVideo.dataset.src;
     testimonialPlayButton.classList.add('buy-testimonial-video__play-btn--hidden');
     testimonialThumbnail.classList.add('buy-testimonial-video__thumbnail--hidden');

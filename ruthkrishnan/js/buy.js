@@ -136,19 +136,21 @@ document.addEventListener('DOMContentLoaded', function () {
   var playButton = document.querySelector('.buy-welcome__play-btn'),
       thumbnail = document.querySelector('.buy-welcome__thumbnail'),
       video = document.querySelector('.buy-welcome__video'),
+      videoContainer = document.querySelector('.buy-welcome__video-container'),
       testimonialPlayButton = document.querySelector('.buy-testimonial-video__play-btn'),
       testimonialThumbnail = document.querySelector('.buy-testimonial-video__thumbnail'),
-      testimonialVideo = document.querySelector('.buy-testimonial-video__video');
+      testimonialVideo = document.querySelector('.buy-testimonial-video__video'),
+      testimonialVideoContainer = document.querySelector('.buy-testimonial-video__video-container');
   var debounceLastTimeout = null; // External Scripts
 
   (0,_resources_resources_links__WEBPACK_IMPORTED_MODULE_0__.resourcesLinks)();
-  playButton.addEventListener('click', function () {
+  videoContainer.addEventListener('click', function () {
     video.src = video.dataset.src;
     playButton.classList.add('buy-welcome__play-btn--hidden');
     thumbnail.classList.add('buy-welcome__thumbnail--hidden');
     video.classList.add('buy-welcome__video--active');
   });
-  testimonialPlayButton.addEventListener('click', function () {
+  testimonialVideoContainer.addEventListener('click', function () {
     testimonialVideo.src = testimonialVideo.dataset.src;
     testimonialPlayButton.classList.add('buy-testimonial-video__play-btn--hidden');
     testimonialThumbnail.classList.add('buy-testimonial-video__thumbnail--hidden');
