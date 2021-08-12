@@ -401,12 +401,12 @@
 }
 @media screen and (max-width: 1280px) {
   .single-neighborhoods-video__video-container {
-    height: calc(55vw * .5625);
+    height: calc(60vw * .5625);
   }
 }
 @media screen and (max-width: 768px) {
   .single-neighborhoods-video__video-container {
-    height: 45vw;
+    height: 50vw;
   }
 }
 @media not all and (pointer: coarse) {
