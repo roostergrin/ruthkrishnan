@@ -44,6 +44,25 @@ if ( have_posts() ) :
 		</div>
 		<!-- END Single Neighborhoods Content Section -->
 
+		<!-- Video Section -->
+		<?php if ( !empty(get_field('neighborhood_video')) ) : ?>
+			<div class="single-neighborhoods-video">
+				<div class="single-neighborhoods-video__container">
+					<div class="single-neighborhoods-video__column">
+						<div class="single-neighborhoods-video__video-container">
+							<iframe class="single-neighborhoods-video__video" data-src="<?php echo get_field('neighborhood_video') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+							<?php echo wp_get_attachment_image(get_field('neighborhood_thumbnail'), 'full', false, [ 'class' => 'single-neighborhoods-video__thumbnail' ]); ?>
+							<div class="single-neighborhoods-video__play-btn">
+								<?php get_template_part('icons/play', null, array('class' => 'single-neighborhoods-video__icon')); ?>
+							</div>
+						</div>
+						<div class="single-neighborhoods-video__text"><?php echo get_field('talks_intro_text'); ?></div>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
+		<!-- END Video Section -->
+
 		<!-- Photo Gallery Template Part -->
 		<?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
 		<!-- END Photo Gallery Template Part -->

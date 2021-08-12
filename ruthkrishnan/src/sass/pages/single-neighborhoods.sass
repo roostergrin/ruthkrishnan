@@ -62,6 +62,92 @@
     @extend %h4
     text-transform: uppercase    
     
+/* -----------------------
+    Talks Intro Styles
+   ----------------------- */
+
+.single-neighborhoods-video
+  @extend %section-padding
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$gutter * 2})
+    max-width: #{$width}
+
+  &__column
+    @include col(8)
+    @include col--offset(2)
+    display: flex
+    position: relative
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+
+  &__title
+    @extend %title-margin
+    text-align: center
+
+  &__video-container
+    @include laptop
+      height: calc(55vw * .5625)
+    @include tablet
+      height: 45vw
+    position: relative
+    width: 100%
+    height: calc(50vw * .5625)
+    cursor: pointer
+
+    @include hover-supported
+      .single-neighborhoods-video__icon
+        opacity: .7
+
+  &__thumbnail
+    @extend %absolute
+    transition: opacity .5s ease
+    object-fit: cover
+    opacity: 1
+    pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: none
+  
+  &__video
+    @extend %absolute
+    transition: opacity .5s ease
+    opacity: 0
+    pointer-events: none
+
+    &--active
+      opacity: 1
+      pointer-events: auto
+
+  &__play-btn
+    @extend %centered
+    opacity: 1
+    z-index: 3
+    cursor: pointer
+    pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: none
+
+  &__icon
+    transition: opacity .2s ease
+    width: 3.75rem
+    height: 3.75rem
+    border-radius: 50%
+    fill: $white
+    box-shadow: 1px 2px 3px rgba($black, .5)
+
+  &__text
+    @extend %wysiwyg-styles
+    @include desktop
+      margin-top: 2.5rem
+    margin-top: 2rem
+    
 /* ------------------------------
     Single Neighborhoods CTA Styles
    ------------------------------ */

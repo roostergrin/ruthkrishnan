@@ -146,6 +146,17 @@ document.addEventListener('DOMContentLoaded', function () {
   // Imported Scripts ------------------------
   // Photo Gallery Functionality
   (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_0__.photoGallery)(); // END Imported Scripts -------------------
+
+  var playButton = document.querySelector('.single-neighborhoods-video__play-btn'),
+      thumbnail = document.querySelector('.single-neighborhoods-video__thumbnail'),
+      video = document.querySelector('.single-neighborhoods-video__video'),
+      videoContainer = document.querySelector('.single-neighborhoods-video__video-container');
+  videoContainer.addEventListener('click', function () {
+    video.src = video.dataset.src;
+    playButton.classList.add('single-neighborhoods-video__play-btn--hidden');
+    thumbnail.classList.add('single-neighborhoods-video__thumbnail--hidden');
+    video.classList.add('single-neighborhoods-video__video--active');
+  });
 });
 })();
 
