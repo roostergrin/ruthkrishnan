@@ -153,10 +153,25 @@
       position: relative
       width: 100%
       height: calc(25vw * .5625)
+      overflow: hidden
+
+      @include hover-supported
+        .talks-video-slider__slide-overlay
+          opacity: .26
+
+        .talks-video-slider__slide-image
+          transform: scale(1.07)
     
     &-image
       @extend %absolute
+      transition: transform .5s ease
       object-fit: cover
+
+    &-overlay
+      @extend %absolute
+      transition: opacity .5s ease
+      background: $black
+      opacity: 0
     
     &-play-btn
       @extend %centered

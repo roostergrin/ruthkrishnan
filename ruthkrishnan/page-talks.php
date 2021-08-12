@@ -49,6 +49,7 @@ get_header(); ?>
                 <div class="talks-video-slider__slide-container">
                   <div class="talks-video-slider__slide-image-container">
                     <?php echo $thumbnail; ?>
+                    <div class="talks-video-slider__slide-overlay"></div>
                     <div class="talks-video-slider__slide-play-btn">
                       <?php get_template_part('icons/play', null, array('class' => 'talks-video-slider__slide-icon')); ?>
                     </div>

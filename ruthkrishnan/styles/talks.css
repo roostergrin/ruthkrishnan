@@ -40,7 +40,7 @@
   transform: translate(-50%, -50%);
 }
 
-.talks-video-slider__modal-overlay, .talks-video-slider__slide-image, .talks-intro__video, .talks-intro__thumbnail, .form-get-in-touch__label, .form-get-in-touch__background {
+.talks-video-slider__modal-overlay, .talks-video-slider__slide-overlay, .talks-video-slider__slide-image, .talks-intro__video, .talks-intro__thumbnail, .form-get-in-touch__label, .form-get-in-touch__background {
   position: absolute;
   top: 0;
   left: 0;
@@ -575,6 +575,7 @@
   position: relative;
   width: 100%;
   height: calc(25vw * .5625);
+  overflow: hidden;
 }
 @media screen and (max-width: 768px) {
   .talks-video-slider__slide-image-container {
@@ -586,9 +587,23 @@
     height: 50vw;
   }
 }
+@media not all and (pointer: coarse) {
+  .talks-video-slider__slide-image-container:hover .talks-video-slider__slide-overlay {
+    opacity: 0.26;
+  }
+  .talks-video-slider__slide-image-container:hover .talks-video-slider__slide-image {
+    transform: scale(1.07);
+  }
+}
 .talks-video-slider__slide-image {
+  transition: transform 0.5s ease;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.talks-video-slider__slide-overlay {
+  transition: opacity 0.5s ease;
+  background: #000;
+  opacity: 0;
 }
 .talks-video-slider__slide-play-btn {
   display: flex;
