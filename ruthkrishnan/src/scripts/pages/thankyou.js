@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     header.classList.add('site-navigation--active');
     
     returnButton.href = document.referrer;
+    console.log(document.referrer)
   // let debounceLastTimeout = null;
   
   // const setPageHeight = () => {
