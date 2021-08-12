@@ -10,7 +10,7 @@ export const formSubscribe = () => {
       .then( (res) => {
         formElem.email.value = '';
         setTimeout(() => {
-          window.location.href = 'https://dev.ruthkrishnan.com/thank-you'
+          window.location.href = '/thank-you'
         }, 150);
       })
       .catch( (err) => { console.log(err) })

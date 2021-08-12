@@ -4,8 +4,10 @@ var __webpack_exports__ = {};
   !*** ./src/scripts/pages/thankyou.js ***!
   \***************************************/
 document.addEventListener('DOMContentLoaded', function () {
-  var header = document.querySelector('.site-navigation');
-  header.classList.add('site-navigation--active'); // let debounceLastTimeout = null;
+  var header = document.querySelector('.site-navigation'),
+      returnButton = document.querySelector('.page-thank-you__button');
+  header.classList.add('site-navigation--active');
+  returnButton.href = document.referrer; // let debounceLastTimeout = null;
   // const setPageHeight = () => {
   //         subscribe = document.querySelector('.form-subscribe'),
   //         footer = document.querySelector('.footer'),

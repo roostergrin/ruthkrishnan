@@ -51,7 +51,7 @@ var formGetInTouch = function formGetInTouch() {
         formElem.phone.value = '';
         formElem.message.value = '';
         setTimeout(function () {
-          window.location.href = 'https://dev.ruthkrishnan.com/thank-you';
+          window.location.href = '/thank-you';
         }, 150);
       })["catch"](function (err) {
         console.log(err);

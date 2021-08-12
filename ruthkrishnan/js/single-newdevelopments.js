@@ -17,7 +17,7 @@ var formNewDev = function formNewDev() {
 
   if (formElem) {
     var sendEmail = function sendEmail() {
-      axios.post('http://localhost:8888/wp-json/rg-mail/v1/form-new-dev', {
+      axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-new-dev', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
@@ -32,7 +32,7 @@ var formNewDev = function formNewDev() {
         formElem.property.value = '';
         formElem.message.value = '';
         setTimeout(function () {
-          window.location.href = 'https://dev.ruthkrishnan.com/thank-you';
+          window.location.href = '/thank-you';
         }, 150);
       })["catch"](function (err) {
         console.log(err);
