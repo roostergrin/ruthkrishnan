@@ -274,9 +274,48 @@ get_header(); ?>
 	</div>
 	<!-- END Exclusive Access Section -->
 	
-	<!-- Recent Blogs Template Part -->
-  <?php get_template_part('template-parts/blog/blog-recent'); ?>
-	<!-- END Recent Blogs Template Part -->
+	<!-- Card Links Section -->
+	<?php if ( have_rows('listings_card_links', 'options') ) :
+		while ( have_rows('listings_card_links', 'options') ) : the_row(); 
+
+
+			$background_image = get_sub_field('background');
+			$title = get_sub_field('title'); ?>
+			<div class="listings-single__card-links">
+				<div class="card-links">
+					<div class="card-links__background">
+						<?php echo wp_get_attachment_image($background_image, 'full', false, [ 'class' => 'card-links__background-image' ]); ?>
+					</div>
+					<div class="card-links__container">
+						<h2 class="card-links__title"><?php echo $title; ?></h2>
+						<div class="card-links__cards">
+
+							<?php if ( have_rows('cards') ) :
+								while ( have_rows('cards') ) : the_row(); 
+									
+								$card_image = get_sub_field('image');
+								$card_link = get_sub_field('link');
+								$card_text = get_sub_field('text'); ?>
+
+									<div class="card-links__card">
+										<a href="<?php echo $card_link; ?>" class="card-links__card-container">
+											<?php echo wp_get_attachment_image($card_image, 'medium_large', false, [ 'class' => 'card-links__card-image' ]); ?>
+											<div class="card-links__card-overlay"></div>
+											<div class="card-links__card-text"><?php echo $card_text; ?></div>
+										</a>
+									</div>
+
+								<?php endwhile;
+							endif; ?>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<?php endwhile;
+	endif; ?>
+	<!-- END Card Links Section -->
 
 	<!-- Get in Touch Form -->
 	<div class="listings-single__get-in-touch">

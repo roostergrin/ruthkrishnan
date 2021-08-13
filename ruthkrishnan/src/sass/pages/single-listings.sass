@@ -3,7 +3,7 @@
 @import '../templates/listings-neighborhood.sass'
 @import '../templates/form-get-in-touch.sass'
 @import '../templates/listings-covid-rules.sass'
-@import '../templates/blog-recent.sass'
+@import '../templates/card-links.sass'
 
 /* -------------------------
     Single Listings Styles
@@ -330,3 +330,14 @@
       border-radius: 0
       font-weight: 500
       -webkit-appearance: none
+    
+  //  ----------------------------
+  //    Card Links Styles
+  //  ----------------------------
+  
+  &__card-links
+    @include desktop
+      padding-top: 2.5rem
+    @include nexus
+      padding-top: 1rem
+    padding-top: 2rem
