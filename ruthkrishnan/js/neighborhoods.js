@@ -23,17 +23,25 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       tooltipContent = document.getElementById('tooltip-content'),
       closeContainer = document.getElementById('tooltip-close');
   var debounceLastTimeout = null,
-      sectionActive = false; // * Build slide array of objects *
+      sectionActive = false,
+      maxTrackLength; // * Build slide array of objects *
 
-  var slidesArr = slides.map(function (el, i) {
+  var allSlides = slides.map(function (el, i) {
     return {
       name: el.dataset.name,
-      position: i,
       neighborhood: el.dataset.neighborhood,
       elem: el,
-      mapinfo: JSON.parse(el.dataset.mapinfo)
+      mapinfo: JSON.parse(el.dataset.mapinfo),
+      category: el.dataset.category
     };
-  }); // * move slides *
+  });
+  var slidesArr = allSlides.filter(function (slide) {
+    return slide.category === 'active';
+  });
+  slidesArr.forEach(function (slide, i) {
+    slide.position = i;
+  });
+  maxTrackLength = document.querySelector('.slider-neighborhoods__slide').clientWidth * slidesArr.length; // * move slides *
 
   var changeSlide = function changeSlide(el, pos) {
     slideWrapper.style.transform = "translate3d(".concat(el.clientWidth * -pos - 16, "px, 0, 0)");
@@ -87,18 +95,29 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }); // * change content and slide when neigborhood in map clicked *
 
   var mapSelectNeighborhood = function mapSelectNeighborhood(targetEl) {
+    var slider = document.querySelector('.slider-neighborhoods__slider'),
+        contentContainer = document.querySelector('.slider-neighborhoods__content-container');
     iconArr.forEach(function (icon) {
       return icon.classList.contains('map-neighborhoods__icon-neighborhood--active') ? icon.classList.remove('map-neighborhoods__icon-neighborhood--active') : null;
     });
-    slidesArr.forEach(function (el) {
-      if (el.neighborhood === targetEl.dataset.name) {
-        changeSlide(el.elem, el.position);
-        changeContent(el.position);
-        targetEl.classList.add('map-neighborhoods__icon-neighborhood--active');
-      }
-
-      ;
+    var activeElem = allSlides.find(function (el) {
+      return el.neighborhood === targetEl.dataset.name;
     });
+
+    if (activeElem.category === 'active') {
+      slidesArr.forEach(function (el) {
+        if (el.neighborhood === targetEl.dataset.name) {
+          changeSlide(el.elem, el.position);
+          changeContent(el.position);
+          targetEl.classList.add('map-neighborhoods__icon-neighborhood--active');
+        }
+      });
+    } else {
+      contentContainer.style.height = "0px";
+      allSlides.forEach(function (el) {
+        return el.elem.classList.remove('slider-neighborhoods__slide--curr');
+      });
+    }
   };
 
   var closeToolTip = function closeToolTip() {
@@ -111,7 +130,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   };
 
   var openTooltip = function openTooltip(event, el) {
-    var targetEl = slidesArr.find(function (elem) {
+    var targetEl = allSlides.find(function (elem) {
       return elem.neighborhood === el.dataset.name;
     });
     var mapContent = '';
@@ -169,7 +188,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }); // * add event listener to all map neighborhoods *
 
   iconArr.forEach(function (el) {
-    var activeEl = slidesArr.find(function (elem) {
+    var activeEl = allSlides.find(function (elem) {
       return elem.neighborhood === el.dataset.name;
     });
 
@@ -179,6 +198,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
     el.addEventListener('click', function (event) {
       mapSelectNeighborhood(el);
+      closeToolTip();
       openTooltip(event, el);
     });
   }); // debounce function

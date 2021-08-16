@@ -10,5 +10,16 @@
           'show_admin_column' => true
       )
     );
+
+    register_taxonomy(
+      'neighborhood-category',
+      'neighborhoods',
+      array(
+          'label' => __( 'Categories' ),
+          'rewrite' => array( 'slug' => 'neighborhood-category' ),
+          'hierarchical' => true,
+          'show_admin_column' => true
+      )
+    );
   }
   add_action( 'init', 'custom_taxonomy' );

@@ -10,10 +10,15 @@ export const sliderNeighborhoods = () => {
         closeContainer = document.getElementById('tooltip-close');
 
   let debounceLastTimeout = null,
-      sectionActive = false;
+      sectionActive = false,
+      maxTrackLength;
 
   // * Build slide array of objects *
-  const slidesArr = slides.map((el, i) => ({ name: el.dataset.name, position: i, neighborhood: el.dataset.neighborhood, elem: el, mapinfo: JSON.parse(el.dataset.mapinfo) }))
+  const allSlides = slides.map((el, i) => ({ name: el.dataset.name, neighborhood: el.dataset.neighborhood, elem: el, mapinfo: JSON.parse(el.dataset.mapinfo), category: el.dataset.category }))
+  const slidesArr = allSlides.filter(slide => slide.category === 'active')
+  slidesArr.forEach((slide, i) => { slide.position = i })
+  maxTrackLength = document.querySelector('.slider-neighborhoods__slide').clientWidth * slidesArr.length
+
 
   // * move slides *
   const changeSlide = (el, pos) => {
@@ -75,14 +80,25 @@ export const sliderNeighborhoods = () => {
 
   // * change content and slide when neigborhood in map clicked *
   const mapSelectNeighborhood = (targetEl) => {
+    const slider = document.querySelector('.slider-neighborhoods__slider'),
+          contentContainer = document.querySelector('.slider-neighborhoods__content-container');
+
     iconArr.forEach((icon) => icon.classList.contains('map-neighborhoods__icon-neighborhood--active') ? icon.classList.remove('map-neighborhoods__icon-neighborhood--active') : null )
-    slidesArr.forEach((el) => {
-      if (el.neighborhood === targetEl.dataset.name) {
-        changeSlide(el.elem, el.position);
-        changeContent(el.position);
-        targetEl.classList.add('map-neighborhoods__icon-neighborhood--active')
-      };
-    })
+
+    const activeElem = allSlides.find(el => el.neighborhood === targetEl.dataset.name);
+
+    if (activeElem.category === 'active') {
+      slidesArr.forEach((el) => {
+        if (el.neighborhood === targetEl.dataset.name) {
+          changeSlide(el.elem, el.position);
+          changeContent(el.position);
+          targetEl.classList.add('map-neighborhoods__icon-neighborhood--active')
+        }
+      })
+    } else {
+      contentContainer.style.height = `0px`
+      allSlides.forEach(el => el.elem.classList.remove('slider-neighborhoods__slide--curr'))
+    }
   }
 
   const closeToolTip = () => {
@@ -95,7 +111,7 @@ export const sliderNeighborhoods = () => {
   }
 
   const openTooltip = (event, el) => {
-    const targetEl = slidesArr.find(elem => elem.neighborhood === el.dataset.name);
+    const targetEl = allSlides.find(elem => elem.neighborhood === el.dataset.name);
 
     let mapContent = '';
 
@@ -154,7 +170,7 @@ export const sliderNeighborhoods = () => {
 
   // * add event listener to all map neighborhoods *
   iconArr.forEach((el) => {
-    const activeEl = slidesArr.find(elem => elem.neighborhood === el.dataset.name);
+    const activeEl = allSlides.find(elem => elem.neighborhood === el.dataset.name);
 
     if (activeEl) {
       el.classList.add('map-neighborhoods__icon-neighborhood--matched')
@@ -162,6 +178,7 @@ export const sliderNeighborhoods = () => {
 
     el.addEventListener('click', (event) => {
       mapSelectNeighborhood(el);
+      closeToolTip();
       openTooltip(event, el);
     })
 
