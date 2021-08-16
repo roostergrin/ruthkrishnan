@@ -35,7 +35,9 @@ function app_init() {
 		'supports' => array(
 			'title',
 			'custom-fields',),
-    'taxonomies' => array()
+    'taxonomies' => array(
+			'neighborhood-category'
+		)
   );
 
   $argsListings = array(
