@@ -1110,7 +1110,7 @@
 .buy-neighborhood .map-neighborhoods__icon-neighborhood {
   transition: fill 0.5s ease;
 }
-.buy-neighborhood .map-neighborhoods__icon-neighborhood--deactive .b805b24c-8856-46da-a110-27049a7b5674, .buy-neighborhood .map-neighborhoods__icon-neighborhood--deactive .fce01033-cae7-4eca-a313-518e59be67b0 {
+.buy-neighborhood .map-neighborhoods__icon-neighborhood .b805b24c-8856-46da-a110-27049a7b5674, .buy-neighborhood .map-neighborhoods__icon-neighborhood .fce01033-cae7-4eca-a313-518e59be67b0 {
   fill: #C08384;
 }
 .buy-neighborhood .map-neighborhoods__icon-neighborhood--matched {

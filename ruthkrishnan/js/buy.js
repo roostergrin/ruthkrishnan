@@ -164,7 +164,8 @@ document.addEventListener('DOMContentLoaded', function () {
       title: el.dataset.title,
       elem: el,
       mapinfo: JSON.parse(el.dataset.mapinfo),
-      link: el.dataset.link
+      link: el.dataset.link,
+      category: el.dataset.category
     };
   }),
       tooltipContainer = document.querySelector('.buy-neighborhood__tooltip'),
@@ -204,7 +205,10 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
 
-        mapContent += "<a href='".concat(targetEl.link, "' class='buy-neighborhood__tooltip-link'>learn more</a>"); // append tooltip information
+        if (targetEl.category === 'active') {
+          mapContent += "<a href='".concat(targetEl.link, "' class='buy-neighborhood__tooltip-link'>learn more</a>");
+        } // append tooltip information
+
 
         tooltipContent.innerHTML = mapContent; // show tooltip info window
 
