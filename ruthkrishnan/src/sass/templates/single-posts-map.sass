@@ -1,0 +1,133 @@
+/* --------------------------
+    Neighborhood Styles
+   -------------------------- */
+
+.single-posts-neighborhood
+  @extend %section-padding
+  // position: relative
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include tablet-md
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    max-width: $width
+
+  &__tooltip
+    @include nexus
+      width: rem-calc(220)
+    position: absolute
+    top: 0
+    left: 0
+    transition: transform .5s ease
+    opacity: 0
+    z-index: 5
+    border: 1px solid $black
+    background: $white
+    padding: 1rem 1.5rem 1rem 1rem
+    width: rem-calc(360)
+    pointer-events: none
+
+    &-close
+      position: absolute
+      top: .5rem
+      right: .5rem
+      cursor: pointer
+      width: rem-calc(14)
+      height: rem-calc(14)
+
+      @include hover-supported
+        &::before,
+        &::after
+          opacity: .5
+
+      &::before,
+      &::after
+        @extend %centered
+        transform: translate(-50%, -50%) rotate(45deg)
+        transition: opacity .2s ease
+        background: $c1
+        cursor: pointer
+        width: 100%
+        height: 2px
+        content: ''
+      
+      &::after
+        transform: translate(-50%, -50%) rotate(-45deg)
+
+    &-content
+      font-size: rem-calc(16)
+
+    &-title
+      margin-bottom: .5rem
+      font-weight: 700
+      text-transform: uppercase
+
+    &-info
+      margin-bottom: .5rem
+    
+    &-link
+      @extend %button-text
+      @include tablet-md
+        margin: 0 .5rem
+      display: inline-block
+      position: relative
+      transition: opacity .2s ease
+      text-transform: lowercase
+      color: $c3
+      font-weight: 500
+
+      @include hover-supported
+        opacity: .7
+      
+        &:after
+          opacity: .7
+
+      &:after
+        position: absolute
+        bottom: -.25rem
+        left: 0
+        transition: opacity .2s ease
+        background: $c3
+        width: 100%
+        height: rem-calc(2)
+        content: ''
+
+  &__background
+    @extend %absolute
+    background: $c4
+    z-index: -1
+    height: 35%
+
+  &__title
+    @extend %section-padding-large
+    width: 100%
+    text-align: center
+    color: $white
+  
+  &__map-container
+    @include col(10)
+    @include col--offset(1)
+    background: $c2
+
+  .map-neighborhoods__icon-neighborhood
+    transition: fill .5s ease
+
+    & .b805b24c-8856-46da-a110-27049a7b5674,
+    & .fce01033-cae7-4eca-a313-518e59be67b0
+      fill: #C08384
+
+    &--matched
+      @include hover-supported
+        & .b805b24c-8856-46da-a110-27049a7b5674,
+        & .fce01033-cae7-4eca-a313-518e59be67b0
+          fill: $c6
+      cursor: pointer
+
+      & .b805b24c-8856-46da-a110-27049a7b5674,
+      & .fce01033-cae7-4eca-a313-518e59be67b0
+        fill: #C08384
