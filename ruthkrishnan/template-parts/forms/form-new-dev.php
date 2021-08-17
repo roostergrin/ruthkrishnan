@@ -46,22 +46,26 @@
         <form action="" class="form-new-dev__form" id="new-dev-form">
           <div class="form-new-dev__form-group">
             <label for="fullname" class="form-new-dev__label">First and Last Name</label>
-            <input type="text" name="fullname" id="fullname" placeholder="First and Last Name" class="form-new-dev__input" required>
+            <input type="text" name="fullname" id="fullname" placeholder="First and Last Name" class="form-new-dev__input">
+            <small class="form-new-dev__validation-message" id="fullname-validation">Please enter valid full name.</small>
           </div>
 
           <div class="form-new-dev__form-group form-new-dev__form-group--half">
             <label for="email" class="form-new-dev__label">Email</label>
-            <input type="email" name="email" id="email" placeholder="Email" class="form-new-dev__input" required>
+            <input type="email" name="email" id="email" placeholder="Email" class="form-new-dev__input">
+            <small class="form-new-dev__validation-message" id="email-validation">Please enter valid email address.</small>
           </div>
 
           <div class="form-new-dev__form-group form-new-dev__form-group--half">
             <label for="phone" class="form-new-dev__label">Phone Number</label>
             <input type="tel" pattern="^[0-9-+\s()]*$" name="phone" id="phone" placeholder="Phone Number" class="form-new-dev__input">
+            <small class="form-new-dev__validation-message" id="phone-validation">Please enter valid phone number.</small>
           </div>
 
           <div class="form-new-dev__form-group form-new-dev__form-group--half">
             <label for="property" class="form-new-dev__label">Property Name</label>
             <input type="text" name="property" id="property" placeholder="Property Name" value="<?php echo the_title(); ?>" class="form-new-dev__input">
+            <small class="form-new-dev__validation-message" id="property-validation">Please enter valid property.</small>
           </div>
           <?php
             $categories = get_field('development_categories');
@@ -86,6 +90,7 @@
           <div class="form-new-dev__form-group form-new-dev__form-group--half">
             <label for="address" class="form-new-dev__label">Property Address</label>
             <input type="text" name="address" id="address" placeholder="Property Address" value="<?php echo $address_1 . ' ' . $address_2 . ' ' . $city_state . ' ' . $zip; ?>" class="form-new-dev__input">
+            <small class="form-new-dev__validation-message" id="address-validation">Please enter valid address.</small>
           </div>
 
           <div class="form-new-dev__form-group">
