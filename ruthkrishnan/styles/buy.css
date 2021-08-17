@@ -1124,6 +1124,9 @@
 .buy-neighborhood .map-neighborhoods__icon-neighborhood--matched .b805b24c-8856-46da-a110-27049a7b5674, .buy-neighborhood .map-neighborhoods__icon-neighborhood--matched .fce01033-cae7-4eca-a313-518e59be67b0 {
   fill: #C08384;
 }
+.buy-neighborhood .map-neighborhoods__icon-neighborhood--active .b805b24c-8856-46da-a110-27049a7b5674, .buy-neighborhood .map-neighborhoods__icon-neighborhood--active .fce01033-cae7-4eca-a313-518e59be67b0 {
+  fill: #963636;
+}
 
 /* --------------------------
  *  Buy - Rent vs Buy Styles

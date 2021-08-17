@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
       tooltipContainer.style.pointerEvents = 'none';
       iconArr.forEach(icon => icon.classList.remove('map-neighborhoods__icon-neighborhood--deactive'))
       sectionActive.classList.add('map-neighborhoods__icon-neighborhood--matched')
+      sectionActive.classList.remove('map-neighborhoods__icon-neighborhood--active')
       sectionActive = false;
     }
   }
@@ -106,6 +107,8 @@ document.addEventListener('DOMContentLoaded', function () {
       })
 
       sectionActive = el;
+      sectionActive.classList.add('map-neighborhoods__icon-neighborhood--active')
+
     }
   }
 
