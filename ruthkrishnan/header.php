@@ -23,6 +23,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager -->
 
 <meta name="google-site-verification" content="_pBsYFRQpzuyLZ5YEZtV7ml5WTfpe-YIo50CdNjp13o" />
+<meta name="google-site-verification" content="SRI-_fG3Jco8hCZr3Ct4j-hCLEdLCtXZ4sklfZvCK_o" />
 
 <meta name="facebook-domain-verification" content="yx6e19kqb3vmkha8tdys2575r3z7vo" />
 
@@ -45,6 +46,13 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1871650279749281&ev=PageView&amp;noscript=1"/>
 </noscript>
 <!-- End Facebook Pixel Code -->
+
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+<script async="" type="text/javascript">var d=document,s="https://a.smtrk.net/trk?t=s&i=6001fc9b3c0c761d8c2a6caf&p=t,i,x&s=ee803f1c9de403c3f27305c30b62fa72&r="+escape(d.referrer)+"&u="+escape(d.URL),n=d.createElement("script"),e=d.
+getElementsByTagName("script")[0];n.async=!0,n.src=s,e.
+parentNode.insertBefore(n,e);
+</script>
 
 </head>
 
