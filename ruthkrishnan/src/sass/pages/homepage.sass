@@ -107,6 +107,8 @@
         opacity: .7
 
   &__image-overlay
+    @include tablet-md
+      display: none
     @extend %absolute
     transition: opacity .5s ease
     background: $black
@@ -119,7 +121,7 @@
       height: 50vw
     position: relative
     transition: opacity .5s ease
-    opacity: 0
+    // opacity: 0
     width: 100%
     height: calc(60vw * .5625)
     pointer-events: none
@@ -127,6 +129,9 @@
     &--active
       opacity: 1
       pointer-events: auto
+  
+  &__no-modal-video
+    @extend %absolute
 
   &__thumbnail
     @extend %absolute

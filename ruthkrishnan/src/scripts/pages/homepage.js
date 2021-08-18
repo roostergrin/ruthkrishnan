@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
         closeBtn = document.querySelector('.home-welcome__close-btn'),
         overlay = document.querySelector('.home-welcome__modal-overlay');
 
-  let debounceLastTimeout = null;
+  let debounceLastTimeout = null,
+      tabletVideoActive = false;
 
   homeHero();
 
@@ -36,13 +37,17 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   const tabletPlayVideo = () => {
-    tabletVideo.src = tabletVideo.dataset.src;
-    playBtn.classList.add('home-welcome__play-btn--hidden');
-    videoThumbnail.classList.add('home-welcome__thumbnail--hidden');
-    tabletVideoContainer.classList.add('home-welcome__no-modal-video-container--active');
+    if (!tabletVideoActive) {
+      tabletVideo.src = tabletVideo.dataset.src;
+      document.querySelector('.home-welcome__play-btn').classList.add('home-welcome__play-btn--hidden');
+      videoThumbnail.classList.add('home-welcome__thumbnail--hidden');
+      tabletVideoContainer.classList.add('home-welcome__no-modal-video-container--active');
+      tabletVideoActive = true;
+    }
   }
 
   const tabletCloseVideo = () => {
+    tabletVideoActive = false;
     tabletVideo.src = '';
     playBtn.classList.remove('home-welcome__play-btn--hidden');
     videoThumbnail.classList.remove('home-welcome__thumbnail--hidden');

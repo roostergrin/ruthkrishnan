@@ -95,7 +95,8 @@ document.addEventListener('DOMContentLoaded', function () {
       videoThumbnail = document.querySelector('.home-welcome__thumbnail'),
       closeBtn = document.querySelector('.home-welcome__close-btn'),
       overlay = document.querySelector('.home-welcome__modal-overlay');
-  var debounceLastTimeout = null;
+  var debounceLastTimeout = null,
+      tabletVideoActive = false;
   (0,_resources_home_hero_js__WEBPACK_IMPORTED_MODULE_0__.homeHero)(); // Home Welcome
 
   var openModal = function openModal() {
@@ -119,13 +120,17 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   var tabletPlayVideo = function tabletPlayVideo() {
-    tabletVideo.src = tabletVideo.dataset.src;
-    playBtn.classList.add('home-welcome__play-btn--hidden');
-    videoThumbnail.classList.add('home-welcome__thumbnail--hidden');
-    tabletVideoContainer.classList.add('home-welcome__no-modal-video-container--active');
+    if (!tabletVideoActive) {
+      tabletVideo.src = tabletVideo.dataset.src;
+      document.querySelector('.home-welcome__play-btn').classList.add('home-welcome__play-btn--hidden');
+      videoThumbnail.classList.add('home-welcome__thumbnail--hidden');
+      tabletVideoContainer.classList.add('home-welcome__no-modal-video-container--active');
+      tabletVideoActive = true;
+    }
   };
 
   var tabletCloseVideo = function tabletCloseVideo() {
+    tabletVideoActive = false;
     tabletVideo.src = '';
     playBtn.classList.remove('home-welcome__play-btn--hidden');
     videoThumbnail.classList.remove('home-welcome__thumbnail--hidden');
