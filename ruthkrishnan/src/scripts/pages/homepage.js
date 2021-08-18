@@ -55,9 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   
   const playVideo = () => {
-    resetVideoModal();
-
     if (window.innerWidth > 880) {
+      resetVideoModal();
       playBtn.addEventListener('click', openModal);
       overlay.addEventListener('click', closeModal);
       closeBtn.addEventListener('click', closeModal);
