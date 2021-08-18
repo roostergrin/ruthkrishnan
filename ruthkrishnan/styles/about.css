@@ -458,14 +458,10 @@
   }
 }
 .about-ruth__image {
+  -o-object-position: center top;
+     object-position: center top;
   -o-object-fit: cover;
      object-fit: cover;
-}
-@media screen and (max-width: 880px) {
-  .about-ruth__image {
-    -o-object-position: center 25%;
-       object-position: center 25%;
-  }
 }
 .about-ruth__col-right {
   padding: 0 calc(30px / 2);
