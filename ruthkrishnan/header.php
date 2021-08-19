@@ -7,6 +7,18 @@
 
 <?php wp_head(); ?>
 
+<?php 
+
+  if (have_rows('background_image')) :
+    while (have_rows('background_image')) : the_row();
+      $image = get_sub_field('image'); ?>
+
+      <meta property="og:image" content="<?php echo wp_get_attachment_image_src($image, $size = 'full')[0]; ?>" />
+    <?php endwhile;  
+  endif;
+
+?>
+
 <!-- Google Optimize -->
 <script src="https://www.googleoptimize.com/optimize.js?id=GTM-T7VQ4QK"></script>
 <!-- END Google Optimize -->
