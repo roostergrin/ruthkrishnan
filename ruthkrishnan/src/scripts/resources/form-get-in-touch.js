@@ -45,7 +45,7 @@ export const formGetInTouch = () => {
     }
 
     const sendEmail = () => {
-      axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-get-in-touch', {
+      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-get-in-touch', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,

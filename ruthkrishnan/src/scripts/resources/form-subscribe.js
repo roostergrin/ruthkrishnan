@@ -4,7 +4,7 @@ export const formSubscribe = () => {
 
   if (formElem) {
     const sendEmail = () => {
-      axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-subscribe', {
+      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-subscribe', {
         email: formElem.email.value
       })
       .then( (res) => {

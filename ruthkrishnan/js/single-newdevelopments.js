@@ -80,7 +80,7 @@ var formNewDev = function formNewDev() {
     };
 
     var sendEmail = function sendEmail() {
-      axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-new-dev', {
+      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-new-dev', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
