@@ -1,5 +1,7 @@
 <?php
 
+  global $sitehero;
+
 // include additional functionality -------------------------
 include_once(get_template_directory() . '/email.php');
 

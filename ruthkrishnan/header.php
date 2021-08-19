@@ -13,7 +13,9 @@
     while (have_rows('background_image')) : the_row();
       $image = get_sub_field('image'); ?>
 
-      <meta property="og:image" content="<?php echo wp_get_attachment_image_src($image, $size = 'full')[0]; ?>" />
+      <?php if (!empty($image)) : ?>
+        <meta property="og:image" content="<?php echo wp_get_attachment_image_src($image, $size = 'full')[0]; ?>" />
+      <?php endif; ?>
     <?php endwhile;  
   endif;
 

@@ -7,8 +7,6 @@
  * @version 1.0
  */
 
-  global $sitehero;
-  $sitehero = true;
 ?>
 
 <?php if ( have_rows('background_image') ) :
