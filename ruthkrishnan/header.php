@@ -5,8 +5,6 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
 
-<?php wp_head(); ?>
-
 <?php 
 
   if (have_rows('background_image')) :
@@ -20,6 +18,8 @@
   endif;
 
 ?>
+
+<?php wp_head(); ?>
 
 <!-- Google Optimize -->
 <script src="https://www.googleoptimize.com/optimize.js?id=GTM-T7VQ4QK"></script>
