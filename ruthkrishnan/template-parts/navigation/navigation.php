@@ -12,7 +12,7 @@
 <header class="site-navigation" >
   <div class="site-navigation__container">
     <div class="site-navigation__navbar">
-      <a class="site-navigation__home" href="/">
+      <a class="site-navigation__home" href="/" aria-label="Go to Homepage">
         <?php get_template_part('icons/logo-main', null, array( 'class' => 'site-navigation__logo' )); ?>
       </a>
       <nav class="site-navigation__menu-container">

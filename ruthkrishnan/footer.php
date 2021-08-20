@@ -15,7 +15,7 @@
 <footer class="footer">
   <div class="footer__container">
     <div class="footer__column footer__contact">
-      <a class="footer__home" href="/">
+      <a class="footer__home" href="/" aria-label="Go to Homepage">
         <?php get_template_part('icons/logo-main', null, array( 'class' => 'footer__logo' )); ?>
       </a>
       <a href="<?php echo get_field('address_link', 'options') ?>" target="_blank" aria-label="go to google map of address (opens in new window)" class="footer__contact-group footer__link footer__address">
