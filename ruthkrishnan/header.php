@@ -5,11 +5,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
 
-<?php wp_head(); ?>
-
-<?php 
-
-  if (have_rows('background_image')) :
+<?php if (have_rows('background_image')) :
     while (have_rows('background_image')) : the_row();
       $image = get_sub_field('image'); ?>
 
@@ -18,8 +14,9 @@
       <?php endif; ?>
     <?php endwhile;  
   endif;
-
 ?>
+
+<?php wp_head(); ?>
 
 <!-- Google Optimize -->
 <script src="https://www.googleoptimize.com/optimize.js?id=GTM-T7VQ4QK"></script>
