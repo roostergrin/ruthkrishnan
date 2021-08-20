@@ -1,6 +1,23 @@
 <?php
 
-  global $sitehero;
+  add_action( 'wpseo_add_opengraph_additional_images', 'add_images' );
+  
+  function add_images( $object ) {
+    if (!$object->has_images()) {
+      if ( have_rows('background_image') ) :
+        while (have_rows('background_image')) : the_row();
+        $image = get_sub_field('image');
+        
+        if (!empty($image)) :
+          $imageUrl = wp_get_attachment_image_src($image, $size = 'full')[0];
+        endif;
+      endwhile;  
+      $object->add_image( $imageUrl );
+    endif;
+    }
+}
+
+
 
 // include additional functionality -------------------------
 include_once(get_template_directory() . '/email.php');

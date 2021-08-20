@@ -5,17 +5,6 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
 
-<?php if (have_rows('background_image')) :
-    while (have_rows('background_image')) : the_row();
-      $image = get_sub_field('image'); ?>
-
-      <?php if (!empty($image)) : ?>
-        <meta property="og:image" content="<?php echo wp_get_attachment_image_src($image, $size = 'full')[0]; ?>" />
-      <?php endif; ?>
-    <?php endwhile;  
-  endif;
-?>
-
 <?php wp_head(); ?>
 
 <!-- Google Optimize -->
