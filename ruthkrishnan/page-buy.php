@@ -21,7 +21,7 @@ get_header(); ?>
         <h2 class="buy-welcome__title"><?php echo get_field('buy_welcome_title'); ?></h2>
         <div class="buy-welcome__text"><?php echo get_field('buy_welcome_text'); ?></div>
         <div class="buy-welcome__video-container">
-          <iframe class="buy-welcome__video" data-src="<?php echo get_field('buy_welcome_video') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+          <iframe title="Buying a Home Welcome Video" class="buy-welcome__video" data-src="<?php echo get_field('buy_welcome_video') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
           <?php echo wp_get_attachment_image(get_field('buy_welcome_thumbnail'), 'full', false, [ 'class' => 'buy-welcome__thumbnail' ]); ?>
           <div class="buy-welcome__play-btn">
             <?php get_template_part('icons/play', null, array('class' => 'buy-welcome__icon')); ?>
@@ -45,7 +45,7 @@ get_header(); ?>
     <div class="buy-testimonial-video__container">
       <div class="buy-testimonial-video__column">
         <div class="buy-testimonial-video__video-container">
-          <iframe class="buy-testimonial-video__video" data-src="<?php echo get_field('buy_testimonial_video') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+          <iframe title="Buying a Home Video" class="buy-testimonial-video__video" data-src="<?php echo get_field('buy_testimonial_video') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
           <?php echo wp_get_attachment_image(get_field('buy_testimonial_thumbnail'), 'full', false, [ 'class' => 'buy-testimonial-video__thumbnail' ]); ?>
           <div class="buy-testimonial-video__play-btn">
             <?php get_template_part('icons/play', null, array('class' => 'buy-testimonial-video__icon')); ?>
@@ -111,18 +111,18 @@ get_header(); ?>
         <div class="buy-rent-vs-buy__text"><?php echo get_field('rent_vs_buy_text'); ?></div>
       </div>
 
-      <!-- HTML markup from mortgagecolculator.org -->
+      <!-- HTML markup from mortgagecalculator.org -->
       <div class="buy-rent-vs-buy__mortgage-calculator">
         <p align="center"><a href="https://www.mortgagecalculator.org/" target="_blank" aria-label="Go to mortgagecaolculator.org (new window)">
           <img src="https://www.mortgagecalculator.org/images/mortgage-calculator-logo.png" width="589" height="auto" alt="MortgageCalculator.org" border="0" style="max-width: 100%;" target="_blank">
         </p> 
-        <iframe class="buy-rent-vs-buy__iframe" src="https://www.mortgagecalculator.org/webmasters/?downpayment=50000&homevalue=300000&loanamount=250000&interestrate=4&loanterm=30&propertytax=2400&pmi=1&homeinsurance=1000&monthlyhoa=0" style="width: 100%; height: 1100px; border: 0;"></iframe>
+        <iframe title="Mortage Calculator" class="buy-rent-vs-buy__iframe" src="https://www.mortgagecalculator.org/webmasters/?downpayment=50000&homevalue=300000&loanamount=250000&interestrate=4&loanterm=30&propertytax=2400&pmi=1&homeinsurance=1000&monthlyhoa=0" style="width: 100%; height: 1100px; border: 0;"></iframe>
         <div style="font-family: Arial; height: 36px; top: -36px; padding: 0 8px 0 0; box-sizing: border-box; text-align: right; background: #f6f9f9; border: 1px solid #ccc; color: #868686; line-height: 34px; font-size: 12px; position: relative;">
           <a style="color: #868686;" href="https://www.mortgagecalculator.org/free-tools/javascript-mortgage-calculator.php" target="_blank" aria-label="Go to mortgagecaolculator.org (new window)">Javascript Mortgage Calculator </a>
           by MortgageCalculator.org
         </div>
       </div>
-      <!-- END HTML markup from mortgagecolculator.org -->
+      <!-- END HTML markup from mortgagecalculator.org -->
 
       <div class="buy-rent-vs-buy__column">
         <div class="buy-rent-vs-buy__caption"><?php echo get_field('rent_vs_buy_caption'); ?></div>
