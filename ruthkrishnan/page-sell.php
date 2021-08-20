@@ -30,7 +30,7 @@ get_header(); ?>
     <div class="sell-video__container">
       <div class="sell-video__column">
         <div class="sell-video__video-container">
-          <iframe class="sell-video__video" data-src="<?php echo get_field('sell_video_src') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+          <iframe title="Selling Your Home Welcome Video" class="sell-video__video" data-src="<?php echo get_field('sell_video_src') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
           <?php echo wp_get_attachment_image(get_field('sell_video_thumbnail'), 'full', false, [ 'class' => 'sell-video__thumbnail' ]); ?>
           <div class="sell-video__play-btn">
             <?php get_template_part('icons/play', null, array('class' => 'sell-video__icon')); ?>

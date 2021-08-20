@@ -34,12 +34,12 @@
     "/styles/talks.css": "/styles/talks.css",
     "/styles/contact.css": "/styles/contact.css",
     "/styles/single-neighborhoods.css": "/styles/single-neighborhoods.css",
-    "/styles/buy.css": "/styles/buy.css",
-    "/styles/sell.css": "/styles/sell.css",
     "/styles/thankyou.css": "/styles/thankyou.css",
     "/styles/single-listings.css": "/styles/single-listings.css",
     "/styles/about.css": "/styles/about.css",
     "/styles/archive.css": "/styles/archive.css",
     "/styles/single-blog.css": "/styles/single-blog.css",
-    "/styles/blog.css": "/styles/blog.css"
+    "/styles/blog.css": "/styles/blog.css",
+    "/styles/buy.css": "/styles/buy.css",
+    "/styles/sell.css": "/styles/sell.css"
 }

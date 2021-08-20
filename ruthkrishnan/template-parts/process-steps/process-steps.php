@@ -27,7 +27,7 @@
 
             <li class="process-steps__list-item">
               <span class="process-steps__list-number"><?php echo '0' . $count; ?></span>
-              <h4 class="process-steps__list-text"><?php echo $text; ?></h4>
+              <p class="process-steps__list-text"><?php echo $text; ?></p>
             </li>
 
             <?php $count++; ?>

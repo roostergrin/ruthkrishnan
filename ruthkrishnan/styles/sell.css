@@ -167,14 +167,14 @@
   }
 }
 
-.resources-links__link-text {
+.resources-links__link-text, .process-steps__list-text {
   line-height: 1.3333;
   letter-spacing: 0.09375rem;
   font-size: 1.125rem;
   font-weight: 500;
 }
 @media screen and (min-width: 1750px) {
-  .resources-links__link-text {
+  .resources-links__link-text, .process-steps__list-text {
     font-size: 1.25rem;
   }
 }
