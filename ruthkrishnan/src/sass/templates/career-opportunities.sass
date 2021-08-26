@@ -1,0 +1,68 @@
+/* -------------------------------
+    Career Opportunities Styles
+  -------------------------------- */
+
+.career-opportunities
+  @extend %section-padding
+
+  &__container
+    @include container
+
+  // &__column
+  //   @include col(12)
+  
+  &__title
+    @extend %title-margin
+    text-align: center
+    width: 100%
+
+  &__posts
+    display: flex
+    flex-wrap: wrap
+    width: 100%
+
+  &__post
+    @include col(4)
+
+    &:not(:last-of-type)
+      @include tablet
+        margin-bottom: 2rem
+      @include phone-lg
+        margin-bottom: 1rem
+
+    &-container
+      @include phone-lg
+        padding: 1rem
+      background: $c2
+      padding: 2rem
+
+    &-excerpt
+      padding: 1rem 0
+
+    &-link
+      @extend %button-text
+      @include tablet-md
+        margin: 0 .5rem
+      display: inline-block
+      position: relative
+      transition: color .2s ease, text-stroke .2s ease
+      text-transform: lowercase
+      color: $c3
+      font-weight: 500
+
+      @include hover-supported
+        color: $c6
+        -webkit-text-stroke: rem-calc(.5)
+      
+        &:after
+          transform: scaleY(1.2)
+
+      &:after
+        position: absolute
+        bottom: -.25rem
+        left: 0
+        transition: transform .2s ease
+        background: $c3
+        width: 100%
+        height: rem-calc(2)
+        content: ''

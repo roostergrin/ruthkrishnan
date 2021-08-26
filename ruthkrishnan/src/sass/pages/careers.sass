@@ -1,15 +1,50 @@
 @import '../local/index.sass'
-@import '../templates/form-get-in-touch.sass'
+@import '../templates/image-banner.sass'
+@import '../templates/career-opportunities.sass'
 
 /* -----------------------
     Careers Page Styles
   ----------------------- */
 
-/* -----------------------
-    Careers Intro Styles
-  ----------------------- */
+/* --------------------------
+    Careers Welcome Styles
+  -------------------------- */
 
-.page-careers
+.careers-welcome
+  @extend %section-padding-top
+
+  &__container
+    @include container
+
+  &__column
+    @include col(8)
+    @include col--offset(2)
+
+  &__title
+    margin-bottom: 1rem
+    text-align: center
+
+/* ----------------------------
+    Careers Core Values Styles
+  ----------------------------- */
+
+.careers-values
+  @extend %section-margins
+  @extend %section-padding-large
+  position: relative
+
+  &__color-box
+    @include desktop
+      max-width: calc(#{$max-width} + #{$gutter})
+    position: absolute
+    bottom: 0
+    left: 50%
+    transform: translateX(-50%)
+    z-index: -1
+    background: $c4
+    width: 100%
+    max-width: calc(#{$width} + #{$outside-gutter})
+    height: 100%
 
   &__container
     @include container
@@ -20,52 +55,261 @@
       max-width: 100%
     @include phone-lg
       padding: 0 1rem
+    justify-content: center
     padding: 0
     max-width: $width
 
-  &__intro
-    @extend %section-padding-top
+  &__title
+    color: $white
+
+  &__cards
+    display: flex
+    flex-wrap: wrap
+    width: 100%
+  
+  &__card
+    @include col(3)
+    @include desktop
+      margin-top: 2.5rem
+    @include tablet-md
+      width: 50%
+    @include tablet
+      width: 50%
+    margin-top: 2rem
+    color: $white
+    text-align: center
+
+    &-icon
+      @include phone-lg
+        width: 25%
+      margin: 1rem auto
+      width: 20%
+      height: auto
+
+    &-title
+      @include phone-lg
+        font-size: 1rem
+    
+/* -----------------------------------
+    Career Perks and Benefits Styles
+  ------------------------------------ */
+
+.careers-perks
+  @extend %section-padding
+
+  &__container
+    @include container
+
+  &__column
+    @include col(8)
+    @include col--offset(2)
+    @include tablet-lg
+      margin: auto
+      width: 50%
+    @include tablet
+      width: 100%
+
+  &__title
+    @include tablet
+      margin-bottom: 1rem
+    margin-bottom: 2rem
+    text-align: center
+
+  &__lists
+    @include tablet
+      display: none
+    display: flex
+    justify-content: space-between
+
+    &--mobile
+      @include tablet
+        display: flex
+      display: none
+      justify-content: center
+
+  &__list
+    margin: 0
+
+/* ------------------------------
+    Careers Who We Are Styles
+  ------------------------------- */
+
+.careers-who
+  @extend %section-margins
+  @include nexus
+    padding-bottom: 2rem
+  position: relative
+  padding-bottom: rem-calc(45)
+
+  &__color-box
+    @include desktop
+      max-width: calc(#{$max-width} + #{$gutter})
+    position: absolute
+    bottom: 0
+    left: 50%
+    transform: translateX(-50%)
+    z-index: -1
+    background: $c2
+    width: 100%
+    max-width: calc(#{$width} + #{$outside-gutter})
+    height: 100%
+
+  &__container
+    @include container
+  
+  &__main-column
+    @include col(12)
+    display: flex
+    flex-wrap: wrap
+
+  &__col-left
+    @include col(5)
+    @include tablet-md
+      width: 100%
+    padding-left: 0
+  
+  &__image-container
+    @include tablet-md
+      margin: auto
+      padding-top: 50%
+      width: 75%
+    @include nexus
+      padding-top: 100%
+      width: 100%
+    position: relative
+    width: 100%
+    height: 100%
+
+  &__image
+    @extend %absolute
+    object-fit: cover
+
+  &__col-right
+    @include col(7)
+    @include tablet-md
+      width: 100%
+    padding-right: 0
+  
+  &__title
+    @include tablet-md
+      padding-top: 2rem
+      padding-bottom: 0
+      text-align: center
+    padding-bottom: 1rem
+
+  &__content
+    @include desktop
+      padding-top: 2.5rem
+    @include nexus
+      padding-top: 1rem
+    padding-top: 2rem
+
+  &__text
+    @extend %wysiwyg-styles
+
+/* -----------------------
+    Careers Video Styles
+  ------------------------ */
+
+.careers-video
+  @extend %section-padding
+
+  &__container
+    @include container
+
+  &__column
+    @include col(6)
+    @include col--offset(3)
+    @include desktop
+      padding-bottom: 5rem
+    @include tablet
+      padding-bottom: 4rem
+    @include nexus
+      padding-bottom: 2rem
+    position: relative
+    padding-bottom: 4rem
+  
+  &__colorbox
+    position: absolute
+    bottom: 0
+    left: 0
+    background: $c4
+    z-index: -1
+    width: 100%
+    height: 40%
 
   &__title
     @extend %title-margin
     text-align: center
 
-  &__posts
-    @extend %section-padding-bottom
-  
-  &__post
-    &:not(:last-of-type)
-      @include desktop
-        margin-bottom: 5rem
-      @include nexus
-        marign-botom: 2rem
-      margin-bottom: 4rem
-
-  &__post-title
-    margin-bottom: 1rem
-
-  &__post-link
-    @extend %button-text
-    display: inline-block
+  &__video-container
     position: relative
+    margin: auto
+    cursor: pointer
+    width: 66.7%
+    padding-top: calc(66.7% * 1.51)
+
+
+  &__thumbnail
+    @extend %absolute
     transition: opacity .2s ease
-    margin-top: 1rem
-    text-transform: lowercase
-    color: $c3
-    font-weight: 500
+    object-position: center bottom
+    object-fit: cover
 
-    @include hover-supported
-      opacity: .7
-    
-      &:after
-        opacity: .7
+    &--hidden
+      opacity: 0
+      pointer-events: none
 
-    &:after
-      position: absolute
-      bottom: -.25rem
-      left: 0
-      transition: opacity .2s ease
-      background: $c3
-      width: 100%
-      height: rem-calc(2)
-      content: ''
+  &__video
+    @extend %absolute
+    object-position: center bottom
+    object-fit: cover
+  
+  &__play-btn
+    @extend %centered
+    transition: opacity .5s ease
+    z-index: 3
+    cursor: pointer
+    pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: none
+
+  &__play-icon
+    transition: opacity .2s ease
+    width: 3.75rem
+    height: 3.75rem
+    fill: $white
+    border-radius: 50%
+    box-shadow: 1px 2px 3px rgba($black, .5)
+
+/* -----------------------------------
+    Careers Equal Opportunity Styles
+  ------------------------------------ */
+
+.careers-equal
+  @extend %section-padding-bottom
+
+  &__container
+    @include container
+
+  &__column
+    @include col(12)
+
+  &__background
+    @extend %section-padding-large
+    background: $c2
+
+  &__title
+    @extend %title-margin
+    text-align: center
+
+  &__text
+    @include col(8)
+    @include col--offset(2)
+    @include tablet
+      padding: 0 2rem
+    @include phone-lg
+      padding: 0 1rem
+    text-align: center

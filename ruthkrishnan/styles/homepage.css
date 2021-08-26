@@ -880,7 +880,7 @@
 }
 .home-welcome__play-btn--hidden {
   opacity: 0;
-  pointer-events: non;
+  pointer-events: none;
 }
 .home-welcome__icon {
   transition: opacity 0.2s ease;

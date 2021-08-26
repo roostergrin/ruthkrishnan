@@ -70,7 +70,9 @@ function app_init() {
 		'menu_icon' => 'dashicons-businesswoman',
 		'supports' => array(
 			'title',
-			'custom-fields',),
+			'custom-fields',
+			'excerpt'
+		),
     'taxonomies' => array()
 	);
 

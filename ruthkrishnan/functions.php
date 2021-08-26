@@ -161,7 +161,7 @@ function theme_enqueue_scripts() {
     wp_enqueue_script( 'vimeo-player' );
   }
 
-  if ( !is_home() && !is_front_page() && get_post_type() !== 'propertylistings' && !is_page_template('page-thankyou.php') && !is_page_template('page-careers.php') && !is_page_template('page-privacy.php') && !is_404() ) {
+  if ( !is_home() && !is_front_page() && get_post_type() !== 'propertylistings' && !is_page_template('page-thankyou.php') && !is_page_template('page-privacy.php') && !is_404() ) {
     wp_register_script( 'siteHero', get_template_directory_uri() . '/js/site-hero.js', array(), '', true);
     wp_enqueue_script( 'siteHero' );
   }
