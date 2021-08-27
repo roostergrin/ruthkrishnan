@@ -8,22 +8,24 @@
   &__container
     @include container
 
-  // &__column
-  //   @include col(12)
-  
   &__title
-    @extend %title-margin
     text-align: center
     width: 100%
 
   &__posts
     display: flex
     flex-wrap: wrap
-    justify-content: center
+    align-items: stretch
     width: 100%
+
+    .single-careers &
+      justify-content: center
 
   &__post
     @include col(4)
+    @include phone-lg
+      margin-top: 1rem
+    margin-top: 2rem
 
     &:not(:last-of-type)
       @include tablet
@@ -36,6 +38,7 @@
         padding: 1rem
       background: $c2
       padding: 2rem
+      height: 100%
 
     &-excerpt
       padding: 1rem 0

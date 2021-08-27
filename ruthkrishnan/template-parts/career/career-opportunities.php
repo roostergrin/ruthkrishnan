@@ -24,7 +24,7 @@
         $query = new WP_Query(array(
           'post_type' => 'careers',
           'post_status' => 'publish',
-          'posts_per_page' => 3
+          'posts_per_page' => -1
         ) );
 
       elseif ( is_single() && get_post_type() === 'careers' ) :
