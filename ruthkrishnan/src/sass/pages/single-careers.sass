@@ -1,38 +1,100 @@
 @import '../local/index.sass'
-@import '../templates/form-get-in-touch.sass'
+@import '../templates/career-opportunities.sass'
 
-/* -----------------------
-    Careers Posts Styles
-  ----------------------- */
+/* --------------------------------------
+    Careers Posts Job Description Styles
+  --------------------------------------- */
 
-/* -----------------------
-    Careers Content Styles
-  ----------------------- */
-
-.single-careers
-
-  &__content
-    @extend %section-padding-large
+.single-careers-description
+  @extend %section-padding-top
 
   &__container
     @include container
-    @include desktop
-      max-width: calc(#{$max-width} - #{$outside-gutter})
-    @include tablet-md
+    @include tablet
+      padding: 0
+  
+  &__column
+    @include col(12)
+
+  &__background
+    @extend %section-padding-large
+    background: $c2
+
+  &__content
+    @include col(8)
+    @include col--offset(2)
+    @include tablet
       padding: 0 2rem
-      max-width: 100%
     @include phone-lg
       padding: 0 1rem
+
+  &__title
+    margin-bottom: 1rem
+    text-align: center
+
+/* --------------------------------------
+    Careers Posts Requirements Styles
+  --------------------------------------- */
+
+.single-careers-requirements
+  @extend %section-padding
+
+  &__container
+    @include container
+  
+  &__column
+    @include col(12)
+
+  &__content
+    @include col(8)
+    @include col--offset(2)
+
+  &__title
+    margin-bottom: 1rem
+    text-align: center
+
+/* ------------------------------------
+    Careers Post Apply Button Styles
+  ------------------------------------- */
+
+.single-careers-apply
+  @extend %section-padding
+
+  &__container
+    @include container
     justify-content: center
-    padding: 0
-    max-width: $width
+
+  &__btn
+    @include button-solid($c3, $white, $c6)
+
+/* -----------------------------------------
+    Careers Post Equal Opportunity Styles
+  ------------------------------------------ */
+
+.single-careers-equal
+  @extend %section-padding-bottom
+
+  &__container
+    @include container
 
   &__column
-    @include col(10)
+    @include col(12)
+
+  &__background
+    @extend %section-padding-large
+    background: $c4
 
   &__title
     @extend %title-margin
     text-align: center
+    color: $white
 
   &__text
-    @extend %wysiwyg-styles
+    @include col(8)
+    @include col--offset(2)
+    @include tablet
+      padding: 0 2rem
+    @include phone-lg
+      padding: 0 1rem
+    text-align: center
+    color: $white
