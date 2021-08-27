@@ -50,17 +50,20 @@ wp_reset_query();
               </div>
             <?php endwhile; ?>
           <?php endif; ?>
-          <div class="testimonials-section__indicators">
-            <div class="testimonials-section__nav testimonials-section__nav--prev">
-              <?php get_template_part('icons/arrow', null, array( 'class' => 'testimonials-section__nav-icon testimonials-section__nav-icon--prev')); ?>
+          <?php $count = count(get_field('testimonials'));
+          if ( $count > 1 ) : ?>
+            <div class="testimonials-section__indicators">
+              <div class="testimonials-section__nav testimonials-section__nav--prev">
+                <?php get_template_part('icons/arrow', null, array( 'class' => 'testimonials-section__nav-icon testimonials-section__nav-icon--prev')); ?>
+              </div>
+              <?php foreach (get_field('testimonials') as $key=>$dot) : ?>
+                <div class="testimonials-section__dot" data-index='<?php echo $key; ?>'></div>
+              <?php endforeach; ?>
+              <div class="testimonials-section__nav testimonials-section__nav--next">
+                <?php get_template_part('icons/arrow', null, array( 'class' => 'testimonials-section__nav-icon testimonials-section__nav-icon--next')); ?>
+              </div>
             </div>
-            <?php foreach (get_field('testimonials') as $key=>$dot) : ?>
-              <div class="testimonials-section__dot" data-index='<?php echo $key; ?>'></div>
-            <?php endforeach; ?>
-            <div class="testimonials-section__nav testimonials-section__nav--next">
-              <?php get_template_part('icons/arrow', null, array( 'class' => 'testimonials-section__nav-icon testimonials-section__nav-icon--next')); ?>
-            </div>
-          </div>
+          <?php endif; ?>
         </div>
       </div>
     </div> <!-- content-col -->
