@@ -39,6 +39,115 @@ var formExclusiveAccess = function formExclusiveAccess() {
 
 /***/ }),
 
+/***/ "./src/scripts/resources/form-new-dev.js":
+/*!***********************************************!*\
+  !*** ./src/scripts/resources/form-new-dev.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "formNewDev": () => (/* binding */ formNewDev)
+/* harmony export */ });
+var formNewDev = function formNewDev() {
+  var formElem = document.getElementById('new-dev-form');
+
+  if (formElem) {
+    var validateForm = function validateForm() {
+      var errorMessages = Array.from(document.querySelectorAll('.form-new-dev__validation-message')),
+          fullnameValidation = document.getElementById('fullname-validation'),
+          emailValidation = document.getElementById('email-validation'),
+          phoneValidation = document.getElementById('phone-validation'),
+          propertyValidation = document.getElementById('property-validation'),
+          addressValidation = document.getElementById('address-validation');
+      var errorFields;
+      errorMessages.forEach(function (message) {
+        return message.style.opacity = 0;
+      });
+      errorFields = [];
+
+      if (!/^(?![\s.]+$)[a-zA-Z\s.]*$/.test(formElem.fullname.value) || formElem.fullname.value === '') {
+        errorFields.push('fullname');
+      }
+
+      if (formElem.email.value === '') {
+        errorFields.push('email');
+      }
+
+      if (!/^[0-9-+\s()]*$/.test(formElem.phone.value) || formElem.phone.value === '' || formElem.phone.value.length < 7) {
+        errorFields.push('phone');
+      }
+
+      if (formElem.property.value === '') {
+        errorFields.push('property');
+      }
+
+      if (formElem.address.value === '') {
+        errorFields.push('address');
+      }
+
+      if (errorFields.length > 0) {
+        console.log(errorFields);
+        errorFields.forEach(function (err) {
+          switch (err) {
+            case 'fullname':
+              fullnameValidation.style.opacity = 1;
+              break;
+
+            case 'email':
+              emailValidation.style.opacity = 1;
+              break;
+
+            case 'phone':
+              phoneValidation.style.opacity = 1;
+              break;
+
+            case 'property':
+              propertyValidation.style.opacity = 1;
+              break;
+
+            case 'address':
+              addressValidation.style.opacity = 1;
+              break;
+          }
+        });
+      } else {
+        sendEmail();
+      }
+    };
+
+    var sendEmail = function sendEmail() {
+      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-new-dev', {
+        fullname: formElem.fullname.value,
+        email: formElem.email.value,
+        phone: formElem.phone.value,
+        property: formElem.property.value,
+        address: formElem.address.value,
+        message: formElem.message.value
+      }).then(function (res) {
+        formElem.fullname.value = '';
+        formElem.email.value = '';
+        formElem.phone.value = '';
+        formElem.property.value = '';
+        formElem.property.value = '';
+        formElem.message.value = '';
+        setTimeout(function () {
+          window.location.href = '/thank-you';
+        }, 150);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    };
+
+    formElem.addEventListener('submit', function (event) {
+      event.preventDefault();
+      validateForm();
+    });
+  }
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/gmaps.js":
 /*!****************************************!*\
   !*** ./src/scripts/resources/gmaps.js ***!
@@ -437,6 +546,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_gmaps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../resources/gmaps */ "./src/scripts/resources/gmaps.js");
 /* harmony import */ var _resources_testimonials__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../resources/testimonials */ "./src/scripts/resources/testimonials.js");
 /* harmony import */ var _resources_form_exclusive_access__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../resources/form-exclusive-access */ "./src/scripts/resources/form-exclusive-access.js");
+/* harmony import */ var _resources_form_new_dev__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../resources/form-new-dev */ "./src/scripts/resources/form-new-dev.js");
+
 
 
 
@@ -469,7 +580,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   (0,_resources_testimonials__WEBPACK_IMPORTED_MODULE_4__.testimonials)(); // From Exclusive Access
 
-  (0,_resources_form_exclusive_access__WEBPACK_IMPORTED_MODULE_5__.formExclusiveAccess)(); // END Imported Scripts -------------------
+  (0,_resources_form_exclusive_access__WEBPACK_IMPORTED_MODULE_5__.formExclusiveAccess)(); // Form New Dev
+
+  (0,_resources_form_new_dev__WEBPACK_IMPORTED_MODULE_6__.formNewDev)(); // END Imported Scripts -------------------
   // Features See More
 
   var toggleFeatures = function toggleFeatures() {

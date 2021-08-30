@@ -89,7 +89,8 @@ var formGetInTouch = function formGetInTouch() {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
-        message: formElem.message.value
+        message: formElem.message.value,
+        page: formElem.dataset.page
       }).then(function (res) {
         formElem.fullname.value = '';
         formElem.email.value = '';

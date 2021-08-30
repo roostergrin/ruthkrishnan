@@ -1,7 +1,7 @@
 export const formNewDev = () => {
 
   const formElem = document.getElementById('new-dev-form');
-  
+
   if (formElem) {
     const validateForm = () => {
       const errorMessages = Array.from(document.querySelectorAll('.form-new-dev__validation-message')),
@@ -25,7 +25,7 @@ export const formNewDev = () => {
       if (!/^[0-9-+\s()]*$/.test(formElem.phone.value) || formElem.phone.value === '' || formElem.phone.value.length < 7) {
         errorFields.push('phone')
       }
-      if (!/^(?![\s.]+$)[a-zA-Z\s.]*$/.test(formElem.property.value) || formElem.property.value === '') {
+      if (formElem.property.value === '') {
         errorFields.push('property')
       }
       if (formElem.address.value === '') {

@@ -4,6 +4,7 @@ import { listingsNeighborhhodGallery } from '../resources/listings-neighborhood-
 import { setMap } from '../resources/gmaps';
 import { testimonials } from '../resources/testimonials';
 import { formExclusiveAccess } from '../resources/form-exclusive-access';
+import { formNewDev } from '../resources/form-new-dev';
 
 document.addEventListener('DOMContentLoaded', function () {
   const playBtn = document.querySelector('.listings-single__play-btn'),
@@ -39,6 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // From Exclusive Access
   formExclusiveAccess();
+
+  // Form New Dev
+  formNewDev();
 
   // END Imported Scripts -------------------
 

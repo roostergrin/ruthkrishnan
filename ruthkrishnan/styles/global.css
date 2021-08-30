@@ -239,18 +239,6 @@ template {
   }
 }
 
-.site-navigation__menu a {
-  text-transform: lowercase;
-  letter-spacing: 0.25px;
-  font-size: 0.875rem;
-}
-@media screen and (min-width: 1750px) {
-  .site-navigation__menu a {
-    letter-spacing: 0.367px;
-    font-size: 1rem;
-  }
-}
-
 .testimonials-section, .photo-gallery, .form-subscribe {
   padding: 2rem 0;
 }
@@ -512,8 +500,15 @@ p, li, h2, h3, h4, h5 {
   opacity: 1;
 }
 .site-navigation__menu a {
+  text-transform: lowercase;
+  letter-spacing: 0.25px;
   transition: color 0.4s ease;
   color: #fff;
+}
+@media screen and (min-width: 1750px) {
+  .site-navigation__menu a {
+    letter-spacing: 0.367px;
+  }
 }
 .site-navigation--active .site-navigation__menu a {
   color: #232323;

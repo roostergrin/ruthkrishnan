@@ -45,22 +45,22 @@
           </div>
           <div class="form-get-in-touch__form-column">
             <div class="form-get-in-touch__form-container">
-              <form action="" class="form-get-in-touch__form" id="get-in-touch-form">
+              <form action="" class="form-get-in-touch__form" id="get-in-touch-form" data-page='<?php echo the_title(); ?>'>
                 <div class="form-get-in-touch__form-group">
                   <label for="fullname" class="form-get-in-touch__label">First and Last Name</label>
-                  <input type="text" name="fullname" id="fullname" placeholder="First and Last Name" class="form-get-in-touch__input">
+                  <input type="text" name="fullname" id="fullname" placeholder="First and Last Name*" class="form-get-in-touch__input">
                   <small class="form-get-in-touch__validation-message" id="fullname-validation">Please enter valid full name.</small>
                 </div>
 
                 <div class="form-get-in-touch__form-group form-get-in-touch__form-group--half">
                   <label for="email" class="form-get-in-touch__label">Email</label>
-                  <input type="email" name="email" id="email" placeholder="Email" class="form-get-in-touch__input">
+                  <input type="email" name="email" id="email" placeholder="Email*" class="form-get-in-touch__input">
                   <small class="form-get-in-touch__validation-message" id="email-validation">Please enter a valid email address.</small>
                 </div>
 
                 <div class="form-get-in-touch__form-group form-get-in-touch__form-group--half">
                   <label for="phone" class="form-get-in-touch__label">Phone Number</label>
-                  <input type="tel" name="phone" id="phone" placeholder="Phone Number" class="form-get-in-touch__input">
+                  <input type="tel" name="phone" id="phone" placeholder="Phone Number*" class="form-get-in-touch__input">
                   <small class="form-get-in-touch__validation-message" id="phone-validation">Please enter a valid phone number</small>
                 </div>
 

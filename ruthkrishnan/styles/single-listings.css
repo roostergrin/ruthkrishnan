@@ -975,6 +975,21 @@
 .listings-single {
   position: relative;
 }
+.listings-single__tag {
+  position: relative;
+  width: 100%;
+}
+.listings-single__category {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  display: inline-block;
+  background: #AF5B5B;
+  border: 2px solid #fff;
+  border-bottom: none;
+  padding: 1rem;
+  color: #fff;
+}
 .listings-single__container {
   display: flex;
   position: relative;

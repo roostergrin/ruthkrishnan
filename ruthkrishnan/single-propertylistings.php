@@ -11,10 +11,18 @@ get_header(); ?>
 <div class="listings-single">
 	<?php get_template_part('template-parts/hero/listings-hero'); ?>
 
+	
 	<?php
 	if ( have_posts() ) :
 		while ( have_posts() ) : the_post(); ?>
-			<div class="listings-single__container">
+
+
+<div class="listings-single__container">
+				<?php if ( !empty(get_the_terms($post->ID, 'listings-category')[0]->name) ) : ?>
+					<div class="listings-single__tag">
+						<div class="listings-single__category"><?php echo get_the_terms($post->ID, 'listings-category')[0]->name; ?></div>
+					</div>
+				<?php endif; ?>
 				<?php if ( get_field('hero_type') === 'video' && !empty(get_field('title_option')) ) : ?>
 					<div class="listings-single__title-container">
 						<h1 class="listings-single__title">
@@ -356,20 +364,41 @@ get_header(); ?>
           </div>
           <div class="form-get-in-touch__form-column">
             <div class="form-get-in-touch__form-container">
-              <form action="" class="form-get-in-touch__form" id="get-in-touch-form">
+              <form action="" class="form-get-in-touch__form" id="new-dev-form">
                 <div class="form-get-in-touch__form-group">
                   <label for="fullname" class="form-get-in-touch__label">First and Last Name</label>
-                  <input type="text" name="fullname" id="fullname" placeholder="First and Last Name" class="form-get-in-touch__input">
+                  <input type="text" name="fullname" id="fullname" placeholder="First and Last Name*" class="form-get-in-touch__input">
+                  <small class="form-get-in-touch__validation-message" id="fullname-validation">Please enter valid full name.</small>
                 </div>
 
                 <div class="form-get-in-touch__form-group form-get-in-touch__form-group--half">
                   <label for="email" class="form-get-in-touch__label">Email</label>
-                  <input type="email" name="email" id="email" placeholder="Email" class="form-get-in-touch__input">
+                  <input type="email" name="email" id="email" placeholder="Email*" class="form-get-in-touch__input">
+                  <small class="form-get-in-touch__validation-message" id="email-validation">Please enter a valid email address.</small>
                 </div>
 
                 <div class="form-get-in-touch__form-group form-get-in-touch__form-group--half">
                   <label for="phone" class="form-get-in-touch__label">Phone Number</label>
-                  <input type="tel" pattern="^[0-9-+\s()]*$" name="phone" id="phone" placeholder="Phone Number" class="form-get-in-touch__input">
+                  <input type="tel" pattern="^[0-9-+\s()]*$" name="phone" id="phone" placeholder="Phone Number*" class="form-get-in-touch__input">
+                  <small class="form-get-in-touch__validation-message" id="phone-validation">Please enter a valid phone number</small>
+                </div>
+
+								<div class="form-get-in-touch__form-group form-get-in-touch__form-group--half">
+                  <label for="property" class="form-get-in-touch__label">Property Name</label>
+                  <input type="text" name="property" id="property" placeholder="Property Name*" value="<?php echo the_title(); ?>" class="form-get-in-touch__input">
+                  <small class="form-get-in-touch__validation-message" id="property-validation">Please enter valid property.</small>
+                </div>
+
+								<?php 
+									$address_1 = get_field('address_1');
+									$city_state = get_field('city_and_state');
+									$zip = get_field('zip_code');
+								?>
+
+								<div class="form-get-in-touch__form-group form-get-in-touch__form-group--half">
+                  <label for="address" class="form-get-in-touch__label">Property Address</label>
+                  <input type="text" name="address" id="address" placeholder="Property Address*" value="<?php echo $address_1 . ' ' . $city_state . ' ' . $zip; ?>" class="form-get-in-touch__input">
+                  <small class="form-get-in-touch__validation-message" id="address-validation">Please enter valid address.</small>
                 </div>
 
                 <div class="form-get-in-touch__form-group">

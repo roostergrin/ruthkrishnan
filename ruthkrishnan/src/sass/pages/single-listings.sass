@@ -12,6 +12,22 @@
 .listings-single
   position: relative
 
+  &__tag
+    position: relative
+    width: 100%
+
+  &__category
+    position: absolute
+    right: 0
+    bottom: 100%
+    display: inline-block
+    background: $c3
+    border: 2px solid $white
+    border-bottom: none
+    padding: 1rem
+    color: $white
+    // text-transform: lowercase
+
   &__container
     @include container
 

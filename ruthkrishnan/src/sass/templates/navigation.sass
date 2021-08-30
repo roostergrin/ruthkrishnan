@@ -87,7 +87,11 @@
           opacity: 1
 
     a
-      @extend %link-text
+      // @extend %link-text
+      @include desktop
+        letter-spacing: .367px
+      text-transform: lowercase
+      letter-spacing: .25px
       transition: color .4s ease
       color: $white
 

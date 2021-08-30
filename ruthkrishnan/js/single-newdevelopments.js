@@ -41,7 +41,7 @@ var formNewDev = function formNewDev() {
         errorFields.push('phone');
       }
 
-      if (!/^(?![\s.]+$)[a-zA-Z\s.]*$/.test(formElem.property.value) || formElem.property.value === '') {
+      if (formElem.property.value === '') {
         errorFields.push('property');
       }
 
