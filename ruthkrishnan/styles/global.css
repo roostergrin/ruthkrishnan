@@ -503,6 +503,7 @@ p, li, h2, h3, h4, h5 {
   text-transform: lowercase;
   letter-spacing: 0.25px;
   transition: color 0.4s ease;
+  font-size: 1.125rem;
   color: #fff;
 }
 @media screen and (min-width: 1750px) {
@@ -540,7 +541,7 @@ p, li, h2, h3, h4, h5 {
 .site-navigation__menu--mobile .menu-item a {
   text-transform: lowercase;
   letter-spacing: 0.25px;
-  font-size: 0.875rem;
+  font-size: 1.125rem;
 }
 .site-navigation__menu--mobile .current-menu-item {
   -webkit-text-stroke-width: 0.75px;
