@@ -135,7 +135,7 @@ var navigation = function navigation() {
   var handleScroll = function handleScroll() {
     scrollPos = window.pageYOffset;
 
-    if (scrollPos > window.innerHeight * 0.25 || window.location.href.includes('/careers') || window.location.href.includes('/privacy-policy')) {
+    if (scrollPos > window.innerHeight * 0.25) {
       el.classList.add('site-navigation--active');
     } else {
       el.classList.remove('site-navigation--active');
