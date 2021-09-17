@@ -35,6 +35,13 @@ get_header(); ?>
 					</div>
 				<?php else : ?>
 					<div class="listings-single__title-container">
+            <h2 class='listings-single__title'>
+              <?php if ( get_field('title_option') ) :
+                      echo get_field('title_option');
+                    else :
+                      echo the_title();
+                    endif;?>
+            </h2>
 						<h2 class="listings-single__title">
 							<span class="listings-single__title-text"><?php echo the_title(); ?></span>
 							<?php if ( !empty(get_field('listing_price')) ) : ?>

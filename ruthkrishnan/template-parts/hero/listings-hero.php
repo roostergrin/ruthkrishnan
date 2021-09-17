@@ -39,19 +39,6 @@
       <?php endwhile;
     endif; ?> 
     <!-- END Hero Image -->
-    <div class='hero-listings__container'>
-      <div class='hero-listings__content'>
-        <h1 class='hero-listings__title'>
-          <?php if ( get_field('hero_type') === 'image') :
-            if ( get_field('title_option') ) :
-              echo get_field('title_option');
-            else :
-              echo the_title();
-            endif; 
-          endif;?>
-        </h1>
-      </div>
-    </div>
       
   <?php else : ?>
     

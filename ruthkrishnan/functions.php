@@ -11,9 +11,9 @@
           
           if (!empty($image)) :
             $imageUrl = wp_get_attachment_image_src($image, $size = 'full')[0];
+            $object->add_image( $imageUrl );
           endif;
         endwhile;  
-        $object->add_image( $imageUrl );
       endif;
     }
   }
