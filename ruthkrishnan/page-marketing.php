@@ -34,6 +34,30 @@ get_header(); ?>
   </div>
   <!-- Marketing Campaign Optional Intro Section -->
 
+  <!-- Marketing Video Section -->
+  <?php if ( !empty(get_field('marketing_video_src')) ) : ?>
+
+    <div class="marketing-video">
+      <div class="marketing-video__container">
+        <div class="marketing-video__column">
+          <div class="marketing-video__video-container">
+            <iframe title="marketing Welcome Video" class="marketing-video__video" data-src="<?php echo get_field('marketing_video_src') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+            <?php echo wp_get_attachment_image(get_field('marketing_video_thumbnail'), 'full', false, [ 'class' => 'marketing-video__thumbnail' ]); ?>
+            <div class="marketing-video__play-btn">
+              <?php get_template_part('icons/play', null, array('class' => 'marketing-video__icon')); ?>
+            </div>
+          </div>
+          <div class="marketing-video__content">
+            <h2 class="marketing-video__text"><?php echo get_field('marketing_video_text'); ?></h2>
+            <a href="<?php echo get_field('marketing_video_button_link'); ?>" class="marketing-video__link"><?php echo get_field('marketing_video_button_text'); ?></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <?php endif; ?>
+  <!-- END Marketing Video Section -->
+
   <!-- Marketing Text Image Columns Section -->
   <section class="marketing-image-text">
     <div class="marketing-image-text__color-box"></div>

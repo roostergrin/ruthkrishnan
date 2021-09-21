@@ -24,7 +24,7 @@ get_header(); ?>
   </div>
   <!-- END Neighborhoods Intro Section -->
 
-  <!-- Slider Neighborhoods Template Part -->
+  <!-- Slider Neighborhoodss Template Part -->
   <?php get_template_part('template-parts/sliders/slider-neighborhoods'); ?>
   <!-- END Slider Neighborhoods Template Part -->
 

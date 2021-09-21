@@ -181,8 +181,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_about_ruth_krishnan__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/about-ruth-krishnan */ "./src/scripts/resources/about-ruth-krishnan.js");
 
 document.addEventListener('DOMContentLoaded', function () {
-  // external scripts
+  var playButton = document.querySelector('.marketing-video__play-btn'),
+      videoContainer = document.querySelector('.marketing-video__video-container'),
+      thumbnail = document.querySelector('.marketing-video__thumbnail'),
+      video = document.querySelector('.marketing-video__video'); // External Scripts
+
   (0,_resources_about_ruth_krishnan__WEBPACK_IMPORTED_MODULE_0__.aboutRuth)();
+  video.addEventListener('loadeddata', function () {});
+  videoContainer.addEventListener('click', function () {
+    video.src = video.dataset.src;
+    playButton.classList.add('marketing-video__play-btn--hidden');
+    thumbnail.classList.add('marketing-video__thumbnail--hidden');
+    video.classList.add('marketing-video__video--active');
+  });
 });
 })();
 
