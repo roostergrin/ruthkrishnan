@@ -187,7 +187,12 @@ get_header(); ?>
 				<!-- END About the Neighborhood -->
 
 				<!-- The Neighborhood -->
-				<?php get_template_part('template-parts/listings/listings-neighborhood'); ?>
+        <?php 
+          $custom_sections = get_field('custom_neighborhood_sections');
+        ?>
+				<?php if ( !in_array('no_photo_gallery', $custom_sections) ) :
+          get_template_part('template-parts/listings/listings-neighborhood');
+        endif; ?> 
 				<!-- END The Neighborhood -->
 
 				<!-- Floor Plan -->
