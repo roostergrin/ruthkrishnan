@@ -24,7 +24,7 @@
             $ycoord = get_sub_field('y_coordinates'); ?>
 
             <figure class='hero-listings__wrapper' data-position-x='<?php echo $xcoord ?>' data-position-y='<?php echo $ycoord ?>'>
-              <div class='hero-listings__overlay'></div>
+              <!-- <div class='hero-listings__overlay'></div> -->
 
               <?php if ( !empty($image) ) : 
                 echo wp_get_attachment_image( $image, 'full', false, [ 'class' => 'hero-listings__background' ]);
