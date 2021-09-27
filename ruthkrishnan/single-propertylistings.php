@@ -164,36 +164,38 @@ get_header(); ?>
 				<?php endif; ?>
 				<!-- END The Home: Photo Gallery -->
 
-				<!-- About the Neighborhood -->
-				<div class="listings-single__main-column">
-					<div class="listings-single__about-neighborhood">
-						<h2 class="listings-single__about-neighborhood-title">About the Neighborhood</h2>
-						<div class="listings-single__about-neighborhood-description">
+        <?php if ( !get_field('hide_neighborhood_information') ) : ?>
+          <!-- About the Neighborhood -->
+          <div class="listings-single__main-column">
+            <div class="listings-single__about-neighborhood">
+              <h2 class="listings-single__about-neighborhood-title">About the Neighborhood</h2>
+              <div class="listings-single__about-neighborhood-description">
 
-							<?php 
-								$neighborhood = get_field('neighborhood');
-								$custom_sections = get_field('custom_neighborhood_sections');
-							?>
+                <?php 
+                  $neighborhood = get_field('neighborhood');
+                  $custom_sections = get_field('custom_neighborhood_sections');
+                ?>
 
-							<?php if ( in_array('custom_description', $custom_sections) ) :
-								echo get_field('about_the_neighborhood');
-							elseif ( $neighborhood ) :
-								echo get_field('description', $neighborhood->ID);
-							endif; ?> 
+                <?php if ( in_array('custom_description', $custom_sections) ) :
+                  echo get_field('about_the_neighborhood');
+                elseif ( $neighborhood ) :
+                  echo get_field('description', $neighborhood->ID);
+                endif; ?> 
 
-						</div>
-					</div>
-				</div>
-				<!-- END About the Neighborhood -->
+              </div>
+            </div>
+          </div>
+          <!-- END About the Neighborhood -->
 
-				<!-- The Neighborhood -->
-        <?php 
-          $custom_sections = get_field('custom_neighborhood_sections');
-        ?>
-				<?php if ( !in_array('no_photo_gallery', $custom_sections) ) :
-          get_template_part('template-parts/listings/listings-neighborhood');
-        endif; ?> 
-				<!-- END The Neighborhood -->
+          <!-- The Neighborhood -->
+          <?php 
+            $custom_sections = get_field('custom_neighborhood_sections');
+          ?>
+          <?php if ( !in_array('no_photo_gallery', $custom_sections) ) :
+            get_template_part('template-parts/listings/listings-neighborhood');
+          endif; ?> 
+          <!-- END The Neighborhood -->
+        <?php endif; ?>
 
 				<!-- Floor Plan -->
 				<div class="listings-single__plan listings-single__main-column">
