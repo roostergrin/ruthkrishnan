@@ -1471,6 +1471,10 @@ p, li, h2, h3, h4, h5 {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.page-careers .testimonials-section__image {
+  -o-object-position: center 15%;
+     object-position: center 15%;
+}
 .testimonials-section__content-col {
   padding: 0 calc(30px / 2);
   width: calc((10 / 12) * 100%);
