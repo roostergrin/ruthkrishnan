@@ -25,6 +25,10 @@ get_header(); ?>
   </div>
   <!-- END Careers Welcome Section -->
 
+  <!-- Career Opportunities Template Part -->
+    <?php get_template_part('template-parts/career/career-opportunities'); ?>
+  <!-- END Career Opportunities Template Part -->
+
   <!-- Core Values Section -->
   <div class="careers-values">
     <div class="careers-values__color-box"></div>
@@ -137,10 +141,6 @@ get_header(); ?>
   <!-- Image Banner Two -->
   <?php get_template_part('template-parts/image-banner/image-banner', null, array( 'field_name' => 'image_banner_two')); ?>
   <!-- Image Banner Two -->
-
-  <!-- Career Opportunities Template Part -->
-  <?php get_template_part('template-parts/career/career-opportunities'); ?>
-  <!-- END Career Opportunities Template Part -->
 
   <!-- Testimonails Template Part -->
   <?php get_template_part('template-parts/testimonials/testimonials'); ?>
