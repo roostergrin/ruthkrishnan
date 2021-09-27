@@ -218,16 +218,16 @@
     @include container
 
   &__column
-    @include col(6)
-    @include col--offset(3)
+    @include col(8)
+    @include col--offset(2)
     @include desktop
-      padding-bottom: 5rem
+      // padding-bottom: 5rem
     @include tablet
-      padding-bottom: 4rem
+      // padding-bottom: 4rem
     @include nexus
-      padding-bottom: 2rem
+      // padding-bottom: 2rem
     position: relative
-    padding-bottom: 4rem
+    // padding-bottom: 4rem
   
   &__colorbox
     position: absolute
@@ -246,14 +246,21 @@
     position: relative
     margin: auto
     cursor: pointer
-    width: 66.7%
-    padding-top: calc(66.7% * 1.51)
+    width: 80%
+    padding-top: calc(80% * 0.667)
 
+  &__video-slide
+    @extend %absolute
+    opacity: 0
+    pointer-events: none
+
+    &--active
+      opacity: 1
+      pointer-events: auto
 
   &__thumbnail
     @extend %absolute
     transition: opacity .2s ease
-    object-position: center bottom
     object-fit: cover
 
     &--hidden
@@ -262,8 +269,8 @@
 
   &__video
     @extend %absolute
-    object-position: center bottom
-    object-fit: cover
+    background: $black
+    object-fit: contain
   
   &__play-btn
     @extend %centered
@@ -283,6 +290,16 @@
     fill: $white
     border-radius: 50%
     box-shadow: 1px 2px 3px rgba($black, .5)
+
+  &__nav
+    // position: absolute
+    display: flex
+    align-items: center
+    justify-content: center
+    // bottom: 0
+    margin: 1rem
+    width: 100%
+    height: rem-calc(48)
 
 /* -----------------------------------
     Careers Equal Opportunity Styles

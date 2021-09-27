@@ -43,17 +43,54 @@ document.addEventListener('DOMContentLoaded', function () {
     debounce(setBgHeight, null, 300);
   }); // Play Video ------------------------------------------------------------------------
 
-  var videoContainer = document.querySelector('.careers-video__video-container');
-  thumbnail = document.querySelector('.careers-video__thumbnail'), video = document.querySelector('.careers-video__video'), playBtn = document.querySelector('.careers-video__play-btn');
+  var videoSlides = Array.from(document.querySelectorAll('.careers-video__video-slide')),
+      prevBtn = document.querySelector('.careers-video__nav-prev'),
+      nextBtn = document.querySelector('.careers-video__nav-next');
+  var currSlide = 1;
+  console.log(videoSlides[0].dataset.slideindex);
 
-  var playVideo = function playVideo() {
-    thumbnail.classList.add('careers-video__thumbnail--hidden');
-    playBtn.classList.add('careers-video__play-btn--hidden');
-    video.src = video.dataset.src;
+  var setSlideActive = function setSlideActive() {
+    videoSlides.forEach(function (slide, i) {
+      if (+slide.dataset.slideindex === currSlide) {
+        slide.classList.add('careers-video__video-slide--active');
+      } else {
+        slide.classList.remove('careers-video__video-slide--active');
+      }
+    });
   };
 
-  thumbnail.addEventListener('click', playVideo);
-  playBtn.addEventListener('click', playVideo);
+  setSlideActive();
+
+  var handleSlideChange = function handleSlideChange(target) {
+    if (target === 'prev') {
+      currSlide !== 1 ? currSlide-- : currSlide = videoSlides.length;
+    } else if (target === 'next') {
+      currSlide !== videoSlides.length ? currSlide++ : currSlide = 1;
+    } else if (typeof target === 'number') {
+      currSlide = target;
+    }
+
+    setSlideActive();
+  };
+
+  prevBtn.addEventListener('click', function () {
+    console.log('prev');
+    handleSlideChange('prev');
+  });
+  nextBtn.addEventListener('click', function () {
+    console.log('next');
+    handleSlideChange('next');
+  }); // const videoContainer = document.querySelector('.careers-video__video-container')
+  //       thumbnail = document.querySelector('.careers-video__thumbnail'),
+  //       video = document.querySelector('.careers-video__video'),
+  //       playBtn = document.querySelector('.careers-video__play-btn');
+  // const playVideo = () => {
+  //   thumbnail.classList.add('careers-video__thumbnail--hidden');
+  //   playBtn.classList.add('careers-video__play-btn--hidden');
+  //   video.src = video.dataset.src;
+  // }
+  // thumbnail.addEventListener('click', playVideo)
+  // playBtn.addEventListener('click', playVideo)
 });
 /******/ })()
 ;

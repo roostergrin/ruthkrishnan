@@ -153,11 +153,37 @@ get_header(); ?>
         <div class="careers-video__colorbox"></div>
         <h2 class="careers-video__title"><?php echo get_field('careers_video_title'); ?></h2>
         <div class="careers-video__video-container">
-          <video class="careers-video__video" data-src="<?php echo get_field('careers_video'); ?>" autoplay controls playsinline></video>
-          <?php echo wp_get_attachment_image(get_field('careers_video_thumbnail'), 'full', false, array( 'class' => 'careers-video__thumbnail')); ?>
-          <div class="careers-video__play-btn">
-            <?php get_template_part('icons/play', null, array('class' => 'careers-video__play-icon')); ?>
-          </div>
+          <?php if ( have_rows('careers_video_slides') ) :
+            while ( have_rows('careers_video_slides') ) : the_row();
+
+              $video_type = get_sub_field('careers_video_type');
+              $video_src = get_sub_field('careers_video');
+              $video_thumbnail = get_sub_field('careers_video_thumbnail'); ?>
+
+              <?php if ( $video_type === 'video_file' ) : ?>
+                <div class="careers-video__video-slide" data-slideindex="<?php echo get_row_index(); ?>">
+                  <video class="careers-video__video" data-src="<?php echo $video_src; ?>" autoplay controls playsinline></video>
+                  <?php echo wp_get_attachment_image($video_thumbnail, 'full', false, array( 'class' => 'careers-video__thumbnail')); ?>
+                  <div class="careers-video__play-btn">
+                    <?php get_template_part('icons/play', null, array('class' => 'careers-video__play-icon')); ?>
+                  </div>
+                </div>
+              <?php else : ?>
+                <div class="careers-video__video-slide" data-slideIndex="<?php echo get_row_index(); ?>">
+                  <iframe title="Ruth Krishnan Careers Video" class="careers-video__video" data-src="<?php echo $video_src; ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+                  <?php echo wp_get_attachment_image($video_thumbnail, 'full', false, array( 'class' => 'careers-video__thumbnail')); ?>
+                  <div class="careers-video__play-btn">
+                    <?php get_template_part('icons/play', null, array('class' => 'careers-video__play-icon')); ?>
+                  </div>
+                </div>
+              <?php endif; ?>
+            <?php endwhile;
+          endif; ?>
+        </div>
+        <div class="careers-video__nav">
+          <div class="careers-video__nav-prev">prev</div>
+          <div class="careers-video__nav-indicators">o o</div>
+          <div class="careers-video__nav-next">next</div>
         </div>
       </div>
     </div>

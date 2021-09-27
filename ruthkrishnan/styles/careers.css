@@ -40,7 +40,7 @@
   transform: translate(-50%, -50%);
 }
 
-.careers-video__video, .careers-video__thumbnail, .careers-who__image, .image-banner__image {
+.careers-video__video, .careers-video__thumbnail, .careers-video__video-slide, .careers-who__image, .image-banner__image {
   position: absolute;
   top: 0;
   left: 0;
@@ -761,10 +761,9 @@
 }
 .careers-video__column {
   padding: 0 calc(30px / 2);
-  width: calc((6 / 12) * 100%);
-  margin-left: calc((3 / 12) * 100%);
+  width: calc((8 / 12) * 100%);
+  margin-left: calc((2 / 12) * 100%);
   position: relative;
-  padding-bottom: 4rem;
 }
 @media screen and (max-width: 768px) {
   .careers-video__column {
@@ -775,21 +774,6 @@
 @media screen and (max-width: 768px) {
   .careers-video__column {
     margin-left: 0;
-  }
-}
-@media screen and (min-width: 1750px) {
-  .careers-video__column {
-    padding-bottom: 5rem;
-  }
-}
-@media screen and (max-width: 768px) {
-  .careers-video__column {
-    padding-bottom: 4rem;
-  }
-}
-@media screen and (max-width: 600px) {
-  .careers-video__column {
-    padding-bottom: 2rem;
   }
 }
 .careers-video__colorbox {
@@ -808,13 +792,19 @@
   position: relative;
   margin: auto;
   cursor: pointer;
-  width: 66.7%;
-  padding-top: calc(66.7% * 1.51);
+  width: 80%;
+  padding-top: calc(80% * 0.667);
+}
+.careers-video__video-slide {
+  opacity: 0;
+  pointer-events: none;
+}
+.careers-video__video-slide--active {
+  opacity: 1;
+  pointer-events: auto;
 }
 .careers-video__thumbnail {
   transition: opacity 0.2s ease;
-  -o-object-position: center bottom;
-     object-position: center bottom;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -823,10 +813,9 @@
   pointer-events: none;
 }
 .careers-video__video {
-  -o-object-position: center bottom;
-     object-position: center bottom;
-  -o-object-fit: cover;
-     object-fit: cover;
+  background: #000;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .careers-video__play-btn {
   transition: opacity 0.5s ease;
@@ -845,6 +834,14 @@
   fill: #fff;
   border-radius: 50%;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+}
+.careers-video__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  width: 100%;
+  height: 3rem;
 }
 
 /* -----------------------------------
