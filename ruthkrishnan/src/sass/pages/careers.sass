@@ -246,11 +246,16 @@
     position: relative
     margin: auto
     cursor: pointer
+    background: $c1
     width: 80%
     padding-top: calc(80% * 0.667)
 
   &__video-slide
+    @include hover-supported
+      & .careers-video__play-btn
+        opacity: .8
     @extend %absolute
+    transition: opacity .3s ease
     opacity: 0
     pointer-events: none
 
@@ -292,14 +297,54 @@
     box-shadow: 1px 2px 3px rgba($black, .5)
 
   &__nav
-    // position: absolute
     display: flex
     align-items: center
     justify-content: center
-    // bottom: 0
-    margin: 1rem
+    margin: 1rem 0
     width: 100%
     height: rem-calc(48)
+    color: $white
+
+    &-next,
+    &-prev,
+    &-dot
+      cursor: pointer
+
+    &-next,
+    &-prev
+      display: flex
+      align-items: center
+      margin: 0 rem-calc(8)
+      width: 1rem
+      height: 1rem
+
+      &-icon
+        width: 100%
+        height: auto
+        
+        path
+          stroke: $white
+
+    &-prev
+      transform: rotate(180deg)
+
+    &-indicators
+      display: flex
+
+    &-dot
+      @include hover-supported
+        background: $white
+      transition: background 0.3s ease
+      margin: 0.25rem
+      border: $white solid 1px
+      border-radius: 50%
+      cursor: pointer
+      width: rem-calc(10)
+      height: rem-calc(10)
+      pointer-events: all
+      
+      &--active
+        background: $white
 
 /* -----------------------------------
     Careers Equal Opportunity Styles

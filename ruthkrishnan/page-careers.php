@@ -180,11 +180,23 @@ get_header(); ?>
             <?php endwhile;
           endif; ?>
         </div>
-        <div class="careers-video__nav">
-          <div class="careers-video__nav-prev">prev</div>
-          <div class="careers-video__nav-indicators">o o</div>
-          <div class="careers-video__nav-next">next</div>
-        </div>
+        <?php if ( count(get_field('careers_video_slides')) > 1 ) : ?>
+          <div class="careers-video__nav">
+            <div class="careers-video__nav-prev">
+              <?php get_template_part('icons/arrow', null, array( 'class' => 'careers-video__nav-prev-icon')); ?>
+            </div>
+            <div class="careers-video__nav-indicators">
+            <?php if ( have_rows('careers_video_slides') ) :
+              while ( have_rows('careers_video_slides') ) : the_row(); ?>
+                <div class="careers-video__nav-dot" data-target="<?php echo get_row_index(); ?>"></div>
+              <?php endwhile;
+            endif; ?>
+            </div>
+            <div class="careers-video__nav-next">
+              <?php get_template_part('icons/arrow', null, array( 'class' => 'careers-video__nav-next-icon')); ?>
+            </div>
+          </div>
+        <?php endif; ?>
       </div>
     </div>
   </div>

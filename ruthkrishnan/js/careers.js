@@ -45,16 +45,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var videoSlides = Array.from(document.querySelectorAll('.careers-video__video-slide')),
       prevBtn = document.querySelector('.careers-video__nav-prev'),
-      nextBtn = document.querySelector('.careers-video__nav-next');
+      nextBtn = document.querySelector('.careers-video__nav-next'),
+      dots = Array.from(document.querySelectorAll('.careers-video__nav-dot'));
   var currSlide = 1;
-  console.log(videoSlides[0].dataset.slideindex);
 
   var setSlideActive = function setSlideActive() {
-    videoSlides.forEach(function (slide, i) {
+    // add/remove classes from slides
+    videoSlides.forEach(function (slide) {
       if (+slide.dataset.slideindex === currSlide) {
         slide.classList.add('careers-video__video-slide--active');
       } else {
         slide.classList.remove('careers-video__video-slide--active');
+      }
+    }); // add/remove classes from indicators
+
+    dots.forEach(function (dot) {
+      if (+dot.dataset.target === currSlide) {
+        dot.classList.add('careers-video__nav-dot--active');
+      } else {
+        dot.classList.remove('careers-video__nav-dot--active');
       }
     });
   };
@@ -74,11 +83,9 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   prevBtn.addEventListener('click', function () {
-    console.log('prev');
     handleSlideChange('prev');
   });
   nextBtn.addEventListener('click', function () {
-    console.log('next');
     handleSlideChange('next');
   }); // const videoContainer = document.querySelector('.careers-video__video-container')
   //       thumbnail = document.querySelector('.careers-video__thumbnail'),

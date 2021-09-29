@@ -792,12 +792,19 @@
   position: relative;
   margin: auto;
   cursor: pointer;
+  background: #232323;
   width: 80%;
   padding-top: calc(80% * 0.667);
 }
 .careers-video__video-slide {
+  transition: opacity 0.3s ease;
   opacity: 0;
   pointer-events: none;
+}
+@media not all and (pointer: coarse) {
+  .careers-video__video-slide:hover .careers-video__play-btn {
+    opacity: 0.8;
+  }
 }
 .careers-video__video-slide--active {
   opacity: 1;
@@ -839,9 +846,51 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem;
+  margin: 1rem 0;
   width: 100%;
   height: 3rem;
+  color: #fff;
+}
+.careers-video__nav-next, .careers-video__nav-prev, .careers-video__nav-dot {
+  cursor: pointer;
+}
+.careers-video__nav-next, .careers-video__nav-prev {
+  display: flex;
+  align-items: center;
+  margin: 0 0.5rem;
+  width: 1rem;
+  height: 1rem;
+}
+.careers-video__nav-next-icon, .careers-video__nav-prev-icon {
+  width: 100%;
+  height: auto;
+}
+.careers-video__nav-next-icon path, .careers-video__nav-prev-icon path {
+  stroke: #fff;
+}
+.careers-video__nav-prev {
+  transform: rotate(180deg);
+}
+.careers-video__nav-indicators {
+  display: flex;
+}
+.careers-video__nav-dot {
+  transition: background 0.3s ease;
+  margin: 0.25rem;
+  border: #fff solid 1px;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 0.625rem;
+  height: 0.625rem;
+  pointer-events: all;
+}
+@media not all and (pointer: coarse) {
+  .careers-video__nav-dot:hover {
+    background: #fff;
+  }
+}
+.careers-video__nav-dot--active {
+  background: #fff;
 }
 
 /* -----------------------------------

@@ -44,18 +44,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const videoSlides = Array.from(document.querySelectorAll('.careers-video__video-slide')),
         prevBtn = document.querySelector('.careers-video__nav-prev'),
-        nextBtn = document.querySelector('.careers-video__nav-next');
+        nextBtn = document.querySelector('.careers-video__nav-next'),
+        dots = Array.from(document.querySelectorAll('.careers-video__nav-dot'));
 
   let currSlide = 1
 
-  console.log(videoSlides[0].dataset.slideindex)
-
   const setSlideActive = () => {
-    videoSlides.forEach((slide, i) => {
+    // add/remove classes from slides
+    videoSlides.forEach((slide) => {
       if (+slide.dataset.slideindex === currSlide) {
         slide.classList.add('careers-video__video-slide--active')
       } else {
         slide.classList.remove('careers-video__video-slide--active')
+      }
+    })
+
+    // add/remove classes from indicators
+    dots.forEach((dot) => {
+      if (+dot.dataset.target === currSlide) {
+        dot.classList.add('careers-video__nav-dot--active')
+      } else {
+        dot.classList.remove('careers-video__nav-dot--active')
       }
     })
   }
@@ -74,12 +83,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   prevBtn.addEventListener('click', () => {
-    console.log('prev')
     handleSlideChange('prev');
   })
 
   nextBtn.addEventListener('click', () => {
-    console.log('next')
     handleSlideChange('next');
   })
 
