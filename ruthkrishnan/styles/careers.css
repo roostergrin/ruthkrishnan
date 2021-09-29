@@ -60,16 +60,16 @@
   }
 }
 
-.careers-video, .careers-perks, .career-opportunities, .image-banner {
+.careers-equal, .careers-video, .careers-perks, .career-opportunities, .image-banner {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .careers-video, .careers-perks, .career-opportunities, .image-banner {
+  .careers-equal, .careers-video, .careers-perks, .career-opportunities, .image-banner {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .careers-video, .careers-perks, .career-opportunities, .image-banner {
+  .careers-equal, .careers-video, .careers-perks, .career-opportunities, .image-banner {
     padding: 1rem 0;
   }
 }
@@ -88,16 +88,16 @@
   }
 }
 
-.careers-equal {
+.careers-social {
   padding: 2rem 0 4rem;
 }
 @media screen and (min-width: 1750px) {
-  .careers-equal {
+  .careers-social {
     padding: 2.5rem 0 5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .careers-equal {
+  .careers-social {
     padding: 1rem 0 2rem;
   }
 }
@@ -960,4 +960,47 @@
   .careers-equal__text {
     padding: 0 1rem;
   }
+}
+
+/* -----------------------------------
+ *  Careers Equal Opportunity Styles
+ * ------------------------------------ */
+.careers-social__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+}
+@media screen and (min-width: 1750px) {
+  .careers-social__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .careers-social__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .careers-social__container {
+    padding: 0 1rem;
+  }
+}
+
+.sb_instagram_header {
+  display: flex;
+  justify-content: center;
+}
+
+#sbi_images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#sb_instagram.sbi_col_4 #sbi_images .sbi_item {
+  width: 20%;
 }

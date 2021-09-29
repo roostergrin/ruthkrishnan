@@ -350,7 +350,7 @@
   ------------------------------------ */
 
 .careers-equal
-  @extend %section-padding-bottom
+  @extend %section-padding
 
   &__container
     @include container
@@ -374,3 +374,25 @@
     @include phone-lg
       padding: 0 1rem
     text-align: center
+
+/* -----------------------------------
+    Careers Equal Opportunity Styles
+  ------------------------------------ */
+
+.careers-social
+  @extend %section-padding-bottom
+
+  &__container
+    @include container
+
+.sb_instagram_header
+  display: flex
+  justify-content: center
+
+#sbi_images
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+
+#sb_instagram.sbi_col_4 #sbi_images .sbi_item
+  width: 20%

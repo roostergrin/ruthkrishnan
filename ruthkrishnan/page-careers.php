@@ -216,6 +216,12 @@ get_header(); ?>
   </div>
   <!-- END Equal Opportunity Section -->
 
+  <div class="careers-social">
+    <div class="careers-social__container">
+      <?php echo do_shortcode('[instagram-feed]') ?>
+    </div>
+  </div>
+
 </div>
 
 <?php get_footer(); ?>
