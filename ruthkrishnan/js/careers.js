@@ -44,10 +44,25 @@ document.addEventListener('DOMContentLoaded', function () {
   }); // Play Video ------------------------------------------------------------------------
 
   var videoSlides = Array.from(document.querySelectorAll('.careers-video__video-slide')),
-      prevBtn = document.querySelector('.careers-video__nav-prev'),
-      nextBtn = document.querySelector('.careers-video__nav-next'),
-      dots = Array.from(document.querySelectorAll('.careers-video__nav-dot'));
+      slideThumbnails = Array.from(document.querySelectorAll('.careers-video__thumbnail')),
+      playButtons = Array.from(document.querySelectorAll('.careers-video__play-btn'));
+  prevBtn = document.querySelector('.careers-video__nav-prev'), nextBtn = document.querySelector('.careers-video__nav-next'), dots = Array.from(document.querySelectorAll('.careers-video__nav-dot'));
   var currSlide = 1;
+
+  var resetSlides = function resetSlides() {
+    videoSlides.forEach(function (slide) {
+      var video = slide.querySelector('.careers-video__video'),
+          thumbnail = slide.querySelector('.careers-video__thumbnail'),
+          playBtn = slide.querySelector('.careers-video__play-btn');
+
+      if (video.src) {
+        video.src = '';
+      }
+
+      thumbnail.classList.remove('careers-video__thumbnail--hidden');
+      playBtn.classList.remove('careers-video__play-btn--hidden');
+    });
+  };
 
   var setSlideActive = function setSlideActive() {
     // add/remove classes from slides
@@ -66,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
         dot.classList.remove('careers-video__nav-dot--active');
       }
     });
+    resetSlides();
   };
 
   setSlideActive();
@@ -87,6 +103,29 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   nextBtn.addEventListener('click', function () {
     handleSlideChange('next');
+  });
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      handleSlideChange(+dot.dataset.target);
+    });
+  });
+  slideThumbnails.forEach(function (thumbnail) {
+    thumbnail.addEventListener('click', function (event) {
+      var video = thumbnail.parentElement.querySelector('.careers-video__video'),
+          playBtn = thumbnail.parentElement.querySelector('.careers-video__play-btn');
+      video.src = video.dataset.src;
+      thumbnail.classList.add('careers-video__thumbnail--hidden');
+      playBtn.classList.add('careers-video__play-btn--hidden');
+    });
+  });
+  playButtons.forEach(function (btn) {
+    btn.addEventListener('click', function (event) {
+      var video = btn.parentElement.querySelector('.careers-video__video'),
+          thumbnail = btn.parentElement.querySelector('.careers-video__thumbnail');
+      video.src = video.dataset.src;
+      thumbnail.classList.add('careers-video__thumbnail--hidden');
+      btn.classList.add('careers-video__play-btn--hidden');
+    });
   }); // const videoContainer = document.querySelector('.careers-video__video-container')
   //       thumbnail = document.querySelector('.careers-video__thumbnail'),
   //       video = document.querySelector('.careers-video__video'),

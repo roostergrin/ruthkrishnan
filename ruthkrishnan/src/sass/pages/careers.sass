@@ -251,9 +251,6 @@
     padding-top: calc(80% * 0.667)
 
   &__video-slide
-    @include hover-supported
-      & .careers-video__play-btn
-        opacity: .8
     @extend %absolute
     transition: opacity .3s ease
     opacity: 0
@@ -264,6 +261,9 @@
       pointer-events: auto
 
   &__thumbnail
+    @include hover-supported
+      & ~ .careers-video__play-btn
+        opacity: .8
     @extend %absolute
     transition: opacity .2s ease
     object-fit: cover
@@ -275,7 +275,6 @@
   &__video
     @extend %absolute
     background: $black
-    object-fit: contain
   
   &__play-btn
     @extend %centered

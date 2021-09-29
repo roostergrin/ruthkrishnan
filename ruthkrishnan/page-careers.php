@@ -158,11 +158,12 @@ get_header(); ?>
 
               $video_type = get_sub_field('careers_video_type');
               $video_src = get_sub_field('careers_video');
-              $video_thumbnail = get_sub_field('careers_video_thumbnail'); ?>
+              $video_thumbnail = get_sub_field('careers_video_thumbnail');
+              $video_size = get_sub_field('careers_video_size'); ?>
 
               <?php if ( $video_type === 'video_file' ) : ?>
                 <div class="careers-video__video-slide" data-slideindex="<?php echo get_row_index(); ?>">
-                  <video class="careers-video__video" data-src="<?php echo $video_src; ?>" autoplay controls playsinline></video>
+                  <video class="careers-video__video" data-src="<?php echo $video_src; ?>" autoplay controls playsinline style="object-fit: <?php echo $video_size ?>"></video>
                   <?php echo wp_get_attachment_image($video_thumbnail, 'full', false, array( 'class' => 'careers-video__thumbnail')); ?>
                   <div class="careers-video__play-btn">
                     <?php get_template_part('icons/play', null, array('class' => 'careers-video__play-icon')); ?>
@@ -170,7 +171,7 @@ get_header(); ?>
                 </div>
               <?php else : ?>
                 <div class="careers-video__video-slide" data-slideIndex="<?php echo get_row_index(); ?>">
-                  <iframe title="Ruth Krishnan Careers Video" class="careers-video__video" data-src="<?php echo $video_src; ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+                  <iframe title="Ruth Krishnan Careers Video" class="careers-video__video" data-src="<?php echo $video_src; ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="object-fit: <?php echo $video_size ?>"></iframe>
                   <?php echo wp_get_attachment_image($video_thumbnail, 'full', false, array( 'class' => 'careers-video__thumbnail')); ?>
                   <div class="careers-video__play-btn">
                     <?php get_template_part('icons/play', null, array('class' => 'careers-video__play-icon')); ?>
