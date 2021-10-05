@@ -16,32 +16,68 @@ get_header(); ?>
 			<!-- END Site Hero Template Part -->
 
 			<!-- Job Description Section -->
-			<div class="single-careers-description">
-				<div class="single-careers-description__container">
-					<div class="single-careers-description__column">
-						<div class="single-careers-description__background">
-							<div class="single-careers-description__content">
-								<h2 class="single-careers-description__title">Job Description</h2>
-								<div class="single-careers-description__text"><?php echo get_field('job_description'); ?></div>
+			<?php if ( !empty(get_field('job_description')) ) : ?>
+				<div class="single-careers-colorbox">
+					<div class="single-careers-colorbox__container">
+						<div class="single-careers-colorbox__column">
+							<div class="single-careers-colorbox__background">
+								<div class="single-careers-colorbox__content">
+									<h2 class="single-careers-colorbox__title">Job Description</h2>
+									<div class="single-careers-colorbox__text"><?php echo get_field('job_description'); ?></div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			<?php endif; ?>
 			<!-- END Job Description Section -->
 
-			<!-- Job Requirements Section -->
-			<div class="single-careers-requirements">
-				<div class="single-careers-requirements__container">
-					<div class="single-careers-requirements__column">
-						<div class="single-careers-requirements__content">
-							<h2 class="single-careers-requirements__title">Requirements</h2>
-							<div class="single-careers-requirements__text"><?php echo get_field('requirements'); ?></div>
+			<!-- The Opportunity Section -->
+			<?php if ( !empty(get_field('the_opportunity')) ) : ?>
+				<div class="single-careers-information">
+					<div class="single-careers-information__container">
+						<div class="single-careers-information__column">
+							<div class="single-careers-information__content">
+								<h2 class="single-careers-information__title">The Opportunity</h2>
+								<div class="single-careers-information__text"><?php echo get_field('the_opportunity'); ?></div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- END Job Requirements Section -->
+			<?php endif; ?>
+			<!-- END The Opportunity Section -->
+
+			<!-- Requirements Section -->
+			<?php if ( !empty(get_field('requirements')) ) : ?>
+				<div class="single-careers-colorbox">
+					<div class="single-careers-colorbox__container">
+						<div class="single-careers-colorbox__column">
+							<div class="single-careers-colorbox__background">
+								<div class="single-careers-colorbox__content">
+									<h2 class="single-careers-colorbox__title">Requirements</h2>
+									<div class="single-careers-colorbox__text"><?php echo get_field('requirements'); ?></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php endif; ?>
+			<!-- END Requirements Section -->
+
+			<!-- The Details Section -->
+			<?php if ( !empty(get_field('the_details')) ) : ?>
+				<div class="single-careers-information">
+					<div class="single-careers-information__container">
+						<div class="single-careers-information__column">
+							<div class="single-careers-information__content">
+								<h2 class="single-careers-information__title">The Details</h2>
+								<div class="single-careers-information__text"><?php echo get_field('the_details'); ?></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php endif; ?>
+			<!-- END The Details Section -->
 
 			<!-- Apply Button Section -->
 
@@ -52,7 +88,18 @@ get_header(); ?>
 			</div>
 
 			<!-- Career Opportunities Template Part -->
-			<?php get_template_part('template-parts/career/career-opportunities'); ?>
+			<?php 
+				$query = new WP_Query(array(
+					'post_type' => 'careers',
+					'post_status' => 'publish',
+					'posts_per_page' => 3,
+					'post__not_in' => array( $post->ID)
+				) );
+
+				if ( $query->have_posts() ) :
+					get_template_part('template-parts/career/career-opportunities'); 
+				endif;
+			?>
 			<!-- END Career Opportunities Template Part -->
 
 			<!-- Equal Opportunity Section -->
