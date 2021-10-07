@@ -5,7 +5,7 @@ export const formExclusiveAccess = () => {
   if (formElem) {
     const sendEmail = () => {
       console.log(formElem.email.value)
-      axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/exclusive-access', {
+      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/exclusive-access', {
         email: formElem.email.value
       })
       .then( (res) => {

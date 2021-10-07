@@ -85,7 +85,7 @@ var formGetInTouch = function formGetInTouch() {
     };
 
     var sendEmail = function sendEmail() {
-      axios.post('http://localhost:8888/wp-json/rg-mail/v1/form-get-in-touch', {
+      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-get-in-touch', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
