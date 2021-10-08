@@ -46,7 +46,9 @@ __Step 10:__ Inside the "admin_ruthkrishnan" database, go to the "Import" tab. C
 
 __Step 11:__ Now click on "admin_ruthkrishnan" in the sidebar on the left, and open the "wp_options" table. Here we will change the "option_value" for the "siteurl" and "home" to "http://localhost:8888"
 
-d__Step 12:__ Since this is only for a local environment, let's remove some plugins that we will not need (the following plugins are used to help with page load speeds and adds recaptcha. We only need these on the live site). Open the "rk_local" directory and navigate to "wp-content/plugins" and remove the following plugins:
+__Step 12:__ Navigate over to the Privileges Tab at the top of PHPMYADMIN. Check to see if there is a user with the name "admin_ruthkrishnan". If there isn't, create a user account and have all the credentials match the DB user name and password in your wp_config file located in the "rk_local" directory. (All other fields besides user name and password can be left to their default settings).
+
+__Step 12:__ Head back to the downloaded unzipped "rk_local" directory. Since this is only for a local environment, let's remove some plugins that we will not need (the following plugins are used to help with page load speeds and adds recaptcha. We only need these on the live site). Open the "rk_local" directory and navigate to "wp-content/plugins" and remove the following plugins:
 
 - ewww-image-optimizer
 - invisible-recaptcha
@@ -60,7 +62,7 @@ __Finishing up:__ Now you should be able to view the site locally at http://loca
 
 
 # Getting Started
-You should now have a local development environment up and running. Next step is to go into the theme directory (rk_local/wp-content/themes/ruthkrishnan) and run npm install to install all the dependencies. Now you should be ready to make some updates.
+You should now have a local development environment up and running. Next step is to go into the theme directory (rk_local/wp-content/themes/ruthkrishnan) and run npm install to install all the dependencies.
 
 Before we get started there are a few things to keep in mind. 
 
