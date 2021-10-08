@@ -48,7 +48,7 @@ __Step 11:__ Now click on "admin_ruthkrishnan" in the sidebar on the left, and o
 
 __Step 12:__ Navigate over to the Privileges Tab at the top of PHPMYADMIN. Check to see if there is a user with the name "admin_ruthkrishnan". If there isn't, create a user account and have all the credentials match the DB user name and password in your wp_config file located in the "rk_local" directory. (All other fields besides user name and password can be left to their default settings).
 
-__Step 12:__ Head back to the downloaded unzipped "rk_local" directory. Since this is only for a local environment, let's remove some plugins that we will not need (the following plugins are used to help with page load speeds and adds recaptcha. We only need these on the live site). Open the "rk_local" directory and navigate to "wp-content/plugins" and remove the following plugins:
+__Step 13:__ Head back to the downloaded unzipped "rk_local" directory. Since this is only for a local environment, let's remove some plugins that we will not need (the following plugins are used to help with page load speeds and adds recaptcha. We only need these on the live site). Open the "rk_local" directory and navigate to "wp-content/plugins" and remove the following plugins:
 
 - ewww-image-optimizer
 - invisible-recaptcha
