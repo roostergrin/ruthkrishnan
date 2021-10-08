@@ -6,7 +6,7 @@ This is a traditional Wordpress site hosted on its own dedicated server, Rootste
 # Setting Up A Local Environment
 To get started, it is best to set up a local development environment. Since this is a traditional Wordpress site, we will get a local development environment set up by using MAMP. MAMP is a local server environment that will allow us to run a Wordpress site locally. All we need to do is download MAMP, all Wordpress site files, and the ruthkrishnan theme files. 
 
-__Step 1:__ Download MAMP <a href='https://www.mamp.info/en/downloads/'>here</a>.
+__Step 1:__ Download MAMP <a href='https://www.mamp.info/en/downloads/' target='_blank'>here</a>.
 
 __Step 2:__ Go to RootsterGrinTrestles(52.12.152.11) server on plesk and navigate to the <strong>ruthkrishnan.com</strong> domain, then go to the File Manager.
 
@@ -87,3 +87,8 @@ Laravel Mix outputs all the compiled sass to the /styles directory and all the j
 
 __DO NOT__ make any changes to the files located in the /js or /styles directories.
 
+&nbsp;
+
+# Walkthrough Video Recordings
+
+View the video recordings of the site walkthrough <a href='https://drive.google.com/drive/u/0/folders/18lVADrXvLo0Hez04yavBkco2F6NdFrPi' target='_blank'>here</a>.
