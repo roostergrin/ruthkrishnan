@@ -38,7 +38,7 @@ var setMap = function setMap(category) {
           var infoTitle = development.dataset.title;
           var infoAddress = results[0].formatted_address.slice(0, -5);
           var infoSlug = development.dataset.slug;
-          var content = "\n          <h4 style=\"font-family: 'Avenir Next'; line-height: 1.3333; margin-bottom: 5px; letter-spacing: .5px; font-size: 18px; font-weight: 700\">".concat(infoTitle, "</h4>\n          <p style=\"font-family: 'Avenir Next'; margin-bottom: 1rem;\">").concat(infoAddress, "</p>\n          <a href='https://dev.ruthkrishnan.com/new-developments/").concat(infoSlug, "' style=\"color: #AF5B5B; font-family: 'Avenir Next'; font-weight: 700\">View property</a>\n          ");
+          var content = "\n          <h4 style=\"font-family: 'Avenir Next'; line-height: 1.3333; margin-bottom: 5px; letter-spacing: .5px; font-size: 18px; font-weight: 700\">".concat(infoTitle, "</h4>\n          <p style=\"font-family: 'Avenir Next'; margin-bottom: 1rem;\">").concat(infoAddress, "</p>\n          <a href='https://ruthkrishnan.com/new-developments/").concat(infoSlug, "' style=\"color: #AF5B5B; font-family: 'Avenir Next'; font-weight: 700\">View property</a>\n          ");
           var infoWindow = new google.maps.InfoWindow({
             content: content
           });

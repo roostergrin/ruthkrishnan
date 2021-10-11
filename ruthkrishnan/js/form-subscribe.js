@@ -45,7 +45,7 @@ var formSubscribe = function formSubscribe() {
   var formElem = document.getElementById('subscribe-form');
 
   var sendEmail = function sendEmail() {
-    axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-subscribe', {
+    axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-subscribe', {
       email: formElem.email.value
     }).then(function (res) {
       formElem.email.value = '';

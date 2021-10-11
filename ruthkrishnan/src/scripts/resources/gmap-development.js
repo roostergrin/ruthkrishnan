@@ -26,7 +26,7 @@ export const setMap = (category) => {
           const content = `
           <h4 style="font-family: 'Avenir Next'; line-height: 1.3333; margin-bottom: 5px; letter-spacing: .5px; font-size: 18px; font-weight: 700">${infoTitle}</h4>
           <p style="font-family: 'Avenir Next'; margin-bottom: 1rem;">${infoAddress}</p>
-          <a href='https://dev.ruthkrishnan.com/new-developments/${infoSlug}' style="color: #AF5B5B; font-family: 'Avenir Next'; font-weight: 700">View property</a>
+          <a href='https://ruthkrishnan.com/new-developments/${infoSlug}' style="color: #AF5B5B; font-family: 'Avenir Next'; font-weight: 700">View property</a>
           `
   
           const infoWindow = new google.maps.InfoWindow({
