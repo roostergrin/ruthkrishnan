@@ -47,7 +47,18 @@ src="https://www.facebook.com/tr?id=1871650279749281&ev=PageView&amp;noscript=1"
 </noscript>
 <!-- End Facebook Pixel Code -->
 
+<!-- Global site tag (gtag.js) - Google Ads: 781116828 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-781116828"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'AW-781116828');
+</script>
 <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+<?php if ( is_page_template('page-thankyou.php') ) ?>
 
 <script async="" type="text/javascript">var d=document,s="https://a.smtrk.net/trk?t=s&i=6001fc9b3c0c761d8c2a6caf&p=t,i,x&s=ee803f1c9de403c3f27305c30b62fa72&r="+escape(d.referrer)+"&u="+escape(d.URL),n=d.createElement("script"),e=d.
 getElementsByTagName("script")[0];n.async=!0,n.src=s,e.

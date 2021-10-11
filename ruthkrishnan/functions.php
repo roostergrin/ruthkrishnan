@@ -152,6 +152,7 @@ function theme_enqueue_scripts() {
   if ( !is_page_template('page-thankyou.php') ) {
     wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array(), '', true);
     wp_enqueue_script( 'global' );
+
   }
 
   // page specific scripts
@@ -209,6 +210,9 @@ function theme_enqueue_scripts() {
   if ( is_page_template('page-thankyou.php') ) {
     wp_register_script( 'thankyou', get_template_directory_uri() . '/js/thankyou.js', array(), '', true);
     wp_enqueue_script( 'thankyou' );
+    
+    wp_register_script( 'thankyou-conversion-script', get_template_directory_uri() . '/js/thankyou-conversion-script.js', array(), '', false);
+    wp_enqueue_script( 'thankyou-conversion-script' );
   }
 
   if ( is_page_template('page-sell.php') ) {
