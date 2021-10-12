@@ -54,7 +54,14 @@ get_header(); ?>
 				<!-- Virtual Tour -->
 				<div class="listings-single__main-column">
 					<?php if ( get_field('virtual_tour_video') ) : ?>
-						<h2 class="listings-single__tour-title">Take a Virtual Tour</h2>
+						<h2 class="listings-single__tour-title">
+							<?php if ( empty(get_field('optional_virtual_tour_title')) ) : ?>
+								Take a Virtual Tour
+								<?php else : ?>
+									<?php echo get_field('optional_virtual_tour_title') ?>
+								<?php endif; ?>
+						</h2>
+								
 						<div class="listings-single__tour">
 							<iframe src="<?php echo get_field('virtual_tour_video') ?>" class="listings-single__tour-video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
 						</div>
@@ -70,11 +77,15 @@ get_header(); ?>
 				</div>
 
 				<!-- About The Home -->
+				<!-- if important field empty -->
+				<?php
+				$icons_arr = get_field('about_home_icons');
+
+				if (count($icons_arr) > 0) : ?>
 				<div class="listings-single__about-home">
 				<div class="listings-single__about-home-container">
 					<h2 class="listings-single__about-home-title">About the Home</h2>
 					<div class="listings-single__about-home-icons">
-						
 
 						
 						<?php
@@ -141,9 +152,11 @@ get_header(); ?>
 					</div>
 				</div>
 				</div>
+				<?php endif; ?>
 				<!-- END About The Home -->
 				
 				<!-- Features -->
+				<?php if ( !empty(get_field('features')) ) : ?>
 				<div class="listings-single__features listings-single__main-column">
 					<div class="listings-single__features-container">
 						<h2 class="listings-single__features-title">Features</h2>
@@ -154,6 +167,8 @@ get_header(); ?>
 						<div class="listings-single__features-see-more"><span class="listings-single__features-see-more-btn">see more</span></div>
 					</div>
 				</div>
+				<?php endif; ?>
+
 				<!-- END Features -->
 
 				<!-- The Home: Photo Gallery -->
@@ -198,10 +213,13 @@ get_header(); ?>
         <?php endif; ?>
 
 				<!-- Floor Plan -->
+				
 				<div class="listings-single__plan listings-single__main-column">
 					<div class="listings-single__plan-container">
 						<?php echo wp_get_attachment_image(get_field('floor_plan'), 'full', false, [ 'class' => 'listings-single__plan-image' ]); ?>
-						<div class="listings-single__plan-text"><?php echo get_field('floor_plan_text'); ?></div>
+						<?php if ( !empty(get_field('floor_plan_text')) ) : ?>
+							<div class="listings-single__plan-text"><?php echo get_field('floor_plan_text'); ?></div>
+						<?php endif; ?>
 					</div>
 				</div>
 				<!-- END Floor Plan -->
