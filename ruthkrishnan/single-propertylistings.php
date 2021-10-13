@@ -77,7 +77,6 @@ get_header(); ?>
 				</div>
 
 				<!-- About The Home -->
-				<!-- if important field empty -->
 				<?php
 				$icons_arr = get_field('about_home_icons');
 
@@ -213,18 +212,21 @@ get_header(); ?>
         <?php endif; ?>
 
 				<!-- Floor Plan -->
-				
-				<div class="listings-single__plan listings-single__main-column">
-					<div class="listings-single__plan-container">
-						<?php echo wp_get_attachment_image(get_field('floor_plan'), 'full', false, [ 'class' => 'listings-single__plan-image' ]); ?>
-						<?php if ( !empty(get_field('floor_plan_text')) ) : ?>
-							<div class="listings-single__plan-text"><?php echo get_field('floor_plan_text'); ?></div>
-						<?php endif; ?>
+				<!-- If photo && text are empty display empty div for small spacing -->
+				<?php if ( empty(get_field('floor_plan_text')) && empty(get_field('floor_plan'))  ) : ?>
+					<div class="listings-single__plan listings-single__main-column"></div>
+					<?php else : ?>
+					<div class="listings-single__plan listings-single__main-column">
+						<div class="listings-single__plan-container">
+							<?php echo wp_get_attachment_image(get_field('floor_plan'), 'full', false, [ 'class' => 'listings-single__plan-image' ]); ?>
+							<?php if ( !empty(get_field('floor_plan_text')) ) : ?>
+								<div class="listings-single__plan-text"><?php echo get_field('floor_plan_text'); ?></div>
+								<?php endif; ?>
+						</div>
 					</div>
-				</div>
+				<?php endif; ?>
 				<!-- END Floor Plan -->
-
-			</div>
+		</div>
 
 
 		<?php endwhile;
