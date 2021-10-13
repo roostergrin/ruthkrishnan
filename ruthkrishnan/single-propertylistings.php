@@ -214,7 +214,7 @@ get_header(); ?>
 				<!-- Floor Plan -->
 				<!-- If photo && text are empty display empty div for small spacing -->
 				<?php if ( empty(get_field('floor_plan_text')) && empty(get_field('floor_plan'))  ) : ?>
-					<div class="listings-single__plan listings-single__main-column"></div>
+					<div></div>
 					<?php else : ?>
 					<div class="listings-single__plan listings-single__main-column">
 						<div class="listings-single__plan-container">
