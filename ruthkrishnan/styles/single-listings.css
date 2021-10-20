@@ -171,8 +171,14 @@
 }
 @media screen and (max-width: 600px) {
   .hero-listings {
-    height: auto;
     max-height: 60vh;
+    aspect-ratio: 682/520;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero-listings {
+    height: auto;
+    max-height: 75vh;
     aspect-ratio: 682/520;
   }
 }

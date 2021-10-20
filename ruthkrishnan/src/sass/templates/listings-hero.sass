@@ -4,8 +4,11 @@
 
 .hero-listings
   @include nexus
-    height: auto
     max-height: 60vh
+    aspect-ratio: 682 / 520
+  @include tablet
+    height: auto
+    max-height: 75vh
     aspect-ratio: 682 / 520
   position: relative
   background: $black
