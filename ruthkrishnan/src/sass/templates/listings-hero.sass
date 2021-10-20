@@ -4,11 +4,14 @@
 
 .hero-listings
   @include nexus
-    height: 60vh
+    height: auto
+    max-height: 60vh
+    aspect-ratio: 682 / 520
   position: relative
   background: $black
   height: 85vh
-  min-height: rem-calc(580)
+  aspect-ratio: unset
+  // min-height: rem-calc(580)
   overflow: hidden
 
   &__wrapper

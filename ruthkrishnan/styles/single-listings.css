@@ -166,12 +166,14 @@
   position: relative;
   background: #000;
   height: 85vh;
-  min-height: 36.25rem;
+  aspect-ratio: unset;
   overflow: hidden;
 }
 @media screen and (max-width: 600px) {
   .hero-listings {
-    height: 60vh;
+    height: auto;
+    max-height: 60vh;
+    aspect-ratio: 682/520;
   }
 }
 .hero-listings__wrapper {
