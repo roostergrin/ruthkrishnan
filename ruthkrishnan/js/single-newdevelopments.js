@@ -124,32 +124,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mapStyles.json */ "./src/scripts/resources/mapStyles.json");
 
 var setMap = function setMap() {
-  var geocoder = new google.maps.Geocoder();
-  var address = document.querySelector('#gmapnd').getAttribute('data-address');
-  geocoder.geocode({
-    address: address
-  }, function (results, status) {
-    if (status === google.maps.GeocoderStatus.OK) {
-      var lat = results[0].geometry.location.lat();
-      var lng = results[0].geometry.location.lng();
+  if (document.querySelector('#gmapnd')) {
+    var geocoder = new google.maps.Geocoder();
+    var address = document.querySelector('#gmapnd').getAttribute('data-address');
+    geocoder.geocode({
+      address: address
+    }, function (results, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        var lat = results[0].geometry.location.lat();
+        var lng = results[0].geometry.location.lng();
 
-      if (google) {
-        var map = new google.maps.Map(document.getElementById('gmapnd'), {
-          center: {
-            lat: lat,
-            lng: lng
-          },
-          zoom: 17,
-          fullscreenControl: false,
-          styles: _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__
-        });
-        new google.maps.Marker({
-          position: map.getCenter(),
-          map: map
-        });
+        if (google) {
+          var map = new google.maps.Map(document.getElementById('gmapnd'), {
+            center: {
+              lat: lat,
+              lng: lng
+            },
+            zoom: 17,
+            fullscreenControl: false,
+            styles: _mapStyles_json__WEBPACK_IMPORTED_MODULE_0__
+          });
+          new google.maps.Marker({
+            position: map.getCenter(),
+            map: map
+          });
+        }
       }
-    }
-  });
+    });
+  }
 };
 
 /***/ }),
