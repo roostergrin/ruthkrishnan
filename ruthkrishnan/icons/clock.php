@@ -10,8 +10,8 @@
   ?>
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-  <g id="b1759c98-2cd0-4c4b-9f37-7acf2b4a40ad" data-name="Layer 2">
-    <g id="b323f228-bb95-4953-84e5-d85b4d37f1e6" data-name="Layer 1">
+  <g id="clock-svg-1" data-name="Layer 2">
+    <g id="clock-svg-2" data-name="Layer 1">
       <circle cx="8" cy="8" r="7.63" style="fill: none;stroke: #232323;stroke-width: 0.75px"/>
       <circle cx="8" cy="8" r="1.04" style="fill: none;stroke: #232323;stroke-width: 0.75px"/>
       <line x1="7.79" y1="6.96" x2="7.79" y2="2.38" style="fill: none;stroke: #232323;stroke-linecap: round;stroke-width: 0.75px"/>
