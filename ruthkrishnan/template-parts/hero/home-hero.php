@@ -11,6 +11,6 @@
 
 <div class="home-hero">
   <div class="home-hero__overlay"></div>
-  <video class="home-hero__video" src="<?php echo get_field('hero_video'); ?>" autoplay loop muted playsinline></video>
+  <video class="home-hero__video" src="<?php echo get_field('hero_video'); ?>" autoplay controls loop muted playsinline></video>
   <!-- <div class="home-hero__pause-btn"></div> -->
 </div>
