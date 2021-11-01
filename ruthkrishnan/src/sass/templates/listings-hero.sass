@@ -4,9 +4,9 @@
 
 .hero-listings
   @include nexus
-  @include tablet
     height: auto
-    aspect-ratio: 682 / 520
+    display: flex
+    // aspect-ratio: 682 / 520
   position: relative
   background: $black
   height: 85vh
@@ -22,11 +22,23 @@
     width: 100%
     height: 100%
     will-change: transform
+    @include nexus
+      position: relative
+      top: unset
+      left: unset
+      width: auto
+      height: auto
+      display: flex
 
   &__background
     @extend %absolute
     object-fit: cover
     object-position: center
+    @include nexus
+      position: relative
+      top: unset
+      left: unset
+      object-fit: contain 
 
   &__iframe
     @extend %centered

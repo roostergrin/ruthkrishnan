@@ -169,10 +169,10 @@
   aspect-ratio: unset;
   overflow: hidden;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .hero-listings {
     height: auto;
-    aspect-ratio: 682/520;
+    display: flex;
   }
 }
 .hero-listings__wrapper {
@@ -184,11 +184,30 @@
   height: 100%;
   will-change: transform;
 }
+@media screen and (max-width: 600px) {
+  .hero-listings__wrapper {
+    position: relative;
+    top: unset;
+    left: unset;
+    width: auto;
+    height: auto;
+    display: flex;
+  }
+}
 .hero-listings__background {
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+@media screen and (max-width: 600px) {
+  .hero-listings__background {
+    position: relative;
+    top: unset;
+    left: unset;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
 }
 .hero-listings__iframe {
   width: 177.778vh;
