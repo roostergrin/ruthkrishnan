@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   shareElem.addEventListener('click', openShare);
+  shareElem.addEventListener('keyup', openShare);
 
   var copyText = function copyText() {
     var inputElem = document.getElementById('share-copy-link');
@@ -32,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 1250);
   };
 
-  copyButton.addEventListener('click', copyText); // Map InfoWindow------------------------------------------------
+  copyButton.addEventListener('click', copyText); // copyButton.addEventListener('keyup', copyText);
+  // Map InfoWindow------------------------------------------------
 
   if (document.querySelector('.single-posts-neighborhood')) {
     var postsData = Array.from(document.querySelectorAll('.single-posts-neighborhood__neighborhood-post')),
@@ -136,9 +138,13 @@ document.addEventListener('DOMContentLoaded', function () {
         el.addEventListener('click', function (event) {
           openTooltip(event, el);
         });
+        el.addEventListener('keyup', function (event) {
+          openTooltip(event, el);
+        });
       }
     });
-    closeContainer.addEventListener('click', closeToolTip); // debounce function
+    closeContainer.addEventListener('click', closeToolTip);
+    closeContainer.addEventListener('keyup', closeToolTip); // debounce function
 
     var debounce = function debounce(func, args, wait, immediate) {
       var later = function later() {

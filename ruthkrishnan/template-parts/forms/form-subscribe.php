@@ -22,7 +22,7 @@
 
         <button type="submit" for="subscribe-form" class="form-subscribe__submit"><?php get_template_part('icons/arrow', null, array( 'class' => 'form-subscribe__arrow' )); ?></button>
       </form> -->
-      <a href="https://paragon-re.us5.list-manage.com/subscribe/post?u=c8474b2af5037cd0c2709da5c&id=47357a5c28" class="form-subscribe__button" target="_blank" aria-label="Go to sign up for subscription page in new window.">subscribe now</a>
+      <a href="https://paragon-re.us5.list-manage.com/subscribe/post?u=c8474b2af5037cd0c2709da5c&id=47357a5c28" class="form-subscribe__button" target="_blank" aria-label="subscribe now on subscription page (opens in new window).">subscribe now</a>
     </div>
   </div>
 </section>

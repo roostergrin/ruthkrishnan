@@ -181,6 +181,31 @@ document.addEventListener('DOMContentLoaded', function () {
         el.classList.add('page-new-developments__filter--active');
       }
     });
+    el.addEventListener('keyup', function () {
+      (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__.setMap)(el.dataset.filter);
+      allDevelopments.forEach(function (elem) {
+        return elem.classList.remove('page-new-developments__development--active');
+      });
+
+      if (el.dataset.filter === 'available-now') {
+        availableNowElems.forEach(function (availableElem) {
+          availableElem.classList.add('page-new-developments__development--active');
+        });
+      } else if (el.dataset.filter === 'coming-soon') {
+        comingSoonElems.forEach(function (elem) {
+          elem.classList.add('page-new-developments__development--active');
+        });
+      } else if (el.dataset.filter === 'sold-out') {
+        soldOutElems.forEach(function (elem) {
+          elem.classList.add('page-new-developments__development--active');
+        });
+      }
+
+      if (!el.classList.contains('page-new-developments__filter--active')) {
+        document.querySelector('.page-new-developments__filter--active').classList.remove('page-new-developments__filter--active');
+        el.classList.add('page-new-developments__filter--active');
+      }
+    });
   });
 });
 })();

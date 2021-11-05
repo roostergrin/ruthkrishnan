@@ -20,7 +20,7 @@ get_header(); ?>
       <div class="talks-intro__column">
         <h2 class="talks-intro__title"><?php echo get_field('talks_intro_title'); ?></h2>
         <div class="talks-intro__video-container">
-          <iframe class="talks-intro__video" data-src="<?php echo get_field('talks_intro_video') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+          <iframe class="talks-intro__video" title="talks intro video" data-src="<?php echo get_field('talks_intro_video') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
           <?php echo wp_get_attachment_image(get_field('talks_intro_thumbnail'), 'full', false, [ 'class' => 'talks-intro__thumbnail' ]); ?>
           <div class="talks-intro__play-btn">
             <?php get_template_part('icons/play', null, array('class' => 'talks-intro__icon')); ?>
@@ -84,7 +84,7 @@ get_header(); ?>
       <div class="talks-video-slider__modal-overlay"></div>
       <div class="talks-video-slider__modal-container">
         <div class="talks-video-slider__close-btn">close</div>
-        <iframe class="talks-video-slider__video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+        <iframe class="talks-video-slider__video" title="talks videos" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
       </div>
     </div>
   <?php endif; ?>

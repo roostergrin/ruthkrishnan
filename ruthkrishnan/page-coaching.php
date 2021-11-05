@@ -22,7 +22,7 @@ get_header(); ?>
         <div class="coaching-intro__column coaching-intro__column--content">
           <div class="coaching-intro__text"><?php echo get_field('coaching_text'); ?></div>
           <div class="coaching-intro__link-container">
-            <a href="<?php echo get_field('coaching_link'); ?>" class="coaching-intro__link" target="_blank" aria-label="Go to accelerator.com page (opens in new window)"><?php echo get_field('coaching_link_text'); ?></a>
+            <a href="<?php echo get_field('coaching_link'); ?>" class="coaching-intro__link" target="_blank" aria-label="get started go to accelerator.com page (opens in new window)"><?php echo get_field('coaching_link_text'); ?></a>
           </div>
         </div>
         <div class="coaching-intro__column coaching-intro__column--image">

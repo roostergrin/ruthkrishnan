@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   shareElem.addEventListener('click', openShare);
+  shareElem.addEventListener('keyup', openShare);
   
   const copyText = () => {
     const inputElem = document.getElementById('share-copy-link');
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }  
 
   copyButton.addEventListener('click', copyText);
+  // copyButton.addEventListener('keyup', copyText);
 
   // Map InfoWindow------------------------------------------------
   if (document.querySelector('.single-posts-neighborhood')) {
@@ -125,12 +127,16 @@ document.addEventListener('DOMContentLoaded', function () {
         el.addEventListener('click', (event) => {
           openTooltip(event, el);
         })
+        el.addEventListener('keyup', (event) => {
+          openTooltip(event, el);
+        })
       }
   
   
     });
   
     closeContainer.addEventListener('click', closeToolTip);
+    closeContainer.addEventListener('keyup', closeToolTip);
   
     // debounce function
     const debounce = (func, args, wait, immediate) => {

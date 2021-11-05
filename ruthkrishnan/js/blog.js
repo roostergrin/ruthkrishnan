@@ -103,12 +103,6 @@ var blogArchivesMobile = function blogArchivesMobile() {
       nextButton.addEventListener('click', function () {
         changeSlide('next');
       });
-      prevButton.addEventListener('keyup', function () {
-        changeSlide('prev');
-      });
-      nextButton.addEventListener('keyup', function () {
-        changeSlide('next');
-      });
     }
   }; // debounce function
 
@@ -245,12 +239,6 @@ var blogArchives = function blogArchives() {
         changeSlide('prev');
       });
       nextButton.addEventListener('click', function () {
-        changeSlide('next');
-      });
-      prevButton.addEventListener('keyup', function () {
-        changeSlide('prev');
-      });
-      nextButton.addEventListener('keyup', function () {
         changeSlide('next');
       });
     }

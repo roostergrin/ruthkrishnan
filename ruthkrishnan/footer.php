@@ -18,7 +18,7 @@
       <a class="footer__home" href="/" aria-label="Go to Homepage">
         <?php get_template_part('icons/logo-main', null, array( 'class' => 'footer__logo' )); ?>
       </a>
-      <a href="<?php echo get_field('address_link', 'options') ?>" target="_blank" aria-label="go to google map of address (opens in new window)" class="footer__contact-group footer__link footer__address">
+      <a href="<?php echo get_field('address_link', 'options') ?>" target="_blank" aria-label="go to Compass 1400 Van Ness Ave San Francisco, CA 94109 on Google Maps(opens in new window)" class="footer__contact-group footer__link footer__address">
         <?php echo get_field('address_text', 'options'); ?>
       </a>
       <div class="footer__contact-group">

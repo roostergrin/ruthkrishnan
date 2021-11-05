@@ -113,12 +113,14 @@ get_header(); ?>
 
       <!-- HTML markup from mortgagecalculator.org -->
       <div class="buy-rent-vs-buy__mortgage-calculator">
-        <p align="center"><a href="https://www.mortgagecalculator.org/" target="_blank" aria-label="Go to mortgagecaolculator.org (new window)">
-          <img src="https://www.mortgagecalculator.org/images/mortgage-calculator-logo.png" width="589" height="auto" alt="MortgageCalculator.org" border="0" style="max-width: 100%;" target="_blank">
+        <p align="center">
+          <a href="https://www.mortgagecalculator.org/" target="_blank" aria-label="Go to mortgagecaolculator.org (new window)">
+            <img src="https://www.mortgagecalculator.org/images/mortgage-calculator-logo.png" width="589" height="auto" alt="MortgageCalculator.org" border="0" style="max-width: 100%;" target="_blank">
+          </a>
         </p> 
         <iframe title="Mortage Calculator" class="buy-rent-vs-buy__iframe" src="https://www.mortgagecalculator.org/webmasters/?downpayment=50000&homevalue=300000&loanamount=250000&interestrate=4&loanterm=30&propertytax=2400&pmi=1&homeinsurance=1000&monthlyhoa=0" style="width: 100%; height: 1100px; border: 0;"></iframe>
         <div style="font-family: Arial; height: 36px; top: -36px; padding: 0 8px 0 0; box-sizing: border-box; text-align: right; background: #f6f9f9; border: 1px solid #ccc; color: #868686; line-height: 34px; font-size: 12px; position: relative;">
-          <a style="color: #868686;" href="https://www.mortgagecalculator.org/free-tools/javascript-mortgage-calculator.php" target="_blank" aria-label="Go to mortgagecaolculator.org (new window)">Javascript Mortgage Calculator </a>
+          <a style="color: #868686;" href="https://www.mortgagecalculator.org/free-tools/javascript-mortgage-calculator.php" target="_blank" aria-label="Go to Javascript Mortgage Calculator at mortgagecalculator.org (opens in new window)">Javascript Mortgage Calculator </a>
           by MortgageCalculator.org
         </div>
       </div>

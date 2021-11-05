@@ -27,9 +27,9 @@ get_header(); ?>
       <div class="page-new-developments__container">
 
         <div class="page-new-developments__filters">
-          <a data-filter='available-now' class="page-new-developments__filter page-new-developments__filter--active">Available Now</a>
-          <a data-filter='coming-soon' class="page-new-developments__filter">Coming Soon</a>
-          <a data-filter='sold-out' class="page-new-developments__filter">Sold Out</a>
+          <a data-filter='available-now' tabindex="0" aria-role="button" class="page-new-developments__filter page-new-developments__filter--active">Available Now</a>
+          <a data-filter='coming-soon' tabindex="0" aria-role="button" class="page-new-developments__filter">Coming Soon</a>
+          <a data-filter='sold-out' tabindex="0" aria-role="button" class="page-new-developments__filter">Sold Out</a>
         </div>
 
         <div id="gmapdev" class='page-new-developments__map'></div>

@@ -22,10 +22,10 @@
      </g>
    </g>
    <defs>
-     <clipPath id="clip0">
+     <clipPath>
        <rect width="32.0024" height="32" fill="white" transform="translate(0.00195312)"/>
      </clipPath>
-     <clipPath id="clip1">
+     <clipPath>
        <rect width="32.0024" height="32" fill="white" transform="translate(0.00195312)"/>
      </clipPath>
    </defs>
