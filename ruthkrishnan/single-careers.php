@@ -83,7 +83,7 @@ get_header(); ?>
 
 			<div class="single-careers-apply">
 				<div class="single-careers-apply__container">
-					<a href="mailto:hiring@ruthkrishnan.com" aria-label='send email to hiring@ruthkrishnan.com.' class="single-careers-apply__btn">email hiring@ruthkrishnan.com to apply</a>
+					<a href="mailto:hiring@ruthkrishnan.com" aria-label='Apply Now' class="single-careers-apply__btn">Apply Now</a>
 				</div>
 			</div>
 
