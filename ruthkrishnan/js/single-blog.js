@@ -6,6 +6,9 @@ var __webpack_exports__ = {};
 document.addEventListener('DOMContentLoaded', function () {
   var shareElem = document.getElementById('blog-share');
   var sharePopup = document.getElementById('share-popup');
+  var shareMailIcon = document.querySelector('.heateorSssEmailBackground');
+  var shareFacebookIcon = document.querySelector('.heateorSssFacebookBackground');
+  var shareLinkedInIcon = document.querySelector('.heateorSssLinkedinBackground');
   var copyButton = document.getElementById('share-copy-button');
   var blogShareActive = false;
 
@@ -16,11 +19,29 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       blogShareActive = true;
       sharePopup.classList.add('post-blog__infobar-share-popup--active');
+      shareMailIcon.setAttribute('tabindex', '0');
+      shareFacebookIcon.setAttribute('tabindex', '0');
+      shareLinkedInIcon.setAttribute('tabindex', '0');
     }
   };
 
   shareElem.addEventListener('click', openShare);
   shareElem.addEventListener('keyup', openShare);
+  shareMailIcon.addEventListener('keyup', function (e) {
+    if (e.key === 'Enter') {
+      shareMailIcon.onclick();
+    }
+  });
+  shareFacebookIcon.addEventListener('keyup', function (e) {
+    if (e.key === 'Enter') {
+      shareFacebookIcon.onclick();
+    }
+  });
+  shareLinkedInIcon.addEventListener('keyup', function (e) {
+    if (e.key === 'Enter') {
+      shareLinkedInIcon.onclick();
+    }
+  });
 
   var copyText = function copyText() {
     var inputElem = document.getElementById('share-copy-link');

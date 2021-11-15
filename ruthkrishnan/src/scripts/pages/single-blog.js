@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
   const shareElem = document.getElementById('blog-share');
   const sharePopup = document.getElementById('share-popup');
+  const shareMailIcon = document.querySelector('.heateorSssEmailBackground');
+  const shareFacebookIcon = document.querySelector('.heateorSssFacebookBackground');
+  const shareLinkedInIcon = document.querySelector('.heateorSssLinkedinBackground');
   const copyButton = document.getElementById('share-copy-button');
   let blogShareActive = false;
   
@@ -11,12 +14,34 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       blogShareActive = true;
       sharePopup.classList.add('post-blog__infobar-share-popup--active');
+      shareMailIcon.setAttribute('tabindex', '0');
+      shareFacebookIcon.setAttribute('tabindex', '0');
+      shareLinkedInIcon.setAttribute('tabindex', '0');
     }
   }
-
+  
   shareElem.addEventListener('click', openShare);
   shareElem.addEventListener('keyup', openShare);
+
+  shareMailIcon.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      shareMailIcon.onclick();
+    }
+  });
+
+  shareFacebookIcon.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      shareFacebookIcon.onclick();
+    }
+  });
+
+  shareLinkedInIcon.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      shareLinkedInIcon.onclick();
+    }
+  });
   
+
   const copyText = () => {
     const inputElem = document.getElementById('share-copy-link');
     inputElem.setAttribute('readonly', '');

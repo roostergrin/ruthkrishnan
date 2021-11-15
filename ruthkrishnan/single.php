@@ -30,10 +30,10 @@
                 </div>
                 <div id="share-popup" class="post-blog__infobar-share-popup">
                   <div class="post-blog__infobar-copy">
-                    <input name="share-copy-link" id="share-copy-link" class="post-blog__infobar-copy-input" value="<?php echo the_permalink(); ?>" />
+                    <input name="share-copy-link" id="share-copy-link" aria-labelledby="share copy link" class="post-blog__infobar-copy-input" value="<?php echo the_permalink(); ?>" />
                     <div id="share-copy-button" class="post-blog__infobar-copy-button" tabindex="0"><?php get_template_part( 'icons/copy', null, array( 'class' => 'post-blog__infobar-copy-icon' ) ); ?></div>
                   </div>
-                  <div class="post-blog__infobar-social" tabindex="0">
+                  <div class="post-blog__infobar-social">
                     <?php echo do_shortcode('[Sassy_Social_Share]') ?>
                   </div>
                 </div>

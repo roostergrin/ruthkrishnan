@@ -28,10 +28,11 @@
               
             $card_image = get_sub_field('image');
             $card_link = get_sub_field('link');
-            $card_text = get_sub_field('text'); ?>
+            $card_text = get_sub_field('text');
+            $card_aria = get_sub_field('context') ?>
 
               <div class="card-links__card">
-                <a href="<?php echo $card_link; ?>" class="card-links__card-container">
+                <a href="<?php echo $card_link; ?>" aria-label="<?php echo $card_aria; ?>" class="card-links__card-container">
                   <?php echo wp_get_attachment_image($card_image, 'medium_large', false, [ 'class' => 'card-links__card-image' ]); ?>
                   <div class="card-links__card-overlay"></div>
                   <div class="card-links__card-text"><?php echo $card_text; ?></div>

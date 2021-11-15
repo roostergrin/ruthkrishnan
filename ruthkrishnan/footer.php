@@ -88,13 +88,14 @@
           <?php if ( have_rows('affiliate_logos', 'options') ) :
             while ( have_rows('affiliate_logos', 'options') ) : the_row(); 
               $type = get_sub_field('type'); 
+              $aria = get_sub_field('aria_label');
 
               if ( $type === 'image' ) :
                 $image = get_sub_field('image');
                 $link = get_sub_field('link'); 
                 ?>
 
-                <a href="<?php echo $link; ?>" class="footer__affiliate-link" aria-label="Affiliate Page (opens in a new window)" target="_blank">
+                <a href="<?php echo $link; ?>" class="footer__affiliate-link" aria-label='<?php echo $aria; ?>' target="_blank">
                   <?php echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'footer__affiliate-image' ]); ?>
                 </a>
 
@@ -103,7 +104,7 @@
                 $link = get_sub_field('link');
                 ?>
 
-                <a href="<?php echo $link; ?>" class="footer__affiliate-link" aria-label="Affiliate Page (opens in a new window)" target="_blank">
+                <a href="<?php echo $link; ?>" class="footer__affiliate-link" aria-label="<?php echo $aria; ?>" target="_blank">
                   <?php get_template_part('icons/' . $icon, null, array( 'class' => 'footer__affiliate-icon' )); ?>
                 </a>
               
