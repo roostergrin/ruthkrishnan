@@ -201,22 +201,23 @@ document.addEventListener('DOMContentLoaded', function () {
   let resultDisplay = document.getElementById("estimated-tax");
   let taxRateDisplay = document.getElementById("tax-rate");
 
-  taxInput.addEventListener("keyup", function() {
-    consideration = this.value;
-    if (consideration <= 250000) { rate = 2.5; } 
-    else if (consideration > 250000 && consideration < 1000000) { rate = 3.4; } 
-    else if (consideration >= 1000000 && consideration < 5000000) { rate = 3.75; } 
-    else if (consideration >= 5000000 && consideration < 10000000) { rate = 11.25; } 
-    else if (consideration >= 5000000 && consideration < 10000000) { rate = 11.25; } 
-    else if (consideration >= 10000000 && consideration < 25000000) { rate = 13.75; } 
-    else if (consideration >= 25000000) { rate = 15; }
+  if (taxInput) {
+    taxInput.addEventListener("keyup", function() {
+      consideration = this.value;
+      if (consideration <= 250000) { rate = 2.5; } 
+      else if (consideration > 250000 && consideration < 1000000) { rate = 3.4; } 
+      else if (consideration >= 1000000 && consideration < 5000000) { rate = 3.75; } 
+      else if (consideration >= 5000000 && consideration < 10000000) { rate = 11.25; } 
+      else if (consideration >= 5000000 && consideration < 10000000) { rate = 11.25; } 
+      else if (consideration >= 10000000 && consideration < 25000000) { rate = 13.75; } 
+      else if (consideration >= 25000000) { rate = 15; }
 
-    rateMultiplier = Math.ceil(consideration / 500);
-    transferTax = rate * rateMultiplier;
-    taxRateDisplay.innerHTML = `<strong>$${rate}</strong>`;
-    resultDisplay.innerHTML = formatNumber(Math.round(transferTax * 100) / 100);
-  });
-
+      rateMultiplier = Math.ceil(consideration / 500);
+      transferTax = rate * rateMultiplier;
+      taxRateDisplay.innerHTML = `<strong>$${rate}</strong>`;
+      resultDisplay.innerHTML = formatNumber(Math.round(transferTax * 100) / 100);
+    });
+  }
 
 })
 	 	 

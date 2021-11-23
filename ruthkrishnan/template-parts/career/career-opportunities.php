@@ -45,7 +45,7 @@
             <div class="career-opportunities__post-container">
               <h3 class="career-opportunities__post-title"><?php echo the_title(); ?></h3>
               <div class="career-opportunities__post-excerpt"><?php echo the_excerpt(); ?></div>
-              <a href="<?php echo the_permalink(); ?>" aria-label='Go to <?php echo the_title(); ?>  page.' class="career-opportunities__post-link">learn more</a>
+              <a href="<?php echo the_permalink(); ?>" aria-label='learn more at the <?php echo the_title(); ?> page.' class="career-opportunities__post-link">learn more</a>
             </div>
           </div>
           
