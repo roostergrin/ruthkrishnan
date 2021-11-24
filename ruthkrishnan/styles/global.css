@@ -936,9 +936,9 @@ p, li, h2, h3, h4, h5 {
   }
 }
 .footer__logo {
-  width: 323px;
+  width: 487px;
   display: flex;
-  margin: 0 auto 3rem;
+  margin: 0 auto 4rem;
 }
 @media screen and (max-width: 600px) {
   .footer__logo {
@@ -959,17 +959,17 @@ p, li, h2, h3, h4, h5 {
   display: flex;
   margin: auto 0;
   width: 39.5%;
-  padding-right: 20.67px;
+  padding-right: 29px;
 }
 .footer__logo-link--compass {
   display: flex;
   margin: auto 0;
   width: 60.5%;
-  padding-left: 21.3px;
+  padding-left: 29.5px;
 }
 .footer__vertical-line {
   border-left: 1px solid white;
-  height: 64.6px;
+  height: 88.6px;
 }
 @media screen and (max-width: 600px) {
   .footer__vertical-line {
