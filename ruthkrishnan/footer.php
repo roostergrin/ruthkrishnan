@@ -13,11 +13,18 @@
 <?php get_template_part('template-parts/forms/form-subscribe'); ?>
 
 <footer class="footer">
+  <div class="footer__logo">
+    <div class="footer__logo-link--rk"> 
+      <?php get_template_part('icons/logo-white', null, array( 'class' => 'footer__logo-icon')); ?>
+    </div>
+    <div class="footer__vertical-line"></div>
+    <div class="footer__logo-link--compass"> 
+      <?php get_template_part('icons/logo-compass', null, array( 'class' => 'footer__logo-icon' )); ?>
+    </div>
+  </div>
   <div class="footer__container">
     <div class="footer__column footer__contact">
-      <a class="footer__home" href="/" aria-label="Go to Homepage">
-        <?php get_template_part('icons/logo-main', null, array( 'class' => 'footer__logo' )); ?>
-      </a>
+     <div class="footer__title">Contact Us</div>
       <a href="<?php echo get_field('address_link', 'options') ?>" target="_blank" aria-label="go to Compass 1400 Van Ness Ave San Francisco, CA 94109 on Google Maps(opens in new window)" class="footer__contact-group footer__link footer__address">
         <?php echo get_field('address_text', 'options'); ?>
       </a>
