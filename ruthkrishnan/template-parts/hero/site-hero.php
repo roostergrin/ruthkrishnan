@@ -21,8 +21,8 @@
 
       ?>
 
-          <div class='hero-template'>
-            <figure class='hero-template__wrapper' data-position-x='<?php echo $xcoord ?>' data-position-y='<?php echo $ycoord ?>' role="presentation">
+          <div class='hero-template' role="presentation">
+            <figure class='hero-template__wrapper' data-position-x='<?php echo $xcoord ?>' data-position-y='<?php echo $ycoord ?>'>
               <div class='hero-template__overlay'></div>
               <?php if ( !empty($image) ) :
                 echo wp_get_attachment_image( $image, 'full', false, [ 'class' => 'hero-template__background' ]);
