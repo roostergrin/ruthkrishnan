@@ -526,12 +526,12 @@
     width: auto;
   }
 }
-.post-blog__infobar-column svg {
+.post-blog__infobar-icon {
   margin-right: 0.5rem;
   width: 1rem;
 }
 @media screen and (max-width: 600px) {
-  .post-blog__infobar-column--right {
+  .post-blog__infobar-icon--right {
     display: none;
   }
 }

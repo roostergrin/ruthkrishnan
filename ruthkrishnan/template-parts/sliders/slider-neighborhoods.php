@@ -96,7 +96,7 @@
                       <?php endwhile; ?>
                     </div>
                   <?php endif; ?>
-                  <a class="slider-neighborhoods__content-link" href="/neighborhoods/<?php echo get_post()->post_name; ?>">Learn More</a>
+                  <a class="slider-neighborhoods__content-link" href="/neighborhoods/<?php echo get_post()->post_name; ?>" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood">Learn More</a>
                 </div>
               </div>
 

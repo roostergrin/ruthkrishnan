@@ -25,7 +25,7 @@
             
               <div class="post-blog__infobar-column post-blog__infobar-column--left">
                 <div id="blog-share" class="post-blog__infobar-share" tabindex="0">
-                  <?php get_template_part('icons/share'); ?>
+                  <?php get_template_part('icons/share', null, [ 'class' => 'post-blog__infobar-icon' ]); ?>
                   <span>Share</span>
                 </div>
                 <div id="share-popup" class="post-blog__infobar-share-popup">
@@ -42,14 +42,14 @@
 
               <div class="post-blog__infobar-column post-blog__infobar-column--center">
                 <div class="post-blog__infobar-date">
-                  <?php get_template_part('icons/calendar'); ?>
+                  <?php get_template_part('icons/calendar', null, [ 'class' => 'post-blog__infobar-icon' ]); ?>
                   <?php echo get_the_date(); ?>
                 </div>
               </div>
 
               <div class="post-blog__infobar-column post-blog__infobar-column--right">
                 <div class="post-blog__infobar-categories">
-                  <?php get_template_part('icons/tag'); ?>
+                  <?php get_template_part('icons/tag', null, [ 'class' => 'post-blog__infobar-icon' ]); ?>
                   <?php foreach ( get_the_category() as $key=>$category ) : ?>
                     <a href="/blog/<?php echo $category->slug; ?>" class="post-blog__infobar-category">
                       <?php echo $category->name; ?>
