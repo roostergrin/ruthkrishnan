@@ -912,7 +912,7 @@ p, li, h2, h3, h4, h5 {
   }
 }
 .footer__contact-group {
-  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 @media screen and (max-width: 600px) {
   .footer__contact-group {
@@ -935,16 +935,33 @@ p, li, h2, h3, h4, h5 {
     opacity: 0.5;
   }
 }
-.footer__home {
-  width: 66.7%;
+.footer__logo {
+  width: 25.7%;
+  display: flex;
+  margin: 0 auto 3rem;
 }
 @media screen and (max-width: 600px) {
-  .footer__home {
+  .footer__logo {
     width: 45%;
   }
 }
-.footer__logo {
-  fill: #F4F0F0;
+.footer__logo-link {
+  width: 100%;
+  height: 100%;
+}
+.footer__logo-link--rk {
+  margin: auto 0;
+  width: 42%;
+  padding-right: 20.67px;
+}
+.footer__logo-link--compass {
+  margin: auto 0;
+  width: 58%;
+  padding-left: 21.3px;
+}
+.footer__vertical-line {
+  border-left: 1px solid white;
+  height: 64.6px;
 }
 @media screen and (max-width: 1024px) {
   .footer__recent {
