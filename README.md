@@ -56,7 +56,7 @@ __Step 13:__ Head back to the downloaded unzipped "rk_local" directory. Since th
 - wp-rocket
 
 
-__Finishing up:__ Now you should be able to view the site locally at http://localhost:8888 and you may log into the admin site at http://localhost:8888/wp-admin (login credentials are under ruthkrishnan.com in lastpass)
+__Finishing up:__ Now you should be able to view the site locally at http://localhost:8888 and you may log into the admin site at http://localhost:8888/wp-admin (login credentials are under default in lastpass)
 
 &nbsp;
 
