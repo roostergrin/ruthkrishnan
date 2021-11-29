@@ -940,14 +940,14 @@ p, li, h2, h3, h4, h5 {
   display: flex;
   margin: 0 auto 4rem;
 }
-@media screen and (max-width: 600px) {
-  .footer__logo {
-    width: 45%;
-  }
-}
 @media screen and (max-width: 768px) {
   .footer__logo {
     width: 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .footer__logo {
+    width: 68%;
   }
 }
 .footer__logo-link {
@@ -956,20 +956,18 @@ p, li, h2, h3, h4, h5 {
   display: flex;
 }
 .footer__logo-link--rk {
-  display: flex;
   margin: auto 0;
   width: 39.5%;
   padding-right: 29px;
 }
 .footer__logo-link--compass {
-  display: flex;
   margin: auto 0;
   width: 60.5%;
   padding-left: 29.5px;
 }
 .footer__vertical-line {
   border-left: 1px solid white;
-  height: 88.6px;
+  height: 92.5px;
 }
 @media screen and (max-width: 600px) {
   .footer__vertical-line {
