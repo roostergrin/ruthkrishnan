@@ -36,6 +36,9 @@ get_header(); ?>
             <?php get_template_part('icons/play', null, array('class' => 'sell-video__icon')); ?>
           </div>
         </div>
+        <!-- Compass Concierge program-->
+        <?php get_template_part('template-parts/compass-program/compass-program'); ?>
+        <!-- END Compass Concierge program-->
         <div class="sell-video__content">
           <h2 class="sell-video__text"><?php echo get_field('sell_video_text'); ?></h2>
           <a href="<?php echo get_field('sell_video_button_link'); ?>" class="sell-video__link"><?php echo get_field('sell_video_button_text'); ?></a>
