@@ -29,7 +29,7 @@
 
                     $image = get_sub_field('image'); ?>
                     
-                    <a href="<?php echo the_permalink(); ?>" class="blog-recent__image-container">
+                    <a href="<?php echo the_permalink(); ?>" class="blog-recent__image-container" aria-label="go to recent post <?php echo the_title(); ?>">
                       <div class="blog-recent__image-overlay"></div>
                       <?php echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'blog-recent__image' ]); ?>
                     </a>
