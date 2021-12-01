@@ -6,9 +6,9 @@ var __webpack_exports__ = {};
 document.addEventListener('DOMContentLoaded', function () {
   var shareElem = document.getElementById('blog-share');
   var sharePopup = document.getElementById('share-popup');
-  var shareMailIcon = document.querySelector('.heateorSssEmailBackground');
-  var shareFacebookIcon = document.querySelector('.heateorSssFacebookBackground');
-  var shareLinkedInIcon = document.querySelector('.heateorSssLinkedinBackground');
+  var shareMailIcon = document.querySelector('.heateor_sss_email');
+  var shareFacebookIcon = document.querySelector('.heateor_sss_facebook');
+  var shareLinkedInIcon = document.querySelector('.heateor_sss_button_linkedin');
   var copyButton = document.getElementById('share-copy-button');
   var blogShareActive = false;
 

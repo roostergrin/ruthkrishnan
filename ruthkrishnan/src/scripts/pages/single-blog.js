@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
   const shareElem = document.getElementById('blog-share');
   const sharePopup = document.getElementById('share-popup');
-  const shareMailIcon = document.querySelector('.heateorSssEmailBackground');
-  const shareFacebookIcon = document.querySelector('.heateorSssFacebookBackground');
-  const shareLinkedInIcon = document.querySelector('.heateorSssLinkedinBackground');
+  const shareMailIcon = document.querySelector('.heateor_sss_email');
+  const shareFacebookIcon = document.querySelector('.heateor_sss_facebook');
+  const shareLinkedInIcon = document.querySelector('.heateor_sss_button_linkedin');
   const copyButton = document.getElementById('share-copy-button');
   let blogShareActive = false;
   
