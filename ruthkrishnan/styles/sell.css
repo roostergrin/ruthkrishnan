@@ -483,6 +483,7 @@
 }
 .compass-program__text {
   margin-top: 1rem;
+  text-align: left;
 }
 .compass-program__column {
   padding: 0 calc(30px / 2);
