@@ -88,32 +88,32 @@
   }
 }
 
-.case-studies {
+.case-studies, .compass-program__text {
   padding: 2rem 0 4rem;
 }
 @media screen and (min-width: 1750px) {
-  .case-studies {
+  .case-studies, .compass-program__text {
     padding: 2.5rem 0 5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .case-studies {
+  .case-studies, .compass-program__text {
     padding: 1rem 0 2rem;
   }
 }
 
-.compass-program__column, .process-steps__column-lg, .process-steps__column-sm {
+.process-steps__column-lg, .process-steps__column-sm {
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
 @media screen and (min-width: 1750px) {
-  .compass-program__column, .process-steps__column-lg, .process-steps__column-sm {
+  .process-steps__column-lg, .process-steps__column-sm {
     margin-top: 5rem;
     margin-bottom: 5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .compass-program__column, .process-steps__column-lg, .process-steps__column-sm {
+  .process-steps__column-lg, .process-steps__column-sm {
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
@@ -153,6 +153,14 @@
   }
 }
 
+.compass-program__text p:not(:last-of-type) {
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.compass-program__text span {
+  font-weight: 500;
+}
+
 /* -----------------------
  * Typography
  * ----------------------- */
@@ -167,14 +175,14 @@
   }
 }
 
-.resources-links__link-text, .compass-program__list-text, .process-steps__list-text {
+.resources-links__link-text, .process-steps__list-text {
   line-height: 1.3333;
   letter-spacing: 0.09375rem;
   font-size: 1.125rem;
   font-weight: 500;
 }
 @media screen and (min-width: 1750px) {
-  .resources-links__link-text, .compass-program__list-text, .process-steps__list-text {
+  .resources-links__link-text, .process-steps__list-text {
     font-size: 1.25rem;
   }
 }
@@ -426,9 +434,9 @@
 }
 
 /* -----------------------
- *  Process Steps Styles
+ *  Compass Styles
  * ----------------------- */
-.compass-program__container {
+.compass-program {
   display: flex;
   position: relative;
   flex-wrap: wrap;
@@ -437,108 +445,72 @@
   width: 100%;
   max-width: calc(1146px + 64px);
   background: #232323;
+  padding: 0;
   max-width: 1146px;
   color: #fff;
 }
 @media screen and (min-width: 1750px) {
-  .compass-program__container {
+  .compass-program {
     max-width: 1528px;
   }
 }
 @media screen and (max-width: 768px) {
-  .compass-program__container {
+  .compass-program {
     padding: 0 2rem;
   }
 }
 @media screen and (max-width: 480px) {
-  .compass-program__container {
+  .compass-program {
     padding: 0 1rem;
   }
 }
 @media screen and (min-width: 1750px) {
-  .compass-program__container {
-    max-width: calc(1528px - 60px);
+  .compass-program {
+    max-width: calc(1528px - 64px);
   }
 }
-@media screen and (max-width: 768px) {
-  .compass-program__title {
-    text-align: center;
+@media screen and (max-width: 880px) {
+  .compass-program {
+    padding: 0 2rem;
+    max-width: 100%;
   }
 }
-.page-sell .compass-program__title {
+@media screen and (max-width: 480px) {
+  .compass-program {
+    padding: 0 1rem;
+  }
+}
+.compass-program__title {
+  padding-top: 4rem;
   width: 100%;
-}
-@media screen and (max-width: 1024px) {
-  .page-sell .compass-program__title {
-    width: 100%;
-  }
-}
-.compass-program__title span {
-  display: block;
-}
-@media screen and (max-width: 768px) {
-  .compass-program__title span {
-    display: inline-block;
-  }
-}
-.compass-program__text {
-  margin-top: 1rem;
-  text-align: left;
-}
-.compass-program__column {
-  padding: 0 calc(30px / 2);
-  width: calc((12 / 12) * 100%);
   text-align: center;
 }
+@media screen and (min-width: 1750px) {
+  .compass-program__title {
+    padding-top: 5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .compass-program__title {
+    padding-top: 2rem;
+  }
+}
+.compass-program__content {
+  padding: 0 calc(30px / 2);
+  width: calc((9 / 12) * 100%);
+  margin-left: calc((2 / 12) * 100%);
+}
 @media screen and (max-width: 768px) {
-  .compass-program__column {
+  .compass-program__content {
     padding: 0;
     width: 100%;
   }
 }
 @media screen and (max-width: 768px) {
-  .compass-program__column {
-    margin-top: 1rem;
+  .compass-program__content {
+    margin-left: 0;
   }
 }
-.compass-program__list {
-  list-style: none;
-  margin: 0;
-}
-@media screen and (max-width: 768px) {
-  .compass-program__list {
-    padding: 0 2rem;
-    padding: 0 1rem;
-  }
-}
-.compass-program__list-item {
-  display: flex;
-  align-items: center;
-}
-.compass-program__list-item:not(:last-of-type) {
-  margin-bottom: 2.5rem;
-}
-.compass-program__list-number {
-  opacity: 0.5;
-  margin-right: 1rem;
-  color: #E9E8E8;
-  font-size: 2.125rem;
-  font-weight: 700;
-}
-@media screen and (min-width: 1750px) {
-  .compass-program__list-number {
-    font-size: 2.25rem;
-  }
-}
-@media screen and (max-width: 600px) {
-  .compass-program__list-number {
-    font-size: 1.75rem;
-  }
-}
-.compass-program__list-text {
-  text-transform: uppercase;
-}
-
 /* -------------------------
  *  Resources Links Styles
  * ------------------------- */

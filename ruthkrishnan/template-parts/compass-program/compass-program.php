@@ -11,7 +11,7 @@
 
 <div class="compass-program">
   <div class="compass-program__container">
-    <div class="compass-program__column">
+    <div class="compass-program__content">
       <h2 class="compass-program__title"><?php echo get_field('compass_program_title'); ?></h2>
       <?php if ( !empty(get_field('compass_program_text')) ) : ?>
         <div class="compass-program__text"><?php echo get_field('compass_program_text'); ?></div>
