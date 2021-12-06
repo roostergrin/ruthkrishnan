@@ -1,69 +1,37 @@
 /* -----------------------
-    Process Steps Styles
+    Compass Styles
    ----------------------- */
 
 .compass-program
   @extend %section-padding
 
   &__container
-    @include container
-    @include desktop
-      max-width: calc(#{$max-width} - #{$gutter * 2})
-    background: $c1
-    max-width: #{$width}
-    color: $white
+  @include container
+  @include desktop
+    max-width: calc(#{$max-width} - #{$outside-gutter})
+  @include tablet-md
+    padding: 0 2rem
+    max-width: 100%
+  @include phone-lg
+    padding: 0 1rem
+  background: $c1
+  padding: 0
+  max-width: $width
+  color: $white
 
   &__title
-    @include tablet
-      text-align: center
-      
-    .page-sell &
-      @include tablet-lg
-        width: 100%
-      width: 100%
-
-    span
-      @include tablet
-        display: inline-block
-      display: block
-
-  &__text
-    margin-top: 1rem
-  
-  &__column
-    @extend %section-margins-large
-    @include col(12)
-    @include tablet
-      margin-top: 1rem
+    @include desktop
+      padding-top: 5rem
+    @include nexus
+      padding-top: 2rem
+    padding-top: 4rem
+    width: 100%
     text-align: center
 
-  &__list
-    @include tablet
-      padding: 0 2rem
-      padding: 0 1rem
-    list-style: none
-    margin: 0
+  &__content
+    @include col(9)
+    @include col--offset(2)
 
-    &-item
-      display: flex
-      align-items: center
-
-      &:not(:last-of-type)
-        margin-bottom: rem-calc(40)
-      
-    &-text
-      @extend %h4
-    
-    &-number
-      @include desktop
-        font-size: rem-calc(36)
-      @include nexus
-        font-size: rem-calc(28)
-      opacity: .5
-      margin-right: 1rem
-      color: $c5
-      font-size: rem-calc(34)
-      font-weight: 700
-    
-    &-text
-      text-transform: uppercase
+  &__text
+    @extend %section-padding-bottom
+    @extend %wysiwyg-styles
