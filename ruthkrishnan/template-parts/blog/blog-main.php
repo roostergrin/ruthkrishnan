@@ -45,7 +45,7 @@
 
                   $image = get_sub_field('image'); ?>
 
-                  <a href="<?php echo the_permalink(); ?>" class="page-blog-main__post-image">
+                  <a href="<?php echo the_permalink(); ?>" class="page-blog-main__post-image" aria-label="go to blog post <?php echo the_title(); ?>">
                     <div class="page-blog-main__post-image-overlay"></div>
                     <?php echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'page-blog-main__post-background' ]); ?>
                   </a>
