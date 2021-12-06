@@ -133,7 +133,7 @@
               <?php elseif ( get_query_var('paged') === $x ) : ?>
                 <span class="page-blog-main__pagination-dot page-blog-main__pagination-dot--active"></span>
               <?php else : ?>
-                <a href="<?php echo get_pagenum_link($x) ?>" class="page-blog-main__pagination-dot"></a>
+                <a href="<?php echo get_pagenum_link($x) ?>" class="page-blog-main__pagination-dot" aria-label="go to page <?php echo get_pagenum_link($x) ?>"></a>
               <?php endif; ?>
 
             <?php endfor; ?>
