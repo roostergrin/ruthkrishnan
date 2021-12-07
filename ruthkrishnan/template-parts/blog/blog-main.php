@@ -139,7 +139,7 @@
             <?php endfor; ?>
 
             <?php if ( $paged < $total_pages ) : ?>
-              <a href="<?php echo get_pagenum_link($paged + 1); ?>" class="page-blog-main__pagination-next"><?php get_template_part('icons/arrow'); ?></a>
+              <a href="<?php echo get_pagenum_link($paged + 1); ?>" class="page-blog-main__pagination-next" aria-label="go to next page of blog posts"><?php get_template_part('icons/arrow'); ?></a>
             <?php endif; ?> 
 
           <div class="page-blog-main__pagination-number"><?php echo $query->query['paged'] . '/' . $total_pages; ?></div>
