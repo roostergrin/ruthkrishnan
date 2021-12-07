@@ -122,7 +122,7 @@
             $paged = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
             
             if ( $paged > 1 ) : ?>
-              <a href="<?php echo get_pagenum_link($paged - 1); ?>" class="page-blog-main__pagination-prev"><?php get_template_part('icons/arrow'); ?></a>
+              <a href="<?php echo get_pagenum_link($paged - 1); ?>" class="page-blog-main__pagination-prev" aria-label="go to next page of blog posts"><?php get_template_part('icons/arrow'); ?></a>
             <?php endif; ?>
             
 
