@@ -56,6 +56,11 @@ get_header(); ?>
   </div>
   <!-- END Buy Testimonial Video Section -->
 
+  <!-- Video Tesimonial Template -->
+  <?php get_template_part('template-parts/sliders/slider-video'); ?>
+  <!-- END Video Tesimonial Template -->
+
+
   <!-- CTA Text & Button Template Part -->
   <div class="buy-schedule-talk">
     <?php get_template_part('template-parts/cta/cta-text-btn', null, array( 'acf_group' => 'schedule_time_to_talk_cta' )); ?>

@@ -1,0 +1,114 @@
+/* -----------------------
+   Photo Gallery Template Styles
+   ----------------------- */
+
+.slider-video
+  @extend %section-padding
+
+  &__container
+    @include container--color
+    @include desktop
+      padding: 5rem 0 3rem
+    @include tablet
+      padding: 3rem 0 2rem
+    background: $c2
+    padding: 4rem 0 2rem
+
+  &__title
+    @include col (12)
+    @extend %title-margin
+    text-align: center
+
+  &__slider
+    @include col (10)
+    @include col--offset (1)
+    @include desktop
+      height: rem-calc(662)
+    @include tablet-lg
+      height: 40vw
+    @include tablet
+      height: 50vw
+    position: relative
+    height: rem-calc(494)
+
+  &__slide
+    @extend %centered
+    @include tablet
+      width: 78%
+    transition: opacity .3s ease
+    opacity: 0
+    width: 81%
+    height: 100%
+
+    &--active
+      opacity: 1
+    
+    &-play-btn
+      @extend %centered
+      display: flex
+      align-items: center
+      justify-content: center
+      opacity: 1
+      z-index: 3
+      cursor: pointer
+      pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: none
+
+  &__image
+    width: 100%
+    height: 100%
+    object-fit: cover
+    object-position: center
+
+  &__prev,
+  &__next
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    cursor: pointer
+
+  &__prev
+    @include tablet
+      left: 1rem
+    @include phone-lg
+      left: 1rem
+    left: 0
+
+  &__next
+    @include tablet
+      right: 1rem
+    @include phone-lg
+      right: 1rem
+    right: 0
+
+  &__icon
+    width: rem-calc(20)
+    height: rem-calc(20)
+
+    &--prev
+      transform: scale(-1)
+
+  &__indicators
+    @include col (12)
+    @include desktop
+      margin-top: 3rem
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    margin-top: 2rem
+
+  &__dot
+    transition: background .3s ease
+    margin: rem-calc(4)
+    border: $c1 solid 1px
+    border-radius: 50%
+    cursor: pointer
+    width: rem-calc(8)
+    height: rem-calc(8)
+    pointer-events: all
+
+    &--active
+      background: $c1
