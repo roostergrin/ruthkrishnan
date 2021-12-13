@@ -57,7 +57,9 @@ get_header(); ?>
   <!-- END Buy Testimonial Video Section -->
 
   <!-- Video Tesimonial Template -->
+
   <?php get_template_part('template-parts/sliders/slider-video'); ?>
+
   <!-- END Video Tesimonial Template -->
 
 
@@ -139,7 +141,7 @@ get_header(); ?>
   </div>
   <!-- END Buy - Rent vs Buy Section -->
     
-  </div>
+</div>
   
   <?php get_footer(); ?>
   

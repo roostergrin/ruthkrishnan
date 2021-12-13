@@ -33,10 +33,18 @@
                 $title = $slide['video_title']; ?>
 
             <div class="slider-video__slide" data-index='<?php echo $key; ?>'>
-              <?php echo wp_get_attachment_image($thumbnail, 'full', false, [ 'class' => 'slider-video__image']); ?>
+              <div class="slider-video__slide-container" data-video="<?php echo $video; ?>">
+                <div class="slider-video__slide-image-container">
+                  <?php echo wp_get_attachment_image($thumbnail, 'full', false, [ 'class' => 'slider-video__slide-image']); ?>
+                  <div class="slider-video__slide-overlay"></div>
+                  <div class="slider-video__slide-play-btn">
+                    <?php get_template_part('icons/play', null, array('class' => 'slider-video__slide-icon')); ?>
+                  </div>
+                </div>
+              </div>
             </div>
             
-            <?php endforeach; ?>
+        <?php endforeach; ?>
       </div>
 
 
@@ -58,12 +66,16 @@
             <?php endforeach; ?>
           <?php endif; ?>
       </div>
-
-
     </div>
-
   </div>
 
+  <div class="slider-video__video-modal">
+    <div class="slider-video__modal-overlay"></div>
+    <div class="slider-video__modal-container">
+      <div class="slider-video__close-btn">close</div>
+      <iframe class="slider-video__video" title="talks videos" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+    </div>
+  </div>
   
 <?php endif; ?>
 
@@ -80,11 +92,3 @@
 
 
 
-
-<div class="talks-video-slider__video-modal">
-      <div class="talks-video-slider__modal-overlay"></div>
-      <div class="talks-video-slider__modal-container">
-        <div class="talks-video-slider__close-btn">close</div>
-        <iframe class="talks-video-slider__video" title="talks videos" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
-      </div>
-    </div>
