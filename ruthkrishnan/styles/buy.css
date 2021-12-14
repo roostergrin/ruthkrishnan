@@ -707,7 +707,7 @@
   max-width: calc(1146px + 64px);
   max-width: calc(1146px - 30px);
   background: #F4F0F0;
-  padding: 4rem 0 2rem;
+  padding: 4rem 0;
 }
 @media screen and (min-width: 1750px) {
   .slider-video__container {
@@ -731,7 +731,7 @@
 }
 @media screen and (min-width: 1750px) {
   .slider-video__container {
-    padding: 5rem 0 3rem;
+    padding: 4rem 0;
   }
 }
 @media screen and (max-width: 768px) {
@@ -752,8 +752,7 @@
 }
 .slider-video__slider {
   padding: 0 calc(30px / 2);
-  width: calc((10 / 12) * 100%);
-  margin-left: calc((1 / 12) * 100%);
+  width: calc((12 / 12) * 100%);
   position: relative;
   height: 30.875rem;
 }
@@ -763,36 +762,10 @@
     width: 100%;
   }
 }
-@media screen and (max-width: 768px) {
-  .slider-video__slider {
-    margin-left: 0;
-  }
-}
-@media screen and (min-width: 1750px) {
-  .slider-video__slider {
-    height: 41.375rem;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .slider-video__slider {
-    height: 40vw;
-  }
-}
-@media screen and (max-width: 768px) {
-  .slider-video__slider {
-    height: 50vw;
-  }
-}
 .slider-video__slide {
   transition: opacity 0.3s ease;
   opacity: 0;
-  width: 81%;
-  height: 100%;
-}
-@media screen and (max-width: 768px) {
-  .slider-video__slide {
-    width: 78%;
-  }
+  height: auto;
 }
 .slider-video__slide--active {
   opacity: 1;
@@ -810,6 +783,11 @@
   opacity: 0;
   pointer-events: none;
 }
+@media not all and (pointer: coarse) {
+  .slider-video__slide:hover .slider-video__slide-icon {
+    opacity: 0.7;
+  }
+}
 .slider-video__slide-icon {
   transition: opacity 0.2s ease;
   width: 3.25rem;
@@ -820,16 +798,7 @@
 }
 .slider-video__slide-image-container {
   position: relative;
-  width: 100%;
   overflow: hidden;
-}
-@media not all and (pointer: coarse) {
-  .slider-video__slide-image-container:hover .slider-video__slide-overlay {
-    opacity: 0.26;
-  }
-  .slider-video__slide-image-container:hover .slider-video__slide-image {
-    transform: scale(1.07);
-  }
 }
 .slider-video__image {
   width: 100%;
@@ -884,17 +853,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 2rem;
 }
 @media screen and (max-width: 768px) {
   .slider-video__indicators {
     padding: 0;
     width: 100%;
-  }
-}
-@media screen and (min-width: 1750px) {
-  .slider-video__indicators {
-    margin-top: 3rem;
   }
 }
 .slider-video__dot {

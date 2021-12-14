@@ -34,17 +34,17 @@
 
             <div class="slider-video__slide" data-index='<?php echo $key; ?>'>
               <div class="slider-video__slide-container" data-video="<?php echo $video; ?>">
-                <div class="slider-video__slide-image-container">
-                  <?php echo wp_get_attachment_image($thumbnail, 'full', false, [ 'class' => 'slider-video__slide-image']); ?>
-                  <div class="slider-video__slide-overlay"></div>
-                  <div class="slider-video__slide-play-btn">
-                    <?php get_template_part('icons/play', null, array('class' => 'slider-video__slide-icon')); ?>
+                  <div class="slider-video__slide-image-container">
+                    <?php echo wp_get_attachment_image($thumbnail, 'full', false, [ 'class' => 'slider-video__slide-image']); ?>
+                    <div class="slider-video__slide-play-btn">
+                      <?php get_template_part('icons/play', null, array('class' => 'slider-video__slide-icon')); ?>
+                    </div>
                   </div>
                 </div>
-              </div>
             </div>
             
         <?php endforeach; ?>
+        
       </div>
 
 
