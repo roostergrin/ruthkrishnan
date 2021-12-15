@@ -107,11 +107,12 @@
 
   &__indicators
     @include col (12)
-    @include desktop
     display: flex
     flex-wrap: wrap
     justify-content: center
-
+    @include phone-lg
+      margin-top: 1rem
+    
   &__dot
     transition: background .3s ease
     margin: rem-calc(4)
