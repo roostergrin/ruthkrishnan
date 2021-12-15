@@ -8,20 +8,13 @@
       padding: 4rem 0 
     @include tablet
       padding: 3rem 0 2rem
-    // @include phone-lg
-    //   padding: 1rem 1rem
+    @include phone-lg
+      padding: 1rem 0
     background: $c2
-    padding: 4rem 0 
 
   &__title
     @include col (12)
     @extend %title-margin
-    // @include desktop
-    //   margin-bottom: 4rem
-    // @include tablet
-      // margin-bottom: 0rem
-    // @include phone-lg
-    //   margin-bottom: 0rem
     text-align: center
 
   &__slider
@@ -31,18 +24,18 @@
     @include tablet
       height: rem-calc(500)
     @include phone-lg
-      height: rem-calc(225)
+      height: rem-calc(200)
 
   &__slide
     @extend %centered //absolute
-    @include tablet
     transition: opacity .3s ease
     opacity: 0
-    height: auto  
+    @include desktop
+      width: 90%
     @include tablet
-      width: 100%
+      width: 90%
     @include phone-lg
-      width: 100%
+      width: 90%
 
     &--active
       opacity: 1
