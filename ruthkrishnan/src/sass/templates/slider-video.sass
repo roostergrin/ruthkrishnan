@@ -8,31 +8,52 @@
       padding: 4rem 0 
     @include tablet
       padding: 3rem 0 2rem
+    // @include phone-lg
+    //   padding: 1rem 1rem
     background: $c2
     padding: 4rem 0 
 
   &__title
     @include col (12)
     @extend %title-margin
+    // @include desktop
+    //   margin-bottom: 4rem
+    // @include tablet
+      // margin-bottom: 0rem
+    // @include phone-lg
+    //   margin-bottom: 0rem
     text-align: center
 
   &__slider
     @include col (12)
     position: relative
-    height: rem-calc(494)
+    height: rem-calc(400)
+    @include tablet
+      height: rem-calc(500)
+    @include phone-lg
+      height: rem-calc(225)
 
   &__slide
-    @extend %centered
+    @extend %centered //absolute
     @include tablet
     transition: opacity .3s ease
     opacity: 0
     height: auto  
+    @include tablet
+      width: 100%
+    @include phone-lg
+      width: 100%
 
     &--active
       opacity: 1
-    
+   
+    &-image
+      object-fit: cover
+      width: 100%
+      height: 100%
+     
     &-play-btn
-      @extend %centered
+      @extend %centered //absolute
       display: flex
       align-items: center
       justify-content: center
@@ -45,10 +66,10 @@
         opacity: 0
         pointer-events: none
 
-    @include hover-supported
-      .slider-video__slide-icon
-        opacity: .7
-    
+      @include hover-supported
+        .slider-video__slide-icon
+          opacity: .7
+      
     &-icon
       transition: opacity .2s ease
       width: 3.25rem
@@ -59,20 +80,9 @@
 
     &-image-container
       @include tablet
-        // height: 35vw
       @include phone-lg
-        // height: 50vw
-      position: relative
-      // width: 100%
-      // height: calc(25vw * .5625)
+        height: 50vw
       overflow: hidden
-
-
-  &__image
-    width: 100%
-    height: 100%
-    object-fit: cover
-    object-position: center
 
   &__prev,
   &__next
