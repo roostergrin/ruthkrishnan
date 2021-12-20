@@ -6,18 +6,18 @@
   @extend %section-padding
 
   &__container
-  @include container
-  @include desktop
-    max-width: calc(#{$max-width} - #{$outside-gutter})
-  @include tablet-md
-    padding: 0 2rem
-    max-width: 100%
-  @include phone-lg
-    padding: 0 1rem
-  background: $c1
-  padding: 0
-  max-width: $width
-  color: $white
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include tablet-md
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    background: $c1
+    padding: 0
+    max-width: $width
+    color: $white
 
   &__title
     @include desktop

@@ -15,6 +15,43 @@ get_header(); ?>
 			<?php get_template_part('template-parts/hero/site-hero'); ?>
 			<!-- END Site Hero Template Part -->
 
+			<!-- Single Careers Welcome Section -->
+			<?php if ( !empty(get_field('job_video_title')) ) : ?>
+			<div class="single-careers-welcome">
+				<div class="single-careers-welcome__container">
+				<div class="single-careers-welcome__column">
+					<h2 class="single-careers-welcome__title"><?php echo get_field('job_video_title'); ?></h2>
+					<div class="single-careers-welcome__text"><?php echo get_field('job_video_description'); ?></div>
+				</div>
+				</div>
+			</div>
+			<?php endif; ?>
+			<!-- END Single Careers Welcome Section -->
+
+			<!-- single-careers Video Section -->
+			<?php if ( have_rows('job_video') ) :
+				while ( have_rows('job_video') ) : the_row();
+					$src = get_sub_field('job_video_src');
+					$thumbnail = get_sub_field('job_video_thumbnail'); ?>
+					<?php if ( !empty($src) ) : ?>
+						<div class="single-careers-video">
+							<div class="single-careers-video__container">
+							<div class="single-careers-video__column">
+								<div class="single-careers-video__video-container">
+									<iframe title="Job welcome video" class="single-careers-video__video" data-src="<?php echo $src; ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+									<?php echo wp_get_attachment_image($thumbnail, 'full', false, [ 'class' => 'single-careers-video__thumbnail' ]); ?>
+									<div class="single-careers-video__play-btn">
+										<?php get_template_part('icons/play', null, array('class' => 'single-careers-video__icon')); ?>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+					<?php endif; ?>
+				<?php endwhile;
+			endif; ?>	
+
+			<!-- END single-careers Video Section -->
 			<!-- Job Description Section -->
 			<?php if ( !empty(get_field('job_description')) ) : ?>
 				<div class="single-careers-colorbox">
