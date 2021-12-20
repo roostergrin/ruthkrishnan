@@ -436,7 +436,7 @@
 /* -----------------------
  *  Compass Styles
  * ----------------------- */
-.compass-program {
+.compass-program__container {
   display: flex;
   position: relative;
   flex-wrap: wrap;
@@ -450,33 +450,33 @@
   color: #fff;
 }
 @media screen and (min-width: 1750px) {
-  .compass-program {
+  .compass-program__container {
     max-width: 1528px;
   }
 }
 @media screen and (max-width: 768px) {
-  .compass-program {
+  .compass-program__container {
     padding: 0 2rem;
   }
 }
 @media screen and (max-width: 480px) {
-  .compass-program {
+  .compass-program__container {
     padding: 0 1rem;
   }
 }
 @media screen and (min-width: 1750px) {
-  .compass-program {
+  .compass-program__container {
     max-width: calc(1528px - 64px);
   }
 }
 @media screen and (max-width: 880px) {
-  .compass-program {
+  .compass-program__container {
     padding: 0 2rem;
     max-width: 100%;
   }
 }
 @media screen and (max-width: 480px) {
-  .compass-program {
+  .compass-program__container {
     padding: 0 1rem;
   }
 }
