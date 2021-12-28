@@ -15,6 +15,7 @@
   &__title
     @include col (12)
     @extend %title-margin
+    margin-top: 2rem
     text-align: center
 
   &__slider
@@ -77,17 +78,22 @@
         height: 50vw
       overflow: hidden
 
+  &__nav
+    display: flex
+    align-items: center
+    justify-content: center
+    margin: 1rem 0
+    width: 100%
+    height: rem-calc(48)
+    color: $white
+
   &__prev,
   &__next
-    position: absolute
-    top: 50%
-    transform: translateY(-50%)
-    cursor: pointer
-    @include tablet
-      top: 95%
-
-
-
+    display: flex
+    align-items: center
+    margin: 0 rem-calc(8)
+    width: 1rem
+    height: 1rem
 
   &__prev
     @include tablet
@@ -111,9 +117,7 @@
       transform: scale(-1)
 
   &__indicators
-    @include col (12)
     display: flex
-    flex-wrap: wrap
     justify-content: center
     @include phone-lg
       margin-top: 1rem

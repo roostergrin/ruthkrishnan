@@ -40,23 +40,23 @@
             <?php endforeach; ?>
         </div>
 
-
-        <div class="slider-video__prev" aria-label='Previous Slide'>
-            <?php get_template_part('icons/arrow', null, array( 'class' => 'slider-video__icon slider-video__icon--prev' )); ?>
-        </div>
-        <div class="slider-video__next" aria-label='Next Slide'>
-            <?php get_template_part('icons/arrow', null, array( 'class' => 'slider-video__icon slider-video__icon--next' )); ?>
-        </div>
-
-        <div class='slider-video__indicators'>
-            <?php $videos = get_field('video_slider_videos'); ?>
-            <?php if ( count($videos) > 8 ) : ?>
-            <div class="slider-video__numpagination" data-slides="<?php echo count($videos); ?>"></div>
-            <?php else : ?>
-            <?php foreach ($videos as $key=>$dot) : ?>
-            <div class="slider-video__dot" data-index='<?php echo $key; ?>'></div>
-            <?php endforeach; ?>
-            <?php endif; ?>
+        <div class="slider-video__nav">
+            <div class="slider-video__prev" aria-label='Previous Slide'>
+                <?php get_template_part('icons/arrow', null, array( 'class' => 'slider-video__icon slider-video__icon--prev' )); ?>
+            </div>
+            <div class='slider-video__indicators'>
+                <?php $videos = get_field('video_slider_videos'); ?>
+                <?php if ( count($videos) > 8 ) : ?>
+                <div class="slider-video__numpagination" data-slides="<?php echo count($videos); ?>"></div>
+                <?php else : ?>
+                <?php foreach ($videos as $key=>$dot) : ?>
+                <div class="slider-video__dot" data-index='<?php echo $key; ?>'></div>
+                <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+            <div class="slider-video__next" aria-label='Next Slide'>
+                <?php get_template_part('icons/arrow', null, array( 'class' => 'slider-video__icon slider-video__icon--next' )); ?>
+            </div>
         </div>
     </div>
 </div>
