@@ -1,74 +1,109 @@
 export const sliderVideo = () => {
+  // Play Video ------------------------------------------------------------------------
+  const videoSlides = Array.from(
+      document.querySelectorAll(".slider-video__slide")
+    ),
+    slideThumbnails = Array.from(
+      document.querySelectorAll(".slider-video__slide-image")
+    ),
+    playButtons = Array.from(
+      document.querySelectorAll(".slider-video__slide-play-btn")
+    ),
+    prevBtn = document.querySelector(".slider-video__prev"),
+    nextBtn = document.querySelector(".slider-video__next"),
+    dots = Array.from(document.querySelectorAll(".slider-video__dot"));
 
-  let currSlide = 0,
-      paginationContent;
+  let currSlide = 0;
 
-  const slider = document.querySelector('.slider-video__slider'),
-        sliderLength = slider.dataset.sliderLength,
-        slide = document.querySelectorAll('.slider-video__slide'),
-        dot = document.querySelectorAll('.slider-video__dot'),
-        numpagination = document.querySelector('.slider-video__numpagination'),
-        prev = document.querySelector('.slider-video__prev'),
-        next = document.querySelector('.slider-video__next'),
-        img = document.querySelectorAll('.slider-video__image'),
-        slideContainers = Array.from(document.querySelectorAll('.slider-video__slide-container')),
-        videoModalContainer = document.querySelector('.slider-video__video-modal'),
-        videoModal = document.querySelector('.slider-video__video'),
-        modalOverlay = document.querySelector('.slider-video__modal-overlay'),
-        modalCloseBtn = document.querySelector('.slider-video__close-btn');
-
-  const setSlide = () => {
-    slide.forEach( function(slide) {
-      currSlide === +slide.dataset.index ? slide.classList.add('slider-video__slide--active') : slide.classList.remove('slider-video__slide--active')
+  const resetSlides = () => {
+    videoSlides.forEach((slide) => {
+      const video = slide.querySelector(".slider-video__video"),
+        thumbnail = slide.querySelector(".slider-video__slide-image"),
+        playBtn = slide.querySelector(".slider-video__slide-play-btn");
+      if (video.src) {
+        video.src = "";
+      }
+      thumbnail.classList.remove("slider-video__slide-image--hidden");
+      playBtn.classList.remove("slider-video__slide-play-btn--hidden");
     });
-    if (numpagination) {
-      paginationContent = `${currSlide + 1} / ${+numpagination.dataset.slides}`
-      numpagination.innerHTML = paginationContent
-    } else {
-      dot.forEach( function(dot) {
-        currSlide === +dot.dataset.index ? dot.classList.add('slider-video__dot--active') : dot.classList.remove('slider-video__dot--active')
-      });
+  };
+
+  const setSlideActive = () => {
+    // add/remove classes from slides
+    videoSlides.forEach((slide) => {
+      console.log("index", slide.dataset.index);
+      if (+slide.dataset.index === currSlide) {
+        slide.classList.add("slider-video__slide--active");
+      } else {
+        slide.classList.remove("slider-video__slide--active");
+      }
+    });
+
+    // add/remove classes from indicators
+    dots.forEach((dot) => {
+      console.log("dot", dot.dataset.target);
+      if (+dot.dataset.target === currSlide) {
+        dot.classList.add("slider-video__dot--active");
+      } else {
+        dot.classList.remove("slider-video__dot--active");
+      }
+    });
+
+    resetSlides();
+  };
+
+  setSlideActive();
+
+  const handleSlideChange = (target) => {
+    if (target === "prev") {
+      currSlide !== 0 ? currSlide-- : (currSlide = videoSlides.length);
+    } else if (target === "next") {
+      currSlide !== videoSlides.length ? currSlide++ : (currSlide = 0);
+    } else if (typeof target === "number") {
+      currSlide = target;
     }
-  }
-  
-    setSlide();
-  
-    const changeSlide = (str) => {
-      if (str === 'prev') {
-        currSlide === 0 ? currSlide = sliderLength - 1 : currSlide--
-        setSlide();
-      };
-      if (str === 'next') {
-        currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++
-        setSlide();
-      };
-    };
-  
-    const goToSlide = (val) => {
-      currSlide = val
-      setSlide();
-    };
-  
-    prev.addEventListener('click', () => { changeSlide('prev') });
-    next.addEventListener('click', () => { changeSlide('next') });
-    dot.forEach( (dot, i) => {
-      dot.addEventListener('click', () => { goToSlide(i) });
+    setSlideActive();
+  };
+
+  prevBtn.addEventListener("click", () => {
+    handleSlideChange("prev");
+  });
+
+  nextBtn.addEventListener("click", () => {
+    handleSlideChange("next");
+  });
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      handleSlideChange(+dot.dataset.target);
     });
-    const closeModal = () => {
-      videoModalContainer.classList.remove('slider-video__video-modal--open');
-      videoModal.src = '';
-    };
+  });
 
-    slideContainers.forEach((slide, i) => {
-      slide.addEventListener('click', () => {
-        videoModalContainer.classList.add('slider-video__video-modal--open');
-        setTimeout(() => {
-          videoModal.src = slide.dataset.video + '?title=0&byline=0&portrait&autoplay=1'
-        }, 250)
-      })
-    })
+  slideThumbnails.forEach((thumbnail) => {
+    thumbnail.addEventListener("click", (event) => {
+      const video = thumbnail.parentElement.querySelector(
+          ".slider-video__video"
+        ),
+        playBtn = thumbnail.parentElement.querySelector(
+          ".slider-video__slide-play-btn"
+        );
 
-    modalCloseBtn.addEventListener('click', closeModal)
-    modalOverlay.addEventListener('click', closeModal)
+      video.src = video.dataset.src;
+      thumbnail.classList.add("slider-video__slide-image--hidden");
+      playBtn.classList.add("slider-video__slide-play-btn--hidden");
+    });
+  });
 
+  playButtons.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      const video = btn.parentElement.querySelector(".slider-video__video"),
+        thumbnail = btn.parentElement.querySelector(
+          ".slider-video__slide-image"
+        );
+
+      video.src = video.dataset.src;
+      thumbnail.classList.add("slider-video__slide-image--hidden");
+      btn.classList.add("slider-video__slide-play-btn--hidden");
+    });
+  });
 };
