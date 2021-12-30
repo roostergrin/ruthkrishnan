@@ -805,9 +805,6 @@
   opacity: 0;
   pointer-events: none;
 }
-.slider-video__slide--hidden > .slider-video__slide-play-btn {
-  display: none;
-}
 .slider-video__slide-image {
   transition: opacity 0.2s ease;
   -o-object-fit: cover;
