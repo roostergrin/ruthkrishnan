@@ -33,7 +33,7 @@
                             allow='autoplay; fullscreen; picture-in-picture'>
                         </iframe>
                         <?php echo wp_get_attachment_image($thumbnail, 'full', false, [ 'class' => 'slider-video__slide-image']); ?>
-                        <div class='slider-video__slide-play-btn'>
+                        <div class='slider-video__slide-play-btn' data-index='<?php echo $key; ?>'>
                             <?php get_template_part('icons/play', null, array('class' => 'slider-video__slide-icon')); ?>
                         </div>
                     </div>

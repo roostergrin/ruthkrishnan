@@ -105,12 +105,13 @@ var sliderVideo = function sliderVideo() {
   var setSlideActive = function setSlideActive() {
     // add/remove classes from slides
     videoSlides.forEach(function (slide) {
-      console.log("index", slide.dataset.index);
-
+      // "+" converts to a number type
       if (+slide.dataset.index === currSlide) {
         slide.classList.add("slider-video__slide--active");
+        slide.classList.remove("slider-video__slide--hidden");
       } else {
         slide.classList.remove("slider-video__slide--active");
+        slide.classList.add("slider-video__slide--hidden");
       }
     }); // add/remove classes from indicators
 
@@ -119,7 +120,9 @@ var sliderVideo = function sliderVideo() {
 
       if (+dot.dataset.target === currSlide) {
         dot.classList.add("slider-video__dot--active");
+        dot.classList.remove("slider-video__dot--hidden");
       } else {
+        dot.classList.add("slider-video__dot--hidden");
         dot.classList.remove("slider-video__dot--active");
       }
     });
@@ -130,9 +133,9 @@ var sliderVideo = function sliderVideo() {
 
   var handleSlideChange = function handleSlideChange(target) {
     if (target === "prev") {
-      currSlide !== 0 ? currSlide-- : currSlide = videoSlides.length;
+      currSlide !== 0 ? currSlide-- : currSlide = videoSlides.length - 1;
     } else if (target === "next") {
-      currSlide !== videoSlides.length ? currSlide++ : currSlide = 0;
+      currSlide !== videoSlides.length - 1 ? currSlide++ : currSlide = 0;
     } else if (typeof target === "number") {
       currSlide = target;
     }
@@ -161,6 +164,7 @@ var sliderVideo = function sliderVideo() {
     });
   });
   playButtons.forEach(function (btn) {
+    console.log("btn", btn);
     btn.addEventListener("click", function (event) {
       var video = btn.parentElement.querySelector(".slider-video__video"),
           thumbnail = btn.parentElement.querySelector(".slider-video__slide-image");

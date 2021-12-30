@@ -31,11 +31,13 @@ export const sliderVideo = () => {
   const setSlideActive = () => {
     // add/remove classes from slides
     videoSlides.forEach((slide) => {
-      console.log("index", slide.dataset.index);
+      // "+" converts to a number type
       if (+slide.dataset.index === currSlide) {
         slide.classList.add("slider-video__slide--active");
+        slide.classList.remove("slider-video__slide--hidden");
       } else {
         slide.classList.remove("slider-video__slide--active");
+        slide.classList.add("slider-video__slide--hidden");
       }
     });
 
@@ -44,7 +46,10 @@ export const sliderVideo = () => {
       console.log("dot", dot.dataset.target);
       if (+dot.dataset.target === currSlide) {
         dot.classList.add("slider-video__dot--active");
+        dot.classList.remove("slider-video__dot--hidden");
+
       } else {
+        dot.classList.add("slider-video__dot--hidden");
         dot.classList.remove("slider-video__dot--active");
       }
     });
@@ -56,9 +61,9 @@ export const sliderVideo = () => {
 
   const handleSlideChange = (target) => {
     if (target === "prev") {
-      currSlide !== 0 ? currSlide-- : (currSlide = videoSlides.length);
+      currSlide !== 0 ? currSlide-- : (currSlide = videoSlides.length-1);
     } else if (target === "next") {
-      currSlide !== videoSlides.length ? currSlide++ : (currSlide = 0);
+      currSlide !== videoSlides.length-1 ? currSlide++ : (currSlide = 0);
     } else if (typeof target === "number") {
       currSlide = target;
     }
@@ -87,20 +92,18 @@ export const sliderVideo = () => {
         playBtn = thumbnail.parentElement.querySelector(
           ".slider-video__slide-play-btn"
         );
-
       video.src = video.dataset.src;
       thumbnail.classList.add("slider-video__slide-image--hidden");
       playBtn.classList.add("slider-video__slide-play-btn--hidden");
     });
   });
-
   playButtons.forEach((btn) => {
+    console.log("btn", btn);
     btn.addEventListener("click", (event) => {
       const video = btn.parentElement.querySelector(".slider-video__video"),
         thumbnail = btn.parentElement.querySelector(
           ".slider-video__slide-image"
         );
-
       video.src = video.dataset.src;
       thumbnail.classList.add("slider-video__slide-image--hidden");
       btn.classList.add("slider-video__slide-play-btn--hidden");
