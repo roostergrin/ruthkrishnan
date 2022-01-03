@@ -57,14 +57,5 @@
         </div>
     </div>
 </div>
-<!-- 
-<div class='slider-video__video-modal'>
-    <div class='slider-video__modal-overlay'></div>
-    <div class='slider-video__modal-container'>
-        <div class='slider-video__close-btn'>close</div>
-        <iframe class='slider-video__video' title='talks videos' frameborder='0'
-            allow='autoplay; fullscreen; picture-in-picture'></iframe>
-    </div>
-</div> -->
 
 <?php endif; ?>
