@@ -9,6 +9,10 @@
     @include tablet
       padding: 3rem 0 2rem
     @include phone-lg
+      height: rem-calc(400)
+      padding: 1rem 0
+    @include phone
+      height: rem-calc(315)
       padding: 1rem 0
     background: $c2
 
@@ -25,7 +29,9 @@
     @include tablet
       height: rem-calc(500)
     @include phone-lg
-      height: rem-calc(200)
+      height: rem-calc(250)
+    @include phone
+      height: rem-calc(175)
 
   &__slide
     @extend %centered //absolute
