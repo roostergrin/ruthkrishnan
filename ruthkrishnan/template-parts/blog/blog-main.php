@@ -45,7 +45,7 @@
 
                   $image = get_sub_field('image'); ?>
 
-                  <a href="<?php echo the_permalink(); ?>" class="page-blog-main__post-image">
+                  <a href="<?php echo the_permalink(); ?>" class="page-blog-main__post-image" aria-label="go to blog post <?php echo the_title(); ?>">
                     <div class="page-blog-main__post-image-overlay"></div>
                     <?php echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'page-blog-main__post-background' ]); ?>
                   </a>
@@ -122,7 +122,7 @@
             $paged = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
             
             if ( $paged > 1 ) : ?>
-              <a href="<?php echo get_pagenum_link($paged - 1); ?>" class="page-blog-main__pagination-prev"><?php get_template_part('icons/arrow'); ?></a>
+              <a href="<?php echo get_pagenum_link($paged - 1); ?>" class="page-blog-main__pagination-prev" aria-label="go to previous page of blog posts"><?php get_template_part('icons/arrow'); ?></a>
             <?php endif; ?>
             
 
@@ -133,13 +133,13 @@
               <?php elseif ( get_query_var('paged') === $x ) : ?>
                 <span class="page-blog-main__pagination-dot page-blog-main__pagination-dot--active"></span>
               <?php else : ?>
-                <a href="<?php echo get_pagenum_link($x) ?>" class="page-blog-main__pagination-dot"></a>
+                <a href="<?php echo get_pagenum_link($x) ?>" class="page-blog-main__pagination-dot" aria-label="go to page <?php echo get_pagenum_link($x) ?>"></a>
               <?php endif; ?>
 
             <?php endfor; ?>
 
             <?php if ( $paged < $total_pages ) : ?>
-              <a href="<?php echo get_pagenum_link($paged + 1); ?>" class="page-blog-main__pagination-next"><?php get_template_part('icons/arrow'); ?></a>
+              <a href="<?php echo get_pagenum_link($paged + 1); ?>" class="page-blog-main__pagination-next" aria-label="go to next page of blog posts"><?php get_template_part('icons/arrow'); ?></a>
             <?php endif; ?> 
 
           <div class="page-blog-main__pagination-number"><?php echo $query->query['paged'] . '/' . $total_pages; ?></div>

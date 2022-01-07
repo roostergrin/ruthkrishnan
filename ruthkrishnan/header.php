@@ -22,6 +22,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager -->
 
+<!-- Global site tag (gtag.js) - Google Ads: 781116828 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-781116828"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'AW-781116828');
+</script>
+<!-- END  Google Ads: 781116828 -->
+
 <meta name="google-site-verification" content="_pBsYFRQpzuyLZ5YEZtV7ml5WTfpe-YIo50CdNjp13o" />
 <meta name="google-site-verification" content="SRI-_fG3Jco8hCZr3Ct4j-hCLEdLCtXZ4sklfZvCK_o" />
 
