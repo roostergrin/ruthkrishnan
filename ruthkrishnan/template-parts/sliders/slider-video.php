@@ -20,9 +20,9 @@
         </h2>
         <div class='slider-video__slider' data-slider-length='<?php echo count($videos); ?>'>
             <?php foreach (get_field('video_slider_videos') as $key=>$slide) :
-                  $video = $slide['video_src'];
-                  $thumbnail = $slide['video_thumbnail'];
-                  $title = $slide['video_title']; ?>
+                $video = $slide['video_src'];
+                $thumbnail = $slide['video_thumbnail'];
+                $title = $slide['video_title']; ?>
 
             <div class='slider-video__slide' data-index='<?php echo $key; ?>'>
                 <div class='slider-video__slide-container'>
