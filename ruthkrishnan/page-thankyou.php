@@ -8,6 +8,10 @@
 
 get_header(); ?>
 
+<!-- Event snippet for Submit lead form - YT conversion page -->
+<script>
+gtag('event', 'conversion', {'send_to': 'AW-781116828/MC4YCM2KwPkCEJzLu_QC'});
+</script>
 
 <div class="page-thank-you">
   <div class="page-thank-you__container">
