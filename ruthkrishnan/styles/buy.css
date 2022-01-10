@@ -729,7 +729,7 @@
     padding: 0;
   }
 }
-@media screen and (max-width: 1339px) {
+@media screen and (max-width: 1439px) {
   .slider-video__container {
     height: 43.75rem;
     padding: 0;
@@ -778,7 +778,7 @@
     height: 34.375rem;
   }
 }
-@media screen and (max-width: 1339px) {
+@media screen and (max-width: 1439px) {
   .slider-video__slider {
     height: 31.25rem;
   }
@@ -807,7 +807,7 @@
     width: 60%;
   }
 }
-@media screen and (max-width: 1339px) {
+@media screen and (max-width: 1439px) {
   .slider-video__slide {
     width: 70%;
   }
