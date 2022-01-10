@@ -12,7 +12,7 @@
 <header class="site-navigation" >
   <div class="site-navigation__container">
     <div class="site-navigation__navbar">
-      <a class="site-navigation__home" href="/" aria-label="Go to Homepage">
+      <a class="site-navigation__home" href="/" aria-label="Ruth Krishnan logo, Krishnan Team, go to homepage">
         <?php get_template_part('icons/logo-main', null, array( 'class' => 'site-navigation__logo' )); ?>
       </a>
       <nav class="site-navigation__menu-container">

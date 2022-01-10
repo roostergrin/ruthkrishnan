@@ -14,11 +14,11 @@
 
 <footer class="footer">
   <div class="footer__logo">
-    <div class="footer__logo-link--rk"> 
+    <div class="footer__logo-link--rk" aria-label="RK Krishnan Team Logo"> 
       <?php get_template_part('icons/logo-white', null, array( 'class' => 'footer__logo-icon')); ?>
     </div>
     <div class="footer__vertical-line"></div>
-    <div class="footer__logo-link--compass"> 
+    <div class="footer__logo-link--compass" aria-label="Compass logo"> 
       <?php get_template_part('icons/logo-compass', null, array( 'class' => 'footer__logo-icon' )); ?>
     </div>
   </div>

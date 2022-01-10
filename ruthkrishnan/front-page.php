@@ -20,25 +20,27 @@ get_header(); ?>
           <?php echo get_field('welcome_title') ?>
         </h2>
         <div class="home-welcome__container">
-          <div class="home-welcome__content">
+          <div class="home-welcome__content" tabindex="0">
             <h2 class="home-welcome__title">
               <?php echo get_field('welcome_title') ?>
             </h2>
             <div class="home-welcome__text">
               <?php echo get_field('welcome_text') ?>
             </div>
-            <a href='/about' class="home-welcome__button">meet our team</a>
+            <button class="home-welcome__meet-our-team-btn">
+              <a href='/about' class="home-welcome__button">meet our team</a>
+            </button>
           </div>
-          <div class="home-welcome__image-col">
+          <div class="home-welcome__image-col" tabindex="-1">
             <div class="home-welcome__image-container">
               <div class="home-welcome__no-modal-video-container">
-                <iframe title="Ruth Krishnan Welcome Video" class="home-welcome__no-modal-video" data-src="<?php echo get_field('welcome_video') ?>?title=0&byline=0&portrait=0&autoplay=true" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+                <iframe title="Ruth Krishnan Welcome Video" aria-label="play welcome video" class="home-welcome__no-modal-video" data-src="<?php echo get_field('welcome_video') ?>?title=0&byline=0&portrait=0&autoplay=true" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
               </div>
-              <?php echo wp_get_attachment_image(get_field('welcome_thumbnail'), 'medium_large', false, [ 'class' => 'home-welcome__thumbnail' ]); ?>
+              <?php echo wp_get_attachment_image(get_field('welcome_thumbnail'), 'medium_large', false, [ 'class' => 'home-welcome__thumbnail', 'alt' => '' ]); ?>
               <div class="home-welcome__image-overlay"></div>
-              <div class="home-welcome__play-btn">
+              <button class="home-welcome__play-btn" aria-label="play welcome video" style="background-color: transparent; border-style: none">
                 <?php get_template_part('icons/play', null, array('class' => 'home-welcome__icon')); ?>
-              </div>
+              </button>
             </div>
           </div>
         </div>
@@ -47,7 +49,7 @@ get_header(); ?>
       <div class="home-welcome__video-modal">
         <div class="home-welcome__modal-overlay"></div>
         <div class="home-welcome__modal-container">
-          <div class="home-welcome__close-btn">close</div>
+          <button class="home-welcome__close-btn" aria-label="close" tabindex="0">close</button>
           <iframe title="Ruth Krishnan Welcome Video" class="home-welcome__video" data-src="<?php echo get_field('welcome_video') ?>?title=0&byline=0&portrait=0&autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
         </div>
       </div>
@@ -59,8 +61,8 @@ get_header(); ?>
         </div>
         <div class="home-committed__container">
           <div class="home-committed__column">
-            <h2 class="home-committed__title"><?php echo get_field('committed_title'); ?></h2>
-            <div class="home-committed__text"><?php echo get_field('committed_text'); ?></div>
+            <h2 class="home-committed__title" aria-label="<?php echo get_field('committed_title'); ?>"><?php echo get_field('committed_title'); ?></h2>
+            <div class="home-committed__text" aria-label="<?php echo get_field('committed_text'); ?>"><?php echo get_field('committed_text'); ?></div>
           </div>
         </div>
       </div>

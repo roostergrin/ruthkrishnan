@@ -183,6 +183,11 @@
     border-radius: 50%
     box-shadow: 1px 2px 3px rgba($black, .5)
 
+  &__meet-our-team-btn
+    background-color: transparent
+    border-style: none
+    margin-top: 2rem
+
   &__button
     @extend %button-text
     @include hover-supported
@@ -191,7 +196,6 @@
     display: inline-block
     position: relative
     transition: background .2s ease, color .2s ease
-    margin-top: 2rem
     background: $c2
     cursor: pointer
     padding: rem-calc(14) 2rem rem-calc(12)
@@ -242,13 +246,15 @@
     @include hover-supported
       color: $c4
     position: absolute
-    top: -.5rem
-    right: 1rem
+    top: -.125rem
+    right: 0
     transition: color .2s ease
+    background-color: transparent
+    border-style: none
     z-index: 2
     cursor: pointer
-    width: 2rem
-    height: 2rem
+    // width: 2rem
+    // height: 2rem
     color: $white
 
 /* -----------------------------

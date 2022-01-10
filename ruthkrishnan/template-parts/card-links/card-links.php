@@ -16,7 +16,7 @@
     $title = get_sub_field('title'); ?>
 
     <div class="card-links">
-      <div class="card-links__background">
+      <div class="card-links__background" aria-hidden='true'>
         <?php echo wp_get_attachment_image($background_image, 'full', false, [ 'class' => 'card-links__background-image' ]); ?>
       </div>
       <div class="card-links__container">

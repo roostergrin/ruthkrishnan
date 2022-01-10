@@ -66,7 +66,7 @@
 
                 <div class="form-get-in-touch__form-group">
                   <label for="message" class="form-get-in-touch__label">Message</label>
-                  <textarea name="message" id="message" placeholder="Message" rows="5" class="form-get-in-touch__textarea"></textarea>
+                  <textarea name="message" id="message" placeholder="Message" rows="5" class="form-get-in-touch__textarea" aria-label="message edit text"></textarea>
                 </div>
                 <div class="g-recaptcha" data-sitekey="6Le3PoscAAAAAM0Nh_-v5lL7HLVZskI0pMyiO2fB"></div>
 

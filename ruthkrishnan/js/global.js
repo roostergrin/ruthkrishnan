@@ -228,34 +228,53 @@ var testimonials = function testimonials() {
       });
     };
 
+    var hideSlides = function hideSlides() {
+      imageSlide.forEach(function (image) {
+        currSlide === +image.dataset.imageIndex - 1 ? image.setAttribute('aria-hidden', false) : image.setAttribute('aria-hidden', true);
+        currSlide === +image.dataset.imageIndex - 1 ? image.setAttribute('tabindex', 0) : image.setAttribute('tabindex', -1);
+      });
+      contentSlide.forEach(function (content) {
+        currSlide === +content.dataset.contentIndex - 1 ? content.setAttribute('aria-hidden', false) : content.setAttribute('aria-hidden', true);
+        currSlide === +content.dataset.contentIndex - 1 ? content.setAttribute('tabindex', 0) : content.setAttribute('tabindex', -1);
+      });
+    };
+
     setSlide();
-    var autoSlide = setInterval(function () {
-      currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++;
-      setSlide();
-    }, 7000);
+    hideSlides(); // const autoSlide = setInterval(() => {
+    //   currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++
+    //   setSlide();
+    // }, 12000)
 
     var goToSlide = function goToSlide(val) {
-      clearInterval(autoSlide);
+      // clearInterval(autoSlide)
       currSlide = val;
       setSlide();
+      hideSlides();
     };
 
     var toPrevSlide = function toPrevSlide() {
-      clearInterval(autoSlide);
+      // clearInterval(autoSlide);
       currSlide === 0 ? currSlide = sliderLength - 1 : currSlide--;
       setSlide();
+      hideSlides();
     };
 
     var toNextSlide = function toNextSlide() {
-      clearInterval(autoSlide);
+      // clearInterval(autoSlide);
       currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++;
       setSlide();
+      hideSlides();
     };
 
     prevArrow.addEventListener('click', toPrevSlide);
+    prevArrow.addEventListener('keyup', toPrevSlide);
     nextArrow.addEventListener('click', toNextSlide);
+    nextArrow.addEventListener('keyup', toNextSlide);
     dot.forEach(function (dot, i) {
       dot.addEventListener('click', function () {
+        goToSlide(i);
+      });
+      dot.addEventListener('keyup', function () {
         goToSlide(i);
       });
     });

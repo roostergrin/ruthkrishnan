@@ -890,11 +890,15 @@
   border-radius: 50%;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
 }
+.home-welcome__meet-our-team-btn {
+  background-color: transparent;
+  border-style: none;
+  margin-top: 2rem;
+}
 .home-welcome__button {
   display: inline-block;
   position: relative;
   transition: background 0.2s ease, color 0.2s ease;
-  margin-top: 2rem;
   background: #F4F0F0;
   cursor: pointer;
   padding: 0.875rem 2rem 0.75rem;
@@ -956,13 +960,13 @@
 }
 .home-welcome__close-btn {
   position: absolute;
-  top: -0.5rem;
-  right: 1rem;
+  top: -0.125rem;
+  right: 0;
   transition: color 0.2s ease;
+  background-color: transparent;
+  border-style: none;
   z-index: 2;
   cursor: pointer;
-  width: 2rem;
-  height: 2rem;
   color: #fff;
 }
 @media not all and (pointer: coarse) {

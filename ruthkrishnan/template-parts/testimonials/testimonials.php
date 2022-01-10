@@ -9,7 +9,7 @@
 wp_reset_query();
 ?>
 
-<div class="testimonials-section">
+<div class="testimonials-section" aria-label="slideshow" role="regioncvbnm0">
   <div class="testimonials-section__container">
     <div class="testimonials-section__color-block"></div>
 
@@ -32,7 +32,7 @@ wp_reset_query();
     <div class="testimonials-section__content-col">
       <div class="testimonials-section__content-slider">
         <?php echo wp_get_attachment_image(get_field('background'), 'medium_large', false, [ 'class' => 'testimonials-section__background-image' ]); ?>
-        <div class="testimonials-section__title">
+        <div class="testimonials-section__title" aria-label="<?php get_field('title')?>">
           <h2><?php echo get_field('title')?></h2>
         </div>
         <div class="testimonials-section__content-wrapper">
@@ -42,10 +42,10 @@ wp_reset_query();
               $text = get_sub_field('content');
               $name = get_sub_field('name');
               ?>
-              <div class="testimonials-section__content-slide" data-content-index='<?php echo get_row_index(); ?>'>
+              <div class="testimonials-section__content-slide" data-content-index='<?php echo get_row_index(); ?>' role="group">
                 <div class="testimonials-section__content">
-                  <div class="testimonials-section__text"><?php echo $text ?></div>
-                  <div class="testimonials-section__name"><?php echo $name ?></div>
+                  <div class="testimonials-section__text" aria-label="<?php echo $text ?>"><?php echo $text ?></div>
+                  <div class="testimonials-section__name" aria-label="<?php echo $name ?>"><?php echo $name ?></div>
                 </div>
               </div>
             <?php endwhile; ?>
@@ -53,13 +53,13 @@ wp_reset_query();
           <?php $count = count(get_field('testimonials'));
           if ( $count > 1 ) : ?>
             <div class="testimonials-section__indicators">
-              <div class="testimonials-section__nav testimonials-section__nav--prev">
+              <div class="testimonials-section__nav testimonials-section__nav--prev" tabindex="0" aria-label="go to previous slide">
                 <?php get_template_part('icons/arrow', null, array( 'class' => 'testimonials-section__nav-icon testimonials-section__nav-icon--prev')); ?>
               </div>
               <?php foreach (get_field('testimonials') as $key=>$dot) : ?>
-                <div class="testimonials-section__dot" data-index='<?php echo $key; ?>'></div>
+                <div class="testimonials-section__dot" data-index='<?php echo $key; ?>' tabindex="0" aria-label='go to slide <?php echo $key; ?>'></div>
               <?php endforeach; ?>
-              <div class="testimonials-section__nav testimonials-section__nav--next">
+              <div class="testimonials-section__nav testimonials-section__nav--next" tabindex="0" aria-label="go to next slide">
                 <?php get_template_part('icons/arrow', null, array( 'class' => 'testimonials-section__nav-icon testimonials-section__nav-icon--next')); ?>
               </div>
             </div>
