@@ -1,4 +1,5 @@
 import { resourcesLinks } from '../resources/resources-links'
+import { sliderVideo } from '../resources/slider-video'
 
 document.addEventListener('DOMContentLoaded', function () {
   const playButton = document.querySelector('.buy-welcome__play-btn'),
@@ -10,10 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
         testimonialVideo = document.querySelector('.buy-testimonial-video__video'),
         testimonialVideoContainer = document.querySelector('.buy-testimonial-video__video-container');
         
+
   let debounceLastTimeout = null;
 
   // External Scripts
   resourcesLinks();
+  sliderVideo();
 
   videoContainer.addEventListener('click', () => {
     video.src = video.dataset.src;
