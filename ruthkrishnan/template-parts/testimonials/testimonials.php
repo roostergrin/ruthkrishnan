@@ -9,7 +9,7 @@
 wp_reset_query();
 ?>
 
-<div class="testimonials-section" aria-label="slideshow" role="regioncvbnm0">
+<div class="testimonials-section" aria-label="slideshow" role="region">
   <div class="testimonials-section__container">
     <div class="testimonials-section__color-block"></div>
 
@@ -21,7 +21,7 @@ wp_reset_query();
           $image = get_sub_field('image');
 
           ?>
-          <div class="testimonials-section__image-slide" data-image-index='<?php echo get_row_index(); ?>'>
+          <div class="testimonials-section__image-slide" data-image-index='<?php echo get_row_index(); ?>' aria-hidden="true">
             <?php echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'testimonials-section__image' ]); ?>
           </div>
           <?php endwhile; ?>
@@ -31,7 +31,9 @@ wp_reset_query();
 
     <div class="testimonials-section__content-col">
       <div class="testimonials-section__content-slider">
-        <?php echo wp_get_attachment_image(get_field('background'), 'medium_large', false, [ 'class' => 'testimonials-section__background-image' ]); ?>
+        <div class="testimonials-section__background" aria-hidden="true">
+          <?php echo wp_get_attachment_image(get_field('background'), 'medium_large', false, [ 'class' => 'testimonials-section__background-image' ]); ?>
+        </div>
         <div class="testimonials-section__title" aria-label="<?php get_field('title')?>">
           <h2><?php echo get_field('title')?></h2>
         </div>

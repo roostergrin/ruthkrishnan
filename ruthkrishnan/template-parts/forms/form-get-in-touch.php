@@ -18,7 +18,7 @@
 
       ?>
 
-        <div class="form-get-in-touch__background">
+        <div class="form-get-in-touch__background" aria-hidden="true">
           <?php echo wp_get_attachment_image($image, 'full', false, [ 'class' => 'form-get-in-touch__background' ]); ?>
         </div>
 
