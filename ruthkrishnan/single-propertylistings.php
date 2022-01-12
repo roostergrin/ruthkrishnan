@@ -303,13 +303,14 @@ get_header(); ?>
 				<div class="listings-single__access-content">
 					<h2 class="listings-single__access-title">Get Exclusive Access</h2>
 					<div class="listings-single__access-text">Sign up to hear about the Krishnan Team’s new listings, open houses, off-market opportunities & quarterly market updates.</div>
-					<form action="" class="listings-single__access-form" id="exclusive-access-form">
+					<a class="listings-single__access-submit" href="https://paragon-re.us5.list-manage.com/subscribe/post?u=c8474b2af5037cd0c2709da5c&id=47357a5c28" class="form-subscribe__button" target="_blank" aria-label="subscribe on subscription page (opens in new window).">subscribe</a>
+					<!-- <form action="" class="listings-single__access-form" id="exclusive-access-form">
 						<div class="listings-single__access-form-group">
 							<label for="email" class="listings-single__access-label">Email</label>
 							<input type="email" name="email" id="email" placeholder="Email" class="listings-single__access-input" required>
 						</div>
 						<input type="submit" value="subscribe" class="listings-single__access-submit">
-					</form>
+					</form> -->
 				</div>
 			</div>
 		</div>
