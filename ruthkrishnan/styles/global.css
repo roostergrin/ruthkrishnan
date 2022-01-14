@@ -797,6 +797,7 @@ p, li, h2, h3, h4, h5 {
   justify-content: flex-end;
   padding-right: 0;
   border-style: none;
+  color: #fff;
 }
 @media screen and (max-width: 768px) {
   .form-subscribe__form-column {
