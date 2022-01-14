@@ -38,7 +38,7 @@
               </a>
             </div>
             <div class="form-get-in-touch__address">
-              <a href="<?php echo get_field('address_link', 'options'); ?>" class="form-get-in-touch__address-link">
+              <a href="<?php echo get_field('address_link', 'options'); ?>" class="form-get-in-touch__address-link" aria-label="Go to <?php echo get_field('address_aria', 'options'); ?> on Google Maps, opens in new tab">
                 <?php echo get_field('address_text', 'options'); ?>
               </a>
             </div>

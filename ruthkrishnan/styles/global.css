@@ -796,6 +796,7 @@ p, li, h2, h3, h4, h5 {
   display: flex;
   justify-content: flex-end;
   padding-right: 0;
+  border-style: none;
 }
 @media screen and (max-width: 768px) {
   .form-subscribe__form-column {
@@ -818,6 +819,7 @@ p, li, h2, h3, h4, h5 {
   padding: 0.875rem 2rem 0.75rem;
   text-transform: lowercase;
   color: #fff;
+  text-decoration: none;
   min-width: 35%;
   text-align: center;
 }
