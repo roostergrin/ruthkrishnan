@@ -65,3 +65,77 @@
       margin-bottom: 1rem
       text-transform: uppercase
       font-weight: 700
+
+/* ---------------------
+    Sell Video Styles
+  --------------------- */
+
+.new-developments-single-video
+  @extend %section-padding
+
+  &__container
+    @include container--color
+    @include desktop
+      padding: 5rem 0
+    @include tablet
+      padding: 3rem 0
+    background: $c2
+    padding: 4rem 0
+    max-width: $width
+  
+  &__column
+    @include col(10)
+    @include col--offset(1)
+    padding: 0
+  
+  &__video-container
+    @include laptop
+      height: calc(75vw * .5625)
+    @include phone-lg
+      height: 50vw
+    position: relative
+    width: 100%
+    height: calc(60vw * .5625)
+    cursor: pointer
+
+    @include hover-supported
+      .new-developments-single-video__icon
+        opacity: .7
+
+  &__thumbnail //check
+    @extend %absolute
+    transition: opacity .5s ease
+    object-fit: cover
+    opacity: 1
+    pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: none
+  
+  &__video
+    @extend %absolute
+    transition: opacity .5s ease
+    opacity: 0
+    pointer-events: none
+
+    &--active
+      opacity: 1
+      pointer-events: auto
+
+  &__play-btn
+    @extend %centered
+    opacity: 1
+    z-index: 3
+    cursor: pointer
+    pointer-events: auto
+
+    &--hidden
+      opacity: 0
+      pointer-events: none
+
+  &__icon
+    transition: opacity .2s ease
+    width: 3.75rem
+    height: 3.75rem
+  //end

@@ -311,9 +311,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener('DOMContentLoaded', function () {
+  var playButton = document.querySelector('.new-developments-single-video__play-btn'),
+      videoContainer = document.querySelector('.new-developments-single-video__video-container'),
+      thumbnail = document.querySelector('.new-developments-single-video__thumbnail'),
+      video = document.querySelector('.new-developments-single-video__video');
   (0,_resources_gmaps__WEBPACK_IMPORTED_MODULE_0__.setMap)();
   (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__.photoGallery)();
   (0,_resources_form_new_dev__WEBPACK_IMPORTED_MODULE_2__.formNewDev)();
+  video.addEventListener('loadeddata', function () {});
+  videoContainer.addEventListener('click', function () {
+    video.src = video.dataset.src;
+    playButton.classList.add('new-developments-single-video__play-btn--hidden');
+    thumbnail.classList.add('new-developments-single-video__thumbnail--hidden');
+    video.classList.add('new-developments-single-video__video--active');
+  });
 });
 })();
 

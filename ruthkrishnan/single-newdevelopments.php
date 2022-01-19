@@ -19,6 +19,7 @@
             <!-- Start Developments Categories Loop -->
             <div class='new-developments-single__page-wrapper'>
               <section class='new-developments-single__info-section'>
+
                 <div class='new-developments-single__container'>
                   <h2 class='new-developments-single__title--large'>The Building</h2>
                   <div class='new-developments-single__column--left'>
@@ -274,6 +275,23 @@
                   </div>
                 </div> <!-- container  -->
               </section>
+              <!-- New Developments Single Video Section -->
+              <?php if ( !empty(get_field('new_developments_single_src')) ) : ?>
+                <div class="new-developments-single-video">
+                    <div class="new-developments-single-video__container">
+                      <div class="new-developments-single-video__column">
+                        <div class="new-developments-single-video__video-container">
+                          <iframe title="New Developments Property Video" class="new-developments-single-video__video" data-src="<?php echo get_field('new_developments_single_src') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+                          <?php echo wp_get_attachment_image(get_field('new_developments_single_thumbnail'), 'full', false, [ 'class' => 'new-developments-single-video__thumbnail' ]); ?>
+                          <div class="new-developments-single-video__play-btn">
+                            <?php get_template_part('icons/play', null, array('class' => 'new-developments-single-video__icon')); ?>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              <?php endif; ?>
+              <!-- END New Developments Single Video Section -->
               <!-- Photo Gallery Template Part -->
               <?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
               <!-- ENDPhoto Gallery Template Part -->
