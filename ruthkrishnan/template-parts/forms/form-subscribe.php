@@ -15,14 +15,8 @@
       <h2 class="form-subscribe__title"><?php echo get_field('subscribe_title', 'options'); ?></h2>
       <div class="form-subscribe__text"><?php echo get_field('subscribe_text', 'options'); ?></div>
     </div>
-    <div class="form-subscribe__form-column">
-      <!-- <form action="" id="subscribe-form" class="form-subscribe__form">
-        <label for="email" class="form-subscribe__label">Email</label>
-        <input type="email" name="email" id="mail" class="form-subscribe__input">
-
-        <button type="submit" for="subscribe-form" class="form-subscribe__submit"><?php get_template_part('icons/arrow', null, array( 'class' => 'form-subscribe__arrow' )); ?></button>
-      </form> -->
-      <a href="https://paragon-re.us5.list-manage.com/subscribe/post?u=c8474b2af5037cd0c2709da5c&id=47357a5c28" class="form-subscribe__button" target="_blank" aria-label="subscribe now on subscription page (opens in new window).">subscribe now</a>
-    </div>
+    <a href="https://paragon-re.us5.list-manage.com/subscribe/post?u=c8474b2af5037cd0c2709da5c&id=47357a5c28" class="form-subscribe__form-column" target="_blank" aria-label="subscribe now on subscription page, opens in new window.">
+      <button class="form-subscribe__button">subscribe now</button>
+    </a>
   </div>
 </section>
