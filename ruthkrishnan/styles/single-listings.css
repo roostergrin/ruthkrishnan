@@ -1240,6 +1240,7 @@
   padding-top: 2rem;
   width: 80%;
   text-align: center;
+  word-break: break-word;
 }
 @media screen and (min-width: 1750px) {
   .listings-single__plan-text {
