@@ -230,7 +230,7 @@ var testimonials = function testimonials() {
 
     var hideSlides = function hideSlides() {
       imageSlide.forEach(function (image) {
-        currSlide === +image.dataset.imageIndex - 1 ? image.setAttribute('aria-hidden', false) : image.setAttribute('aria-hidden', true);
+        // currSlide === +image.dataset.imageIndex - 1 ? image.setAttribute('aria-hidden', false) : image.setAttribute('aria-hidden', true)
         currSlide === +image.dataset.imageIndex - 1 ? image.setAttribute('tabindex', 0) : image.setAttribute('tabindex', -1);
       });
       contentSlide.forEach(function (content) {

@@ -44,7 +44,7 @@ wp_reset_query();
               $text = get_sub_field('content');
               $name = get_sub_field('name');
               ?>
-              <div class="testimonials-section__content-slide" data-content-index='<?php echo get_row_index(); ?>' role="group">
+              <div class="testimonials-section__content-slide" data-content-index='<?php echo get_row_index(); ?>' aria-live="polite" role="group">
                 <div class="testimonials-section__content">
                   <div class="testimonials-section__text" aria-label="<?php echo $text ?>"><?php echo $text ?></div>
                   <div class="testimonials-section__name" aria-label="<?php echo $name ?>"><?php echo $name ?></div>
