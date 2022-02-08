@@ -47,7 +47,7 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="home-welcome__video-modal"
+    <section class="home-welcome__video-modal">
       <div class="home-welcome__modal-overlay"></div>
       <div class="home-welcome__modal-container">
         <button class="home-welcome__close-btn" aria-label="close" tabindex="0">close</button>
