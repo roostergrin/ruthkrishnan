@@ -1,16 +1,16 @@
 # Ruth Krishnan
-This is a traditional Wordpress site hosted on its own dedicated server, RootsterGrinTrestles(52.12.152.11). 
+This is a traditional Wordpress site hosted on its own dedicated server, RoosterGrinTrestles (52.12.152.11).
 
 &nbsp;
 
 # Setting Up A Local Environment
 To get started, it is best to set up a local development environment. Since this is a traditional Wordpress site, we will get a local development environment set up by using MAMP. MAMP is a local server environment that will allow us to run a Wordpress site locally. All we need to do is download MAMP, all Wordpress site files, and the ruthkrishnan theme files. 
 
-__Step 1:__ Download MAMP <a href='https://www.mamp.info/en/downloads/' target='_blank'>here</a>.
+__Step 1:__ Download and install MAMP <a href='https://www.mamp.info/en/downloads/' target='_blank'>here</a>.
 
-__Step 2:__ Go to RootsterGrinTrestles(52.12.152.11) server on plesk and navigate to the <strong>ruthkrishnan.com</strong> domain, then go to the File Manager.
+__Step 2:__ Go to RoosterGrinTrestles (<a href='https://52.12.152.11:8443/' target='_blank'>52.12.152.11</a>) server on plesk and navigate to the <strong>ruthkrishnan.com</strong> domain, then go to the File Manager.
 
-__Step 3:__ In the File Manager, download the following the file __rk_local.zip__ (this is a zip copy of all files on the server. If this file does not exists, select all files on the live server and click on "add to archive". This will make a zip copy of all the files.)
+__Step 3:__ In the File Manager, download the following the file __rk_local.zip__ This is a zip copy of all files on the server. If this file does not exists, select all files on the live server and click on "add to archive" to make a new zip copy of all the files. Note rk_local.zip is several GB and will take a few minutes to download.
 
 __Step 4:__ Now we can back out of the File Manager on Plesk and go to the databases. Here we will "Export Dump" for the __admin_ruthkrishnan__ database. Download the dump (we will use this later)
 
@@ -56,7 +56,7 @@ __Step 13:__ Head back to the downloaded unzipped "rk_local" directory. Since th
 - wp-rocket
 
 
-__Finishing up:__ Now you should be able to view the site locally at http://localhost:8888 and you may log into the admin site at http://localhost:8888/wp-admin (login credentials are under default in lastpass)
+__Finishing up:__ Now you should be able to view the site locally at http://localhost:8888 and you may log into the admin site at http://localhost:8888/wp-admin (login credentials are under 'Ruthkrishnan ( WordPress)' in lastpass). If /wp-admin tells you to update the database, <a href="https://www.weblydigital.com/wordpress-database-update-required/" target="_blank">try this</a>.
 
 &nbsp;
 
@@ -66,7 +66,7 @@ You should now have a local development environment up and running. Next step is
 
 Before we get started there are a few things to keep in mind. 
 
-1. The database on your local development environment is separate form the live site. Any changes done in WP backend will need to be copied over to the live site when ready (i.e. Adding/Updating Advanced Custom Fields, Updating text on a page in WP Admin, uploading new images etc.)
+1. The database on your local development environment is separate from the live site. Any changes done in WP backend will need to be copied over to the live site when ready (i.e. Adding/Updating Advanced Custom Fields, Updating text on a page in WP Admin, uploading new images etc.)
 
 2. Images on the site are uploaded using the default WP media library. The live site automatically optimizes every image and uploads them to an AWS S3 Bucket. (we have disabled/removed the plugins that do this on the local dev environment)
 
@@ -77,7 +77,8 @@ Before we get started there are a few things to keep in mind.
 &nbsp;
 
 # Making Updates To Sass and JS files
-All sass and js files are compiled using Laravel Mix. Laravel Mix allows us to use sass in development and output css files for Wordpress to use. It also allows us to compile js files together to allow us to organzie and resuse js scripts easier.
+
+All sass and js files are compiled using Laravel Mix. Laravel Mix allows us to use sass in development and output css files for Wordpress to use. It also allows us to compile js files together to allow us to organize and reuse js scripts easier.
 
 All javascript files and sass files are located in the src directory located inside the ruthkrishnan theme directory. All sass files are in the sass directory and all the js files are located in the scripts directory. These are the files you will update to make any style or js changes.
 
