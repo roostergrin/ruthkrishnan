@@ -22,7 +22,7 @@
       "streetAddress": "1400 Van Ness Ave"
     },
     "description": "The Krishnan Team is ranked in the top 10 SF real estate agents in San Francisco. See how we can help you buy or sell a home in a competitive market."
-    "name": "The Krishnan Team",
+    "name": "Ruth Krishnan - San Francisco Real Estate",
     "telephone": "(415) 735-5867"
   }
   </script>
