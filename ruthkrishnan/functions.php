@@ -1,19 +1,19 @@
 <?php
 
   add_action( 'wpseo_add_opengraph_additional_images', 'add_images' );
-  
+
   function add_images( $object ) {
     if ( !is_page_template('page-privacy.php') ) {
       if (!$object->has_images()) {
         if ( have_rows('background_image') ) :
           while (have_rows('background_image')) : the_row();
           $image = get_sub_field('image');
-          
+
           if (!empty($image)) :
             $imageUrl = wp_get_attachment_image_src($image, $size = 'full')[0];
             $object->add_image( $imageUrl );
           endif;
-        endwhile;  
+        endwhile;
       endif;
     }
   }
@@ -124,7 +124,7 @@ function theme_enqueue_styles() {
 
   if ( is_single() && get_post_type() === 'careers' ) {
     wp_enqueue_style( 'single-careers', get_template_directory_uri() . '/styles/single-careers.css' );
-  } 
+  }
 
   if ( is_page_template('page-privacy.php') ) {
     wp_enqueue_style( 'privacy', get_template_directory_uri() . '/styles/privacy.css' );
@@ -147,7 +147,7 @@ function theme_enqueue_scripts() {
   // Third Party Scripts
   wp_register_script( 'axios', 'https://unpkg.com/axios/dist/axios.min.js', array(), '', true);
   wp_enqueue_script( 'axios' );
-  
+
   // global scripts
   if ( !is_page_template('page-thankyou.php') ) {
     wp_register_script( 'global', get_template_directory_uri() . '/js/global.js', array(), '', true);
@@ -159,7 +159,7 @@ function theme_enqueue_scripts() {
   if ( is_home() || is_front_page() ) {
     wp_register_script( 'homepage', get_template_directory_uri() . '/js/homepage.js', array(), '', true );
     wp_enqueue_script( 'homepage' );
-    
+
     wp_register_script( 'vimeo-player', 'https://player.vimeo.com/api/player.js', array(), '', true);
     wp_enqueue_script( 'vimeo-player' );
   }
@@ -210,7 +210,7 @@ function theme_enqueue_scripts() {
   if ( is_page_template('page-thankyou.php') ) {
     wp_register_script( 'thankyou', get_template_directory_uri() . '/js/thankyou.js', array(), '', true);
     wp_enqueue_script( 'thankyou' );
-    
+
     wp_register_script( 'thankyou-conversion-script', get_template_directory_uri() . '/js/thankyou-conversion-script.js', array(), '', false);
     wp_enqueue_script( 'thankyou-conversion-script' );
   }
@@ -254,7 +254,7 @@ function theme_enqueue_scripts() {
     wp_register_script( 'privacy', get_template_directory_uri() . '/js/privacy.js', array(), '', true);
     wp_enqueue_script( 'privacy' );
   }
-  
+
   if ( is_page_template('page-marketing.php') ) {
     wp_register_script( 'marketing', get_template_directory_uri() . '/js/marketing.js', array(), '', true);
     wp_enqueue_script( 'marketing' );
@@ -301,12 +301,19 @@ add_action( 'init', 'theme_menu');
 
 // Add ACF Options Page
 if( function_exists('acf_add_options_page') ) {
-	
+
 	acf_add_options_page( array(
     'page_title' => 'Global Data',
     'menu_title' => 'Global Data',
     'menu_slug' => 'globaldata',
     'icon_url' => 'dashicons-admin-site-alt3'
   ) );
-	
+
 }
+
+// Disable yoast generated schema.org structured data
+function disable_yoast_schema_data($data){
+	$data = array();
+	return $data;
+}
+add_filter('wpseo_json_ld_output', 'disable_yoast_schema_data', 10, 1);
