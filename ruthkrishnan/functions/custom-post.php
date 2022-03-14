@@ -76,10 +76,25 @@ function app_init() {
     'taxonomies' => array()
 	);
 
+	$argsBreweries = array(
+    'label' => 'Breweries',
+		'show_in_rest' => true,
+		'public' => true,
+		'show_ui' => true,
+		'capability_type' => 'post',
+		'supports' => array(
+			'title',
+			'custom-fields',
+			'excerpt'
+		),
+    'taxonomies' => array()
+	);
+
     register_post_type( 'newdevelopments', $argsNd );
     register_post_type( 'neighborhoods', $argsNb );
     register_post_type( 'propertylistings', $argsListings );
     register_post_type( 'careers', $argsCareers );
+    register_post_type( 'brewery', $argsBreweries );
 }
 
 add_action( 'init', 'app_init' );
