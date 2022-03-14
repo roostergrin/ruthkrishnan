@@ -7,8 +7,6 @@
 
 get_header(); ?>
 
-<h1>Ruth Krishnan</h1>
-
 <?php
 $results = wp_remote_get('https://api.openbrewerydb.org/breweries/?page=1&per_page=50')
 

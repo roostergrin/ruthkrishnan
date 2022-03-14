@@ -34,16 +34,6 @@ include_once(get_template_directory() . '/email.php');
 include_once(get_template_directory() . '/functions/custom-taxonomies.php');
 include_once(get_template_directory() . '/functions/custom-post.php');
 
-add_action('http_api_curl', function( $handle ){
-  //Don't verify SSL certs
-  curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
-  curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, false);
-
-  //Use Charles HTTP Proxy
-  curl_setopt($handle, CURLOPT_PROXY, "127.0.0.1");
-  curl_setopt($handle, CURLOPT_PROXYPORT, 8888);
-}, 10);
-
 function get_breweries_from_api(){
   $current_page = (! empty($_POST['current_page']) ) ? $_POST['current_page'] : 1;
 
@@ -53,19 +43,6 @@ function get_breweries_from_api(){
   // 'https:/api.openbrewerydb.org/breweries/?page=1'
 
 }
-
-// call ATTOM API 
-
-function call_attom_api () {
-  $request = wp_remote_get( 'https://pippinsplugins.com/edd-api/products' );
-  if( is_wp_error( $request ) ) {
-    return false; // Bail early
-  }
-  $body = wp_remote_retrieve_body( $request );
-  $data = json_decode( $body );
-}
-
-add_action( 'init', 'call_attom_api' );
 
 // remove wysiwyg editors -------------------------
 
