@@ -511,6 +511,10 @@
     margin-left: 0;
   }
 }
+.compass-program__text {
+  text-align: center;
+}
+
 /* -------------------------
  *  Resources Links Styles
  * ------------------------- */
