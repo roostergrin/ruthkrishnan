@@ -34,16 +34,105 @@ include_once(get_template_directory() . '/email.php');
 include_once(get_template_directory() . '/functions/custom-taxonomies.php');
 include_once(get_template_directory() . '/functions/custom-post.php');
 
+if( ! wp_next_scheduled('update_brewery_list') ) {
+  wp_schedule_event(time(), 'weekly', 'get_breweries_from_api');
+}
+add_action('wp_ajax_nopriv_get_breweries_from_api', 'get_breweries_from_api');
+add_action('wp_ajax_get_breweries_from_api', 'get_breweries_from_api');
+
 function get_breweries_from_api(){
+
+  $file = get_stylesheet_directory() . '/report.txt';
   $current_page = (! empty($_POST['current_page']) ) ? $_POST['current_page'] : 1;
 
   $breweries = [];
 
-  $results = wp_remote_get('https:/api.openbrewerydb.org/breweries/?page=' . $current_page. '&per_page=50');
-  // 'https:/api.openbrewerydb.org/breweries/?page=1'
+  $results = wp_remote_retrieve_body(wp_remote_get('https://api.openbrewerydb.org/breweries/?page=' . $current_page. '&per_page=50'));
+  file_put_contents($file, "Current Page: " .$current_page. "\n\n", FILE_APPEND);
+
+  $results = json_decode($results);
+
+  if( ! is_array( $results ) || empty( $results ) ){
+    return false;
+  }
+
+  $breweries[] = $results;
+
+  foreach ( $breweries[0] as $brewery ){
+    $brewery_slug = sanitize_title($brewery->name . '-' . $brewery->id);
+    
+    $existing_brewery = get_page_by_path($brewery_slug, 'OBJECT', 'brewery');
+
+    if( $existing_brewery === null) {
+      $inserted_brewery = wp_insert_post([
+        'post_name' => $brewery_slug,
+        'post_title' => $brewery_slug,
+        'post_type' => 'brewery',
+        'post_status' => 'publish'
+      ]);
+
+      if (is_wp_error( $inserted_brewery )) {
+        continue;
+      }
+
+      $fillable = [
+        'field_622bc72b69a27' => 'name',
+        'field_622bc73669a28' => 'brewery_type',
+        'field_622bc74469a29' => 'street',
+        'field_622bc74a69a2a' => 'city',
+        'field_622bc77269a2b' => 'state',
+        'field_622bc77a69a2c' => 'postal_code',
+        'field_622bc78169a2d' => 'country',
+        'field_622bc78a69a2e' => 'longitude',
+        'field_622bc78a69a2e' => 'latitude',
+        'field_622bc79669a2f' => 'phone',
+        'field_622bc79d69a30' => 'website',
+        'field_622bc7a269a31' => 'updated_at'
+      ];
+
+      foreach( $fillable as $key => $name ) {
+        update_field( $key, $brewery->$name, $inserted_brewery );
+      }
+    }else {
+
+      $existing_brewery_id = $existing_brewery->ID;
+      $existing_brewery_timestamp = get_field('updated_at', $existing_brewery_id);
+
+      if( $brewery->updated_at >= $existing_brewery_timestamp){
+
+      $fillable = [
+        'field_622bc72b69a27' => 'name',
+        'field_622bc73669a28' => 'brewery_type',
+        'field_622bc74469a29' => 'street',
+        'field_622bc74a69a2a' => 'city',
+        'field_622bc77269a2b' => 'state',
+        'field_622bc77a69a2c' => 'postal_code',
+        'field_622bc78169a2d' => 'country',
+        'field_622bc78a69a2e' => 'longitude',
+        'field_622bc78a69a2e' => 'latitude',
+        'field_622bc79669a2f' => 'phone',
+        'field_622bc79d69a30' => 'website',
+        'field_622bc7a269a31' => 'updated_at'
+      ];
+
+      foreach( $fillable as $key => $name ) {
+        update_field( $key, $brewery->$name, $existing_brewery_id );
+      }
+      }
+
+    }
+  }
+
+  $current_page = $current_page + 3;
+  wp_remote_post( admin_url('admin-ajax.php?action=get_breweries_from_api'), [
+    'blocking' => false,
+    'sslverify' => false,
+    'body' => [
+      'current_page' => $current_page
+    ]
+  ] );
 
 }
-
 // remove wysiwyg editors -------------------------
 
 function remove_wysiwyg_editor () {
