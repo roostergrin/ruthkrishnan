@@ -101,18 +101,6 @@
   </noscript>
   <!-- End Facebook Pixel Code -->
 
-  <!-- Global site tag (gtag.js) - Google Ads: 781116828 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-781116828"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
-
-  gtag('config', 'AW-781116828');
-  </script>
   <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 
   <?php if ( is_page_template('page-thankyou.php') ) ?>
