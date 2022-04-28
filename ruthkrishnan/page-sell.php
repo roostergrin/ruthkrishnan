@@ -11,7 +11,9 @@ get_header(); ?>
 <div class="page-sell">
 
   <!-- Site Hero Template Part -->
-  <?php get_template_part('template-parts/hero/site-hero'); ?>
+  <section class="home-hero">
+    <?php get_template_part('template-parts/hero/home-hero'); ?>
+  </section>
   <!-- END Site Hero Template Part -->
 
   <!-- Sell Welcome Section -->

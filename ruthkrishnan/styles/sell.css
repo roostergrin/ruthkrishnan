@@ -40,7 +40,7 @@
   transform: translate(-50%, -50%);
 }
 
-.sell-prices__background, .sell-video__video, .sell-video__thumbnail, .case-studies__background, .before-after__background, .resources-links__background {
+.sell-prices__background, .sell-video__video, .sell-video__thumbnail, .case-studies__background, .before-after__background, .resources-links__background, .home-hero__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -185,6 +185,49 @@
   .resources-links__link-text, .process-steps__list-text {
     font-size: 1.25rem;
   }
+}
+
+/* -----------------------
+ * Home Page Hero Template Styles
+ * ----------------------- */
+.home-hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+@media screen and (max-width: 1024px) and (min-height: 1366px) {
+  .home-hero {
+    height: 56.25vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .home-hero {
+    height: 70vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .home-hero {
+    height: 33vh;
+  }
+}
+.home-hero__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
+  .home-hero__video {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.home-hero__overlay {
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.125) 24%, rgba(0, 0, 0, 0.05) 99%);
 }
 
 /* --------------------------
