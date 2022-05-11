@@ -169,7 +169,6 @@ get_header(); ?>
 				<?php endif; ?>
 
 				<!-- END Features -->
-
 				<!-- The Home: Photo Gallery -->
 				<?php if ( !empty(get_field('photo_gallery')) ) : ?>
 				<div class="listings-single__photo-gallery">
