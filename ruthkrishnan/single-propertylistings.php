@@ -179,7 +179,6 @@ get_header(); ?>
 				<!-- END The Home: Photo Gallery -->
 				
 				<!-- Loop through -->
-					<?php print_r('hey'); ?>
 					<?php
 					// Check rows exists.
 					if( have_rows('multiple_listings') ):
