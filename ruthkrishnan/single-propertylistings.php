@@ -71,6 +71,7 @@ get_header(); ?>
 					<!-- END Virtual Tour -->
 
 					<?php if ( !empty(get_field('double_listing')) ) : ?>
+								<div style="height: 32px;"></div>
 								<h2 class="listings-single__title"><?php echo get_field('extra_address'); ?>
 							<?php endif; ?>
 							<?php if ( !empty(get_field('extra_listing_price')) ) : ?>
