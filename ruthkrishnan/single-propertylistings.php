@@ -51,6 +51,7 @@ get_header(); ?>
 					</div>
 				<?php endif; ?>
 				
+				
 				<!-- Virtual Tour -->
 				<div class="listings-single__main-column">
 					<?php if ( get_field('virtual_tour_video') ) : ?>
@@ -68,6 +69,16 @@ get_header(); ?>
 
 					<?php endif; ?>
 					<!-- END Virtual Tour -->
+
+					<?php if ( !empty(get_field('double_listing')) ) : ?>
+								<h2 class="listings-single__title"><?php echo get_field('extra_address'); ?>
+							<?php endif; ?>
+							<?php if ( !empty(get_field('extra_listing_price')) ) : ?>
+								<span class="listings-single__title-price">
+									<?php echo get_field('extra_listing_price'); ?>
+								</span>
+								</h2>
+							<?php endif; ?>
 
 					<!-- Intro Text -->
 					<?php if ( get_field('intro_text') ) : ?>
@@ -171,12 +182,27 @@ get_header(); ?>
 				<!-- END Features -->
 				<!-- The Home: Photo Gallery -->
 				<?php if ( !empty(get_field('photo_gallery')) ) : ?>
-				<div class="listings-single__photo-gallery">
-					<?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
-				</div>
+					<div class="listings-single__photo-gallery">
+						<?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
+					</div>
+					<?php endif; ?>
+					<!-- END The Home: Photo Gallery -->
+					<!-- Floor Plan -->
+					<!-- If photo && text are empty display empty div for small spacing -->
+					<!-- Moves the content elsewhere if it is a double listing -->
+				<?php if ( !empty(get_field('double_listing')) ) : ?>
+				<?php if ( empty(get_field('floor_plan'))) : ?>
+					<div></div>
+					<?php else : ?>
+					<div class="listings-single__plan listings-single__main-column">
+						<div class="listings-single__plan-container">
+							<?php echo wp_get_attachment_image(get_field('floor_plan'), 'full', false, [ 'class' => 'listings-single__plan-image' ]); ?>
+						</div>
+					</div>
 				<?php endif; ?>
-				<!-- END The Home: Photo Gallery -->
-				
+				<?php endif; ?>
+				<!-- END Floor Plan -->
+
 				<!-- Loop through -->
 					<?php
 					// Check rows exists.
@@ -202,23 +228,23 @@ get_header(); ?>
 										<?php endif; ?>
 										<!-- Virtual Tour -->
 									<div class="listings-single__main-column">
-										<?php if ( get_field('virtual_tour_video') ) : ?>
+										<?php if ( get_sub_field('virtual_tour_video') ) : ?>
 											<h2 class="listings-single__tour-title">
-												<?php if ( empty(get_field('optional_virtual_tour_title')) ) : ?>
+												<?php if ( empty(get_sub_field('optional_virtual_tour_title')) ) : ?>
 													Take a Virtual Tour
 													<?php else : ?>
-														<?php echo get_field('optional_virtual_tour_title') ?>
+														<?php echo get_sub_field('optional_virtual_tour_title') ?>
 													<?php endif; ?>
 											</h2>
 													
 											<div class="listings-single__tour">
-												<iframe src="<?php echo get_field('virtual_tour_video') ?>" class="listings-single__tour-video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+												<iframe src="<?php echo get_sub_field('virtual_tour_video') ?>" class="listings-single__tour-video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
 											</div>
 										<?php endif; ?>
 										<!-- END Virtual Tour -->
 										<!-- Intro Text -->
-										<?php if ( get_field('intro_text') ) : ?>
-											<div class="listings-single__intro-text"><?php echo get_field('intro_text'); ?></div>
+										<?php if ( get_sub_field('intro_text') ) : ?>
+											<div class="listings-single__intro-text"><?php echo get_sub_field('intro_text'); ?></div>
 											</div> 
 										<?php endif; ?>
 										<!-- END Intro Text -->
@@ -351,10 +377,19 @@ get_header(); ?>
 													</div>
 												</div>
 											</div>
+											<!-- Floor Plan -->
+											<?php if (empty(get_sub_field('floor_plan'))): ?>
+												<div></div>
+												<?php else : ?>
+												<div class="listings-single__plan listings-single__main-column">
+													<div class="listings-single__plan-container">
+														<?php echo wp_get_attachment_image(get_sub_field('floor_plan'), 'full', false, [ 'class' => 'listings-single__plan-image' ]); ?>
+													</div>
+												</div>
+											<?php endif; ?>
+											<!-- END Floor Plan -->
 										<?php endif; ?>
 									<?php
-									
-										
 							// End loop.
 							endwhile;
 					endif;
@@ -395,12 +430,15 @@ get_header(); ?>
 
 				<!-- Floor Plan -->
 				<!-- If photo && text are empty display empty div for small spacing -->
-				<?php if ( empty(get_field('floor_plan_text')) && empty(get_field('floor_plan'))  ) : ?>
+				<!-- Moves the content elsewhere if it is a double listing -->
+				<?php if ( empty(get_field('floor_plan_text')) && empty(get_field('floor_plan'))) : ?>
 					<div></div>
 					<?php else : ?>
 					<div class="listings-single__plan listings-single__main-column">
 						<div class="listings-single__plan-container">
-							<?php echo wp_get_attachment_image(get_field('floor_plan'), 'full', false, [ 'class' => 'listings-single__plan-image' ]); ?>
+							<?php if ( empty(get_field('double_listing')) ) : ?>
+								<?php echo wp_get_attachment_image(get_field('floor_plan'), 'full', false, [ 'class' => 'listings-single__plan-image' ]); ?>
+							<?php endif; ?>
 							<?php if ( !empty(get_field('floor_plan_text')) ) : ?>
 								<div class="listings-single__plan-text"><?php echo get_field('floor_plan_text'); ?></div>
 								<?php endif; ?>
