@@ -302,6 +302,81 @@ var listingsNeighborhhodGallery = function listingsNeighborhhodGallery() {
 
 /***/ }),
 
+/***/ "./src/scripts/resources/photo-gallery--2.js":
+/*!***************************************************!*\
+  !*** ./src/scripts/resources/photo-gallery--2.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "photoGalleryTwo": () => (/* binding */ photoGalleryTwo)
+/* harmony export */ });
+var photoGalleryTwo = function photoGalleryTwo() {
+  var currSlide = 0,
+      paginationContent;
+  var slider = document.querySelector('.photo-gallery__slider--2'),
+      sliderLength = slider.dataset.sliderLength,
+      slide = document.querySelectorAll('.photo-gallery__slide--2'),
+      dot = document.querySelectorAll('.photo-gallery__dot--2'),
+      numpagination = document.querySelector('.photo-gallery__numpagination--2'),
+      prev = document.querySelector('.photo-gallery__prev--2'),
+      next = document.querySelector('.photo-gallery__next--2'),
+      img = document.querySelectorAll('.photo-gallery__image--2');
+
+  var setSlide = function setSlide() {
+    slide.forEach(function (slide) {
+      currSlide === +slide.dataset.index ? slide.classList.add('photo-gallery__slide--active--2') : slide.classList.remove('photo-gallery__slide--active--2');
+    });
+
+    if (numpagination) {
+      paginationContent = "".concat(currSlide + 1, " / ").concat(+numpagination.dataset.slides);
+      numpagination.innerHTML = paginationContent;
+    } else {
+      dot.forEach(function (dot) {
+        currSlide === +dot.dataset.index ? dot.classList.add('photo-gallery__dot--active--2') : dot.classList.remove('photo-gallery__dot--active--2');
+      });
+    }
+  };
+
+  setSlide();
+
+  var changeSlide = function changeSlide(str) {
+    if (str === 'prev') {
+      currSlide === 0 ? currSlide = sliderLength - 1 : currSlide--;
+      setSlide();
+    }
+
+    ;
+
+    if (str === 'next') {
+      currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++;
+      setSlide();
+    }
+
+    ;
+  };
+
+  var goToSlide = function goToSlide(val) {
+    currSlide = val;
+    setSlide();
+  };
+
+  prev.addEventListener('click', function () {
+    changeSlide('prev');
+  });
+  next.addEventListener('click', function () {
+    changeSlide('next');
+  });
+  dot.forEach(function (dot, i) {
+    dot.addEventListener('click', function () {
+      goToSlide(i);
+    });
+  });
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/photo-gallery.js":
 /*!************************************************!*\
   !*** ./src/scripts/resources/photo-gallery.js ***!
@@ -563,11 +638,13 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_listings_hero__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/listings-hero */ "./src/scripts/resources/listings-hero.js");
 /* harmony import */ var _resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/photo-gallery */ "./src/scripts/resources/photo-gallery.js");
-/* harmony import */ var _resources_listings_neighborhood_gallery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../resources/listings-neighborhood-gallery */ "./src/scripts/resources/listings-neighborhood-gallery.js");
-/* harmony import */ var _resources_gmaps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../resources/gmaps */ "./src/scripts/resources/gmaps.js");
-/* harmony import */ var _resources_testimonials__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../resources/testimonials */ "./src/scripts/resources/testimonials.js");
-/* harmony import */ var _resources_form_exclusive_access__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../resources/form-exclusive-access */ "./src/scripts/resources/form-exclusive-access.js");
-/* harmony import */ var _resources_form_new_dev__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../resources/form-new-dev */ "./src/scripts/resources/form-new-dev.js");
+/* harmony import */ var _resources_photo_gallery_2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../resources/photo-gallery--2 */ "./src/scripts/resources/photo-gallery--2.js");
+/* harmony import */ var _resources_listings_neighborhood_gallery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../resources/listings-neighborhood-gallery */ "./src/scripts/resources/listings-neighborhood-gallery.js");
+/* harmony import */ var _resources_gmaps__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../resources/gmaps */ "./src/scripts/resources/gmaps.js");
+/* harmony import */ var _resources_testimonials__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../resources/testimonials */ "./src/scripts/resources/testimonials.js");
+/* harmony import */ var _resources_form_exclusive_access__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../resources/form-exclusive-access */ "./src/scripts/resources/form-exclusive-access.js");
+/* harmony import */ var _resources_form_new_dev__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../resources/form-new-dev */ "./src/scripts/resources/form-new-dev.js");
+
 
 
 
@@ -584,7 +661,8 @@ document.addEventListener('DOMContentLoaded', function () {
       featSeeMoreBtn = document.querySelector('.listings-single__features-see-more'),
       featList = document.querySelector('.listings-single__features-list'),
       featOverlay = document.querySelector('.listings-single__features-overlay'),
-      photoGalleryElem = document.querySelector('.photo-gallery');
+      photoGalleryElem = document.querySelector('.photo-gallery'),
+      photoGalleryElem2 = document.querySelector('.photo-gallery--2');
   var featExpanded = false; // Imported Scripts ------------------------
   // Listings Hero Functionality
 
@@ -592,18 +670,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (photoGalleryElem) {
     (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__.photoGallery)();
+  }
+
+  if (photoGalleryElem2) {
+    // Sorry, they need it NOW
+    (0,_resources_photo_gallery_2__WEBPACK_IMPORTED_MODULE_2__.photoGalleryTwo)();
   } // Listings Neighborhood Functionality
 
 
-  (0,_resources_listings_neighborhood_gallery__WEBPACK_IMPORTED_MODULE_2__.listingsNeighborhhodGallery)(); // Google Map
+  (0,_resources_listings_neighborhood_gallery__WEBPACK_IMPORTED_MODULE_3__.listingsNeighborhhodGallery)(); // Google Map
 
-  (0,_resources_gmaps__WEBPACK_IMPORTED_MODULE_3__.setMap)(); // Testimonials
+  (0,_resources_gmaps__WEBPACK_IMPORTED_MODULE_4__.setMap)(); // Testimonials
 
-  (0,_resources_testimonials__WEBPACK_IMPORTED_MODULE_4__.testimonials)(); // From Exclusive Access
+  (0,_resources_testimonials__WEBPACK_IMPORTED_MODULE_5__.testimonials)(); // From Exclusive Access
 
-  (0,_resources_form_exclusive_access__WEBPACK_IMPORTED_MODULE_5__.formExclusiveAccess)(); // Form New Dev
+  (0,_resources_form_exclusive_access__WEBPACK_IMPORTED_MODULE_6__.formExclusiveAccess)(); // Form New Dev
 
-  (0,_resources_form_new_dev__WEBPACK_IMPORTED_MODULE_6__.formNewDev)(); // END Imported Scripts -------------------
+  (0,_resources_form_new_dev__WEBPACK_IMPORTED_MODULE_7__.formNewDev)(); // END Imported Scripts -------------------
   // Features See More
 
   var toggleFeatures = function toggleFeatures() {

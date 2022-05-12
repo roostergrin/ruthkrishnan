@@ -1,5 +1,6 @@
 import { listingsHero } from '../resources/listings-hero';
 import { photoGallery } from '../resources/photo-gallery';
+import { photoGalleryTwo } from '../resources/photo-gallery--2';
 import { listingsNeighborhhodGallery } from '../resources/listings-neighborhood-gallery';
 import { setMap } from '../resources/gmaps';
 import { testimonials } from '../resources/testimonials';
@@ -15,7 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
         featSeeMoreBtn = document.querySelector('.listings-single__features-see-more'),
         featList = document.querySelector('.listings-single__features-list'),
         featOverlay = document.querySelector('.listings-single__features-overlay'),
-        photoGalleryElem = document.querySelector('.photo-gallery');
+        photoGalleryElem = document.querySelector('.photo-gallery'),
+        photoGalleryElem2 = document.querySelector('.photo-gallery--2');
   
   let featExpanded = false;
 
@@ -27,6 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // Photo Gallery Functionality
   if (photoGalleryElem) {
     photoGallery();
+  }
+  
+  if (photoGalleryElem2) {
+    // Sorry, they need it NOW
+    photoGalleryTwo();
   }
 
   // Listings Neighborhood Functionality

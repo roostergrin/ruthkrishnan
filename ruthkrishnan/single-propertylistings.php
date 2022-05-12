@@ -315,43 +315,41 @@ get_header(); ?>
 										<?php endif; ?>
 										<!-- Photo Gallery -->
 										<?php if ( !empty(get_sub_field('photo_gallery')) ) : ?>
-												<div class="photo-gallery__container">
-													<h2 class="photo-gallery__title">
+											<div class="photo-gallery--2">	
+												<div class="photo-gallery__container--2">
+													<h2 class="photo-gallery__title--2">
 														<?php if ( !empty(get_sub_field('photo_gallery_alternate_title')) ) :
 															echo get_sub_field('photo_gallery_alternate_title');
 														else : 
 															echo 'Photo Gallery';
 														endif; ?>
 													</h2>
-
 														<?php $images = get_sub_field('photo_gallery'); ?>
-
-														<div class='photo-gallery__slider' data-slider-length='<?php echo count($images); ?>'>
+														<div class='photo-gallery__slider--2' data-slider-length='<?php echo count($images); ?>'>
 															<?php
 															foreach ($images as $key=>$image) : ?>
-																<div class="photo-gallery__slide" data-index='<?php echo $key; ?>'>
-																	<?php echo wp_get_attachment_image($image, 'full', false, [ 'class' => 'photo-gallery__image']); ?>
+																<div class="photo-gallery__slide--2" data-index='<?php echo $key; ?>'>
+																	<?php echo wp_get_attachment_image($image, 'full', false, [ 'class' => 'photo-gallery__image--2']); ?>
 																</div>
 															<?php endforeach; ?>
-
-														<div class="photo-gallery__prev" aria-label='Previous Slide'> 
-															<?php get_template_part('icons/arrow', null, array( 'class' => 'photo-gallery__icon photo-gallery__icon--prev' )); ?>
+														<div class="photo-gallery__prev--2" aria-label='Previous Slide'> 
+															<?php get_template_part('icons/arrow', null, array( 'class' => 'photo-gallery__icon photo-gallery__icon--prev--2' )); ?>
 														</div>
-														<div class="photo-gallery__next" aria-label='Next Slide'> 
-															<?php get_template_part('icons/arrow', null, array( 'class' => 'photo-gallery__icon photo-gallery__icon--next' )); ?>
+														<div class="photo-gallery__next--2" aria-label='Next Slide'> 
+															<?php get_template_part('icons/arrow', null, array( 'class' => 'photo-gallery__icon photo-gallery__icon--next--2' )); ?>
 														</div>
-
 													</div>
 													<div class='photo-gallery__indicators'>
 														<?php $images = get_sub_field('photo_gallery'); ?>
 															<?php if ( count($images) > 8 ) : ?>
-																<div class="photo-gallery__numpagination" data-slides="<?php echo count($images); ?>"></div>
+																<div class="photo-gallery__numpagination--2" data-slides="<?php echo count($images); ?>"></div>
 															<?php else : ?>
 																<?php foreach ($images as $key=>$dot) : ?>
-																		<div class="photo-gallery__dot" data-index='<?php echo $key; ?>'></div>
+																		<div class="photo-gallery__dot--2" data-index='<?php echo $key; ?>'></div>
 																<?php endforeach; ?>
 															<?php endif; ?>
 													</div>
+												</div>
 											</div>
 										<?php endif; ?>
 									<?php
