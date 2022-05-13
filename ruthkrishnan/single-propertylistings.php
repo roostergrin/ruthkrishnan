@@ -329,14 +329,14 @@ get_header(); ?>
 										
 										<!-- Features -->
 										<?php if ( !empty(get_sub_field('features')) ) : ?>
-										<div class="listings-single__features listings-single__main-column">
-											<div class="listings-single__features-container">
-												<h2 class="listings-single__features-title">Features</h2>
-												<div class="listings-single__features-list-container">
-													<div class="listings-single__features-list"><?php echo get_sub_field('features'); ?></div>
-													<div class="listings-single__features-overlay"></div>
+										<div class="listings-single__features--2 listings-single__main-column">
+											<div class="listings-single__features-container--2">
+												<h2 class="listings-single__features-title--2">Features</h2>
+												<div class="listings-single__features-list-container--2">
+													<div class="listings-single__features-list--2"><?php echo get_sub_field('features'); ?></div>
+													<div class="listings-single__features-overlay--2"></div>
 												</div>
-												<div class="listings-single__features-see-more"><span class="listings-single__features-see-more-btn">see more</span></div>
+												<div class="listings-single__features-see-more--2"><span class="listings-single__features-see-more-btn--2">see more</span></div>
 											</div>
 										</div>
 										<?php endif; ?>

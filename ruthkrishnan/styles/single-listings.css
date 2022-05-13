@@ -60,16 +60,16 @@
   }
 }
 
-.listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .card-links__cards, .card-links, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
+.listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title--2, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .card-links__cards, .card-links, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .card-links__cards, .card-links, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
+  .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title--2, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .card-links__cards, .card-links, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .card-links__cards, .card-links, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
+  .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title--2, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .card-links__cards, .card-links, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
     padding: 1rem 0;
   }
 }
@@ -88,16 +88,16 @@
   }
 }
 
-.listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
+.listings-single__features-container--2, .listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
   padding: 2rem 0 4rem;
 }
 @media screen and (min-width: 1750px) {
-  .listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
+  .listings-single__features-container--2, .listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
     padding: 2.5rem 0 5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
+  .listings-single__features-container--2, .listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
     padding: 1rem 0 2rem;
   }
 }
@@ -1219,6 +1219,62 @@
     font-weight: 600;
   }
   .listings-single__features-see-more-btn:hover::after {
+    background: #963636;
+  }
+}
+.listings-single__features-title--2 {
+  text-align: center;
+}
+.listings-single__features-list-container--2 {
+  position: relative;
+}
+.listings-single__features-list--2 {
+  transition: height 0.5s ease;
+  height: 26.5625rem;
+  overflow: hidden;
+}
+.listings-single__features-list--2 ul {
+  margin: 0 0 1rem 0;
+}
+.listings-single__features-list--2 p:not(:last-of-type) {
+  margin-bottom: 1rem;
+}
+.listings-single__features-overlay--2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: opacity 0.5s ease;
+  background: linear-gradient(rgba(255, 255, 255, 0), #fff 100%);
+  width: 100%;
+  height: 5rem;
+}
+.listings-single__features-see-more--2 {
+  margin-top: 2rem;
+  text-align: center;
+}
+.listings-single__features-see-more-btn--2 {
+  position: relative;
+  transition: color 0.2s ease;
+  padding-bottom: 4px;
+  cursor: pointer;
+  color: #AF5B5B;
+}
+.listings-single__features-see-more-btn--2::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: background 0.2s ease;
+  background: #AF5B5B;
+  width: 100%;
+  height: 2px;
+  content: "";
+}
+@media not all and (pointer: coarse) {
+  .listings-single__features-see-more-btn--2:hover {
+    color: #963636;
+    font-weight: 600;
+  }
+  .listings-single__features-see-more-btn--2:hover::after {
     background: #963636;
   }
 }

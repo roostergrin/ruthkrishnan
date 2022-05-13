@@ -716,6 +716,38 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     featSeeMoreBtn.addEventListener('click', toggleFeatures);
   }
+
+  var featSeeMoreBtn2 = document.querySelector('.listings-single__features-see-more--2'),
+      featList2 = document.querySelector('.listings-single__features-list--2'),
+      featOverlay2 = document.querySelector('.listings-single__features-overlay--2');
+
+  var toggleFeatures2 = function toggleFeatures2() {
+    var featBtn2 = document.querySelector('.listings-single__features-see-more-btn--2');
+
+    if (featExpanded) {
+      featList2.style.height = '425px';
+      featOverlay2.style.opacity = 1;
+      featExpanded = false;
+      setTimeout(function () {
+        featBtn2.innerHTML = 'see more';
+      }, 150);
+    } else {
+      featList2.style.height = featList2.scrollHeight + 'px';
+      featOverlay2.style.opacity = 0;
+      featExpanded = true;
+      setTimeout(function () {
+        featBtn2.innerHTML = 'see less';
+      }, 150);
+    }
+  };
+
+  if (featList2.scrollHeight < 457) {
+    featList2.style.height = 'auto';
+    featSeeMoreBtn2.style.display = 'none';
+    featOverlay2.style.display = 'none';
+  } else {
+    featSeeMoreBtn2.addEventListener('click', toggleFeatures2);
+  }
 });
 })();
 
