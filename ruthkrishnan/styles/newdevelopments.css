@@ -33,7 +33,14 @@
   font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-.page-new-developments__development-image, .page-new-developments__development-image-overlay {
+.new-developments-single-video__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.new-developments-single-video__video, .new-developments-single-video__thumbnail, .page-new-developments__development-image, .page-new-developments__development-image-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -41,15 +48,29 @@
   height: 100%;
 }
 
-.new-developments-welcome__link, .page-new-developments__filter {
+.new-developments-welcome__link, .page-new-developments__filter, .new-developments-neighborhood__link {
   text-transform: lowercase;
   line-height: 1.15;
   letter-spacing: 0.01541875rem;
   font-size: 0.875rem;
 }
 @media screen and (min-width: 1750px) {
-  .new-developments-welcome__link, .page-new-developments__filter {
+  .new-developments-welcome__link, .page-new-developments__filter, .new-developments-neighborhood__link {
     font-size: 1rem;
+  }
+}
+
+.new-developments-single-video, .new-developments-neighborhood {
+  padding: 2rem 0;
+}
+@media screen and (min-width: 1750px) {
+  .new-developments-single-video, .new-developments-neighborhood {
+    padding: 2.5rem 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .new-developments-single-video, .new-developments-neighborhood {
+    padding: 1rem 0;
   }
 }
 
@@ -67,6 +88,20 @@
   }
 }
 
+.new-developments-neighborhood__title {
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 1750px) {
+  .new-developments-neighborhood__title {
+    margin-bottom: 2.5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .new-developments-neighborhood__title {
+    margin-bottom: 1rem;
+  }
+}
+
 /* -----------------------
  * Typography
  * ----------------------- */
@@ -79,6 +114,169 @@
 @media screen and (min-width: 1750px) {
   .page-new-developments__development-title {
     font-size: 1.25rem;
+  }
+}
+
+/* -----------------------
+ * New Development Neighborhood Template Styles
+ * ----------------------- */
+.new-developments-neighborhood__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  max-width: calc(1146px - 30px);
+  background: #F4F0F0;
+  padding: 4rem 0;
+}
+@media screen and (min-width: 1750px) {
+  .new-developments-neighborhood__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .new-developments-neighborhood__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .new-developments-neighborhood__container {
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .new-developments-neighborhood__container {
+    max-width: calc(1528px - 30px);
+  }
+}
+@media screen and (min-width: 1750px) {
+  .new-developments-neighborhood__container {
+    padding: 5rem 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .new-developments-neighborhood__container {
+    padding: 3rem 0;
+  }
+}
+.new-developments-neighborhood__title {
+  padding: 0 calc(30px / 2);
+  width: calc((10 / 12) * 100%);
+  margin-left: calc((1 / 12) * 100%);
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .new-developments-neighborhood__title {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .new-developments-neighborhood__title {
+    margin-left: 0;
+  }
+}
+.new-developments-neighborhood__content {
+  padding: 0 calc(30px / 2);
+  width: calc((8 / 12) * 100%);
+  margin-left: calc((2 / 12) * 100%);
+  margin-bottom: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .new-developments-neighborhood__content {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .new-developments-neighborhood__content {
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .new-developments-neighborhood__content {
+    margin-bottom: 3rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .new-developments-neighborhood__content {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .new-developments-neighborhood__content {
+    padding: 0 1rem;
+  }
+}
+.new-developments-neighborhood__description, .new-developments-neighborhood__additional-description {
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 1750px) {
+  .new-developments-neighborhood__description, .new-developments-neighborhood__additional-description {
+    margin-bottom: 1.5rem;
+  }
+}
+.new-developments-neighborhood__link {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.2s ease;
+  text-transform: lowercase;
+  color: #AF5B5B;
+}
+@media not all and (pointer: coarse) {
+  .new-developments-neighborhood__link:hover {
+    opacity: 0.7;
+  }
+  .new-developments-neighborhood__link:hover:after {
+    opacity: 0.7;
+  }
+}
+.new-developments-neighborhood__link:after {
+  position: absolute;
+  bottom: -0.25rem;
+  left: 0;
+  transition: opacity 0.2s ease;
+  background: #AF5B5B;
+  width: 100%;
+  height: 0.125rem;
+  content: "";
+}
+.new-developments-neighborhood__map {
+  padding: 0 calc(30px / 2);
+  width: calc((10 / 12) * 100%);
+  margin-left: calc((1 / 12) * 100%);
+  margin: 0 auto;
+  height: 22.75rem;
+}
+@media screen and (max-width: 768px) {
+  .new-developments-neighborhood__map {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .new-developments-neighborhood__map {
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .new-developments-neighborhood__map {
+    height: 31.25rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .new-developments-neighborhood__map {
+    margin: auto 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .new-developments-neighborhood__map {
+    margin: auto 1rem;
   }
 }
 
@@ -394,4 +592,120 @@
   .new-developments-welcome__link:hover {
     background: #963636;
   }
+}
+
+.new-developments-single-video__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  max-width: calc(1146px - 30px);
+  padding: 0 0 4rem 0;
+  max-width: 1146px;
+}
+@media screen and (min-width: 1750px) {
+  .new-developments-single-video__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .new-developments-single-video__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .new-developments-single-video__container {
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 1750px) {
+  .new-developments-single-video__container {
+    max-width: calc(1528px - 30px);
+  }
+}
+@media screen and (min-width: 1750px) {
+  .new-developments-single-video__container {
+    padding: 0 0 5rem 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .new-developments-single-video__container {
+    padding: 0 0 3rem 0;
+  }
+}
+.new-developments-single-video__column {
+  padding: 0 calc(30px / 2);
+  width: calc((10 / 12) * 100%);
+  margin-left: calc((1 / 12) * 100%);
+  padding: 0;
+}
+@media screen and (max-width: 768px) {
+  .new-developments-single-video__column {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .new-developments-single-video__column {
+    margin-left: 0;
+  }
+}
+.new-developments-single-video__video-container {
+  position: relative;
+  width: 100%;
+  height: calc(60vw * .5625);
+  cursor: pointer;
+}
+@media screen and (max-width: 1280px) {
+  .new-developments-single-video__video-container {
+    height: calc(75vw * .5625);
+  }
+}
+@media screen and (max-width: 480px) {
+  .new-developments-single-video__video-container {
+    height: 50vw;
+  }
+}
+@media not all and (pointer: coarse) {
+  .new-developments-single-video__video-container:hover .new-developments-single-video__icon {
+    opacity: 0.7;
+  }
+}
+.new-developments-single-video__thumbnail {
+  transition: opacity 0.5s ease;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 1;
+  pointer-events: auto;
+}
+.new-developments-single-video__thumbnail--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.new-developments-single-video__video {
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.new-developments-single-video__video--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.new-developments-single-video__play-btn {
+  opacity: 1;
+  z-index: 3;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.new-developments-single-video__play-btn--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.new-developments-single-video__icon {
+  transition: opacity 0.2s ease;
+  width: 3.75rem;
+  height: 3.75rem;
 }
