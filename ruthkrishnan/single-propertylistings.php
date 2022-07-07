@@ -228,8 +228,8 @@ get_header(); ?>
 											</div>
 										<?php endif; ?>
 										<!-- Virtual Tour -->
-									<div class="listings-single__main-column">
 										<?php if ( get_sub_field('virtual_tour_video') ) : ?>
+											<div class="listings-single__main-column">
 											<h2 class="listings-single__tour-title">
 												<?php if ( empty(get_sub_field('optional_virtual_tour_title')) ) : ?>
 													Take a Virtual Tour
