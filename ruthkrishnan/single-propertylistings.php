@@ -192,15 +192,15 @@ get_header(); ?>
 					<!-- If photo && text are empty display empty div for small spacing -->
 					<!-- Moves the content elsewhere if it is a double listing -->
 				<?php if ( !empty(get_field('double_listing')) ) : ?>
-				<?php if ( empty(get_field('floor_plan'))) : ?>
-					<div></div>
-					<?php else : ?>
-					<div class="listings-single__plan listings-single__main-column">
-						<div class="listings-single__plan-container">
-							<?php echo wp_get_attachment_image(get_field('floor_plan'), 'full', false, [ 'class' => 'listings-single__plan-image' ]); ?>
+					<?php if ( empty(get_field('floor_plan'))) : ?>
+						<div></div>
+						<?php else : ?>
+						<div class="listings-single__plan listings-single__main-column">
+							<div class="listings-single__plan-container">
+								<?php echo wp_get_attachment_image(get_field('floor_plan'), 'full', false, [ 'class' => 'listings-single__plan-image' ]); ?>
+							</div>
 						</div>
-					</div>
-				<?php endif; ?>
+					<?php endif; ?>
 				<?php endif; ?>
 				<!-- END Floor Plan -->
 
@@ -449,7 +449,7 @@ get_header(); ?>
 				<!-- END Floor Plan -->
 		</div>
 
-
+		</div>
 		<?php endwhile;
 	endif;
 	?>
