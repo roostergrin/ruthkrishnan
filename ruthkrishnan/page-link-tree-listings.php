@@ -20,6 +20,10 @@ get_header(); ?>
         'posts_per_page' => -1,
         'orderby' => 'date',
         'order' => 'ASC',
+        'taxonomy' => 'listings-category',
+        'term' => 'just-listed'
+        // http://localhost:8888/wp-admin/term.php?taxonomy=listings-category&tag_ID=24&post_type=propertylistings&wp_http_referer=%2Fwp-admin%2Fedit-tags.php%3Ftaxonomy%3Dlistings-category%26post_type%3Dpropertylistings
+
       );
 
       $query = new WP_Query($args);
