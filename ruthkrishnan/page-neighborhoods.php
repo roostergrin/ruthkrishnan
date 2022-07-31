@@ -8,28 +8,39 @@
  ?>
 
 <?php
+
 $args = array(
   'headers' => array(
       'Authorization' => 's9-6ea57116-71cf-430f-bb73-d95ab82b0bff'
   )
 );
 
+// helpful id's
+// San Francisco County ID
 // county => ead7906cd13415c8e165dcc09b866b23
-// state => f5bf7cd3323cb6d72e0482f25c17afbd
-// outer-parkside => d1db1b2e1737332ce8aff251450dbf1f
+// outer-parkside neighborhood ID
+// neighborhood_id => d1db1b2e1737332ce8aff251450dbf1f
 
-// calling individual polygon queries based on area id 
+// https://slipstream.homejunction.com/#/ws/sales?id=search
+// changes per neighborhood
+$neighborhood_id = '$ead7906cd13415c8e165dcc09b866b23';
 
-// single
-// individual polygon neighborhood 
-// $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/statistics/measure?market=SFAR&polygon=$d1db1b2e1737332ce8aff251450dbf1f&propertyType=single&listingDate=1/1/2021:12/31/2021&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)', $args));
+// returns propertyType 'condo' or 'single'
+$propertyType = 'condo';
 
-// condo - individual polygon neighborhood
-// $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/statistics/measure?market=SFAR&polygon=$d1db1b2e1737332ce8aff251450dbf1f&propertyType=condo&listingDate=1/1/2021:12/31/2021&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)', $args));
+// specifically for the neighborhoods ACF – Map Info Window
+$two_bed_two_bath = '&baths=2&beds=2';
 
-// 2br 2ba – condo. individual polygon neighborhood
-$results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/statistics/measure?market=SFAR&polygon=$ead7906cd13415c8e165dcc09b866b23&propertyType=condo&baths=2&beds=2&listingDate=1/1/2021:12/31/2021&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)', $args));
 
+// https://slipstream.homejunction.com/#/ws/parameters?id=search-criteria
+// date ranges can be chosen with a colon in the middle.
+$listing_date = '1/1/2021:12/31/2021';
+
+// https://slipstream.homejunction.com/#/ws/sales/statistics?id=computation
+$grouping = 'saleDate:interval(quarter)';
+$measurements = 'listPrice,salePrice,daysOnMarket,listPricePerSqFt';
+
+$results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/statistics/measure?market=SFAR&polygon=' . $neighborhood_id. '&propertyType=' . $propertyType . $two_bed_two_bath . '&listingDate=' .$listing_date . '&measurements=' . $measurements . '&groups=' . $grouping , $args));
 // Find the search details
 // $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/search?market=SFAR&propertyType=condo&baths=2&beds=2&listingDate=1/1/2021:12/31/2021&details=true', $args));
 
