@@ -2,6 +2,29 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/resources/neighborhood-charts.js":
+/*!******************************************************!*\
+  !*** ./src/scripts/resources/neighborhood-charts.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "neighborhoodCharts": () => (/* binding */ neighborhoodCharts)
+/* harmony export */ });
+var neighborhoodCharts = function neighborhoodCharts() {
+  var data = Array.from(document.querySelectorAll('.single-neighborhoods-content__data')); // const condos = JSON.parse()
+
+  var condo = JSON.parse(data[0].dataset.neighborhoodhjicondo);
+  var single = JSON.parse(data[0].dataset.neighborhoodhjisingle);
+  console.log('single:');
+  console.log(single);
+  console.log('condo:');
+  console.log(condo);
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/photo-gallery.js":
 /*!************************************************!*\
   !*** ./src/scripts/resources/photo-gallery.js ***!
@@ -141,11 +164,14 @@ var __webpack_exports__ = {};
   \***************************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_photo_gallery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/photo-gallery */ "./src/scripts/resources/photo-gallery.js");
+/* harmony import */ var _resources_neighborhood_charts_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/neighborhood-charts.js */ "./src/scripts/resources/neighborhood-charts.js");
+
 
 document.addEventListener('DOMContentLoaded', function () {
   // Imported Scripts ------------------------
   // Photo Gallery Functionality
-  (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_0__.photoGallery)(); // END Imported Scripts -------------------
+  (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_0__.photoGallery)();
+  (0,_resources_neighborhood_charts_js__WEBPACK_IMPORTED_MODULE_1__.neighborhoodCharts)(); // END Imported Scripts -------------------
 
   var playButton = document.querySelector('.single-neighborhoods-video__play-btn'),
       thumbnail = document.querySelector('.single-neighborhoods-video__thumbnail'),

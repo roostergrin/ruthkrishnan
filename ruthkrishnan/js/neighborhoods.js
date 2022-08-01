@@ -32,6 +32,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       neighborhood: el.dataset.neighborhood,
       elem: el,
       mapinfo: JSON.parse(el.dataset.mapinfo),
+      neighborhoodHJICondo2br2ba: JSON.parse(el.dataset.neighborhoodhji),
       category: el.dataset.category
     };
   });
@@ -41,7 +42,8 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   slidesArr.forEach(function (slide, i) {
     slide.position = i;
   });
-  maxTrackLength = document.querySelector('.slider-neighborhoods__slide').clientWidth * slidesArr.length; // * move slides *
+  maxTrackLength = document.querySelector('.slider-neighborhoods__slide').clientWidth * slidesArr.length;
+  console.log(allSlides); // * move slides *
 
   var changeSlide = function changeSlide(el, pos) {
     slideWrapper.style.transform = "translate3d(".concat(el.clientWidth * -pos - 16, "px, 0, 0)");
@@ -144,6 +146,15 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
           targetEl.mapinfo.information.forEach(function (info) {
             mapContent += "<div class='map-neighborhoods__tooltip-info'>".concat(info.text, "</div>");
           });
+        }
+      }
+
+      if (targetEl.neighborhoodHJICondo2br2ba) {
+        if (targetEl.neighborhoodHJICondo2br2ba.result.measurements) {
+          console.log(targetEl.neighborhoodHJICondo2br2ba.result.measurements.listPrice);
+          mapContent += "<div class='map-neighborhoods__tooltip-info'>".concat(targetEl.neighborhoodHJICondo2br2ba.result.measurements.listPrice.average, "</div>");
+          mapContent += "<div class='map-neighborhoods__tooltip-info'>".concat(targetEl.neighborhoodHJICondo2br2ba.result.measurements.listPrice.average, "</div>");
+          mapContent += "<div class='map-neighborhoods__tooltip-info'>".concat(targetEl.neighborhoodHJICondo2br2ba.result.measurements.listPrice.average, "</div>");
         }
       } // append tooltip information
 

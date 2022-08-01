@@ -24,6 +24,7 @@ if ( have_posts() ) :
 				<div class="single-neighborhoods-content__column">
 					<h2 class="single-neighborhoods-content__title"><?php echo the_title(); ?></h2>
 					<div class="single-neighborhoods-content__text"><?php echo get_field('description'); ?></div>
+					<div class="single-neighborhoods-content__data" data-neighborhoodHJISingle='<?php echo json_encode(get_field('field_62e6f47df35d1')); ?>'data-neighborhoodHJICondo='<?php echo json_encode(get_field('field_62e82053acca6')); ?>'></div>
 					<div class="single-neighborhoods-content__icons">
 						<?php if ( have_rows('single_neighborhoods_icons') ) :
 							while ( have_rows('single_neighborhoods_icons') ) : the_row();

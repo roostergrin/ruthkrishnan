@@ -1,11 +1,13 @@
 import { photoGallery } from '../resources/photo-gallery';
-
+import { neighborhoodCharts } from '../resources/neighborhood-charts.js'
 document.addEventListener('DOMContentLoaded', function () {
 
   // Imported Scripts ------------------------
 
   // Photo Gallery Functionality
   photoGallery();
+  
+  neighborhoodCharts();
 
   // END Imported Scripts -------------------
 

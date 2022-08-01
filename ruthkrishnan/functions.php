@@ -38,18 +38,19 @@ include_once(get_template_directory() . '/functions/custom-post.php');
 if (!wp_next_scheduled('update_brewery_list')) {
   wp_schedule_event(time(), 'weekly', 'get_breweries_from_api');
 }
+}
 add_action('wp_ajax_nopriv_get_breweries_from_api', 'get_breweries_from_api');
 add_action('wp_ajax_get_breweries_from_api', 'get_breweries_from_api');
 
+if (!wp_next_scheduled('update_neighborhoods_data')) {
+  wp_schedule_event(time(), 'weekly', 'get_neighborhood_data_from_api');
 
 add_action('wp_ajax_nopriv_get_neighborhood_data_from_api', 'get_neighborhood_data_from_api');
 add_action('wp_ajax_get_neighborhood_data_from_api', 'get_neighborhood_data_from_api');
 
 function get_neighborhood_data_from_api()
 {
-  $current_page = (!empty($_POST['current_page'])) ? $_POST['current_page'] : 1;
   $file = get_stylesheet_directory() . '/report-2.txt';
-  $sales_statistics = [];
 
   // token for https://slipstream.homejunction.com/#/ws/api?id=status
   $args = array(
@@ -58,167 +59,143 @@ function get_neighborhood_data_from_api()
     )
   );
 
-  // helpful id's
-  // San Francisco County ID
-  // county => ead7906cd13415c8e165dcc09b866b23
+  $neighborhoods = [
+    // 'hji_id' => 'neighborhood_slug'
+    // https://slipstream.homejunction.com/#/ws/sales?id=search
+    // you can add multiple neighborhood id's with a comma (outer-sunset&inner-sunset)
+    // example '1b84669d78562747a5fd4c5e0a0c14c5,$d1db1b2e1737332ce8aff251450dbf1f'
+    'd1db1b2e1737332ce8aff251450dbf1f' =>'outer-parkside',
+    'e26f4f96ba6dfb979e6eecb6911c34fe' =>'parkside',
+    '600167f914c398013cd4f9776ab5acaf' =>'inner-parkside',
+    '4f3f3b863d7a2eacfd28b68947642d11' =>'pine-lake-park',
+    '364751fdef3d22cf84097b8c2e2c7893' =>'merced-manor',
+    '8ddb94335c0127a3814f310141abea5b' =>'stonestown',
+    'd579da0e998015c80ba3b5e8e1e3f25c' =>'lakeside',
+    '7c62e1e825a99721fc24f5e08622e154' =>'balboa-terrace',
+    '9c329926133863aff39fc0f5ff707e93' =>'st-francis-wood',
+    '042e514b2f772338996ce58cd91cf14e' =>'ingleside-terrace',
+    '8c12bf4f76f10d8ba87dfda8b93b73d3' =>'merced-heights',
+    '78f821619717dbca854fe1484da916fd' =>'lake-shore',
+    '2d32161b17c3ec0d643fb6ea42c953f7' =>'sherwood-forest',
+    'e5b71c07b671a828fceaa5f557a4fd84' =>'ingleside-heights',
+    'd2ebadfe4b9dd48ee2f54dbb5a88a77c,$db1e746dee2b6d07c2471ba60000f857' =>'richmond-central-outer',
+    '152b6d65a3ea70b07b40daa4ffeb79b0' =>'sea-cliff',
+    '386fcf260a455271ea1d6e2709003ad5' =>'lake-street',
+    '797d07d905d51e24c9cebd90023a6bf9' =>'richmond-inner',
+    'addbe69ad993c071bafd8410e4d39298' =>'golden-gate-heights',
+    'f20b34f258d17f72bb66d6304205781e' =>'west-portal',
+    'c5a21993bb78b98ddfe9839381a73ff5' =>'forest-hills-extensions',
+    '58eac8532cc073b4656e111dec93bb82' =>'forest-hill',
+    'c42c3503b4073c0ef9f8ada97fa9cfa3' =>'forest-knolls',
+    '777a293a115918b78caab51ca659bf31' =>'sunset-inner',
+    '88ad77f396753826aa6d96fcfd54f7dd,$c69e9cfbaa5c13c72e66a06888347bb7' =>'golden-gate-park',
+    '4c5e39591372f576fff2428c506892b3' =>'cole-valley',
+    '83d45a574fb8447549dfcbf1f73162a5' =>'midtown-terrace',
+    '07e32b07f633c5544171df09bfe6e176' =>'twin-peaks',
+    '96d15f1062a98ce9ebc7fdd11fa4f77f' =>'diamond-heights',
+    '974b7a3e5bd6433385aa4ec1c6c5de2e' =>'miraloma-park',
+    '5854a7bea1c28ef54e1ad17132bf02d9' =>'sunnyside',
+    'eb19fb50183fcf50cd20efdd35e764b0' =>'westwood-park',
+    'dcddfc93dd4c2644fbda067289b37954' =>'ingleside',
+    '7bf09c65b12ca39d1cae671c338fee88' =>'oceanview',
+    '46cc8f9742f92a53da9c32d9a50f081c' =>'mission-central-outer',
+    '27d7e1f8dff986a399e0c624265b3f13' =>'mission-terrace',
+    'c1855ca77f85ef9f21e5ab207adad483' =>'glen-park',
+    '51aea0f9a4604f2c2f5fc6a3cbd24c97' =>'noe-valley',
+    '5766361a5895c8f55b6fceccf645928d' =>'mount-davidson-manor',
+    'b923b1c54151a85b4519795ed8a7573b' =>'monterey-heights',
+    '82d037461b9e8c23159a476d1fe117c9' =>'westwood-highlands',
+    '993ab7aefbf6ead201515a4de74e4316' =>'corona-heights',
+    '098bc7564305b93dccb495f1080b33e3' =>'duboce-triangle',
+    '68847480a3a3fa3bfcac72e75fb00959' =>'haight-ashbury',
+    '65f0d59433f6f44d22fc9b239d366d78' =>'nopa',
+    'fcedca80babe921e2142f5f818c4653e' =>'lone-mountain',
+    '227ad36920d9d8c32513ea952dd5a9ea' =>'jordan-park-laurel-heights',
+    'a6087ad901b05fd96680fa66ba58fbbb' =>'presidio-heights',
+    '5c142096d2824acd020d9d23c9ed7b15' =>'anza-vista',
+    'ca1c97a1a267579623d09d97d3869cb8' =>'clarendon-heights',
+    '5465e768eba289e29968bc9a862023ba' =>'castro-eureka-valley',
+    '513677bd98d7e92c42d067529cecfae9' =>'alamo-square',
+    '67226b68206c7bbe7ad15a151a8ca253' =>'western-addition',
+    'e19cd5f405a9bda13b81f13b00315afa' =>'lower-pacific-heights',
+    'ab8078cbc1eb35bc57b2ebec32bc265a' =>'tenderloin',
+    '3fcd0fd755a568aaff6cab0d08afd206' =>'van-ness-civic-center',
+    '68847480a3a3fa3bfcac72e75fb00959' =>'ashbury-buena-vista',
+    '43168cdb7462b4c0953d91dcc040f91e' =>'hayes-valley',
+    '78a74f4ea3f2d2d312bd75048798d3f2' =>'mission-dolores',
+    '689f1992cccc14225e65145521d973c7' =>'mission-inner',
+    '1b84669d78562747a5fd4c5e0a0c14c5' =>'bernal-heights',
+    '707cae2aa656c5b5cdf8a1aedb6141c5' =>'crocker-amazon',
+    'bce3d3eb6485f84750871d98430e84f7' =>'excelsior',
+    'f0baaa11e8dc883197d9ab67e16af6e0' =>'portola',
+    '29b0de9e6ed31ba6d7d4ea58294de0fc' =>'visitacion-valley',
+    '016261d0981f8c6038c573f73139d84d' =>'bayview-heights',
+    '781cca28a1aac3d8ea326357e39c4cec' =>'little-hollywood',
+    'c76c64ed4bf28b634f4c8dc25704e838' =>'candlestick-point',
+    '0f28297d15c23cacb908d475de6458a4' =>'silver-terrace',
+    '8f26f0d0c358c0bde6ff10ddc8acb806' =>'bayview',
+    'eb002036d892b08e01b5581ab8c48da3' =>'hunters-point',
+    '833335b873fc2c16dd6c9204f65a9f60' =>'dogpatch',
+    'd012f8007897f37532f7de3103f94da6' =>'soma',
+    '18260bd37ef120f5d6280049dcdd987c' =>'potrero-hill',
+    'be51a2f797d30662f94381cb51b42094' =>'mission-bay',
+    '44d2fd34565e25cc00b25cfd8d5c80c9' =>'yerba-buena',
+    '23531852cde1155f0e020d68e3b5bfe4' =>'south-beach',
+    '40372df140deabb14cd11c8f0624ce3d' =>'financial-district',
+    '8c957379b7f82065c3b24022b38cd44c' =>'north-beach',
+    'e7cca730c9f3e2305d0fd8cb33116fce' =>'telegraph-hill',
+    'c0dd9c55f0564a9c1dc3f2fc671b3e7b' =>'north-waterfront',
+    '3fcd0fd755a568aaff6cab0d08afd206' =>'downtown',
+    '79bf959cc58423a4ff765fce74c97f24' =>'pacific-heights',
+    'de2112150cda778b5c3ac274e777b879' =>'nob-hill',
+    '1e97b564c928946c5a397acaabef1e94' =>'cow-hollow',
+    'cbc767947f37f149c3fb1d80136fe667' =>'russian-hill',
+    'cbed05eb0e7a04fff72274a410721d65' =>'marina',
+    'f2bc0961e85dfe6bce72a41362c00018' =>'presidio',
+  ];
 
-  // https://slipstream.homejunction.com/#/ws/sales?id=search
-  // changes per neighborhood
-  // you can add multiple neighborhood id's with a comma (outer-sunset&inner-sunset)
-  $neighborhood_id = '$ead7906cd13415c8e165dcc09b866b23';
+  $API_params = [
+    // https://slipstream.homejunction.com/#/ws/sales?id=search
+    
+    // 'ACF_field'=> 'API propertyType parameter'
+    // single data
+    'field_62e6f47df35d1' => 'single',
+    // condo data
+    'field_62e82053acca6' => 'condo',
+    // condo 2br 2ba data
+    'field_62e84063b6f36' => 'condo&baths=2&beds=2',
+  ];
 
-  // returns propertyType 'condo' or 'single'
-  $propertyType = 'condo';
+  foreach($API_params as $ACF_field => $API_propertyType_parameter) {
+    foreach($neighborhoods as $hji_id => $neighborhood_slug) {
 
-  // specifically for the neighborhoods ACF – Map Info Window
-  $two_bed_two_bath = '&baths=2&beds=2';
-
-
-  // https://slipstream.homejunction.com/#/ws/parameters?id=search-criteria
-  // date ranges can be chosen with a colon in the middle.
-  $listing_date = '1/1/2021:12/31/2021';
-
-  // https://slipstream.homejunction.com/#/ws/sales/statistics?id=computation
-  $grouping = 'saleDate:interval(quarter)';
-  $measurements = 'listPrice,salePrice,daysOnMarket,listPricePerSqFt';
-
-  $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/statistics/measure?market=SFAR&polygon=' . $neighborhood_id . '&propertyType=' . $propertyType . $two_bed_two_bath . '&listingDate=' . $listing_date . '&measurements=' . $measurements . '&groups=' . $grouping, $args));
-
-  file_put_contents($file, 'Current Page: ' . $results . '\n\n', FILE_APPEND);
-
-  $post_id = get_page_by_path('little-hollywood', 'OBJECT', 'neighborhoods');
-  update_field('field_62e6f47df35d1', $results, $post_id);
-
-  // echo $results;
-  $sales_statistics[] = $results;
-  // echo json_encode($sales_statistics);
-  echo $results;
-  $results = json_decode($results);
-  if (!is_array($results) || empty($results)) {
-    return false;
+      // echo $ACF_field . '<br>';
+      // echo 'neighborhood slug: ' . $neighborhood_slug. '<br>';
+      // echo 'hji id:' . $hji_id. '<br>';
+      // echo $API_propertyType_parameter. '<br><br>';
+      
+      // https://slipstream.homejunction.com/#/ws/parameters?id=search-criteria
+      // date ranges can be chosen with a colon in the middle.
+      $listing_date = '1/1/2019:12/31/2022';
+      
+      // https://slipstream.homejunction.com/#/ws/sales/statistics?id=computation
+      $grouping = 'saleDate:interval(quarter)';
+      $measurements = 'listPrice,salePrice,daysOnMarket,listPricePerSqFt';
+      
+      // call the data
+      // https://slipstream.homejunction.com/#/ws/sales/statistics?id=computation
+      $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/statistics/measure?market=SFAR&polygon=$' . $hji_id . '&propertyType=' . $API_propertyType_parameter . '&listingDate=' . $listing_date . '&measurements=' . $measurements . '&groups=' . $grouping, $args));
+      
+      // check if these are correct and return a page by slug
+      
+      file_put_contents($file, 'Current field: ' . $ACF_field .', '. $API_propertyType_parameter ."\n\n Current Neighborhood:". $neighborhood_slug .', '. $hji_id .', '. "\n\n", FILE_APPEND);
+      $neighborhood_post_id_wp = get_page_by_path($neighborhood_slug, 'OBJECT', 'neighborhoods');
+      update_field($ACF_field, $results, $neighborhood_post_id_wp);
+    }
   }
-
-  // $sales_statistics[] = $results;
-  // echo json_encode($results);
-  // echo json_encode($sales_statistics);
-
-  // If you needed to create new neighborhoods programmatically. 
-  // $neighborhoods = 'an array of neighborhoods...';
-  // foreach( $neighborhoods[0] as $neighborhood ) {
-  //   // If neighborhood slugs did not already exist you could add the neighborhoods through 
-  //   $neighborhood_slug = sanitize_title($neighborhood_name->name . '-' . $hji_id->id);
-  //   $inserted_neighborhood = wp_insert_post([
-  //     'post_name' => $neighborhood_slug,
-  //     'post_title' => $neighborhood_slug,
-  //     'post_type' => 'neighborhood',
-  //     'post_status' => 'publish'
-  //   ]);
-
-
-  // Note on update_field
-
-  // group ACF's accept an array w/ key value pairs.
-  // 'field_XgroupX' => array(
-  //   // nested group
-  //   // field key => value pairs for each sub field
-  //   'field_Xsub_fieldX' => 'value',
-  // ),
-
-  // repeater ACF's accept an array of arrays
-  // 'field_XrepeaterX' => array(
-  //   // nested repeater
-  //   // field key => value pairs for each sub field
-  //   array(
-  //     'field_Xsub_fieldX' => 'link title',
-  //   ),
-  //   array(
-  //     'field_Xsub_fieldX' => 'link title',
-  //   ),
-  // ),
-
-
-  $neighborhood_data_key = 'field_62e59db962413';
-  $sales_price_group_key = 'field_62e6aae0b4e5c';
-  $days_on_market_group_key = 'field_62e59ddf65317';
-  $list_price_per_sq_foot_group_key = 'field_62e59dfd0bb70';
-  $list_price_to_sales_price_received_group_key = 'field_62e59e41650c5';
-
-  $neighborhood_data_data = array(
-    // repeater is an array of arrays
-    array(
-      // groups are an array of key value pairs
-      $sales_price_group_key => array(
-        'field_62e6aaf4b4e5d' => 'average',
-        'field_62e6aafcb4e5e' => 'median',
-        'field_62e6ab01b4e5f' => 'low',
-        'field_62e6ab05b4e60' => 'high',
-      ),
-      $days_on_market_group_key => array(
-        'field_62e59deb65318' => 'average'
-      ),
-      $list_price_per_sq_foot_group_key => array(
-        'field_62e59e080bb71' => 'average'
-      ),
-      $list_price_to_sales_price_received_group_key => array(
-        'field_62e59e4b650c6' => 'average'
-      ),
-    ),
-
-    // next quarter
-    array(
-      // groups are an array of key value pairs
-      $sales_price_group_key => array(
-        'field_62e6aaf4b4e5d' => 'average',
-        'field_62e6aafcb4e5e' => 'median',
-        'field_62e6ab01b4e5f' => 'low',
-        'field_62e6ab05b4e60' => 'high',
-      ),
-      $days_on_market_group_key => array(
-        'field_62e59deb65318' => 'average'
-      ),
-      $list_price_per_sq_foot_group_key => array(
-        'field_62e59e080bb71' => 'average'
-      ),
-      $list_price_to_sales_price_received_group_key => array(
-        'field_62e59e4b650c6' => 'average'
-      ),
-    ),
-  );
-
-  // echo json_encode($neighborhood_data_data);
-
-  // update_field($neighborhood_data_key, $neighborhood_data_data, $post_id);
-
-
-  $mapinfo_window_key = 'field_60c29eb2ab16e';
-  $mapinfo_repeater_key = 'field_60c29ed8ab171';
-
-  $mapinfo_info = array(
-    $mapinfo_repeater_key => array(
-      array(
-        'field_60c29eedab172' => 'lets',
-      ),
-      array(
-        'field_60c29eedab172' => 'go'
-      )
-    )
-  );
-
-  // update_field($mapinfo_window_key, $mapinfo_info, $post_id);
-
-  // echo json_encode($mapinfo_info);
-
-  // idk if this is necessary, but good to know
-  $current_page = $current_page + 1;
-
-  wp_remote_post(admin_url('admin-ajax.php?action=get_neighborhood_data_from_api'), [
-    'blocking' => false,
-    'sslverify' => false,
-    'body' => [
-      'current_page' => $current_page
-    ]
-  ]);
+  // http://localhost:8888/wp-admin/admin-ajax.php?action=get_neighborhood_data_from_api
 }
+
 
 function get_breweries_from_api()
 {

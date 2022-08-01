@@ -37,7 +37,7 @@
                 while ( have_rows('background_image') ) : the_row(); 
                   $image = get_sub_field('image'); ?>
                   
-                  <div class="slider-neighborhoods__slide" style="<?php if ( $category === 'coming-soon') : echo 'display: none'; endif; ?>" data-name='<?php echo the_title(); ?>' data-mapinfo='<?php echo json_encode(get_field('map_info_window')); ?>' data-neighborhood='<?php echo get_post()->post_name; ?>' data-category='<?php echo $category ?>' data-neighborhood-hji='<?php echo json_encode(get_field('field_62e6f47df35d1')); ?>'>
+                  <div class="slider-neighborhoods__slide" style="<?php if ( $category === 'coming-soon') : echo 'display: none'; endif; ?>" data-name='<?php echo the_title(); ?>' data-mapinfo='<?php echo json_encode(get_field('map_info_window')); ?>' data-neighborhoodHJI='<?php echo json_encode(get_field('field_62e84063b6f36')); ?>' data-neighborhood='<?php echo get_post()->post_name; ?>' data-category='<?php echo $category ?>' >
                     <div class="slider-neighborhoods__image-container">
                       <?php echo wp_get_attachment_image($image, 'medium_large', false, [ 'class' => 'slider-neighborhoods__image' ]); ?>
                     </div>

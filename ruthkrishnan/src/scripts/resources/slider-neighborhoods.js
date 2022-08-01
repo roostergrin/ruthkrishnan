@@ -14,7 +14,7 @@ export const sliderNeighborhoods = () => {
       maxTrackLength;
 
   // * Build slide array of objects *
-  const allSlides = slides.map((el, i) => ({ name: el.dataset.name, neighborhood: el.dataset.neighborhood, elem: el, mapinfo: JSON.parse(el.dataset.mapinfo), category: el.dataset.category }))
+  const allSlides = slides.map((el, i) => ({ name: el.dataset.name, neighborhood: el.dataset.neighborhood, elem: el, mapinfo: JSON.parse(el.dataset.mapinfo), neighborhoodHJICondo2br2ba: JSON.parse(el.dataset.neighborhoodhji), category: el.dataset.category }))
   const slidesArr = allSlides.filter(slide => slide.category === 'active')
   slidesArr.forEach((slide, i) => { slide.position = i })
   maxTrackLength = document.querySelector('.slider-neighborhoods__slide').clientWidth * slidesArr.length
@@ -124,6 +124,15 @@ export const sliderNeighborhoods = () => {
           targetEl.mapinfo.information.forEach((info) => {
             mapContent += `<div class='map-neighborhoods__tooltip-info'>${info.text}</div>`;
           })
+        }
+      }
+
+      if (targetEl.neighborhoodHJICondo2br2ba) {
+        if(targetEl.neighborhoodHJICondo2br2ba.result.measurements) {
+          console.log(targetEl.neighborhoodHJICondo2br2ba.result.measurements.listPrice)
+          mapContent += `<div class='map-neighborhoods__tooltip-info'>${targetEl.neighborhoodHJICondo2br2ba.result.measurements.listPrice.average}</div>`;
+          mapContent += `<div class='map-neighborhoods__tooltip-info'>${targetEl.neighborhoodHJICondo2br2ba.result.measurements.listPrice.average}</div>`;
+          mapContent += `<div class='map-neighborhoods__tooltip-info'>${targetEl.neighborhoodHJICondo2br2ba.result.measurements.listPrice.average}</div>`;
         }
       }
       // append tooltip information
