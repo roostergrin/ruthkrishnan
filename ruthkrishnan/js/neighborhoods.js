@@ -42,8 +42,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   slidesArr.forEach(function (slide, i) {
     slide.position = i;
   });
-  maxTrackLength = document.querySelector('.slider-neighborhoods__slide').clientWidth * slidesArr.length;
-  console.log(allSlides); // * move slides *
+  maxTrackLength = document.querySelector('.slider-neighborhoods__slide').clientWidth * slidesArr.length; // * move slides *
 
   var changeSlide = function changeSlide(el, pos) {
     slideWrapper.style.transform = "translate3d(".concat(el.clientWidth * -pos - 16, "px, 0, 0)");
