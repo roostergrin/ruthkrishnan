@@ -38,13 +38,12 @@ include_once(get_template_directory() . '/functions/custom-post.php');
 if (!wp_next_scheduled('update_brewery_list')) {
   wp_schedule_event(time(), 'weekly', 'get_breweries_from_api');
 }
-}
 add_action('wp_ajax_nopriv_get_breweries_from_api', 'get_breweries_from_api');
 add_action('wp_ajax_get_breweries_from_api', 'get_breweries_from_api');
 
 if (!wp_next_scheduled('update_neighborhoods_data')) {
   wp_schedule_event(time(), 'weekly', 'get_neighborhood_data_from_api');
-
+}
 add_action('wp_ajax_nopriv_get_neighborhood_data_from_api', 'get_neighborhood_data_from_api');
 add_action('wp_ajax_get_neighborhood_data_from_api', 'get_neighborhood_data_from_api');
 
