@@ -8,6 +8,7 @@
 
 get_header(); ?>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
 <div class="single-neighborhood">
 	
 	<?php
@@ -25,6 +26,7 @@ if ( have_posts() ) :
 					<h2 class="single-neighborhoods-content__title"><?php echo the_title(); ?></h2>
 					<div class="single-neighborhoods-content__text"><?php echo get_field('description'); ?></div>
 					<div class="single-neighborhoods-content__data" data-neighborhoodHJISingle='<?php echo json_encode(get_field('field_62e6f47df35d1')); ?>'data-neighborhoodHJICondo='<?php echo json_encode(get_field('field_62e82053acca6')); ?>'></div>
+					<canvas id="myChart"></canvas>
 					<div class="single-neighborhoods-content__icons">
 						<?php if ( have_rows('single_neighborhoods_icons') ) :
 							while ( have_rows('single_neighborhoods_icons') ) : the_row();
