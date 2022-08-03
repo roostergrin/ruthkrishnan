@@ -59,6 +59,8 @@ function get_neighborhood_data_from_api()
   );
 
   $neighborhoods = [
+    // hear me out okay.. all the slugs are already set up like this AND some of the slugs encompass 2 neighborhoods so you have to do these by hand :(
+
     // 'hji_id' => 'neighborhood_slug'
     // https://slipstream.homejunction.com/#/ws/sales?id=search
     // you can add multiple neighborhood id's with a comma (outer-sunset&inner-sunset)
@@ -158,36 +160,30 @@ function get_neighborhood_data_from_api()
     
     // 'ACF_field'=> 'API propertyType parameter'
     // single data
-    'field_62e6f47df35d1' => 'single',
+    'field_62e6f47df35d1' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)',
     // condo data
-    'field_62e82053acca6' => 'condo',
-    // condo 2br 2ba data
-    'field_62e84063b6f36' => 'condo&baths=2&beds=2',
+    'field_62e82053acca6' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)',
+    
+    // single yearly
+    'field_62e9a3ed06487' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)',
+    // condo yearly
+    'field_62e9a3e306486' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)',
+
+    // single monthly
+    'field_62e99eb4410d7' => '&propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt',
+    // condo 2br 2ba data monthly
+    'field_62e84063b6f36' => '&propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt',
+    
   ];
 
-  foreach($API_params as $ACF_field => $API_propertyType_parameter) {
+  foreach($API_params as $ACF_field => $API_parameter) {
     foreach($neighborhoods as $hji_id => $neighborhood_slug) {
-
-      // echo $ACF_field . '<br>';
-      // echo 'neighborhood slug: ' . $neighborhood_slug. '<br>';
-      // echo 'hji id:' . $hji_id. '<br>';
-      // echo $API_propertyType_parameter. '<br><br>';
-      
-      // https://slipstream.homejunction.com/#/ws/parameters?id=search-criteria
-      // date ranges can be chosen with a colon in the middle.
-      $listing_date = '1/1/2019:12/31/2022';
-      
+      // call the data`
       // https://slipstream.homejunction.com/#/ws/sales/statistics?id=computation
-      $grouping = 'saleDate:interval(quarter)';
-      $measurements = 'listPrice,salePrice,daysOnMarket,listPricePerSqFt';
-      
-      // call the data
-      // https://slipstream.homejunction.com/#/ws/sales/statistics?id=computation
-      $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/statistics/measure?market=SFAR&polygon=$' . $hji_id . '&propertyType=' . $API_propertyType_parameter . '&listingDate=' . $listing_date . '&measurements=' . $measurements . '&groups=' . $grouping, $args));
-      
-      // check if these are correct and return a page by slug
-      
-      file_put_contents($file, 'Current field: ' . $ACF_field .', '. $API_propertyType_parameter ."\n\n Current Neighborhood:". $neighborhood_slug .', '. $hji_id .', '. "\n\n", FILE_APPEND);
+      $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/statistics/measure?market=SFAR&polygon=$' . $hji_id . $API_parameter, $args));
+      $results = json_decode($results);
+      // $results = json_encode($results);
+      file_put_contents($file, 'Current field: ' . $ACF_field .', '. $API_parameter ."\n\n Current Neighborhood:". $neighborhood_slug .', '. $hji_id .', '. "\n\n", FILE_APPEND);
       $neighborhood_post_id_wp = get_page_by_path($neighborhood_slug, 'OBJECT', 'neighborhoods');
       update_field($ACF_field, $results, $neighborhood_post_id_wp);
     }
@@ -195,99 +191,6 @@ function get_neighborhood_data_from_api()
   // http://localhost:8888/wp-admin/admin-ajax.php?action=get_neighborhood_data_from_api
 }
 
-
-function get_breweries_from_api()
-{
-
-  $file = get_stylesheet_directory() . '/report.txt';
-  $current_page = (!empty($_POST['current_page'])) ? $_POST['current_page'] : 1;
-
-  $breweries = [];
-
-  $results = wp_remote_retrieve_body(wp_remote_get('https://api.openbrewerydb.org/breweries/?page=' . $current_page . '&per_page=50'));
-  file_put_contents($file, "Current Page: " . $current_page . "\n\n", FILE_APPEND);
-
-  $results = json_decode($results);
-
-  if (!is_array($results) || empty($results)) {
-    return false;
-  }
-
-  $breweries[] = $results;
-
-  foreach ($breweries[0] as $brewery) {
-    $brewery_slug = sanitize_title($brewery->name . '-' . $brewery->id);
-
-    $existing_brewery = get_page_by_path($brewery_slug, 'OBJECT', 'brewery');
-
-    if ($existing_brewery === null) {
-      $inserted_brewery = wp_insert_post([
-        'post_name' => $brewery_slug,
-        'post_title' => $brewery_slug,
-        'post_type' => 'brewery',
-        'post_status' => 'publish'
-      ]);
-
-      if (is_wp_error($inserted_brewery)) {
-        continue;
-      }
-
-      $fillable = [
-        'field_622bc72b69a27' => 'name',
-        'field_622bc73669a28' => 'brewery_type',
-        'field_622bc74469a29' => 'street',
-        'field_622bc74a69a2a' => 'city',
-        'field_622bc77269a2b' => 'state',
-        'field_622bc77a69a2c' => 'postal_code',
-        'field_622bc78169a2d' => 'country',
-        'field_622bc78a69a2e' => 'longitude',
-        'field_622bc78a69a2e' => 'latitude',
-        'field_622bc79669a2f' => 'phone',
-        'field_622bc79d69a30' => 'website',
-        'field_622bc7a269a31' => 'updated_at'
-      ];
-
-      foreach ($fillable as $key => $name) {
-        update_field($key, $brewery->$name, $inserted_brewery);
-      }
-    } else {
-
-      $existing_brewery_id = $existing_brewery->ID;
-      $existing_brewery_timestamp = get_field('updated_at', $existing_brewery_id);
-
-      if ($brewery->updated_at >= $existing_brewery_timestamp) {
-
-        $fillable = [
-          'field_622bc72b69a27' => 'name',
-          'field_622bc73669a28' => 'brewery_type',
-          'field_622bc74469a29' => 'street',
-          'field_622bc74a69a2a' => 'city',
-          'field_622bc77269a2b' => 'state',
-          'field_622bc77a69a2c' => 'postal_code',
-          'field_622bc78169a2d' => 'country',
-          'field_622bc78a69a2e' => 'longitude',
-          'field_622bc78a69a2e' => 'latitude',
-          'field_622bc79669a2f' => 'phone',
-          'field_622bc79d69a30' => 'website',
-          'field_622bc7a269a31' => 'updated_at'
-        ];
-
-        foreach ($fillable as $key => $name) {
-          update_field($key, $brewery->$name, $existing_brewery_id);
-        }
-      }
-    }
-  }
-
-  $current_page = $current_page + 3;
-  wp_remote_post(admin_url('admin-ajax.php?action=get_breweries_from_api'), [
-    'blocking' => false,
-    'sslverify' => false,
-    'body' => [
-      'current_page' => $current_page
-    ]
-  ]);
-}
 // remove wysiwyg editors -------------------------
 
 function remove_wysiwyg_editor()
