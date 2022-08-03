@@ -20,7 +20,10 @@ var neighborhoodCharts = function neighborhoodCharts() {
   console.log('single:');
   console.log(single.success);
   console.log('condo:');
-  console.log(data[0].dataset.neighborhoodhjisingle.replaceAll('\\', ''));
+  console.log(condo); 
+  // console.log(data[0].dataset.neighborhoodhjisingle.replaceAll('\\', ''))
+  // TODO: make labels programmatic based on timestamps
+
   var labels = ["2020 Q4", "2021 Q1", "2021 Q2", "2021 Q3", "2021 Q4", "2022 Q1", "2022 Q2"];
   Chart.pluginService.register({
     beforeDraw: function beforeDraw(chart, easing) {
