@@ -16,12 +16,114 @@ var neighborhoodCharts = function neighborhoodCharts() {
   var data = Array.from(document.querySelectorAll('.single-neighborhoods-content__data')); // const condos = JSON.parse()
 
   var condo = JSON.parse(data[0].dataset.neighborhoodhjicondo);
-  var single = JSON.parse(data[0].dataset.neighborhoodhjisingle);
-  console.log('single:');
-  console.log(single.success);
-  console.log('condo:');
-  console.log(data[0].dataset.neighborhoodhjisingle.replaceAll('\\', ''));
-  var labels = ["2020 Q4", "2021 Q1", "2021 Q2", "2021 Q3", "2021 Q4", "2022 Q1", "2022 Q2"];
+  var single = JSON.parse(data[0].dataset.neighborhoodhjisingle); // console.log('single:')
+  // console.log(single.result.grouping.groups)
+  // console.log('condo:')
+  // console.log(condo.result.grouping.groups)
+
+  function timeConverter(UNIX_timestamp) {
+    var a = new Date(UNIX_timestamp * 1000);
+    var year = a.getFullYear();
+    var month = a.getMonth();
+    var quarter;
+
+    if (month === 11) {
+      quarter = "Q1";
+    } else if (month === 2) {
+      quarter = "Q2";
+    } else if (month === 5) {
+      quarter = "Q3";
+    } else {
+      quarter = "Q4";
+    }
+
+    var time = year + ' ' + quarter;
+    return time;
+  }
+
+  function getIntersection(listA, listB) {
+    var intersection = listA.filter(function (element) {
+      return listB.includes(element);
+    });
+    return intersection;
+  }
+
+  var singleLabels = [];
+  var singleAvg = [];
+  var singleMed = [];
+  var singleLow = [];
+  var singleHi = [];
+  var singleSq = [];
+  var singleList = [];
+  var singleData = single.result.grouping.groups;
+  singleData.forEach(function (item) {
+    //console.log("Single: ")
+    var quarter = timeConverter(item.value);
+    singleLabels.push(quarter); //console.log(quarter);
+    //console.log("Avg Sales",item.measurements.salePrice.average)
+
+    singleAvg.push(item.measurements.salePrice.average); //console.log("Med Sales",item.measurements.salePrice.median)
+
+    singleMed.push(item.measurements.salePrice.median); //console.log("Low Sales",item.measurements.salePrice.low)
+
+    singleLow.push(item.measurements.salePrice.low); //console.log("High Sales",item.measurements.salePrice.high)
+
+    singleHi.push(item.measurements.salePrice.high); //console.log("Sq Sales",item.measurements.listPricePerSqFt.median)
+
+    singleSq.push(item.measurements.listPricePerSqFt.median); //console.log("List 2 Sales",item.measurements.salePrice.average)
+
+    var listsale = parseInt(item.measurements.listPrice.average) / parseInt(item.measurements.salePrice.average);
+    singleList.push(listsale.toFixed(3));
+  });
+  var condoLabels = [];
+  var condoAvg = [];
+  var condoMed = [];
+  var condoLow = [];
+  var condoHi = [];
+  var condoSq = [];
+  var condoList = [];
+  var condoData = condo.result.grouping.groups;
+  condoData.forEach(function (item) {
+    //console.log("Condos: ")
+    var quarter = timeConverter(item.value);
+    condoLabels.push(quarter); //console.log(quarter);
+    //console.log("Avg Sales",item.measurements.salePrice.average)
+
+    condoAvg.push(item.measurements.salePrice.average); //console.log("Med Sales",item.measurements.salePrice.median)
+
+    condoMed.push(item.measurements.salePrice.median); //console.log("Low Sales",item.measurements.salePrice.low)
+
+    condoLow.push(item.measurements.salePrice.low); //console.log("High Sales",item.measurements.salePrice.high)
+
+    condoHi.push(item.measurements.salePrice.high); //console.log("Sq Sales",item.measurements.listPricePerSqFt.median)
+
+    condoSq.push(item.measurements.listPricePerSqFt.median); //console.log("List 2 Sales",item.measurements.salePrice.average)
+
+    var listsale = parseInt(item.measurements.listPrice.average) / parseInt(item.measurements.salePrice.average);
+    condoList.push(listsale.toFixed(3));
+  });
+  var labels = getIntersection(singleLabels, condoLabels);
+  var _draw = Chart.controllers.line.prototype.draw;
+  Chart.controllers.line = Chart.controllers.line.extend({
+    draw: function draw() {
+      _draw.apply(this, arguments);
+
+      var ctx = this.chart.chart.ctx;
+      var _stroke = ctx.stroke;
+
+      ctx.stroke = function () {
+        ctx.save();
+        ctx.shadowColor = '#E56590';
+        ctx.shadowBlur = 10;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 4;
+
+        _stroke.apply(this, arguments);
+
+        ctx.restore();
+      };
+    }
+  });
   Chart.pluginService.register({
     beforeDraw: function beforeDraw(chart, easing) {
       if (chart.config.options.chartArea && chart.config.options.chartArea.backgroundColor) {
@@ -42,11 +144,11 @@ var neighborhoodCharts = function neighborhoodCharts() {
       datasets: [{
         label: "Condominiums",
         backgroundColor: "rgb(233,232,232)",
-        data: [3, 7, 4, 3, 7, 4, 1]
+        data: condoAvg
       }, {
         label: "Single family home",
         backgroundColor: "rgb(35,35,35)",
-        data: [4, 3, 3, 3, 7, 4, 2]
+        data: singleAvg
       }]
     },
     options: {
@@ -54,11 +156,17 @@ var neighborhoodCharts = function neighborhoodCharts() {
         yAxes: [{
           ticks: {
             beginAtZero: true,
-            max: 8,
             padding: 15,
             callback: function callback(value, index, values) {
-              return value === 0 ? undefined : value;
-            }
+              if (value == 0) {
+                return undefined;
+              } else if (value <= 1) {
+                return value.toFixed(1);
+              }
+
+              return value;
+            },
+            precision: 0
           },
           gridLines: {
             lineWidth: 2,
@@ -81,14 +189,38 @@ var neighborhoodCharts = function neighborhoodCharts() {
     }
   };
   var ctx = document.getElementById("neighborhoodChart").getContext("2d");
-  new Chart(ctx, config);
+  var barChart = new Chart(ctx, config);
   var btns = document.getElementsByClassName("single-neighborhoods-cart__button");
   var title = document.getElementById("graphTitle");
 
   for (var i = 0; i < btns.length; i++) {
-    console.log(btns[i].value);
     btns[i].addEventListener("click", function (event) {
-      title.innerHTML = event.target.value; // btns[i].classList.add('active');
+      var value = event.target.value;
+      title.innerHTML = value;
+
+      if (value === "Average Sales Price") {
+        barChart.data.datasets[0].data = condoAvg;
+        barChart.data.datasets[1].data = singleAvg;
+      } else if (value === "Median Sales Price") {
+        barChart.data.datasets[0].data = condoMed;
+        barChart.data.datasets[1].data = singleMed;
+      } else if (value === "Lowest Sales Price") {
+        barChart.data.datasets[0].data = condoLow;
+        barChart.data.datasets[1].data = singleLow;
+      } else if (value === "Highest Sales Price") {
+        barChart.data.datasets[0].data = condoHi;
+        barChart.data.datasets[1].data = singleHi;
+      } else if (value === "List Price per Sq Foot") {
+        barChart.data.datasets[0].data = condoSq;
+        barChart.data.datasets[1].data = singleSq;
+      } else {
+        barChart.data.datasets[0].data = condoList;
+        barChart.data.datasets[1].data = singleList;
+      } //console.log(barChart.data.datasets[0])
+      //console.log(barChart.data.datasets[1])
+
+
+      barChart.update();
     });
   }
 };

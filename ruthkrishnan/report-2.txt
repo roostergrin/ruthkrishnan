@@ -2070,3 +2070,3099 @@ Current field: field_62e84063b6f36, condo&baths=2&beds=2
 
  Current Neighborhood:presidio, f2bc0961e85dfe6bce72a41362c00018, 
 
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:outer-parkside, d1db1b2e1737332ce8aff251450dbf1f, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:parkside, e26f4f96ba6dfb979e6eecb6911c34fe, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:inner-parkside, 600167f914c398013cd4f9776ab5acaf, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:pine-lake-park, 4f3f3b863d7a2eacfd28b68947642d11, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:merced-manor, 364751fdef3d22cf84097b8c2e2c7893, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:stonestown, 8ddb94335c0127a3814f310141abea5b, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:lakeside, d579da0e998015c80ba3b5e8e1e3f25c, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:balboa-terrace, 7c62e1e825a99721fc24f5e08622e154, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:st-francis-wood, 9c329926133863aff39fc0f5ff707e93, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:ingleside-terrace, 042e514b2f772338996ce58cd91cf14e, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:merced-heights, 8c12bf4f76f10d8ba87dfda8b93b73d3, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:lake-shore, 78f821619717dbca854fe1484da916fd, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:sherwood-forest, 2d32161b17c3ec0d643fb6ea42c953f7, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:ingleside-heights, e5b71c07b671a828fceaa5f557a4fd84, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:richmond-central-outer, d2ebadfe4b9dd48ee2f54dbb5a88a77c,$db1e746dee2b6d07c2471ba60000f857, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:sea-cliff, 152b6d65a3ea70b07b40daa4ffeb79b0, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:lake-street, 386fcf260a455271ea1d6e2709003ad5, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:richmond-inner, 797d07d905d51e24c9cebd90023a6bf9, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:golden-gate-heights, addbe69ad993c071bafd8410e4d39298, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:west-portal, f20b34f258d17f72bb66d6304205781e, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:forest-hills-extensions, c5a21993bb78b98ddfe9839381a73ff5, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:forest-hill, 58eac8532cc073b4656e111dec93bb82, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:forest-knolls, c42c3503b4073c0ef9f8ada97fa9cfa3, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:sunset-inner, 777a293a115918b78caab51ca659bf31, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:golden-gate-park, 88ad77f396753826aa6d96fcfd54f7dd,$c69e9cfbaa5c13c72e66a06888347bb7, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:cole-valley, 4c5e39591372f576fff2428c506892b3, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:midtown-terrace, 83d45a574fb8447549dfcbf1f73162a5, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:twin-peaks, 07e32b07f633c5544171df09bfe6e176, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:diamond-heights, 96d15f1062a98ce9ebc7fdd11fa4f77f, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:miraloma-park, 974b7a3e5bd6433385aa4ec1c6c5de2e, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:sunnyside, 5854a7bea1c28ef54e1ad17132bf02d9, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:westwood-park, eb19fb50183fcf50cd20efdd35e764b0, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:ingleside, dcddfc93dd4c2644fbda067289b37954, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:oceanview, 7bf09c65b12ca39d1cae671c338fee88, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:mission-central-outer, 46cc8f9742f92a53da9c32d9a50f081c, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:mission-terrace, 27d7e1f8dff986a399e0c624265b3f13, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:glen-park, c1855ca77f85ef9f21e5ab207adad483, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:noe-valley, 51aea0f9a4604f2c2f5fc6a3cbd24c97, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:mount-davidson-manor, 5766361a5895c8f55b6fceccf645928d, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:monterey-heights, b923b1c54151a85b4519795ed8a7573b, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:westwood-highlands, 82d037461b9e8c23159a476d1fe117c9, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:corona-heights, 993ab7aefbf6ead201515a4de74e4316, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:duboce-triangle, 098bc7564305b93dccb495f1080b33e3, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:ashbury-buena-vista, 68847480a3a3fa3bfcac72e75fb00959, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:nopa, 65f0d59433f6f44d22fc9b239d366d78, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:lone-mountain, fcedca80babe921e2142f5f818c4653e, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:jordan-park-laurel-heights, 227ad36920d9d8c32513ea952dd5a9ea, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:presidio-heights, a6087ad901b05fd96680fa66ba58fbbb, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:anza-vista, 5c142096d2824acd020d9d23c9ed7b15, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:clarendon-heights, ca1c97a1a267579623d09d97d3869cb8, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:castro-eureka-valley, 5465e768eba289e29968bc9a862023ba, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:alamo-square, 513677bd98d7e92c42d067529cecfae9, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:western-addition, 67226b68206c7bbe7ad15a151a8ca253, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:lower-pacific-heights, e19cd5f405a9bda13b81f13b00315afa, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:tenderloin, ab8078cbc1eb35bc57b2ebec32bc265a, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:downtown, 3fcd0fd755a568aaff6cab0d08afd206, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:hayes-valley, 43168cdb7462b4c0953d91dcc040f91e, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:mission-dolores, 78a74f4ea3f2d2d312bd75048798d3f2, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:mission-inner, 689f1992cccc14225e65145521d973c7, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:bernal-heights, 1b84669d78562747a5fd4c5e0a0c14c5, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:crocker-amazon, 707cae2aa656c5b5cdf8a1aedb6141c5, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:excelsior, bce3d3eb6485f84750871d98430e84f7, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:portola, f0baaa11e8dc883197d9ab67e16af6e0, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:visitacion-valley, 29b0de9e6ed31ba6d7d4ea58294de0fc, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:bayview-heights, 016261d0981f8c6038c573f73139d84d, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:little-hollywood, 781cca28a1aac3d8ea326357e39c4cec, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:candlestick-point, c76c64ed4bf28b634f4c8dc25704e838, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:silver-terrace, 0f28297d15c23cacb908d475de6458a4, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:bayview, 8f26f0d0c358c0bde6ff10ddc8acb806, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:hunters-point, eb002036d892b08e01b5581ab8c48da3, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:dogpatch, 833335b873fc2c16dd6c9204f65a9f60, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:soma, d012f8007897f37532f7de3103f94da6, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:potrero-hill, 18260bd37ef120f5d6280049dcdd987c, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:mission-bay, be51a2f797d30662f94381cb51b42094, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:yerba-buena, 44d2fd34565e25cc00b25cfd8d5c80c9, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:south-beach, 23531852cde1155f0e020d68e3b5bfe4, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:financial-district, 40372df140deabb14cd11c8f0624ce3d, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:north-beach, 8c957379b7f82065c3b24022b38cd44c, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:telegraph-hill, e7cca730c9f3e2305d0fd8cb33116fce, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:north-waterfront, c0dd9c55f0564a9c1dc3f2fc671b3e7b, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:pacific-heights, 79bf959cc58423a4ff765fce74c97f24, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:nob-hill, de2112150cda778b5c3ac274e777b879, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:cow-hollow, 1e97b564c928946c5a397acaabef1e94, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:russian-hill, cbc767947f37f149c3fb1d80136fe667, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:marina, cbed05eb0e7a04fff72274a410721d65, 
+
+Current field: field_62e6f47df35d1, single
+
+ Current Neighborhood:presidio, f2bc0961e85dfe6bce72a41362c00018, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:outer-parkside, d1db1b2e1737332ce8aff251450dbf1f, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:parkside, e26f4f96ba6dfb979e6eecb6911c34fe, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:inner-parkside, 600167f914c398013cd4f9776ab5acaf, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:pine-lake-park, 4f3f3b863d7a2eacfd28b68947642d11, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:merced-manor, 364751fdef3d22cf84097b8c2e2c7893, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:stonestown, 8ddb94335c0127a3814f310141abea5b, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:lakeside, d579da0e998015c80ba3b5e8e1e3f25c, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:balboa-terrace, 7c62e1e825a99721fc24f5e08622e154, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:st-francis-wood, 9c329926133863aff39fc0f5ff707e93, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:ingleside-terrace, 042e514b2f772338996ce58cd91cf14e, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:merced-heights, 8c12bf4f76f10d8ba87dfda8b93b73d3, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:lake-shore, 78f821619717dbca854fe1484da916fd, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:sherwood-forest, 2d32161b17c3ec0d643fb6ea42c953f7, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:ingleside-heights, e5b71c07b671a828fceaa5f557a4fd84, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:richmond-central-outer, d2ebadfe4b9dd48ee2f54dbb5a88a77c,$db1e746dee2b6d07c2471ba60000f857, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:sea-cliff, 152b6d65a3ea70b07b40daa4ffeb79b0, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:lake-street, 386fcf260a455271ea1d6e2709003ad5, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:richmond-inner, 797d07d905d51e24c9cebd90023a6bf9, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:golden-gate-heights, addbe69ad993c071bafd8410e4d39298, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:west-portal, f20b34f258d17f72bb66d6304205781e, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:forest-hills-extensions, c5a21993bb78b98ddfe9839381a73ff5, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:forest-hill, 58eac8532cc073b4656e111dec93bb82, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:forest-knolls, c42c3503b4073c0ef9f8ada97fa9cfa3, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:sunset-inner, 777a293a115918b78caab51ca659bf31, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:golden-gate-park, 88ad77f396753826aa6d96fcfd54f7dd,$c69e9cfbaa5c13c72e66a06888347bb7, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:cole-valley, 4c5e39591372f576fff2428c506892b3, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:midtown-terrace, 83d45a574fb8447549dfcbf1f73162a5, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:twin-peaks, 07e32b07f633c5544171df09bfe6e176, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:diamond-heights, 96d15f1062a98ce9ebc7fdd11fa4f77f, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:miraloma-park, 974b7a3e5bd6433385aa4ec1c6c5de2e, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:sunnyside, 5854a7bea1c28ef54e1ad17132bf02d9, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:westwood-park, eb19fb50183fcf50cd20efdd35e764b0, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:ingleside, dcddfc93dd4c2644fbda067289b37954, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:oceanview, 7bf09c65b12ca39d1cae671c338fee88, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:mission-central-outer, 46cc8f9742f92a53da9c32d9a50f081c, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:mission-terrace, 27d7e1f8dff986a399e0c624265b3f13, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:glen-park, c1855ca77f85ef9f21e5ab207adad483, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:noe-valley, 51aea0f9a4604f2c2f5fc6a3cbd24c97, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:mount-davidson-manor, 5766361a5895c8f55b6fceccf645928d, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:monterey-heights, b923b1c54151a85b4519795ed8a7573b, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:westwood-highlands, 82d037461b9e8c23159a476d1fe117c9, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:corona-heights, 993ab7aefbf6ead201515a4de74e4316, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:duboce-triangle, 098bc7564305b93dccb495f1080b33e3, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:ashbury-buena-vista, 68847480a3a3fa3bfcac72e75fb00959, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:nopa, 65f0d59433f6f44d22fc9b239d366d78, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:lone-mountain, fcedca80babe921e2142f5f818c4653e, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:jordan-park-laurel-heights, 227ad36920d9d8c32513ea952dd5a9ea, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:presidio-heights, a6087ad901b05fd96680fa66ba58fbbb, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:anza-vista, 5c142096d2824acd020d9d23c9ed7b15, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:clarendon-heights, ca1c97a1a267579623d09d97d3869cb8, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:castro-eureka-valley, 5465e768eba289e29968bc9a862023ba, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:alamo-square, 513677bd98d7e92c42d067529cecfae9, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:western-addition, 67226b68206c7bbe7ad15a151a8ca253, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:lower-pacific-heights, e19cd5f405a9bda13b81f13b00315afa, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:tenderloin, ab8078cbc1eb35bc57b2ebec32bc265a, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:downtown, 3fcd0fd755a568aaff6cab0d08afd206, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:hayes-valley, 43168cdb7462b4c0953d91dcc040f91e, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:mission-dolores, 78a74f4ea3f2d2d312bd75048798d3f2, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:mission-inner, 689f1992cccc14225e65145521d973c7, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:bernal-heights, 1b84669d78562747a5fd4c5e0a0c14c5, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:crocker-amazon, 707cae2aa656c5b5cdf8a1aedb6141c5, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:excelsior, bce3d3eb6485f84750871d98430e84f7, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:portola, f0baaa11e8dc883197d9ab67e16af6e0, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:visitacion-valley, 29b0de9e6ed31ba6d7d4ea58294de0fc, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:bayview-heights, 016261d0981f8c6038c573f73139d84d, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:little-hollywood, 781cca28a1aac3d8ea326357e39c4cec, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:candlestick-point, c76c64ed4bf28b634f4c8dc25704e838, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:silver-terrace, 0f28297d15c23cacb908d475de6458a4, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:bayview, 8f26f0d0c358c0bde6ff10ddc8acb806, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:hunters-point, eb002036d892b08e01b5581ab8c48da3, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:dogpatch, 833335b873fc2c16dd6c9204f65a9f60, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:soma, d012f8007897f37532f7de3103f94da6, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:potrero-hill, 18260bd37ef120f5d6280049dcdd987c, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:mission-bay, be51a2f797d30662f94381cb51b42094, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:yerba-buena, 44d2fd34565e25cc00b25cfd8d5c80c9, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:south-beach, 23531852cde1155f0e020d68e3b5bfe4, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:financial-district, 40372df140deabb14cd11c8f0624ce3d, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:north-beach, 8c957379b7f82065c3b24022b38cd44c, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:telegraph-hill, e7cca730c9f3e2305d0fd8cb33116fce, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:north-waterfront, c0dd9c55f0564a9c1dc3f2fc671b3e7b, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:pacific-heights, 79bf959cc58423a4ff765fce74c97f24, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:nob-hill, de2112150cda778b5c3ac274e777b879, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:cow-hollow, 1e97b564c928946c5a397acaabef1e94, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:russian-hill, cbc767947f37f149c3fb1d80136fe667, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:marina, cbed05eb0e7a04fff72274a410721d65, 
+
+Current field: field_62e82053acca6, condo
+
+ Current Neighborhood:presidio, f2bc0961e85dfe6bce72a41362c00018, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:outer-parkside, d1db1b2e1737332ce8aff251450dbf1f, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:parkside, e26f4f96ba6dfb979e6eecb6911c34fe, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:inner-parkside, 600167f914c398013cd4f9776ab5acaf, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:pine-lake-park, 4f3f3b863d7a2eacfd28b68947642d11, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:merced-manor, 364751fdef3d22cf84097b8c2e2c7893, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:stonestown, 8ddb94335c0127a3814f310141abea5b, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:lakeside, d579da0e998015c80ba3b5e8e1e3f25c, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:balboa-terrace, 7c62e1e825a99721fc24f5e08622e154, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:st-francis-wood, 9c329926133863aff39fc0f5ff707e93, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:ingleside-terrace, 042e514b2f772338996ce58cd91cf14e, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:merced-heights, 8c12bf4f76f10d8ba87dfda8b93b73d3, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:lake-shore, 78f821619717dbca854fe1484da916fd, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:sherwood-forest, 2d32161b17c3ec0d643fb6ea42c953f7, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:ingleside-heights, e5b71c07b671a828fceaa5f557a4fd84, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:richmond-central-outer, d2ebadfe4b9dd48ee2f54dbb5a88a77c,$db1e746dee2b6d07c2471ba60000f857, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:sea-cliff, 152b6d65a3ea70b07b40daa4ffeb79b0, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:lake-street, 386fcf260a455271ea1d6e2709003ad5, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:richmond-inner, 797d07d905d51e24c9cebd90023a6bf9, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:golden-gate-heights, addbe69ad993c071bafd8410e4d39298, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:west-portal, f20b34f258d17f72bb66d6304205781e, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:forest-hills-extensions, c5a21993bb78b98ddfe9839381a73ff5, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:forest-hill, 58eac8532cc073b4656e111dec93bb82, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:forest-knolls, c42c3503b4073c0ef9f8ada97fa9cfa3, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:sunset-inner, 777a293a115918b78caab51ca659bf31, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:golden-gate-park, 88ad77f396753826aa6d96fcfd54f7dd,$c69e9cfbaa5c13c72e66a06888347bb7, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:cole-valley, 4c5e39591372f576fff2428c506892b3, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:midtown-terrace, 83d45a574fb8447549dfcbf1f73162a5, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:twin-peaks, 07e32b07f633c5544171df09bfe6e176, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:diamond-heights, 96d15f1062a98ce9ebc7fdd11fa4f77f, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:miraloma-park, 974b7a3e5bd6433385aa4ec1c6c5de2e, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:sunnyside, 5854a7bea1c28ef54e1ad17132bf02d9, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:westwood-park, eb19fb50183fcf50cd20efdd35e764b0, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:ingleside, dcddfc93dd4c2644fbda067289b37954, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:oceanview, 7bf09c65b12ca39d1cae671c338fee88, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:mission-central-outer, 46cc8f9742f92a53da9c32d9a50f081c, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:mission-terrace, 27d7e1f8dff986a399e0c624265b3f13, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:glen-park, c1855ca77f85ef9f21e5ab207adad483, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:noe-valley, 51aea0f9a4604f2c2f5fc6a3cbd24c97, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:mount-davidson-manor, 5766361a5895c8f55b6fceccf645928d, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:monterey-heights, b923b1c54151a85b4519795ed8a7573b, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:westwood-highlands, 82d037461b9e8c23159a476d1fe117c9, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:corona-heights, 993ab7aefbf6ead201515a4de74e4316, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:duboce-triangle, 098bc7564305b93dccb495f1080b33e3, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:ashbury-buena-vista, 68847480a3a3fa3bfcac72e75fb00959, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:nopa, 65f0d59433f6f44d22fc9b239d366d78, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:lone-mountain, fcedca80babe921e2142f5f818c4653e, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:jordan-park-laurel-heights, 227ad36920d9d8c32513ea952dd5a9ea, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:presidio-heights, a6087ad901b05fd96680fa66ba58fbbb, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:anza-vista, 5c142096d2824acd020d9d23c9ed7b15, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:clarendon-heights, ca1c97a1a267579623d09d97d3869cb8, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:castro-eureka-valley, 5465e768eba289e29968bc9a862023ba, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:alamo-square, 513677bd98d7e92c42d067529cecfae9, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:western-addition, 67226b68206c7bbe7ad15a151a8ca253, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:lower-pacific-heights, e19cd5f405a9bda13b81f13b00315afa, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:tenderloin, ab8078cbc1eb35bc57b2ebec32bc265a, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:downtown, 3fcd0fd755a568aaff6cab0d08afd206, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:hayes-valley, 43168cdb7462b4c0953d91dcc040f91e, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:mission-dolores, 78a74f4ea3f2d2d312bd75048798d3f2, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:mission-inner, 689f1992cccc14225e65145521d973c7, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:bernal-heights, 1b84669d78562747a5fd4c5e0a0c14c5, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:crocker-amazon, 707cae2aa656c5b5cdf8a1aedb6141c5, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:excelsior, bce3d3eb6485f84750871d98430e84f7, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:portola, f0baaa11e8dc883197d9ab67e16af6e0, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:visitacion-valley, 29b0de9e6ed31ba6d7d4ea58294de0fc, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:bayview-heights, 016261d0981f8c6038c573f73139d84d, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:little-hollywood, 781cca28a1aac3d8ea326357e39c4cec, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:candlestick-point, c76c64ed4bf28b634f4c8dc25704e838, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:silver-terrace, 0f28297d15c23cacb908d475de6458a4, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:bayview, 8f26f0d0c358c0bde6ff10ddc8acb806, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:hunters-point, eb002036d892b08e01b5581ab8c48da3, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:dogpatch, 833335b873fc2c16dd6c9204f65a9f60, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:soma, d012f8007897f37532f7de3103f94da6, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:potrero-hill, 18260bd37ef120f5d6280049dcdd987c, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:mission-bay, be51a2f797d30662f94381cb51b42094, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:yerba-buena, 44d2fd34565e25cc00b25cfd8d5c80c9, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:south-beach, 23531852cde1155f0e020d68e3b5bfe4, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:financial-district, 40372df140deabb14cd11c8f0624ce3d, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:north-beach, 8c957379b7f82065c3b24022b38cd44c, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:telegraph-hill, e7cca730c9f3e2305d0fd8cb33116fce, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:north-waterfront, c0dd9c55f0564a9c1dc3f2fc671b3e7b, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:pacific-heights, 79bf959cc58423a4ff765fce74c97f24, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:nob-hill, de2112150cda778b5c3ac274e777b879, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:cow-hollow, 1e97b564c928946c5a397acaabef1e94, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:russian-hill, cbc767947f37f149c3fb1d80136fe667, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:marina, cbed05eb0e7a04fff72274a410721d65, 
+
+Current field: field_62e84063b6f36, condo&baths=2&beds=2
+
+ Current Neighborhood:presidio, f2bc0961e85dfe6bce72a41362c00018, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:outer-parkside, d1db1b2e1737332ce8aff251450dbf1f, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:parkside, e26f4f96ba6dfb979e6eecb6911c34fe, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:inner-parkside, 600167f914c398013cd4f9776ab5acaf, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:pine-lake-park, 4f3f3b863d7a2eacfd28b68947642d11, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:merced-manor, 364751fdef3d22cf84097b8c2e2c7893, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:stonestown, 8ddb94335c0127a3814f310141abea5b, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:lakeside, d579da0e998015c80ba3b5e8e1e3f25c, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:balboa-terrace, 7c62e1e825a99721fc24f5e08622e154, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:st-francis-wood, 9c329926133863aff39fc0f5ff707e93, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:ingleside-terrace, 042e514b2f772338996ce58cd91cf14e, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:merced-heights, 8c12bf4f76f10d8ba87dfda8b93b73d3, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:lake-shore, 78f821619717dbca854fe1484da916fd, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:sherwood-forest, 2d32161b17c3ec0d643fb6ea42c953f7, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:ingleside-heights, e5b71c07b671a828fceaa5f557a4fd84, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:richmond-central-outer, d2ebadfe4b9dd48ee2f54dbb5a88a77c,$db1e746dee2b6d07c2471ba60000f857, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:sea-cliff, 152b6d65a3ea70b07b40daa4ffeb79b0, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:lake-street, 386fcf260a455271ea1d6e2709003ad5, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:richmond-inner, 797d07d905d51e24c9cebd90023a6bf9, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:golden-gate-heights, addbe69ad993c071bafd8410e4d39298, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:west-portal, f20b34f258d17f72bb66d6304205781e, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:forest-hills-extensions, c5a21993bb78b98ddfe9839381a73ff5, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:forest-hill, 58eac8532cc073b4656e111dec93bb82, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:forest-knolls, c42c3503b4073c0ef9f8ada97fa9cfa3, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:sunset-inner, 777a293a115918b78caab51ca659bf31, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:golden-gate-park, 88ad77f396753826aa6d96fcfd54f7dd,$c69e9cfbaa5c13c72e66a06888347bb7, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:cole-valley, 4c5e39591372f576fff2428c506892b3, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:midtown-terrace, 83d45a574fb8447549dfcbf1f73162a5, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:twin-peaks, 07e32b07f633c5544171df09bfe6e176, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:diamond-heights, 96d15f1062a98ce9ebc7fdd11fa4f77f, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:miraloma-park, 974b7a3e5bd6433385aa4ec1c6c5de2e, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:sunnyside, 5854a7bea1c28ef54e1ad17132bf02d9, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:westwood-park, eb19fb50183fcf50cd20efdd35e764b0, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:ingleside, dcddfc93dd4c2644fbda067289b37954, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:oceanview, 7bf09c65b12ca39d1cae671c338fee88, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:mission-central-outer, 46cc8f9742f92a53da9c32d9a50f081c, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:mission-terrace, 27d7e1f8dff986a399e0c624265b3f13, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:glen-park, c1855ca77f85ef9f21e5ab207adad483, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:noe-valley, 51aea0f9a4604f2c2f5fc6a3cbd24c97, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:mount-davidson-manor, 5766361a5895c8f55b6fceccf645928d, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:monterey-heights, b923b1c54151a85b4519795ed8a7573b, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:westwood-highlands, 82d037461b9e8c23159a476d1fe117c9, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:corona-heights, 993ab7aefbf6ead201515a4de74e4316, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:duboce-triangle, 098bc7564305b93dccb495f1080b33e3, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:ashbury-buena-vista, 68847480a3a3fa3bfcac72e75fb00959, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:nopa, 65f0d59433f6f44d22fc9b239d366d78, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:lone-mountain, fcedca80babe921e2142f5f818c4653e, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:jordan-park-laurel-heights, 227ad36920d9d8c32513ea952dd5a9ea, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:presidio-heights, a6087ad901b05fd96680fa66ba58fbbb, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:anza-vista, 5c142096d2824acd020d9d23c9ed7b15, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:clarendon-heights, ca1c97a1a267579623d09d97d3869cb8, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:castro-eureka-valley, 5465e768eba289e29968bc9a862023ba, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:alamo-square, 513677bd98d7e92c42d067529cecfae9, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:western-addition, 67226b68206c7bbe7ad15a151a8ca253, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:lower-pacific-heights, e19cd5f405a9bda13b81f13b00315afa, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:tenderloin, ab8078cbc1eb35bc57b2ebec32bc265a, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:downtown, 3fcd0fd755a568aaff6cab0d08afd206, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:hayes-valley, 43168cdb7462b4c0953d91dcc040f91e, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:mission-dolores, 78a74f4ea3f2d2d312bd75048798d3f2, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:mission-inner, 689f1992cccc14225e65145521d973c7, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:bernal-heights, 1b84669d78562747a5fd4c5e0a0c14c5, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:crocker-amazon, 707cae2aa656c5b5cdf8a1aedb6141c5, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:excelsior, bce3d3eb6485f84750871d98430e84f7, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:portola, f0baaa11e8dc883197d9ab67e16af6e0, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:visitacion-valley, 29b0de9e6ed31ba6d7d4ea58294de0fc, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:bayview-heights, 016261d0981f8c6038c573f73139d84d, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:little-hollywood, 781cca28a1aac3d8ea326357e39c4cec, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:candlestick-point, c76c64ed4bf28b634f4c8dc25704e838, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:silver-terrace, 0f28297d15c23cacb908d475de6458a4, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:bayview, 8f26f0d0c358c0bde6ff10ddc8acb806, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:hunters-point, eb002036d892b08e01b5581ab8c48da3, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:dogpatch, 833335b873fc2c16dd6c9204f65a9f60, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:soma, d012f8007897f37532f7de3103f94da6, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:potrero-hill, 18260bd37ef120f5d6280049dcdd987c, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:mission-bay, be51a2f797d30662f94381cb51b42094, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:yerba-buena, 44d2fd34565e25cc00b25cfd8d5c80c9, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:south-beach, 23531852cde1155f0e020d68e3b5bfe4, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:financial-district, 40372df140deabb14cd11c8f0624ce3d, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:north-beach, 8c957379b7f82065c3b24022b38cd44c, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:telegraph-hill, e7cca730c9f3e2305d0fd8cb33116fce, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:north-waterfront, c0dd9c55f0564a9c1dc3f2fc671b3e7b, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:pacific-heights, 79bf959cc58423a4ff765fce74c97f24, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:nob-hill, de2112150cda778b5c3ac274e777b879, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:cow-hollow, 1e97b564c928946c5a397acaabef1e94, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:russian-hill, cbc767947f37f149c3fb1d80136fe667, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:marina, cbed05eb0e7a04fff72274a410721d65, 
+
+Current field: field_62e6f47df35d1, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:presidio, f2bc0961e85dfe6bce72a41362c00018, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:outer-parkside, d1db1b2e1737332ce8aff251450dbf1f, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:parkside, e26f4f96ba6dfb979e6eecb6911c34fe, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:inner-parkside, 600167f914c398013cd4f9776ab5acaf, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:pine-lake-park, 4f3f3b863d7a2eacfd28b68947642d11, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:merced-manor, 364751fdef3d22cf84097b8c2e2c7893, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:stonestown, 8ddb94335c0127a3814f310141abea5b, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:lakeside, d579da0e998015c80ba3b5e8e1e3f25c, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:balboa-terrace, 7c62e1e825a99721fc24f5e08622e154, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:st-francis-wood, 9c329926133863aff39fc0f5ff707e93, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:ingleside-terrace, 042e514b2f772338996ce58cd91cf14e, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:merced-heights, 8c12bf4f76f10d8ba87dfda8b93b73d3, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:lake-shore, 78f821619717dbca854fe1484da916fd, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:sherwood-forest, 2d32161b17c3ec0d643fb6ea42c953f7, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:ingleside-heights, e5b71c07b671a828fceaa5f557a4fd84, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:richmond-central-outer, d2ebadfe4b9dd48ee2f54dbb5a88a77c,$db1e746dee2b6d07c2471ba60000f857, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:sea-cliff, 152b6d65a3ea70b07b40daa4ffeb79b0, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:lake-street, 386fcf260a455271ea1d6e2709003ad5, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:richmond-inner, 797d07d905d51e24c9cebd90023a6bf9, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:golden-gate-heights, addbe69ad993c071bafd8410e4d39298, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:west-portal, f20b34f258d17f72bb66d6304205781e, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:forest-hills-extensions, c5a21993bb78b98ddfe9839381a73ff5, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:forest-hill, 58eac8532cc073b4656e111dec93bb82, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:forest-knolls, c42c3503b4073c0ef9f8ada97fa9cfa3, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:sunset-inner, 777a293a115918b78caab51ca659bf31, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:golden-gate-park, 88ad77f396753826aa6d96fcfd54f7dd,$c69e9cfbaa5c13c72e66a06888347bb7, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:cole-valley, 4c5e39591372f576fff2428c506892b3, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:midtown-terrace, 83d45a574fb8447549dfcbf1f73162a5, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:twin-peaks, 07e32b07f633c5544171df09bfe6e176, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:diamond-heights, 96d15f1062a98ce9ebc7fdd11fa4f77f, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:miraloma-park, 974b7a3e5bd6433385aa4ec1c6c5de2e, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:sunnyside, 5854a7bea1c28ef54e1ad17132bf02d9, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:westwood-park, eb19fb50183fcf50cd20efdd35e764b0, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:ingleside, dcddfc93dd4c2644fbda067289b37954, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:oceanview, 7bf09c65b12ca39d1cae671c338fee88, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:mission-central-outer, 46cc8f9742f92a53da9c32d9a50f081c, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:mission-terrace, 27d7e1f8dff986a399e0c624265b3f13, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:glen-park, c1855ca77f85ef9f21e5ab207adad483, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:noe-valley, 51aea0f9a4604f2c2f5fc6a3cbd24c97, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:mount-davidson-manor, 5766361a5895c8f55b6fceccf645928d, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:monterey-heights, b923b1c54151a85b4519795ed8a7573b, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:westwood-highlands, 82d037461b9e8c23159a476d1fe117c9, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:corona-heights, 993ab7aefbf6ead201515a4de74e4316, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:duboce-triangle, 098bc7564305b93dccb495f1080b33e3, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:ashbury-buena-vista, 68847480a3a3fa3bfcac72e75fb00959, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:nopa, 65f0d59433f6f44d22fc9b239d366d78, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:lone-mountain, fcedca80babe921e2142f5f818c4653e, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:jordan-park-laurel-heights, 227ad36920d9d8c32513ea952dd5a9ea, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:presidio-heights, a6087ad901b05fd96680fa66ba58fbbb, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:anza-vista, 5c142096d2824acd020d9d23c9ed7b15, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:clarendon-heights, ca1c97a1a267579623d09d97d3869cb8, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:castro-eureka-valley, 5465e768eba289e29968bc9a862023ba, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:alamo-square, 513677bd98d7e92c42d067529cecfae9, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:western-addition, 67226b68206c7bbe7ad15a151a8ca253, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:lower-pacific-heights, e19cd5f405a9bda13b81f13b00315afa, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:tenderloin, ab8078cbc1eb35bc57b2ebec32bc265a, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:downtown, 3fcd0fd755a568aaff6cab0d08afd206, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:hayes-valley, 43168cdb7462b4c0953d91dcc040f91e, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:mission-dolores, 78a74f4ea3f2d2d312bd75048798d3f2, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:mission-inner, 689f1992cccc14225e65145521d973c7, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:bernal-heights, 1b84669d78562747a5fd4c5e0a0c14c5, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:crocker-amazon, 707cae2aa656c5b5cdf8a1aedb6141c5, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:excelsior, bce3d3eb6485f84750871d98430e84f7, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:portola, f0baaa11e8dc883197d9ab67e16af6e0, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:visitacion-valley, 29b0de9e6ed31ba6d7d4ea58294de0fc, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:bayview-heights, 016261d0981f8c6038c573f73139d84d, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:little-hollywood, 781cca28a1aac3d8ea326357e39c4cec, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:candlestick-point, c76c64ed4bf28b634f4c8dc25704e838, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:silver-terrace, 0f28297d15c23cacb908d475de6458a4, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:bayview, 8f26f0d0c358c0bde6ff10ddc8acb806, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:hunters-point, eb002036d892b08e01b5581ab8c48da3, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:dogpatch, 833335b873fc2c16dd6c9204f65a9f60, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:soma, d012f8007897f37532f7de3103f94da6, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:potrero-hill, 18260bd37ef120f5d6280049dcdd987c, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:mission-bay, be51a2f797d30662f94381cb51b42094, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:yerba-buena, 44d2fd34565e25cc00b25cfd8d5c80c9, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:south-beach, 23531852cde1155f0e020d68e3b5bfe4, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:financial-district, 40372df140deabb14cd11c8f0624ce3d, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:north-beach, 8c957379b7f82065c3b24022b38cd44c, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:telegraph-hill, e7cca730c9f3e2305d0fd8cb33116fce, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:north-waterfront, c0dd9c55f0564a9c1dc3f2fc671b3e7b, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:pacific-heights, 79bf959cc58423a4ff765fce74c97f24, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:nob-hill, de2112150cda778b5c3ac274e777b879, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:cow-hollow, 1e97b564c928946c5a397acaabef1e94, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:russian-hill, cbc767947f37f149c3fb1d80136fe667, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:marina, cbed05eb0e7a04fff72274a410721d65, 
+
+Current field: field_62e82053acca6, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)
+
+ Current Neighborhood:presidio, f2bc0961e85dfe6bce72a41362c00018, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:outer-parkside, d1db1b2e1737332ce8aff251450dbf1f, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:parkside, e26f4f96ba6dfb979e6eecb6911c34fe, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:inner-parkside, 600167f914c398013cd4f9776ab5acaf, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:pine-lake-park, 4f3f3b863d7a2eacfd28b68947642d11, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:merced-manor, 364751fdef3d22cf84097b8c2e2c7893, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:stonestown, 8ddb94335c0127a3814f310141abea5b, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:lakeside, d579da0e998015c80ba3b5e8e1e3f25c, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:balboa-terrace, 7c62e1e825a99721fc24f5e08622e154, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:st-francis-wood, 9c329926133863aff39fc0f5ff707e93, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:ingleside-terrace, 042e514b2f772338996ce58cd91cf14e, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:merced-heights, 8c12bf4f76f10d8ba87dfda8b93b73d3, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:lake-shore, 78f821619717dbca854fe1484da916fd, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:sherwood-forest, 2d32161b17c3ec0d643fb6ea42c953f7, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:ingleside-heights, e5b71c07b671a828fceaa5f557a4fd84, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:richmond-central-outer, d2ebadfe4b9dd48ee2f54dbb5a88a77c,$db1e746dee2b6d07c2471ba60000f857, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:sea-cliff, 152b6d65a3ea70b07b40daa4ffeb79b0, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:lake-street, 386fcf260a455271ea1d6e2709003ad5, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:richmond-inner, 797d07d905d51e24c9cebd90023a6bf9, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:golden-gate-heights, addbe69ad993c071bafd8410e4d39298, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:west-portal, f20b34f258d17f72bb66d6304205781e, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:forest-hills-extensions, c5a21993bb78b98ddfe9839381a73ff5, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:forest-hill, 58eac8532cc073b4656e111dec93bb82, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:forest-knolls, c42c3503b4073c0ef9f8ada97fa9cfa3, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:sunset-inner, 777a293a115918b78caab51ca659bf31, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:golden-gate-park, 88ad77f396753826aa6d96fcfd54f7dd,$c69e9cfbaa5c13c72e66a06888347bb7, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:cole-valley, 4c5e39591372f576fff2428c506892b3, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:midtown-terrace, 83d45a574fb8447549dfcbf1f73162a5, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:twin-peaks, 07e32b07f633c5544171df09bfe6e176, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:diamond-heights, 96d15f1062a98ce9ebc7fdd11fa4f77f, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:miraloma-park, 974b7a3e5bd6433385aa4ec1c6c5de2e, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:sunnyside, 5854a7bea1c28ef54e1ad17132bf02d9, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:westwood-park, eb19fb50183fcf50cd20efdd35e764b0, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:ingleside, dcddfc93dd4c2644fbda067289b37954, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:oceanview, 7bf09c65b12ca39d1cae671c338fee88, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:mission-central-outer, 46cc8f9742f92a53da9c32d9a50f081c, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:mission-terrace, 27d7e1f8dff986a399e0c624265b3f13, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:glen-park, c1855ca77f85ef9f21e5ab207adad483, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:noe-valley, 51aea0f9a4604f2c2f5fc6a3cbd24c97, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:mount-davidson-manor, 5766361a5895c8f55b6fceccf645928d, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:monterey-heights, b923b1c54151a85b4519795ed8a7573b, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:westwood-highlands, 82d037461b9e8c23159a476d1fe117c9, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:corona-heights, 993ab7aefbf6ead201515a4de74e4316, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:duboce-triangle, 098bc7564305b93dccb495f1080b33e3, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:ashbury-buena-vista, 68847480a3a3fa3bfcac72e75fb00959, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:nopa, 65f0d59433f6f44d22fc9b239d366d78, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:lone-mountain, fcedca80babe921e2142f5f818c4653e, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:jordan-park-laurel-heights, 227ad36920d9d8c32513ea952dd5a9ea, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:presidio-heights, a6087ad901b05fd96680fa66ba58fbbb, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:anza-vista, 5c142096d2824acd020d9d23c9ed7b15, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:clarendon-heights, ca1c97a1a267579623d09d97d3869cb8, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:castro-eureka-valley, 5465e768eba289e29968bc9a862023ba, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:alamo-square, 513677bd98d7e92c42d067529cecfae9, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:western-addition, 67226b68206c7bbe7ad15a151a8ca253, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:lower-pacific-heights, e19cd5f405a9bda13b81f13b00315afa, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:tenderloin, ab8078cbc1eb35bc57b2ebec32bc265a, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:downtown, 3fcd0fd755a568aaff6cab0d08afd206, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:hayes-valley, 43168cdb7462b4c0953d91dcc040f91e, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:mission-dolores, 78a74f4ea3f2d2d312bd75048798d3f2, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:mission-inner, 689f1992cccc14225e65145521d973c7, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:bernal-heights, 1b84669d78562747a5fd4c5e0a0c14c5, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:crocker-amazon, 707cae2aa656c5b5cdf8a1aedb6141c5, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:excelsior, bce3d3eb6485f84750871d98430e84f7, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:portola, f0baaa11e8dc883197d9ab67e16af6e0, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:visitacion-valley, 29b0de9e6ed31ba6d7d4ea58294de0fc, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:bayview-heights, 016261d0981f8c6038c573f73139d84d, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:little-hollywood, 781cca28a1aac3d8ea326357e39c4cec, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:candlestick-point, c76c64ed4bf28b634f4c8dc25704e838, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:silver-terrace, 0f28297d15c23cacb908d475de6458a4, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:bayview, 8f26f0d0c358c0bde6ff10ddc8acb806, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:hunters-point, eb002036d892b08e01b5581ab8c48da3, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:dogpatch, 833335b873fc2c16dd6c9204f65a9f60, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:soma, d012f8007897f37532f7de3103f94da6, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:potrero-hill, 18260bd37ef120f5d6280049dcdd987c, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:mission-bay, be51a2f797d30662f94381cb51b42094, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:yerba-buena, 44d2fd34565e25cc00b25cfd8d5c80c9, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:south-beach, 23531852cde1155f0e020d68e3b5bfe4, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:financial-district, 40372df140deabb14cd11c8f0624ce3d, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:north-beach, 8c957379b7f82065c3b24022b38cd44c, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:telegraph-hill, e7cca730c9f3e2305d0fd8cb33116fce, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:north-waterfront, c0dd9c55f0564a9c1dc3f2fc671b3e7b, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:pacific-heights, 79bf959cc58423a4ff765fce74c97f24, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:nob-hill, de2112150cda778b5c3ac274e777b879, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:cow-hollow, 1e97b564c928946c5a397acaabef1e94, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:russian-hill, cbc767947f37f149c3fb1d80136fe667, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:marina, cbed05eb0e7a04fff72274a410721d65, 
+
+Current field: field_62e9a3ed06487, &propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:presidio, f2bc0961e85dfe6bce72a41362c00018, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:outer-parkside, d1db1b2e1737332ce8aff251450dbf1f, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:parkside, e26f4f96ba6dfb979e6eecb6911c34fe, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:inner-parkside, 600167f914c398013cd4f9776ab5acaf, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:pine-lake-park, 4f3f3b863d7a2eacfd28b68947642d11, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:merced-manor, 364751fdef3d22cf84097b8c2e2c7893, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:stonestown, 8ddb94335c0127a3814f310141abea5b, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:lakeside, d579da0e998015c80ba3b5e8e1e3f25c, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:balboa-terrace, 7c62e1e825a99721fc24f5e08622e154, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:st-francis-wood, 9c329926133863aff39fc0f5ff707e93, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:ingleside-terrace, 042e514b2f772338996ce58cd91cf14e, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:merced-heights, 8c12bf4f76f10d8ba87dfda8b93b73d3, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:lake-shore, 78f821619717dbca854fe1484da916fd, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:sherwood-forest, 2d32161b17c3ec0d643fb6ea42c953f7, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:ingleside-heights, e5b71c07b671a828fceaa5f557a4fd84, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:richmond-central-outer, d2ebadfe4b9dd48ee2f54dbb5a88a77c,$db1e746dee2b6d07c2471ba60000f857, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:sea-cliff, 152b6d65a3ea70b07b40daa4ffeb79b0, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:lake-street, 386fcf260a455271ea1d6e2709003ad5, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:richmond-inner, 797d07d905d51e24c9cebd90023a6bf9, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:golden-gate-heights, addbe69ad993c071bafd8410e4d39298, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:west-portal, f20b34f258d17f72bb66d6304205781e, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:forest-hills-extensions, c5a21993bb78b98ddfe9839381a73ff5, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:forest-hill, 58eac8532cc073b4656e111dec93bb82, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:forest-knolls, c42c3503b4073c0ef9f8ada97fa9cfa3, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:sunset-inner, 777a293a115918b78caab51ca659bf31, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:golden-gate-park, 88ad77f396753826aa6d96fcfd54f7dd,$c69e9cfbaa5c13c72e66a06888347bb7, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:cole-valley, 4c5e39591372f576fff2428c506892b3, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:midtown-terrace, 83d45a574fb8447549dfcbf1f73162a5, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:twin-peaks, 07e32b07f633c5544171df09bfe6e176, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:diamond-heights, 96d15f1062a98ce9ebc7fdd11fa4f77f, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:miraloma-park, 974b7a3e5bd6433385aa4ec1c6c5de2e, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:sunnyside, 5854a7bea1c28ef54e1ad17132bf02d9, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:westwood-park, eb19fb50183fcf50cd20efdd35e764b0, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:ingleside, dcddfc93dd4c2644fbda067289b37954, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:oceanview, 7bf09c65b12ca39d1cae671c338fee88, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:mission-central-outer, 46cc8f9742f92a53da9c32d9a50f081c, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:mission-terrace, 27d7e1f8dff986a399e0c624265b3f13, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:glen-park, c1855ca77f85ef9f21e5ab207adad483, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:noe-valley, 51aea0f9a4604f2c2f5fc6a3cbd24c97, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:mount-davidson-manor, 5766361a5895c8f55b6fceccf645928d, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:monterey-heights, b923b1c54151a85b4519795ed8a7573b, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:westwood-highlands, 82d037461b9e8c23159a476d1fe117c9, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:corona-heights, 993ab7aefbf6ead201515a4de74e4316, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:duboce-triangle, 098bc7564305b93dccb495f1080b33e3, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:ashbury-buena-vista, 68847480a3a3fa3bfcac72e75fb00959, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:nopa, 65f0d59433f6f44d22fc9b239d366d78, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:lone-mountain, fcedca80babe921e2142f5f818c4653e, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:jordan-park-laurel-heights, 227ad36920d9d8c32513ea952dd5a9ea, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:presidio-heights, a6087ad901b05fd96680fa66ba58fbbb, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:anza-vista, 5c142096d2824acd020d9d23c9ed7b15, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:clarendon-heights, ca1c97a1a267579623d09d97d3869cb8, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:castro-eureka-valley, 5465e768eba289e29968bc9a862023ba, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:alamo-square, 513677bd98d7e92c42d067529cecfae9, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:western-addition, 67226b68206c7bbe7ad15a151a8ca253, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:lower-pacific-heights, e19cd5f405a9bda13b81f13b00315afa, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:tenderloin, ab8078cbc1eb35bc57b2ebec32bc265a, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:downtown, 3fcd0fd755a568aaff6cab0d08afd206, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:hayes-valley, 43168cdb7462b4c0953d91dcc040f91e, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:mission-dolores, 78a74f4ea3f2d2d312bd75048798d3f2, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:mission-inner, 689f1992cccc14225e65145521d973c7, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:bernal-heights, 1b84669d78562747a5fd4c5e0a0c14c5, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:crocker-amazon, 707cae2aa656c5b5cdf8a1aedb6141c5, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:excelsior, bce3d3eb6485f84750871d98430e84f7, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:portola, f0baaa11e8dc883197d9ab67e16af6e0, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:visitacion-valley, 29b0de9e6ed31ba6d7d4ea58294de0fc, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:bayview-heights, 016261d0981f8c6038c573f73139d84d, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:little-hollywood, 781cca28a1aac3d8ea326357e39c4cec, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:candlestick-point, c76c64ed4bf28b634f4c8dc25704e838, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:silver-terrace, 0f28297d15c23cacb908d475de6458a4, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:bayview, 8f26f0d0c358c0bde6ff10ddc8acb806, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:hunters-point, eb002036d892b08e01b5581ab8c48da3, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:dogpatch, 833335b873fc2c16dd6c9204f65a9f60, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:soma, d012f8007897f37532f7de3103f94da6, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:potrero-hill, 18260bd37ef120f5d6280049dcdd987c, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:mission-bay, be51a2f797d30662f94381cb51b42094, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:yerba-buena, 44d2fd34565e25cc00b25cfd8d5c80c9, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:south-beach, 23531852cde1155f0e020d68e3b5bfe4, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:financial-district, 40372df140deabb14cd11c8f0624ce3d, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:north-beach, 8c957379b7f82065c3b24022b38cd44c, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:telegraph-hill, e7cca730c9f3e2305d0fd8cb33116fce, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:north-waterfront, c0dd9c55f0564a9c1dc3f2fc671b3e7b, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:pacific-heights, 79bf959cc58423a4ff765fce74c97f24, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:nob-hill, de2112150cda778b5c3ac274e777b879, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:cow-hollow, 1e97b564c928946c5a397acaabef1e94, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:russian-hill, cbc767947f37f149c3fb1d80136fe667, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:marina, cbed05eb0e7a04fff72274a410721d65, 
+
+Current field: field_62e9a3e306486, &propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)
+
+ Current Neighborhood:presidio, f2bc0961e85dfe6bce72a41362c00018, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:outer-parkside, d1db1b2e1737332ce8aff251450dbf1f, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:parkside, e26f4f96ba6dfb979e6eecb6911c34fe, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:inner-parkside, 600167f914c398013cd4f9776ab5acaf, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:pine-lake-park, 4f3f3b863d7a2eacfd28b68947642d11, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:merced-manor, 364751fdef3d22cf84097b8c2e2c7893, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:stonestown, 8ddb94335c0127a3814f310141abea5b, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:lakeside, d579da0e998015c80ba3b5e8e1e3f25c, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:balboa-terrace, 7c62e1e825a99721fc24f5e08622e154, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:st-francis-wood, 9c329926133863aff39fc0f5ff707e93, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:ingleside-terrace, 042e514b2f772338996ce58cd91cf14e, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:merced-heights, 8c12bf4f76f10d8ba87dfda8b93b73d3, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:lake-shore, 78f821619717dbca854fe1484da916fd, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:sherwood-forest, 2d32161b17c3ec0d643fb6ea42c953f7, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:ingleside-heights, e5b71c07b671a828fceaa5f557a4fd84, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:richmond-central-outer, d2ebadfe4b9dd48ee2f54dbb5a88a77c,$db1e746dee2b6d07c2471ba60000f857, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:sea-cliff, 152b6d65a3ea70b07b40daa4ffeb79b0, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:lake-street, 386fcf260a455271ea1d6e2709003ad5, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:richmond-inner, 797d07d905d51e24c9cebd90023a6bf9, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:golden-gate-heights, addbe69ad993c071bafd8410e4d39298, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:west-portal, f20b34f258d17f72bb66d6304205781e, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:forest-hills-extensions, c5a21993bb78b98ddfe9839381a73ff5, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:forest-hill, 58eac8532cc073b4656e111dec93bb82, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:forest-knolls, c42c3503b4073c0ef9f8ada97fa9cfa3, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:sunset-inner, 777a293a115918b78caab51ca659bf31, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:golden-gate-park, 88ad77f396753826aa6d96fcfd54f7dd,$c69e9cfbaa5c13c72e66a06888347bb7, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:cole-valley, 4c5e39591372f576fff2428c506892b3, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:midtown-terrace, 83d45a574fb8447549dfcbf1f73162a5, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:twin-peaks, 07e32b07f633c5544171df09bfe6e176, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:diamond-heights, 96d15f1062a98ce9ebc7fdd11fa4f77f, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:miraloma-park, 974b7a3e5bd6433385aa4ec1c6c5de2e, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:sunnyside, 5854a7bea1c28ef54e1ad17132bf02d9, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:westwood-park, eb19fb50183fcf50cd20efdd35e764b0, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:ingleside, dcddfc93dd4c2644fbda067289b37954, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:oceanview, 7bf09c65b12ca39d1cae671c338fee88, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:mission-central-outer, 46cc8f9742f92a53da9c32d9a50f081c, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:mission-terrace, 27d7e1f8dff986a399e0c624265b3f13, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:glen-park, c1855ca77f85ef9f21e5ab207adad483, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:noe-valley, 51aea0f9a4604f2c2f5fc6a3cbd24c97, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:mount-davidson-manor, 5766361a5895c8f55b6fceccf645928d, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:monterey-heights, b923b1c54151a85b4519795ed8a7573b, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:westwood-highlands, 82d037461b9e8c23159a476d1fe117c9, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:corona-heights, 993ab7aefbf6ead201515a4de74e4316, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:duboce-triangle, 098bc7564305b93dccb495f1080b33e3, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:ashbury-buena-vista, 68847480a3a3fa3bfcac72e75fb00959, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:nopa, 65f0d59433f6f44d22fc9b239d366d78, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:lone-mountain, fcedca80babe921e2142f5f818c4653e, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:jordan-park-laurel-heights, 227ad36920d9d8c32513ea952dd5a9ea, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:presidio-heights, a6087ad901b05fd96680fa66ba58fbbb, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:anza-vista, 5c142096d2824acd020d9d23c9ed7b15, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:clarendon-heights, ca1c97a1a267579623d09d97d3869cb8, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:castro-eureka-valley, 5465e768eba289e29968bc9a862023ba, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:alamo-square, 513677bd98d7e92c42d067529cecfae9, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:western-addition, 67226b68206c7bbe7ad15a151a8ca253, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:lower-pacific-heights, e19cd5f405a9bda13b81f13b00315afa, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:tenderloin, ab8078cbc1eb35bc57b2ebec32bc265a, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:downtown, 3fcd0fd755a568aaff6cab0d08afd206, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:hayes-valley, 43168cdb7462b4c0953d91dcc040f91e, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:mission-dolores, 78a74f4ea3f2d2d312bd75048798d3f2, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:mission-inner, 689f1992cccc14225e65145521d973c7, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:bernal-heights, 1b84669d78562747a5fd4c5e0a0c14c5, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:crocker-amazon, 707cae2aa656c5b5cdf8a1aedb6141c5, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:excelsior, bce3d3eb6485f84750871d98430e84f7, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:portola, f0baaa11e8dc883197d9ab67e16af6e0, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:visitacion-valley, 29b0de9e6ed31ba6d7d4ea58294de0fc, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:bayview-heights, 016261d0981f8c6038c573f73139d84d, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:little-hollywood, 781cca28a1aac3d8ea326357e39c4cec, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:candlestick-point, c76c64ed4bf28b634f4c8dc25704e838, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:silver-terrace, 0f28297d15c23cacb908d475de6458a4, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:bayview, 8f26f0d0c358c0bde6ff10ddc8acb806, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:hunters-point, eb002036d892b08e01b5581ab8c48da3, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:dogpatch, 833335b873fc2c16dd6c9204f65a9f60, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:soma, d012f8007897f37532f7de3103f94da6, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:potrero-hill, 18260bd37ef120f5d6280049dcdd987c, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:mission-bay, be51a2f797d30662f94381cb51b42094, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:yerba-buena, 44d2fd34565e25cc00b25cfd8d5c80c9, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:south-beach, 23531852cde1155f0e020d68e3b5bfe4, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:financial-district, 40372df140deabb14cd11c8f0624ce3d, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:north-beach, 8c957379b7f82065c3b24022b38cd44c, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:telegraph-hill, e7cca730c9f3e2305d0fd8cb33116fce, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:north-waterfront, c0dd9c55f0564a9c1dc3f2fc671b3e7b, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:pacific-heights, 79bf959cc58423a4ff765fce74c97f24, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:nob-hill, de2112150cda778b5c3ac274e777b879, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:cow-hollow, 1e97b564c928946c5a397acaabef1e94, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:russian-hill, cbc767947f37f149c3fb1d80136fe667, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:marina, cbed05eb0e7a04fff72274a410721d65, 
+
+Current field: field_62e99eb4410d7, &propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:presidio, f2bc0961e85dfe6bce72a41362c00018, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:outer-parkside, d1db1b2e1737332ce8aff251450dbf1f, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:parkside, e26f4f96ba6dfb979e6eecb6911c34fe, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:inner-parkside, 600167f914c398013cd4f9776ab5acaf, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:pine-lake-park, 4f3f3b863d7a2eacfd28b68947642d11, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:merced-manor, 364751fdef3d22cf84097b8c2e2c7893, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:stonestown, 8ddb94335c0127a3814f310141abea5b, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:lakeside, d579da0e998015c80ba3b5e8e1e3f25c, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:balboa-terrace, 7c62e1e825a99721fc24f5e08622e154, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:st-francis-wood, 9c329926133863aff39fc0f5ff707e93, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:ingleside-terrace, 042e514b2f772338996ce58cd91cf14e, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:merced-heights, 8c12bf4f76f10d8ba87dfda8b93b73d3, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:lake-shore, 78f821619717dbca854fe1484da916fd, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:sherwood-forest, 2d32161b17c3ec0d643fb6ea42c953f7, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:ingleside-heights, e5b71c07b671a828fceaa5f557a4fd84, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:richmond-central-outer, d2ebadfe4b9dd48ee2f54dbb5a88a77c,$db1e746dee2b6d07c2471ba60000f857, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:sea-cliff, 152b6d65a3ea70b07b40daa4ffeb79b0, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:lake-street, 386fcf260a455271ea1d6e2709003ad5, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:richmond-inner, 797d07d905d51e24c9cebd90023a6bf9, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:golden-gate-heights, addbe69ad993c071bafd8410e4d39298, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:west-portal, f20b34f258d17f72bb66d6304205781e, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:forest-hills-extensions, c5a21993bb78b98ddfe9839381a73ff5, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:forest-hill, 58eac8532cc073b4656e111dec93bb82, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:forest-knolls, c42c3503b4073c0ef9f8ada97fa9cfa3, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:sunset-inner, 777a293a115918b78caab51ca659bf31, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:golden-gate-park, 88ad77f396753826aa6d96fcfd54f7dd,$c69e9cfbaa5c13c72e66a06888347bb7, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:cole-valley, 4c5e39591372f576fff2428c506892b3, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:midtown-terrace, 83d45a574fb8447549dfcbf1f73162a5, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:twin-peaks, 07e32b07f633c5544171df09bfe6e176, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:diamond-heights, 96d15f1062a98ce9ebc7fdd11fa4f77f, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:miraloma-park, 974b7a3e5bd6433385aa4ec1c6c5de2e, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:sunnyside, 5854a7bea1c28ef54e1ad17132bf02d9, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:westwood-park, eb19fb50183fcf50cd20efdd35e764b0, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:ingleside, dcddfc93dd4c2644fbda067289b37954, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:oceanview, 7bf09c65b12ca39d1cae671c338fee88, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:mission-central-outer, 46cc8f9742f92a53da9c32d9a50f081c, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:mission-terrace, 27d7e1f8dff986a399e0c624265b3f13, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:glen-park, c1855ca77f85ef9f21e5ab207adad483, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:noe-valley, 51aea0f9a4604f2c2f5fc6a3cbd24c97, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:mount-davidson-manor, 5766361a5895c8f55b6fceccf645928d, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:monterey-heights, b923b1c54151a85b4519795ed8a7573b, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:westwood-highlands, 82d037461b9e8c23159a476d1fe117c9, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:corona-heights, 993ab7aefbf6ead201515a4de74e4316, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:duboce-triangle, 098bc7564305b93dccb495f1080b33e3, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:ashbury-buena-vista, 68847480a3a3fa3bfcac72e75fb00959, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:nopa, 65f0d59433f6f44d22fc9b239d366d78, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:lone-mountain, fcedca80babe921e2142f5f818c4653e, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:jordan-park-laurel-heights, 227ad36920d9d8c32513ea952dd5a9ea, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:presidio-heights, a6087ad901b05fd96680fa66ba58fbbb, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:anza-vista, 5c142096d2824acd020d9d23c9ed7b15, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:clarendon-heights, ca1c97a1a267579623d09d97d3869cb8, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:castro-eureka-valley, 5465e768eba289e29968bc9a862023ba, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:alamo-square, 513677bd98d7e92c42d067529cecfae9, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:western-addition, 67226b68206c7bbe7ad15a151a8ca253, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:lower-pacific-heights, e19cd5f405a9bda13b81f13b00315afa, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:tenderloin, ab8078cbc1eb35bc57b2ebec32bc265a, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:downtown, 3fcd0fd755a568aaff6cab0d08afd206, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:hayes-valley, 43168cdb7462b4c0953d91dcc040f91e, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:mission-dolores, 78a74f4ea3f2d2d312bd75048798d3f2, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:mission-inner, 689f1992cccc14225e65145521d973c7, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:bernal-heights, 1b84669d78562747a5fd4c5e0a0c14c5, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:crocker-amazon, 707cae2aa656c5b5cdf8a1aedb6141c5, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:excelsior, bce3d3eb6485f84750871d98430e84f7, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:portola, f0baaa11e8dc883197d9ab67e16af6e0, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:visitacion-valley, 29b0de9e6ed31ba6d7d4ea58294de0fc, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:bayview-heights, 016261d0981f8c6038c573f73139d84d, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:little-hollywood, 781cca28a1aac3d8ea326357e39c4cec, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:candlestick-point, c76c64ed4bf28b634f4c8dc25704e838, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:silver-terrace, 0f28297d15c23cacb908d475de6458a4, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:bayview, 8f26f0d0c358c0bde6ff10ddc8acb806, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:hunters-point, eb002036d892b08e01b5581ab8c48da3, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:dogpatch, 833335b873fc2c16dd6c9204f65a9f60, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:soma, d012f8007897f37532f7de3103f94da6, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:potrero-hill, 18260bd37ef120f5d6280049dcdd987c, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:mission-bay, be51a2f797d30662f94381cb51b42094, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:yerba-buena, 44d2fd34565e25cc00b25cfd8d5c80c9, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:south-beach, 23531852cde1155f0e020d68e3b5bfe4, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:financial-district, 40372df140deabb14cd11c8f0624ce3d, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:north-beach, 8c957379b7f82065c3b24022b38cd44c, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:telegraph-hill, e7cca730c9f3e2305d0fd8cb33116fce, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:north-waterfront, c0dd9c55f0564a9c1dc3f2fc671b3e7b, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:pacific-heights, 79bf959cc58423a4ff765fce74c97f24, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:nob-hill, de2112150cda778b5c3ac274e777b879, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:cow-hollow, 1e97b564c928946c5a397acaabef1e94, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:russian-hill, cbc767947f37f149c3fb1d80136fe667, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:marina, cbed05eb0e7a04fff72274a410721d65, 
+
+Current field: field_62e84063b6f36, &propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt
+
+ Current Neighborhood:presidio, f2bc0961e85dfe6bce72a41362c00018, 
+
