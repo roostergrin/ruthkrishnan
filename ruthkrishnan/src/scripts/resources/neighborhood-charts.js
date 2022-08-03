@@ -4,20 +4,6 @@ export const neighborhoodCharts = () => {
   // const condos = JSON.parse()
   const condo = JSON.parse(data[0].dataset.neighborhoodhjicondo)
   const single = JSON.parse(data[0].dataset.neighborhoodhjisingle)
-<<<<<<< HEAD
-  console.log('single:')
-  console.log(single.success)
-  console.log('condo:')
-  console.log(condo)
-  // console.log(data[0].dataset.neighborhoodhjisingle.replaceAll('\\', ''))
-  
-  // TODO: make labels programmatic based on timestamps
-  let labels = ["2020 Q4", "2021 Q1", "2021 Q2", "2021 Q3", "2021 Q4", "2022 Q1", "2022 Q2"]
-=======
-  // console.log('single:')
-  // console.log(single.result.grouping.groups)
-  // console.log('condo:')
-  // console.log(condo.result.grouping.groups)
 
   function timeConverter(UNIX_timestamp){
     var a = new Date(UNIX_timestamp * 1000);
@@ -120,7 +106,6 @@ export const neighborhoodCharts = () => {
         }
     }
 });
->>>>>>> 973dd5f (fixed yaxis)
 
   Chart.pluginService.register({
     beforeDraw: function (chart, easing) {

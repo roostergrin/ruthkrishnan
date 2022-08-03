@@ -1,13 +1,226 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/scripts/resources/neighborhood-charts.js":
 /*!******************************************************!*\
   !*** ./src/scripts/resources/neighborhood-charts.js ***!
   \******************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/src/scripts/resources/neighborhood-charts.js: Unexpected token (7:2)\n\n\u001b[0m \u001b[90m  5 |\u001b[39m   \u001b[36mconst\u001b[39m condo \u001b[33m=\u001b[39m \u001b[33mJSON\u001b[39m\u001b[33m.\u001b[39mparse(data[\u001b[35m0\u001b[39m]\u001b[33m.\u001b[39mdataset\u001b[33m.\u001b[39mneighborhoodhjicondo)\u001b[0m\n\u001b[0m \u001b[90m  6 |\u001b[39m   \u001b[36mconst\u001b[39m single \u001b[33m=\u001b[39m \u001b[33mJSON\u001b[39m\u001b[33m.\u001b[39mparse(data[\u001b[35m0\u001b[39m]\u001b[33m.\u001b[39mdataset\u001b[33m.\u001b[39mneighborhoodhjisingle)\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  8 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m'single:'\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m  9 |\u001b[39m   console\u001b[33m.\u001b[39mlog(single\u001b[33m.\u001b[39msuccess)\u001b[0m\n\u001b[0m \u001b[90m 10 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m'condo:'\u001b[39m)\u001b[0m\n    at Parser._raise (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:810:17)\n    at Parser.raiseWithData (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:803:17)\n    at Parser.raise (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:764:17)\n    at Parser.unexpected (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:9967:16)\n    at Parser.parseExprAtom (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:11373:20)\n    at Parser.parseExprSubscripts (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:10941:23)\n    at Parser.parseUpdate (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:10921:21)\n    at Parser.parseMaybeUnary (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:10899:23)\n    at Parser.parseExprOpBaseRightExpr (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:10842:34)\n    at Parser.parseExprOpRightExpr (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:10835:21)");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "neighborhoodCharts": () => (/* binding */ neighborhoodCharts)
+/* harmony export */ });
+var neighborhoodCharts = function neighborhoodCharts() {
+  var data = Array.from(document.querySelectorAll('.single-neighborhoods-content__data')); // const condos = JSON.parse()
+
+  var condo = JSON.parse(data[0].dataset.neighborhoodhjicondo);
+  var single = JSON.parse(data[0].dataset.neighborhoodhjisingle);
+
+  function timeConverter(UNIX_timestamp) {
+    var a = new Date(UNIX_timestamp * 1000);
+    var year = a.getFullYear();
+    var month = a.getMonth();
+    var quarter;
+
+    if (month === 11) {
+      quarter = "Q1";
+    } else if (month === 2) {
+      quarter = "Q2";
+    } else if (month === 5) {
+      quarter = "Q3";
+    } else {
+      quarter = "Q4";
+    }
+
+    var time = year + ' ' + quarter;
+    return time;
+  }
+
+  function getIntersection(listA, listB) {
+    var intersection = listA.filter(function (element) {
+      return listB.includes(element);
+    });
+    return intersection;
+  }
+
+  var singleLabels = [];
+  var singleAvg = [];
+  var singleMed = [];
+  var singleLow = [];
+  var singleHi = [];
+  var singleSq = [];
+  var singleList = [];
+  var singleData = single.result.grouping.groups;
+  singleData.forEach(function (item) {
+    //console.log("Single: ")
+    var quarter = timeConverter(item.value);
+    singleLabels.push(quarter); //console.log(quarter);
+    //console.log("Avg Sales",item.measurements.salePrice.average)
+
+    singleAvg.push(item.measurements.salePrice.average); //console.log("Med Sales",item.measurements.salePrice.median)
+
+    singleMed.push(item.measurements.salePrice.median); //console.log("Low Sales",item.measurements.salePrice.low)
+
+    singleLow.push(item.measurements.salePrice.low); //console.log("High Sales",item.measurements.salePrice.high)
+
+    singleHi.push(item.measurements.salePrice.high); //console.log("Sq Sales",item.measurements.listPricePerSqFt.median)
+
+    singleSq.push(item.measurements.listPricePerSqFt.median); //console.log("List 2 Sales",item.measurements.salePrice.average)
+
+    var listsale = parseInt(item.measurements.listPrice.average) / parseInt(item.measurements.salePrice.average);
+    singleList.push(listsale.toFixed(3));
+  });
+  var condoLabels = [];
+  var condoAvg = [];
+  var condoMed = [];
+  var condoLow = [];
+  var condoHi = [];
+  var condoSq = [];
+  var condoList = [];
+  var condoData = condo.result.grouping.groups;
+  condoData.forEach(function (item) {
+    //console.log("Condos: ")
+    var quarter = timeConverter(item.value);
+    condoLabels.push(quarter); //console.log(quarter);
+    //console.log("Avg Sales",item.measurements.salePrice.average)
+
+    condoAvg.push(item.measurements.salePrice.average); //console.log("Med Sales",item.measurements.salePrice.median)
+
+    condoMed.push(item.measurements.salePrice.median); //console.log("Low Sales",item.measurements.salePrice.low)
+
+    condoLow.push(item.measurements.salePrice.low); //console.log("High Sales",item.measurements.salePrice.high)
+
+    condoHi.push(item.measurements.salePrice.high); //console.log("Sq Sales",item.measurements.listPricePerSqFt.median)
+
+    condoSq.push(item.measurements.listPricePerSqFt.median); //console.log("List 2 Sales",item.measurements.salePrice.average)
+
+    var listsale = parseInt(item.measurements.listPrice.average) / parseInt(item.measurements.salePrice.average);
+    condoList.push(listsale.toFixed(3));
+  });
+  var labels = getIntersection(singleLabels, condoLabels);
+  var _draw = Chart.controllers.line.prototype.draw;
+  Chart.controllers.line = Chart.controllers.line.extend({
+    draw: function draw() {
+      _draw.apply(this, arguments);
+
+      var ctx = this.chart.chart.ctx;
+      var _stroke = ctx.stroke;
+
+      ctx.stroke = function () {
+        ctx.save();
+        ctx.shadowColor = '#E56590';
+        ctx.shadowBlur = 10;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 4;
+
+        _stroke.apply(this, arguments);
+
+        ctx.restore();
+      };
+    }
+  });
+  Chart.pluginService.register({
+    beforeDraw: function beforeDraw(chart, easing) {
+      if (chart.config.options.chartArea && chart.config.options.chartArea.backgroundColor) {
+        var helpers = Chart.helpers;
+        var ctx = chart.chart.ctx;
+        var chartArea = chart.chartArea;
+        ctx.save();
+        ctx.fillStyle = chart.config.options.chartArea.backgroundColor;
+        ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
+        ctx.restore();
+      }
+    }
+  });
+  var config = {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: "Condominiums",
+        backgroundColor: "rgb(233,232,232)",
+        data: condoAvg
+      }, {
+        label: "Single family home",
+        backgroundColor: "rgb(35,35,35)",
+        data: singleAvg
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            padding: 15,
+            callback: function callback(value, index, values) {
+              if (value == 0) {
+                return undefined;
+              } else if (value <= 1) {
+                return value.toFixed(1);
+              }
+
+              return value;
+            },
+            precision: 0
+          },
+          gridLines: {
+            lineWidth: 2,
+            drawTicks: false,
+            drawBorder: false
+          }
+        }],
+        xAxes: [{
+          gridLines: {
+            display: false
+          }
+        }]
+      },
+      legend: {
+        display: false
+      },
+      chartArea: {
+        backgroundColor: 'white'
+      }
+    }
+  };
+  var ctx = document.getElementById("neighborhoodChart").getContext("2d");
+  var barChart = new Chart(ctx, config);
+  var btns = document.getElementsByClassName("single-neighborhoods-cart__button");
+  var title = document.getElementById("graphTitle");
+
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function (event) {
+      var value = event.target.value;
+      title.innerHTML = value;
+
+      if (value === "Average Sales Price") {
+        barChart.data.datasets[0].data = condoAvg;
+        barChart.data.datasets[1].data = singleAvg;
+      } else if (value === "Median Sales Price") {
+        barChart.data.datasets[0].data = condoMed;
+        barChart.data.datasets[1].data = singleMed;
+      } else if (value === "Lowest Sales Price") {
+        barChart.data.datasets[0].data = condoLow;
+        barChart.data.datasets[1].data = singleLow;
+      } else if (value === "Highest Sales Price") {
+        barChart.data.datasets[0].data = condoHi;
+        barChart.data.datasets[1].data = singleHi;
+      } else if (value === "List Price per Sq Foot") {
+        barChart.data.datasets[0].data = condoSq;
+        barChart.data.datasets[1].data = singleSq;
+      } else {
+        barChart.data.datasets[0].data = condoList;
+        barChart.data.datasets[1].data = singleList;
+      } //console.log(barChart.data.datasets[0])
+      //console.log(barChart.data.datasets[1])
+
+
+      barChart.update();
+    });
+  }
+};
 
 /***/ }),
 
@@ -17,7 +230,6 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
   \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "photoGallery": () => (/* binding */ photoGallery)
@@ -144,9 +356,8 @@ var photoGallery = function photoGallery() {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-"use strict";
 /*!***************************************************!*\
   !*** ./src/scripts/pages/single-neighborhoods.js ***!
   \***************************************************/
