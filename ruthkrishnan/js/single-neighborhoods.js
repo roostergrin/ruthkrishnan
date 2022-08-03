@@ -18,20 +18,79 @@ var neighborhoodCharts = function neighborhoodCharts() {
   var condo = JSON.parse(data[0].dataset.neighborhoodhjicondo);
   var single = JSON.parse(data[0].dataset.neighborhoodhjisingle);
   console.log('single:');
-  console.log(single);
+  console.log(single.success);
   console.log('condo:');
-  console.log(condo);
-  var ctx = document.getElementById("myChart");
-  var lineChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-      datasets: [{
-        label: "2015",
-        data: [10, 8, 6, 5, 12, 8, 16, 17, 6, 7, 6, 10]
-      }]
+  console.log(data[0].dataset.neighborhoodhjisingle.replaceAll('\\', ''));
+  var labels = ["2020 Q4", "2021 Q1", "2021 Q2", "2021 Q3", "2021 Q4", "2022 Q1", "2022 Q2"];
+  Chart.pluginService.register({
+    beforeDraw: function beforeDraw(chart, easing) {
+      if (chart.config.options.chartArea && chart.config.options.chartArea.backgroundColor) {
+        var helpers = Chart.helpers;
+        var ctx = chart.chart.ctx;
+        var chartArea = chart.chartArea;
+        ctx.save();
+        ctx.fillStyle = chart.config.options.chartArea.backgroundColor;
+        ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
+        ctx.restore();
+      }
     }
   });
+  var config = {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: "Condominiums",
+        backgroundColor: "rgb(233,232,232)",
+        data: [3, 7, 4, 3, 7, 4, 1]
+      }, {
+        label: "Single family home",
+        backgroundColor: "rgb(35,35,35)",
+        data: [4, 3, 3, 3, 7, 4, 2]
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            max: 8,
+            padding: 15,
+            callback: function callback(value, index, values) {
+              return value === 0 ? undefined : value;
+            }
+          },
+          gridLines: {
+            lineWidth: 2,
+            drawTicks: false,
+            drawBorder: false
+          }
+        }],
+        xAxes: [{
+          gridLines: {
+            display: false
+          }
+        }]
+      },
+      legend: {
+        display: false
+      },
+      chartArea: {
+        backgroundColor: 'white'
+      }
+    }
+  };
+  var ctx = document.getElementById("neighborhoodChart").getContext("2d");
+  new Chart(ctx, config);
+  var btns = document.getElementsByClassName("single-neighborhoods-cart__button");
+  var title = document.getElementById("graphTitle");
+
+  for (var i = 0; i < btns.length; i++) {
+    console.log(btns[i].value);
+    btns[i].addEventListener("click", function (event) {
+      title.innerHTML = event.target.value; // btns[i].classList.add('active');
+    });
+  }
 };
 
 /***/ }),

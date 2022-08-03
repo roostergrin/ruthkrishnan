@@ -10,7 +10,7 @@ get_header(); ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
 <div class="single-neighborhood">
-	
+
 	<?php
 if ( have_posts() ) :
 	while ( have_posts() ) : the_post(); ?>
@@ -26,7 +26,6 @@ if ( have_posts() ) :
 					<h2 class="single-neighborhoods-content__title"><?php echo the_title(); ?></h2>
 					<div class="single-neighborhoods-content__text"><?php echo get_field('description'); ?></div>
 					<div class="single-neighborhoods-content__data" data-neighborhoodHJISingle='<?php echo json_encode(get_field('field_62e6f47df35d1')); ?>'data-neighborhoodHJICondo='<?php echo json_encode(get_field('field_62e82053acca6')); ?>'></div>
-					<canvas id="myChart"></canvas>
 					<div class="single-neighborhoods-content__icons">
 						<?php if ( have_rows('single_neighborhoods_icons') ) :
 							while ( have_rows('single_neighborhoods_icons') ) : the_row();
@@ -38,8 +37,8 @@ if ( have_posts() ) :
 									<?php get_template_part('icons/' . $icon, null, array( 'class' => 'single-neighborhoods-content__icon')); ?>
 									<div class="single-neighborhoods-content__icon-text"><?php echo $text; ?></div>
 								</div>
-							
-							<?php endwhile; 
+
+							<?php endwhile;
 						endif; ?>
 					</div>
 				</div>
@@ -65,6 +64,54 @@ if ( have_posts() ) :
 			</div>
 		<?php endif; ?>
 		<!-- END Video Section -->
+
+		<!-- Graph Section -->
+		<div class="single-neighborhoods-cart__button-container">
+			<button class="single-neighborhoods-cart__button" value="Average Sales Price">Average Sales Price</button>
+			<button class="single-neighborhoods-cart__button" value="Median Sales Price">Median Sales Price</button>
+			<button class="single-neighborhoods-cart__button" value="Lowest Sales Price">Lowest Sales Price</button>
+			<button class="single-neighborhoods-cart__button" value="Highest Sales Price">Highest Sales Price</button>
+			<button class="single-neighborhoods-cart__button" value="List Price per Sq Foot">List Price per Sq Foot</button>
+			<button class="single-neighborhoods-cart__button" value="List Price to Sales Price">List price to sales price</button>
+		</div>
+
+		<div class="single-neighborhoods-cart__container">
+			<div class="single-neighborhoods-cart__graph">
+				<div class="single-neighborhoods-cart__info">
+					<div class="single-neighborhoods-cart__title">
+						<h3 id="graphTitle">Average Sales Price</h3>
+						<hr/>
+					</div>
+					<div class="single-neighborhoods-cart__details">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices sed fringilla pellentesque malesuada condimentum nulla nulla. Vitae, ultrices scelerisque suspendisse leo</p>
+						<hr/>
+					</div>
+					<div class="single-neighborhoods-cart__key">
+						<p>Key</p>
+
+						<div class="key-pairs">
+							<svg height="10" width="10">
+								<circle cx="5" cy="5" r="4" fill="#232323" />
+							</svg>
+							<p>Single family home</p>
+						</div>
+
+						<div class="key-pairs">
+							<svg height="10" width="10">
+								<circle cx="5" cy="5" r="3.5" stroke="black" stroke-width="0.5" fill="#e9e8e8" />
+							</svg>
+							<p>Condominiums</p>
+						</div>
+
+						<hr/>
+					</div>
+				</div>
+				<div class="single-neighborhoods-cart__graph-container">
+					<canvas id="neighborhoodChart"></canvas>
+				</div>
+			</div>
+		</div>
+		<!-- END Graph Section -->
 
 		<!-- Photo Gallery Template Part -->
 		<?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
