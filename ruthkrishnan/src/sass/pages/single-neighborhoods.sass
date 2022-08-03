@@ -22,7 +22,7 @@
     @include phone-lg
       padding: 0 1rem
     max-width: $width
-  
+
   &__column
     @include col(8)
     @include col--offset(2)
@@ -33,7 +33,7 @@
     @include tablet
       padding: 0
     padding: 0
-  
+
   &__title
     @extend %h3
     margin-bottom: 1rem
@@ -57,11 +57,11 @@
 
   &__icon
     margin-bottom: .5rem
-  
+
   &__icon-text
     @extend %h4
-    text-transform: uppercase    
-    
+    text-transform: uppercase
+
 /* -----------------------
     Talks Intro Styles
    ----------------------- */
@@ -112,7 +112,7 @@
     &--hidden
       opacity: 0
       pointer-events: none
-  
+
   &__video
     @extend %absolute
     transition: opacity .5s ease
@@ -147,10 +147,104 @@
     @include desktop
       margin-top: 2.5rem
     margin-top: 2rem
-    
+
+/* -----------------------
+    Single Neighborhood Cart Styles
+   ----------------------- */
+.single-neighborhoods-cart
+  @extend %section-padding
+
+  &__container
+    @include container--color
+    @include desktop
+      padding: 5rem 0 3rem
+    @include tablet
+      padding: 3rem 0 2rem
+    background: $c2
+    padding: 4rem 0 2rem
+
+  &__info
+    display: flex
+    flex-direction:column
+    flex:1
+
+  &__title
+    @include col (4)
+    @extend %title-margin
+    margin-top: auto
+
+  &__details
+    @include col (6)
+    @extend %title-margin
+    margin-top: auto
+
+    p
+      font-weight: 300
+      font-size: 0.95rem
+
+  &__key
+    @include col (2)
+    @extend %title-margin
+    margin-top: auto
+
+    p
+      font-size: 0.75rem
+
+  &__graph
+    @include col (10)
+    @include col--offset (1)
+    position: relative
+
+
+  &__graph-container
+    padding: 0 0 2rem 5rem
+
+  &__button
+    @include hover-supported
+      background: $c6
+      color: $white
+      border: none
+    display: inline-block
+    position: relative
+    background: $white
+    color: $c6
+    border-style: solid
+    border-color: $c3
+    transition: background .2s ease, color .2s ease
+
+    cursor: pointer
+    padding: rem-calc(14) 1rem rem-calc(12)
+
+    &:active, &:focus
+      border: none
+      color: $white
+      background: $c3
+
+  &__button-container
+    @include container--color
+    @include desktop
+      padding: 5rem 0 3rem
+    @include tablet
+      padding: 3rem 0 2rem
+    padding: 4rem 0 2rem
+    display: flex
+    justify-content: space-between
+
 /* ------------------------------
     Single Neighborhoods CTA Styles
    ------------------------------ */
 
 .single-neighborhoods-cta
   @extend %section-padding-bottom
+
+hr
+  border: none
+  height: 1px
+  color: #333
+  background-color: #333
+
+.key-pairs
+  display: flex
+
+  svg
+    margin: auto 1px
