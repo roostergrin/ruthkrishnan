@@ -568,7 +568,7 @@
   }
 }
 .single-neighborhoods-cart__graph-container {
-  padding: 0 0 2rem 5rem;
+  padding-bottom: 2rem;
 }
 .single-neighborhoods-cart__button {
   display: inline-block;

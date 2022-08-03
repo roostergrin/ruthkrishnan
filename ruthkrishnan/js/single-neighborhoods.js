@@ -1,100 +1,13 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/scripts/resources/neighborhood-charts.js":
 /*!******************************************************!*\
   !*** ./src/scripts/resources/neighborhood-charts.js ***!
   \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "neighborhoodCharts": () => (/* binding */ neighborhoodCharts)
-/* harmony export */ });
-var neighborhoodCharts = function neighborhoodCharts() {
-  var data = Array.from(document.querySelectorAll('.single-neighborhoods-content__data')); // const condos = JSON.parse()
-
-  var condo = JSON.parse(data[0].dataset.neighborhoodhjicondo);
-  var single = JSON.parse(data[0].dataset.neighborhoodhjisingle);
-  console.log('single:');
-  console.log(single.success);
-  console.log('condo:');
-  console.log(condo); 
-  // console.log(data[0].dataset.neighborhoodhjisingle.replaceAll('\\', ''))
-  // TODO: make labels programmatic based on timestamps
-
-  var labels = ["2020 Q4", "2021 Q1", "2021 Q2", "2021 Q3", "2021 Q4", "2022 Q1", "2022 Q2"];
-  Chart.pluginService.register({
-    beforeDraw: function beforeDraw(chart, easing) {
-      if (chart.config.options.chartArea && chart.config.options.chartArea.backgroundColor) {
-        var helpers = Chart.helpers;
-        var ctx = chart.chart.ctx;
-        var chartArea = chart.chartArea;
-        ctx.save();
-        ctx.fillStyle = chart.config.options.chartArea.backgroundColor;
-        ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
-        ctx.restore();
-      }
-    }
-  });
-  var config = {
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: "Condominiums",
-        backgroundColor: "rgb(233,232,232)",
-        data: [3, 7, 4, 3, 7, 4, 1]
-      }, {
-        label: "Single family home",
-        backgroundColor: "rgb(35,35,35)",
-        data: [4, 3, 3, 3, 7, 4, 2]
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true,
-            max: 8,
-            padding: 15,
-            callback: function callback(value, index, values) {
-              return value === 0 ? undefined : value;
-            }
-          },
-          gridLines: {
-            lineWidth: 2,
-            drawTicks: false,
-            drawBorder: false
-          }
-        }],
-        xAxes: [{
-          gridLines: {
-            display: false
-          }
-        }]
-      },
-      legend: {
-        display: false
-      },
-      chartArea: {
-        backgroundColor: 'white'
-      }
-    }
-  };
-  var ctx = document.getElementById("neighborhoodChart").getContext("2d");
-  new Chart(ctx, config);
-  var btns = document.getElementsByClassName("single-neighborhoods-cart__button");
-  var title = document.getElementById("graphTitle");
-
-  for (var i = 0; i < btns.length; i++) {
-    console.log(btns[i].value);
-    btns[i].addEventListener("click", function (event) {
-      title.innerHTML = event.target.value; // btns[i].classList.add('active');
-    });
-  }
-};
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/src/scripts/resources/neighborhood-charts.js: Unexpected token (7:2)\n\n\u001b[0m \u001b[90m  5 |\u001b[39m   \u001b[36mconst\u001b[39m condo \u001b[33m=\u001b[39m \u001b[33mJSON\u001b[39m\u001b[33m.\u001b[39mparse(data[\u001b[35m0\u001b[39m]\u001b[33m.\u001b[39mdataset\u001b[33m.\u001b[39mneighborhoodhjicondo)\u001b[0m\n\u001b[0m \u001b[90m  6 |\u001b[39m   \u001b[36mconst\u001b[39m single \u001b[33m=\u001b[39m \u001b[33mJSON\u001b[39m\u001b[33m.\u001b[39mparse(data[\u001b[35m0\u001b[39m]\u001b[33m.\u001b[39mdataset\u001b[33m.\u001b[39mneighborhoodhjisingle)\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  8 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m'single:'\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m  9 |\u001b[39m   console\u001b[33m.\u001b[39mlog(single\u001b[33m.\u001b[39msuccess)\u001b[0m\n\u001b[0m \u001b[90m 10 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m'condo:'\u001b[39m)\u001b[0m\n    at Parser._raise (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:810:17)\n    at Parser.raiseWithData (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:803:17)\n    at Parser.raise (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:764:17)\n    at Parser.unexpected (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:9967:16)\n    at Parser.parseExprAtom (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:11373:20)\n    at Parser.parseExprSubscripts (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:10941:23)\n    at Parser.parseUpdate (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:10921:21)\n    at Parser.parseMaybeUnary (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:10899:23)\n    at Parser.parseExprOpBaseRightExpr (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:10842:34)\n    at Parser.parseExprOpRightExpr (/Users/priscillahamiter/Documents/Ruth Krishnan/rk_local/wp-content/themes/ruthkrishnan/node_modules/@babel/parser/lib/index.js:10835:21)");
 
 /***/ }),
 
@@ -104,6 +17,7 @@ var neighborhoodCharts = function neighborhoodCharts() {
   \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "photoGallery": () => (/* binding */ photoGallery)
@@ -230,8 +144,9 @@ var photoGallery = function photoGallery() {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 /*!***************************************************!*\
   !*** ./src/scripts/pages/single-neighborhoods.js ***!
   \***************************************************/

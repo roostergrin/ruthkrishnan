@@ -36,6 +36,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       category: el.dataset.category
     };
   });
+  console.log(allSlides);
   var slidesArr = allSlides.filter(function (slide) {
     return slide.category === "active";
   });
@@ -168,6 +169,8 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
       if (targetEl.HJICondoMonthly) {
         if (targetEl.HJICondoMonthly.result.measurements) {
+          console.log(targetEl.HJISingleMonthly.result);
+          console.log(targetEl.HJICondoMonthly.result);
           mapContent += "<div class='map-neighborhoods__tooltip-info'>House Median Price: ".concat(USDFormatterNoDec.format(targetEl.HJISingleMonthly.result.measurements.salePrice.median), "<br> Median $/SqFt: ").concat(USDFormatterDec.format(targetEl.HJISingleMonthly.result.measurements.listPricePerSqFt.median), "/sf</div>");
           mapContent += "<div class='map-neighborhoods__tooltip-info'>2BR/2BA Condo Median Price: ".concat(USDFormatterNoDec.format(targetEl.HJICondoMonthly.result.measurements.salePrice.median), "<br> Median $/SqFt: ").concat(USDFormatterDec.format(targetEl.HJICondoMonthly.result.measurements.listPricePerSqFt.median), "/sf</div>");
         }
