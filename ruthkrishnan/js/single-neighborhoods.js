@@ -16,10 +16,7 @@ var neighborhoodCharts = function neighborhoodCharts() {
   var data = Array.from(document.querySelectorAll('.single-neighborhoods-content__data')); // const condos = JSON.parse()
 
   var condo = JSON.parse(data[0].dataset.neighborhoodhjicondo);
-  var single = JSON.parse(data[0].dataset.neighborhoodhjisingle); // console.log('single:')
-  // console.log(single.result.grouping.groups)
-  // console.log('condo:')
-  // console.log(condo.result.grouping.groups)
+  var single = JSON.parse(data[0].dataset.neighborhoodhjisingle);
 
   function timeConverter(UNIX_timestamp) {
     var a = new Date(UNIX_timestamp * 1000);

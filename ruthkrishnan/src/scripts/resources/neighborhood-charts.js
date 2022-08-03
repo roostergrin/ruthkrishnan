@@ -4,10 +4,6 @@ export const neighborhoodCharts = () => {
   // const condos = JSON.parse()
   const condo = JSON.parse(data[0].dataset.neighborhoodhjicondo)
   const single = JSON.parse(data[0].dataset.neighborhoodhjisingle)
-  // console.log('single:')
-  // console.log(single.result.grouping.groups)
-  // console.log('condo:')
-  // console.log(condo.result.grouping.groups)
 
   function timeConverter(UNIX_timestamp){
     var a = new Date(UNIX_timestamp * 1000);
