@@ -82,9 +82,14 @@ var neighborhoodCharts = function neighborhoodCharts() {
   };
   var ctx = document.getElementById("neighborhoodChart").getContext("2d");
   new Chart(ctx, config);
+  var btns = document.getElementsByClassName("single-neighborhoods-cart__button");
+  var title = document.getElementById("graphTitle");
 
-  function change_text(value) {
-    document.getElementById("graphTitle").innerHTML = value;
+  for (var i = 0; i < btns.length; i++) {
+    console.log(btns[i].value);
+    btns[i].addEventListener("click", function (event) {
+      title.innerHTML = event.target.value; // btns[i].classList.add('active');
+    });
   }
 };
 

@@ -67,12 +67,12 @@ if ( have_posts() ) :
 
 		<!-- Graph Section -->
 		<div class="single-neighborhoods-cart__button-container">
-			<button class="single-neighborhoods-cart__button" onclick="change_text('Average Sales Price')">Average Sales Price</button>
+			<button class="single-neighborhoods-cart__button" value="Average Sales Price">Average Sales Price</button>
 			<button class="single-neighborhoods-cart__button" value="Median Sales Price">Median Sales Price</button>
 			<button class="single-neighborhoods-cart__button" value="Lowest Sales Price">Lowest Sales Price</button>
 			<button class="single-neighborhoods-cart__button" value="Highest Sales Price">Highest Sales Price</button>
 			<button class="single-neighborhoods-cart__button" value="List Price per Sq Foot">List Price per Sq Foot</button>
-			<button class="single-neighborhoods-cart__button" value="List price to sales price">List price to sales price</button>
+			<button class="single-neighborhoods-cart__button" value="List Price to Sales Price">List price to sales price</button>
 		</div>
 
 		<div class="single-neighborhoods-cart__container">

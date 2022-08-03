@@ -75,7 +75,14 @@ export const neighborhoodCharts = () => {
   let ctx = document.getElementById("neighborhoodChart").getContext("2d");
 	new Chart(ctx, config);
 
-  function change_text(value){
-    document.getElementById("graphTitle").innerHTML = value;
-}
+  var btns = document.getElementsByClassName("single-neighborhoods-cart__button");
+  var title = document.getElementById("graphTitle")
+
+  for (var i = 0; i < btns.length; i++) {
+    console.log(btns[i].value)
+    btns[i].addEventListener("click", function (event) {
+      title.innerHTML = event.target.value
+      // btns[i].classList.add('active');
+    });
+  }
 }
