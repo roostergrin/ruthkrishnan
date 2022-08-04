@@ -40,7 +40,7 @@
   transform: translate(-50%, -50%);
 }
 
-.single-neighborhoods-video__video, .single-neighborhoods-video__thumbnail {
+.single-neighborhoods-video__video, .single-neighborhoods-video__thumbnail, .neighborhood-data-table__background {
   position: absolute;
   top: 0;
   left: 0;
@@ -138,14 +138,14 @@
   }
 }
 
-.single-neighborhoods-content__icon-text {
+.single-neighborhoods-content__icon-text, td[data-column-id=dataLabel] {
   line-height: 1.3333;
   letter-spacing: 0.09375rem;
   font-size: 1.125rem;
   font-weight: 500;
 }
 @media screen and (min-width: 1750px) {
-  .single-neighborhoods-content__icon-text {
+  .single-neighborhoods-content__icon-text, td[data-column-id=dataLabel] {
     font-size: 1.25rem;
   }
 }
@@ -225,6 +225,125 @@
     background: #963636;
     color: #fff;
   }
+}
+
+/* -------------------------------------------
+ *  Neighborhood Data Table Template Styles
+ * ------------------------------------------- */
+.neighborhood-data-table {
+  position: relative;
+  height: 100%;
+  padding: 2rem 0;
+}
+.neighborhood-data-table__container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 calc((64px / 2) - 15px);
+  width: 100%;
+  max-width: calc(1146px + 64px);
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (min-width: 1750px) {
+  .neighborhood-data-table__container {
+    max-width: 1528px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .neighborhood-data-table__container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .neighborhood-data-table__container {
+    padding: 0 1rem;
+  }
+}
+.neighborhood-data-table__title {
+  padding-top: 2rem;
+  text-align: center;
+}
+.neighborhood-data-table__subtitle {
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
+}
+.neighborhood-data-table__wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background-color: #232323;
+  padding: 2rem 1rem 3rem;
+}
+.neighborhood-data-table__wrapper::-webkit-scrollbar-track {
+  background-color: black;
+}
+.neighborhood-data-table__background {
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  max-width: calc(1146px + 64px);
+  height: 33.6%;
+}
+@media screen and (min-width: 1750px) {
+  .neighborhood-data-table__background {
+    max-width: calc(1528px + 30px);
+  }
+}
+@media screen and (max-width: 600px) {
+  .neighborhood-data-table__background {
+    background: #F4F0F0;
+  }
+}
+.neighborhood-data-table__background img {
+  height: 100%;
+  width: 100%;
+}
+
+.gridjs-table {
+  color: #F4F0F0;
+  border-collapse: collapse;
+  padding: 0 calc(30px / 2);
+  width: calc((10 / 12) * 100%);
+  margin-left: calc((1 / 12) * 100%);
+}
+@media screen and (max-width: 768px) {
+  .gridjs-table {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .gridjs-table {
+    margin-left: 0;
+  }
+}
+.gridjs-th-content {
+  text-align: left;
+}
+th, td {
+  border-bottom: 1px solid #F4F0F0;
+  backgorund-color: red;
+  padding: 1rem 1rem 0.75rem;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+tr:last-child > td {
+  border-bottom: none;
+}
+
+th:last-child,
+td:last-child {
+  font-weight: bold;
+}
+
+td[data-column-id=dataLabel] {
+  text-transform: uppercase;
+}
+
+th[data-column-id=dataLabel] {
+  opacity: 0;
 }
 
 /* ------------------------------

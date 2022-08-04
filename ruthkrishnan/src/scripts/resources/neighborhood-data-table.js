@@ -16,7 +16,7 @@ export const dataTable = () => {
   let salePriceHigh = ["Highest Sale Price"]
   let daysOnMarketAverage = ["Days on Market"]
   let listPricePerSqFtAverage = ["List Price per sq ft"]
-  let listPriceToSalePriceAverage = ["List Price to Sale Price"]
+  let saleToListPrice = ["Sale to List Price Percent"]
   
   let data = [
     salePriceAvg,
@@ -25,23 +25,42 @@ export const dataTable = () => {
     salePriceHigh,
     daysOnMarketAverage,
     listPricePerSqFtAverage,
-    listPriceToSalePriceAverage,
+    saleToListPrice,
   ]
 
+
+  var USDFormatterNoDec = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+
+    // These options are needed to round to whole numbers if that's what you want.
+    minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+  });
+
+  var USDFormatterDec = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+
+    // These options are needed to round to whole numbers if that's what you want.
+    // minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    // maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+  });
+
   single.result.grouping.groups.forEach(year => {
-    salePriceAvg.push(year.measurements.salePrice.average)
-    salePriceMedian.push(year.measurements.salePrice.median)
-    salePriceLow.push(year.measurements.salePrice.low)
-    salePriceHigh.push(year.measurements.salePrice.high)
+    salePriceAvg.push(USDFormatterNoDec.format(year.measurements.salePrice.average))
+    salePriceMedian.push(USDFormatterNoDec.format(year.measurements.salePrice.median))
+    salePriceLow.push(USDFormatterNoDec.format(year.measurements.salePrice.low))
+    salePriceHigh.push(USDFormatterNoDec.format(year.measurements.salePrice.high))
     daysOnMarketAverage.push(year.measurements.daysOnMarket.average)
-    listPricePerSqFtAverage.push(year.measurements.listPricePerSqFt.average)
-    listPriceToSalePriceAverage.push(year.measurements.listPrice.average/year.measurements.salePrice.average)
+    listPricePerSqFtAverage.push(USDFormatterDec.format(year.measurements.listPricePerSqFt.median)+ '/sq.ft')
+    saleToListPrice.push(((year.measurements.salePrice.average/year.measurements.listPrice.average)*100).toFixed(2) + "%")
   }
   )
 
   console.log(data)
   new gridjs.Grid({
-    columns: ["","2019", "2020", "2021", "2022"],
+    columns: ["dataLabel","2019", "2020", "2021", "2022"],
     data: data
   }).render(tableElement);
 };

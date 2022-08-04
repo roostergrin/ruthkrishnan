@@ -1,0 +1,75 @@
+/* -------------------------------------------
+    Neighborhood Data Table Template Styles
+   ------------------------------------------- */
+
+.neighborhood-data-table
+  position: relative
+  height:100%
+  padding: 2rem 0 
+  &__container
+    @include container
+    flex-direction: column
+    align-items: center
+  &__title 
+    padding-top: 2rem
+    text-align: center
+  &__subtitle
+    padding-top: 0.5rem
+    padding-bottom: 2rem
+  &__wrapper
+    width: 100%
+    overflow-x: auto
+    background-color: $c1
+    padding: 2rem 1rem 3rem
+    &::-webkit-scrollbar-track 
+      background-color: black
+ 
+    // padding-top: 2rem
+    // padding-bottom: 3rem
+  &__background
+    @extend %absolute
+    @include desktop
+      max-width: calc(#{$max-width} + #{$gutter})
+    @include nexus
+      background: $c2
+    left: 50%
+    transform: translateX(-50%)
+    z-index: -1
+    max-width: calc(#{$width} + #{$outside-gutter})
+    height: 33.6%
+    img
+      height: 100%
+      width: 100%
+
+.gridjs
+  &-wrapper
+  &-table
+    color: $c2
+    border-collapse: collapse
+    @include col(10)
+    @include col--offset(1)
+  &-th-content
+    text-align: left
+  &-tbody
+
+th,td
+  border-bottom: 1px solid $c2
+  backgorund-color: red
+  padding: 1rem 1rem 0.75rem
+  font-weight: normal
+  white-space: nowrap
+
+tr:last-child>td
+  border-bottom: none
+th:last-child,
+td:last-child
+  font-weight: bold
+
+td[data-column-id="dataLabel"]
+  @extend %h4
+  text-transform: uppercase
+th[data-column-id="dataLabel"]
+  opacity: 0
+// th:last-child
+//   background-color: red !important
+    
