@@ -224,6 +224,53 @@ var neighborhoodCharts = function neighborhoodCharts() {
 
 /***/ }),
 
+/***/ "./src/scripts/resources/neighborhood-data-table.js":
+/*!**********************************************************!*\
+  !*** ./src/scripts/resources/neighborhood-data-table.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "dataTable": () => (/* binding */ dataTable)
+/* harmony export */ });
+var dataTable = function dataTable() {
+  var tableElement = document.getElementById("wrapper");
+  var single = JSON.parse(tableElement.dataset.hjisingleyearly);
+  console.log("hji single yearly:");
+  console.log(single.result.grouping.groups); // TODO: make a JSON with the content from single
+
+  var year = []; // single.result.grouping.groups.forEach((year) => {
+  //   year.push(year.measurements.salePrice.average)
+  // });
+  //
+
+  var salePriceAvg = ["Average Sale Price"];
+  var salePriceMedian = ["Median Sale Price"];
+  var salePriceLow = ["Lowest Sale Price"];
+  var salePriceHigh = ["Highest Sale Price"];
+  var daysOnMarketAverage = ["Days on Market"];
+  var listPricePerSqFtAverage = ["List Price per sq ft"];
+  var listPriceToSalePriceAverage = ["List Price to Sale Price"];
+  var data = [salePriceAvg, salePriceMedian, salePriceLow, salePriceHigh, daysOnMarketAverage, listPricePerSqFtAverage, listPriceToSalePriceAverage];
+  single.result.grouping.groups.forEach(function (year) {
+    salePriceAvg.push(year.measurements.salePrice.average);
+    salePriceMedian.push(year.measurements.salePrice.median);
+    salePriceLow.push(year.measurements.salePrice.low);
+    salePriceHigh.push(year.measurements.salePrice.high);
+    daysOnMarketAverage.push(year.measurements.daysOnMarket.average);
+    listPricePerSqFtAverage.push(year.measurements.listPricePerSqFt.average);
+    listPriceToSalePriceAverage.push(year.measurements.listPrice.average / year.measurements.salePrice.average);
+  });
+  console.log(data);
+  new gridjs.Grid({
+    columns: ["", "2019", "2020", "2021", "2022"],
+    data: data
+  }).render(tableElement);
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/photo-gallery.js":
 /*!************************************************!*\
   !*** ./src/scripts/resources/photo-gallery.js ***!
@@ -235,6 +282,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "photoGallery": () => (/* binding */ photoGallery)
 /* harmony export */ });
 var photoGallery = function photoGallery() {
+  new gridjs.Grid({
+    columns: ["Name", "Email", "Phone Number"],
+    data: [["John", "john@example.com", "(353) 01 222 3333"], ["Mark", "mark@gmail.com", "(01) 22 888 4444"], ["Eoin", "eoin@gmail.com", "0097 22 654 00033"], ["Sarah", "sarahcdd@gmail.com", "+322 876 1233"], ["Afshin", "afshin@mail.com", "(353) 22 87 8356"]]
+  }).render(document.getElementById("wrapper"));
   var currSlide = 0,
       paginationContent;
   var slider = document.querySelector('.photo-gallery__slider'),
@@ -362,15 +413,20 @@ var __webpack_exports__ = {};
   !*** ./src/scripts/pages/single-neighborhoods.js ***!
   \***************************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _resources_photo_gallery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/photo-gallery */ "./src/scripts/resources/photo-gallery.js");
-/* harmony import */ var _resources_neighborhood_charts_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/neighborhood-charts.js */ "./src/scripts/resources/neighborhood-charts.js");
+/* harmony import */ var _resources_neighborhood_data_table__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/neighborhood-data-table */ "./src/scripts/resources/neighborhood-data-table.js");
+/* harmony import */ var _resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/photo-gallery */ "./src/scripts/resources/photo-gallery.js");
+/* harmony import */ var _resources_neighborhood_charts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../resources/neighborhood-charts */ "./src/scripts/resources/neighborhood-charts.js");
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
   // Imported Scripts ------------------------
-  // Photo Gallery Functionality
-  (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_0__.photoGallery)();
-  (0,_resources_neighborhood_charts_js__WEBPACK_IMPORTED_MODULE_1__.neighborhoodCharts)(); // END Imported Scripts -------------------
+  // Data Table Functionality
+  (0,_resources_neighborhood_data_table__WEBPACK_IMPORTED_MODULE_0__.dataTable)(); // Chart Functionality 
+
+  (0,_resources_neighborhood_charts__WEBPACK_IMPORTED_MODULE_2__.neighborhoodCharts)(); // Photo Gallery Functionality
+
+  (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__.photoGallery)(); // END Imported Scripts -------------------
 
   var playButton = document.querySelector('.single-neighborhoods-video__play-btn'),
       thumbnail = document.querySelector('.single-neighborhoods-video__thumbnail'),

@@ -160,6 +160,8 @@ function get_neighborhood_data_from_api()
     
     // 'ACF_field'=> 'API propertyType parameter'
     // single data
+    
+    // TODO: set up dates programmatically
     'field_62e6f47df35d1' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)',
     // condo data
     'field_62e82053acca6' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)',

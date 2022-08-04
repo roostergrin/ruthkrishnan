@@ -65,6 +65,10 @@ if ( have_posts() ) :
 		<?php endif; ?>
 		<!-- END Video Section -->
 
+		<!-- Photo Gallery Template Part -->
+		<?php get_template_part('template-parts/neighborhood-data-table/neighborhood-data-table'); ?>
+		<!-- END Photo Gallery Template Part -->
+		
 		<!-- Graph Section -->
 		<div class="single-neighborhoods-cart__button-container">
 			<button class="single-neighborhoods-cart__button" value="Average Sales Price">Average Sales Price</button>

@@ -1,14 +1,18 @@
+import { dataTable } from '../resources/neighborhood-data-table';
 import { photoGallery } from '../resources/photo-gallery';
-import { neighborhoodCharts } from '../resources/neighborhood-charts.js'
+import { neighborhoodCharts } from '../resources/neighborhood-charts'
 document.addEventListener('DOMContentLoaded', function () {
 
   // Imported Scripts ------------------------
 
+  // Data Table Functionality
+  dataTable();
+
+  // Chart Functionality 
+  neighborhoodCharts();
+  
   // Photo Gallery Functionality
   photoGallery();
-
-  neighborhoodCharts();
-
   // END Imported Scripts -------------------
 
   const playButton = document.querySelector('.single-neighborhoods-video__play-btn'),
