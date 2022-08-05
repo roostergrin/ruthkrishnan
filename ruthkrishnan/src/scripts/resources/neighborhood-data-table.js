@@ -52,7 +52,7 @@ export const dataTable = () => {
     salePriceMedian.push(USDFormatterNoDec.format(year.measurements.salePrice.median))
     salePriceLow.push(USDFormatterNoDec.format(year.measurements.salePrice.low))
     salePriceHigh.push(USDFormatterNoDec.format(year.measurements.salePrice.high))
-    daysOnMarketAverage.push(year.measurements.daysOnMarket.average)
+    daysOnMarketAverage.push(year.measurements.daysOnMarket.average.toFixed(0))
     listPricePerSqFtAverage.push(USDFormatterDec.format(year.measurements.listPricePerSqFt.median)+ '/sq.ft')
     saleToListPrice.push(((year.measurements.salePrice.average/year.measurements.listPrice.average)*100).toFixed(2) + "%")
   }

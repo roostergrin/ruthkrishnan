@@ -97,6 +97,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }); // * change content and slide when neigborhood in map clicked *
 
   var mapSelectNeighborhood = function mapSelectNeighborhood(targetEl) {
+    console.log(targetEl);
     var slider = document.querySelector(".slider-neighborhoods__slider"),
         contentContainer = document.querySelector(".slider-neighborhoods__content-container");
     iconArr.forEach(function (icon) {

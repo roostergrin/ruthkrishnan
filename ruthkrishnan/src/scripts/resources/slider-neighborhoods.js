@@ -107,6 +107,7 @@ export const sliderNeighborhoods = () => {
 
   // * change content and slide when neigborhood in map clicked *
   const mapSelectNeighborhood = (targetEl) => {
+    console.log(targetEl)
     const slider = document.querySelector(".slider-neighborhoods__slider"),
       contentContainer = document.querySelector(
         ".slider-neighborhoods__content-container"

@@ -313,24 +313,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "photoGallery": () => (/* binding */ photoGallery)
 /* harmony export */ });
 var photoGallery = function photoGallery() {
-  new gridjs.Grid({
-    columns: ["Name", "Email", "Phone Number"],
-    data: [["John", "john@example.com", "(353) 01 222 3333"], ["Mark", "mark@gmail.com", "(01) 22 888 4444"], ["Eoin", "eoin@gmail.com", "0097 22 654 00033"], ["Sarah", "sarahcdd@gmail.com", "+322 876 1233"], ["Afshin", "afshin@mail.com", "(353) 22 87 8356"]]
-  }).render(document.getElementById("wrapper"));
   var currSlide = 0,
       paginationContent;
-  var slider = document.querySelector('.photo-gallery__slider'),
-      sliderLength = slider.dataset.sliderLength,
-      slide = document.querySelectorAll('.photo-gallery__slide'),
-      dot = document.querySelectorAll('.photo-gallery__dot'),
-      numpagination = document.querySelector('.photo-gallery__numpagination'),
-      prev = document.querySelector('.photo-gallery__prev'),
-      next = document.querySelector('.photo-gallery__next'),
-      img = document.querySelectorAll('.photo-gallery__image');
+  var slider = document.querySelector(".photo-gallery__slider"),
+      slide = document.querySelectorAll(".photo-gallery__slide"),
+      dot = document.querySelectorAll(".photo-gallery__dot"),
+      numpagination = document.querySelector(".photo-gallery__numpagination"),
+      prev = document.querySelector(".photo-gallery__prev"),
+      next = document.querySelector(".photo-gallery__next"),
+      img = document.querySelectorAll(".photo-gallery__image");
 
   var setSlide = function setSlide() {
     slide.forEach(function (slide) {
-      currSlide === +slide.dataset.index ? slide.classList.add('photo-gallery__slide--active') : slide.classList.remove('photo-gallery__slide--active');
+      currSlide === +slide.dataset.index ? slide.classList.add("photo-gallery__slide--active") : slide.classList.remove("photo-gallery__slide--active");
     });
 
     if (numpagination) {
@@ -338,27 +333,21 @@ var photoGallery = function photoGallery() {
       numpagination.innerHTML = paginationContent;
     } else {
       dot.forEach(function (dot) {
-        currSlide === +dot.dataset.index ? dot.classList.add('photo-gallery__dot--active') : dot.classList.remove('photo-gallery__dot--active');
+        currSlide === +dot.dataset.index ? dot.classList.add("photo-gallery__dot--active") : dot.classList.remove("photo-gallery__dot--active");
       });
     }
   };
 
-  setSlide();
-
   var changeSlide = function changeSlide(str) {
-    if (str === 'prev') {
+    if (str === "prev") {
       currSlide === 0 ? currSlide = sliderLength - 1 : currSlide--;
       setSlide();
     }
 
-    ;
-
-    if (str === 'next') {
+    if (str === "next") {
       currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++;
       setSlide();
     }
-
-    ;
   };
 
   var goToSlide = function goToSlide(val) {
@@ -366,17 +355,21 @@ var photoGallery = function photoGallery() {
     setSlide();
   };
 
-  prev.addEventListener('click', function () {
-    changeSlide('prev');
-  });
-  next.addEventListener('click', function () {
-    changeSlide('next');
-  });
-  dot.forEach(function (dot, i) {
-    dot.addEventListener('click', function () {
-      goToSlide(i);
+  if (slider) {
+    sliderLength = slider.dataset.sliderLength;
+    setSlide();
+    prev.addEventListener("click", function () {
+      changeSlide("prev");
     });
-  });
+    next.addEventListener("click", function () {
+      changeSlide("next");
+    });
+    dot.forEach(function (dot, i) {
+      dot.addEventListener("click", function () {
+        goToSlide(i);
+      });
+    });
+  }
 };
 
 /***/ }),

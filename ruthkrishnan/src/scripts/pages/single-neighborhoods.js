@@ -1,6 +1,9 @@
 import { dataTable } from '../resources/neighborhood-data-table';
 import { photoGallery } from '../resources/photo-gallery';
 import { neighborhoodCharts } from '../resources/neighborhood-charts'
+import { sliderNeighborhoods } from '../resources/slider-neighborhoods'
+import { testimonials } from '../resources/testimonials';
+  
 document.addEventListener('DOMContentLoaded', function () {
 
   // Imported Scripts ------------------------
@@ -13,6 +16,13 @@ document.addEventListener('DOMContentLoaded', function () {
   
   // Photo Gallery Functionality
   photoGallery();
+
+  // Slider Neighborhoods Map Functionality
+  sliderNeighborhoods();
+
+  // Testimonials Functionality
+  // testimonials();
+
   // END Imported Scripts -------------------
 
   const playButton = document.querySelector('.single-neighborhoods-video__play-btn'),
