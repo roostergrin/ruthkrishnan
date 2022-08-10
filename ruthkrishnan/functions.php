@@ -35,18 +35,231 @@ include_once(get_template_directory() . '/email.php');
 include_once(get_template_directory() . '/functions/custom-taxonomies.php');
 include_once(get_template_directory() . '/functions/custom-post.php');
 
-if (!wp_next_scheduled('update_brewery_list')) {
-  wp_schedule_event(time(), 'weekly', 'get_breweries_from_api');
-}
-add_action('wp_ajax_nopriv_get_breweries_from_api', 'get_breweries_from_api');
-add_action('wp_ajax_get_breweries_from_api', 'get_breweries_from_api');
-
-if (!wp_next_scheduled('update_neighborhoods_data')) {
-  wp_schedule_event(time(), 'weekly', 'get_neighborhood_data_from_api');
-}
+// if (!wp_next_scheduled('update_neighborhoods_data')) {
+//   wp_schedule_event(time(), 'weekly', 'get_neighborhood_data_from_api');
+// }
 add_action('wp_ajax_nopriv_get_neighborhood_data_from_api', 'get_neighborhood_data_from_api');
 add_action('wp_ajax_get_neighborhood_data_from_api', 'get_neighborhood_data_from_api');
 
+add_action('wp_ajax_nopriv_get_san_francisco_data_from_api', 'get_san_francisco_data_from_api');
+add_action('wp_ajax_get_san_francisco_data_from_api', 'get_san_francisco_data_from_api');
+
+add_action('wp_ajax_nopriv_add_weather_score', 'add_weather_score');
+add_action('wp_ajax_add_weather_score', 'add_weather_score');
+
+
+function add_weather_score() {
+  // 'neighborhood_slug' =>'Microclimate Map',
+  $neighborhoods_weather = [
+  'outer-parkside' =>'cold & foggy with heavy winds',
+  'parkside' =>'cold & foggy with heavy winds',
+  'inner-parkside' =>'cold & foggy with heavy winds',
+  'pine-lake-park' =>'cold & foggy with heavy winds',
+  'merced-manor' =>'cold & foggy with heavy winds',
+  'stonestown' =>'cold & foggy with heavy winds',
+  'lakeside' =>'cold & foggy with heavy winds',
+  'balboa-terrace' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'st-francis-wood' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'ingleside-terrace' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'merced-heights' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'lake-shore' =>'cold & foggy with heavy winds',
+  'sherwood-forest' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'ingleside-heights' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'richmond-central-outer' =>'cold, with some fog and light winds',
+  'sea-cliff' =>'cold, with some fog and light winds',
+  'lake-street' =>'cold, with some fog and light winds',
+  'richmond-inner' =>'cold, with some fog and light winds',
+  'golden-gate-heights' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'west-portal' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'forest-hills-extensions' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'forest-hill' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'forest-knolls' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'sunset-central-outer' =>'cold & foggy with heavy winds',
+  'golden-gate-park' =>'GGP',
+  'cole-valley' =>'moderate to hot, clear skies and light winds',
+  'midtown-terrace' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'twin-peaks' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'diamond-heights' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'miraloma-park' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'sunnyside' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'westwood-park' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'ingleside' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'oceanview' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'mission-central-outer' =>'moderate to hot, clear skies and light winds',
+  'mission-terrace' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'glen-park' =>'moderate to hot, clear skies and light winds',
+  'noe-valley' =>'moderate to hot, clear skies and light winds',
+  'mount-davidson-manor' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'monterey-heights' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'westwood-highlands' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'corona-heights' =>'moderate to hot, clear skies and light winds',
+  'duboce-triangle' =>'moderate to hot, clear skies and light winds',
+  'haight-ashbury' =>'moderate to hot, clear skies and light winds',
+  'nopa' =>'moderate to hot, clear skies and light winds',
+  'lone-mountain' =>'moderate to hot, clear skies and light winds',
+  'jordan-park-laurel-heights' =>'moderate to hot, clear skies and light winds',
+  'presidio-heights' =>'moderate to hot, clear skies and light winds',
+  'anza-vista' =>'moderate to hot, clear skies and light winds',
+  'clarendon-heights' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  'castro-eureka-valley' =>'moderate to hot, clear skies and light winds',
+  'alamo-square' =>'moderate to hot, clear skies and light winds',
+  'western-addition' =>'moderate to hot, clear skies and light winds',
+  'lower-pacific-heights' =>'moderate to hot, clear skies and light winds',
+  'tenderloin' =>'moderate to hot, clear skies and light winds',
+  'van-ness-civic-center' =>'moderate to hot, clear skies and light winds',
+  'ashbury-buena-vista' =>'moderate to hot, clear skies and light winds',
+  'hayes-valley' =>'moderate to hot, clear skies and light winds',
+  'mission-dolores' =>'moderate to hot, clear skies and light winds',
+  'mission-inner' =>'moderate to hot, clear skies and light winds',
+  'bernal-heights' =>'moderate to hot, clear skies and light winds',
+  'crocker-amazon' =>'moderate to hot, clear skies and heavy winds',
+  'excelsior' =>'moderate to hot, clear skies and heavy winds',
+  'portola' =>'moderate to hot, clear skies and heavy winds',
+  'visitacion-valley' =>'moderate to hot, clear skies and heavy winds',
+  'bayview-heights' =>'moderate to hot, clear skies and light winds',
+  'little-hollywood' =>'moderate to hot, clear skies and heavy winds',
+  'candlestick-point' =>'moderate to hot, clear skies and heavy winds',
+  'silver-terrace' =>'moderate to hot, clear skies and light winds',
+  'bayview' =>'moderate to hot, clear skies and light winds',
+  'hunters-point' =>'moderate to hot, clear skies and heavy winds',
+  'dogpatch' =>'moderate to hot, clear skies and heavy winds',
+  'soma' =>'moderate to hot, clear skies and light winds',
+  'potrero-hill' =>'moderate to hot, clear skies and light winds',
+  'mission-bay' =>'moderate to hot, clear skies and light winds',
+  'yerba-buena' =>'moderate to hot, clear skies and light winds',
+  'south-beach' =>'moderate to hot, clear skies and light winds',
+  'financial-district' =>'moderate to hot, clear skies and light winds',
+  'north-beach' =>'moderate to hot, clear skies and light winds',
+  'telegraph-hill' =>'moderate to hot, clear skies and light winds',
+  'north-waterfront' =>'moderate to hot, clear skies and heavy winds',
+  'downtown' =>'moderate to hot, clear skies and light winds',
+  'pacific-heights' =>'moderate to hot, clear skies and light winds',
+  'nob-hill' =>'moderate to hot, clear skies and light winds',
+  'cow-hollow' =>'cool to moderate, with some fog and light winds',
+  'russian-hill' =>'moderate to hot, clear skies and light winds',
+  'marina' =>'cool to moderate, with some fog and light winds',
+  'presidio' =>'cool to moderate, a mixture of foggy and clear days, light winds',
+  ];
+  $neighborhoods_walk_score= [
+    // 'neighborhood_slug' =>'walk score',
+    'outer-parkside' =>'83',
+    'parkside' =>'83',
+    'inner-parkside' =>'94',
+    'pine-lake-park' =>'64',
+    'merced-manor' =>'79',
+    'stonestown' =>'87',
+    'lakeside' =>'88',
+    'balboa-terrace' =>'80',
+    'st-francis-wood' =>'86',
+    'ingleside-terrace' =>'82',
+    'merced-heights' =>'77',
+    'lake-shore' =>'43',
+    'sherwood-forest' =>'53',
+    'ingleside-heights' =>'72',
+    'richmond-central-outer' =>'90',
+    'lincoln-park' =>'',
+    'sea-cliff' =>'81',
+    'lake-street' =>'92',
+    'richmond-inner' =>'95',
+    'golden-gate-heights' =>'77',
+    'west-portal' =>'93',
+    'forest-hills-extensions' =>'79',
+    'forest-hill' =>'68',
+    'forest-knolls' =>'50',
+    'sunset-central-outer' =>'83',
+    'golden-gate-park' =>'',
+    'cole-valley' =>'97',
+    'midtown-terrace' =>'49',
+    'twin-peaks' =>'36',
+    'diamond-heights' =>'76',
+    'miraloma-park' =>'62',
+    'sunnyside' =>'79',
+    'westwood-park' =>'84',
+    'ingleside' =>'83',
+    'oceanview' =>'76',
+    'mission-central-outer' =>'87',
+    'mission-terrace' =>'87',
+    'glen-park' =>'83',
+    'noe-valley' =>'94',
+    'mount-davidson-manor' =>'86',
+    'monterey-heights' =>'66',
+    'westwood-highlands' =>'69',
+    'corona-heights' =>'94',
+    'duboce-triangle' =>'98',
+    'haight-ashbury' =>'97',
+    'nopa' =>'91',
+    'lone-mountain' =>'92',
+    'jordan-park-laurel-heights' =>'96',
+    'presidio-heights' =>'92',
+    'anza-vista' =>'95',
+    'clarendon-heights' =>'60',
+    'castro-eureka-valley' =>'96',
+    'alamo-square' =>'97',
+    'western-addition' =>'97',
+    'lower-pacific-heights' =>'97',
+    'tenderloin' =>'100',
+    'van-ness-civic-center' =>'99',
+    'ashbury-buena-vista' =>'93',
+    'hayes-valley' =>'99',
+    'mission-dolores' =>'99',
+    'mission-inner' =>'99',
+    'bernal-heights' =>'92',
+    'crocker-amazon' =>'76',
+    'excelsior' =>'86',
+    'portola' =>'79',
+    'visitacion-valley' =>'72',
+    'bayview-heights' =>'84',
+    'little-hollywood' =>'64',
+    'candlestick-point' =>'41',
+    'silver-terrace' =>'87',
+    'bayview' =>'84',
+    'hunters-point' =>'84',
+    'dogpatch' =>'91',
+    'soma' =>'97',
+    'potrero-hill' =>'90',
+    'mission-bay' =>'87',
+    'yerba-buena' =>'96',
+    'south-beach' =>'90',
+    'financial-district' =>'99',
+    'north-beach' =>'99',
+    'telegraph-hill' =>'97',
+    'north-waterfront' =>'98',
+    'downtown' =>'99',
+    'pacific-heights' =>'97',
+    'nob-hill' =>'99',
+    'cow-hollow' =>'94',
+    'russian-hill' =>'98',
+    'marina' =>'94',
+    'presidio' =>'40',
+  ];
+  
+  $ACF_weather_field = "field_62eee338eeb3c";
+  $ACF_walk_score = "field_62eee319eeb3a";
+  
+  foreach($neighborhoods_weather as $neighborhood_slug => $weather) {
+    echo $weather;
+    echo $neighborhood_slug;
+    $neighborhood_post_id_wp = get_page_by_path($neighborhood_slug, 'OBJECT', 'neighborhoods');
+    update_field($ACF_weather_field, $weather, $neighborhood_post_id_wp);
+  }
+  // http://localhost:8888/wp-admin/admin-ajax.php?action=add_weather_score
+}
+// ead7906cd13415c8e165dcc09b866b23
+function get_san_francisco_data_from_api() {
+  // token for https://slipstream.homejunction.com/#/ws/api?id=status
+    $args = array(
+      'headers' => array(
+        'Authorization' => 's9-6ea57116-71cf-430f-bb73-d95ab82b0bff'
+      )
+    );
+  
+  $hji_id = 'ead7906cd13415c8e165dcc09b866b23';
+  $API_parameter = '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(year)';
+  // $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/areas/neighborhoods/search?market=SFAR&pageSize=1000&polygon=$' . $hji_id . $API_parameter, $args));
+  $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/statistics/measure?market=SFAR&polygon=$' . $hji_id . $API_parameter, $args));
+  echo $results;
+  // http://localhost:8888/wp-admin/admin-ajax.php?action=get_san_francisco_data_from_api
+}
 function get_neighborhood_data_from_api()
 {
   $file = get_stylesheet_directory() . '/report-2.txt';
@@ -88,7 +301,7 @@ function get_neighborhood_data_from_api()
     'c5a21993bb78b98ddfe9839381a73ff5' =>'forest-hills-extensions',
     '58eac8532cc073b4656e111dec93bb82' =>'forest-hill',
     'c42c3503b4073c0ef9f8ada97fa9cfa3' =>'forest-knolls',
-    '777a293a115918b78caab51ca659bf31' =>'sunset-inner',
+    '1b84669d78562747a5fd4c5e0a0c14c5,$d1db1b2e1737332ce8aff251450dbf1f' =>'sunset-central-outer',
     '88ad77f396753826aa6d96fcfd54f7dd,$c69e9cfbaa5c13c72e66a06888347bb7' =>'golden-gate-park',
     '4c5e39591372f576fff2428c506892b3' =>'cole-valley',
     '83d45a574fb8447549dfcbf1f73162a5' =>'midtown-terrace',
@@ -121,7 +334,8 @@ function get_neighborhood_data_from_api()
     'e19cd5f405a9bda13b81f13b00315afa' =>'lower-pacific-heights',
     'ab8078cbc1eb35bc57b2ebec32bc265a' =>'tenderloin',
     '3fcd0fd755a568aaff6cab0d08afd206' =>'van-ness-civic-center',
-    '68847480a3a3fa3bfcac72e75fb00959' =>'ashbury-buena-vista',
+    // buena vista park
+    '66b2dd79c32c6bf88c0e66266f8f7ad8' =>'ashbury-buena-vista',
     '43168cdb7462b4c0953d91dcc040f91e' =>'hayes-valley',
     '78a74f4ea3f2d2d312bd75048798d3f2' =>'mission-dolores',
     '689f1992cccc14225e65145521d973c7' =>'mission-inner',
@@ -146,12 +360,13 @@ function get_neighborhood_data_from_api()
     '8c957379b7f82065c3b24022b38cd44c' =>'north-beach',
     'e7cca730c9f3e2305d0fd8cb33116fce' =>'telegraph-hill',
     'c0dd9c55f0564a9c1dc3f2fc671b3e7b' =>'north-waterfront',
-    '3fcd0fd755a568aaff6cab0d08afd206' =>'downtown',
+    // '3fcd0fd755a568aaff6cab0d08afd206' =>'downtown',
     '79bf959cc58423a4ff765fce74c97f24' =>'pacific-heights',
     'de2112150cda778b5c3ac274e777b879' =>'nob-hill',
     '1e97b564c928946c5a397acaabef1e94' =>'cow-hollow',
     'cbc767947f37f149c3fb1d80136fe667' =>'russian-hill',
     'cbed05eb0e7a04fff72274a410721d65' =>'marina',
+    // No presidio
     'f2bc0961e85dfe6bce72a41362c00018' =>'presidio',
   ];
 
@@ -162,21 +377,22 @@ function get_neighborhood_data_from_api()
     // single data
     
     // TODO: set up dates programmatically
-    'field_62e6f47df35d1' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)',
-    // condo data
-    'field_62e82053acca6' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)',
+    // 'field_62e6f47df35d1' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)',
+    // // condo data
+    // 'field_62e82053acca6' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)',
     
-    // single yearly
-    'field_62e9a3ed06487' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)',
-    // condo yearly
-    'field_62e9a3e306486' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(yearly)',
+    // single year
+    'field_62e9a3ed06487' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(year)',
+    // condo year
+    'field_62e9a3e306486' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(year)',
 
     // single monthly
-    'field_62e99eb4410d7' => '&propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt',
-    // condo 2br 2ba data monthly
-    'field_62e84063b6f36' => '&propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt',
+    // 'field_62e99eb4410d7' => '&propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt',
+    // // condo 2br 2ba data monthly
+    // 'field_62e84063b6f36' => '&propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt',
     
   ];
+
 
   foreach($API_params as $ACF_field => $API_parameter) {
     foreach($neighborhoods as $hji_id => $neighborhood_slug) {
