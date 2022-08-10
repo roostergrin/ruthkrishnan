@@ -233,8 +233,8 @@ function add_weather_score() {
     'presidio' =>'40',
   ];
   
-  $ACF_weather_field = "field_62eee338eeb3c";
-  $ACF_walk_score = "field_62eee319eeb3a";
+  $ACF_weather_field = "weather";
+  $ACF_walk_score = "walk_score";
   
   foreach($neighborhoods_weather as $neighborhood_slug => $weather) {
     echo $weather;
@@ -377,19 +377,19 @@ function get_neighborhood_data_from_api()
     // single data
     
     // TODO: set up dates programmatically
-    // 'field_62e6f47df35d1' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)',
-    // // condo data
-    // 'field_62e82053acca6' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)',
+    'single_data' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)',
+    // condo data
+    'condo_data' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)',
     
     // single year
-    'field_62e9a3ed06487' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(year)',
+    'single_yearly' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(year)',
     // condo year
-    'field_62e9a3e306486' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(year)',
+    'condo_yearly' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(year)',
 
     // single monthly
-    // 'field_62e99eb4410d7' => '&propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt',
-    // // condo 2br 2ba data monthly
-    // 'field_62e84063b6f36' => '&propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt',
+    'single_last_month' => '&propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt',
+    // condo 2br 2ba data monthly
+    'condo2br2b_data' => '&propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt',
     
   ];
 
