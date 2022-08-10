@@ -6,6 +6,78 @@
   @extend %section-margins
   overflow: hidden
 
+  &__filters-container
+    @include container
+    justify-content: center
+
+  &__filters
+    @include col(12)
+    @include max-width (650px)
+      justify-content: space-between
+    @include nexus
+      margin-bottom: 2rem
+    display: flex
+    justify-content: center
+    margin-bottom: 3rem
+
+  &__filter
+    @extend %button-text
+    @include hover-supported
+      background: $c3
+      color: $white
+    @include max-width (650px)
+      margin: 0
+      padding: rem-calc(12) 0 rem-calc(10)
+      width: 30%
+      min-width: 0
+    @include phone-lg
+      border: 1px solid $c3  
+    @include nexus
+      border: none
+      width: unset
+    transition: background .2s ease, color .2s ease
+    margin: auto calc(#{$gutter} / 2)
+    border: 2px solid $c3
+    cursor: pointer
+    padding: rem-calc(14) 2rem rem-calc(12)
+    min-width: rem-calc(172)
+    text-align: center
+    color: $c3
+
+    &--active
+      @include nexus
+        background: none
+        color: $c6
+        &:after
+          position: absolute
+          bottom: -.25rem
+          left: 50%
+          transform: translate(-50%)
+          border-radius: 50%
+          background: $c6
+          width: .5rem
+          height: .5rem
+          content: ''
+      position: relative
+      background: $c3
+      color: $white
+
+  &__legend
+    &-container
+      @include container
+    &-content
+      @include col(8)
+      @include col--offset(2)
+    &-box
+      width: 100%
+      height: 1rem
+      background: linear-gradient(90deg, #A85D5D 0%, #9C5353 25%, #6F1211 50%, #460909 75%, #1C0000 100%)
+    &-text-container
+      display: flex
+      justify-content: space-between
+    &-text
+      font-size: 1rem
+
   &__slider
     @include laptop-lg
       padding: 0

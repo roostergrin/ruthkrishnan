@@ -22,6 +22,10 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       tooltipContainer = document.querySelector(".map-neighborhoods__tooltip"),
       tooltipContent = document.getElementById("tooltip-content"),
       closeContainer = document.getElementById("tooltip-close");
+  var loc = window.location.pathname;
+  var locArray = loc.split("/");
+  var currentNeighborhood = locArray[locArray.length - 2]; // const dir = loc.substring(loc.lastIndexOf('/'));
+
   var debounceLastTimeout = null,
       sectionActive = false,
       maxTrackLength; // * Build slide array of objects *
@@ -33,16 +37,18 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       elem: el,
       HJICondoMonthly: JSON.parse(el.dataset.hjicondomonthly),
       HJISingleMonthly: JSON.parse(el.dataset.hjisinglemonthly),
+      weather: el.dataset.weather,
+      walkscore: el.dataset.walkscore,
       category: el.dataset.category
     };
   });
-  console.log(allSlides);
   var slidesArr = allSlides.filter(function (slide) {
     return slide.category === "active";
   });
   slidesArr.forEach(function (slide, i) {
     slide.position = i;
   });
+  console.log(allSlides);
   maxTrackLength = document.querySelector(".slider-neighborhoods__slide").clientWidth * slidesArr.length; // * move slides *
 
   var changeSlide = function changeSlide(el, pos) {
@@ -55,8 +61,171 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       }
     });
     sectionActive ? closeToolTip() : null;
-  }; // * set the correct slide active on first load *
+  }; // finds the min and max of condos and single
+  // initializes min and max
 
+
+  var minMedianSingle = allSlides[0].HJISingleMonthly.result.measurements.salePrice.median;
+  var maxMedianSingle = allSlides[0].HJISingleMonthly.result.measurements.salePrice.median;
+  var minMedianCondo = allSlides[0].HJICondoMonthly.result.measurements.salePrice.median;
+  var maxMedianCondo = allSlides[0].HJICondoMonthly.result.measurements.salePrice.median;
+  allSlides.forEach(function (slide) {
+    if (slide.HJISingleMonthly) {
+      if (slide.HJISingleMonthly.result.measurements.salePrice.median != 0) {
+        if (slide.HJISingleMonthly.result.measurements.salePrice.median < minMedianSingle) minMedianSingle = slide.HJISingleMonthly.result.measurements.salePrice.median;
+        if (slide.HJISingleMonthly.result.measurements.salePrice.median > maxMedianSingle) maxMedianSingle = slide.HJISingleMonthly.result.measurements.salePrice.median;
+      }
+    }
+
+    if (slide.HJICondoMonthly) {
+      if (slide.HJICondoMonthly.result.measurements.salePrice.median != 0) {
+        if (slide.HJICondoMonthly.result.measurements.salePrice.median < minMedianCondo) minMedianCondo = slide.HJICondoMonthly.result.measurements.salePrice.median;
+        if (slide.HJICondoMonthly.result.measurements.salePrice.median > maxMedianCondo) maxMedianCondo = slide.HJICondoMonthly.result.measurements.salePrice.median;
+      }
+    }
+  }); // normalize data to 0-1 range
+
+  function scaleRange(x, min, max) {
+    // console.log((x - min) / (max - min))
+    return (x - min) / (max - min);
+  }
+
+  function colorWeather(weather) {
+    switch (weather) {
+      case "cold & foggy with heavy winds":
+        return "#365060";
+
+      case "cold, with some fog and light winds":
+        return "#196C55";
+
+      case "cool to moderate, a mixture of foggy and clear days, light winds":
+        return "#409983";
+
+      case "cool to moderate, with some fog and light winds":
+        return "#447211";
+
+      case "moderate to hot, clear skies and heavy winds":
+        return "#5F9409";
+
+      case "moderate to hot, clear skies and light winds":
+        return "#6C190D";
+
+      default:
+        return "black";
+      // case "cold, with some fog and light winds":
+      //   return "#409983";
+      // case "cold & foggy with heavy winds":
+      //   return "#3c5a6b";
+      // case "cool to moderate, a mixture of foggy and clear days, light winds":
+      //   return "#409983";
+      // case "cool to moderate, with some fog and light winds":
+      //   return "#a2cd74"
+      // case "moderate to hot, clear skies and heavy winds":
+      //   return "#edda61"
+      // case "moderate to hot, clear skies and light winds":
+      //   return "#ffaa5c";
+      // default:
+      //   return "black"
+    }
+  }
+
+  function colorIconArr(value) {
+    var inactiveColor = "gray";
+    var currentNeighborhood = "red"; // updateLegend()
+
+    iconArr.forEach(function (icon) {
+      allSlides.forEach(function (slide) {
+        if (icon.dataset.name == slide.neighborhood) {
+          // a matched neighborhood and slide
+          var domain;
+          var min;
+          var max;
+          var color;
+
+          if (value == 'single median sale price') {
+            domain = slide.HJISingleMonthly.result.measurements.salePrice.median;
+            min = minMedianSingle;
+            max = maxMedianSingle; // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
+            // color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
+
+            color = "hsl(0, 41%, ".concat(Math.abs(scaleRange(domain, min, max) * 100 - 100), "%)");
+          } else if (value == 'walk score') {
+            domain = slide.walkscore;
+            min = 0;
+            max = 100;
+            color = "hsl(0, 41%, ".concat(Math.abs(scaleRange(domain, min, max) * 100 - 100), "%)"); // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
+          } else if (value == "weather") {
+            domain = slide.walkscore;
+            color = colorWeather(slide.weather);
+          }
+
+          if (domain == 0) {
+            // no data is available for the domain
+            styleIcon(icon, inactiveColor, true);
+          } else if (icon.dataset.name === currentNeighborhood) {
+            // the current URL of the Neighborhood
+            styleIcon(icon, currentNeighborhoodColor, true);
+          } // Active neighborhoods with data
+          else {
+            styleIcon(icon, color);
+          }
+        }
+      });
+      var inactiveNeighborhoods = ["presidio", "golden-gate-park", "lincoln-park", "hunters-point", "tenderloin"];
+
+      if (inactiveNeighborhoods.includes(icon.dataset.name)) {
+        // an inactive neighborhood
+        styleIcon(icon, inactiveColor, true);
+      }
+    });
+
+    function styleIcon(icon, backgroundColor) {
+      var disablePointerEvents = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      // gets the background and filters all text svgs
+      var iconBackgrounds = Array.from(icon.children).filter(function (HTMLObjectElement) {
+        return HTMLObjectElement.localName != "text";
+      }); // loops through the background svgs
+
+      iconBackgrounds.forEach(function (iconBackground) {
+        // fills polygons
+        iconBackground.style.fill = backgroundColor; // fills paths inside the g tag
+
+        Array.from(iconBackground.children).forEach(function (path) {
+          path.style.fill = backgroundColor;
+
+          if (disablePointerEvents) {
+            path.style.pointerEvents = "none";
+          }
+        });
+      });
+    }
+  }
+
+  colorIconArr('single median sale price');
+  var filtersArr = Array.from(document.querySelectorAll(".slider-neighborhoods__filter"));
+
+  function toggle() {}
+
+  filtersArr.forEach(function (el) {
+    el.addEventListener("click", function () {
+      if (!el.classList.contains('slider-neighborhoods__filter--active')) {
+        document.querySelector('.slider-neighborhoods__filter--active').classList.remove('slider-neighborhoods__filter--active');
+        el.classList.add('slider-neighborhoods__filter--active');
+      }
+
+      var value = el.dataset.filter;
+      colorIconArr(value);
+    });
+    el.addEventListener("keyup", function () {
+      if (!el.classList.contains('slider-neighborhoods__filter--active')) {
+        document.querySelector('.slider-neighborhoods__filter--active').classList.remove('slider-neighborhoods__filter--active');
+        el.classList.add('slider-neighborhoods__filter--active');
+      }
+
+      var value = el.dataset.filter;
+      colorIconArr(value);
+    });
+  }); // * set the correct slide active on first load *
 
   changeSlide(slidesArr[0].elem, 0); // * set height of column to be the height of largest content *
 
@@ -80,7 +249,8 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   var highlight = function highlight(el) {
     iconArr.forEach(function (icon) {
       if (icon.dataset.name !== el.neighborhood) {
-        icon.classList.add("map-neighborhoods__icon-neighborhood--deactive");
+        z;
+        icon.classList.add("map-neighborhoods__i con-neighborhood--deactive");
       } else {
         icon.classList.remove("map-neighborhoods__icon-neighborhood--deactive");
       }
@@ -97,7 +267,6 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }); // * change content and slide when neigborhood in map clicked *
 
   var mapSelectNeighborhood = function mapSelectNeighborhood(targetEl) {
-    console.log(targetEl);
     var slider = document.querySelector(".slider-neighborhoods__slider"),
         contentContainer = document.querySelector(".slider-neighborhoods__content-container");
     iconArr.forEach(function (icon) {
@@ -107,7 +276,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       return el.neighborhood === targetEl.dataset.name;
     });
 
-    if (activeElem.category === "active") {
+    if (activeElem.category === "active" && activeElem.neighborhood !== currentNeighborhood) {
       slidesArr.forEach(function (el) {
         if (el.neighborhood === targetEl.dataset.name) {
           changeSlide(el.elem, el.position);
@@ -151,18 +320,18 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       } // Create our number formatter.
 
 
-      var USDFormatterNoDec = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
+      var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
         // These options are needed to round to whole numbers if that's what you want.
         minimumFractionDigits: 0,
         // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
         maximumFractionDigits: 0 // (causes 2500.99 to be printed as $2,501)
 
       });
-      var USDFormatterDec = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD' // These options are needed to round to whole numbers if that's what you want.
+      var USDFormatterDec = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD" // These options are needed to round to whole numbers if that's what you want.
         // minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
         // maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 
@@ -170,8 +339,8 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
       if (targetEl.HJICondoMonthly) {
         if (targetEl.HJICondoMonthly.result.measurements) {
-          console.log(targetEl.HJISingleMonthly.result);
-          console.log(targetEl.HJICondoMonthly.result);
+          // console.log(targetEl.HJISingleMonthly.result);
+          // console.log(targetEl.HJICondoMonthly.result);
           mapContent += "<div class='map-neighborhoods__tooltip-info'>House Median Price: ".concat(USDFormatterNoDec.format(targetEl.HJISingleMonthly.result.measurements.salePrice.median), "<br> Median $/SqFt: ").concat(USDFormatterDec.format(targetEl.HJISingleMonthly.result.measurements.listPricePerSqFt.median), "/sf</div>");
           mapContent += "<div class='map-neighborhoods__tooltip-info'>2BR/2BA Condo Median Price: ".concat(USDFormatterNoDec.format(targetEl.HJICondoMonthly.result.measurements.salePrice.median), "<br> Median $/SqFt: ").concat(USDFormatterDec.format(targetEl.HJICondoMonthly.result.measurements.listPricePerSqFt.median), "/sf</div>");
         }

@@ -18,6 +18,10 @@ export const sliderNeighborhoods = () => {
     tooltipContainer = document.querySelector(".map-neighborhoods__tooltip"),
     tooltipContent = document.getElementById("tooltip-content"),
     closeContainer = document.getElementById("tooltip-close");
+  const loc = window.location.pathname;
+  const locArray = loc.split("/");
+  const currentNeighborhood = locArray[locArray.length - 2];
+  // const dir = loc.substring(loc.lastIndexOf('/'));
 
   let debounceLastTimeout = null,
     sectionActive = false,
@@ -30,13 +34,17 @@ export const sliderNeighborhoods = () => {
     elem: el,
     HJICondoMonthly: JSON.parse(el.dataset.hjicondomonthly),
     HJISingleMonthly: JSON.parse(el.dataset.hjisinglemonthly),
+    weather: el.dataset.weather,
+    walkscore: el.dataset.walkscore,
     category: el.dataset.category,
   }));
-  console.log(allSlides)
+
   const slidesArr = allSlides.filter((slide) => slide.category === "active");
   slidesArr.forEach((slide, i) => {
     slide.position = i;
   });
+
+  console.log(allSlides);
   maxTrackLength =
     document.querySelector(".slider-neighborhoods__slide").clientWidth *
     slidesArr.length;
@@ -57,6 +65,201 @@ export const sliderNeighborhoods = () => {
 
     sectionActive ? closeToolTip() : null;
   };
+
+  // finds the min and max of condos and single
+
+  // initializes min and max
+  let minMedianSingle =
+    allSlides[0].HJISingleMonthly.result.measurements.salePrice.median;
+  let maxMedianSingle =
+    allSlides[0].HJISingleMonthly.result.measurements.salePrice.median;
+
+  let minMedianCondo =
+    allSlides[0].HJICondoMonthly.result.measurements.salePrice.median;
+  let maxMedianCondo =
+    allSlides[0].HJICondoMonthly.result.measurements.salePrice.median;
+
+  allSlides.forEach((slide) => {
+    if (slide.HJISingleMonthly) {
+      if (slide.HJISingleMonthly.result.measurements.salePrice.median != 0) {
+        if (
+          slide.HJISingleMonthly.result.measurements.salePrice.median <
+          minMedianSingle
+        )
+          minMedianSingle =
+            slide.HJISingleMonthly.result.measurements.salePrice.median;
+        if (
+          slide.HJISingleMonthly.result.measurements.salePrice.median >
+          maxMedianSingle
+        )
+          maxMedianSingle =
+            slide.HJISingleMonthly.result.measurements.salePrice.median;
+      }
+    }
+    if (slide.HJICondoMonthly) {
+      if (slide.HJICondoMonthly.result.measurements.salePrice.median != 0) {
+        if (
+          slide.HJICondoMonthly.result.measurements.salePrice.median <
+          minMedianCondo
+        )
+          minMedianCondo =
+            slide.HJICondoMonthly.result.measurements.salePrice.median;
+        if (
+          slide.HJICondoMonthly.result.measurements.salePrice.median >
+          maxMedianCondo
+        )
+          maxMedianCondo =
+            slide.HJICondoMonthly.result.measurements.salePrice.median;
+      }
+    }
+  });
+
+  // normalize data to 0-1 range
+
+  function scaleRange(x, min, max) {
+    // console.log((x - min) / (max - min))
+    return (x - min) / (max - min);
+  }
+
+  function colorWeather(weather) {
+    switch (weather) {
+      case "cold & foggy with heavy winds":
+        return "#365060";
+      case "cold, with some fog and light winds":
+        return "#196C55";
+      case "cool to moderate, a mixture of foggy and clear days, light winds":
+        return "#409983";
+      case "cool to moderate, with some fog and light winds":
+        return "#447211"
+      case "moderate to hot, clear skies and heavy winds":
+        return "#5F9409"
+      case "moderate to hot, clear skies and light winds":
+        return "#6C190D";
+      default:
+        return "black"
+      // case "cold, with some fog and light winds":
+      //   return "#409983";
+      // case "cold & foggy with heavy winds":
+      //   return "#3c5a6b";
+      // case "cool to moderate, a mixture of foggy and clear days, light winds":
+      //   return "#409983";
+      // case "cool to moderate, with some fog and light winds":
+      //   return "#a2cd74"
+      // case "moderate to hot, clear skies and heavy winds":
+      //   return "#edda61"
+      // case "moderate to hot, clear skies and light winds":
+      //   return "#ffaa5c";
+      // default:
+      //   return "black"
+    }
+  }
+  function colorIconArr(value) {
+    const inactiveColor = "gray";
+    const currentNeighborhood = "red";
+    // updateLegend()
+
+    iconArr.forEach((icon) => {
+      allSlides.forEach((slide) => {
+        if (icon.dataset.name == slide.neighborhood) {
+          // a matched neighborhood and slide
+          let domain;
+          let min;
+          let max;
+          let color;
+          if(value == 'single median sale price'){
+            domain = slide.HJISingleMonthly.result.measurements.salePrice.median
+            min = minMedianSingle
+            max = maxMedianSingle
+            // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
+            // color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
+            color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
+          }
+          else if(value == 'walk score') {
+            domain = slide.walkscore
+            min = 0
+            max = 100
+            color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
+            // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
+          }
+          else if (value =="weather") {
+            domain = slide.walkscore;
+            color = colorWeather(slide.weather);
+          }
+
+          if (domain == 0) {
+            // no data is available for the domain
+            styleIcon(icon, inactiveColor, true);
+          } else if (icon.dataset.name === currentNeighborhood) {
+            // the current URL of the Neighborhood
+            styleIcon(icon, currentNeighborhoodColor, true);
+          }
+          // Active neighborhoods with data
+          else {
+            styleIcon(icon, color);
+          }
+        }
+      });
+
+      const inactiveNeighborhoods = [
+        "presidio",
+        "golden-gate-park",
+        "lincoln-park",
+        "hunters-point",
+        "tenderloin",
+      ];
+
+      if (inactiveNeighborhoods.includes(icon.dataset.name)) {
+        // an inactive neighborhood
+        styleIcon(icon, inactiveColor, true);
+      }
+    });
+
+    function styleIcon(icon, backgroundColor, disablePointerEvents = false) {
+      // gets the background and filters all text svgs
+      const iconBackgrounds = Array.from(icon.children).filter(
+        (HTMLObjectElement) => HTMLObjectElement.localName != "text"
+      );
+      // loops through the background svgs
+      iconBackgrounds.forEach((iconBackground) => {
+        // fills polygons
+        iconBackground.style.fill = backgroundColor;
+        // fills paths inside the g tag
+        Array.from(iconBackground.children).forEach((path) => {
+          path.style.fill = backgroundColor;
+          if (disablePointerEvents) {
+            path.style.pointerEvents = "none";
+          }
+        });
+      });
+    }
+  }
+
+  colorIconArr('single median sale price');
+
+  const filtersArr = Array.from(document.querySelectorAll(
+    ".slider-neighborhoods__filter"
+  ));
+  function toggle () {
+    
+  }
+  filtersArr.forEach((el) => {
+    el.addEventListener("click", () => {
+      if (!el.classList.contains('slider-neighborhoods__filter--active')) {
+        document.querySelector('.slider-neighborhoods__filter--active').classList.remove('slider-neighborhoods__filter--active')
+        el.classList.add('slider-neighborhoods__filter--active')
+      }
+      let value = el.dataset.filter;
+      colorIconArr(value)
+    });
+    el.addEventListener("keyup", () => {
+      if (!el.classList.contains('slider-neighborhoods__filter--active')) {
+        document.querySelector('.slider-neighborhoods__filter--active').classList.remove('slider-neighborhoods__filter--active')
+        el.classList.add('slider-neighborhoods__filter--active')
+      }
+      let value = el.dataset.filter;
+      colorIconArr(value)
+    });
+  })
 
   // * set the correct slide active on first load *
   changeSlide(slidesArr[0].elem, 0);
@@ -89,7 +292,8 @@ export const sliderNeighborhoods = () => {
   const highlight = (el) => {
     iconArr.forEach((icon) => {
       if (icon.dataset.name !== el.neighborhood) {
-        icon.classList.add("map-neighborhoods__icon-neighborhood--deactive");
+        z;
+        icon.classList.add("map-neighborhoods__i con-neighborhood--deactive");
       } else {
         icon.classList.remove("map-neighborhoods__icon-neighborhood--deactive");
       }
@@ -107,7 +311,6 @@ export const sliderNeighborhoods = () => {
 
   // * change content and slide when neigborhood in map clicked *
   const mapSelectNeighborhood = (targetEl) => {
-    console.log(targetEl)
     const slider = document.querySelector(".slider-neighborhoods__slider"),
       contentContainer = document.querySelector(
         ".slider-neighborhoods__content-container"
@@ -123,7 +326,10 @@ export const sliderNeighborhoods = () => {
       (el) => el.neighborhood === targetEl.dataset.name
     );
 
-    if (activeElem.category === "active") {
+    if (
+      activeElem.category === "active" &&
+      activeElem.neighborhood !== currentNeighborhood
+    ) {
       slidesArr.forEach((el) => {
         if (el.neighborhood === targetEl.dataset.name) {
           changeSlide(el.elem, el.position);
@@ -172,18 +378,18 @@ export const sliderNeighborhoods = () => {
       }
 
       // Create our number formatter.
-      var USDFormatterNoDec = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
+      var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
 
         // These options are needed to round to whole numbers if that's what you want.
         minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
         maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
       });
 
-      var USDFormatterDec = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
+      var USDFormatterDec = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
 
         // These options are needed to round to whole numbers if that's what you want.
         // minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
@@ -192,10 +398,19 @@ export const sliderNeighborhoods = () => {
 
       if (targetEl.HJICondoMonthly) {
         if (targetEl.HJICondoMonthly.result.measurements) {
-          console.log(targetEl.HJISingleMonthly.result);
-          console.log(targetEl.HJICondoMonthly.result);
-          mapContent += `<div class='map-neighborhoods__tooltip-info'>House Median Price: ${USDFormatterNoDec.format(targetEl.HJISingleMonthly.result.measurements.salePrice.median)}<br> Median $/SqFt: ${USDFormatterDec.format(targetEl.HJISingleMonthly.result.measurements.listPricePerSqFt.median)}/sf</div>`;
-          mapContent += `<div class='map-neighborhoods__tooltip-info'>2BR/2BA Condo Median Price: ${USDFormatterNoDec.format(targetEl.HJICondoMonthly.result.measurements.salePrice.median)}<br> Median $/SqFt: ${USDFormatterDec.format(targetEl.HJICondoMonthly.result.measurements.listPricePerSqFt.median)}/sf</div>`;
+          // console.log(targetEl.HJISingleMonthly.result);
+          // console.log(targetEl.HJICondoMonthly.result);
+          mapContent += `<div class='map-neighborhoods__tooltip-info'>House Median Price: ${USDFormatterNoDec.format(
+            targetEl.HJISingleMonthly.result.measurements.salePrice.median
+          )}<br> Median $/SqFt: ${USDFormatterDec.format(
+            targetEl.HJISingleMonthly.result.measurements.listPricePerSqFt
+              .median
+          )}/sf</div>`;
+          mapContent += `<div class='map-neighborhoods__tooltip-info'>2BR/2BA Condo Median Price: ${USDFormatterNoDec.format(
+            targetEl.HJICondoMonthly.result.measurements.salePrice.median
+          )}<br> Median $/SqFt: ${USDFormatterDec.format(
+            targetEl.HJICondoMonthly.result.measurements.listPricePerSqFt.median
+          )}/sf</div>`;
         }
       }
       // append tooltip information

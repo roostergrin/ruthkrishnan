@@ -80,7 +80,8 @@
   .map-neighborhoods__icon-neighborhood
     transition: opacity .5s ease
     transition: fill .5s ease
-
+    path, polygon
+      transition: fill .2s ease
     &--deactive
       opacity: .5
 
@@ -90,6 +91,13 @@
         & .fce01033-cae7-4eca-a313-518e59be67b0
           fill: $c6
       cursor: pointer
+
+    &--slug-active
+      opacity: 0.5
+      pointer-events: none
+      & .b805b24c-8856-46da-a110-27049a7b5674,
+      & .fce01033-cae7-4eca-a313-518e59be67b0
+        fill: $c1
 
   .map-neighborhoods__icon-neighborhood--matched.map-neighborhoods__icon-neighborhood--deactive
     @include hover-supported

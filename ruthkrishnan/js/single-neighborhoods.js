@@ -13,15 +13,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "neighborhoodCharts": () => (/* binding */ neighborhoodCharts)
 /* harmony export */ });
 var neighborhoodCharts = function neighborhoodCharts() {
-  var data = Array.from(document.querySelectorAll('.single-neighborhoods-content__data')); // const condos = JSON.parse()
-
+  //
+  //
+  //
+  // USING 2.5 ChartJS https://www.chartjs.org/docs/2.7.3/
+  //
+  //
+  //
+  //
+  var data = Array.from(document.querySelectorAll(".single-neighborhoods-content__data"));
   var condo = JSON.parse(data[0].dataset.neighborhoodhjicondo);
   var single = JSON.parse(data[0].dataset.neighborhoodhjisingle);
 
   function timeConverter(UNIX_timestamp) {
-    var a = new Date(UNIX_timestamp * 1000);
-    var year = a.getFullYear();
-    var month = a.getMonth();
+    // please use real variable names.
+    var timestampDate = new Date(UNIX_timestamp * 1000);
+    var year = timestampDate.getFullYear();
+    var month = timestampDate.getMonth();
     var quarter;
 
     if (month === 11) {
@@ -34,15 +42,8 @@ var neighborhoodCharts = function neighborhoodCharts() {
       quarter = "Q4";
     }
 
-    var time = year + ' ' + quarter;
-    return time;
-  }
-
-  function getIntersection(listA, listB) {
-    var intersection = listA.filter(function (element) {
-      return listB.includes(element);
-    });
-    return intersection;
+    var yearAndQuarter = year + " " + quarter;
+    return yearAndQuarter;
   }
 
   var singleLabels = [];
@@ -51,26 +52,29 @@ var neighborhoodCharts = function neighborhoodCharts() {
   var singleLow = [];
   var singleHi = [];
   var singleSq = [];
-  var singleList = [];
+  var singleSaleToListRatio = [];
   var singleData = single.result.grouping.groups;
-  singleData.forEach(function (item) {
+  singleData.forEach(function (singleQuarterData) {
     //console.log("Single: ")
-    var quarter = timeConverter(item.value);
+    var quarter = timeConverter(singleQuarterData.value);
     singleLabels.push(quarter); //console.log(quarter);
-    //console.log("Avg Sales",item.measurements.salePrice.average)
+    //console.log("Avg Sales",singleQuarterData.measurements.salePrice.average)
 
-    singleAvg.push(item.measurements.salePrice.average); //console.log("Med Sales",item.measurements.salePrice.median)
+    singleAvg.push(singleQuarterData.measurements.salePrice.average); //console.log("Med Sales",singleQuarterData.measurements.salePrice.median)
 
-    singleMed.push(item.measurements.salePrice.median); //console.log("Low Sales",item.measurements.salePrice.low)
+    singleMed.push(singleQuarterData.measurements.salePrice.median); //console.log("Low Sales",singleQuarterData.measurements.salePrice.low)
 
-    singleLow.push(item.measurements.salePrice.low); //console.log("High Sales",item.measurements.salePrice.high)
+    singleLow.push(singleQuarterData.measurements.salePrice.low); //console.log("High Sales",singleQuarterData.measurements.salePrice.high)
 
-    singleHi.push(item.measurements.salePrice.high); //console.log("Sq Sales",item.measurements.listPricePerSqFt.median)
+    singleHi.push(singleQuarterData.measurements.salePrice.high); //console.log("Sq Sales",singleQuarterData.measurements.listPricePerSqFt.median)
 
-    singleSq.push(item.measurements.listPricePerSqFt.median); //console.log("List 2 Sales",item.measurements.salePrice.average)
+    if (singleQuarterData.measurements.listPricePerSqFt.median < 99999) {
+      singleSq.push(singleQuarterData.measurements.listPricePerSqFt.median);
+    } else {
+      singleSq.push(0);
+    }
 
-    var listsale = parseInt(item.measurements.listPrice.average) / parseInt(item.measurements.salePrice.average);
-    singleList.push(listsale.toFixed(3));
+    singleSaleToListRatio.push(singleQuarterData.measurements.salePrice.median / singleQuarterData.measurements.listPrice.median).toFixed(3);
   });
   var condoLabels = [];
   var condoAvg = [];
@@ -78,27 +82,38 @@ var neighborhoodCharts = function neighborhoodCharts() {
   var condoLow = [];
   var condoHi = [];
   var condoSq = [];
-  var condoList = [];
+  var condoSaleToListRatio = [];
   var condoData = condo.result.grouping.groups;
-  condoData.forEach(function (item) {
+  condoData.forEach(function (condoQuarterData) {
     //console.log("Condos: ")
-    var quarter = timeConverter(item.value);
+    var quarter = timeConverter(condoQuarterData.value);
     condoLabels.push(quarter); //console.log(quarter);
-    //console.log("Avg Sales",item.measurements.salePrice.average)
+    //console.log("Avg Sales",condoQuarterData.measurements.salePrice.average)
 
-    condoAvg.push(item.measurements.salePrice.average); //console.log("Med Sales",item.measurements.salePrice.median)
+    condoAvg.push(condoQuarterData.measurements.salePrice.average); //console.log("Med Sales",condoQuarterData.measurements.salePrice.median)
 
-    condoMed.push(item.measurements.salePrice.median); //console.log("Low Sales",item.measurements.salePrice.low)
+    condoMed.push(condoQuarterData.measurements.salePrice.median); //console.log("Low Sales",condoQuarterData.measurements.salePrice.low)
 
-    condoLow.push(item.measurements.salePrice.low); //console.log("High Sales",item.measurements.salePrice.high)
+    condoLow.push(condoQuarterData.measurements.salePrice.low); //console.log("High Sales",condoQuarterData.measurements.salePrice.high)
 
-    condoHi.push(item.measurements.salePrice.high); //console.log("Sq Sales",item.measurements.listPricePerSqFt.median)
+    condoHi.push(condoQuarterData.measurements.salePrice.high); //console.log("Sq Sales",condoQuarterData.measurements.listPricePerSqFt.median)
 
-    condoSq.push(item.measurements.listPricePerSqFt.median); //console.log("List 2 Sales",item.measurements.salePrice.average)
+    if (condoQuarterData.measurements.listPricePerSqFt.median < 99999) {
+      condoSq.push(condoQuarterData.measurements.listPricePerSqFt.median);
+    } else {
+      condoSq.push(0);
+    }
 
-    var listsale = parseInt(item.measurements.listPrice.average) / parseInt(item.measurements.salePrice.average);
-    condoList.push(listsale.toFixed(3));
+    condoSaleToListRatio.push(condoQuarterData.measurements.salePrice.median / condoQuarterData.measurements.listPrice.median).toFixed(3);
   });
+
+  function getIntersection(listA, listB) {
+    var intersection = listA.filter(function (element) {
+      return listB.includes(element);
+    });
+    return intersection;
+  }
+
   var labels = getIntersection(singleLabels, condoLabels);
   var _draw = Chart.controllers.line.prototype.draw;
   Chart.controllers.line = Chart.controllers.line.extend({
@@ -110,7 +125,7 @@ var neighborhoodCharts = function neighborhoodCharts() {
 
       ctx.stroke = function () {
         ctx.save();
-        ctx.shadowColor = '#E56590';
+        ctx.shadowColor = "#E56590";
         ctx.shadowBlur = 10;
         ctx.shadowOffsetX = 0;
         ctx.shadowOffsetY = 4;
@@ -124,7 +139,7 @@ var neighborhoodCharts = function neighborhoodCharts() {
   Chart.pluginService.register({
     beforeDraw: function beforeDraw(chart, easing) {
       if (chart.config.options.chartArea && chart.config.options.chartArea.backgroundColor) {
-        var helpers = Chart.helpers;
+        var helpers = chart.helpers;
         var ctx = chart.chart.ctx;
         var chartArea = chart.chartArea;
         ctx.save();
@@ -133,9 +148,45 @@ var neighborhoodCharts = function neighborhoodCharts() {
         ctx.restore();
       }
     }
-  });
+  }); // USD formatter
+
+  var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    // These options are needed to round to whole numbers if that's what you want.
+    minimumFractionDigits: 0,
+    // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    maximumFractionDigits: 0 // (causes 2500.99 to be printed as $2,501)
+
+  }); // var USDFormatterDec = new Intl.NumberFormat("en-US", {
+  //   style: "currency",
+  //   currency: "USD", // These options are needed to round to whole numbers if that's what you want.
+  //   // minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+  //   // maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+  // });
+  // tooltip
+
+  var titleTooltip = function titleTooltip(tooltipItems) {
+    return "Test";
+  };
+
+  var USDYLabel = function USDYLabel(value) {
+    return USDFormatterNoDec.format(value);
+  };
+
+  var USDTooltip = function USDTooltip(tooltipItem, data) {
+    var label = data.datasets[tooltipItem.datasetIndex].label || "";
+
+    if (label) {
+      label += ": ";
+    }
+
+    label += USDFormatterNoDec.format(tooltipItem.yLabel);
+    return label;
+  };
+
   var config = {
-    type: 'bar',
+    type: "bar",
     data: {
       labels: labels,
       datasets: [{
@@ -154,15 +205,7 @@ var neighborhoodCharts = function neighborhoodCharts() {
           ticks: {
             beginAtZero: true,
             padding: 15,
-            callback: function callback(value, index, values) {
-              if (value == 0) {
-                return undefined;
-              } else if (value <= 1) {
-                return value.toFixed(1);
-              }
-
-              return value;
-            },
+            callback: USDYLabel,
             precision: 0
           },
           gridLines: {
@@ -181,18 +224,50 @@ var neighborhoodCharts = function neighborhoodCharts() {
         display: false
       },
       chartArea: {
-        backgroundColor: 'white'
+        backgroundColor: "white"
+      },
+      responsive: true,
+      tooltips: {
+        callbacks: {
+          label: USDTooltip
+        }
       }
     }
   };
-  var ctx = document.getElementById("neighborhoodChart").getContext("2d");
-  var barChart = new Chart(ctx, config);
-  var btns = document.getElementsByClassName("single-neighborhoods-cart__button");
-  var title = document.getElementById("graphTitle");
 
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function (event) {
-      var value = event.target.value;
+  var twoDecYLabel = function twoDecYLabel(value) {
+    return Math.round(value * 100) / 100;
+  };
+
+  var twoDecTooltip = function twoDecTooltip(tooltipItem, data) {
+    var label = data.datasets[tooltipItem.datasetIndex].label || "";
+
+    if (label) {
+      label += ": ";
+    }
+
+    label += Math.round(tooltipItem.yLabel * 100) / 100;
+    return label;
+  }; // build chart
+
+
+  var ctx = document.getElementById("neighborhoodChart").getContext("2d");
+  var barChart = new Chart(ctx, config); // Chart.defaults.global.defaultFontFamily = "Avenir Next";
+  // Chart.defaults.global.defaultFontSize = 16
+  // Chart.defaults.global.defaultFontWeight = 500
+
+  Chart.defaults.global.defaultFontColor = "#232323"; // change charts and chart title
+
+  var title = document.getElementById("graphTitle");
+  var filtersArr = document.querySelectorAll(".single-neighborhoods-chart__filter");
+  filtersArr.forEach(function (el) {
+    el.addEventListener("click", function () {
+      if (!el.classList.contains('single-neighborhoods-chart__filter--active')) {
+        document.querySelector('.single-neighborhoods-chart__filter--active').classList.remove('single-neighborhoods-chart__filter--active');
+        el.classList.add('single-neighborhoods-chart__filter--active');
+      }
+
+      var value = el.dataset.filter;
       title.innerHTML = value;
 
       if (value === "Average Sales Price") {
@@ -210,16 +285,67 @@ var neighborhoodCharts = function neighborhoodCharts() {
       } else if (value === "List Price per Sq Foot") {
         barChart.data.datasets[0].data = condoSq;
         barChart.data.datasets[1].data = singleSq;
-      } else {
-        barChart.data.datasets[0].data = condoList;
-        barChart.data.datasets[1].data = singleList;
-      } //console.log(barChart.data.datasets[0])
-      //console.log(barChart.data.datasets[1])
+      } else if (value === "Sale to List Price Ratio") {
+        // TODO change Units with config
+        barChart.data.datasets[0].data = condoSaleToListRatio;
+        barChart.data.datasets[1].data = singleSaleToListRatio;
+      }
 
+      if (value === "Sale to List Price Ratio") {
+        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = false;
+        barChart.config.options.scales.yAxes[0].ticks.callback = twoDecYLabel;
+        barChart.config.options.tooltips.callbacks.label = twoDecTooltip;
+      } else {
+        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = true;
+        barChart.config.options.scales.yAxes[0].ticks.callback = USDYLabel;
+        barChart.config.options.tooltips.callbacks.label = USDTooltip;
+      }
 
       barChart.update();
     });
-  }
+    el.addEventListener("keyup", function () {
+      if (!el.classList.contains('single-neighborhoods-chart__filter--active')) {
+        document.querySelector('.single-neighborhoods-chart__filter--active').classList.remove('single-neighborhoods-chart__filter--active');
+        el.classList.add('single-neighborhoods-chart__filter--active');
+      }
+
+      var value = el.dataset.filter;
+      title.innerHTML = value;
+
+      if (value === "Average Sales Price") {
+        barChart.data.datasets[0].data = condoAvg;
+        barChart.data.datasets[1].data = singleAvg;
+      } else if (value === "Median Sales Price") {
+        barChart.data.datasets[0].data = condoMed;
+        barChart.data.datasets[1].data = singleMed;
+      } else if (value === "Lowest Sales Price") {
+        barChart.data.datasets[0].data = condoLow;
+        barChart.data.datasets[1].data = singleLow;
+      } else if (value === "Highest Sales Price") {
+        barChart.data.datasets[0].data = condoHi;
+        barChart.data.datasets[1].data = singleHi;
+      } else if (value === "List Price per Sq Foot") {
+        barChart.data.datasets[0].data = condoSq;
+        barChart.data.datasets[1].data = singleSq;
+      } else if (value === "Sale to List Price Ratio") {
+        // TODO change Units with config
+        barChart.data.datasets[0].data = condoSaleToListRatio;
+        barChart.data.datasets[1].data = singleSaleToListRatio;
+      }
+
+      if (value === "Sale to List Price Ratio") {
+        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = false;
+        barChart.config.options.scales.yAxes[0].ticks.callback = twoDecYLabel;
+        barChart.config.options.tooltips.callbacks.label = twoDecTooltip;
+      } else {
+        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = true;
+        barChart.config.options.scales.yAxes[0].ticks.callback = USDYLabel;
+        barChart.config.options.tooltips.callbacks.label = USDTooltip;
+      }
+
+      barChart.update();
+    });
+  });
 };
 
 /***/ }),
@@ -236,9 +362,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var dataTable = function dataTable() {
   var tableElement = document.getElementById("wrapper");
-  var single = JSON.parse(tableElement.dataset.hjisingleyearly);
-  console.log("hji single yearly:");
-  console.log(single.result.grouping.groups); // TODO: make a JSON with the content from single
+  var single = JSON.parse(tableElement.dataset.hjisingleyearly); // console.log("hji single yearly:");
+
+  console.log("hji single yearly", single); // TODO: make a JSON with the content from single
 
   var year = []; // single.result.grouping.groups.forEach((year) => {
   //   year.push(year.measurements.salePrice.average)
@@ -249,22 +375,23 @@ var dataTable = function dataTable() {
   var salePriceMedian = ["Median Sale Price"];
   var salePriceLow = ["Lowest Sale Price"];
   var salePriceHigh = ["Highest Sale Price"];
-  var daysOnMarketAverage = ["Days on Market"];
   var listPricePerSqFtAverage = ["List Price per sq ft"];
   var saleToListPrice = ["Sale to List Price Percent"];
-  var data = [salePriceAvg, salePriceMedian, salePriceLow, salePriceHigh, daysOnMarketAverage, listPricePerSqFtAverage, saleToListPrice];
-  var USDFormatterNoDec = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  var daysOnMarketMedian = ["Days on Market"];
+  var competeScore = ["Compete Score?"];
+  var data = [salePriceAvg, salePriceMedian, salePriceLow, salePriceHigh, listPricePerSqFtAverage, saleToListPrice, daysOnMarketMedian, competeScore];
+  var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
     // These options are needed to round to whole numbers if that's what you want.
     minimumFractionDigits: 0,
     // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
     maximumFractionDigits: 0 // (causes 2500.99 to be printed as $2,501)
 
   });
-  var USDFormatterDec = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD' // These options are needed to round to whole numbers if that's what you want.
+  var USDFormatterDec = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD" // These options are needed to round to whole numbers if that's what you want.
     // minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
     // maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 
@@ -274,9 +401,10 @@ var dataTable = function dataTable() {
     salePriceMedian.push(USDFormatterNoDec.format(year.measurements.salePrice.median));
     salePriceLow.push(USDFormatterNoDec.format(year.measurements.salePrice.low));
     salePriceHigh.push(USDFormatterNoDec.format(year.measurements.salePrice.high));
-    daysOnMarketAverage.push(year.measurements.daysOnMarket.average.toFixed(0));
-    listPricePerSqFtAverage.push(USDFormatterDec.format(year.measurements.listPricePerSqFt.median) + '/sq.ft');
+    daysOnMarketMedian.push(year.measurements.daysOnMarket.median.toFixed(0));
+    listPricePerSqFtAverage.push(USDFormatterDec.format(year.measurements.listPricePerSqFt.median) + "/sq.ft");
     saleToListPrice.push((year.measurements.salePrice.average / year.measurements.listPrice.average * 100).toFixed(2) + "%");
+    competeScore.push((year.measurements.salePrice.average / year.measurements.listPrice.average / (0.75 * year.measurements.daysOnMarket.median) * 2000).toFixed(3));
   });
   console.log(data);
   new gridjs.Grid({
@@ -298,51 +426,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "photoGallery": () => (/* binding */ photoGallery)
 /* harmony export */ });
 var photoGallery = function photoGallery() {
-  var currSlide = 0,
-      paginationContent;
-  var slider = document.querySelector(".photo-gallery__slider"),
-      slide = document.querySelectorAll(".photo-gallery__slide"),
-      dot = document.querySelectorAll(".photo-gallery__dot"),
-      numpagination = document.querySelector(".photo-gallery__numpagination"),
-      prev = document.querySelector(".photo-gallery__prev"),
-      next = document.querySelector(".photo-gallery__next"),
-      img = document.querySelectorAll(".photo-gallery__image");
+  if (document.querySelector(".photo-gallery__slider")) {
+    var currSlide = 0,
+        paginationContent;
+    var slider = document.querySelector(".photo-gallery__slider"),
+        sliderLength = slider.dataset.sliderLength,
+        slide = document.querySelectorAll(".photo-gallery__slide"),
+        dot = document.querySelectorAll(".photo-gallery__dot"),
+        numpagination = document.querySelector(".photo-gallery__numpagination"),
+        prev = document.querySelector(".photo-gallery__prev"),
+        next = document.querySelector(".photo-gallery__next"),
+        img = document.querySelectorAll(".photo-gallery__image");
 
-  var setSlide = function setSlide() {
-    slide.forEach(function (slide) {
-      currSlide === +slide.dataset.index ? slide.classList.add("photo-gallery__slide--active") : slide.classList.remove("photo-gallery__slide--active");
-    });
-
-    if (numpagination) {
-      paginationContent = "".concat(currSlide + 1, " / ").concat(+numpagination.dataset.slides);
-      numpagination.innerHTML = paginationContent;
-    } else {
-      dot.forEach(function (dot) {
-        currSlide === +dot.dataset.index ? dot.classList.add("photo-gallery__dot--active") : dot.classList.remove("photo-gallery__dot--active");
+    var setSlide = function setSlide() {
+      slide.forEach(function (slide) {
+        currSlide === +slide.dataset.index ? slide.classList.add("photo-gallery__slide--active") : slide.classList.remove("photo-gallery__slide--active");
       });
-    }
-  };
 
-  var changeSlide = function changeSlide(str) {
-    if (str === "prev") {
-      currSlide === 0 ? currSlide = sliderLength - 1 : currSlide--;
-      setSlide();
-    }
+      if (numpagination) {
+        paginationContent = "".concat(currSlide + 1, " / ").concat(+numpagination.dataset.slides);
+        numpagination.innerHTML = paginationContent;
+      } else {
+        dot.forEach(function (dot) {
+          currSlide === +dot.dataset.index ? dot.classList.add("photo-gallery__dot--active") : dot.classList.remove("photo-gallery__dot--active");
+        });
+      }
+    };
 
-    if (str === "next") {
-      currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++;
-      setSlide();
-    }
-  };
-
-  var goToSlide = function goToSlide(val) {
-    currSlide = val;
     setSlide();
-  };
 
-  if (slider) {
-    sliderLength = slider.dataset.sliderLength;
-    setSlide();
+    var changeSlide = function changeSlide(str) {
+      if (str === "prev") {
+        currSlide === 0 ? currSlide = sliderLength - 1 : currSlide--;
+        setSlide();
+      }
+
+      if (str === "next") {
+        currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++;
+        setSlide();
+      }
+    };
+
+    var goToSlide = function goToSlide(val) {
+      currSlide = val;
+      setSlide();
+    };
+
     prev.addEventListener("click", function () {
       changeSlide("prev");
     });
@@ -379,6 +508,10 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       tooltipContainer = document.querySelector(".map-neighborhoods__tooltip"),
       tooltipContent = document.getElementById("tooltip-content"),
       closeContainer = document.getElementById("tooltip-close");
+  var loc = window.location.pathname;
+  var locArray = loc.split("/");
+  var currentNeighborhood = locArray[locArray.length - 2]; // const dir = loc.substring(loc.lastIndexOf('/'));
+
   var debounceLastTimeout = null,
       sectionActive = false,
       maxTrackLength; // * Build slide array of objects *
@@ -390,16 +523,18 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       elem: el,
       HJICondoMonthly: JSON.parse(el.dataset.hjicondomonthly),
       HJISingleMonthly: JSON.parse(el.dataset.hjisinglemonthly),
+      weather: el.dataset.weather,
+      walkscore: el.dataset.walkscore,
       category: el.dataset.category
     };
   });
-  console.log(allSlides);
   var slidesArr = allSlides.filter(function (slide) {
     return slide.category === "active";
   });
   slidesArr.forEach(function (slide, i) {
     slide.position = i;
   });
+  console.log(allSlides);
   maxTrackLength = document.querySelector(".slider-neighborhoods__slide").clientWidth * slidesArr.length; // * move slides *
 
   var changeSlide = function changeSlide(el, pos) {
@@ -412,8 +547,171 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       }
     });
     sectionActive ? closeToolTip() : null;
-  }; // * set the correct slide active on first load *
+  }; // finds the min and max of condos and single
+  // initializes min and max
 
+
+  var minMedianSingle = allSlides[0].HJISingleMonthly.result.measurements.salePrice.median;
+  var maxMedianSingle = allSlides[0].HJISingleMonthly.result.measurements.salePrice.median;
+  var minMedianCondo = allSlides[0].HJICondoMonthly.result.measurements.salePrice.median;
+  var maxMedianCondo = allSlides[0].HJICondoMonthly.result.measurements.salePrice.median;
+  allSlides.forEach(function (slide) {
+    if (slide.HJISingleMonthly) {
+      if (slide.HJISingleMonthly.result.measurements.salePrice.median != 0) {
+        if (slide.HJISingleMonthly.result.measurements.salePrice.median < minMedianSingle) minMedianSingle = slide.HJISingleMonthly.result.measurements.salePrice.median;
+        if (slide.HJISingleMonthly.result.measurements.salePrice.median > maxMedianSingle) maxMedianSingle = slide.HJISingleMonthly.result.measurements.salePrice.median;
+      }
+    }
+
+    if (slide.HJICondoMonthly) {
+      if (slide.HJICondoMonthly.result.measurements.salePrice.median != 0) {
+        if (slide.HJICondoMonthly.result.measurements.salePrice.median < minMedianCondo) minMedianCondo = slide.HJICondoMonthly.result.measurements.salePrice.median;
+        if (slide.HJICondoMonthly.result.measurements.salePrice.median > maxMedianCondo) maxMedianCondo = slide.HJICondoMonthly.result.measurements.salePrice.median;
+      }
+    }
+  }); // normalize data to 0-1 range
+
+  function scaleRange(x, min, max) {
+    // console.log((x - min) / (max - min))
+    return (x - min) / (max - min);
+  }
+
+  function colorWeather(weather) {
+    switch (weather) {
+      case "cold & foggy with heavy winds":
+        return "#365060";
+
+      case "cold, with some fog and light winds":
+        return "#196C55";
+
+      case "cool to moderate, a mixture of foggy and clear days, light winds":
+        return "#409983";
+
+      case "cool to moderate, with some fog and light winds":
+        return "#447211";
+
+      case "moderate to hot, clear skies and heavy winds":
+        return "#5F9409";
+
+      case "moderate to hot, clear skies and light winds":
+        return "#6C190D";
+
+      default:
+        return "black";
+      // case "cold, with some fog and light winds":
+      //   return "#409983";
+      // case "cold & foggy with heavy winds":
+      //   return "#3c5a6b";
+      // case "cool to moderate, a mixture of foggy and clear days, light winds":
+      //   return "#409983";
+      // case "cool to moderate, with some fog and light winds":
+      //   return "#a2cd74"
+      // case "moderate to hot, clear skies and heavy winds":
+      //   return "#edda61"
+      // case "moderate to hot, clear skies and light winds":
+      //   return "#ffaa5c";
+      // default:
+      //   return "black"
+    }
+  }
+
+  function colorIconArr(value) {
+    var inactiveColor = "gray";
+    var currentNeighborhood = "red"; // updateLegend()
+
+    iconArr.forEach(function (icon) {
+      allSlides.forEach(function (slide) {
+        if (icon.dataset.name == slide.neighborhood) {
+          // a matched neighborhood and slide
+          var domain;
+          var min;
+          var max;
+          var color;
+
+          if (value == 'single median sale price') {
+            domain = slide.HJISingleMonthly.result.measurements.salePrice.median;
+            min = minMedianSingle;
+            max = maxMedianSingle; // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
+            // color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
+
+            color = "hsl(0, 41%, ".concat(Math.abs(scaleRange(domain, min, max) * 100 - 100), "%)");
+          } else if (value == 'walk score') {
+            domain = slide.walkscore;
+            min = 0;
+            max = 100;
+            color = "hsl(0, 41%, ".concat(Math.abs(scaleRange(domain, min, max) * 100 - 100), "%)"); // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
+          } else if (value == "weather") {
+            domain = slide.walkscore;
+            color = colorWeather(slide.weather);
+          }
+
+          if (domain == 0) {
+            // no data is available for the domain
+            styleIcon(icon, inactiveColor, true);
+          } else if (icon.dataset.name === currentNeighborhood) {
+            // the current URL of the Neighborhood
+            styleIcon(icon, currentNeighborhoodColor, true);
+          } // Active neighborhoods with data
+          else {
+            styleIcon(icon, color);
+          }
+        }
+      });
+      var inactiveNeighborhoods = ["presidio", "golden-gate-park", "lincoln-park", "hunters-point", "tenderloin"];
+
+      if (inactiveNeighborhoods.includes(icon.dataset.name)) {
+        // an inactive neighborhood
+        styleIcon(icon, inactiveColor, true);
+      }
+    });
+
+    function styleIcon(icon, backgroundColor) {
+      var disablePointerEvents = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      // gets the background and filters all text svgs
+      var iconBackgrounds = Array.from(icon.children).filter(function (HTMLObjectElement) {
+        return HTMLObjectElement.localName != "text";
+      }); // loops through the background svgs
+
+      iconBackgrounds.forEach(function (iconBackground) {
+        // fills polygons
+        iconBackground.style.fill = backgroundColor; // fills paths inside the g tag
+
+        Array.from(iconBackground.children).forEach(function (path) {
+          path.style.fill = backgroundColor;
+
+          if (disablePointerEvents) {
+            path.style.pointerEvents = "none";
+          }
+        });
+      });
+    }
+  }
+
+  colorIconArr('single median sale price');
+  var filtersArr = Array.from(document.querySelectorAll(".slider-neighborhoods__filter"));
+
+  function toggle() {}
+
+  filtersArr.forEach(function (el) {
+    el.addEventListener("click", function () {
+      if (!el.classList.contains('slider-neighborhoods__filter--active')) {
+        document.querySelector('.slider-neighborhoods__filter--active').classList.remove('slider-neighborhoods__filter--active');
+        el.classList.add('slider-neighborhoods__filter--active');
+      }
+
+      var value = el.dataset.filter;
+      colorIconArr(value);
+    });
+    el.addEventListener("keyup", function () {
+      if (!el.classList.contains('slider-neighborhoods__filter--active')) {
+        document.querySelector('.slider-neighborhoods__filter--active').classList.remove('slider-neighborhoods__filter--active');
+        el.classList.add('slider-neighborhoods__filter--active');
+      }
+
+      var value = el.dataset.filter;
+      colorIconArr(value);
+    });
+  }); // * set the correct slide active on first load *
 
   changeSlide(slidesArr[0].elem, 0); // * set height of column to be the height of largest content *
 
@@ -437,7 +735,8 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   var highlight = function highlight(el) {
     iconArr.forEach(function (icon) {
       if (icon.dataset.name !== el.neighborhood) {
-        icon.classList.add("map-neighborhoods__icon-neighborhood--deactive");
+        z;
+        icon.classList.add("map-neighborhoods__i con-neighborhood--deactive");
       } else {
         icon.classList.remove("map-neighborhoods__icon-neighborhood--deactive");
       }
@@ -454,7 +753,6 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }); // * change content and slide when neigborhood in map clicked *
 
   var mapSelectNeighborhood = function mapSelectNeighborhood(targetEl) {
-    console.log(targetEl);
     var slider = document.querySelector(".slider-neighborhoods__slider"),
         contentContainer = document.querySelector(".slider-neighborhoods__content-container");
     iconArr.forEach(function (icon) {
@@ -464,7 +762,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       return el.neighborhood === targetEl.dataset.name;
     });
 
-    if (activeElem.category === "active") {
+    if (activeElem.category === "active" && activeElem.neighborhood !== currentNeighborhood) {
       slidesArr.forEach(function (el) {
         if (el.neighborhood === targetEl.dataset.name) {
           changeSlide(el.elem, el.position);
@@ -508,18 +806,18 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       } // Create our number formatter.
 
 
-      var USDFormatterNoDec = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
+      var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
         // These options are needed to round to whole numbers if that's what you want.
         minimumFractionDigits: 0,
         // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
         maximumFractionDigits: 0 // (causes 2500.99 to be printed as $2,501)
 
       });
-      var USDFormatterDec = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD' // These options are needed to round to whole numbers if that's what you want.
+      var USDFormatterDec = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD" // These options are needed to round to whole numbers if that's what you want.
         // minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
         // maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 
@@ -527,8 +825,8 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
       if (targetEl.HJICondoMonthly) {
         if (targetEl.HJICondoMonthly.result.measurements) {
-          console.log(targetEl.HJISingleMonthly.result);
-          console.log(targetEl.HJICondoMonthly.result);
+          // console.log(targetEl.HJISingleMonthly.result);
+          // console.log(targetEl.HJICondoMonthly.result);
           mapContent += "<div class='map-neighborhoods__tooltip-info'>House Median Price: ".concat(USDFormatterNoDec.format(targetEl.HJISingleMonthly.result.measurements.salePrice.median), "<br> Median $/SqFt: ").concat(USDFormatterDec.format(targetEl.HJISingleMonthly.result.measurements.listPricePerSqFt.median), "/sf</div>");
           mapContent += "<div class='map-neighborhoods__tooltip-info'>2BR/2BA Condo Median Price: ".concat(USDFormatterNoDec.format(targetEl.HJICondoMonthly.result.measurements.salePrice.median), "<br> Median $/SqFt: ").concat(USDFormatterDec.format(targetEl.HJICondoMonthly.result.measurements.listPricePerSqFt.median), "/sf</div>");
         }
@@ -901,9 +1199,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   (0,_resources_photo_gallery__WEBPACK_IMPORTED_MODULE_1__.photoGallery)(); // Slider Neighborhoods Map Functionality
 
-  (0,_resources_slider_neighborhoods__WEBPACK_IMPORTED_MODULE_3__.sliderNeighborhoods)(); // Testimonials Functionality
-  // testimonials();
-  // END Imported Scripts -------------------
+  (0,_resources_slider_neighborhoods__WEBPACK_IMPORTED_MODULE_3__.sliderNeighborhoods)(); // END Imported Scripts -------------------
 
   var playButton = document.querySelector('.single-neighborhoods-video__play-btn'),
       thumbnail = document.querySelector('.single-neighborhoods-video__thumbnail'),

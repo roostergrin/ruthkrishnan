@@ -20,9 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Slider Neighborhoods Map Functionality
   sliderNeighborhoods();
 
-  // Testimonials Functionality
-  // testimonials();
-
   // END Imported Scripts -------------------
 
   const playButton = document.querySelector('.single-neighborhoods-video__play-btn'),
