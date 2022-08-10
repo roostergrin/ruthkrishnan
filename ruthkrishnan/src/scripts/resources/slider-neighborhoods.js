@@ -172,7 +172,7 @@ export const sliderNeighborhoods = () => {
           let min;
           let max;
           let color;
-          if(value == 'single median sale price'){
+          if(value == 'single median sale price' && inactiveNeighborhoods.includes(icon.dataset.name)){
             min = minMedianSingle
             max = maxMedianSingle
             domain = slide.HJISingleMonthly.result.measurements.salePrice.median
@@ -210,11 +210,11 @@ export const sliderNeighborhoods = () => {
         "presidio",
         "golden-gate-park",
         "lincoln-park",
-        "hunters-point",
+        // "hunters-point",
         "tenderloin",
       ];
 
-      if (inactiveNeighborhoods.includes(icon.dataset.name)) {
+      if (inactiveNeighborhoods.includes(icon.dataset.name) && value == 'single median sale price') {
         // an inactive neighborhood
         styleIcon(icon, inactiveColor, true);
       }

@@ -142,7 +142,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
           var max;
           var color;
 
-          if (value == 'single median sale price') {
+          if (value == 'single median sale price' && inactiveNeighborhoods.includes(icon.dataset.name)) {
             min = minMedianSingle;
             max = maxMedianSingle;
             domain = slide.HJISingleMonthly.result.measurements.salePrice.median;
@@ -170,9 +170,10 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
           }
         }
       });
-      var inactiveNeighborhoods = ["presidio", "golden-gate-park", "lincoln-park", "hunters-point", "tenderloin"];
+      var inactiveNeighborhoods = ["presidio", "golden-gate-park", "lincoln-park", // "hunters-point",
+      "tenderloin"];
 
-      if (inactiveNeighborhoods.includes(icon.dataset.name)) {
+      if (inactiveNeighborhoods.includes(icon.dataset.name) && value == 'single median sale price') {
         // an inactive neighborhood
         styleIcon(icon, inactiveColor, true);
       }
