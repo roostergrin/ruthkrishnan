@@ -585,13 +585,13 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
         return "#196C55";
 
       case "cool to moderate, a mixture of foggy and clear days, light winds":
-        return "#409983";
-
-      case "cool to moderate, with some fog and light winds":
         return "#447211";
 
+      case "cool to moderate, with some fog and light winds":
+        return "#8954BE";
+
       case "moderate to hot, clear skies and heavy winds":
-        return "#5F9409";
+        return "#8D3C8E";
 
       case "moderate to hot, clear skies and light winds":
         return "#6C190D";
@@ -629,16 +629,10 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
           var color;
 
           if (value == 'single median sale price') {
-            if (slide.HJISingleMonthly.result) {
-              domain = slide.HJISingleMonthly.result.measurements.salePrice.median;
-              color = "hsl(0, 41%, ".concat(Math.abs(scaleRange(domain, min, max) * 100 - 100), "%)");
-            } else {
-              console.log(slide);
-              color = inactiveColor;
-            }
-
             min = minMedianSingle;
-            max = maxMedianSingle; // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
+            max = maxMedianSingle;
+            domain = slide.HJISingleMonthly.result.measurements.salePrice.median;
+            color = "hsl(0, 41%, ".concat(Math.abs(scaleRange(domain, min, max) * 100 - 100), "%)"); // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
             // color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
           } else if (value == 'walk score') {
             domain = slide.walkscore;
