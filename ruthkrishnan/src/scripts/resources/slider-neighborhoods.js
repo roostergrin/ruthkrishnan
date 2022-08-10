@@ -167,12 +167,17 @@ export const sliderNeighborhoods = () => {
           let max;
           let color;
           if(value == 'single median sale price'){
-            domain = slide.HJISingleMonthly.result.measurements.salePrice.median
+            if(slide.HJISingleMonthly.result) {
+              domain = slide.HJISingleMonthly.result.measurements.salePrice.median
+              color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
+            } else {
+              console.log(slide)
+              color = inactiveColor
+            }
             min = minMedianSingle
             max = maxMedianSingle
             // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
             // color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
-            color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
           }
           else if(value == 'walk score') {
             domain = slide.walkscore

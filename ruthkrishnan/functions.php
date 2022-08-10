@@ -333,6 +333,7 @@ function get_neighborhood_data_from_api()
     '67226b68206c7bbe7ad15a151a8ca253' =>'western-addition',
     'e19cd5f405a9bda13b81f13b00315afa' =>'lower-pacific-heights',
     'ab8078cbc1eb35bc57b2ebec32bc265a' =>'tenderloin',
+    // same as downtown
     '3fcd0fd755a568aaff6cab0d08afd206' =>'van-ness-civic-center',
     // buena vista park
     '66b2dd79c32c6bf88c0e66266f8f7ad8' =>'ashbury-buena-vista',
