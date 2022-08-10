@@ -269,8 +269,8 @@ function get_san_francisco_data_from_api() {
   
   $hji_id = 'ead7906cd13415c8e165dcc09b866b23';
   $API_parameter = '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(year)';
-  // $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/areas/neighborhoods/search?market=SFAR&pageSize=1000&polygon=$' . $hji_id . $API_parameter, $args));
-  $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/statistics/measure?market=SFAR&polygon=$' . $hji_id . $API_parameter, $args));
+  $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/areas/neighborhoods/search?market=SFAR&pageSize=1000&polygon=$' . $hji_id . $API_parameter, $args));
+  // $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/statistics/measure?market=SFAR&polygon=$' . $hji_id . $API_parameter, $args));
   echo $results;
   // http://localhost:8888/wp-admin/admin-ajax.php?action=get_san_francisco_data_from_api
 }
@@ -290,8 +290,8 @@ function get_neighborhood_data_from_api()
 
     // 'neighborhood_slug' => 'hji_id'
     // https://slipstream.homejunction.com/#/ws/sales?id=search
-    // you can add multiple neighborhood id's with a comma (outer-sunset&inner-sunset)
-    // example '1b84669d78562747a5fd4c5e0a0c14c5,$d1db1b2e1737332ce8aff251450dbf1f'
+    // you can add multiple neighborhood id's with a comma (central-sunset&outer-sunset)
+    // example 'd1554796190bbf84a00802c2142e6df4,$cc508a11c03f2e020cc4c4f131a5ff75'
     'outer-parkside' =>'d1db1b2e1737332ce8aff251450dbf1f',
     'parkside' =>'e26f4f96ba6dfb979e6eecb6911c34fe',
     'inner-parkside' =>'600167f914c398013cd4f9776ab5acaf',
@@ -316,6 +316,7 @@ function get_neighborhood_data_from_api()
     'forest-hill' =>'58eac8532cc073b4656e111dec93bb82',
     'forest-knolls' =>'c42c3503b4073c0ef9f8ada97fa9cfa3',
     'sunset-inner' =>'777a293a115918b78caab51ca659bf31',
+    'sunset-central-outer' => 'd1554796190bbf84a00802c2142e6df4,$cc508a11c03f2e020cc4c4f131a5ff75',
     'golden-gate-park' =>'88ad77f396753826aa6d96fcfd54f7dd,$c69e9cfbaa5c13c72e66a06888347bb7',
     'cole-valley' =>'4c5e39591372f576fff2428c506892b3',
     'midtown-terrace' =>'83d45a574fb8447549dfcbf1f73162a5',
@@ -347,7 +348,9 @@ function get_neighborhood_data_from_api()
     'western-addition' =>'67226b68206c7bbe7ad15a151a8ca253',
     'lower-pacific-heights' =>'e19cd5f405a9bda13b81f13b00315afa',
     'tenderloin' =>'ab8078cbc1eb35bc57b2ebec32bc265a',
+    // civic center and downtown are the same
     'van-ness-civic-center' =>'3fcd0fd755a568aaff6cab0d08afd206',
+    'downtown' =>'3fcd0fd755a568aaff6cab0d08afd206',
     'ashbury-buena-vista' =>'68847480a3a3fa3bfcac72e75fb00959',
     'hayes-valley' =>'43168cdb7462b4c0953d91dcc040f91e',
     'mission-dolores' =>'78a74f4ea3f2d2d312bd75048798d3f2',
