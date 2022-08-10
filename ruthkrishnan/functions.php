@@ -149,7 +149,7 @@ function add_walk_score() {
     echo $walk_score;
     echo $neighborhood_slug;
     $neighborhood_post_id_wp = get_page_by_path($neighborhood_slug, 'OBJECT', 'neighborhoods');
-    update_field($ACF_weather_field, $walk_score, $neighborhood_post_id_wp);
+    update_field($ACF_walk_score, $walk_score, $neighborhood_post_id_wp);
   }
   // /wp-admin/admin-ajax.php?action=add_walk_score
 }
