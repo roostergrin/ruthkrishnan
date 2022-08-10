@@ -18,7 +18,7 @@ get_header(); ?>
 
 			<!-- Site Hero Template Part -->
 			<?php get_template_part('template-parts/hero/site-hero'); ?>
-			<!-- END Site Hero Template Part -->\
+			<!-- END Site Hero Template Part -->
 
 			<!-- Single Neighborhoods Content Section -->
 			<div class="single-neighborhoods-content">
@@ -66,58 +66,74 @@ get_header(); ?>
 			<?php endif; ?>
 			<!-- END Video Section -->
 
+			<!-- Home Stats Section -->
+			<section class="home-stats">
+				<div class="home-stats__container">
+					<h2 class="home-stats__title">Need some more information on the neighborhood?</h2>
+					<div class="home-stats__cards">
+								<div class="home-stats__card">
+									<div class="home-stats__card-container">
+										<div class="home-stats__card-circle">
+											<?php 
+												// 90–100	Walker’s Paradise
+												// Daily errands do not require a car
 
-			<!-- Photo Gallery Template Part -->
+												// 70–89	Very Walkable
+												// Most errands can be accomplished on foot
+
+												// 50–69	Somewhat Walkable
+												// Some errands can be accomplished on foot
+
+												// 25–49	Car-Dependent
+												// Most errands require a car
+
+												// 0–24	Car-Dependent
+												// Almost all errands require a car
+												$walk_score = get_field('walk_score');
+												if($walk_score <=100) {
+													$walk_score_result = "walker's paradise, daily errands do not require a car";
+												}
+												else if($walk_score <= 89) {
+													$walk_score_result = "very walkable, most errands can be accomplished on foot";
+												}
+												else if($walk_score <= 69) {
+													$walk_score_result = "somewhat Walkable, some errands can be accomplished on foot";
+												}
+												else if($walk_score <= 49) {
+													$walk_score_result = "car dependent, most errands require a car";
+												}
+												else if($walk_score <= 24) {
+													$walk_score_result = "car dependent, almost all errands require a car";
+												}
+												$weather = get_field('weather');
+												$temperature = "46°/74°";
+												$compete_score = "92";
+												$compete_score_result = "This market is rather competitive";
+											?>
+											<h3 class="home-stats__card-title"><?php echo $walk_score; ?></h3>
+										</div>
+										<div class="home-stats__card-text"><?php echo $walk_score_result; ?></div>
+									</div>
+								</div>
+								<div class="home-stats__card">
+									<div class="home-stats__card-container">
+										<div class="home-stats__card-circle">
+											<h3 class="home-stats__card-title"><?php echo $temperature; ?></h3>
+										</div>
+										<div class="home-stats__card-text"><?php echo $weather; ?></div>
+									</div>
+								</div>
+					</div>
+				</div>
+			</section>
+			<!-- END Home Stats Section -->
+			<!-- Data Table Template Part -->
 			<?php get_template_part('template-parts/neighborhood-data-table/neighborhood-data-table'); ?>
-			<!-- END Photo Gallery Template Part -->
+			<!-- END Data Table Template Part -->
 
 
 			<!-- Graph Section -->
-			<div class="single-neighborhoods-cart__button-container">
-				<button class="single-neighborhoods-cart__button" value="Average Sales Price">Average Sales Price</button>
-				<button class="single-neighborhoods-cart__button" value="Median Sales Price">Median Sales Price</button>
-				<button class="single-neighborhoods-cart__button" value="Lowest Sales Price">Lowest Sales Price</button>
-				<button class="single-neighborhoods-cart__button" value="Highest Sales Price">Highest Sales Price</button>
-				<button class="single-neighborhoods-cart__button" value="List Price per Sq Foot">List Price per Sq Foot</button>
-				<button class="single-neighborhoods-cart__button" value="List Price to Sales Price">List price to sales price</button>
-			</div>
-
-			<div class="single-neighborhoods-cart__container">
-				<div class="single-neighborhoods-cart__graph">
-					<div class="single-neighborhoods-cart__info">
-						<div class="single-neighborhoods-cart__title">
-							<h3 id="graphTitle">Average Sales Price</h3>
-							<hr />
-						</div>
-						<div class="single-neighborhoods-cart__details">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices sed fringilla pellentesque malesuada condimentum nulla nulla. Vitae, ultrices scelerisque suspendisse leo</p>
-							<hr />
-						</div>
-						<div class="single-neighborhoods-cart__key">
-							<p>Key</p>
-
-							<div class="key-pairs">
-								<svg height="10" width="10">
-									<circle cx="5" cy="5" r="4" fill="#232323" />
-								</svg>
-								<p>Single family home</p>
-							</div>
-
-							<div class="key-pairs">
-								<svg height="10" width="10">
-									<circle cx="5" cy="5" r="3.5" stroke="black" stroke-width="0.5" fill="#e9e8e8" />
-								</svg>
-								<p>Condominiums</p>
-							</div>
-
-							<hr />
-						</div>
-					</div>
-					<div class="single-neighborhoods-cart__graph-container">
-						<canvas id="neighborhoodChart"></canvas>
-					</div>
-				</div>
-			</div>
+			<?php get_template_part('template-parts/neighborhood-chart/neighborhood-chart'); ?>
 			<!-- END Graph Section -->
 
 			<!-- CTA Text & Button Template Part -->
@@ -125,6 +141,99 @@ get_header(); ?>
 				<?php get_template_part('template-parts/cta/cta-text-btn', null, array('acf_group' => 'single_neighborhoods_cta')); ?>
 			</div>
 			<!-- END CTA Text & Button Template Part -->
+
+			<div class="resources-links">
+				<div class="resources-links__container">
+					<img width="1280" height="572" src="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg" class="resources-links__background entered lazyloaded" alt="Neighborhoods" data-lazy-srcset="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg 1280w,https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg-768x343.jpg 768w" data-lazy-sizes="(max-width: 1280px) 100vw, 1280px" data-lazy-src="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg" data-ll-status="loaded" sizes="(max-width: 1280px) 100vw, 1280px" srcset="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg 1280w,https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg-768x343.jpg 768w"><noscript><img width="1280" height="572" src="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg" class="resources-links__background" alt="Neighborhoods" srcset="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg 1280w,https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg-768x343.jpg 768w" sizes="(max-width: 1280px) 100vw, 1280px" /></noscript>
+					<h2 class="resources-links__title">Buyers Resources</h2>
+					<div class="resources-links__links">
+
+						<a href="/blog/buying-a-home/" class="resources-links__link-container" style="height: 78px;">
+							<div class="resources-links__link-text-container">
+								<div class="resources-links__link-background"></div>
+								<p class="resources-links__link-text">Homebuyer resources</p>
+							</div>
+							<div class="resources-links__icon-container">
+
+								<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="resources-links__icon">
+									<path d="M14.78,7.67H0v.66H14.78L10,13h.9L16,8,10.85,3H10Z" style="fill: #232323"></path>
+								</svg>
+							</div>
+						</a>
+
+
+						<a href="/home-buying-process-in-detail/" class="resources-links__link-container" style="height: 78px;">
+							<div class="resources-links__link-text-container">
+								<div class="resources-links__link-background"></div>
+								<p class="resources-links__link-text">Home buying process in detail</p>
+							</div>
+							<div class="resources-links__icon-container">
+
+								<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="resources-links__icon">
+									<path d="M14.78,7.67H0v.66H14.78L10,13h.9L16,8,10.85,3H10Z" style="fill: #232323"></path>
+								</svg>
+							</div>
+						</a>
+
+
+						<a href="/advantages-of-a-dedicated-buyer-agent/" class="resources-links__link-container" style="height: 78px;">
+							<div class="resources-links__link-text-container">
+								<div class="resources-links__link-background"></div>
+								<p class="resources-links__link-text">Advantages of a dedicated buyer's agent</p>
+							</div>
+							<div class="resources-links__icon-container">
+
+								<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="resources-links__icon">
+									<path d="M14.78,7.67H0v.66H14.78L10,13h.9L16,8,10.85,3H10Z" style="fill: #232323"></path>
+								</svg>
+							</div>
+						</a>
+
+
+						<a href="/the-home-search/" class="resources-links__link-container" style="height: 78px;">
+							<div class="resources-links__link-text-container">
+								<div class="resources-links__link-background"></div>
+								<p class="resources-links__link-text">Your home search</p>
+							</div>
+							<div class="resources-links__icon-container">
+
+								<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="resources-links__icon">
+									<path d="M14.78,7.67H0v.66H14.78L10,13h.9L16,8,10.85,3H10Z" style="fill: #232323"></path>
+								</svg>
+							</div>
+						</a>
+
+
+						<a href="/the-home-search/" class="resources-links__link-container" style="height: 78px;">
+							<div class="resources-links__link-text-container">
+								<div class="resources-links__link-background"></div>
+								<p class="resources-links__link-text">Best time to buy a home</p>
+							</div>
+							<div class="resources-links__icon-container">
+
+								<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="resources-links__icon">
+									<path d="M14.78,7.67H0v.66H14.78L10,13h.9L16,8,10.85,3H10Z" style="fill: #232323"></path>
+								</svg>
+							</div>
+						</a>
+
+
+						<a href="/will-all-cash-offer-save-me-money-when-buying-a-home/" class="resources-links__link-container" style="height: 78px;">
+							<div class="resources-links__link-text-container">
+								<div class="resources-links__link-background"></div>
+								<p class="resources-links__link-text">Benefits of all cash offers</p>
+							</div>
+							<div class="resources-links__icon-container">
+
+								<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="resources-links__icon">
+									<path d="M14.78,7.67H0v.66H14.78L10,13h.9L16,8,10.85,3H10Z" style="fill: #232323"></path>
+								</svg>
+							</div>
+						</a>
+
+					</div>
+				</div>
+			</div>
 
 			<!-- Photo Gallery Template Part -->
 			<?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
@@ -181,7 +290,7 @@ get_header(); ?>
 		</div> <!-- container -->
 	</div>
 	<!-- END Testimonials Template Part -->
-	
+
 </div>
 
 <?php get_footer(); ?>
