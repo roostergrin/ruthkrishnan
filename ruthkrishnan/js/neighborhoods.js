@@ -70,14 +70,14 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   var minMedianCondo = allSlides[0].HJICondoMonthly.result.measurements.salePrice.median;
   var maxMedianCondo = allSlides[0].HJICondoMonthly.result.measurements.salePrice.median;
   allSlides.forEach(function (slide) {
-    if (slide.HJISingleMonthly) {
+    if (slide.HJISingleMonthly.result) {
       if (slide.HJISingleMonthly.result.measurements.salePrice.median != 0) {
         if (slide.HJISingleMonthly.result.measurements.salePrice.median < minMedianSingle) minMedianSingle = slide.HJISingleMonthly.result.measurements.salePrice.median;
         if (slide.HJISingleMonthly.result.measurements.salePrice.median > maxMedianSingle) maxMedianSingle = slide.HJISingleMonthly.result.measurements.salePrice.median;
       }
     }
 
-    if (slide.HJICondoMonthly) {
+    if (slide.HJICondoMonthly.result) {
       if (slide.HJICondoMonthly.result.measurements.salePrice.median != 0) {
         if (slide.HJICondoMonthly.result.measurements.salePrice.median < minMedianCondo) minMedianCondo = slide.HJICondoMonthly.result.measurements.salePrice.median;
         if (slide.HJICondoMonthly.result.measurements.salePrice.median > maxMedianCondo) maxMedianCondo = slide.HJICondoMonthly.result.measurements.salePrice.median;

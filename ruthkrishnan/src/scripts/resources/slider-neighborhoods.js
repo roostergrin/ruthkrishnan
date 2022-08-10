@@ -80,7 +80,7 @@ export const sliderNeighborhoods = () => {
     allSlides[0].HJICondoMonthly.result.measurements.salePrice.median;
 
   allSlides.forEach((slide) => {
-    if (slide.HJISingleMonthly) {
+    if (slide.HJISingleMonthly.result) {
       if (slide.HJISingleMonthly.result.measurements.salePrice.median != 0) {
         if (
           slide.HJISingleMonthly.result.measurements.salePrice.median <
@@ -96,7 +96,7 @@ export const sliderNeighborhoods = () => {
             slide.HJISingleMonthly.result.measurements.salePrice.median;
       }
     }
-    if (slide.HJICondoMonthly) {
+    if (slide.HJICondoMonthly.result) {
       if (slide.HJICondoMonthly.result.measurements.salePrice.median != 0) {
         if (
           slide.HJICondoMonthly.result.measurements.salePrice.median <
