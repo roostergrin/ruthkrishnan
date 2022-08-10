@@ -163,7 +163,13 @@ export const sliderNeighborhoods = () => {
     const inactiveColor = "gray";
     const currentNeighborhood = "red";
     // updateLegend()
-
+    const inactiveNeighborhoods = [
+      "presidio",
+      "golden-gate-park",
+      "lincoln-park",
+      // "hunters-point",
+      "tenderloin",
+    ];
     iconArr.forEach((icon) => {
       allSlides.forEach((slide) => {
         if (icon.dataset.name == slide.neighborhood) {
@@ -172,7 +178,7 @@ export const sliderNeighborhoods = () => {
           let min;
           let max;
           let color;
-          if(value == 'single median sale price' && inactiveNeighborhoods.includes(icon.dataset.name)){
+          if(value == 'single median sale price' && !inactiveNeighborhoods.includes(icon.dataset.name)){
             min = minMedianSingle
             max = maxMedianSingle
             domain = slide.HJISingleMonthly.result.measurements.salePrice.median
@@ -206,13 +212,7 @@ export const sliderNeighborhoods = () => {
         }
       });
 
-      const inactiveNeighborhoods = [
-        "presidio",
-        "golden-gate-park",
-        "lincoln-park",
-        // "hunters-point",
-        "tenderloin",
-      ];
+
 
       if (inactiveNeighborhoods.includes(icon.dataset.name) && value == 'single median sale price') {
         // an inactive neighborhood
