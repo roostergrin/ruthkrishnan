@@ -301,8 +301,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   var highlight = function highlight(el) {
     iconArr.forEach(function (icon) {
       if (icon.dataset.name !== el.neighborhood) {
-        z;
-        icon.classList.add("map-neighborhoods__i con-neighborhood--deactive");
+        icon.classList.add("map-neighborhoods__icon-neighborhood--deactive");
       } else {
         icon.classList.remove("map-neighborhoods__icon-neighborhood--deactive");
       }
