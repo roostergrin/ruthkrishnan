@@ -56,11 +56,10 @@ export const neighborhoodCharts = () => {
     //console.log("High Sales",singleQuarterData.measurements.salePrice.high)
     singleHi.push(singleQuarterData.measurements.salePrice.high);
     //console.log("Sq Sales",singleQuarterData.measurements.listPricePerSqFt.median)
-    if (singleQuarterData.measurements.listPricePerSqFt.median < 99999) {
-      singleSq.push(singleQuarterData.measurements.listPricePerSqFt.median);
-    } else {
-      singleSq.push(0);
-    }
+    singleSq.push(
+      singleQuarterData.measurements.salePrice.median /
+        singleQuarterData.measurements.size.median
+    );
     singleSaleToListRatio
       .push(
         singleQuarterData.measurements.salePrice.median /
@@ -91,11 +90,11 @@ export const neighborhoodCharts = () => {
     //console.log("High Sales",condoQuarterData.measurements.salePrice.high)
     condoHi.push(condoQuarterData.measurements.salePrice.high);
     //console.log("Sq Sales",condoQuarterData.measurements.listPricePerSqFt.median)
-    if (condoQuarterData.measurements.listPricePerSqFt.median < 99999) {
-      condoSq.push(condoQuarterData.measurements.listPricePerSqFt.median);
-    } else {
-      condoSq.push(0);
-    }
+    condoSq.push(
+      condoQuarterData.measurements.salePrice.median /
+        condoQuarterData.measurements.size.median
+    );
+
     condoSaleToListRatio
       .push(
         condoQuarterData.measurements.salePrice.median /
@@ -267,9 +266,13 @@ export const neighborhoodCharts = () => {
   );
   filtersArr.forEach((el) => {
     el.addEventListener("click", () => {
-      if (!el.classList.contains('single-neighborhoods-chart__filter--active')) {
-        document.querySelector('.single-neighborhoods-chart__filter--active').classList.remove('single-neighborhoods-chart__filter--active')
-        el.classList.add('single-neighborhoods-chart__filter--active')
+      if (
+        !el.classList.contains("single-neighborhoods-chart__filter--active")
+      ) {
+        document
+          .querySelector(".single-neighborhoods-chart__filter--active")
+          .classList.remove("single-neighborhoods-chart__filter--active");
+        el.classList.add("single-neighborhoods-chart__filter--active");
       }
       let value = el.dataset.filter;
       title.innerHTML = value;
@@ -285,7 +288,7 @@ export const neighborhoodCharts = () => {
       } else if (value === "Highest Sales Price") {
         barChart.data.datasets[0].data = condoHi;
         barChart.data.datasets[1].data = singleHi;
-      } else if (value === "List Price per Sq Foot") {
+      } else if (value === "Sale Price per Sq Foot") {
         barChart.data.datasets[0].data = condoSq;
         barChart.data.datasets[1].data = singleSq;
       } else if (value === "Sale to List Price Ratio") {
@@ -305,9 +308,13 @@ export const neighborhoodCharts = () => {
       barChart.update();
     });
     el.addEventListener("keyup", () => {
-      if (!el.classList.contains('single-neighborhoods-chart__filter--active')) {
-        document.querySelector('.single-neighborhoods-chart__filter--active').classList.remove('single-neighborhoods-chart__filter--active')
-        el.classList.add('single-neighborhoods-chart__filter--active')
+      if (
+        !el.classList.contains("single-neighborhoods-chart__filter--active")
+      ) {
+        document
+          .querySelector(".single-neighborhoods-chart__filter--active")
+          .classList.remove("single-neighborhoods-chart__filter--active");
+        el.classList.add("single-neighborhoods-chart__filter--active");
       }
       let value = el.dataset.filter;
       title.innerHTML = value;
@@ -323,7 +330,7 @@ export const neighborhoodCharts = () => {
       } else if (value === "Highest Sales Price") {
         barChart.data.datasets[0].data = condoHi;
         barChart.data.datasets[1].data = singleHi;
-      } else if (value === "List Price per Sq Foot") {
+      } else if (value === "Sale Price per Sq Foot") {
         barChart.data.datasets[0].data = condoSq;
         barChart.data.datasets[1].data = singleSq;
       } else if (value === "Sale to List Price Ratio") {

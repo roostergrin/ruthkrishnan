@@ -271,7 +271,7 @@ function get_san_francisco_data_from_api() {
     );
   
   $hji_id = 'ead7906cd13415c8e165dcc09b866b23';
-  $API_parameter = '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(year)';
+  $API_parameter = '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(year)';
   $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/areas/neighborhoods/search?market=SFAR&pageSize=1000&polygon=$' . $hji_id . $API_parameter, $args));
   // $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/statistics/measure?market=SFAR&polygon=$' . $hji_id . $API_parameter, $args));
   echo $results;
@@ -394,19 +394,19 @@ function get_neighborhood_data_from_api()
     // single data
     
     // TODO: set up dates programmatically
-    'single_data' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)',
+    'single_data' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(quarter)',
     // condo data
-    'condo_data' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(quarter)',
+    'condo_data' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(quarter)',
     
     // single year
-    'single_yearly' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(year)',
+    'single_yearly' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(year)',
     // condo year
-    'condo_yearly' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt&groups=saleDate:interval(year)',
+    'condo_yearly' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(year)',
 
     // single monthly
-    'single_last_month' => '&propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt',
+    'single_last_month' => '&propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt,size',
     // condo 2br 2ba data monthly
-    'condo2br2b_data' => '&propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt',
+    'condo2br2b_data' => '&propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt,size',
     
   ];
 

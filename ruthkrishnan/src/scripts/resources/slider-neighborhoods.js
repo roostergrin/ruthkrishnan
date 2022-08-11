@@ -1,4 +1,24 @@
 export const sliderNeighborhoods = () => {
+
+  var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+
+    // These options are needed to round to whole numbers if that's what you want.
+    minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+  });
+
+  var USDFormatterDec = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+
+    // These options are needed to round to whole numbers if that's what you want.
+    // minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    // maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+  });
+  
+  
   const slides = Array.from(
       document.querySelectorAll(".slider-neighborhoods__slide")
     ),
@@ -70,7 +90,7 @@ export const sliderNeighborhoods = () => {
 
   // initializes min and max
   let minMedianSingle =
-    allSlides[0].HJISingleMonthly.result.measurements.salePrice.median;
+    allSlides[1].HJISingleMonthly.result.measurements.salePrice.median;
   let maxMedianSingle =
     allSlides[0].HJISingleMonthly.result.measurements.salePrice.median;
 
@@ -121,48 +141,112 @@ export const sliderNeighborhoods = () => {
     return (x - min) / (max - min);
   }
 
-  function colorWeather(weather) {
+  const weatherPallette = [
+    "#365060",
+    "#196C55",
+    "#447211",
+    "#8954BE",
+    "#8D3C8E",
+    "#6C190D",
+  ];
+
+  function colorWeather(weather, weatherPallette) {
     switch (weather) {
       case "cold & foggy with heavy winds":
-        return "#365060";
+        return weatherPallette[0];
 
       case "cold, with some fog and light winds":
-        return "#196C55";
+        return weatherPallette[1];
 
       case "cool to moderate, a mixture of foggy and clear days, light winds":
-        return "#447211";
+        return weatherPallette[2];
 
       case "cool to moderate, with some fog and light winds":
-        return "#8954BE"
+        return weatherPallette[3];
 
       case "moderate to hot, clear skies and heavy winds":
-        return "#8D3C8E"
+        return weatherPallette[4];
 
       case "moderate to hot, clear skies and light winds":
-        return "#6C190D";
+        return weatherPallette[5];
 
       default:
-        return "black"
-      // case "cold, with some fog and light winds":
-      //   return "#409983";
-      // case "cold & foggy with heavy winds":
-      //   return "#3c5a6b";
-      // case "cool to moderate, a mixture of foggy and clear days, light winds":
-      //   return "#409983";
-      // case "cool to moderate, with some fog and light winds":
-      //   return "#a2cd74"
-      // case "moderate to hot, clear skies and heavy winds":
-      //   return "#edda61"
-      // case "moderate to hot, clear skies and light winds":
-      //   return "#ffaa5c";
-      // default:
-      //   return "black"
+        return "black";
     }
   }
+
+
+  function updateLegendGradientScale(legend, startColor, endColor, min, max) {
+    legend.innerHTML = `<div class="slider-neighborhoods__legend-content">
+    <div style="background:linear-gradient(90deg, ${startColor} 0%, ${endColor} 100%" class="slider-neighborhoods__legend-box">
+    </div>
+    <div class="slider-neighborhoods__legend-text-container">
+    <p class="slider-neighborhoods__legend-text">${min}</p>
+    <p class="slider-neighborhoods__legend-text">${max}</p>
+    </div>
+    </div>`;
+  }
+
+  function updateLegendPunctuatedScale(legend, palletteArr) {
+    console.log(legend)
+    legendHTML = `<div class="slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated">
+    <div class="slider-neighborhoods__legend-box-container">
+      <div class="slider-neighborhoods__legend-box--filled"></div>
+      <p class="slider-neighborhoods__legend-text">0</p>
+    </div>
+    <div class="slider-neighborhoods__legend-box-container">
+      <div class="slider-neighborhoods__legend-box--filled"></div>
+      <p class="slider-neighborhoods__legend-text">0</p>
+    </div>
+    <div class="slider-neighborhoods__legend-box-container">
+      <div class="slider-neighborhoods__legend-box--filled"></div>
+      <p class="slider-neighborhoods__legend-text">0</p>
+    </div>
+    <div class="slider-neighborhoods__legend-box-container">
+      <div class="slider-neighborhoods__legend-box--filled"></div>
+      <p class="slider-neighborhoods__legend-text">0</p>
+    </div>
+    <div class="slider-neighborhoods__legend-box-container">
+      <div class="slider-neighborhoods__legend-box--filled"></div>
+      <p class="slider-neighborhoods__legend-text">0</p>
+    </div>
+    <div class="slider-neighborhoods__legend-box-container">
+      <div class="slider-neighborhoods__legend-box--filled"></div>
+      <p class="slider-neighborhoods__legend-text">0</p>
+    </div>
+  </div>`
+    legend.outerHTML = `<div class="slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated">
+    <div class="slider-neighborhoods__legend-box-container">
+      <div class="slider-neighborhoods__legend-box--filled"></div>
+      <p class="slider-neighborhoods__legend-text">0</p>
+    </div>
+    <div class="slider-neighborhoods__legend-box-container">
+      <div class="slider-neighborhoods__legend-box--filled"></div>
+      <p class="slider-neighborhoods__legend-text">0</p>
+    </div>
+    <div class="slider-neighborhoods__legend-box-container">
+      <div class="slider-neighborhoods__legend-box--filled"></div>
+      <p class="slider-neighborhoods__legend-text">0</p>
+    </div>
+    <div class="slider-neighborhoods__legend-box-container">
+      <div class="slider-neighborhoods__legend-box--filled"></div>
+      <p class="slider-neighborhoods__legend-text">0</p>
+    </div>
+    <div class="slider-neighborhoods__legend-box-container">
+      <div class="slider-neighborhoods__legend-box--filled"></div>
+      <p class="slider-neighborhoods__legend-text">0</p>
+    </div>
+    <div class="slider-neighborhoods__legend-box-container">
+      <div class="slider-neighborhoods__legend-box--filled"></div>
+      <p class="slider-neighborhoods__legend-text">0</p>
+    </div>
+  </div>`;
+  }
+
   function colorIconArr(value) {
+    let legend = document.getElementById("legend");
     const inactiveColor = "gray";
     const currentNeighborhood = "red";
-    // updateLegend()
     const inactiveNeighborhoods = [
       "presidio",
       "golden-gate-park",
@@ -178,24 +262,47 @@ export const sliderNeighborhoods = () => {
           let min;
           let max;
           let color;
-          if(value == 'single median sale price' && !inactiveNeighborhoods.includes(icon.dataset.name)){
-            min = minMedianSingle
-            max = maxMedianSingle
-            domain = slide.HJISingleMonthly.result.measurements.salePrice.median
+          console.log(value)
+          if (
+            value == "single median sale price" &&
+            !inactiveNeighborhoods.includes(icon.dataset.name)
+          ) {
+            min = minMedianSingle;
+            max = maxMedianSingle;
+            domain =
+              slide.HJISingleMonthly.result.measurements.salePrice.median;
+            color = `hsl(0, 41%, ${Math.abs(
+              (scaleRange(domain, min, max) * 50) - 50
+            )}%)`;
+            updateLegendGradientScale(
+              legend,
+              "hsl(0,41%,50%)",
+              "hsl(0,41%,0%)",
+              USDFormatterNoDec.format(min),
+              USDFormatterNoDec.format(max)
+            );
+            color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
             color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
-            // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
-            // color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
-          }
-          else if(value == 'walk score') {
-            domain = slide.walkscore
-            min = 0
-            max = 100
-            color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
-            // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
-          }
-          else if (value =="weather") {
+          } else if (value == "walk score") {
             domain = slide.walkscore;
-            color = colorWeather(slide.weather);
+            min = 40;
+            max = 100;
+            color = `hsl(0, 41%, ${Math.abs(
+              (scaleRange(domain, min, max) * 50) - 50
+            )}%)`;
+            updateLegendGradientScale(
+              legend,
+              "hsl(0,41%,50%)",
+              "hsl(0,41%,0%)",
+              40,
+              100
+            );
+            // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
+          } else if (value == "weather") {
+            console.log(value)
+            domain = slide.walkscore;
+            color = colorWeather(slide.weather, weatherPallette);
+            // updateLegendPunctuatedScale(legend, weatherPallette)
           }
 
           if (domain == 0) {
@@ -212,9 +319,10 @@ export const sliderNeighborhoods = () => {
         }
       });
 
-
-
-      if (inactiveNeighborhoods.includes(icon.dataset.name) && value == 'single median sale price') {
+      if (
+        inactiveNeighborhoods.includes(icon.dataset.name) &&
+        value == "single median sale price"
+      ) {
         // an inactive neighborhood
         styleIcon(icon, inactiveColor, true);
       }
@@ -240,32 +348,34 @@ export const sliderNeighborhoods = () => {
     }
   }
 
-  colorIconArr('single median sale price');
+  colorIconArr("single median sale price");
 
-  const filtersArr = Array.from(document.querySelectorAll(
-    ".slider-neighborhoods__filter"
-  ));
-  function toggle () {
-    
-  }
+  const filtersArr = Array.from(
+    document.querySelectorAll(".slider-neighborhoods__filter")
+  );
+  function toggle() {}
   filtersArr.forEach((el) => {
     el.addEventListener("click", () => {
-      if (!el.classList.contains('slider-neighborhoods__filter--active')) {
-        document.querySelector('.slider-neighborhoods__filter--active').classList.remove('slider-neighborhoods__filter--active')
-        el.classList.add('slider-neighborhoods__filter--active')
+      if (!el.classList.contains("slider-neighborhoods__filter--active")) {
+        document
+          .querySelector(".slider-neighborhoods__filter--active")
+          .classList.remove("slider-neighborhoods__filter--active");
+        el.classList.add("slider-neighborhoods__filter--active");
       }
       let value = el.dataset.filter;
-      colorIconArr(value)
+      colorIconArr(value);
     });
     el.addEventListener("keyup", () => {
-      if (!el.classList.contains('slider-neighborhoods__filter--active')) {
-        document.querySelector('.slider-neighborhoods__filter--active').classList.remove('slider-neighborhoods__filter--active')
-        el.classList.add('slider-neighborhoods__filter--active')
+      if (!el.classList.contains("slider-neighborhoods__filter--active")) {
+        document
+          .querySelector(".slider-neighborhoods__filter--active")
+          .classList.remove("slider-neighborhoods__filter--active");
+        el.classList.add("slider-neighborhoods__filter--active");
       }
       let value = el.dataset.filter;
-      colorIconArr(value)
+      colorIconArr(value);
     });
-  })
+  });
 
   // * set the correct slide active on first load *
   changeSlide(slidesArr[0].elem, 0);
@@ -384,23 +494,6 @@ export const sliderNeighborhoods = () => {
       }
 
       // Create our number formatter.
-      var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-
-        // These options are needed to round to whole numbers if that's what you want.
-        minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-        maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
-      });
-
-      var USDFormatterDec = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-
-        // These options are needed to round to whole numbers if that's what you want.
-        // minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-        // maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
-      });
 
       if (targetEl.HJICondoMonthly) {
         if (targetEl.HJICondoMonthly.result.measurements) {

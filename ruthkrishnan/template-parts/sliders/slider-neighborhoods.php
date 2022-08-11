@@ -19,13 +19,31 @@
       <a data-filter='weather' tabindex="0" role="button" class="slider-neighborhoods__filter">Weather</a>
     </div>
   </div>
-  <div class="slider-neighborhoods__legend-container">
-    <div class="slider-neighborhoods__legend-content">
-      <div class="slider-neighborhoods__legend-box">
-      </div>
-      <div class="slider-neighborhoods__legend-text-container">
+  <div id="legend" class="slider-neighborhoods__legend-container">
+    <div class="slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated">
+      <div class="slider-neighborhoods__legend-box-container">
+        <div class="slider-neighborhoods__legend-box--filled"></div>
         <p class="slider-neighborhoods__legend-text">0</p>
-        <p class="slider-neighborhoods__legend-text">100</p>
+      </div>
+      <div class="slider-neighborhoods__legend-box-container">
+        <div class="slider-neighborhoods__legend-box--filled"></div>
+        <p class="slider-neighborhoods__legend-text">0</p>
+      </div>
+      <div class="slider-neighborhoods__legend-box-container">
+        <div class="slider-neighborhoods__legend-box--filled"></div>
+        <p class="slider-neighborhoods__legend-text">0</p>
+      </div>
+      <div class="slider-neighborhoods__legend-box-container">
+        <div class="slider-neighborhoods__legend-box--filled"></div>
+        <p class="slider-neighborhoods__legend-text">0</p>
+      </div>
+      <div class="slider-neighborhoods__legend-box-container">
+        <div class="slider-neighborhoods__legend-box--filled"></div>
+        <p class="slider-neighborhoods__legend-text">0</p>
+      </div>
+      <div class="slider-neighborhoods__legend-box-container">
+        <div class="slider-neighborhoods__legend-box--filled"></div>
+        <p class="slider-neighborhoods__legend-text">0</p>
       </div>
     </div>
   </div>

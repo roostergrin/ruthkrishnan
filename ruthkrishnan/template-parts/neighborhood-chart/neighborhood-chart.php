@@ -21,7 +21,7 @@
   </div>
   <div class="single-neighborhoods-chart__filters">
     <a data-filter='Highest Sales Price' tabindex="0" role="button" class="single-neighborhoods-chart__filter">Highest Sales Price</a>
-    <a data-filter='List Price per Sq Foot' tabindex="0" role="button" class="single-neighborhoods-chart__filter">List Price per Sq ft</a>
+    <a data-filter='Sale Price per Sq Foot' tabindex="0" role="button" class="single-neighborhoods-chart__filter">Sale Price per Sq ft</a>
     <a data-filter='Sale to List Price Ratio' tabindex="0" role="button" class="single-neighborhoods-chart__filter">Sale to List Price</a>
   </div>
 </div>

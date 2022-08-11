@@ -14,7 +14,7 @@ export const dataTable = () => {
   let salePriceMedian = ["Median Sale Price"];
   let salePriceLow = ["Lowest Sale Price"];
   let salePriceHigh = ["Highest Sale Price"];
-  let listPricePerSqFtAverage = ["List Price per sq ft"];
+  let salePriceToSqFt = ["Sale Price per sq ft"];
   let saleToListPrice = ["Sale to List Price Percent"];
   let daysOnMarketMedian = ["Days on Market"];
   let competeScore = ["Compete Score?"];
@@ -24,7 +24,7 @@ export const dataTable = () => {
     salePriceMedian,
     salePriceLow,
     salePriceHigh,
-    listPricePerSqFtAverage,
+    salePriceToSqFt,
     saleToListPrice,
     daysOnMarketMedian,
     competeScore,
@@ -62,8 +62,8 @@ export const dataTable = () => {
       USDFormatterNoDec.format(year.measurements.salePrice.high)
     );
     daysOnMarketMedian.push(year.measurements.daysOnMarket.median.toFixed(0));
-    listPricePerSqFtAverage.push(
-      USDFormatterDec.format(year.measurements.listPricePerSqFt.median) +
+    salePriceToSqFt.push(
+      USDFormatterDec.format(year.measurements.salePrice.median/year.measurements.size.median) +
         "/sq.ft"
     );
     saleToListPrice.push(
