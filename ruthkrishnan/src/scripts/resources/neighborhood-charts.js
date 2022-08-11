@@ -95,10 +95,15 @@ export const neighborhoodCharts = () => {
     //console.log("High Sales",condoQuarterData.measurements.salePrice.high)
     condoHi.push(condoQuarterData.measurements.salePrice.high);
     //console.log("Sq Sales",condoQuarterData.measurements.listPricePerSqFt.median)
-    condoSq.push(
-      condoQuarterData.measurements.salePrice.median /
-        condoQuarterData.measurements.size.median
-    );
+    if ((condoQuarterData.measurements.salePrice.median /
+    condoQuarterData.measurements.size.median) < 99999) {
+      condoSq.push(
+        condoQuarterData.measurements.salePrice.median /
+          condoQuarterData.measurements.size.median
+      );
+    } else {
+      condoSq.push(0)
+    }
 
     condoSaleToListRatio
       .push(

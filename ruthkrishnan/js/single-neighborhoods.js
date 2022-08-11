@@ -98,7 +98,12 @@ var neighborhoodCharts = function neighborhoodCharts() {
 
     condoHi.push(condoQuarterData.measurements.salePrice.high); //console.log("Sq Sales",condoQuarterData.measurements.listPricePerSqFt.median)
 
-    condoSq.push(condoQuarterData.measurements.salePrice.median / condoQuarterData.measurements.size.median);
+    if (condoQuarterData.measurements.salePrice.median / condoQuarterData.measurements.size.median < 99999) {
+      condoSq.push(condoQuarterData.measurements.salePrice.median / condoQuarterData.measurements.size.median);
+    } else {
+      condoSq.push(0);
+    }
+
     condoSaleToListRatio.push(condoQuarterData.measurements.salePrice.median / condoQuarterData.measurements.listPrice.median).toFixed(3);
   });
 
