@@ -56,10 +56,15 @@ export const neighborhoodCharts = () => {
     //console.log("High Sales",singleQuarterData.measurements.salePrice.high)
     singleHi.push(singleQuarterData.measurements.salePrice.high);
     //console.log("Sq Sales",singleQuarterData.measurements.listPricePerSqFt.median)
-    singleSq.push(
-      singleQuarterData.measurements.salePrice.median /
-        singleQuarterData.measurements.size.median
-    );
+    if ((singleQuarterData.measurements.salePrice.median /
+    singleQuarterData.measurements.size.median) < 99999) {
+      singleSq.push(
+        singleQuarterData.measurements.salePrice.median /
+          singleQuarterData.measurements.size.median
+      );
+    } else {
+      singleSq.push(0)
+    }
     singleSaleToListRatio
       .push(
         singleQuarterData.measurements.salePrice.median /
