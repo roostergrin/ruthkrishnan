@@ -172,7 +172,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     weatherValues.forEach(function (weather, i) {
       legendTemplate += "\n      <div style=\"display: flex; gap: 1rem; flex-direction: column;\" class=\"slider-neighborhoods__legend-box-container\">\n        <p>".concat(weather.temperature, "</p>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n        <div style=\"background: ").concat(weather.weatherGroup[0].color, "; width: 2rem; height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n        <p style=\"padding-left: 0.5rem;\" class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[0].fogWind, "</p>\n      </div>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n          <div style=\"background: ").concat(weather.weatherGroup[1].color, "; width: 2rem; height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n          <p style=\"padding-left: 0.5rem;\"class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[1].fogWind, "</p>\n      </div>\n    </div>");
     });
-    legendTemplate += "</div>`";
+    legendTemplate += "</div>";
     legend.innerHTML = legendTemplate;
   }
 
@@ -290,7 +290,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
   var changeContent = function changeContent(i) {
     contentWrapper.forEach(function (el) {
-      +el.dataset.index === i ? el.classList.add("slider-neighborhoods__content-wrapper--active") : el.classList.remove("slider-neighborhoods__content-wrapper--active");
+      +el.dataset.index === i ? el.classList.add("slider-neighborhoods__content-wrapper--active") : el.classList.remove("slider-neighborhoods__content-wrapper--active"); // not sure if this is working. 
     });
     setContentHeight();
   }; // * set the correct content active on first load *

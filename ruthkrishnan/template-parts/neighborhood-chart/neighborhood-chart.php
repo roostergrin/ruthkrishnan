@@ -55,7 +55,9 @@
       </div>
     </div>
     <div class="single-neighborhoods-chart__graph-container">
-      <canvas id="neighborhoodChart"></canvas>
+      <canvas id="neighborhoodChart">
+        <!-- TODO: add content -->
+      </canvas>
     </div>
   </div>
 </div>

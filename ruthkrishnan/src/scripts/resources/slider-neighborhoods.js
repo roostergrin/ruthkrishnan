@@ -233,7 +233,7 @@ export const sliderNeighborhoods = () => {
       </div>
     </div>`;
     });
-    legendTemplate += "</div>`";
+    legendTemplate += "</div>";
     legend.innerHTML = legendTemplate;
   }
 
@@ -392,6 +392,7 @@ export const sliderNeighborhoods = () => {
       +el.dataset.index === i
         ? el.classList.add("slider-neighborhoods__content-wrapper--active")
         : el.classList.remove("slider-neighborhoods__content-wrapper--active");
+        // not sure if this is working. 
     });
     setContentHeight();
   };

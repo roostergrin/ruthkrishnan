@@ -261,6 +261,7 @@
 .slider-neighborhoods__legend-content--punctuated {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
   padding: 0 calc(30px / 2);
   width: calc((12 / 12) * 100%);
   margin-left: calc((0 / 12) * 100%);
@@ -325,6 +326,7 @@
 .slider-neighborhoods__slider {
   transition: height 0.3s ease;
   padding: 0 2rem;
+  overflow: hidden;
 }
 @media screen and (min-width: 1440px) {
   .slider-neighborhoods__slider {
