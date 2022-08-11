@@ -20,35 +20,9 @@
     </div>
   </div>
   <div id="legend" class="slider-neighborhoods__legend-container">
-    <div class="slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated">
-      <div class="slider-neighborhoods__legend-box-container">
-        <div class="slider-neighborhoods__legend-box--filled"></div>
-        <p class="slider-neighborhoods__legend-text">0</p>
-      </div>
-      <div class="slider-neighborhoods__legend-box-container">
-        <div class="slider-neighborhoods__legend-box--filled"></div>
-        <p class="slider-neighborhoods__legend-text">0</p>
-      </div>
-      <div class="slider-neighborhoods__legend-box-container">
-        <div class="slider-neighborhoods__legend-box--filled"></div>
-        <p class="slider-neighborhoods__legend-text">0</p>
-      </div>
-      <div class="slider-neighborhoods__legend-box-container">
-        <div class="slider-neighborhoods__legend-box--filled"></div>
-        <p class="slider-neighborhoods__legend-text">0</p>
-      </div>
-      <div class="slider-neighborhoods__legend-box-container">
-        <div class="slider-neighborhoods__legend-box--filled"></div>
-        <p class="slider-neighborhoods__legend-text">0</p>
-      </div>
-      <div class="slider-neighborhoods__legend-box-container">
-        <div class="slider-neighborhoods__legend-box--filled"></div>
-        <p class="slider-neighborhoods__legend-text">0</p>
-      </div>
-    </div>
   </div>
   <?php get_template_part('template-parts/maps/neighborhoods-map'); ?>
-
+</div>
   <div class="slider-neighborhoods__slider">
     <?php
     $args = array(

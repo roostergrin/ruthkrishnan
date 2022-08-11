@@ -1,5 +1,4 @@
 export const sliderNeighborhoods = () => {
-
   var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -17,8 +16,7 @@ export const sliderNeighborhoods = () => {
     // minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
     // maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
   });
-  
-  
+
   const slides = Array.from(
       document.querySelectorAll(".slider-neighborhoods__slide")
     ),
@@ -150,7 +148,40 @@ export const sliderNeighborhoods = () => {
     "#6C190D",
   ];
 
-  function colorWeather(weather, weatherPallette) {
+  const weatherValueArr = [
+    "foggy with heavy winds",
+    "with some fog and light winds",
+    "a mixture of foggy and clear days, light winds",
+    "with some fog and light winds",
+    "clear skies and heavy winds",
+    "clear skies and light winds",
+  ];
+  const weatherValueArrPivot = ["cold", "cool to moderate", "moderate to hot"];
+
+  const weatherValues = [
+    {
+      temperature: "cold:",
+      weatherGroup: [
+        { fogWind: "foggy with heavy winds", color: "#365060" },
+        { fogWind: "with some fog and light winds", color: "#196C55" },
+      ],
+    },
+    {
+      temperature: "cool to moderate:",
+      weatherGroup: [
+        { fogWind: "some foggy and clear days, light winds", color: "#447211" },
+        { fogWind: "with some fog and light winds", color: "#8954BE" },
+      ],
+    },
+    {
+      temperature: "moderate to hot:",
+      weatherGroup: [
+        { fogWind: "clear skies and heavy winds", color: "#8D3C8E" },
+        { fogWind: "clear skies and light winds", color: "#6C190D" },
+      ],
+    },
+  ];
+  function colorWeather(weather, weatherPallette, weatherValueArr) {
     switch (weather) {
       case "cold & foggy with heavy winds":
         return weatherPallette[0];
@@ -171,10 +202,9 @@ export const sliderNeighborhoods = () => {
         return weatherPallette[5];
 
       default:
-        return "black";
+        return "gray";
     }
   }
-
 
   function updateLegendGradientScale(legend, startColor, endColor, min, max) {
     legend.innerHTML = `<div class="slider-neighborhoods__legend-content">
@@ -188,59 +218,23 @@ export const sliderNeighborhoods = () => {
   }
 
   function updateLegendPunctuatedScale(legend, palletteArr) {
-    console.log(legend)
-    legendHTML = `<div class="slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated">
-    <div class="slider-neighborhoods__legend-box-container">
-      <div class="slider-neighborhoods__legend-box--filled"></div>
-      <p class="slider-neighborhoods__legend-text">0</p>
-    </div>
-    <div class="slider-neighborhoods__legend-box-container">
-      <div class="slider-neighborhoods__legend-box--filled"></div>
-      <p class="slider-neighborhoods__legend-text">0</p>
-    </div>
-    <div class="slider-neighborhoods__legend-box-container">
-      <div class="slider-neighborhoods__legend-box--filled"></div>
-      <p class="slider-neighborhoods__legend-text">0</p>
-    </div>
-    <div class="slider-neighborhoods__legend-box-container">
-      <div class="slider-neighborhoods__legend-box--filled"></div>
-      <p class="slider-neighborhoods__legend-text">0</p>
-    </div>
-    <div class="slider-neighborhoods__legend-box-container">
-      <div class="slider-neighborhoods__legend-box--filled"></div>
-      <p class="slider-neighborhoods__legend-text">0</p>
-    </div>
-    <div class="slider-neighborhoods__legend-box-container">
-      <div class="slider-neighborhoods__legend-box--filled"></div>
-      <p class="slider-neighborhoods__legend-text">0</p>
-    </div>
-  </div>`
-    legend.outerHTML = `<div class="slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated">
-    <div class="slider-neighborhoods__legend-box-container">
-      <div class="slider-neighborhoods__legend-box--filled"></div>
-      <p class="slider-neighborhoods__legend-text">0</p>
-    </div>
-    <div class="slider-neighborhoods__legend-box-container">
-      <div class="slider-neighborhoods__legend-box--filled"></div>
-      <p class="slider-neighborhoods__legend-text">0</p>
-    </div>
-    <div class="slider-neighborhoods__legend-box-container">
-      <div class="slider-neighborhoods__legend-box--filled"></div>
-      <p class="slider-neighborhoods__legend-text">0</p>
-    </div>
-    <div class="slider-neighborhoods__legend-box-container">
-      <div class="slider-neighborhoods__legend-box--filled"></div>
-      <p class="slider-neighborhoods__legend-text">0</p>
-    </div>
-    <div class="slider-neighborhoods__legend-box-container">
-      <div class="slider-neighborhoods__legend-box--filled"></div>
-      <p class="slider-neighborhoods__legend-text">0</p>
-    </div>
-    <div class="slider-neighborhoods__legend-box-container">
-      <div class="slider-neighborhoods__legend-box--filled"></div>
-      <p class="slider-neighborhoods__legend-text">0</p>
-    </div>
-  </div>`;
+    let legendTemplate = `<div class="slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated">`;
+    weatherValues.forEach((weather, i) => {
+      legendTemplate += `
+      <div style="display: flex; gap: 1rem; flex-direction: column;" class="slider-neighborhoods__legend-box-container">
+        <p>${weather.temperature}</p>
+      <div class="slider-neighborhoods__legend-boxes-container">
+        <div style="background: ${weather.weatherGroup[0].color}; width: 2rem; height: 2rem;" class="slider-neighborhoods__legend-box--filled"></div>
+        <p style="padding-left: 0.5rem;" class="slider-neighborhoods__legend-text">${weather.weatherGroup[0].fogWind}</p>
+      </div>
+      <div class="slider-neighborhoods__legend-boxes-container">
+          <div style="background: ${weather.weatherGroup[1].color}; width: 2rem; height: 2rem;" class="slider-neighborhoods__legend-box--filled"></div>
+          <p style="padding-left: 0.5rem;"class="slider-neighborhoods__legend-text">${weather.weatherGroup[1].fogWind}</p>
+      </div>
+    </div>`;
+    });
+    legendTemplate += "</div>`";
+    legend.innerHTML = legendTemplate;
   }
 
   function colorIconArr(value) {
@@ -262,7 +256,7 @@ export const sliderNeighborhoods = () => {
           let min;
           let max;
           let color;
-          console.log(value)
+          console.log(value);
           if (
             value == "single median sale price" &&
             !inactiveNeighborhoods.includes(icon.dataset.name)
@@ -272,7 +266,7 @@ export const sliderNeighborhoods = () => {
             domain =
               slide.HJISingleMonthly.result.measurements.salePrice.median;
             color = `hsl(0, 41%, ${Math.abs(
-              (scaleRange(domain, min, max) * 50) - 50
+              scaleRange(domain, min, max) * 50 - 50
             )}%)`;
             updateLegendGradientScale(
               legend,
@@ -281,14 +275,14 @@ export const sliderNeighborhoods = () => {
               USDFormatterNoDec.format(min),
               USDFormatterNoDec.format(max)
             );
-            color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
-            color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
+            // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
+            // color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
           } else if (value == "walk score") {
             domain = slide.walkscore;
             min = 40;
             max = 100;
             color = `hsl(0, 41%, ${Math.abs(
-              (scaleRange(domain, min, max) * 50) - 50
+              scaleRange(domain, min, max) * 50 - 50
             )}%)`;
             updateLegendGradientScale(
               legend,
@@ -299,10 +293,10 @@ export const sliderNeighborhoods = () => {
             );
             // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
           } else if (value == "weather") {
-            console.log(value)
+            console.log(value);
             domain = slide.walkscore;
             color = colorWeather(slide.weather, weatherPallette);
-            // updateLegendPunctuatedScale(legend, weatherPallette)
+            updateLegendPunctuatedScale(legend, weatherPallette);
           }
 
           if (domain == 0) {
@@ -499,17 +493,25 @@ export const sliderNeighborhoods = () => {
         if (targetEl.HJICondoMonthly.result.measurements) {
           // console.log(targetEl.HJISingleMonthly.result);
           // console.log(targetEl.HJICondoMonthly.result);
-          mapContent += `<div class='map-neighborhoods__tooltip-info'>House Median Price: ${USDFormatterNoDec.format(
-            targetEl.HJISingleMonthly.result.measurements.salePrice.median
-          )}<br> Median $/SqFt: ${USDFormatterDec.format(
-            targetEl.HJISingleMonthly.result.measurements.listPricePerSqFt
-              .median
-          )}/sf</div>`;
-          mapContent += `<div class='map-neighborhoods__tooltip-info'>2BR/2BA Condo Median Price: ${USDFormatterNoDec.format(
-            targetEl.HJICondoMonthly.result.measurements.salePrice.median
-          )}<br> Median $/SqFt: ${USDFormatterDec.format(
-            targetEl.HJICondoMonthly.result.measurements.listPricePerSqFt.median
-          )}/sf</div>`;
+          if (
+            targetEl.HJISingleMonthly.result.measurements.salePrice.median != 0
+          ) {
+            mapContent += `<div class='map-neighborhoods__tooltip-info'>House Median Price: ${USDFormatterNoDec.format(
+              targetEl.HJISingleMonthly.result.measurements.salePrice.median
+            )}<br> Median $/SqFt: ${USDFormatterDec.format(
+              targetEl.HJISingleMonthly.result.measurements.salePrice.median /
+                targetEl.HJISingleMonthly.result.measurements.size.median
+            )}/sf</div>`;
+          }
+          if (
+            targetEl.HJICondoMonthly.result.measurements.salePrice.median != 0
+          )
+            mapContent += `<div class='map-neighborhoods__tooltip-info'>2BR/2BA Condo Median Price: ${USDFormatterNoDec.format(
+              targetEl.HJICondoMonthly.result.measurements.salePrice.median
+            )}<br> Median $/SqFt: ${USDFormatterDec.format(
+              targetEl.HJICondoMonthly.result.measurements.salePrice.median /
+                targetEl.HJICondoMonthly.result.measurements.size.median
+            )}/sf</div>`;
         }
       }
       // append tooltip information
