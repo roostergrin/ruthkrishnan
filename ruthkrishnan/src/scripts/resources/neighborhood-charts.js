@@ -56,14 +56,17 @@ export const neighborhoodCharts = () => {
     //console.log("High Sales",singleQuarterData.measurements.salePrice.high)
     singleHi.push(singleQuarterData.measurements.salePrice.high);
     //console.log("Sq Sales",singleQuarterData.measurements.listPricePerSqFt.median)
-    if ((singleQuarterData.measurements.salePrice.median /
-    singleQuarterData.measurements.size.median) < 99999) {
+    if (
+      singleQuarterData.measurements.salePrice.median /
+        singleQuarterData.measurements.size.median <
+      99999
+    ) {
       singleSq.push(
         singleQuarterData.measurements.salePrice.median /
           singleQuarterData.measurements.size.median
       );
     } else {
-      singleSq.push(0)
+      singleSq.push(0);
     }
     singleSaleToListRatio
       .push(
@@ -95,14 +98,17 @@ export const neighborhoodCharts = () => {
     //console.log("High Sales",condoQuarterData.measurements.salePrice.high)
     condoHi.push(condoQuarterData.measurements.salePrice.high);
     //console.log("Sq Sales",condoQuarterData.measurements.listPricePerSqFt.median)
-    if ((condoQuarterData.measurements.salePrice.median /
-    condoQuarterData.measurements.size.median) < 99999) {
+    if (
+      condoQuarterData.measurements.salePrice.median /
+        condoQuarterData.measurements.size.median <
+      99999
+    ) {
       condoSq.push(
         condoQuarterData.measurements.salePrice.median /
           condoQuarterData.measurements.size.median
       );
     } else {
-      condoSq.push(0)
+      condoSq.push(0);
     }
 
     condoSaleToListRatio
@@ -263,6 +269,7 @@ export const neighborhoodCharts = () => {
 
   // build chart
   let ctx = document.getElementById("neighborhoodChart").getContext("2d");
+
   const barChart = new Chart(ctx, config);
   // Chart.defaults.global.defaultFontFamily = "Avenir Next";
   // Chart.defaults.global.defaultFontSize = 16
@@ -274,90 +281,96 @@ export const neighborhoodCharts = () => {
   const filtersArr = document.querySelectorAll(
     ".single-neighborhoods-chart__filter"
   );
+
+  // builds grid in the canvas for accessibility.
+  const dataValues = {
+    "Average Sales Price": [condoAvg, singleAvg],
+    "Median Sales Price": [condoMed, singleMed],
+    "Lowest Sales Price": [condoAvg, singleAvg],
+    "Highest Sales Price": [condoHi, singleHi],
+    "Sale Price per Sq Foot": [condoSq, singleSq],
+    "Sale to List Price Ratio": [condoSaleToListRatio, singleSaleToListRatio],
+  };
+
+  const tableElement = document.getElementById("quarterlyTable");
+  let value = "Average Sales Price"
+  let tempLabels = [...labels];
+  let tempCondoData = dataValues[value][0].map((x) => USDFormatterNoDec.format(x));
+  let tempSingleData = dataValues[value][1].map((x) => USDFormatterNoDec.format(x));
+  tempLabels.unshift("values");
+  tempCondoData.unshift("Condo " + value);
+  tempSingleData.unshift("Single " + value);
+
+  const accessibilityGrid = new gridjs.Grid({
+    columns: tempLabels,
+    data: [
+      tempCondoData,
+      tempSingleData
+    ],
+  }).render(tableElement);
+
+
+  const chartSwitch = (evt) => {
+    let el = evt.srcElement;
+    if (!el.classList.contains("single-neighborhoods-chart__filter--active")) {
+      document
+        .querySelector(".single-neighborhoods-chart__filter--active")
+        .classList.remove("single-neighborhoods-chart__filter--active");
+      el.classList.add("single-neighborhoods-chart__filter--active");
+    }
+    let value = el.dataset.filter;
+    title.innerHTML = value;
+    let currentData;
+
+    if (currentData != value) {
+      currentData = value;
+      barChart.data.datasets[0].data = dataValues[value][0];
+      barChart.data.datasets[1].data = dataValues[value][1];
+      let tempLabels = [...labels];
+      let tempCondoData = dataValues[value][0].map((x) => USDFormatterNoDec.format(x));
+      let tempSingleData = dataValues[value][1].map((x) => USDFormatterNoDec.format(x));
+      tempLabels.unshift("values");
+      tempCondoData.unshift("Condo " + value);
+      tempSingleData.unshift("Single " + value);
+      accessibilityGrid
+        .updateConfig({
+          columns: tempLabels,
+          data: [
+            tempCondoData,
+            tempSingleData
+          ],
+        })
+        .forceRender(tableElement);
+      if (value === "Sale to List Price Ratio") {
+        tempCondoData = dataValues[value][0].map((x) => x.toFixed(2));
+        tempSingleData = dataValues[value][1].map((x) => x.toFixed(2));
+        tempCondoData.unshift("Condo " + value);
+        tempSingleData.unshift("Single " + value);
+        accessibilityGrid
+          .updateConfig({
+            columns: tempLabels,
+            data: [
+              tempCondoData,
+              tempSingleData
+            ],
+          })
+          .forceRender(tableElement);
+      }
+      if (value === "Sale to List Price Ratio") {
+        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = false;
+        barChart.config.options.scales.yAxes[0].ticks.callback = twoDecYLabel;
+        barChart.config.options.tooltips.callbacks.label = twoDecTooltip;
+      } else {
+        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = true;
+        barChart.config.options.scales.yAxes[0].ticks.callback = USDYLabel;
+        barChart.config.options.tooltips.callbacks.label = USDTooltip;
+      }
+      barChart.update();
+    }
+  };
+
   filtersArr.forEach((el) => {
-    el.addEventListener("click", () => {
-      if (
-        !el.classList.contains("single-neighborhoods-chart__filter--active")
-      ) {
-        document
-          .querySelector(".single-neighborhoods-chart__filter--active")
-          .classList.remove("single-neighborhoods-chart__filter--active");
-        el.classList.add("single-neighborhoods-chart__filter--active");
-      }
-      let value = el.dataset.filter;
-      title.innerHTML = value;
-      if (value === "Average Sales Price") {
-        barChart.data.datasets[0].data = condoAvg;
-        barChart.data.datasets[1].data = singleAvg;
-      } else if (value === "Median Sales Price") {
-        barChart.data.datasets[0].data = condoMed;
-        barChart.data.datasets[1].data = singleMed;
-      } else if (value === "Lowest Sales Price") {
-        barChart.data.datasets[0].data = condoLow;
-        barChart.data.datasets[1].data = singleLow;
-      } else if (value === "Highest Sales Price") {
-        barChart.data.datasets[0].data = condoHi;
-        barChart.data.datasets[1].data = singleHi;
-      } else if (value === "Sale Price per Sq Foot") {
-        barChart.data.datasets[0].data = condoSq;
-        barChart.data.datasets[1].data = singleSq;
-      } else if (value === "Sale to List Price Ratio") {
-        // TODO change Units with config
-        barChart.data.datasets[0].data = condoSaleToListRatio;
-        barChart.data.datasets[1].data = singleSaleToListRatio;
-      }
-      if (value === "Sale to List Price Ratio") {
-        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = false;
-        barChart.config.options.scales.yAxes[0].ticks.callback = twoDecYLabel;
-        barChart.config.options.tooltips.callbacks.label = twoDecTooltip;
-      } else {
-        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = true;
-        barChart.config.options.scales.yAxes[0].ticks.callback = USDYLabel;
-        barChart.config.options.tooltips.callbacks.label = USDTooltip;
-      }
-      barChart.update();
-    });
-    el.addEventListener("keyup", () => {
-      if (
-        !el.classList.contains("single-neighborhoods-chart__filter--active")
-      ) {
-        document
-          .querySelector(".single-neighborhoods-chart__filter--active")
-          .classList.remove("single-neighborhoods-chart__filter--active");
-        el.classList.add("single-neighborhoods-chart__filter--active");
-      }
-      let value = el.dataset.filter;
-      title.innerHTML = value;
-      if (value === "Average Sales Price") {
-        barChart.data.datasets[0].data = condoAvg;
-        barChart.data.datasets[1].data = singleAvg;
-      } else if (value === "Median Sales Price") {
-        barChart.data.datasets[0].data = condoMed;
-        barChart.data.datasets[1].data = singleMed;
-      } else if (value === "Lowest Sales Price") {
-        barChart.data.datasets[0].data = condoLow;
-        barChart.data.datasets[1].data = singleLow;
-      } else if (value === "Highest Sales Price") {
-        barChart.data.datasets[0].data = condoHi;
-        barChart.data.datasets[1].data = singleHi;
-      } else if (value === "Sale Price per Sq Foot") {
-        barChart.data.datasets[0].data = condoSq;
-        barChart.data.datasets[1].data = singleSq;
-      } else if (value === "Sale to List Price Ratio") {
-        // TODO change Units with config
-        barChart.data.datasets[0].data = condoSaleToListRatio;
-        barChart.data.datasets[1].data = singleSaleToListRatio;
-      }
-      if (value === "Sale to List Price Ratio") {
-        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = false;
-        barChart.config.options.scales.yAxes[0].ticks.callback = twoDecYLabel;
-        barChart.config.options.tooltips.callbacks.label = twoDecTooltip;
-      } else {
-        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = true;
-        barChart.config.options.scales.yAxes[0].ticks.callback = USDYLabel;
-        barChart.config.options.tooltips.callbacks.label = USDTooltip;
-      }
-      barChart.update();
-    });
+    el.addEventListener("click", chartSwitch);
+    el.addEventListener("keyup", chartSwitch);
   });
 };

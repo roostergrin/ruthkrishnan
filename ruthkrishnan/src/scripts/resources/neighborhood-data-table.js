@@ -77,7 +77,7 @@ export const dataTable = () => {
       (
         ((year.measurements.salePrice.average /
         year.measurements.listPrice.average) / 
-        ( 0.75 * year.measurements.daysOnMarket.median )) * 2000
+        (year.measurements.daysOnMarket.median )) * 2000
       ).toFixed(3)
     );
   });

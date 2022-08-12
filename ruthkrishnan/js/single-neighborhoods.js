@@ -12,6 +12,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "neighborhoodCharts": () => (/* binding */ neighborhoodCharts)
 /* harmony export */ });
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 var neighborhoodCharts = function neighborhoodCharts() {
   //
   //
@@ -259,92 +271,108 @@ var neighborhoodCharts = function neighborhoodCharts() {
   Chart.defaults.global.defaultFontColor = "#232323"; // change charts and chart title
 
   var title = document.getElementById("graphTitle");
-  var filtersArr = document.querySelectorAll(".single-neighborhoods-chart__filter");
+  var filtersArr = document.querySelectorAll(".single-neighborhoods-chart__filter"); // builds grid in the canvas for accessibility.
+
+  var dataValues = {
+    "Average Sales Price": [condoAvg, singleAvg],
+    "Median Sales Price": [condoMed, singleMed],
+    "Lowest Sales Price": [condoAvg, singleAvg],
+    "Highest Sales Price": [condoHi, singleHi],
+    "Sale Price per Sq Foot": [condoSq, singleSq],
+    "Sale to List Price Ratio": [condoSaleToListRatio, singleSaleToListRatio]
+  };
+  var tableElement = document.getElementById("quarterlyTable");
+  var value = "Average Sales Price";
+
+  var tempLabels = _toConsumableArray(labels);
+
+  var tempCondoData = dataValues[value][0].map(function (x) {
+    return USDFormatterNoDec.format(x);
+  });
+  var tempSingleData = dataValues[value][1].map(function (x) {
+    return USDFormatterNoDec.format(x);
+  });
+  tempLabels.unshift("values");
+  tempCondoData.unshift("Condo " + value);
+  tempSingleData.unshift("Single " + value);
+  var accessibilityGrid = new gridjs.Grid({
+    columns: tempLabels,
+    data: [tempCondoData, tempSingleData]
+  }).render(tableElement);
+
+  var chartSwitch = function chartSwitch(evt) {
+    var el = evt.srcElement;
+
+    if (!el.classList.contains("single-neighborhoods-chart__filter--active")) {
+      document.querySelector(".single-neighborhoods-chart__filter--active").classList.remove("single-neighborhoods-chart__filter--active");
+      el.classList.add("single-neighborhoods-chart__filter--active");
+    }
+
+    var value = el.dataset.filter;
+    title.innerHTML = value;
+    var currentData;
+
+    if (currentData != value) {
+      currentData = value;
+      barChart.data.datasets[0].data = dataValues[value][0];
+      barChart.data.datasets[1].data = dataValues[value][1];
+
+      var _tempLabels = _toConsumableArray(labels);
+
+      var _tempCondoData = dataValues[value][0].map(function (x) {
+        return USDFormatterNoDec.format(x);
+      });
+
+      var _tempSingleData = dataValues[value][1].map(function (x) {
+        return USDFormatterNoDec.format(x);
+      });
+
+      _tempLabels.unshift("values");
+
+      _tempCondoData.unshift("Condo " + value);
+
+      _tempSingleData.unshift("Single " + value);
+
+      accessibilityGrid.updateConfig({
+        columns: _tempLabels,
+        data: [_tempCondoData, _tempSingleData]
+      }).forceRender(tableElement);
+
+      if (value === "Sale to List Price Ratio") {
+        _tempCondoData = dataValues[value][0].map(function (x) {
+          return x.toFixed(2);
+        });
+        _tempSingleData = dataValues[value][1].map(function (x) {
+          return x.toFixed(2);
+        });
+
+        _tempCondoData.unshift("Condo " + value);
+
+        _tempSingleData.unshift("Single " + value);
+
+        accessibilityGrid.updateConfig({
+          columns: _tempLabels,
+          data: [_tempCondoData, _tempSingleData]
+        }).forceRender(tableElement);
+      }
+
+      if (value === "Sale to List Price Ratio") {
+        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = false;
+        barChart.config.options.scales.yAxes[0].ticks.callback = twoDecYLabel;
+        barChart.config.options.tooltips.callbacks.label = twoDecTooltip;
+      } else {
+        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = true;
+        barChart.config.options.scales.yAxes[0].ticks.callback = USDYLabel;
+        barChart.config.options.tooltips.callbacks.label = USDTooltip;
+      }
+
+      barChart.update();
+    }
+  };
+
   filtersArr.forEach(function (el) {
-    el.addEventListener("click", function () {
-      if (!el.classList.contains("single-neighborhoods-chart__filter--active")) {
-        document.querySelector(".single-neighborhoods-chart__filter--active").classList.remove("single-neighborhoods-chart__filter--active");
-        el.classList.add("single-neighborhoods-chart__filter--active");
-      }
-
-      var value = el.dataset.filter;
-      title.innerHTML = value;
-
-      if (value === "Average Sales Price") {
-        barChart.data.datasets[0].data = condoAvg;
-        barChart.data.datasets[1].data = singleAvg;
-      } else if (value === "Median Sales Price") {
-        barChart.data.datasets[0].data = condoMed;
-        barChart.data.datasets[1].data = singleMed;
-      } else if (value === "Lowest Sales Price") {
-        barChart.data.datasets[0].data = condoLow;
-        barChart.data.datasets[1].data = singleLow;
-      } else if (value === "Highest Sales Price") {
-        barChart.data.datasets[0].data = condoHi;
-        barChart.data.datasets[1].data = singleHi;
-      } else if (value === "Sale Price per Sq Foot") {
-        barChart.data.datasets[0].data = condoSq;
-        barChart.data.datasets[1].data = singleSq;
-      } else if (value === "Sale to List Price Ratio") {
-        // TODO change Units with config
-        barChart.data.datasets[0].data = condoSaleToListRatio;
-        barChart.data.datasets[1].data = singleSaleToListRatio;
-      }
-
-      if (value === "Sale to List Price Ratio") {
-        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = false;
-        barChart.config.options.scales.yAxes[0].ticks.callback = twoDecYLabel;
-        barChart.config.options.tooltips.callbacks.label = twoDecTooltip;
-      } else {
-        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = true;
-        barChart.config.options.scales.yAxes[0].ticks.callback = USDYLabel;
-        barChart.config.options.tooltips.callbacks.label = USDTooltip;
-      }
-
-      barChart.update();
-    });
-    el.addEventListener("keyup", function () {
-      if (!el.classList.contains("single-neighborhoods-chart__filter--active")) {
-        document.querySelector(".single-neighborhoods-chart__filter--active").classList.remove("single-neighborhoods-chart__filter--active");
-        el.classList.add("single-neighborhoods-chart__filter--active");
-      }
-
-      var value = el.dataset.filter;
-      title.innerHTML = value;
-
-      if (value === "Average Sales Price") {
-        barChart.data.datasets[0].data = condoAvg;
-        barChart.data.datasets[1].data = singleAvg;
-      } else if (value === "Median Sales Price") {
-        barChart.data.datasets[0].data = condoMed;
-        barChart.data.datasets[1].data = singleMed;
-      } else if (value === "Lowest Sales Price") {
-        barChart.data.datasets[0].data = condoLow;
-        barChart.data.datasets[1].data = singleLow;
-      } else if (value === "Highest Sales Price") {
-        barChart.data.datasets[0].data = condoHi;
-        barChart.data.datasets[1].data = singleHi;
-      } else if (value === "Sale Price per Sq Foot") {
-        barChart.data.datasets[0].data = condoSq;
-        barChart.data.datasets[1].data = singleSq;
-      } else if (value === "Sale to List Price Ratio") {
-        // TODO change Units with config
-        barChart.data.datasets[0].data = condoSaleToListRatio;
-        barChart.data.datasets[1].data = singleSaleToListRatio;
-      }
-
-      if (value === "Sale to List Price Ratio") {
-        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = false;
-        barChart.config.options.scales.yAxes[0].ticks.callback = twoDecYLabel;
-        barChart.config.options.tooltips.callbacks.label = twoDecTooltip;
-      } else {
-        barChart.config.options.scales.yAxes[0].ticks.beginAtZero = true;
-        barChart.config.options.scales.yAxes[0].ticks.callback = USDYLabel;
-        barChart.config.options.tooltips.callbacks.label = USDTooltip;
-      }
-
-      barChart.update();
-    });
+    el.addEventListener("click", chartSwitch);
+    el.addEventListener("keyup", chartSwitch);
   });
 };
 
@@ -404,7 +432,7 @@ var dataTable = function dataTable() {
     daysOnMarketMedian.push(year.measurements.daysOnMarket.median.toFixed(0));
     salePriceToSqFt.push(USDFormatterDec.format(year.measurements.salePrice.median / year.measurements.size.median) + "/sq.ft");
     saleToListPrice.push((year.measurements.salePrice.average / year.measurements.listPrice.average * 100).toFixed(2) + "%");
-    competeScore.push((year.measurements.salePrice.average / year.measurements.listPrice.average / (0.75 * year.measurements.daysOnMarket.median) * 2000).toFixed(3));
+    competeScore.push((year.measurements.salePrice.average / year.measurements.listPrice.average / year.measurements.daysOnMarket.median * 2000).toFixed(3));
   });
   console.log(data);
   new gridjs.Grid({
