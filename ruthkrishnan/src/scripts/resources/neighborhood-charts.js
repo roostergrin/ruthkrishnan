@@ -15,18 +15,18 @@ export const neighborhoodCharts = () => {
   const single = JSON.parse(data[0].dataset.neighborhoodhjisingle);
 
   function timeConverter(UNIX_timestamp) {
-    // please use real variable names.
     var timestampDate = new Date(UNIX_timestamp * 1000);
     var year = timestampDate.getFullYear();
     var month = timestampDate.getMonth();
+    console.log(year,month)
     var quarter;
-    if (month === 11) {
+    if (month === 2) {
       quarter = "Q1";
-    } else if (month === 2) {
-      quarter = "Q2";
     } else if (month === 5) {
+      quarter = "Q2";
+    } else if (month === 8) {
       quarter = "Q3";
-    } else {
+    } else if (month === 11) {
       quarter = "Q4";
     }
 
@@ -123,8 +123,14 @@ export const neighborhoodCharts = () => {
     const intersection = listA.filter((element) => listB.includes(element));
     return intersection;
   }
+  
+  let labels;
+  if(condoLabels.length > singleLabels.length) {
+    labels = Array.from(new Set(condoLabels.concat(singleLabels))); 
+  } else {
+    labels = Array.from(new Set(singleLabels.concat(condoLabels))); 
+  }
 
-  let labels = getIntersection(singleLabels, condoLabels);
 
   let draw = Chart.controllers.line.prototype.draw;
   Chart.controllers.line = Chart.controllers.line.extend({

@@ -147,11 +147,12 @@ function add_walk_score() {
   $ACF_walk_score = "walk_score";
   
   foreach($neighborhoods_walk_score as $neighborhood_slug => $walk_score) {
-    echo $walk_score;
-    echo $neighborhood_slug;
+    // echo $walk_score;
+    // echo $neighborhood_slug;
     $neighborhood_post_id_wp = get_page_by_path($neighborhood_slug, 'OBJECT', 'neighborhoods');
     update_field($ACF_walk_score, $walk_score, $neighborhood_post_id_wp);
   }
+
   // /wp-admin/admin-ajax.php?action=add_walk_score
 }
 function add_weather_score() {
@@ -387,6 +388,22 @@ function get_neighborhood_data_from_api()
     'presidio' =>'f2bc0961e85dfe6bce72a41362c00018',
   ];
 
+  date_default_timezone_set('America/Los_Angeles');
+  $date = date('m/d/Y', time());
+  $four_year_date = date_create($date);
+  $one_year_date = date_create($date);
+  
+  date_default_timezone_set('America/Los_Angeles');
+  $date = date('m/d/Y', time());
+  // echo $date;
+  $four_year_date = date_create($date);
+  $one_year_date = date_create($date);
+  $four_year_date = date_sub($four_year_date,date_interval_create_from_date_string("4 years"));
+  $one_year_date = date_sub($one_year_date,date_interval_create_from_date_string("1 year"));
+  
+  $four_year_date_range = $four_year_date->format('m/d/Y') . ':' . $date;
+  $one_year_date_range = $one_year_date->format('m/d/Y') . ':' . $date;
+
   $API_params = [
     // https://slipstream.homejunction.com/#/ws/sales?id=search
     
@@ -394,19 +411,19 @@ function get_neighborhood_data_from_api()
     // single data
     
     // TODO: set up dates programmatically
-    'single_data' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(quarter)',
+    'single_data' => '&propertyType=single&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(quarter)',
     // condo data
-    'condo_data' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(quarter)',
+    'condo_data' => '&propertyType=condo&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(quarter)',
     
     // single year
-    'single_yearly' => '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(year)',
+    'single_yearly' => '&propertyType=single&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(year)',
     // condo year
-    'condo_yearly' => '&propertyType=condo&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(year)',
+    'condo_yearly' => '&propertyType=condo&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(year)',
 
     // single monthly
-    'single_last_month' => '&propertyType=single&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt,size',
+    'single_last_month' => '&propertyType=single&listingDate=' . $one_year_date_range . '&measurements=salePrice,listPricePerSqFt,size',
     // condo 2br 2ba data monthly
-    'condo2br2b_data' => '&propertyType=condo&baths=2&beds=2&listingDate=1/31/2022:12/31/2022&measurements=salePrice,listPricePerSqFt,size',
+    'condo2br2b_data' => '&propertyType=condo&baths=2&beds=2&listingDate=' . $one_year_date_range . '&measurements=salePrice,listPricePerSqFt,size',
     
   ];
 
