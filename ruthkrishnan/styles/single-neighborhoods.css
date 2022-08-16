@@ -390,6 +390,11 @@ td:last-child {
 td[data-column-id=dataLabel] {
   text-transform: uppercase;
 }
+@media screen and (max-width: 600px) {
+  td[data-column-id=dataLabel] {
+    font-size: 0.75em;
+  }
+}
 
 th[data-column-id=dataLabel] {
   opacity: 0;
@@ -532,8 +537,9 @@ th[data-column-id=dataLabel] {
 }
 .slider-neighborhoods__legend-content {
   padding: 0 calc(30px / 2);
-  width: calc((8 / 12) * 100%);
-  margin-left: calc((2 / 12) * 100%);
+  width: calc((6 / 12) * 100%);
+  margin-left: calc((3 / 12) * 100%);
+  margin-bottom: 1rem;
 }
 @media screen and (max-width: 768px) {
   .slider-neighborhoods__legend-content {
@@ -551,8 +557,8 @@ th[data-column-id=dataLabel] {
   flex-wrap: wrap;
   margin-bottom: 1rem;
   padding: 0 calc(30px / 2);
-  width: calc((12 / 12) * 100%);
-  margin-left: calc((0 / 12) * 100%);
+  width: calc((8 / 12) * 100%);
+  margin-left: calc((2 / 12) * 100%);
 }
 @media screen and (max-width: 768px) {
   .slider-neighborhoods__legend-content--punctuated {
@@ -988,6 +994,7 @@ th[data-column-id=dataLabel] {
 .map-neighborhoods .map-neighborhoods__icon-neighborhood {
   transition: opacity 0.5s ease;
   transition: fill 0.5s ease;
+  cursor: pointer !important;
 }
 .map-neighborhoods .map-neighborhoods__icon-neighborhood path, .map-neighborhoods .map-neighborhoods__icon-neighborhood polygon {
   transition: fill 0.2s ease;
@@ -1122,6 +1129,7 @@ th[data-column-id=dataLabel] {
 .single-neighborhoods-chart__graph {
   padding: 3rem 0 3rem;
   position: relative;
+  width: 100%;
 }
 .single-neighborhoods-chart__graph-container {
   padding: 0 calc(30px / 2);

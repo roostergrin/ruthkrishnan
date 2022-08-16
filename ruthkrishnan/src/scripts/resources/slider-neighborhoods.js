@@ -224,11 +224,11 @@ export const sliderNeighborhoods = () => {
       <div style="display: flex; gap: 1rem; flex-direction: column;" class="slider-neighborhoods__legend-box-container">
         <p>${weather.temperature}</p>
       <div class="slider-neighborhoods__legend-boxes-container">
-        <div style="background: ${weather.weatherGroup[0].color}; width: 2rem; height: 2rem;" class="slider-neighborhoods__legend-box--filled"></div>
+        <div style="background: ${weather.weatherGroup[0].color}; min-width: 2rem; min-height: 2rem;" class="slider-neighborhoods__legend-box--filled"></div>
         <p style="padding-left: 0.5rem;" class="slider-neighborhoods__legend-text">${weather.weatherGroup[0].fogWind}</p>
       </div>
       <div class="slider-neighborhoods__legend-boxes-container">
-          <div style="background: ${weather.weatherGroup[1].color}; width: 2rem; height: 2rem;" class="slider-neighborhoods__legend-box--filled"></div>
+          <div style="background: ${weather.weatherGroup[1].color}; min-width: 2rem; min-height: 2rem;" class="slider-neighborhoods__legend-box--filled"></div>
           <p style="padding-left: 0.5rem;"class="slider-neighborhoods__legend-text">${weather.weatherGroup[1].fogWind}</p>
       </div>
     </div>`;
@@ -512,6 +512,7 @@ export const sliderNeighborhoods = () => {
               targetEl.HJICondoMonthly.result.measurements.salePrice.median /
                 targetEl.HJICondoMonthly.result.measurements.size.median
             )}/sf</div>`;
+          mapContent += "<p style='font-size:0.75em;'>(click on neighborhood to learn more below)<p>"
         }
       }
       // append tooltip information
@@ -519,7 +520,7 @@ export const sliderNeighborhoods = () => {
 
       // show tooltip info window
       tooltipContainer.style.opacity = 1;
-      tooltipContainer.style.pointerEvents = "auto";
+      tooltipContainer.style.pointerEvents = "no";
 
       // keep info window on screen (no overflow)
       if (event.clientY - 110 < tooltipContainer.clientHeight + 32) {
@@ -565,6 +566,7 @@ export const sliderNeighborhoods = () => {
   };
 
   // close tooltip
+
   closeContainer.addEventListener("click", () => {
     closeToolTip();
   });
@@ -584,6 +586,11 @@ export const sliderNeighborhoods = () => {
       closeToolTip();
       openTooltip(event, el);
     });
+    
+    el.addEventListener("mouseenter", (event) => {
+      closeToolTip();
+      openTooltip(event, el);
+    })
   });
 
   // debounce function

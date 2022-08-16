@@ -255,7 +255,7 @@ var neighborhoodCharts = function neighborhoodCharts() {
   };
 
   var twoDecYLabel = function twoDecYLabel(value) {
-    return Math.round(value * 100) / 100;
+    return (value * 100).toFixed(0) + "%";
   };
 
   var twoDecTooltip = function twoDecTooltip(tooltipItem, data) {
@@ -265,7 +265,7 @@ var neighborhoodCharts = function neighborhoodCharts() {
       label += ": ";
     }
 
-    label += Math.round(tooltipItem.yLabel * 100) / 100;
+    label += (tooltipItem.yLabel * 100).toFixed(2) + "%";
     return label;
   }; // build chart
 
@@ -278,6 +278,7 @@ var neighborhoodCharts = function neighborhoodCharts() {
   Chart.defaults.global.defaultFontColor = "#232323"; // change charts and chart title
 
   var title = document.getElementById("graphTitle");
+  var text = document.getElementById("graphText");
   var filtersArr = document.querySelectorAll(".single-neighborhoods-chart__filter"); // builds grid in the canvas for accessibility.
 
   var dataValues = {
@@ -316,7 +317,9 @@ var neighborhoodCharts = function neighborhoodCharts() {
     }
 
     var value = el.dataset.filter;
+    var textValue = el.dataset.text;
     title.innerHTML = value;
+    text.innerHTML = textValue;
     var currentData;
 
     if (currentData != value) {
@@ -397,6 +400,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var dataTable = function dataTable() {
   var tableElement = document.getElementById("wrapper");
+  var rktHotScore = document.getElementById("rkt-hot-score");
+  var rktHotScoreText = document.getElementById("rkt-hot-score-text");
   var single = JSON.parse(tableElement.dataset.hjisingleyearly); // console.log("hji single yearly:");
 
   console.log("hji single yearly", single); // TODO: make a JSON with the content from single
@@ -413,7 +418,7 @@ var dataTable = function dataTable() {
   var salePriceToSqFt = ["Sale Price per sq ft"];
   var saleToListPrice = ["Sale to List Price Percent"];
   var daysOnMarketMedian = ["Days on Market"];
-  var competeScore = ["Compete Score?"];
+  var competeScore = ["RKT Hot Score"];
   var data = [salePriceAvg, salePriceMedian, salePriceLow, salePriceHigh, salePriceToSqFt, saleToListPrice, daysOnMarketMedian, competeScore];
   var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -436,16 +441,46 @@ var dataTable = function dataTable() {
     salePriceMedian.push(USDFormatterNoDec.format(year.measurements.salePrice.median));
     salePriceLow.push(USDFormatterNoDec.format(year.measurements.salePrice.low));
     salePriceHigh.push(USDFormatterNoDec.format(year.measurements.salePrice.high));
-    daysOnMarketMedian.push(year.measurements.daysOnMarket.median.toFixed(0));
-    salePriceToSqFt.push(USDFormatterDec.format(year.measurements.salePrice.median / year.measurements.size.median) + "/sq.ft");
+    daysOnMarketMedian.push(year.measurements.daysOnMarket.average.toFixed(0));
+    salePriceToSqFt.push(USDFormatterDec.format(year.measurements.salePrice.average / year.measurements.size.average) + "/sq.ft");
     saleToListPrice.push((year.measurements.salePrice.average / year.measurements.listPrice.average * 100).toFixed(2) + "%");
-    competeScore.push((year.measurements.salePrice.average / year.measurements.listPrice.average / year.measurements.daysOnMarket.median * 2000).toFixed(3));
+    competeScore.push((year.measurements.salePrice.average / year.measurements.listPrice.average / year.measurements.daysOnMarket.average * 2000).toFixed(3));
   });
   console.log(data);
   new gridjs.Grid({
     columns: ["dataLabel", "2019", "2020", "2021", "2022"],
     data: data
   }).render(tableElement);
+  var rktHotScoreValue = competeScore[competeScore.length - 1];
+  rktHotScore.innerHTML = rktHotScoreValue;
+  var rktHotScoreTextValue;
+
+  if (rktHotScoreValue <= 90) {
+    rktHotScoreTextValue = "this is a very hot market";
+    console.log(rktHotScoreTextValue);
+  }
+
+  if (rktHotScoreValue <= 50) {
+    rktHotScoreTextValue = "this is a hot market";
+    console.log(rktHotScoreTextValue);
+  }
+
+  if (rktHotScoreValue <= 30) {
+    rktHotScoreTextValue = "this is a moderately hot market";
+    console.log(rktHotScoreTextValue);
+  }
+
+  if (rktHotScoreValue <= 20) {
+    rktHotScoreTextValue = "currently, this is a less competitive market";
+    console.log(rktHotScoreTextValue);
+  }
+
+  if (rktHotScoreValue <= 10) {
+    rktHotScoreTextValue = "currently, this is not a competitive market";
+    console.log(rktHotScoreTextValue);
+  }
+
+  rktHotScoreText.innerHTML = rktHotScoreTextValue;
 };
 
 /***/ }),
@@ -691,7 +726,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   function updateLegendPunctuatedScale(legend, palletteArr) {
     var legendTemplate = "<div class=\"slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated\">";
     weatherValues.forEach(function (weather, i) {
-      legendTemplate += "\n      <div style=\"display: flex; gap: 1rem; flex-direction: column;\" class=\"slider-neighborhoods__legend-box-container\">\n        <p>".concat(weather.temperature, "</p>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n        <div style=\"background: ").concat(weather.weatherGroup[0].color, "; width: 2rem; height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n        <p style=\"padding-left: 0.5rem;\" class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[0].fogWind, "</p>\n      </div>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n          <div style=\"background: ").concat(weather.weatherGroup[1].color, "; width: 2rem; height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n          <p style=\"padding-left: 0.5rem;\"class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[1].fogWind, "</p>\n      </div>\n    </div>");
+      legendTemplate += "\n      <div style=\"display: flex; gap: 1rem; flex-direction: column;\" class=\"slider-neighborhoods__legend-box-container\">\n        <p>".concat(weather.temperature, "</p>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n        <div style=\"background: ").concat(weather.weatherGroup[0].color, "; min-width: 2rem; min-height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n        <p style=\"padding-left: 0.5rem;\" class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[0].fogWind, "</p>\n      </div>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n          <div style=\"background: ").concat(weather.weatherGroup[1].color, "; min-width: 2rem; min-height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n          <p style=\"padding-left: 0.5rem;\"class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[1].fogWind, "</p>\n      </div>\n    </div>");
     });
     legendTemplate += "</div>";
     legend.innerHTML = legendTemplate;
@@ -901,6 +936,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
           }
 
           if (targetEl.HJICondoMonthly.result.measurements.salePrice.median != 0) mapContent += "<div class='map-neighborhoods__tooltip-info'>2BR/2BA Condo Median Price: ".concat(USDFormatterNoDec.format(targetEl.HJICondoMonthly.result.measurements.salePrice.median), "<br> Median $/SqFt: ").concat(USDFormatterDec.format(targetEl.HJICondoMonthly.result.measurements.salePrice.median / targetEl.HJICondoMonthly.result.measurements.size.median), "/sf</div>");
+          mapContent += "<p style='font-size:0.75em;'>(click on neighborhood to learn more below)<p>";
         }
       } // append tooltip information
 
@@ -908,7 +944,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       tooltipContent.innerHTML = mapContent; // show tooltip info window
 
       tooltipContainer.style.opacity = 1;
-      tooltipContainer.style.pointerEvents = "auto"; // keep info window on screen (no overflow)
+      tooltipContainer.style.pointerEvents = "no"; // keep info window on screen (no overflow)
 
       if (event.clientY - 110 < tooltipContainer.clientHeight + 32) {
         tooltipContainer.style.top = "".concat(event.pageY, "px");
@@ -955,6 +991,10 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
     el.addEventListener("click", function (event) {
       mapSelectNeighborhood(el);
+      closeToolTip();
+      openTooltip(event, el);
+    });
+    el.addEventListener("mouseenter", function (event) {
       closeToolTip();
       openTooltip(event, el);
     });

@@ -66,14 +66,15 @@
     &-container
       @include container
     &-content
-      @include col(8)
-      @include col--offset(2)
+      @include col(6)
+      @include col--offset(3)
+      margin-bottom: 1rem
       &--punctuated
         display: flex
         flex-wrap: wrap
         margin-bottom: 1rem
-        @include col (12)
-        @include col--offset (0)
+        @include col (8)
+        @include col--offset (2)
         @include desktop
           @include col(8)
           @include col--offset(2)

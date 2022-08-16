@@ -170,7 +170,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   function updateLegendPunctuatedScale(legend, palletteArr) {
     var legendTemplate = "<div class=\"slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated\">";
     weatherValues.forEach(function (weather, i) {
-      legendTemplate += "\n      <div style=\"display: flex; gap: 1rem; flex-direction: column;\" class=\"slider-neighborhoods__legend-box-container\">\n        <p>".concat(weather.temperature, "</p>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n        <div style=\"background: ").concat(weather.weatherGroup[0].color, "; width: 2rem; height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n        <p style=\"padding-left: 0.5rem;\" class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[0].fogWind, "</p>\n      </div>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n          <div style=\"background: ").concat(weather.weatherGroup[1].color, "; width: 2rem; height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n          <p style=\"padding-left: 0.5rem;\"class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[1].fogWind, "</p>\n      </div>\n    </div>");
+      legendTemplate += "\n      <div style=\"display: flex; gap: 1rem; flex-direction: column;\" class=\"slider-neighborhoods__legend-box-container\">\n        <p>".concat(weather.temperature, "</p>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n        <div style=\"background: ").concat(weather.weatherGroup[0].color, "; min-width: 2rem; min-height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n        <p style=\"padding-left: 0.5rem;\" class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[0].fogWind, "</p>\n      </div>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n          <div style=\"background: ").concat(weather.weatherGroup[1].color, "; min-width: 2rem; min-height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n          <p style=\"padding-left: 0.5rem;\"class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[1].fogWind, "</p>\n      </div>\n    </div>");
     });
     legendTemplate += "</div>";
     legend.innerHTML = legendTemplate;
@@ -380,6 +380,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
           }
 
           if (targetEl.HJICondoMonthly.result.measurements.salePrice.median != 0) mapContent += "<div class='map-neighborhoods__tooltip-info'>2BR/2BA Condo Median Price: ".concat(USDFormatterNoDec.format(targetEl.HJICondoMonthly.result.measurements.salePrice.median), "<br> Median $/SqFt: ").concat(USDFormatterDec.format(targetEl.HJICondoMonthly.result.measurements.salePrice.median / targetEl.HJICondoMonthly.result.measurements.size.median), "/sf</div>");
+          mapContent += "<p style='font-size:0.75em;'>(click on neighborhood to learn more below)<p>";
         }
       } // append tooltip information
 
@@ -387,7 +388,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       tooltipContent.innerHTML = mapContent; // show tooltip info window
 
       tooltipContainer.style.opacity = 1;
-      tooltipContainer.style.pointerEvents = "auto"; // keep info window on screen (no overflow)
+      tooltipContainer.style.pointerEvents = "no"; // keep info window on screen (no overflow)
 
       if (event.clientY - 110 < tooltipContainer.clientHeight + 32) {
         tooltipContainer.style.top = "".concat(event.pageY, "px");
@@ -434,6 +435,10 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
     el.addEventListener("click", function (event) {
       mapSelectNeighborhood(el);
+      closeToolTip();
+      openTooltip(event, el);
+    });
+    el.addEventListener("mouseenter", function (event) {
       closeToolTip();
       openTooltip(event, el);
     });

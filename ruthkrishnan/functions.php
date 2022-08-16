@@ -411,19 +411,19 @@ function get_neighborhood_data_from_api()
     // single data
     
     // TODO: set up dates programmatically
-    'single_data' => '&propertyType=single&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(quarter)',
+    'single_data' => '&propertyType=single&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(quarter)',
     // condo data
-    'condo_data' => '&propertyType=condo&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(quarter)',
+    'condo_data' => '&propertyType=condo&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(quarter)',
     
     // single year
-    'single_yearly' => '&propertyType=single&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(year)',
+    'single_yearly' => '&propertyType=single&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(year)',
     // condo year
-    'condo_yearly' => '&propertyType=condo&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(year)',
+    'condo_yearly' => '&propertyType=condo&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(year)',
 
     // single monthly
-    'single_last_month' => '&propertyType=single&listingDate=' . $one_year_date_range . '&measurements=salePrice,listPricePerSqFt,size',
+    'single_last_month' => '&propertyType=single&listingDate=' . $one_year_date_range . '&measurements=salePrice,size',
     // condo 2br 2ba data monthly
-    'condo2br2b_data' => '&propertyType=condo&baths=2&beds=2&listingDate=' . $one_year_date_range . '&measurements=salePrice,listPricePerSqFt,size',
+    'condo2br2b_data' => '&propertyType=condo&baths=2&beds=2&listingDate=' . $one_year_date_range . '&measurements=salePrice,size',
     
   ];
 

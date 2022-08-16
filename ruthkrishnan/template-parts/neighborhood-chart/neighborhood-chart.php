@@ -15,14 +15,14 @@
 
 <div class="single-neighborhoods-chart__filters-container">
   <div class="single-neighborhoods-chart__filters">
-    <a data-filter='Average Sales Price' tabindex="0" role="button" class="single-neighborhoods-chart__filter single-neighborhoods-chart__filter--active">Average Sales Price</a>
-    <a data-filter='Median Sales Price' tabindex="0" role="button" class="single-neighborhoods-chart__filter">Median Sales Price</a>
-    <a data-filter='Lowest Sales Price' tabindex="0" role="button" class="single-neighborhoods-chart__filter">Lowest Sales Price</a>
+    <a data-filter='Average Sales Price' data-text='The average sales price is the aggregate data of quarterly sale prices divided by the amount of sales in that&nbsp;quarter.' tabindex="0" role="button" class="single-neighborhoods-chart__filter single-neighborhoods-chart__filter--active">Average Sales Price</a>
+    <a data-filter='Median Sales Price' data-text='The median sales price is the quarterly midpoint. Half of the listed prices were higher and half were&nbsp;lower.' tabindex="0" role="button" class="single-neighborhoods-chart__filter">Median Sales Price</a>
+    <a data-filter='Lowest Sales Price' data-text='The lowest sale price in the neighborhood for each&nbsp;quarter.'tabindex="0" role="button" class="single-neighborhoods-chart__filter">Lowest Sales Price</a>
   </div>
   <div class="single-neighborhoods-chart__filters">
-    <a data-filter='Highest Sales Price' tabindex="0" role="button" class="single-neighborhoods-chart__filter">Highest Sales Price</a>
-    <a data-filter='Sale Price per Sq Foot' tabindex="0" role="button" class="single-neighborhoods-chart__filter">Sale Price per Sq ft</a>
-    <a data-filter='Sale to List Price Ratio' tabindex="0" role="button" class="single-neighborhoods-chart__filter">Sale to List Price</a>
+    <a data-filter='Highest Sales Price' data-text='The highest sale price in the neighborhood for each&nbsp;quarter.' tabindex="0" role="button" class="single-neighborhoods-chart__filter">Highest Sales Price</a>
+    <a data-filter='Sale Price per Sq Foot' data-text='The average sales price divided by the average square&nbsp;footage.' tabindex="0" role="button" class="single-neighborhoods-chart__filter">Sale Price per Sq ft</a>
+    <a data-filter='Sale to List Price Ratio' data-text='The average sales price divided by the average listing price tells you how much people pay above or below list price&nbsp;quarterly.' tabindex="0" role="button" class="single-neighborhoods-chart__filter">Sale to List Price</a>
   </div>
 </div>
 
@@ -34,7 +34,7 @@
         <hr />
       </div>
       <div class="single-neighborhoods-chart__details">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices sed fringilla pellentesque malesuada condimentum nulla nulla. Vitae, ultrices scelerisque</p>
+        <p id="graphText">The highest sale price in the neighborhood for each&nbsp;quarter.</p>
         <hr />
       </div>
       <div class="single-neighborhoods-chart__key">

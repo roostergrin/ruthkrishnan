@@ -262,14 +262,14 @@ export const neighborhoodCharts = () => {
     },
   };
 
-  const twoDecYLabel = (value) => Math.round(value * 100) / 100;
+  const twoDecYLabel = (value) => (value * 100).toFixed(0) + "%";
   const twoDecTooltip = function (tooltipItem, data) {
     var label = data.datasets[tooltipItem.datasetIndex].label || "";
 
     if (label) {
       label += ": ";
     }
-    label += Math.round(tooltipItem.yLabel * 100) / 100;
+    label += (tooltipItem.yLabel * 100).toFixed(2) + "%";
     return label;
   };
 
@@ -284,6 +284,7 @@ export const neighborhoodCharts = () => {
 
   // change charts and chart title
   var title = document.getElementById("graphTitle");
+  var text = document.getElementById("graphText");
   const filtersArr = document.querySelectorAll(
     ".single-neighborhoods-chart__filter"
   );
@@ -325,7 +326,10 @@ export const neighborhoodCharts = () => {
       el.classList.add("single-neighborhoods-chart__filter--active");
     }
     let value = el.dataset.filter;
+    let textValue = el.dataset.text;
     title.innerHTML = value;
+    text.innerHTML = textValue;
+    
     let currentData;
 
     if (currentData != value) {

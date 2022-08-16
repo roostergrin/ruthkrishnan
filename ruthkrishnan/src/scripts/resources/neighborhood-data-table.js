@@ -1,9 +1,10 @@
 export const dataTable = () => {
   const tableElement = document.getElementById("wrapper");
+  const rktHotScore = document.getElementById("rkt-hot-score");
+  const rktHotScoreText = document.getElementById("rkt-hot-score-text");
   const single = JSON.parse(tableElement.dataset.hjisingleyearly);
   // console.log("hji single yearly:");
   console.log("hji single yearly", single);
-
   // TODO: make a JSON with the content from single
   let year = [];
   // single.result.grouping.groups.forEach((year) => {
@@ -17,7 +18,7 @@ export const dataTable = () => {
   let salePriceToSqFt = ["Sale Price per sq ft"];
   let saleToListPrice = ["Sale to List Price Percent"];
   let daysOnMarketMedian = ["Days on Market"];
-  let competeScore = ["Compete Score?"];
+  let competeScore = ["RKT Hot Score"];
 
   let data = [
     salePriceAvg,
@@ -61,9 +62,9 @@ export const dataTable = () => {
     salePriceHigh.push(
       USDFormatterNoDec.format(year.measurements.salePrice.high)
     );
-    daysOnMarketMedian.push(year.measurements.daysOnMarket.median.toFixed(0));
+    daysOnMarketMedian.push(year.measurements.daysOnMarket.average.toFixed(0));
     salePriceToSqFt.push(
-      USDFormatterDec.format(year.measurements.salePrice.median/year.measurements.size.median) +
+      USDFormatterDec.format(year.measurements.salePrice.average/year.measurements.size.average) +
         "/sq.ft"
     );
     saleToListPrice.push(
@@ -77,7 +78,7 @@ export const dataTable = () => {
       (
         ((year.measurements.salePrice.average /
         year.measurements.listPrice.average) / 
-        (year.measurements.daysOnMarket.median )) * 2000
+        (year.measurements.daysOnMarket.average )) * 2000
       ).toFixed(3)
     );
   });
@@ -87,4 +88,33 @@ export const dataTable = () => {
     columns: ["dataLabel", "2019", "2020", "2021", "2022"],
     data: data,
   }).render(tableElement);
+
+
+  let rktHotScoreValue = competeScore[competeScore.length-1]
+  rktHotScore.innerHTML = rktHotScoreValue
+  
+  let rktHotScoreTextValue
+  if(rktHotScoreValue <= 90) {
+    rktHotScoreTextValue = "this is a very hot market"
+    console.log(rktHotScoreTextValue)
+  } 
+  if (rktHotScoreValue <= 50) {
+    rktHotScoreTextValue = "this is a hot market"
+    console.log(rktHotScoreTextValue)
+  } 
+  if (rktHotScoreValue <=30) {
+    rktHotScoreTextValue = "this is a moderately hot market"
+    console.log(rktHotScoreTextValue)
+  } 
+  if (rktHotScoreValue <=20) {
+    rktHotScoreTextValue = "currently, this is a less competitive market"
+    console.log(rktHotScoreTextValue)
+  } 
+  if (rktHotScoreValue <= 10){
+    rktHotScoreTextValue = "currently, this is not a competitive market"
+    console.log(rktHotScoreTextValue)
+  }
+  rktHotScoreText.innerHTML = rktHotScoreTextValue
+
 };
+

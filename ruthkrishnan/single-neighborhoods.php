@@ -123,6 +123,16 @@ get_header(); ?>
 										<div class="home-stats__card-text"><?php echo $weather; ?></div>
 									</div>
 								</div>
+
+								<!-- calculated in neighborhood-data-table -->
+								<div class="home-stats__card">
+									<div class="home-stats__card-container">
+										<div class="home-stats__card-circle">
+											<h3 id="rkt-hot-score" class="home-stats__card-title">30.413</h3>
+										</div>
+										<div id="rkt-hot-score-text" class="home-stats__card-text">this market is hot</div>
+									</div>
+								</div>
 					</div>
 				</div>
 			</section>
