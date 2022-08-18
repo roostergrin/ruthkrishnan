@@ -47,9 +47,114 @@ add_action('wp_ajax_get_san_francisco_data_from_api', 'get_san_francisco_data_fr
 add_action('wp_ajax_nopriv_add_weather_score', 'add_weather_score');
 add_action('wp_ajax_add_weather_score', 'add_weather_score');
 
-add_action('wp_ajax_nopriv_add_walk_score', 'add_walk_score');
-add_action('wp_ajax_add_walk_score', 'add_walk_score');
+add_action('wp_ajax_nopriv_add_transit_score', 'add_transit_score');
+add_action('wp_ajax_add_transit_score', 'add_transit_score');
 
+function add_transit_score() {
+  $neighborhoods_transit_score= [
+    // 'neighborhood_slug' =>'transit score',
+    'outer-parkside' =>'83',
+    'parkside' =>'62',
+    'inner-parkside' =>'71',
+    'pine-lake-park' =>'65',
+    'merced-manor' =>'64',
+    'stonestown' =>'68',
+    'lakeside' =>'71',
+    'balboa-terrace' =>'70',
+    'st-francis-wood' =>'72',
+    'ingleside-terrace' =>'70',
+    'merced-heights' =>'78',
+    'lake-shore' =>'53',
+    'sherwood-forest' =>'66',
+    'ingleside-heights' =>'70',
+    'richmond-central-outer' =>'68',
+    'lincoln-park' =>'55',
+    'sea-cliff' =>'62',
+    'lake-street' =>'66',
+    'richmond-inner' =>'70',
+    'golden-gate-heights' =>'67',
+    'west-portal' =>'73',
+    'forest-hills-extensions' =>'73',
+    'forest-hill' =>'72',
+    'forest-knolls' =>'64',
+    'sunset-inner' =>'66',
+    'sunset-central-outer' =>'57',
+    'golden-gate-park' =>'51',
+    'cole-valley' =>'70',
+    'midtown-terrace' =>'69',
+    'twin-peaks' =>'65',
+    'diamond-heights' =>'68',
+    'miraloma-park' =>'66',
+    'sunnyside' =>'79',
+    'westwood-park' =>'77',
+    'ingleside' =>'78',
+    'oceanview' =>'84',
+    'mission-central-outer' =>'80',
+    'mission-terrace' =>'84',
+    'glen-park' =>'80',
+    'noe-valley' =>'75',
+    'mount-davidson-manor' =>'72',
+    'monterey-heights' =>'68',
+    'westwood-highlands' =>'67',
+    'corona-heights' =>'84',
+    'duboce-triangle' =>'93',
+    'haight-ashbury' =>'73',
+    'nopa' =>'74',
+    'lone-mountain' =>'71',
+    'jordan-park-laurel-heights' =>'70',
+    'presidio-heights' =>'68',
+    'anza-vista' =>'74',
+    'clarendon-heights' =>'69',
+    'castro-eureka-valley' =>'89',
+    'alamo-square' =>'82',
+    'western-addition' =>'81',
+    'lower-pacific-heights' =>'74',
+    'tenderloin' =>'100',
+    'van-ness-civic-center' =>'100',
+    'ashbury-buena-vista' =>'80',
+    'hayes-valley' =>'94',
+    'mission-dolores' =>'96',
+    'mission-inner' =>'79',
+    'bernal-heights' =>'78',
+    'crocker-amazon' =>'71',
+    'excelsior' =>'79',
+    'portola' =>'69',
+    'visitacion-valley' =>'67',
+    'bayview-heights' =>'68',
+    'little-hollywood' =>'68',
+    'candlestick-point' =>'64',
+    'silver-terrace' =>'72',
+    'bayview' =>'68',
+    'hunters-point' =>'59',
+    'dogpatch' =>'68',
+    'soma' =>'99',
+    'potrero-hill' =>'71',
+    'mission-bay' =>'83',
+    'yerba-buena' =>'100',
+    'south-beach' =>'96',
+    'financial-district' =>'100',
+    'north-beach' =>'86',
+    'telegraph-hill' =>'86',
+    'north-waterfront' =>'96',
+    'downtown' =>'100',
+    'pacific-heights' =>'80',
+    'nob-hill' =>'96',
+    'cow-hollow' =>'68',
+    'russian-hill' =>'84',
+    'marina' =>'67',
+    'presidio' =>'54',
+  ];
+  $ACF_transit_score = "transit_score";
+  
+  foreach($neighborhoods_transit_score as $neighborhood_slug => $transit_score) {
+    // echo $transit_score;
+    // echo $neighborhood_slug;
+    $neighborhood_post_id_wp = get_page_by_path($neighborhood_slug, 'OBJECT', 'neighborhoods');
+    update_field($ACF_transit_score, $transit_score, $neighborhood_post_id_wp);
+  }
+
+  // /wp-admin/admin-ajax.php?action=add_transit_score
+}
 function add_walk_score() {
   $neighborhoods_walk_score= [
     // 'neighborhood_slug' =>'walk score',

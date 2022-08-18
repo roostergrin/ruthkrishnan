@@ -55,6 +55,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       HJISingleMonthly: JSON.parse(el.dataset.hjisinglemonthly),
       weather: el.dataset.weather,
       walkscore: el.dataset.walkscore,
+      transitscore: el.dataset.transitscore,
       category: el.dataset.category
     };
   });
@@ -199,6 +200,12 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
             color = "hsl(0, 41%, ".concat(Math.abs(scaleRange(domain, min, max) * 50 - 50), "%)");
             updateLegendGradientScale(legend, "hsl(0,41%,50%)", "hsl(0,41%,0%)", USDFormatterNoDec.format(min), USDFormatterNoDec.format(max)); // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
             // color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
+          } else if (value == "transit score" && !inactiveNeighborhoods.includes(icon.dataset.name)) {
+            domain = slide.transitscore;
+            min = 40;
+            max = 100;
+            color = "hsl(0, 41%, ".concat(Math.abs(scaleRange(domain, min, max) * 50 - 50), "%)");
+            updateLegendGradientScale(legend, "hsl(0,41%,50%)", "hsl(0,41%,0%)", 50, 100);
           } else if (value == "walk score") {
             domain = slide.walkscore;
             min = 40;
@@ -251,9 +258,10 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
         });
       });
     }
-  }
+  } // call transit score
 
-  colorIconArr("single median sale price");
+
+  colorIconArr("transit score");
   var filtersArr = Array.from(document.querySelectorAll(".slider-neighborhoods__filter"));
 
   function toggle() {}

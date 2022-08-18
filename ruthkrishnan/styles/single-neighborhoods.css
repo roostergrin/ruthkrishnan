@@ -1828,6 +1828,7 @@ th[data-column-id=dataLabel] {
 .home-stats__card {
   padding: 0 calc(30px / 2);
   width: calc((4 / 12) * 100%);
+  margin: auto;
   margin-top: 3rem;
   padding-top: 5.5625rem;
 }

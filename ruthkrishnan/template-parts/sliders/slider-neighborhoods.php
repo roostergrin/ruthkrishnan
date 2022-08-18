@@ -14,7 +14,8 @@
 
   <div class="slider-neighborhoods__filters-container">
     <div class="slider-neighborhoods__filters">
-      <a data-filter='single median sale price' tabindex="0" role="button" class="slider-neighborhoods__filter slider-neighborhoods__filter--active">Median Sale Price this month</a>
+      <!-- <a data-filter='single median sale price' tabindex="0" role="button" class="slider-neighborhoods__filter slider-neighborhoods__filter--active">Median Sale Price this month</a> -->
+      <a data-filter='transit score' tabindex="0" role="button" class="slider-neighborhoods__filter slider-neighborhoods__filter--active">Transit score</a>
       <a data-filter='walk score' tabindex="0" role="button" class="slider-neighborhoods__filter">Walk score</a>
       <a data-filter='weather' tabindex="0" role="button" class="slider-neighborhoods__filter">Weather</a>
     </div>
@@ -48,7 +49,7 @@
                 $image = get_sub_field('image'); ?>
 
                 <div class="slider-neighborhoods__slide" style="<?php if ($category === 'coming-soon') : echo 'display: none';
-                                                                endif; ?>" data-name='<?php echo the_title(); ?>' data-mapinfo='<?php echo json_encode(get_field('map_info_window')); ?>' data-hjisinglemonthly='<?php echo json_encode(get_field('field_62e99eb4410d7')); ?>' data-hjicondomonthly='<?php echo json_encode(get_field('field_62e84063b6f36')); ?>' data-walkscore='<?php echo get_field('walk_score'); ?>' data-weather='<?php echo get_field('weather'); ?>' data-neighborhood='<?php echo get_post()->post_name; ?>' data-category='<?php echo $category ?>'>
+                                                                endif; ?>" data-name='<?php echo the_title(); ?>' data-mapinfo='<?php echo json_encode(get_field('map_info_window')); ?>' data-hjisinglemonthly='<?php echo json_encode(get_field('field_62e99eb4410d7')); ?>' data-hjicondomonthly='<?php echo json_encode(get_field('field_62e84063b6f36')); ?>' data-walkscore='<?php echo get_field('walk_score'); ?>' data-transitscore='<?php echo get_field('transit_score'); ?>' data-weather='<?php echo get_field('weather'); ?>' data-neighborhood='<?php echo get_post()->post_name; ?>' data-category='<?php echo $category ?>'>
                   <div class="slider-neighborhoods__image-container">
                     <?php echo wp_get_attachment_image($image, 'medium_large', false, ['class' => 'slider-neighborhoods__image']); ?>
                   </div>
