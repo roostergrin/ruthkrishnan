@@ -312,8 +312,8 @@ if( function_exists('acf_add_options_page') ) {
 }
 
 // Disable yoast generated schema.org structured data
-function disable_yoast_schema_data($data){
-	$data = array();
-	return $data;
-}
-add_filter('wpseo_json_ld_output', 'disable_yoast_schema_data', 10, 1);
+// function disable_yoast_schema_data($data){
+// 	$data = array();
+// 	return $data;
+// }
+// add_filter('wpseo_json_ld_output', 'disable_yoast_schema_data', 10, 1);

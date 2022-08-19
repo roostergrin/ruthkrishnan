@@ -10,7 +10,7 @@
   <?php wp_head(); ?>
 
   <!-- schema.org structured data -->
-  <script type="application/ld+json">
+  <!-- <script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "RealEstateAgent",
@@ -25,7 +25,7 @@
     "name": "Ruth Krishnan - San Francisco Real Estate",
     "telephone": "(415) 735-5867"
   }
-  </script>
+  </script> -->
 
   <!-- Google Optimize -->
   <script src="https://www.googleoptimize.com/optimize.js?id=GTM-T7VQ4QK"></script>
