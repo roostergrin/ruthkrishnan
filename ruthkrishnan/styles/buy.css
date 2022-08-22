@@ -60,16 +60,16 @@
   }
 }
 
-.buy-schedule-talk, .buy-neighborhood, .buy-testimonial-video, .slider-video, .resources-links, .process-steps, .our-performance {
+.buy-off-market, .buy-schedule-talk, .buy-neighborhood, .buy-testimonial-video, .slider-video, .resources-links, .process-steps, .our-performance {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .buy-schedule-talk, .buy-neighborhood, .buy-testimonial-video, .slider-video, .resources-links, .process-steps, .our-performance {
+  .buy-off-market, .buy-schedule-talk, .buy-neighborhood, .buy-testimonial-video, .slider-video, .resources-links, .process-steps, .our-performance {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .buy-schedule-talk, .buy-neighborhood, .buy-testimonial-video, .slider-video, .resources-links, .process-steps, .our-performance {
+  .buy-off-market, .buy-schedule-talk, .buy-neighborhood, .buy-testimonial-video, .slider-video, .resources-links, .process-steps, .our-performance {
     padding: 1rem 0;
   }
 }
@@ -948,7 +948,7 @@
  * ----------------------- */
 /* -----------------------
  *  Buy Welcome Styles
- * ----------------------- */ 
+ * ----------------------- */
 .buy-welcome__container {
   display: flex;
   position: relative;
@@ -1083,7 +1083,7 @@
 
 /* -----------------------
  *  Buy Testimonial video Styles
- * ----------------------- */ 
+ * ----------------------- */
 .buy-testimonial-video__container {
   display: flex;
   position: relative;
@@ -1451,6 +1451,9 @@
   font-size: 0.875rem;
 }
 
+/* ------------------------------
+ *  Buy Time To Talk CTA Styles
+ * ------------------------------ */
 /* ------------------------------
  *  Buy Time To Talk CTA Styles
  * ------------------------------ */
