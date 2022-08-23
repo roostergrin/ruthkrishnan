@@ -22,6 +22,7 @@
       <h2 class="neighborhood-data-table__title"><?php echo the_title(); ?> Neighborhood Home Sales and Price Data</h2>
       <p class="neighborhood-data-table__subtitle">Pulled from MLS (Yearly)</p>
       <div class="neighborhood-data-table__wrapper">
+        <p class="neighborhood-data-table__scroll-indicator">>></p>
         <div id="wrapper" data-hjisingleyearly='<?php echo json_encode(get_field('field_62e9a3ed06487')); ?>'></div>
       </div>
     </div>
