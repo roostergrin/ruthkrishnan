@@ -40,7 +40,9 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       closeContainer = document.getElementById("tooltip-close"),
       nextArrow = document.getElementById("next"),
       prevArrow = document.getElementById("previous"),
-      paginationIndicator = document.getElementById('pagination-indicator');
+      paginationIndicator = document.getElementById("pagination-indicator"),
+      rktHotScore = document.getElementById("rkt-hot-score"),
+      rktHotScoreText = document.getElementById("rkt-hot-score-text");
   var loc = window.location.pathname;
   var locArray = loc.split("/");
   var currentNeighborhood = locArray[locArray.length - 2]; // const dir = loc.substring(loc.lastIndexOf('/'));
@@ -104,7 +106,41 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
         if (slide.HJICondoMonthly.result.measurements.salePrice.median > maxMedianCondo) maxMedianCondo = slide.HJICondoMonthly.result.measurements.salePrice.median;
       }
     }
-  }); // normalize data to 0-1 range
+  }); // initializes min and max
+
+  var minHotScoreHouse = calculateHotScore(allSlides[1].HJISingleMonthly.result.measurements);
+  var maxHotScoreHouse = calculateHotScore(allSlides[0].HJISingleMonthly.result.measurements);
+  var minHotScoreCondo = calculateHotScore(allSlides[0].HJICondoMonthly.result.measurements);
+  var maxHotScoreCondo = calculateHotScore(allSlides[0].HJICondoMonthly.result.measurements);
+
+  function calculateHotScore(measurements) {
+    if (measurements.salePrice.average != 0 && measurements.listPrice.average != 0 && measurements.daysOnMarket.median != 0) {
+      return measurements.salePrice.average / measurements.listPrice.average / measurements.daysOnMarket.median;
+    }
+  }
+
+  allSlides.forEach(function (slide) {
+    if (slide.HJISingleMonthly.result) {
+      if (calculateHotScore(slide.HJISingleMonthly.result.measurements) != 0) {
+        if (calculateHotScore(slide.HJISingleMonthly.result.measurements) < minHotScoreHouse) minHotScoreHouse = calculateHotScore(slide.HJISingleMonthly.result.measurements);
+        if (calculateHotScore(slide.HJISingleMonthly.result.measurements) > maxHotScoreHouse) maxHotScoreHouse = calculateHotScore(slide.HJISingleMonthly.result.measurements);
+      }
+    }
+
+    if (slide.HJICondoMonthly.result) {
+      if (calculateHotScore(slide.HJICondoMonthly.result.measurements) != 0) {
+        if (calculateHotScore(slide.HJICondoMonthly.result.measurements) < minHotScoreCondo) minHotScoreCondo = calculateHotScore(slide.HJICondoMonthly.result.measurements);
+        if (calculateHotScore(slide.HJICondoMonthly.result.measurements) > maxHotScoreCondo) maxHotScoreCondo = calculateHotScore(slide.HJICondoMonthly.result.measurements);
+      }
+    }
+  });
+  console.log(minHotScoreHouse);
+  console.log(maxHotScoreHouse);
+  console.log(minHotScoreCondo);
+  console.log(maxHotScoreCondo);
+  var minHotScore = minHotScoreCondo < minHotScoreHouse ? minHotScoreCondo : minHotScoreHouse;
+  var maxHotScore = maxHotScoreCondo > maxHotScoreHouse ? maxHotScoreCondo : maxHotScoreHouse;
+  console.log(minHotScore, maxHotScore); // normalize data to 0-1 range
 
   function scaleRange(x, min, max) {
     // console.log((x - min) / (max - min))
@@ -195,7 +231,6 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
           var min;
           var max;
           var color;
-          console.log(value);
 
           if (value == "single median sale price" && !inactiveNeighborhoods.includes(icon.dataset.name)) {
             min = minMedianSingle;
@@ -302,7 +337,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
   var changeContent = function changeContent(i) {
     contentWrapper.forEach(function (el) {
-      +el.dataset.index === i ? el.classList.add("slider-neighborhoods__content-wrapper--active") : el.classList.remove("slider-neighborhoods__content-wrapper--active"); // not sure if this is working. 
+      +el.dataset.index === i ? el.classList.add("slider-neighborhoods__content-wrapper--active") : el.classList.remove("slider-neighborhoods__content-wrapper--active"); // not sure if this is working.
     });
     setContentHeight();
   }; // * set the correct content active on first load *
@@ -546,10 +581,10 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   };
 
   var sliderContainer = document.getElementById("slider-container");
-  nextArrow.addEventListener('click', function (e) {
+  nextArrow.addEventListener("click", function (e) {
     toNextSlide();
   });
-  prevArrow.addEventListener('click', function (e) {
+  prevArrow.addEventListener("click", function (e) {
     toPrevSlide();
   });
   sliderContainer.addEventListener("touchstart", function (e) {

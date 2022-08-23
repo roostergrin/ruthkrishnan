@@ -526,9 +526,9 @@ function get_neighborhood_data_from_api()
     'condo_yearly' => '&propertyType=condo&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(year)',
 
     // single monthly
-    'single_last_month' => '&propertyType=single&listingDate=' . $one_year_date_range . '&measurements=salePrice,size',
+    'single_last_month' => '&propertyType=single&listingDate=' . $one_year_date_range . '&measurements=salePrice,listPrice,daysOnMarket',
     // condo 2br 2ba data monthly
-    'condo2br2b_data' => '&propertyType=condo&baths=2&beds=2&listingDate=' . $one_year_date_range . '&measurements=salePrice,size',
+    'condo2br2b_data' => '&propertyType=condo&baths=2&beds=2&listingDate=' . $one_year_date_range . '&measurements=salePrice,listPrice,daysOnMarket',
     
   ];
 

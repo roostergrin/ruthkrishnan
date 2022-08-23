@@ -3,14 +3,7 @@ export const dataTable = () => {
   const rktHotScore = document.getElementById("rkt-hot-score");
   const rktHotScoreText = document.getElementById("rkt-hot-score-text");
   const single = JSON.parse(tableElement.dataset.hjisingleyearly);
-  // console.log("hji single yearly:");
-  console.log("hji single yearly", single);
-  // TODO: make a JSON with the content from single
-  let year = [];
-  // single.result.grouping.groups.forEach((year) => {
-  //   year.push(year.measurements.salePrice.average)
-  // });
-  //
+
   let salePriceAvg = ["Average Sale Price"];
   let salePriceMedian = ["Median Sale Price"];
   let salePriceLow = ["Lowest Sale Price"];
@@ -48,7 +41,11 @@ export const dataTable = () => {
     // minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
     // maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
   });
-
+  function scaleRange(x, min, max) {
+    console.log("x", x, min, max);
+    console.log("scaleRange", (x - min) / (max - min));
+    return (x - min) / (max - min);
+  }
   single.result.grouping.groups.forEach((year) => {
     salePriceAvg.push(
       USDFormatterNoDec.format(year.measurements.salePrice.average)
@@ -64,8 +61,9 @@ export const dataTable = () => {
     );
     daysOnMarketMedian.push(year.measurements.daysOnMarket.average.toFixed(0));
     salePriceToSqFt.push(
-      USDFormatterDec.format(year.measurements.salePrice.average/year.measurements.size.average) +
-        "/sq.ft"
+      USDFormatterDec.format(
+        year.measurements.salePrice.average / year.measurements.size.average
+      ) + "/sq.ft"
     );
     saleToListPrice.push(
       (
@@ -75,11 +73,13 @@ export const dataTable = () => {
       ).toFixed(2) + "%"
     );
     competeScore.push(
-      (
-        ((year.measurements.salePrice.average /
-        year.measurements.listPrice.average) / 
-        (year.measurements.daysOnMarket.average )) * 2000
-      ).toFixed(3)
+      (scaleRange(
+        year.measurements.salePrice.average /
+          year.measurements.listPrice.average /
+          year.measurements.daysOnMarket.median,
+        0.004895742795938363,
+        0.06963788300835655
+      ) * 100).toFixed(0)
     );
   });
 
@@ -89,32 +89,25 @@ export const dataTable = () => {
     data: data,
   }).render(tableElement);
 
+  let rktHotScoreValue = competeScore[competeScore.length - 1];
+  rktHotScore.innerHTML = rktHotScoreValue;
 
-  let rktHotScoreValue = competeScore[competeScore.length-1]
-  rktHotScore.innerHTML = rktHotScoreValue
-  
-  let rktHotScoreTextValue
-  if(rktHotScoreValue <= 90) {
-    rktHotScoreTextValue = "this is a very hot market"
-    console.log(rktHotScoreTextValue)
-  } 
-  if (rktHotScoreValue <= 50) {
-    rktHotScoreTextValue = "this is a hot market"
-    console.log(rktHotScoreTextValue)
-  } 
-  if (rktHotScoreValue <=30) {
-    rktHotScoreTextValue = "this is a moderately hot market"
-    console.log(rktHotScoreTextValue)
-  } 
-  if (rktHotScoreValue <=20) {
-    rktHotScoreTextValue = "currently, this is a less competitive market"
-    console.log(rktHotScoreTextValue)
-  } 
-  if (rktHotScoreValue <= 10){
-    rktHotScoreTextValue = "currently, this is not a competitive market"
-    console.log(rktHotScoreTextValue)
+  let rktHotScoreTextValue;
+  if (rktHotScoreValue <= 100) {
+    rktHotScoreTextValue = "most homes sell over list price with very few days on market";
+    console.log(rktHotScoreTextValue);
   }
-  rktHotScoreText.innerHTML = rktHotScoreTextValue
-
+  if (rktHotScoreValue <= 90) {
+    rktHotScoreTextValue = "many homes sell over list price with few days on market";
+    console.log(rktHotScoreTextValue);
+  }
+  if (rktHotScoreValue <= 70) {
+    rktHotScoreTextValue = "some homes sell over list price but may takes weeks to sell";
+    console.log(rktHotScoreTextValue);
+  }
+  if (rktHotScoreValue <= 30) {
+    rktHotScoreTextValue = "few homes sell over list price and can take months to sell";
+    console.log(rktHotScoreTextValue);
+  }
+  rktHotScoreText.innerHTML = rktHotScoreTextValue;
 };
-

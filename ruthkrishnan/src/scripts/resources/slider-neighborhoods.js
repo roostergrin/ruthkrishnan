@@ -38,7 +38,9 @@ export const sliderNeighborhoods = () => {
     closeContainer = document.getElementById("tooltip-close"),
     nextArrow = document.getElementById("next"),
     prevArrow = document.getElementById("previous"),
-    paginationIndicator = document.getElementById('pagination-indicator');
+    paginationIndicator = document.getElementById("pagination-indicator"),
+    rktHotScore = document.getElementById("rkt-hot-score"),
+    rktHotScoreText = document.getElementById("rkt-hot-score-text");
   const loc = window.location.pathname;
   const locArray = loc.split("/");
   const currentNeighborhood = locArray[locArray.length - 2];
@@ -84,7 +86,7 @@ export const sliderNeighborhoods = () => {
         slide.elem.classList.remove("slider-neighborhoods__slide--curr");
       }
     });
-    paginationIndicator.style.width = `${(pos / slidesArr.length) * 100}%`
+    paginationIndicator.style.width = `${(pos / slidesArr.length) * 100}%`;
     sectionActive ? closeToolTip() : null;
   };
 
@@ -136,8 +138,84 @@ export const sliderNeighborhoods = () => {
     }
   });
 
-  // normalize data to 0-1 range
+  // initializes min and max
+  let minHotScoreHouse = calculateHotScore(
+    allSlides[1].HJISingleMonthly.result.measurements
+  );
+  let maxHotScoreHouse = calculateHotScore(
+    allSlides[0].HJISingleMonthly.result.measurements
+  );
 
+  let minHotScoreCondo = calculateHotScore(
+    allSlides[0].HJICondoMonthly.result.measurements
+  );
+  let maxHotScoreCondo = calculateHotScore(
+    allSlides[0].HJICondoMonthly.result.measurements
+  );
+
+  function calculateHotScore(measurements) {
+    if (
+      measurements.salePrice.average != 0 &&
+      measurements.listPrice.average != 0 &&
+      measurements.daysOnMarket.median != 0
+    ) {
+      return (
+        measurements.salePrice.average /
+        measurements.listPrice.average /
+        measurements.daysOnMarket.median
+      );
+    }
+  }
+
+  allSlides.forEach((slide) => {
+    if (slide.HJISingleMonthly.result) {
+      if (calculateHotScore(slide.HJISingleMonthly.result.measurements) != 0) {
+        if (
+          calculateHotScore(slide.HJISingleMonthly.result.measurements) <
+          minHotScoreHouse
+        )
+          minHotScoreHouse = calculateHotScore(
+            slide.HJISingleMonthly.result.measurements
+          );
+        if (
+          calculateHotScore(slide.HJISingleMonthly.result.measurements) >
+          maxHotScoreHouse
+        )
+          maxHotScoreHouse = calculateHotScore(
+            slide.HJISingleMonthly.result.measurements
+          );
+      }
+    }
+    if (slide.HJICondoMonthly.result) {
+      if (calculateHotScore(slide.HJICondoMonthly.result.measurements) != 0) {
+        if (
+          calculateHotScore(slide.HJICondoMonthly.result.measurements) <
+          minHotScoreCondo
+        )
+          minHotScoreCondo = calculateHotScore(
+            slide.HJICondoMonthly.result.measurements
+          );
+        if (
+          calculateHotScore(slide.HJICondoMonthly.result.measurements) >
+          maxHotScoreCondo
+        )
+          maxHotScoreCondo = calculateHotScore(
+            slide.HJICondoMonthly.result.measurements
+          );
+      }
+    }
+  });
+
+  console.log(minHotScoreHouse);
+  console.log(maxHotScoreHouse);
+  console.log(minHotScoreCondo);
+  console.log(maxHotScoreCondo);
+  const minHotScore =
+    minHotScoreCondo < minHotScoreHouse ? minHotScoreCondo : minHotScoreHouse;
+  const maxHotScore =
+    maxHotScoreCondo > maxHotScoreHouse ? maxHotScoreCondo : maxHotScoreHouse;
+  console.log(minHotScore, maxHotScore);
+  // normalize data to 0-1 range
   function scaleRange(x, min, max) {
     // console.log((x - min) / (max - min))
     return (x - min) / (max - min);
@@ -260,7 +338,6 @@ export const sliderNeighborhoods = () => {
           let min;
           let max;
           let color;
-          console.log(value);
           if (
             value == "single median sale price" &&
             !inactiveNeighborhoods.includes(icon.dataset.name)
@@ -281,7 +358,10 @@ export const sliderNeighborhoods = () => {
             );
             // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
             // color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
-          } else if (value == "transit score" && !inactiveNeighborhoods.includes(icon.dataset.name)) {
+          } else if (
+            value == "transit score" &&
+            !inactiveNeighborhoods.includes(icon.dataset.name)
+          ) {
             domain = slide.transitscore;
             min = 40;
             max = 100;
@@ -295,8 +375,7 @@ export const sliderNeighborhoods = () => {
               50,
               100
             );
-          }
-          else if (value == "walk score") {
+          } else if (value == "walk score") {
             domain = slide.walkscore;
             min = 40;
             max = 100;
@@ -411,7 +490,7 @@ export const sliderNeighborhoods = () => {
       +el.dataset.index === i
         ? el.classList.add("slider-neighborhoods__content-wrapper--active")
         : el.classList.remove("slider-neighborhoods__content-wrapper--active");
-        // not sure if this is working. 
+      // not sure if this is working.
     });
     setContentHeight();
   };
@@ -531,7 +610,8 @@ export const sliderNeighborhoods = () => {
               targetEl.HJICondoMonthly.result.measurements.salePrice.median /
                 targetEl.HJICondoMonthly.result.measurements.size.median
             )}/sf</div>`;
-          mapContent += "<p style='font-size:0.75em;'>(click on neighborhood to learn more below)<p>"
+          mapContent +=
+            "<p style='font-size:0.75em;'>(click on neighborhood to learn more below)<p>";
         }
       }
       // append tooltip information
@@ -605,11 +685,11 @@ export const sliderNeighborhoods = () => {
       closeToolTip();
       openTooltip(event, el);
     });
-    
+
     el.addEventListener("mouseenter", (event) => {
       closeToolTip();
       openTooltip(event, el);
-    })
+    });
   });
 
   // debounce function
@@ -704,13 +784,13 @@ export const sliderNeighborhoods = () => {
   };
 
   const sliderContainer = document.getElementById("slider-container");
-  
-  nextArrow.addEventListener('click', (e) => {
+
+  nextArrow.addEventListener("click", (e) => {
     toNextSlide();
-  })
-  prevArrow.addEventListener('click', (e) => {
+  });
+  prevArrow.addEventListener("click", (e) => {
     toPrevSlide();
-  })
+  });
 
   sliderContainer.addEventListener("touchstart", (e) => {
     const touchObj = e.changedTouches[0];

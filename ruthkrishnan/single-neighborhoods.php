@@ -128,9 +128,9 @@ get_header(); ?>
 								<div class="home-stats__card">
 									<div class="home-stats__card-container">
 										<div class="home-stats__card-circle">
-											<h3 id="rkt-hot-score" class="home-stats__card-title">30.413</h3>
+											<h3 id="rkt-hot-score" class="home-stats__card-title">19</h3>
 										</div>
-										<div id="rkt-hot-score-text" class="home-stats__card-text">this market is hot</div>
+										<div id="rkt-hot-score-text" class="home-stats__card-text">few homes sell over list price and can take months to sell</div>
 									</div>
 								</div>
 					</div>
