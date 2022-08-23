@@ -593,7 +593,10 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       iconArr = document.querySelectorAll(".map-neighborhoods__icon-neighborhood"),
       tooltipContainer = document.querySelector(".map-neighborhoods__tooltip"),
       tooltipContent = document.getElementById("tooltip-content"),
-      closeContainer = document.getElementById("tooltip-close");
+      closeContainer = document.getElementById("tooltip-close"),
+      nextArrow = document.getElementById("next"),
+      prevArrow = document.getElementById("previous"),
+      paginationIndicator = document.getElementById('pagination-indicator');
   var loc = window.location.pathname;
   var locArray = loc.split("/");
   var currentNeighborhood = locArray[locArray.length - 2]; // const dir = loc.substring(loc.lastIndexOf('/'));
@@ -633,6 +636,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
         slide.elem.classList.remove("slider-neighborhoods__slide--curr");
       }
     });
+    paginationIndicator.style.width = "".concat(pos / slidesArr.length * 100, "%");
     sectionActive ? closeToolTip() : null;
   }; // finds the min and max of condos and single
   // initializes min and max
@@ -1098,6 +1102,12 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   };
 
   var sliderContainer = document.getElementById("slider-container");
+  nextArrow.addEventListener('click', function (e) {
+    toNextSlide();
+  });
+  prevArrow.addEventListener('click', function (e) {
+    toPrevSlide();
+  });
   sliderContainer.addEventListener("touchstart", function (e) {
     var touchObj = e.changedTouches[0];
     swipedir = "none";

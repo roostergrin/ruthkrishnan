@@ -35,7 +35,10 @@ export const sliderNeighborhoods = () => {
     ),
     tooltipContainer = document.querySelector(".map-neighborhoods__tooltip"),
     tooltipContent = document.getElementById("tooltip-content"),
-    closeContainer = document.getElementById("tooltip-close");
+    closeContainer = document.getElementById("tooltip-close"),
+    nextArrow = document.getElementById("next"),
+    prevArrow = document.getElementById("previous"),
+    paginationIndicator = document.getElementById('pagination-indicator');
   const loc = window.location.pathname;
   const locArray = loc.split("/");
   const currentNeighborhood = locArray[locArray.length - 2];
@@ -81,7 +84,7 @@ export const sliderNeighborhoods = () => {
         slide.elem.classList.remove("slider-neighborhoods__slide--curr");
       }
     });
-
+    paginationIndicator.style.width = `${(pos / slidesArr.length) * 100}%`
     sectionActive ? closeToolTip() : null;
   };
 
@@ -701,6 +704,13 @@ export const sliderNeighborhoods = () => {
   };
 
   const sliderContainer = document.getElementById("slider-container");
+  
+  nextArrow.addEventListener('click', (e) => {
+    toNextSlide();
+  })
+  prevArrow.addEventListener('click', (e) => {
+    toPrevSlide();
+  })
 
   sliderContainer.addEventListener("touchstart", (e) => {
     const touchObj = e.changedTouches[0];
