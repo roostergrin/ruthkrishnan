@@ -51,6 +51,7 @@ get_header(); ?>
 					</div>
 				<?php endif; ?>
 				
+				
 				<!-- Virtual Tour -->
 				<div class="listings-single__main-column">
 					<?php if ( get_field('virtual_tour_video') ) : ?>
@@ -68,6 +69,17 @@ get_header(); ?>
 
 					<?php endif; ?>
 					<!-- END Virtual Tour -->
+
+					<?php if ( !empty(get_field('double_listing')) ) : ?>
+								<div style="height: 32px;"></div>
+								<h2 class="listings-single__title"><?php echo get_field('extra_address'); ?>
+							<?php endif; ?>
+							<?php if ( !empty(get_field('extra_listing_price')) ) : ?>
+								<span class="listings-single__title-price">
+									<?php echo get_field('extra_listing_price'); ?>
+								</span>
+								</h2>
+							<?php endif; ?>
 
 					<!-- Intro Text -->
 					<?php if ( get_field('intro_text') ) : ?>
@@ -169,14 +181,220 @@ get_header(); ?>
 				<?php endif; ?>
 
 				<!-- END Features -->
-
 				<!-- The Home: Photo Gallery -->
 				<?php if ( !empty(get_field('photo_gallery')) ) : ?>
-				<div class="listings-single__photo-gallery">
-					<?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
-				</div>
+					<div class="listings-single__photo-gallery">
+						<?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
+					</div>
+					<?php endif; ?>
+					<!-- END The Home: Photo Gallery -->
+					<!-- Floor Plan -->
+					<!-- If photo && text are empty display empty div for small spacing -->
+					<!-- Moves the content elsewhere if it is a double listing -->
+				<?php if ( !empty(get_field('double_listing')) ) : ?>
+					<?php if ( empty(get_field('floor_plan'))) : ?>
+						<div></div>
+						<?php else : ?>
+						<div class="listings-single__plan listings-single__main-column">
+							<div class="listings-single__plan-container">
+								<?php echo wp_get_attachment_image(get_field('floor_plan'), 'full', false, [ 'class' => 'listings-single__plan-image' ]); ?>
+							</div>
+						</div>
+					<?php endif; ?>
 				<?php endif; ?>
-				<!-- END The Home: Photo Gallery -->
+				<!-- END Floor Plan -->
+
+				<!-- Loop through -->
+					<?php
+					// Check rows exists.
+					if( have_rows('multiple_listings') ):
+							// Loop through rows.
+							while( have_rows('multiple_listings') ) : the_row();
+									// Load sub field value.
+									?>
+									<!-- Address and Listing Price  -->
+										<?php if ( get_sub_field('hero_type') === 'video' && !empty(get_sub_field('title_option')) ) : ?>
+												</h1>
+												<h2 class="listings-single__subtitle"><?php echo get_sub_field('title_option'); ?></h2>
+											</div>
+										<?php else : ?>
+											<div class="listings-single__title-container">
+												<h2 class="listings-single__title">
+													<span class="listings-single__title-text"><?php echo get_sub_field('address_1'); ?></span>
+													<?php if ( !empty(get_sub_field('listing_price')) ) : ?>
+														<span class="listings-single__title-price"><?php echo get_sub_field('listing_price'); ?></span>
+													<?php endif; ?>
+												</h2>
+											</div>
+										<?php endif; ?>
+										<!-- Virtual Tour -->
+										<?php if ( get_sub_field('virtual_tour_video') ) : ?>
+											<div class="listings-single__main-column">
+											<h2 class="listings-single__tour-title">
+												<?php if ( empty(get_sub_field('optional_virtual_tour_title')) ) : ?>
+													Take a Virtual Tour
+													<?php else : ?>
+														<?php echo get_sub_field('optional_virtual_tour_title') ?>
+													<?php endif; ?>
+											</h2>
+													
+											<div class="listings-single__tour">
+												<iframe src="<?php echo get_sub_field('virtual_tour_video') ?>" class="listings-single__tour-video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+											</div>
+										<?php endif; ?>
+										<!-- END Virtual Tour -->
+										<!-- Intro Text -->
+										<?php if ( get_sub_field('intro_text') ) : ?>
+											<div class="listings-single__intro-text"><?php echo get_sub_field('intro_text'); ?></div>
+											</div> 
+										<?php endif; ?>
+										<!-- END Intro Text -->
+										<!-- About the home -->
+										<?php
+										$icons_arr = get_sub_field('about_home_icons');
+
+										if (count($icons_arr) > 0) : ?>
+										<div class="listings-single__about-home">
+										<div class="listings-single__about-home-container">
+											<h2 class="listings-single__about-home-title">About the Home</h2>
+											<div class="listings-single__about-home-icons">
+
+												
+												<?php
+												$icons_arr = get_sub_field('about_home_icons');
+
+												if ( have_rows('about_the_home') && count($icons_arr) > 0 ) :
+													while ( have_rows('about_the_home') ) : the_row(); 
+														$bedrooms = get_sub_field('bedrooms');
+														$bathrooms = get_sub_field('bathrooms');
+														$square_feet = get_sub_field('square_feet');
+														$parking_spot = get_sub_field('parking_spot');
+														$year_built = get_sub_field('year_built'); ?>
+
+														<?php foreach ( $icons_arr as $icon ) : ?>
+															<div class="listings-single__about-home-column">
+
+																<?php get_template_part('icons/' . $icon, null , array( 'class' => 'listings-single__about-home-icon')); ?>
+
+																<?php if ( $icon === 'bed' ) : ?>
+																	<div class="listings-single__about-home-icon-number"><?php echo $bedrooms; ?></div>
+																	<div class="listings-single__about-home-icon-text">
+																		<?php if ( intval($bedrooms) === 1 ) : ?>
+																			Bedroom
+																		<?php else : ?>
+																			Bedrooms
+																		<?php endif; ?>
+																	</div>
+
+																<?php elseif ( $icon === 'bath' ) : ?>
+																	<div class="listings-single__about-home-icon-number"><?php echo $bathrooms; ?></div>
+																	<div class="listings-single__about-home-icon-text">
+																		<?php if ( intval($bathrooms) === 1 ) : ?>
+																			Bathroom
+																		<?php else : ?>
+																			Bathrooms
+																		<?php endif; ?>
+																	</div>
+
+																<?php elseif ( $icon === 'square_feet' ) : ?>
+																	<div class="listings-single__about-home-icon-number"><?php echo $square_feet; ?></div>
+																	<div class="listings-single__about-home-icon-text">Square Feet</div>
+
+																<?php elseif ( $icon === 'parking' ) : ?>
+																	<div class="listings-single__about-home-icon-number"><?php echo $parking_spot; ?></div>
+																	<div class="listings-single__about-home-icon-text">
+																		<?php if ( intval($parking_spot) === 1 ) : ?>
+																			Parking Spot
+																		<?php else : ?>
+																			Parking Spots
+																		<?php endif; ?>
+																	</div>
+
+																<?php elseif ( $icon === 'year' ) : ?>
+																	<div class="listings-single__about-home-icon-number"><?php echo $year_built; ?></div>
+																	<div class="listings-single__about-home-icon-text">Year Built</div>
+																<?php endif; ?>
+
+															</div>
+														<?php endforeach; ?>
+
+													<?php endwhile;
+												endif; ?>
+
+											</div>
+										</div>
+										</div>
+										<?php endif; ?>
+										<!-- END About The Home -->
+										
+										<!-- Features -->
+										<?php if ( !empty(get_sub_field('features')) ) : ?>
+										<div class="listings-single__features--2 listings-single__main-column">
+											<div class="listings-single__features-container--2">
+												<h2 class="listings-single__features-title--2">Features</h2>
+												<div class="listings-single__features-list-container--2">
+													<div class="listings-single__features-list--2"><?php echo get_sub_field('features'); ?></div>
+													<div class="listings-single__features-overlay--2"></div>
+												</div>
+												<div class="listings-single__features-see-more--2"><span class="listings-single__features-see-more-btn--2">see more</span></div>
+											</div>
+										</div>
+										<?php endif; ?>
+										<!-- Photo Gallery -->
+										<?php if ( !empty(get_sub_field('photo_gallery')) ) : ?>
+											<div class="photo-gallery--2">	
+												<div class="photo-gallery__container--2">
+													<h2 class="photo-gallery__title--2">
+														<?php if ( !empty(get_sub_field('photo_gallery_alternate_title')) ) :
+															echo get_sub_field('photo_gallery_alternate_title');
+														else : 
+															echo 'Photo Gallery';
+														endif; ?>
+													</h2>
+														<?php $images = get_sub_field('photo_gallery'); ?>
+														<div class='photo-gallery__slider--2' data-slider-length='<?php echo count($images); ?>'>
+															<?php
+															foreach ($images as $key=>$image) : ?>
+																<div class="photo-gallery__slide--2" data-index='<?php echo $key; ?>'>
+																	<?php echo wp_get_attachment_image($image, 'full', false, [ 'class' => 'photo-gallery__image--2']); ?>
+																</div>
+															<?php endforeach; ?>
+														<div class="photo-gallery__prev--2" aria-label='Previous Slide'> 
+															<?php get_template_part('icons/arrow', null, array( 'class' => 'photo-gallery__icon photo-gallery__icon--prev--2' )); ?>
+														</div>
+														<div class="photo-gallery__next--2" aria-label='Next Slide'> 
+															<?php get_template_part('icons/arrow', null, array( 'class' => 'photo-gallery__icon photo-gallery__icon--next--2' )); ?>
+														</div>
+													</div>
+													<div class='photo-gallery__indicators'>
+														<?php $images = get_sub_field('photo_gallery'); ?>
+															<?php if ( count($images) > 8 ) : ?>
+																<div class="photo-gallery__numpagination--2" data-slides="<?php echo count($images); ?>"></div>
+															<?php else : ?>
+																<?php foreach ($images as $key=>$dot) : ?>
+																		<div class="photo-gallery__dot--2" data-index='<?php echo $key; ?>'></div>
+																<?php endforeach; ?>
+															<?php endif; ?>
+													</div>
+												</div>
+											</div>
+											<!-- Floor Plan -->
+											<?php if (empty(get_sub_field('floor_plan'))): ?>
+												<div></div>
+												<?php else : ?>
+												<div class="listings-single__plan listings-single__main-column">
+													<div class="listings-single__plan-container">
+														<?php echo wp_get_attachment_image(get_sub_field('floor_plan'), 'full', false, [ 'class' => 'listings-single__plan-image' ]); ?>
+													</div>
+												</div>
+											<?php endif; ?>
+											<!-- END Floor Plan -->
+										<?php endif; ?>
+									<?php
+							// End loop.
+							endwhile;
+					endif;
+					?>
 
         <?php if ( !get_field('hide_neighborhood_information') ) : ?>
           <!-- About the Neighborhood -->
@@ -213,12 +431,15 @@ get_header(); ?>
 
 				<!-- Floor Plan -->
 				<!-- If photo && text are empty display empty div for small spacing -->
-				<?php if ( empty(get_field('floor_plan_text')) && empty(get_field('floor_plan'))  ) : ?>
+				<!-- Moves the content elsewhere if it is a double listing -->
+				<?php if ( empty(get_field('floor_plan_text')) && empty(get_field('floor_plan'))) : ?>
 					<div></div>
 					<?php else : ?>
 					<div class="listings-single__plan listings-single__main-column">
 						<div class="listings-single__plan-container">
-							<?php echo wp_get_attachment_image(get_field('floor_plan'), 'full', false, [ 'class' => 'listings-single__plan-image' ]); ?>
+							<?php if ( empty(get_field('double_listing')) ) : ?>
+								<?php echo wp_get_attachment_image(get_field('floor_plan'), 'full', false, [ 'class' => 'listings-single__plan-image' ]); ?>
+							<?php endif; ?>
 							<?php if ( !empty(get_field('floor_plan_text')) ) : ?>
 								<div class="listings-single__plan-text"><?php echo get_field('floor_plan_text'); ?></div>
 								<?php endif; ?>
@@ -228,7 +449,7 @@ get_header(); ?>
 				<!-- END Floor Plan -->
 		</div>
 
-
+		</div>
 		<?php endwhile;
 	endif;
 	?>

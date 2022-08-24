@@ -151,6 +151,16 @@ document.addEventListener('DOMContentLoaded', function () {
   var comingSoonElems = document.querySelectorAll('.page-new-developments__development--coming-soon');
   var soldOutElems = document.querySelectorAll('.page-new-developments__development--sold-out');
   var filtersArr = document.querySelectorAll('.page-new-developments__filter');
+  var playButton = document.querySelector('.new-developments-single-video__play-btn'),
+      videoContainer = document.querySelector('.new-developments-single-video__video-container'),
+      thumbnail = document.querySelector('.new-developments-single-video__thumbnail'),
+      video = document.querySelector('.new-developments-single-video__video');
+  videoContainer.addEventListener('click', function () {
+    video.src = video.dataset.src;
+    playButton.classList.add('new-developments-single-video__play-btn--hidden');
+    thumbnail.classList.add('new-developments-single-video__thumbnail--hidden');
+    video.classList.add('new-developments-single-video__video--active');
+  });
   (0,_resources_gmap_development__WEBPACK_IMPORTED_MODULE_0__.setMap)('available-now');
   availableNowElems.forEach(function (el) {
     el.classList.add('page-new-developments__development--active');

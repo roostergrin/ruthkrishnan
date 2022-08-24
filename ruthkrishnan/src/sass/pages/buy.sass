@@ -11,7 +11,7 @@
 
 /* -----------------------
     Buy Welcome Styles
-   ----------------------- */ 
+   ----------------------- */
 
 .buy-welcome
   @extend %section-padding-top
@@ -26,7 +26,7 @@
     @include phone-lg
       padding: 0 1rem
     max-width: $width
-  
+
   &__column
     @include col(10)
     @include col--offset(1)
@@ -43,7 +43,7 @@
     @include nexus
       margin-bottom: 2rem
     margin-bottom: 4rem
-  
+
   &__video-container
     @include laptop
       height: calc(75vw * .5625)
@@ -68,7 +68,7 @@
     &--hidden
       opacity: 0
       pointer-events: none
-  
+
   &__video
     @extend %absolute
     transition: opacity .5s ease
@@ -95,10 +95,10 @@
     width: 3.75rem
     height: 3.75rem
     fill: $c1
-  
+
 /* -----------------------
     Buy Testimonial video Styles
-   ----------------------- */ 
+   ----------------------- */
 
 .buy-testimonial-video
   @extend %section-padding
@@ -113,12 +113,12 @@
     @include phone-lg
       padding: 0 1rem
     max-width: $width
-  
+
   &__column
     @include col(10)
     @include col--offset(1)
     padding: 0
-  
+
   &__video-container
     @include laptop
       height: calc(75vw * .5625)
@@ -143,7 +143,7 @@
     &--hidden
       opacity: 0
       pointer-events: none
-  
+
   &__video
     @extend %absolute
     transition: opacity .5s ease
@@ -229,7 +229,7 @@
         width: 100%
         height: 2px
         content: ''
-      
+
       &::after
         transform: translate(-50%, -50%) rotate(-45deg)
 
@@ -243,7 +243,7 @@
 
     &-info
       margin-bottom: .5rem
-    
+
     &-link
       @extend %button-text
       @include tablet-md
@@ -257,7 +257,7 @@
 
       @include hover-supported
         opacity: .7
-      
+
         &:after
           opacity: .7
 
@@ -282,7 +282,7 @@
     width: 100%
     text-align: center
     color: $white
-  
+
   &__map-container
     @include col(10)
     @include col--offset(1)
@@ -329,12 +329,12 @@
     @include phone-lg
       padding: 0 1rem
     max-width: $width
-  
+
   &__column
     @include col(10)
     @include col--offset(1)
     padding: 0
-  
+
   &__title
     margin-bottom: 1rem
     text-align: center
@@ -355,4 +355,11 @@
    ------------------------------ */
 
 .buy-schedule-talk
+  @extend %section-padding
+
+/* ------------------------------
+    Buy Off Market CTA Styles
+   ------------------------------ */
+
+.buy-off-market
   @extend %section-padding

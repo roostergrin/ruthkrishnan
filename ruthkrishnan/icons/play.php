@@ -14,6 +14,7 @@
      <style>
        .bb9f18d9-bf5b-4452-8907-32651f9a8ba7 {
          fill-rule: evenodd;
+         fill: #7e7e7e;
        }
      </style>
    </defs>

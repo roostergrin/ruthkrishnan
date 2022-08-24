@@ -1,5 +1,6 @@
 import { listingsHero } from '../resources/listings-hero';
 import { photoGallery } from '../resources/photo-gallery';
+import { photoGalleryTwo } from '../resources/photo-gallery--2';
 import { listingsNeighborhhodGallery } from '../resources/listings-neighborhood-gallery';
 import { setMap } from '../resources/gmaps';
 import { testimonials } from '../resources/testimonials';
@@ -15,7 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
         featSeeMoreBtn = document.querySelector('.listings-single__features-see-more'),
         featList = document.querySelector('.listings-single__features-list'),
         featOverlay = document.querySelector('.listings-single__features-overlay'),
-        photoGalleryElem = document.querySelector('.photo-gallery');
+        photoGalleryElem = document.querySelector('.photo-gallery'),
+        photoGalleryElem2 = document.querySelector('.photo-gallery--2');
   
   let featExpanded = false;
 
@@ -27,6 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // Photo Gallery Functionality
   if (photoGalleryElem) {
     photoGallery();
+  }
+  
+  if (photoGalleryElem2) {
+    // Sorry, they need it NOW
+    photoGalleryTwo();
   }
 
   // Listings Neighborhood Functionality
@@ -74,5 +81,40 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     featSeeMoreBtn.addEventListener('click', toggleFeatures);
   }
+
+
+
+
+const featSeeMoreBtn2 = document.querySelector('.listings-single__features-see-more--2'),
+      featList2 = document.querySelector('.listings-single__features-list--2'),
+      featOverlay2 = document.querySelector('.listings-single__features-overlay--2');
+
+const toggleFeatures2 = () => {
+  const featBtn2 = document.querySelector('.listings-single__features-see-more-btn--2');
+
+  if (featExpanded) {
+    featList2.style.height = '425px';
+    featOverlay2.style.opacity = 1;
+    featExpanded = false;
+    setTimeout(() => {
+      featBtn2.innerHTML = 'see more';
+    }, 150)
+  } else {
+    featList2.style.height = featList2.scrollHeight + 'px';
+    featOverlay2.style.opacity = 0;
+    featExpanded = true;
+    setTimeout(() => {
+      featBtn2.innerHTML = 'see less';
+    }, 150)
+  }
+}
+
+if (featList2.scrollHeight < 457) {
+  featList2.style.height = 'auto';
+  featSeeMoreBtn2.style.display = 'none';
+  featOverlay2.style.display = 'none';
+} else {
+  featSeeMoreBtn2.addEventListener('click', toggleFeatures2);
+}
 
 })

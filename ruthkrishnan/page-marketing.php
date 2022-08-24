@@ -17,8 +17,8 @@ get_header(); ?>
   <!-- Marketing Campaign Optional Intro Section -->
   <div class="marketing-intro">
     <?php if ( have_rows('optional_intro') ) :
-      while ( have_rows('optional_intro') ) : the_row(); 
-      
+      while ( have_rows('optional_intro') ) : the_row();
+
         $title = get_sub_field('title');
         $text = get_sub_field('text'); ?>
 
@@ -101,7 +101,7 @@ get_header(); ?>
                 <h3 class="marketing-points__point-title"><?php echo $title; ?></h3>
                 <div class="marketing-points__point-text"><?php echo $text; ?></div>
               </div>
-      
+
             <?php endwhile;
           endif; ?>
         </div>
@@ -122,7 +122,7 @@ get_header(); ?>
   <!-- END Testimonials Template Part -->
 
   <!-- Get In Touch Form Template Part -->
-  <div class="page-marketing__get-in-touch">
+  <div class="page-marketing__get-in-touch" id="get-in-touch-form">
     <?php get_template_part('template-parts/forms/form-get-in-touch'); ?>
   </div>
   <!-- END Get In Touch Form Template Part -->

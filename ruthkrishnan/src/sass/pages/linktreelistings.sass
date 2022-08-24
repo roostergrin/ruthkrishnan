@@ -1,0 +1,17 @@
+@import '../local/index.sass'
+
+/* -----------------------
+    Link Tree Listings Page
+   ----------------------- */
+.page-listings
+  &__links-container
+    display: flex
+    flex-direction: column
+  &__link
+    @extend %button-text
+    @include button-solid($c3, $white, $c6)
+    text-decoration: none 
+    min-width: min(32rem, 90%)
+    max-width: min(32rem, 90%)
+    text-align: center
+    margin: 1rem auto
