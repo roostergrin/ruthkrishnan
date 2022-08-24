@@ -50,6 +50,9 @@ add_action('wp_ajax_add_weather_score', 'add_weather_score');
 add_action('wp_ajax_nopriv_add_transit_score', 'add_transit_score');
 add_action('wp_ajax_add_transit_score', 'add_transit_score');
 
+add_action('wp_ajax_nopriv_add_walk_score', 'add_walk_score');
+add_action('wp_ajax_add_walk_score', 'add_walk_score');
+
 function add_transit_score() {
   $neighborhoods_transit_score= [
     // 'neighborhood_slug' =>'transit score',
