@@ -1,5 +1,11 @@
 @import '../local/index.sass'
 @import '../templates/cta-text-btn.sass'
+@import '../templates/neighborhood-data-table.sass'
+@import '../templates/slider-neighborhoods.sass'
+@import '../templates/map-neighborhoods.sass'
+@import '../templates/neighborhood-chart.sass'
+@import '../templates/resources-links.sass'
+
 
 /* ------------------------------
     Single Neighborhoods Styles
@@ -10,8 +16,7 @@
    -------------------------------------- */
 
 .single-neighborhoods-content
-  @extend %section-padding-top
-
+  padding: 4rem 2rem
   &__container
     @include container
     @include desktop
@@ -22,7 +27,7 @@
     @include phone-lg
       padding: 0 1rem
     max-width: $width
-  
+
   &__column
     @include col(8)
     @include col--offset(2)
@@ -33,7 +38,7 @@
     @include tablet
       padding: 0
     padding: 0
-  
+
   &__title
     @extend %h3
     margin-bottom: 1rem
@@ -57,11 +62,94 @@
 
   &__icon
     margin-bottom: .5rem
-  
+
   &__icon-text
     @extend %h4
-    text-transform: uppercase    
+    text-transform: uppercase
+
+
+.home-stats
+  padding-top: 2rem
+  padding-bottom: 2rem
+
+  &__container
+    @include container
     
+  &__title
+    margin: auto
+    text-align: center
+
+  &__cards
+    @include col(10)
+    @include col--offset(1)
+    @include tablet-lg
+      justify-content: space-between
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+  
+  &__card
+    @include col(4)
+    @include tablet-lg
+      width: calc(50% - 1rem)
+    @include tablet
+      margin-top: 2rem
+      padding-top: rem-calc(89)
+    @include nexus
+      margin-top: 2rem
+      padding-top: rem-calc(55)
+    margin: auto
+    margin-top: 3rem
+    padding-top: rem-calc(89)
+
+    &-container
+      @include nexus
+        align-items: center
+        padding-top: rem-calc(81)
+      position: relative
+      display: flex
+      align-items: flex-end
+      justify-content: center
+      position: relative
+      background: $black
+      padding: rem-calc(27)
+      height: rem-calc(200)
+    
+    &-circle
+      @include nexus
+        border: 2px solid $black
+        width: rem-calc(110)
+        height: rem-calc(110)
+      position: absolute
+      display: flex
+      top: 0
+      left: 50%
+      align-items: center
+      justify-content: center
+      background: $white
+      border: 4px solid $black
+      border-radius: 50%
+      transform: translate3d(-50%, -50%, 0)
+      padding: 12.5%
+      width: rem-calc(178)
+      height: rem-calc(178)
+      text-align: center
+
+    &-title
+      @extend %h2
+      @include nexus
+        font-size: rem-calc(16)
+      line-height: 1.25
+      font-weight: 700
+      text-transform: uppercase
+
+    &-text
+      @include nexus
+        font-size: rem-calc(14)
+      color: $white
+      font-weight: 700
+      text-align: center
+
 /* -----------------------
     Talks Intro Styles
    ----------------------- */
@@ -112,7 +200,7 @@
     &--hidden
       opacity: 0
       pointer-events: none
-  
+
   &__video
     @extend %absolute
     transition: opacity .5s ease
@@ -147,10 +235,46 @@
     @include desktop
       margin-top: 2.5rem
     margin-top: 2rem
-    
+
 /* ------------------------------
     Single Neighborhoods CTA Styles
    ------------------------------ */
 
 .single-neighborhoods-cta
   @extend %section-padding-bottom
+
+hr
+  border: none
+  height: 1px
+  color: #333
+  background-color: #333
+
+.key-pairs
+  display: flex
+
+  svg
+    margin: auto 1px
+
+
+.single-neighborhoods-intro
+  @include desktop
+    padding: 5rem 0 0
+  @include nexus
+    padding: 2rem 0 0
+  padding: 4rem 0 0
+
+  &__container
+    @include container
+
+  &__column
+    @include col(8)
+    @include col--offset(2)
+    text-align: center
+  
+  &__title
+    margin-bottom: 1rem
+  
+  &__text
+    @include desktop
+      width: 95%
+    width: 100%

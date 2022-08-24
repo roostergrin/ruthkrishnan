@@ -7,14 +7,13 @@
 
 get_header(); ?>
 
-<h1>Ruth Krishnan</h1>
-
 <?php
-if ( have_posts() ) :
-    while ( have_posts() ) : the_post();
-        echo get_the_content();
-    endwhile;
-endif;
+// $results = wp_remote_get('https://api.openbrewerydb.org/breweries/?page=1&per_page=50');
+
+// echo '<pre>';
+// print_r($results);
+// echo '</pre>';
+// die();
 ?>
 
 <?php get_footer(); ?>

@@ -13,15 +13,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "sliderNeighborhoods": () => (/* binding */ sliderNeighborhoods)
 /* harmony export */ });
 var sliderNeighborhoods = function sliderNeighborhoods() {
-  var slides = Array.from(document.querySelectorAll('.slider-neighborhoods__slide')),
-      slideWrapper = document.querySelector('.slider-neighborhoods__track'),
-      contentWrapper = Array.from(document.querySelectorAll('.slider-neighborhoods__content-wrapper')),
-      contentColumn = document.querySelector('.slider-neighborhoods__content-column'),
-      content = Array.from(document.querySelectorAll('.slider-neighborhoods__content')),
-      iconArr = document.querySelectorAll('.map-neighborhoods__icon-neighborhood'),
-      tooltipContainer = document.querySelector('.map-neighborhoods__tooltip'),
-      tooltipContent = document.getElementById('tooltip-content'),
-      closeContainer = document.getElementById('tooltip-close');
+  var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    // These options are needed to round to whole numbers if that's what you want.
+    minimumFractionDigits: 0,
+    // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    maximumFractionDigits: 0 // (causes 2500.99 to be printed as $2,501)
+
+  });
+  var USDFormatterDec = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD" // These options are needed to round to whole numbers if that's what you want.
+    // minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    // maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+
+  });
+  var slides = Array.from(document.querySelectorAll(".slider-neighborhoods__slide")),
+      slideWrapper = document.querySelector(".slider-neighborhoods__track"),
+      contentWrapper = Array.from(document.querySelectorAll(".slider-neighborhoods__content-wrapper")),
+      contentColumn = document.querySelector(".slider-neighborhoods__content-column"),
+      content = Array.from(document.querySelectorAll(".slider-neighborhoods__content")),
+      iconArr = document.querySelectorAll(".map-neighborhoods__icon-neighborhood"),
+      tooltipContainer = document.querySelector(".map-neighborhoods__tooltip"),
+      tooltipContent = document.getElementById("tooltip-content"),
+      closeContainer = document.getElementById("tooltip-close"),
+      nextArrow = document.getElementById("next"),
+      prevArrow = document.getElementById("previous"),
+      paginationIndicator = document.getElementById("pagination-indicator"),
+      rktHotScore = document.getElementById("rkt-hot-score"),
+      rktHotScoreText = document.getElementById("rkt-hot-score-text");
+  var loc = window.location.pathname;
+  var locArray = loc.split("/");
+  var currentNeighborhood = locArray[locArray.length - 2]; // const dir = loc.substring(loc.lastIndexOf('/'));
+
   var debounceLastTimeout = null,
       sectionActive = false,
       maxTrackLength; // * Build slide array of objects *
@@ -31,43 +56,288 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       name: el.dataset.name,
       neighborhood: el.dataset.neighborhood,
       elem: el,
-      mapinfo: JSON.parse(el.dataset.mapinfo),
+      HJICondoMonthly: JSON.parse(el.dataset.hjicondomonthly),
+      HJISingleMonthly: JSON.parse(el.dataset.hjisinglemonthly),
+      weather: el.dataset.weather,
+      walkscore: el.dataset.walkscore,
+      transitscore: el.dataset.transitscore,
       category: el.dataset.category
     };
   });
   var slidesArr = allSlides.filter(function (slide) {
-    return slide.category === 'active';
+    return slide.category === "active";
   });
   slidesArr.forEach(function (slide, i) {
     slide.position = i;
   });
-  maxTrackLength = document.querySelector('.slider-neighborhoods__slide').clientWidth * slidesArr.length; // * move slides *
+  console.log(allSlides);
+  maxTrackLength = document.querySelector(".slider-neighborhoods__slide").clientWidth * slidesArr.length; // * move slides *
 
   var changeSlide = function changeSlide(el, pos) {
     slideWrapper.style.transform = "translate3d(".concat(el.clientWidth * -pos - 16, "px, 0, 0)");
     slidesArr.forEach(function (slide) {
       if (slide.position === pos) {
-        slide.elem.classList.add('slider-neighborhoods__slide--curr');
+        slide.elem.classList.add("slider-neighborhoods__slide--curr");
       } else {
-        slide.elem.classList.remove('slider-neighborhoods__slide--curr');
+        slide.elem.classList.remove("slider-neighborhoods__slide--curr");
       }
     });
+    paginationIndicator.style.width = "".concat(pos / slidesArr.length * 100, "%");
     sectionActive ? closeToolTip() : null;
-  }; // * set the correct slide active on first load *
+  }; // finds the min and max of condos and single
+  // initializes min and max
 
+
+  var minMedianSingle = allSlides[1].HJISingleMonthly.result.measurements.salePrice.median;
+  var maxMedianSingle = allSlides[0].HJISingleMonthly.result.measurements.salePrice.median;
+  var minMedianCondo = allSlides[0].HJICondoMonthly.result.measurements.salePrice.median;
+  var maxMedianCondo = allSlides[0].HJICondoMonthly.result.measurements.salePrice.median;
+  allSlides.forEach(function (slide) {
+    if (slide.HJISingleMonthly.result) {
+      if (slide.HJISingleMonthly.result.measurements.salePrice.median != 0) {
+        if (slide.HJISingleMonthly.result.measurements.salePrice.median < minMedianSingle) minMedianSingle = slide.HJISingleMonthly.result.measurements.salePrice.median;
+        if (slide.HJISingleMonthly.result.measurements.salePrice.median > maxMedianSingle) maxMedianSingle = slide.HJISingleMonthly.result.measurements.salePrice.median;
+      }
+    }
+
+    if (slide.HJICondoMonthly.result) {
+      if (slide.HJICondoMonthly.result.measurements.salePrice.median != 0) {
+        if (slide.HJICondoMonthly.result.measurements.salePrice.median < minMedianCondo) minMedianCondo = slide.HJICondoMonthly.result.measurements.salePrice.median;
+        if (slide.HJICondoMonthly.result.measurements.salePrice.median > maxMedianCondo) maxMedianCondo = slide.HJICondoMonthly.result.measurements.salePrice.median;
+      }
+    }
+  }); // initializes min and max
+
+  var minHotScoreHouse = calculateHotScore(allSlides[1].HJISingleMonthly.result.measurements);
+  var maxHotScoreHouse = calculateHotScore(allSlides[0].HJISingleMonthly.result.measurements);
+  var minHotScoreCondo = calculateHotScore(allSlides[0].HJICondoMonthly.result.measurements);
+  var maxHotScoreCondo = calculateHotScore(allSlides[0].HJICondoMonthly.result.measurements);
+
+  function calculateHotScore(measurements) {
+    if (measurements.salePrice.average != 0 && measurements.listPrice.average != 0 && measurements.daysOnMarket.median != 0) {
+      return measurements.salePrice.average / measurements.listPrice.average / measurements.daysOnMarket.median;
+    }
+  }
+
+  allSlides.forEach(function (slide) {
+    if (slide.HJISingleMonthly.result) {
+      if (calculateHotScore(slide.HJISingleMonthly.result.measurements) != 0) {
+        if (calculateHotScore(slide.HJISingleMonthly.result.measurements) < minHotScoreHouse) minHotScoreHouse = calculateHotScore(slide.HJISingleMonthly.result.measurements);
+        if (calculateHotScore(slide.HJISingleMonthly.result.measurements) > maxHotScoreHouse) maxHotScoreHouse = calculateHotScore(slide.HJISingleMonthly.result.measurements);
+      }
+    }
+
+    if (slide.HJICondoMonthly.result) {
+      if (calculateHotScore(slide.HJICondoMonthly.result.measurements) != 0) {
+        if (calculateHotScore(slide.HJICondoMonthly.result.measurements) < minHotScoreCondo) minHotScoreCondo = calculateHotScore(slide.HJICondoMonthly.result.measurements);
+        if (calculateHotScore(slide.HJICondoMonthly.result.measurements) > maxHotScoreCondo) maxHotScoreCondo = calculateHotScore(slide.HJICondoMonthly.result.measurements);
+      }
+    }
+  });
+  console.log(minHotScoreHouse);
+  console.log(maxHotScoreHouse);
+  console.log(minHotScoreCondo);
+  console.log(maxHotScoreCondo);
+  var minHotScore = minHotScoreCondo < minHotScoreHouse ? minHotScoreCondo : minHotScoreHouse;
+  var maxHotScore = maxHotScoreCondo > maxHotScoreHouse ? maxHotScoreCondo : maxHotScoreHouse;
+  console.log(minHotScore, maxHotScore); // normalize data to 0-1 range
+
+  function scaleRange(x, min, max) {
+    // console.log((x - min) / (max - min))
+    return (x - min) / (max - min);
+  }
+
+  var weatherPallette = ["#365060", "#196C55", "#447211", "#8954BE", "#8D3C8E", "#6C190D"];
+  var weatherValueArr = ["foggy with heavy winds", "with some fog and light winds", "a mixture of foggy and clear days, light winds", "with some fog and light winds", "clear skies and heavy winds", "clear skies and light winds"];
+  var weatherValueArrPivot = ["cold", "cool to moderate", "moderate to hot"];
+  var weatherValues = [{
+    temperature: "cold:",
+    weatherGroup: [{
+      fogWind: "foggy with heavy winds",
+      color: "#365060"
+    }, {
+      fogWind: "with some fog and light winds",
+      color: "#196C55"
+    }]
+  }, {
+    temperature: "cool to moderate:",
+    weatherGroup: [{
+      fogWind: "some foggy and clear days, light winds",
+      color: "#447211"
+    }, {
+      fogWind: "with some fog and light winds",
+      color: "#8954BE"
+    }]
+  }, {
+    temperature: "moderate to hot:",
+    weatherGroup: [{
+      fogWind: "clear skies and heavy winds",
+      color: "#8D3C8E"
+    }, {
+      fogWind: "clear skies and light winds",
+      color: "#6C190D"
+    }]
+  }];
+
+  function colorWeather(weather, weatherPallette, weatherValueArr) {
+    switch (weather) {
+      case "cold & foggy with heavy winds":
+        return weatherPallette[0];
+
+      case "cold, with some fog and light winds":
+        return weatherPallette[1];
+
+      case "cool to moderate, a mixture of foggy and clear days, light winds":
+        return weatherPallette[2];
+
+      case "cool to moderate, with some fog and light winds":
+        return weatherPallette[3];
+
+      case "moderate to hot, clear skies and heavy winds":
+        return weatherPallette[4];
+
+      case "moderate to hot, clear skies and light winds":
+        return weatherPallette[5];
+
+      default:
+        return "gray";
+    }
+  }
+
+  function updateLegendGradientScale(legend, startColor, endColor, min, max) {
+    legend.innerHTML = "<div class=\"slider-neighborhoods__legend-content\">\n    <div style=\"background:linear-gradient(90deg, ".concat(startColor, " 0%, ").concat(endColor, " 100%\" class=\"slider-neighborhoods__legend-box\">\n    </div>\n    <div class=\"slider-neighborhoods__legend-text-container\">\n    <p class=\"slider-neighborhoods__legend-text\">").concat(min, "</p>\n    <p class=\"slider-neighborhoods__legend-text\">").concat(max, "</p>\n    </div>\n    </div>");
+  }
+
+  function updateLegendPunctuatedScale(legend, palletteArr) {
+    var legendTemplate = "<div class=\"slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated\">";
+    weatherValues.forEach(function (weather, i) {
+      legendTemplate += "\n      <div style=\"display: flex; gap: 1rem; flex-direction: column;\" class=\"slider-neighborhoods__legend-box-container\">\n        <p>".concat(weather.temperature, "</p>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n        <div style=\"background: ").concat(weather.weatherGroup[0].color, "; min-width: 2rem; min-height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n        <p style=\"padding-left: 0.5rem;\" class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[0].fogWind, "</p>\n      </div>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n          <div style=\"background: ").concat(weather.weatherGroup[1].color, "; min-width: 2rem; min-height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n          <p style=\"padding-left: 0.5rem;\"class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[1].fogWind, "</p>\n      </div>\n    </div>");
+    });
+    legendTemplate += "</div>";
+    legend.innerHTML = legendTemplate;
+  }
+
+  function colorIconArr(value) {
+    var legend = document.getElementById("legend");
+    var inactiveColor = "gray";
+    var currentNeighborhood = "red";
+    var inactiveNeighborhoods = ["presidio", "golden-gate-park", "lincoln-park", // "hunters-point",
+    "tenderloin"];
+    iconArr.forEach(function (icon) {
+      allSlides.forEach(function (slide) {
+        if (icon.dataset.name == slide.neighborhood) {
+          // a matched neighborhood and slide
+          var domain;
+          var min;
+          var max;
+          var color;
+
+          if (value == "single median sale price" && !inactiveNeighborhoods.includes(icon.dataset.name)) {
+            min = minMedianSingle;
+            max = maxMedianSingle;
+            domain = slide.HJISingleMonthly.result.measurements.salePrice.median;
+            color = "hsl(0, 41%, ".concat(Math.abs(scaleRange(domain, min, max) * 50 - 50), "%)");
+            updateLegendGradientScale(legend, "hsl(0,41%,50%)", "hsl(0,41%,0%)", USDFormatterNoDec.format(min), USDFormatterNoDec.format(max)); // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
+            // color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
+          } else if (value == "transit score" && !inactiveNeighborhoods.includes(icon.dataset.name)) {
+            domain = slide.transitscore;
+            min = 40;
+            max = 100;
+            color = "hsl(0, 41%, ".concat(Math.abs(scaleRange(domain, min, max) * 50 - 50), "%)");
+            updateLegendGradientScale(legend, "hsl(0,41%,50%)", "hsl(0,41%,0%)", 50, 100);
+          } else if (value == "walk score") {
+            domain = slide.walkscore;
+            min = 40;
+            max = 100;
+            color = "hsl(0, 41%, ".concat(Math.abs(scaleRange(domain, min, max) * 50 - 50), "%)");
+            updateLegendGradientScale(legend, "hsl(0,41%,50%)", "hsl(0,41%,0%)", 40, 100); // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
+          } else if (value == "weather") {
+            console.log(value);
+            domain = slide.walkscore;
+            color = colorWeather(slide.weather, weatherPallette);
+            updateLegendPunctuatedScale(legend, weatherPallette);
+          }
+
+          if (domain == 0) {
+            // no data is available for the domain
+            styleIcon(icon, inactiveColor, true);
+          } else if (icon.dataset.name === currentNeighborhood) {
+            // the current URL of the Neighborhood
+            styleIcon(icon, currentNeighborhoodColor, true);
+          } // Active neighborhoods with data
+          else {
+            styleIcon(icon, color);
+          }
+        }
+      });
+
+      if (inactiveNeighborhoods.includes(icon.dataset.name) && value == "transit score") {
+        // an inactive neighborhood
+        styleIcon(icon, inactiveColor, true);
+      }
+    });
+
+    function styleIcon(icon, backgroundColor) {
+      var disablePointerEvents = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      // gets the background and filters all text svgs
+      var iconBackgrounds = Array.from(icon.children).filter(function (HTMLObjectElement) {
+        return HTMLObjectElement.localName != "text";
+      }); // loops through the background svgs
+
+      iconBackgrounds.forEach(function (iconBackground) {
+        // fills polygons
+        iconBackground.style.fill = backgroundColor; // fills paths inside the g tag
+
+        Array.from(iconBackground.children).forEach(function (path) {
+          path.style.fill = backgroundColor;
+
+          if (disablePointerEvents) {
+            path.style.pointerEvents = "none";
+          }
+        });
+      });
+    }
+  } // call transit score
+
+
+  colorIconArr("transit score");
+  var filtersArr = Array.from(document.querySelectorAll(".slider-neighborhoods__filter"));
+
+  function toggle() {}
+
+  filtersArr.forEach(function (el) {
+    el.addEventListener("click", function () {
+      if (!el.classList.contains("slider-neighborhoods__filter--active")) {
+        document.querySelector(".slider-neighborhoods__filter--active").classList.remove("slider-neighborhoods__filter--active");
+        el.classList.add("slider-neighborhoods__filter--active");
+      }
+
+      var value = el.dataset.filter;
+      colorIconArr(value);
+    });
+    el.addEventListener("keyup", function () {
+      if (!el.classList.contains("slider-neighborhoods__filter--active")) {
+        document.querySelector(".slider-neighborhoods__filter--active").classList.remove("slider-neighborhoods__filter--active");
+        el.classList.add("slider-neighborhoods__filter--active");
+      }
+
+      var value = el.dataset.filter;
+      colorIconArr(value);
+    });
+  }); // * set the correct slide active on first load *
 
   changeSlide(slidesArr[0].elem, 0); // * set height of column to be the height of largest content *
 
   var setContentHeight = function setContentHeight() {
-    var currSlide = document.querySelector('.slider-neighborhoods__content-wrapper--active').children[0],
-        contentContainer = document.querySelector('.slider-neighborhoods__content-container');
+    var currSlide = document.querySelector(".slider-neighborhoods__content-wrapper--active").children[0],
+        contentContainer = document.querySelector(".slider-neighborhoods__content-container");
     contentContainer.style.height = "".concat(currSlide.scrollHeight + 18, "px");
   }; // * change the active content slide by adding active class *
 
 
   var changeContent = function changeContent(i) {
     contentWrapper.forEach(function (el) {
-      +el.dataset.index === i ? el.classList.add('slider-neighborhoods__content-wrapper--active') : el.classList.remove('slider-neighborhoods__content-wrapper--active');
+      +el.dataset.index === i ? el.classList.add("slider-neighborhoods__content-wrapper--active") : el.classList.remove("slider-neighborhoods__content-wrapper--active"); // not sure if this is working.
     });
     setContentHeight();
   }; // * set the correct content active on first load *
@@ -78,16 +348,16 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   var highlight = function highlight(el) {
     iconArr.forEach(function (icon) {
       if (icon.dataset.name !== el.neighborhood) {
-        icon.classList.add('map-neighborhoods__icon-neighborhood--deactive');
+        icon.classList.add("map-neighborhoods__icon-neighborhood--deactive");
       } else {
-        icon.classList.remove('map-neighborhoods__icon-neighborhood--deactive');
+        icon.classList.remove("map-neighborhoods__icon-neighborhood--deactive");
       }
     });
   }; // * Add event listener to all slides *
 
 
   slidesArr.forEach(function (el, i) {
-    el.elem.addEventListener('click', function () {
+    el.elem.addEventListener("click", function () {
       highlight(el);
       changeSlide(el.elem, el.position);
       changeContent(el.position);
@@ -95,27 +365,27 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }); // * change content and slide when neigborhood in map clicked *
 
   var mapSelectNeighborhood = function mapSelectNeighborhood(targetEl) {
-    var slider = document.querySelector('.slider-neighborhoods__slider'),
-        contentContainer = document.querySelector('.slider-neighborhoods__content-container');
+    var slider = document.querySelector(".slider-neighborhoods__slider"),
+        contentContainer = document.querySelector(".slider-neighborhoods__content-container");
     iconArr.forEach(function (icon) {
-      return icon.classList.contains('map-neighborhoods__icon-neighborhood--active') ? icon.classList.remove('map-neighborhoods__icon-neighborhood--active') : null;
+      return icon.classList.contains("map-neighborhoods__icon-neighborhood--active") ? icon.classList.remove("map-neighborhoods__icon-neighborhood--active") : null;
     });
     var activeElem = allSlides.find(function (el) {
       return el.neighborhood === targetEl.dataset.name;
     });
 
-    if (activeElem.category === 'active') {
+    if (activeElem.category === "active" && activeElem.neighborhood !== currentNeighborhood) {
       slidesArr.forEach(function (el) {
         if (el.neighborhood === targetEl.dataset.name) {
           changeSlide(el.elem, el.position);
           changeContent(el.position);
-          targetEl.classList.add('map-neighborhoods__icon-neighborhood--active');
+          targetEl.classList.add("map-neighborhoods__icon-neighborhood--active");
         }
       });
     } else {
       contentContainer.style.height = "0px";
       allSlides.forEach(function (el) {
-        return el.elem.classList.remove('slider-neighborhoods__slide--curr');
+        return el.elem.classList.remove("slider-neighborhoods__slide--curr");
       });
     }
   };
@@ -123,8 +393,8 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   var closeToolTip = function closeToolTip() {
     if (sectionActive) {
       tooltipContainer.style.opacity = 0;
-      tooltipContainer.style.pointerEvents = 'none';
-      sectionActive.classList.add('map-neighborhoods__icon-neighborhood--matched');
+      tooltipContainer.style.pointerEvents = "none";
+      sectionActive.classList.add("map-neighborhoods__icon-neighborhood--matched");
       sectionActive = false;
     }
   };
@@ -133,7 +403,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     var targetEl = allSlides.find(function (elem) {
       return elem.neighborhood === el.dataset.name;
     });
-    var mapContent = '';
+    var mapContent = "";
 
     if (!sectionActive) {
       // add tooltip information
@@ -145,13 +415,27 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
             mapContent += "<div class='map-neighborhoods__tooltip-info'>".concat(info.text, "</div>");
           });
         }
+      } // Create our number formatter.
+
+
+      if (targetEl.HJICondoMonthly) {
+        if (targetEl.HJICondoMonthly.result.measurements) {
+          // console.log(targetEl.HJISingleMonthly.result);
+          // console.log(targetEl.HJICondoMonthly.result);
+          if (targetEl.HJISingleMonthly.result.measurements.salePrice.median != 0) {
+            mapContent += "<div class='map-neighborhoods__tooltip-info'>House Median Price: ".concat(USDFormatterNoDec.format(targetEl.HJISingleMonthly.result.measurements.salePrice.median), "<br> Median $/SqFt: ").concat(USDFormatterDec.format(targetEl.HJISingleMonthly.result.measurements.salePrice.median / targetEl.HJISingleMonthly.result.measurements.size.median), "/sf</div>");
+          }
+
+          if (targetEl.HJICondoMonthly.result.measurements.salePrice.median != 0) mapContent += "<div class='map-neighborhoods__tooltip-info'>2BR/2BA Condo Median Price: ".concat(USDFormatterNoDec.format(targetEl.HJICondoMonthly.result.measurements.salePrice.median), "<br> Median $/SqFt: ").concat(USDFormatterDec.format(targetEl.HJICondoMonthly.result.measurements.salePrice.median / targetEl.HJICondoMonthly.result.measurements.size.median), "/sf</div>");
+          mapContent += "<p style='font-size:0.75em;'>(click on neighborhood to learn more below)<p>";
+        }
       } // append tooltip information
 
 
       tooltipContent.innerHTML = mapContent; // show tooltip info window
 
       tooltipContainer.style.opacity = 1;
-      tooltipContainer.style.pointerEvents = 'auto'; // keep info window on screen (no overflow)
+      tooltipContainer.style.pointerEvents = "no"; // keep info window on screen (no overflow)
 
       if (event.clientY - 110 < tooltipContainer.clientHeight + 32) {
         tooltipContainer.style.top = "".concat(event.pageY, "px");
@@ -160,7 +444,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       }
 
       if (window.innerWidth < 601) {
-        tooltipContainer.style.left = '50%';
+        tooltipContainer.style.left = "50%";
         tooltipContainer.style.transform = "translateX(-50%)";
       } else if (event.clientX < tooltipContainer.clientWidth / 2 + 32) {
         tooltipContainer.style.left = "".concat(event.pageX + 16, "px");
@@ -172,10 +456,10 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
       iconArr.forEach(function (icon) {
         if (icon.dataset.name !== el.dataset.name) {
-          icon.classList.add('map-neighborhoods__icon-neighborhood--deactive');
+          icon.classList.add("map-neighborhoods__icon-neighborhood--deactive");
         } else {
-          icon.classList.remove('map-neighborhoods__icon-neighborhood--deactive');
-          icon.classList.remove('map-neighborhoods__icon-neighborhood--matched');
+          icon.classList.remove("map-neighborhoods__icon-neighborhood--deactive");
+          icon.classList.remove("map-neighborhoods__icon-neighborhood--matched");
         }
       });
       sectionActive = el;
@@ -183,7 +467,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }; // close tooltip
 
 
-  closeContainer.addEventListener('click', function () {
+  closeContainer.addEventListener("click", function () {
     closeToolTip();
   }); // * add event listener to all map neighborhoods *
 
@@ -193,11 +477,15 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     });
 
     if (activeEl) {
-      el.classList.add('map-neighborhoods__icon-neighborhood--matched');
+      el.classList.add("map-neighborhoods__icon-neighborhood--matched");
     }
 
-    el.addEventListener('click', function (event) {
+    el.addEventListener("click", function (event) {
       mapSelectNeighborhood(el);
+      closeToolTip();
+      openTooltip(event, el);
+    });
+    el.addEventListener("mouseenter", function (event) {
       closeToolTip();
       openTooltip(event, el);
     });
@@ -223,7 +511,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
 
   var reset = function reset() {
-    var currElem = document.querySelector('.slider-neighborhoods__slide--curr'),
+    var currElem = document.querySelector(".slider-neighborhoods__slide--curr"),
         currSlide = slidesArr.find(function (el) {
       return el.name === currElem.dataset.name;
     });
@@ -233,12 +521,12 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }; // watch screen resize to reset slide transform
 
 
-  window.addEventListener('resize', function () {
+  window.addEventListener("resize", function () {
     debounce(reset, null, 500);
   }); // go to the next slide
 
   var toNextSlide = function toNextSlide() {
-    var currElem = document.querySelector('.slider-neighborhoods__slide--curr'),
+    var currElem = document.querySelector(".slider-neighborhoods__slide--curr"),
         currSlide = slidesArr.find(function (el) {
       return el.name === currElem.dataset.name;
     }),
@@ -255,7 +543,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
 
   var toPrevSlide = function toPrevSlide() {
-    var currElem = document.querySelector('.slider-neighborhoods__slide--curr'),
+    var currElem = document.querySelector(".slider-neighborhoods__slide--curr"),
         currSlide = slidesArr.find(function (el) {
       return el.name === currElem.dataset.name;
     }),
@@ -281,38 +569,44 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       startTime;
 
   var handleSwipe = function handleSwipe(swipedir) {
-    if (swipedir === 'left') {
+    if (swipedir === "left") {
       // debounce(toNextSlide, null, 500);
       toNextSlide();
     }
 
-    if (swipedir === 'right') {
+    if (swipedir === "right") {
       // debounce(toPrevSlide, null, 500);
       toPrevSlide();
     }
   };
 
-  var sliderContainer = document.getElementById('slider-container');
-  sliderContainer.addEventListener('touchstart', function (e) {
+  var sliderContainer = document.getElementById("slider-container");
+  nextArrow.addEventListener("click", function (e) {
+    toNextSlide();
+  });
+  prevArrow.addEventListener("click", function (e) {
+    toPrevSlide();
+  });
+  sliderContainer.addEventListener("touchstart", function (e) {
     var touchObj = e.changedTouches[0];
-    swipedir = 'none';
+    swipedir = "none";
     distY = 0;
     distX = 0;
     startY = touchObj.pageY;
     startX = touchObj.pageX;
     startTime = new Date().getTime();
   });
-  sliderContainer.addEventListener('touchmove', function (e) {
+  sliderContainer.addEventListener("touchmove", function (e) {
     e.preventDefault();
   });
-  sliderContainer.addEventListener('touchend', function (e) {
+  sliderContainer.addEventListener("touchend", function (e) {
     var touchObj = e.changedTouches[0];
     distY = touchObj.pageY - startY;
     distX = touchObj.pageX - startX;
     elapsedTime = new Date().getTime() - startTime;
 
     if (elapsedTime <= allowedTime && Math.abs(distX) > threshold && Math.abs(distY) <= 100) {
-      swipedir = distX < 0 ? 'left' : 'right';
+      swipedir = distX < 0 ? "left" : "right";
     }
 
     handleSwipe(swipedir);

@@ -1,0 +1,130 @@
+
+/* -----------------------
+    Single Neighborhood Cart Styles
+   ----------------------- */
+.single-neighborhoods-chart
+  // @extend %section-padding
+
+  &__container
+    @include container
+    @include container--color
+    background: $c2
+
+  &__info
+    display: flex
+    @include tablet
+      flex-direction: column
+
+  &__title
+    @include col (3)
+    @include col--offset(1)
+    @extend %title-margin
+    margin-top: auto
+
+  &__details
+    @include col (5)
+    @extend %title-margin
+    margin-top: auto
+
+  &__key
+    @include col (2)
+    @extend %title-margin
+    margin-top: auto
+
+  &__graph
+    padding: 3rem 0 3rem
+    position: relative
+    width: 100%
+
+
+  &__graph-container
+    @include col (10)
+    @include col--offset(1)
+    padding-bottom: 2rem
+    canvas
+      width: calc(100% + 26px) !important
+      @include nexus
+        width: calc(100%) !important
+
+  &__filters-container
+    @include container
+    @include col(12)
+    justify-content: center
+
+  &__filters
+    @include nexus
+      margin-bottom: 1rem
+      width: 100%
+    justify-content: center
+    margin-bottom: 2rem
+    display: flex
+    width: 50%
+
+  &__filter
+    @extend %button-text
+    @include hover-supported
+      background: $c3
+      color: $white
+    @include phone-lg
+      border: 1px solid $c3  
+    @include laptop
+      border: none
+      width: unset
+    transition: background .2s ease, color .2s ease
+    margin: auto calc(#{$gutter} / 2)
+    border: 2px solid $c3
+    cursor: pointer
+    text-align: center
+    color: $c3
+    @include col(4)
+    padding: 0 0.4
+    padding-top: rem-calc(14) 
+    padding-bottom: rem-calc(12)
+
+    &--active
+      @include laptop
+        background: none
+        color: $c6
+        &:after
+          position: absolute
+          bottom: -.45rem
+          left: 50%
+          transform: translate(-50%)
+          border-radius: 50%
+          background: $c6
+          width: .5rem
+          height: .5rem
+          content: ''
+      position: relative
+      background: $c3
+      color: $white
+
+.keys
+  &__key
+    display: flex
+    align-items: center
+    gap: 8px
+    @include nexus
+      padding-left: 0.5rem
+  &__container
+    @include nexus
+      display: flex
+
+  &__label:after
+    @include nexus
+      content: ":"
+
+  &__circle
+    padding-right: 0.5rem
+    width: 7px
+    height: 8px
+    border: 1px solid $c1
+    &--single
+      background-color: $c1
+    &--condo
+      background-color: $c5
+  p 
+    padding-left: 0.25rem
+
+  @import '../local/index.sass'
+  
