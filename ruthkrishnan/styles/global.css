@@ -977,15 +977,8 @@ p, li, h2, h3, h4, h5 {
     height: 52px;
   }
 }
-@media screen and (max-width: 1024px) {
-  .footer__recent {
-    order: 3;
-    margin-top: 2rem;
-  }
-}
 @media screen and (max-width: 600px) {
   .footer__recent {
-    order: unset;
     margin-top: 4rem;
   }
 }
@@ -1126,6 +1119,22 @@ p, li, h2, h3, h4, h5 {
 @media not all and (pointer: coarse) {
   .footer__affiliate-icon:hover, .footer__affiliate-image:hover {
     opacity: 0.5;
+  }
+}
+.footer__disclaimer {
+  padding: 0 calc(30px / 2);
+  width: calc((12 / 12) * 100%);
+  font-size: 0.7rem;
+}
+@media screen and (max-width: 768px) {
+  .footer__disclaimer {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .footer__disclaimer {
+    margin-top: 2rem;
   }
 }
 

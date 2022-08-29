@@ -36,6 +36,8 @@ Here is an example of how your files should look:
 |  |  |-- ruthkrishnan/
 ```
 
+Next step is to go into the theme directory (rk_local/wp-content/themes/ruthkrishnan) and run `npm install` to install all the dependencies.
+
 __Step 7:__ Open MAMP (make sure its not the PRO version), and go to Preferences > Web Server, and under "Document Root:" click select, and choose the unzipped folder "rk_local". Then click "OK", then click "Start Servers." Starting the MAMP server will automatically open a webpage http://localhost:8888/MAMP/?language=English.
 
 __Step 8:__ Navigate to the "Tools" dropdown in the navigation and click on "PHPMYADMIN"
@@ -61,10 +63,7 @@ __Finishing up:__ Now you should be able to view the site locally at http://loca
 &nbsp;
 
 
-# Getting Started
-You should now have a local development environment up and running. Next step is to go into the theme directory (rk_local/wp-content/themes/ruthkrishnan) and run npm install to install all the dependencies.
-
-Before we get started there are a few things to keep in mind. 
+# Keep in mind
 
 1. The database on your local development environment is separate from the live site. Any changes done in WP backend will need to be copied over to the live site when ready (i.e. Adding/Updating Advanced Custom Fields, Updating text on a page in WP Admin, uploading new images etc.)
 
@@ -72,24 +71,35 @@ Before we get started there are a few things to keep in mind.
 
 3. The live site has an auto-caching plugin, "WP Rocket", that may show you cached versions of the site. To view new updates to the live site, go to the WP backend of the live site > Settings > WP Rocket. Here you will see a button on the right hand side labeled "Clear Cache"
 
-3. After pushing up new code for the theme to the GitHub repo, you will need to go into the live site WP backend and update the files using WP Pusher (in the WP backend > WP Pusher > Themes > Click "Update Theme").
-
 &nbsp;
 
 # Making Updates To Sass and JS files
 
+All javascript files and sass files are in `themes/ruthkrishnan/src`. All sass files are in the sass directory and all the js files are located in the scripts directory.
+
+__DO NOT__ make any changes to the files located in the /js or /styles directories.
+
 All sass and js files are compiled using Laravel Mix. Laravel Mix allows us to use sass in development and output css files for Wordpress to use. It also allows us to compile js files together to allow us to organize and reuse js scripts easier.
 
-All javascript files and sass files are located in the src directory located inside the ruthkrishnan theme directory. All sass files are in the sass directory and all the js files are located in the scripts directory. These are the files you will update to make any style or js changes.
+If you haven't done so already, go into the theme directory (rk_local/wp-content/themes/ruthkrishnan) and run `npm install`.
 
 Once you make changes to the sass/js files, you will need to compile it by running the command in your command line/terminal ```npx mix```. If you are making continuous changes, you can have laravel mix watch for changes and automatically compile sass/js files by running the command ```npx mix watch```.
 
 Laravel Mix outputs all the compiled sass to the /styles directory and all the js files to the /js directory. The location for the output files are configured in the "webpack.mix.js" file. 
 
-__DO NOT__ make any changes to the files located in the /js or /styles directories.
+&nbsp;
+
+# Pushing changes
+
+You can push changes to the repo as normal. The only thing to keep in mind is you may have to compile sass and js changes with `npx mix` as described above.
+
+After pushing up new code for the theme to the GitHub repo, you will need to go into the live site WP backend and update the files using WP Pusher (in the WP backend > WP Pusher > Themes > Click "Update Theme").
+
+You may need to clear the WP Rocket cache to see the changes.
 
 &nbsp;
 
 # Walkthrough Video Recordings
 
 View the video recordings of the site walkthrough <a href='https://drive.google.com/drive/u/0/folders/18lVADrXvLo0Hez04yavBkco2F6NdFrPi' target='_blank'>here</a>.
+
