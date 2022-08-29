@@ -36,6 +36,8 @@ Here is an example of how your files should look:
 |  |  |-- ruthkrishnan/
 ```
 
+Next step is to go into the theme directory (rk_local/wp-content/themes/ruthkrishnan) and run `npm install` to install all the dependencies.
+
 __Step 7:__ Open MAMP (make sure its not the PRO version), and go to Preferences > Web Server, and under "Document Root:" click select, and choose the unzipped folder "rk_local". Then click "OK", then click "Start Servers." Starting the MAMP server will automatically open a webpage http://localhost:8888/MAMP/?language=English.
 
 __Step 8:__ Navigate to the "Tools" dropdown in the navigation and click on "PHPMYADMIN"
@@ -62,7 +64,7 @@ __Finishing up:__ Now you should be able to view the site locally at http://loca
 
 
 # Getting Started
-You should now have a local development environment up and running. Next step is to go into the theme directory (rk_local/wp-content/themes/ruthkrishnan) and run npm install to install all the dependencies.
+You should now have a local development environment up and running.
 
 Before we get started there are a few things to keep in mind. 
 
