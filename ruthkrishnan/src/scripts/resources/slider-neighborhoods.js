@@ -44,7 +44,6 @@ export const sliderNeighborhoods = () => {
   const loc = window.location.pathname;
   const locArray = loc.split("/");
   const currentNeighborhood = locArray[locArray.length - 2];
-  // const dir = loc.substring(loc.lastIndexOf('/'));
 
   let debounceLastTimeout = null,
     sectionActive = false,
@@ -69,6 +68,7 @@ export const sliderNeighborhoods = () => {
   });
 
   console.log(allSlides);
+  // TODO find max length and min length and set up a table/ list of them
   maxTrackLength =
     document.querySelector(".slider-neighborhoods__slide").clientWidth *
     slidesArr.length;
@@ -160,16 +160,17 @@ export const sliderNeighborhoods = () => {
       measurements.daysOnMarket.median != 0
     ) {
       return (
-        measurements.salePrice.average /
+        (measurements.salePrice.average /
         measurements.listPrice.average /
-        measurements.daysOnMarket.median
+        measurements.daysOnMarket.median) * 1000
       );
     }
   }
 
   allSlides.forEach((slide) => {
-    if (slide.HJISingleMonthly.result) {
+    if (slide.HJISingleMonthly.result.count != 0) {
       if (calculateHotScore(slide.HJISingleMonthly.result.measurements) != 0) {
+        console.log('single', slide.neighborhood, calculateHotScore(slide.HJISingleMonthly.result.measurements), slide.HJISingleMonthly.result.count)
         if (
           calculateHotScore(slide.HJISingleMonthly.result.measurements) <
           minHotScoreHouse
@@ -186,8 +187,9 @@ export const sliderNeighborhoods = () => {
           );
       }
     }
-    if (slide.HJICondoMonthly.result) {
+    if (slide.HJICondoMonthly.result.count != 0) {
       if (calculateHotScore(slide.HJICondoMonthly.result.measurements) != 0) {
+        console.log('condo', slide.neighborhood, calculateHotScore(slide.HJICondoMonthly.result.measurements), slide.HJICondoMonthly.result.count)
         if (
           calculateHotScore(slide.HJICondoMonthly.result.measurements) <
           minHotScoreCondo
@@ -391,7 +393,6 @@ export const sliderNeighborhoods = () => {
             );
             // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
           } else if (value == "weather") {
-            console.log(value);
             domain = slide.walkscore;
             color = colorWeather(slide.weather, weatherPallette);
             updateLegendPunctuatedScale(legend, weatherPallette);
@@ -439,13 +440,16 @@ export const sliderNeighborhoods = () => {
       });
     }
   }
+
   // call transit score
   colorIconArr("transit score");
 
   const filtersArr = Array.from(
     document.querySelectorAll(".slider-neighborhoods__filter")
   );
-  function toggle() {}
+
+  var value = 'transit score'
+
   filtersArr.forEach((el) => {
     el.addEventListener("click", () => {
       if (!el.classList.contains("slider-neighborhoods__filter--active")) {
@@ -454,7 +458,7 @@ export const sliderNeighborhoods = () => {
           .classList.remove("slider-neighborhoods__filter--active");
         el.classList.add("slider-neighborhoods__filter--active");
       }
-      let value = el.dataset.filter;
+      value = el.dataset.filter;
       colorIconArr(value);
     });
     el.addEventListener("keyup", () => {
@@ -464,10 +468,11 @@ export const sliderNeighborhoods = () => {
           .classList.remove("slider-neighborhoods__filter--active");
         el.classList.add("slider-neighborhoods__filter--active");
       }
-      let value = el.dataset.filter;
+      value = el.dataset.filter;
       colorIconArr(value);
     });
   });
+  console.log(value)
 
   // * set the correct slide active on first load *
   changeSlide(slidesArr[0].elem, 0);
@@ -558,7 +563,7 @@ export const sliderNeighborhoods = () => {
   const closeToolTip = () => {
     if (sectionActive) {
       tooltipContainer.style.opacity = 0;
-      tooltipContainer.style.pointerEvents = "none";
+      tooltipContainer.style.pointerEvents = "auto";
       sectionActive.classList.add(
         "map-neighborhoods__icon-neighborhood--matched"
       );
@@ -665,7 +670,6 @@ export const sliderNeighborhoods = () => {
   };
 
   // close tooltip
-
   closeContainer.addEventListener("click", () => {
     closeToolTip();
   });
@@ -687,8 +691,15 @@ export const sliderNeighborhoods = () => {
     });
 
     el.addEventListener("mouseenter", (event) => {
-      closeToolTip();
-      openTooltip(event, el);
+      if (value === 'single median sale price')  {
+        closeToolTip();
+        openTooltip(event, el);
+        tooltipContainer.style.pointerEvents = "none";
+        closeContainer.style.display = "none";
+      } else {
+        tooltipContainer.style.pointerEvents = "auto";
+        closeContainer.style.display = "block";
+      }
     });
   });
 

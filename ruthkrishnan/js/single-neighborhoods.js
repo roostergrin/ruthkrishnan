@@ -595,8 +595,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       rktHotScoreText = document.getElementById("rkt-hot-score-text");
   var loc = window.location.pathname;
   var locArray = loc.split("/");
-  var currentNeighborhood = locArray[locArray.length - 2]; // const dir = loc.substring(loc.lastIndexOf('/'));
-
+  var currentNeighborhood = locArray[locArray.length - 2];
   var debounceLastTimeout = null,
       sectionActive = false,
       maxTrackLength; // * Build slide array of objects *
@@ -620,7 +619,8 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   slidesArr.forEach(function (slide, i) {
     slide.position = i;
   });
-  console.log(allSlides);
+  console.log(allSlides); // TODO find max length and min length and set up a table/ list of them
+
   maxTrackLength = document.querySelector(".slider-neighborhoods__slide").clientWidth * slidesArr.length; // * move slides *
 
   var changeSlide = function changeSlide(el, pos) {
@@ -665,20 +665,22 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
   function calculateHotScore(measurements) {
     if (measurements.salePrice.average != 0 && measurements.listPrice.average != 0 && measurements.daysOnMarket.median != 0) {
-      return measurements.salePrice.average / measurements.listPrice.average / measurements.daysOnMarket.median;
+      return measurements.salePrice.average / measurements.listPrice.average / measurements.daysOnMarket.median * 1000;
     }
   }
 
   allSlides.forEach(function (slide) {
-    if (slide.HJISingleMonthly.result) {
+    if (slide.HJISingleMonthly.result.count != 0) {
       if (calculateHotScore(slide.HJISingleMonthly.result.measurements) != 0) {
+        console.log('single', slide.neighborhood, calculateHotScore(slide.HJISingleMonthly.result.measurements), slide.HJISingleMonthly.result.count);
         if (calculateHotScore(slide.HJISingleMonthly.result.measurements) < minHotScoreHouse) minHotScoreHouse = calculateHotScore(slide.HJISingleMonthly.result.measurements);
         if (calculateHotScore(slide.HJISingleMonthly.result.measurements) > maxHotScoreHouse) maxHotScoreHouse = calculateHotScore(slide.HJISingleMonthly.result.measurements);
       }
     }
 
-    if (slide.HJICondoMonthly.result) {
+    if (slide.HJICondoMonthly.result.count != 0) {
       if (calculateHotScore(slide.HJICondoMonthly.result.measurements) != 0) {
+        console.log('condo', slide.neighborhood, calculateHotScore(slide.HJICondoMonthly.result.measurements), slide.HJICondoMonthly.result.count);
         if (calculateHotScore(slide.HJICondoMonthly.result.measurements) < minHotScoreCondo) minHotScoreCondo = calculateHotScore(slide.HJICondoMonthly.result.measurements);
         if (calculateHotScore(slide.HJICondoMonthly.result.measurements) > maxHotScoreCondo) maxHotScoreCondo = calculateHotScore(slide.HJICondoMonthly.result.measurements);
       }
@@ -802,7 +804,6 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
             color = "hsl(0, 41%, ".concat(Math.abs(scaleRange(domain, min, max) * 50 - 50), "%)");
             updateLegendGradientScale(legend, "hsl(0,41%,50%)", "hsl(0,41%,0%)", 40, 100); // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
           } else if (value == "weather") {
-            console.log(value);
             domain = slide.walkscore;
             color = colorWeather(slide.weather, weatherPallette);
             updateLegendPunctuatedScale(legend, weatherPallette);
@@ -852,9 +853,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
   colorIconArr("transit score");
   var filtersArr = Array.from(document.querySelectorAll(".slider-neighborhoods__filter"));
-
-  function toggle() {}
-
+  var value = 'transit score';
   filtersArr.forEach(function (el) {
     el.addEventListener("click", function () {
       if (!el.classList.contains("slider-neighborhoods__filter--active")) {
@@ -862,7 +861,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
         el.classList.add("slider-neighborhoods__filter--active");
       }
 
-      var value = el.dataset.filter;
+      value = el.dataset.filter;
       colorIconArr(value);
     });
     el.addEventListener("keyup", function () {
@@ -871,10 +870,11 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
         el.classList.add("slider-neighborhoods__filter--active");
       }
 
-      var value = el.dataset.filter;
+      value = el.dataset.filter;
       colorIconArr(value);
     });
-  }); // * set the correct slide active on first load *
+  });
+  console.log(value); // * set the correct slide active on first load *
 
   changeSlide(slidesArr[0].elem, 0); // * set height of column to be the height of largest content *
 
@@ -943,7 +943,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   var closeToolTip = function closeToolTip() {
     if (sectionActive) {
       tooltipContainer.style.opacity = 0;
-      tooltipContainer.style.pointerEvents = "none";
+      tooltipContainer.style.pointerEvents = "auto";
       sectionActive.classList.add("map-neighborhoods__icon-neighborhood--matched");
       sectionActive = false;
     }
@@ -1036,8 +1036,15 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       openTooltip(event, el);
     });
     el.addEventListener("mouseenter", function (event) {
-      closeToolTip();
-      openTooltip(event, el);
+      if (value === 'single median sale price') {
+        closeToolTip();
+        openTooltip(event, el);
+        tooltipContainer.style.pointerEvents = "none";
+        closeContainer.style.display = "none";
+      } else {
+        tooltipContainer.style.pointerEvents = "auto";
+        closeContainer.style.display = "block";
+      }
     });
   }); // debounce function
 
