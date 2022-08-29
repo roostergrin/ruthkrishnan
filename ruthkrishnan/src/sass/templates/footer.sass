@@ -15,7 +15,7 @@
 
   &__container
     @include container
-  
+
   &__column
     @include col(3)
     @include tablet-lg
@@ -31,21 +31,21 @@
     @include nexus
       text-align: center
     margin-bottom: 2rem
-  
+
   &__link
     @include hover-supported
       opacity: .6
     transition: opacity .186s ease
     color: $c2
-  
+
   &__contact-group
     @include nexus
       text-align: center
     margin-bottom: rem-calc(24)
-  
+
   &__contact-info
     color: $white
-  
+
   &__calbre-number
     color: $white
 
@@ -55,7 +55,7 @@
     transition: opacity .186s ease
     cursor: pointer
     color: $c2
-  
+
   &__logo
     @include tablet
       width: 50%
@@ -78,14 +78,14 @@
         margin: auto 0
         width: 60.5%
         padding-left: 29.5px
-  
+
   &__vertical-line
     border-left: 1px solid white
     height: 92.5px
     @include nexus
       height: 52px
 
-  
+
   &__recent
     @include tablet-lg
       order: 3
@@ -100,7 +100,7 @@
 
     &:not(:last-of-type)
       margin-bottom: rem-calc(24)
-  
+
   &__post-link
     @include hover-supported
       opacity: .5
@@ -154,7 +154,7 @@
       align-items: center
       margin-top: 4rem
     align-items: flex-end
-  
+
     &-container
       @include nexus
         width: 66.7%
@@ -181,11 +181,11 @@
       align-items: center
     display: flex
     flex-direction: column
-  
+
   &__affiliate-link
     &:not(:last-of-type)
       margin-bottom: rem-calc(10)
-  
+
   &__affiliate-icon,
   &__affiliate-image
     @include hover-supported
@@ -193,3 +193,8 @@
     transition: opacity .186s ease
     width: rem-calc(168)
     height: auto
+
+  &__disclaimer
+    @include col(12)
+    font-size: 0.7rem
+
