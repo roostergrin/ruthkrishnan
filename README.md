@@ -63,10 +63,7 @@ __Finishing up:__ Now you should be able to view the site locally at http://loca
 &nbsp;
 
 
-# Getting Started
-You should now have a local development environment up and running.
-
-Before we get started there are a few things to keep in mind. 
+# Keep in mind
 
 1. The database on your local development environment is separate from the live site. Any changes done in WP backend will need to be copied over to the live site when ready (i.e. Adding/Updating Advanced Custom Fields, Updating text on a page in WP Admin, uploading new images etc.)
 
