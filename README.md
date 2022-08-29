@@ -71,8 +71,6 @@ __Finishing up:__ Now you should be able to view the site locally at http://loca
 
 3. The live site has an auto-caching plugin, "WP Rocket", that may show you cached versions of the site. To view new updates to the live site, go to the WP backend of the live site > Settings > WP Rocket. Here you will see a button on the right hand side labeled "Clear Cache"
 
-3. After pushing up new code for the theme to the GitHub repo, you will need to go into the live site WP backend and update the files using WP Pusher (in the WP backend > WP Pusher > Themes > Click "Update Theme").
-
 &nbsp;
 
 # Making Updates To Sass and JS files
@@ -91,6 +89,17 @@ Laravel Mix outputs all the compiled sass to the /styles directory and all the j
 
 &nbsp;
 
+# Pushing changes
+
+You can push changes to the repo as normal. The only thing to keep in mind is you may have to compile sass and js changes with `npx mix` as described above.
+
+After pushing up new code for the theme to the GitHub repo, you will need to go into the live site WP backend and update the files using WP Pusher (in the WP backend > WP Pusher > Themes > Click "Update Theme").
+
+You may need to clear the WP Rocket cache to see the changes.
+
+&nbsp;
+
 # Walkthrough Video Recordings
 
 View the video recordings of the site walkthrough <a href='https://drive.google.com/drive/u/0/folders/18lVADrXvLo0Hez04yavBkco2F6NdFrPi' target='_blank'>here</a>.
+
