@@ -77,15 +77,17 @@ __Finishing up:__ Now you should be able to view the site locally at http://loca
 
 # Making Updates To Sass and JS files
 
+All javascript files and sass files are in `themes/ruthkrishnan/src`. All sass files are in the sass directory and all the js files are located in the scripts directory.
+
+__DO NOT__ make any changes to the files located in the /js or /styles directories.
+
 All sass and js files are compiled using Laravel Mix. Laravel Mix allows us to use sass in development and output css files for Wordpress to use. It also allows us to compile js files together to allow us to organize and reuse js scripts easier.
 
-All javascript files and sass files are located in the src directory located inside the ruthkrishnan theme directory. All sass files are in the sass directory and all the js files are located in the scripts directory. These are the files you will update to make any style or js changes.
+If you haven't done so already, go into the theme directory (rk_local/wp-content/themes/ruthkrishnan) and run `npm install`.
 
 Once you make changes to the sass/js files, you will need to compile it by running the command in your command line/terminal ```npx mix```. If you are making continuous changes, you can have laravel mix watch for changes and automatically compile sass/js files by running the command ```npx mix watch```.
 
 Laravel Mix outputs all the compiled sass to the /styles directory and all the js files to the /js directory. The location for the output files are configured in the "webpack.mix.js" file. 
-
-__DO NOT__ make any changes to the files located in the /js or /styles directories.
 
 &nbsp;
 
