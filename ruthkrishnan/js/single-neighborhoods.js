@@ -670,19 +670,21 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }
 
   allSlides.forEach(function (slide) {
-    if (slide.HJISingleMonthly.result.count != 0) {
-      if (calculateHotScore(slide.HJISingleMonthly.result.measurements) != 0) {
-        console.log('single', slide.neighborhood, calculateHotScore(slide.HJISingleMonthly.result.measurements), slide.HJISingleMonthly.result.count);
-        if (calculateHotScore(slide.HJISingleMonthly.result.measurements) < minHotScoreHouse) minHotScoreHouse = calculateHotScore(slide.HJISingleMonthly.result.measurements);
-        if (calculateHotScore(slide.HJISingleMonthly.result.measurements) > maxHotScoreHouse) maxHotScoreHouse = calculateHotScore(slide.HJISingleMonthly.result.measurements);
+    if (slide.HJISingleMonthly.result) {
+      if (slide.HJISingleMonthly.result.count != 0) {
+        if (calculateHotScore(slide.HJISingleMonthly.result.measurements) != 0) {
+          if (calculateHotScore(slide.HJISingleMonthly.result.measurements) < minHotScoreHouse) minHotScoreHouse = calculateHotScore(slide.HJISingleMonthly.result.measurements);
+          if (calculateHotScore(slide.HJISingleMonthly.result.measurements) > maxHotScoreHouse) maxHotScoreHouse = calculateHotScore(slide.HJISingleMonthly.result.measurements);
+        }
       }
     }
 
-    if (slide.HJICondoMonthly.result.count != 0) {
-      if (calculateHotScore(slide.HJICondoMonthly.result.measurements) != 0) {
-        console.log('condo', slide.neighborhood, calculateHotScore(slide.HJICondoMonthly.result.measurements), slide.HJICondoMonthly.result.count);
-        if (calculateHotScore(slide.HJICondoMonthly.result.measurements) < minHotScoreCondo) minHotScoreCondo = calculateHotScore(slide.HJICondoMonthly.result.measurements);
-        if (calculateHotScore(slide.HJICondoMonthly.result.measurements) > maxHotScoreCondo) maxHotScoreCondo = calculateHotScore(slide.HJICondoMonthly.result.measurements);
+    if (slide.HJISingleMonthly.result) {
+      if (slide.HJICondoMonthly.result.count != 0) {
+        if (calculateHotScore(slide.HJICondoMonthly.result.measurements) != 0) {
+          if (calculateHotScore(slide.HJICondoMonthly.result.measurements) < minHotScoreCondo) minHotScoreCondo = calculateHotScore(slide.HJICondoMonthly.result.measurements);
+          if (calculateHotScore(slide.HJICondoMonthly.result.measurements) > maxHotScoreCondo) maxHotScoreCondo = calculateHotScore(slide.HJICondoMonthly.result.measurements);
+        }
       }
     }
   });
@@ -862,6 +864,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       }
 
       value = el.dataset.filter;
+      closeToolTip();
       colorIconArr(value);
     });
     el.addEventListener("keyup", function () {
@@ -871,6 +874,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       }
 
       value = el.dataset.filter;
+      closeToolTip();
       colorIconArr(value);
     });
   });
