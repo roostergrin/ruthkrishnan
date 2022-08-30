@@ -402,7 +402,11 @@ var dataTable = function dataTable() {
   var tableElement = document.getElementById("wrapper");
   var rktHotScore = document.getElementById("rkt-hot-score");
   var rktHotScoreText = document.getElementById("rkt-hot-score-text");
+  var residenceTypeElement = document.getElementById("residenceType");
   var single = JSON.parse(tableElement.dataset.hjisingleyearly);
+  var condo = JSON.parse(tableElement.dataset.hjicondoyearly);
+  condo.residenceTypeName = 'Condo';
+  single.residenceTypeName = 'Home';
   var salePriceAvg = ["Average Sale Price"];
   var salePriceMedian = ["Median Sale Price"];
   var salePriceLow = ["Lowest Sale Price"];
@@ -435,7 +439,9 @@ var dataTable = function dataTable() {
     return (x - min) / (max - min);
   }
 
-  single.result.grouping.groups.forEach(function (year) {
+  var residenceType = condo.result.count > single.result.count ? condo : single;
+  residenceTypeElement.innerHTML = residenceType.residenceTypeName;
+  residenceType.result.grouping.groups.forEach(function (year) {
     salePriceAvg.push(USDFormatterNoDec.format(year.measurements.salePrice.average));
     salePriceMedian.push(USDFormatterNoDec.format(year.measurements.salePrice.median));
     salePriceLow.push(USDFormatterNoDec.format(year.measurements.salePrice.low));
