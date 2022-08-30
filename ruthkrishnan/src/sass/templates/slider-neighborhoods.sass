@@ -52,10 +52,11 @@
 
   &__filters
     @include col(12)
-    @include max-width (990px)
+    @include phone
       justify-content: space-between
-    @include nexus
       margin-bottom: 2rem
+    flex-wrap: wrap
+    gap: 1rem
     display: flex
     justify-content: center
     margin-bottom: 3rem
@@ -65,17 +66,17 @@
     @include hover-supported
       background: $c3
       color: $white
-    @include max-width (990px)
+    @include nexus
       margin: 0
       padding: rem-calc(12) 0 rem-calc(10)
       width: 30%
       min-width: 0
       border: none
       width: unset
-    @include phone-lg
-      border: 1px solid $c3  
+    @include laptop-sm
+      width: 45%
+    width: 21%
     transition: background .2s ease, color .2s ease
-    margin: auto calc(#{$gutter} / 2)
     border: 2px solid $c3
     cursor: pointer
     padding: rem-calc(14) 2rem rem-calc(12)

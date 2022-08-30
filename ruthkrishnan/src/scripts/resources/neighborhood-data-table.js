@@ -2,8 +2,12 @@ export const dataTable = () => {
   const tableElement = document.getElementById("wrapper");
   const rktHotScore = document.getElementById("rkt-hot-score");
   const rktHotScoreText = document.getElementById("rkt-hot-score-text");
+  const residenceTypeElement = document.getElementById("residenceType");
   const single = JSON.parse(tableElement.dataset.hjisingleyearly);
-
+  const condo = JSON.parse(tableElement.dataset.hjicondoyearly);
+  condo.residenceTypeName = 'Condo'
+  single.residenceTypeName = 'Home'
+  
   let salePriceAvg = ["Average Sale Price"];
   let salePriceMedian = ["Median Sale Price"];
   let salePriceLow = ["Lowest Sale Price"];
@@ -46,7 +50,10 @@ export const dataTable = () => {
     console.log("scaleRange", (x - min) / (max - min));
     return (x - min) / (max - min);
   }
-  single.result.grouping.groups.forEach((year) => {
+  
+  const residenceType = condo.result.count > single.result.count ? condo : single
+  residenceTypeElement.innerHTML = residenceType.residenceTypeName
+  residenceType.result.grouping.groups.forEach((year) => {
     salePriceAvg.push(
       USDFormatterNoDec.format(year.measurements.salePrice.average)
     );

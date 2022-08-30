@@ -490,6 +490,8 @@ th[data-column-id=dataLabel] {
 .slider-neighborhoods__filters {
   padding: 0 calc(30px / 2);
   width: calc((12 / 12) * 100%);
+  flex-wrap: wrap;
+  gap: 1rem;
   display: flex;
   justify-content: center;
   margin-bottom: 3rem;
@@ -500,19 +502,15 @@ th[data-column-id=dataLabel] {
     width: 100%;
   }
 }
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 370px) {
   .slider-neighborhoods__filters {
     justify-content: space-between;
-  }
-}
-@media screen and (max-width: 600px) {
-  .slider-neighborhoods__filters {
     margin-bottom: 2rem;
   }
 }
 .slider-neighborhoods__filter {
+  width: 21%;
   transition: background 0.2s ease, color 0.2s ease;
-  margin: auto calc(30px / 2);
   border: 2px solid #AF5B5B;
   cursor: pointer;
   padding: 0.875rem 2rem 0.75rem;
@@ -526,7 +524,7 @@ th[data-column-id=dataLabel] {
     color: #fff;
   }
 }
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 600px) {
   .slider-neighborhoods__filter {
     margin: 0;
     padding: 0.75rem 0 0.625rem;
@@ -536,9 +534,9 @@ th[data-column-id=dataLabel] {
     width: unset;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1100px) {
   .slider-neighborhoods__filter {
-    border: 1px solid #AF5B5B;
+    width: 45%;
   }
 }
 .slider-neighborhoods__filter--active {
@@ -1217,9 +1215,7 @@ th[data-column-id=dataLabel] {
   padding: 0 calc((64px / 2) - 15px);
   width: 100%;
   max-width: calc(1146px + 64px);
-  padding: 0 calc(30px / 2);
-  width: calc((12 / 12) * 100%);
-  justify-content: center;
+  flex-wrap: nowrap;
 }
 @media screen and (min-width: 1750px) {
   .single-neighborhoods-chart__filters-container {
@@ -1236,17 +1232,16 @@ th[data-column-id=dataLabel] {
     padding: 0 1rem;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1100px) {
   .single-neighborhoods-chart__filters-container {
-    padding: 0;
-    width: 100%;
+    flex-direction: column;
   }
 }
 .single-neighborhoods-chart__filters {
   justify-content: center;
   margin-bottom: 2rem;
   display: flex;
-  width: 50%;
+  width: 100%;
 }
 @media screen and (max-width: 600px) {
   .single-neighborhoods-chart__filters {
@@ -1261,8 +1256,7 @@ th[data-column-id=dataLabel] {
   cursor: pointer;
   text-align: center;
   color: #AF5B5B;
-  padding: 0 calc(30px / 2);
-  width: calc((4 / 12) * 100%);
+  width: 100%;
   padding: 0 0.4;
   padding-top: 0.875rem;
   padding-bottom: 0.75rem;
@@ -1278,16 +1272,10 @@ th[data-column-id=dataLabel] {
     border: 1px solid #AF5B5B;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 370px) {
   .single-neighborhoods-chart__filter {
     border: none;
     width: unset;
-  }
-}
-@media screen and (max-width: 768px) {
-  .single-neighborhoods-chart__filter {
-    padding: 0;
-    width: 100%;
   }
 }
 .single-neighborhoods-chart__filter--active {
@@ -1295,7 +1283,7 @@ th[data-column-id=dataLabel] {
   background: #AF5B5B;
   color: #fff;
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 370px) {
   .single-neighborhoods-chart__filter--active {
     background: none;
     color: #963636;
