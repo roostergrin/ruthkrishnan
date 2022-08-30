@@ -274,7 +274,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
         }
       });
 
-      if (inactiveNeighborhoods.includes(icon.dataset.name) && value == "transit score") {
+      if (inactiveNeighborhoods.includes(icon.dataset.name) && (value == "transit score" || value == "single median sale price")) {
         // an inactive neighborhood
         styleIcon(icon, inactiveColor, true);
       }

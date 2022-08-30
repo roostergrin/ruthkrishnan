@@ -416,7 +416,8 @@ export const sliderNeighborhoods = () => {
 
       if (
         inactiveNeighborhoods.includes(icon.dataset.name) &&
-        value == "transit score"
+        (value == "transit score" ||
+        value == "single median sale price")
       ) {
         // an inactive neighborhood
         styleIcon(icon, inactiveColor, true);
