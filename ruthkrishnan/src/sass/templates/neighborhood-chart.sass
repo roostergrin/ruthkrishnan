@@ -48,8 +48,9 @@
 
   &__filters-container
     @include container
-    @include col(12)
-    justify-content: center
+    flex-wrap: nowrap
+    @include laptop-sm
+      flex-direction: column
 
   &__filters
     @include nexus
@@ -58,7 +59,7 @@
     justify-content: center
     margin-bottom: 2rem
     display: flex
-    width: 50%
+    width: 100%
 
   &__filter
     @extend %button-text
@@ -67,7 +68,7 @@
       color: $white
     @include phone-lg
       border: 1px solid $c3  
-    @include laptop
+    @include phone
       border: none
       width: unset
     transition: background .2s ease, color .2s ease
@@ -76,13 +77,13 @@
     cursor: pointer
     text-align: center
     color: $c3
-    @include col(4)
+    width: 100%
     padding: 0 0.4
     padding-top: rem-calc(14) 
     padding-bottom: rem-calc(12)
 
     &--active
-      @include laptop
+      @include phone
         background: none
         color: $c6
         &:after
