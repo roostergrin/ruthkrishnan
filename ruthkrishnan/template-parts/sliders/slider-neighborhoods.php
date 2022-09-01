@@ -18,7 +18,7 @@
       <a data-filter='transit score' tabindex="0" role="button" class="slider-neighborhoods__filter slider-neighborhoods__filter--active">Transit score</a>
       <a data-filter='walk score' tabindex="0" role="button" class="slider-neighborhoods__filter">Walk score</a>
       <a data-filter='weather' tabindex="0" role="button" class="slider-neighborhoods__filter">Weather</a>
-      <a data-filter='single median sale price' tabindex="0" role="button" class="slider-neighborhoods__filter">single median sale price</a>
+      <a data-filter='single median sale price' tabindex="0" role="button" class="slider-neighborhoods__filter">median sale price</a>
     </div>
   </div>
   <div id="legend" class="slider-neighborhoods__legend-container">
