@@ -26,7 +26,7 @@ get_header(); ?>
 					<div class="single-neighborhoods-content__column">
 						<h2 class="single-neighborhoods-content__title"><?php echo the_title(); ?></h2>
 						<div class="single-neighborhoods-content__text"><?php echo get_field('description'); ?></div>
-						<div class="single-neighborhoods-content__data" data-neighborhoodHJISingle='<?php echo json_encode(get_field('single_data')); ?>' data-neighborhoodHJICondo='<?php echo json_encode(get_field('condo_data')); ?>'></div>
+						<div class="single-neighborhoods-content__data" data-neighborhoodHJISingle='<?php echo get_field('single_data'); ?>' data-neighborhoodHJICondo='<?php echo get_field('condo_data'); ?>'></div>
 						<div class="single-neighborhoods-content__icons">
 							<?php if (have_rows('single_neighborhoods_icons')) :
 								while (have_rows('single_neighborhoods_icons')) : the_row();
@@ -74,7 +74,7 @@ get_header(); ?>
 								<div class="home-stats__card">
 									<div class="home-stats__card-container">
 										<div class="home-stats__card-circle">
-											<?php 
+											<?php
 												// 90–100	Walker’s Paradise
 												// Daily errands do not require a car
 

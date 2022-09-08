@@ -23,7 +23,7 @@
       <p class="neighborhood-data-table__subtitle">Pulled from MLS (Yearly)</p>
       <div class="neighborhood-data-table__wrapper">
         <p class="neighborhood-data-table__scroll-indicator">>></p>
-        <div id="wrapper" data-hjisingleyearly='<?php echo json_encode(get_field('single_yearly')); ?>' data-hjicondoyearly='<?php echo json_encode(get_field('condo_yearly')); ?>' ></div>
+        <div id="wrapper" data-hjisingleyearly='<?php echo get_field('single_yearly'); ?>' data-hjicondoyearly='<?php echo get_field('condo_yearly'); ?>' ></div>
       </div>
     </div>
   </div>

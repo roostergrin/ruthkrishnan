@@ -53,6 +53,17 @@ add_action('wp_ajax_add_transit_score', 'add_transit_score');
 add_action('wp_ajax_nopriv_add_walk_score', 'add_walk_score');
 add_action('wp_ajax_add_walk_score', 'add_walk_score');
 
+add_action('wp_ajax_nopriv_update_scores', 'update_scores');
+add_action('wp_ajax_update_scores', 'update_scores');
+
+// /wp-admin/admin-ajax.php?action=update_scores
+
+function update_scores() {
+  add_weather_score();
+  add_transit_score();
+  add_walk_score();
+}
+
 function add_transit_score() {
   $neighborhoods_transit_score= [
     // 'neighborhood_slug' =>'transit score',
@@ -148,7 +159,7 @@ function add_transit_score() {
     'presidio' =>'54',
   ];
   $ACF_transit_score = "transit_score";
-  
+
   foreach($neighborhoods_transit_score as $neighborhood_slug => $transit_score) {
     // echo $transit_score;
     // echo $neighborhood_slug;
@@ -253,7 +264,7 @@ function add_walk_score() {
     'presidio' =>'40',
   ];
   $ACF_walk_score = "walk_score";
-  
+
   foreach($neighborhoods_walk_score as $neighborhood_slug => $walk_score) {
     // echo $walk_score;
     // echo $neighborhood_slug;
@@ -357,11 +368,11 @@ function add_weather_score() {
   'marina' =>'cool to moderate, with some fog and light winds',
   'presidio' =>'cool to moderate, a mixture of foggy and clear days, light winds',
   ];
-  
-  
+
+
   $ACF_weather_field = "weather";
   $ACF_walk_score = "walk_score";
-  
+
   foreach($neighborhoods_weather as $neighborhood_slug => $weather) {
     echo $weather;
     echo $neighborhood_slug;
@@ -378,7 +389,7 @@ function get_san_francisco_data_from_api() {
         'Authorization' => 's9-6ea57116-71cf-430f-bb73-d95ab82b0bff'
       )
     );
-  
+
   $hji_id = 'ead7906cd13415c8e165dcc09b866b23';
   $API_parameter = '&propertyType=single&listingDate=1/1/2019:12/31/2022&measurements=listPrice,salePrice,daysOnMarket,listPricePerSqFt,size&groups=saleDate:interval(year)';
   $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/areas/neighborhoods/search?market=SFAR&pageSize=1000&polygon=$' . $hji_id . $API_parameter, $args));
@@ -500,7 +511,7 @@ function get_neighborhood_data_from_api()
   $date = date('m/d/Y', time());
   $four_year_date = date_create($date);
   $one_year_date = date_create($date);
-  
+
   date_default_timezone_set('America/Los_Angeles');
   $date = date('m/d/Y', time());
   // echo $date;
@@ -508,21 +519,21 @@ function get_neighborhood_data_from_api()
   $one_year_date = date_create($date);
   $four_year_date = date_sub($four_year_date,date_interval_create_from_date_string("4 years"));
   $one_year_date = date_sub($one_year_date,date_interval_create_from_date_string("1 year"));
-  
+
   $four_year_date_range = $four_year_date->format('m/d/Y') . ':' . $date;
   $one_year_date_range = $one_year_date->format('m/d/Y') . ':' . $date;
 
   $API_params = [
     // https://slipstream.homejunction.com/#/ws/sales?id=search
-    
+
     // 'ACF_field'=> 'API propertyType parameter'
     // single data
-    
+
     // TODO: set up dates programmatically
     'single_data' => '&propertyType=single&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(quarter)',
     // condo data
     'condo_data' => '&propertyType=condo&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(quarter)',
-    
+
     // single year
     'single_yearly' => '&propertyType=single&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(year)',
     // condo year
@@ -532,7 +543,7 @@ function get_neighborhood_data_from_api()
     'single_last_month' => '&propertyType=single&listingDate=' . $one_year_date_range . '&measurements=salePrice,listPrice,size,daysOnMarket',
     // condo 2br 2ba data monthly
     'condo2br2b_data' => '&propertyType=condo&baths=2&beds=2&listingDate=' . $one_year_date_range . '&measurements=salePrice,listPrice,size,daysOnMarket',
-    
+
   ];
 
 
@@ -541,7 +552,7 @@ function get_neighborhood_data_from_api()
       // call the data`
       // https://slipstream.homejunction.com/#/ws/sales/statistics?id=computation
       $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/statistics/measure?market=SFAR&polygon=$' . $hji_id . $API_parameter, $args));
-      $results = json_decode($results);
+      // $results = json_decode($results);
       // $results = json_encode($results);
       file_put_contents($file, 'Current field: ' . $ACF_field .', '. $API_parameter ."\n\n Current Neighborhood:". $neighborhood_slug .', '. $hji_id .', '. "\n\n", FILE_APPEND);
       $neighborhood_post_id_wp = get_page_by_path($neighborhood_slug, 'OBJECT', 'neighborhoods');
