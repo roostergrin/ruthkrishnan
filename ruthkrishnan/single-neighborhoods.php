@@ -131,9 +131,37 @@ get_header(); ?>
 								<div class="home-stats__card">
 									<div class="home-stats__card-container">
 										<div class="home-stats__card-circle">
-											<h3 id="rkt-hot-score" class="home-stats__card-title">19</h3>
+											<?php
+													// 90–100	Rider's Paradise
+													// World-class public transportation.
+													// 70–89	Excellent Transit
+													// Transit is convenient for most trips.
+													// 50–69	Good Transit
+													// Many nearby public transportation options.
+													// 25–49	Some Transit
+													// A few nearby public transportation options.
+													// 0–24	Minimal Transit
+													// It is possible to get on a bus.
+												$transit_score = get_field('transit_score');
+												if($transit_score <=100) {
+													$transit_score_result = "rider's paradise, world-class public transportation";
+												}
+												else if($transit_score <= 89) {
+													$transit_score_result = "excellent transit, transit is convenient for most trips";
+												}
+												else if($transit_score <= 69) {
+													$transit_score_result = "good transit, many nearby public transportation options";
+												}
+												else if($transit_score <= 49) {
+													$transit_score_result = "some transit, a few nearby public transportation options";
+												}
+												else if($transit_score <= 24) {
+													$transit_score_result = "minimal transit, it is possible to get on a bus";
+												}
+											?>
+											<h3 class="home-stats__card-title"><?php echo $transit_score; ?></h3>
 										</div>
-										<div id="rkt-hot-score-text" class="home-stats__card-text">few homes sell over list price and can take months to sell</div>
+										<div class="home-stats__card-text"><?php echo $transit_score_result; ?></div>
 									</div>
 								</div>
 					</div>

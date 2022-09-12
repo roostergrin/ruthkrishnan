@@ -413,9 +413,10 @@ var dataTable = function dataTable() {
   var salePriceHigh = ["Highest Sale Price"];
   var salePriceToSqFt = ["Sale Price per sq ft"];
   var saleToListPrice = ["Sale to List Price Percent"];
-  var daysOnMarketMedian = ["Days on Market"];
-  var competeScore = ["RKT Hot Score"];
-  var data = [salePriceAvg, salePriceMedian, salePriceLow, salePriceHigh, salePriceToSqFt, saleToListPrice, daysOnMarketMedian, competeScore];
+  var daysOnMarketMedian = ["Days on Market"]; // let competeScore = ["RKT Hot Score"];
+
+  var data = [salePriceAvg, salePriceMedian, salePriceLow, salePriceHigh, salePriceToSqFt, saleToListPrice, daysOnMarketMedian // competeScore,
+  ];
   var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -448,39 +449,40 @@ var dataTable = function dataTable() {
     salePriceHigh.push(USDFormatterNoDec.format(year.measurements.salePrice.high));
     daysOnMarketMedian.push(year.measurements.daysOnMarket.average.toFixed(0));
     salePriceToSqFt.push(USDFormatterDec.format(year.measurements.salePrice.average / year.measurements.size.average) + "/sq.ft");
-    saleToListPrice.push((year.measurements.salePrice.average / year.measurements.listPrice.average * 100).toFixed(2) + "%");
-    competeScore.push((scaleRange(year.measurements.salePrice.average / year.measurements.listPrice.average / year.measurements.daysOnMarket.median, 0.004895742795938363, 0.06963788300835655) * 100).toFixed(0));
+    saleToListPrice.push((year.measurements.salePrice.average / year.measurements.listPrice.average * 100).toFixed(2) + "%"); // competeScore.push(
+    //   (scaleRange(
+    //     year.measurements.salePrice.average /
+    //       year.measurements.listPrice.average /
+    //       year.measurements.daysOnMarket.median,
+    //     0.004895742795938363,
+    //     0.06963788300835655
+    //   ) * 100).toFixed(0)
+    // );
   });
   console.log(data);
   new gridjs.Grid({
     columns: ["dataLabel", "2019", "2020", "2021", "2022"],
     data: data
-  }).render(tableElement);
-  var rktHotScoreValue = competeScore[competeScore.length - 1];
-  rktHotScore.innerHTML = rktHotScoreValue;
-  var rktHotScoreTextValue;
-
-  if (rktHotScoreValue <= 100) {
-    rktHotScoreTextValue = "most homes sell over list price with very few days on market";
-    console.log(rktHotScoreTextValue);
-  }
-
-  if (rktHotScoreValue <= 90) {
-    rktHotScoreTextValue = "many homes sell over list price with few days on market";
-    console.log(rktHotScoreTextValue);
-  }
-
-  if (rktHotScoreValue <= 70) {
-    rktHotScoreTextValue = "some homes sell over list price but may takes weeks to sell";
-    console.log(rktHotScoreTextValue);
-  }
-
-  if (rktHotScoreValue <= 30) {
-    rktHotScoreTextValue = "few homes sell over list price and can take months to sell";
-    console.log(rktHotScoreTextValue);
-  }
-
-  rktHotScoreText.innerHTML = rktHotScoreTextValue;
+  }).render(tableElement); // let rktHotScoreValue = competeScore[competeScore.length - 1];
+  // rktHotScore.innerHTML = rktHotScoreValue;
+  // let rktHotScoreTextValue;
+  // if (rktHotScoreValue <= 100) {
+  //   rktHotScoreTextValue = "most homes sell over list price with very few days on market";
+  //   console.log(rktHotScoreTextValue);
+  // }
+  // if (rktHotScoreValue <= 90) {
+  //   rktHotScoreTextValue = "many homes sell over list price with few days on market";
+  //   console.log(rktHotScoreTextValue);
+  // }
+  // if (rktHotScoreValue <= 70) {
+  //   rktHotScoreTextValue = "some homes sell over list price but may takes weeks to sell";
+  //   console.log(rktHotScoreTextValue);
+  // }
+  // if (rktHotScoreValue <= 30) {
+  //   rktHotScoreTextValue = "few homes sell over list price and can take months to sell";
+  //   console.log(rktHotScoreTextValue);
+  // }
+  // rktHotScoreText.innerHTML = rktHotScoreTextValue;
 };
 
 /***/ }),

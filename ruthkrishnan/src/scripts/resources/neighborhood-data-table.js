@@ -15,7 +15,7 @@ export const dataTable = () => {
   let salePriceToSqFt = ["Sale Price per sq ft"];
   let saleToListPrice = ["Sale to List Price Percent"];
   let daysOnMarketMedian = ["Days on Market"];
-  let competeScore = ["RKT Hot Score"];
+  // let competeScore = ["RKT Hot Score"];
 
   let data = [
     salePriceAvg,
@@ -25,7 +25,7 @@ export const dataTable = () => {
     salePriceToSqFt,
     saleToListPrice,
     daysOnMarketMedian,
-    competeScore,
+    // competeScore,
   ];
 
   var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
@@ -79,15 +79,15 @@ export const dataTable = () => {
         100
       ).toFixed(2) + "%"
     );
-    competeScore.push(
-      (scaleRange(
-        year.measurements.salePrice.average /
-          year.measurements.listPrice.average /
-          year.measurements.daysOnMarket.median,
-        0.004895742795938363,
-        0.06963788300835655
-      ) * 100).toFixed(0)
-    );
+    // competeScore.push(
+    //   (scaleRange(
+    //     year.measurements.salePrice.average /
+    //       year.measurements.listPrice.average /
+    //       year.measurements.daysOnMarket.median,
+    //     0.004895742795938363,
+    //     0.06963788300835655
+    //   ) * 100).toFixed(0)
+    // );
   });
 
   console.log(data);
@@ -96,25 +96,25 @@ export const dataTable = () => {
     data: data,
   }).render(tableElement);
 
-  let rktHotScoreValue = competeScore[competeScore.length - 1];
-  rktHotScore.innerHTML = rktHotScoreValue;
+  // let rktHotScoreValue = competeScore[competeScore.length - 1];
+  // rktHotScore.innerHTML = rktHotScoreValue;
 
-  let rktHotScoreTextValue;
-  if (rktHotScoreValue <= 100) {
-    rktHotScoreTextValue = "most homes sell over list price with very few days on market";
-    console.log(rktHotScoreTextValue);
-  }
-  if (rktHotScoreValue <= 90) {
-    rktHotScoreTextValue = "many homes sell over list price with few days on market";
-    console.log(rktHotScoreTextValue);
-  }
-  if (rktHotScoreValue <= 70) {
-    rktHotScoreTextValue = "some homes sell over list price but may takes weeks to sell";
-    console.log(rktHotScoreTextValue);
-  }
-  if (rktHotScoreValue <= 30) {
-    rktHotScoreTextValue = "few homes sell over list price and can take months to sell";
-    console.log(rktHotScoreTextValue);
-  }
-  rktHotScoreText.innerHTML = rktHotScoreTextValue;
+  // let rktHotScoreTextValue;
+  // if (rktHotScoreValue <= 100) {
+  //   rktHotScoreTextValue = "most homes sell over list price with very few days on market";
+  //   console.log(rktHotScoreTextValue);
+  // }
+  // if (rktHotScoreValue <= 90) {
+  //   rktHotScoreTextValue = "many homes sell over list price with few days on market";
+  //   console.log(rktHotScoreTextValue);
+  // }
+  // if (rktHotScoreValue <= 70) {
+  //   rktHotScoreTextValue = "some homes sell over list price but may takes weeks to sell";
+  //   console.log(rktHotScoreTextValue);
+  // }
+  // if (rktHotScoreValue <= 30) {
+  //   rktHotScoreTextValue = "few homes sell over list price and can take months to sell";
+  //   console.log(rktHotScoreTextValue);
+  // }
+  // rktHotScoreText.innerHTML = rktHotScoreTextValue;
 };
