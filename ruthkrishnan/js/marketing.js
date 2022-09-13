@@ -113,6 +113,129 @@ var aboutRuth = function aboutRuth() {
   });
 };
 
+/***/ }),
+
+/***/ "./src/scripts/resources/form-off-market.js":
+/*!**************************************************!*\
+  !*** ./src/scripts/resources/form-off-market.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "formOffMarket": () => (/* binding */ formOffMarket)
+/* harmony export */ });
+var formOffMarket = function formOffMarket() {
+  var formElem = document.getElementById('off-market-form');
+
+  if (formElem) {
+    var validateForm = function validateForm() {
+      var errorMessages = Array.from(document.querySelectorAll('.form-off-market__validation-message')),
+          fullnameValidation = document.getElementById('fullname-validation'),
+          emailValidation = document.getElementById('email-validation'),
+          phoneValidation = document.getElementById('phone-validation'),
+          budgetValidation = document.getElementById('budget-validation'),
+          neighborhoodsValidation = document.getElementById('neighborhoods-validation'),
+          badsBathsValidation = document.getElementById('beds_baths-validation');
+      var errorFields;
+      errorMessages.forEach(function (message) {
+        return message.style.opacity = 0;
+      });
+      errorFields = [];
+
+      if (!/^(?![\s.]+$)[a-zA-Z\s.]*$/.test(formElem.fullname.value) || formElem.fullname.value === '') {
+        errorFields.push('fullname');
+      }
+
+      if (formElem.email.value === '') {
+        errorFields.push('email');
+      }
+
+      if (!/^[0-9-+\s()]*$/.test(formElem.phone.value) || formElem.phone.value === '' || formElem.phone.value.length < 7) {
+        errorFields.push('phone');
+      }
+
+      if (formElem.budget.value === '') {
+        errorFields.push('email');
+      }
+
+      if (formElem.neighborhoods.value === '') {
+        errorFields.push('email');
+      }
+
+      if (formElem.beds_baths.value === '') {
+        errorFields.push('email');
+      }
+
+      if (errorFields.length > 0) {
+        console.log(errorFields);
+        errorFields.forEach(function (err) {
+          switch (err) {
+            case 'fullname':
+              fullnameValidation.style.opacity = 1;
+              break;
+
+            case 'email':
+              emailValidation.style.opacity = 1;
+              break;
+
+            case 'phone':
+              phoneValidation.style.opacity = 1;
+              break;
+
+            case 'budget':
+              budgetValidation.style.opacity = 1;
+              break;
+
+            case 'neighborhoods':
+              neighborhoodsValidation.style.opacity = 1;
+              break;
+
+            case 'beds_baths':
+              badsBathsValidation.style.opacity = 1;
+              break;
+          }
+        });
+      } else {
+        sendEmail();
+      }
+    };
+
+    var sendEmail = function sendEmail() {
+      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-off-market', {
+        fullname: formElem.fullname.value,
+        email: formElem.email.value,
+        phone: formElem.phone.value,
+        budget: formElem.budget.value,
+        neighborhoods: formElem.neighborhoods.value,
+        beds_baths: formElem.beds_baths.value,
+        agent: formElem.agent.value,
+        message: formElem.message.value,
+        page: formElem.dataset.page
+      }).then(function (res) {
+        formElem.fullname.value = '';
+        formElem.email.value = '';
+        formElem.phone.value = '';
+        formElem.budget.value = '';
+        formElem.neighborhoods.value = '';
+        formElem.beds_baths.value = 'yes';
+        formElem.agent.value = '';
+        formElem.message.value = '';
+        setTimeout(function () {
+          window.location.href = '/thank-you';
+        }, 150);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    };
+
+    formElem.addEventListener('submit', function (event) {
+      event.preventDefault();
+      validateForm();
+    });
+  }
+};
+
 /***/ })
 
 /******/ 	});
@@ -179,6 +302,8 @@ var __webpack_exports__ = {};
   \****************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_about_ruth_krishnan__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/about-ruth-krishnan */ "./src/scripts/resources/about-ruth-krishnan.js");
+/* harmony import */ var _resources_form_off_market__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/form-off-market */ "./src/scripts/resources/form-off-market.js");
+
 
 document.addEventListener('DOMContentLoaded', function () {
   var playButton = document.querySelector('.marketing-video__play-btn'),
@@ -187,6 +312,7 @@ document.addEventListener('DOMContentLoaded', function () {
       video = document.querySelector('.marketing-video__video'); // External Scripts
 
   (0,_resources_about_ruth_krishnan__WEBPACK_IMPORTED_MODULE_0__.aboutRuth)();
+  (0,_resources_form_off_market__WEBPACK_IMPORTED_MODULE_1__.formOffMarket)();
   video.addEventListener('loadeddata', function () {});
   videoContainer.addEventListener('click', function () {
     video.src = video.dataset.src;

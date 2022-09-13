@@ -121,11 +121,11 @@ get_header(); ?>
   <?php get_template_part('template-parts/testimonials/testimonials'); ?>
   <!-- END Testimonials Template Part -->
 
-  <!-- Get In Touch Form Template Part -->
-  <div class="page-marketing__get-in-touch" id="get-in-touch-form">
-    <?php get_template_part('template-parts/forms/form-get-in-touch'); ?>
+  <!-- Off Market Form Template Part -->
+  <div class="page-marketing__off-market">
+    <?php get_template_part('template-parts/forms/form-off-market'); ?>
   </div>
-  <!-- END Get In Touch Form Template Part -->
+  <!-- END Off Market Form Template Part -->
 
 </div>
 
