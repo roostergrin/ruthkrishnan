@@ -9,17 +9,25 @@
     @include container
     @include desktop
       max-width: calc(#{$max-width} - #{$outside-gutter})
+      padding-top: 2.5rem
     @include tablet-md
       padding: 0 2rem
       max-width: 100%
     @include phone-lg
       padding: 0 1rem
+    @include nexus
+      padding-top: 1rem
+    
     max-width: $width
+    background: $c2
+    padding-top: 2rem
+    -ms-overflow-style: none
+    scrollbar-width: none
   
   &__column
-    @include col(8)
-    @include col--offset(2)
-    background: $c2
+    @include col(6)
+    // @include col--offset(2)
+    // background: $c2
 
   &__tooltip
     @include nexus

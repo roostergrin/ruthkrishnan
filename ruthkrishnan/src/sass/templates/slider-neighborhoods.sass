@@ -5,6 +5,44 @@
 .slider-neighborhoods
   @extend %section-margins
   overflow: hidden
+  
+  &__score
+    width: 33%
+    &-content
+      font-weight: 700
+    &-row
+      display: flex
+      padding-bottom: 0.5rem
+      border-bottom: 2px solid $c4
+
+  &__price
+    @include tablet-lg
+      width: 50%
+    width: 33%
+    &-heading
+      @include tablet-lg
+        @include desktop
+          font-size: rem-calc(20)
+        line-height: 1.3333
+        letter-spacing: rem-calc(1.5)
+        font-size: rem-calc(18)
+        font-weight: 500
+        width: 100%
+        padding-bottom: 0.5rem
+      width: 33%
+
+    &-content
+      font-weight: 700
+    &-row
+      display: flex
+      flex-wrap: wrap
+      padding-top: 1rem
+      padding-bottom: 0.5rem
+      border-bottom: 2px solid $c4
+    &-median
+      padding-right: 2rem
+
+
   &__pagination
     &-container
       display: flex
@@ -157,45 +195,45 @@
     transition: transform .5s ease
     width: 100%
 
-  &__slide
-    @include col(4)
-    @include desktop
-      min-width: calc((4 / 12) * #{$max-width})
-      height: calc(((4 / 12) * #{$max-width}) - 2rem)
-    @include tablet
-      padding: 0 1rem
-      min-width: 60vw
-      height: calc(60vw - 2rem)
-    @include phone-lg
-      padding: 0 1rem
-      min-width: 80vw
-      height: calc(80vw - 2rem)
-    position: relative
-    transition: opacity .5s ease
-    opacity: .32
-    cursor: pointer
-    padding: 0 1rem
-    min-width: calc((4 / 12) * #{$width})
-    height: calc(((4 / 12) * #{$width}) - 2rem)
+  // &__slide
+  //   @include col(4)
+  //   @include desktop
+  //     min-width: calc((4 / 12) * #{$max-width})
+  //     height: calc(((4 / 12) * #{$max-width}) - 2rem)
+  //   @include tablet
+  //     padding: 0 1rem
+  //     min-width: 60vw
+  //     height: calc(60vw - 2rem)
+  //   @include phone-lg
+  //     padding: 0 1rem
+  //     min-width: 80vw
+  //     height: calc(80vw - 2rem)
+  //   position: relative
+  //   transition: opacity .5s ease
+  //   opacity: .32
+  //   cursor: pointer
+  //   padding: 0 1rem
+  //   min-width: calc((4 / 12) * #{$width})
+  //   height: calc(((4 / 12) * #{$width}) - 2rem)
 
-    &--curr
-      opacity: 1
-      z-index: 1
+  //   &--curr
+  //     opacity: 1
+  //     z-index: 1
 
-  &__image-container
-    position: relative
-    background: $gray
-    width: 100%
-    height: 100%
+  // &__image-container
+  //   position: relative
+  //   background: $gray
+  //   width: 100%
+  //   height: 100%
 
-  &__image
-    @extend %absolute
-    transition: filter .5s ease
-    object-fit: cover
-    filter: grayscale(100%)
+  // &__image
+  //   @extend %absolute
+  //   transition: filter .5s ease
+  //   object-fit: cover
+  //   filter: grayscale(100%)
 
-    .slider-neighborhoods__slide--curr &
-      filter: grayscale(0%)
+  //   .slider-neighborhoods__slide--curr &
+  //     filter: grayscale(0%)
 
   &__content-container
     @include container
@@ -211,11 +249,6 @@
     width: 100%
     height: 5rem
 
-  &__content-column
-    @include col(9)
-    @include col--offset(1)
-    position: relative
-
   &__content-wrapper
     @extend %absolute
     transition: opacity .5s ease
@@ -228,13 +261,13 @@
       pointer-events: auto
 
   &__content
-    @include desktop
-      padding-top: 2.5rem
-    @include nexus
-      padding-top: 0
-    padding-top: 2rem
-    -ms-overflow-style: none
-    scrollbar-width: none
+    // @include desktop
+    //   padding-top: 2.5rem
+    // @include nexus
+    //   padding-top: 0
+    // padding-top: 2rem
+    // -ms-overflow-style: none
+    // scrollbar-width: none
 
     &::-webkit-scrollbar
       display: none
