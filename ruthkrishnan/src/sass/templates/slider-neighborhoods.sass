@@ -10,38 +10,38 @@
     width: 33%
     &-content
       font-weight: 700
+      line-height: 1.2
+    &-label
+      line-height: 1.2
     &-row
       display: flex
-      padding-bottom: 0.5rem
+      padding-bottom: 0.75rem
       border-bottom: 2px solid $c4
 
   &__price
-    @include tablet-lg
-      width: 50%
-    width: 33%
+    width: 50%
     &-heading
-      @include tablet-lg
-        @include desktop
-          font-size: rem-calc(20)
-        line-height: 1.3333
-        letter-spacing: rem-calc(1.5)
-        font-size: rem-calc(18)
-        font-weight: 500
-        width: 100%
-        padding-bottom: 0.5rem
-      width: 33%
-
+      @include desktop
+        font-size: rem-calc(20)
+      line-height: 1.3333
+      letter-spacing: rem-calc(1.5)
+      font-size: rem-calc(18)
+      font-weight: 500
+      width: 100%
     &-content
       font-weight: 700
+      line-height: 1.2
+    &-label
+      line-height: 1.2
     &-row
       display: flex
       flex-wrap: wrap
-      padding-top: 1rem
-      padding-bottom: 0.5rem
-      border-bottom: 2px solid $c4
-    &-median
-      padding-right: 2rem
+      margin-top: 0.75rem
+      margin-bottom: 0.75rem
 
+  &__description
+    padding-top: 0.75rem
+    border-top: 2px solid $c4
 
   &__pagination
     &-container
@@ -63,11 +63,20 @@
       background: $c3
       height: 6px
 
+  &__empty-state
+    display: flex
+    justify-content: center
+    align-items: center
+    min-height: rem-calc(450)
+    // height: 200vw
+    &-content
+      @extend %h3
   &__carousel
     &-controls
       &-container
+        @include tablet
+          order: -1
         display: flex
-        margin-top: 1rem
     &-progress
       width: 100%
       height: 20px
@@ -181,6 +190,8 @@
     transition: height .3s ease
     padding: 0 2rem
     overflow: hidden
+    flex-direction: column
+    display: flex
     
   &__slider-container
     @include container
@@ -237,7 +248,9 @@
 
   &__content-container
     @include container
+    height: 100%
     flex-direction: column
+    // overflow: hidden
 
   &__content-fade
     position: absolute
@@ -273,6 +286,7 @@
       display: none
 
     &-container
+      height: rem-calc(450)
       transition: height .5s ease
 
     &-title

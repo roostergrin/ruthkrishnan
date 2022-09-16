@@ -2,6 +2,118 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/resources/USDFormat.js":
+/*!********************************************!*\
+  !*** ./src/scripts/resources/USDFormat.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "USDFormatterDec": () => (/* binding */ USDFormatterDec),
+/* harmony export */   "USDFormatterNoDec": () => (/* binding */ USDFormatterNoDec)
+/* harmony export */ });
+var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  // These options are needed to round to whole numbers if that's what you want.
+  minimumFractionDigits: 0,
+  // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+  maximumFractionDigits: 0 // (causes 2500.99 to be printed as $2,501)
+
+});
+var USDFormatterDec = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD" // These options are needed to round to whole numbers if that's what you want.
+  // minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+  // maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+
+});
+
+/***/ }),
+
+/***/ "./src/scripts/resources/map-icon.js":
+/*!*******************************************!*\
+  !*** ./src/scripts/resources/map-icon.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "mapZoom": () => (/* binding */ mapZoom)
+/* harmony export */ });
+var mapZoom = function mapZoom() {
+  var zoomInBtn = document.getElementById("map-neighborhoods__zoom-in"),
+      zoomOutBtn = document.getElementById("map-neighborhoods__zoom-out"),
+      wrapper = document.getElementById("map-neighborhoods__wrapper"),
+      container = Array.from(document.getElementsByClassName("map-neighborhoods__icon"))[0],
+      panScrollStartX = null,
+      panScrollStartY = null,
+      panActive = false,
+      panStartX = null,
+      panStartY = null;
+  wrapper.addEventListener("mousedown", handlePanScrollMouseDown);
+  window.addEventListener("mousemove", handlePanScrollMouseMove);
+  window.addEventListener("mouseup", handlePanScrollMouseUp);
+  zoomInBtn.addEventListener("click", function () {
+    return handleZoom("increase");
+  });
+  zoomOutBtn.addEventListener("click", function () {
+    return handleZoom("decrease");
+  });
+
+  function handlePanScrollMouseDown(event) {
+    console.log('handlePanScrollMouseDown', event);
+    container.style.cursor = "grabbing";
+    panScrollStartX = wrapper.scrollLeft;
+    panScrollStartY = wrapper.scrollTop;
+    panStartX = event.clientX;
+    panStartY = event.clientY;
+    panActive = true;
+  }
+
+  ;
+
+  function handlePanScrollMouseMove(event) {
+    console.log('handlePanScrollMouseMove', panActive);
+    event.preventDefault();
+
+    if (panActive) {
+      var currPosX = event.clientX;
+      var currPosY = event.clientY;
+      var top = panScrollStartY + (panStartY - currPosY);
+      var left = panScrollStartX + (panStartX - currPosX);
+      wrapper.scrollTop = top;
+      wrapper.scrollLeft = left;
+    }
+  }
+
+  ;
+
+  function handlePanScrollMouseUp(event) {
+    console.log('handlePanScrollMouseUp', event);
+    container.style.cursor = "grab";
+    panActive = false;
+  }
+
+  ;
+
+  function handleZoom(control) {
+    if (control === "increase") {
+      var width = +container.clientWidth;
+      if (width < 1500) container.style.width = "".concat(width * 1.2, "px");
+    } else {
+      var _width = +container.clientWidth;
+
+      if (_width > 500) container.style.width = "".concat(_width * 0.8, "px");
+    }
+  }
+
+  ;
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/slider-neighborhoods.js":
 /*!*******************************************************!*\
   !*** ./src/scripts/resources/slider-neighborhoods.js ***!
@@ -12,45 +124,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "sliderNeighborhoods": () => (/* binding */ sliderNeighborhoods)
 /* harmony export */ });
+/* harmony import */ var _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./USDFormat.js */ "./src/scripts/resources/USDFormat.js");
+/* harmony import */ var _resources_map_icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/map-icon */ "./src/scripts/resources/map-icon.js");
+
+
 var sliderNeighborhoods = function sliderNeighborhoods() {
-  var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    // These options are needed to round to whole numbers if that's what you want.
-    minimumFractionDigits: 0,
-    // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-    maximumFractionDigits: 0 // (causes 2500.99 to be printed as $2,501)
-
-  });
-  var USDFormatterDec = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD" // These options are needed to round to whole numbers if that's what you want.
-    // minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-    // maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
-
-  });
+  (0,_resources_map_icon__WEBPACK_IMPORTED_MODULE_1__.mapZoom)();
   var slides = Array.from(document.querySelectorAll(".slider-neighborhoods__slide")),
-      slideWrapper = document.querySelector(".slider-neighborhoods__track"),
+      // contents = Array.from( document.querySelectorAll(".slider-neighborhoods__content-wrapper"))
+  slideWrapper = document.querySelector(".slider-neighborhoods__track"),
       contentWrapper = Array.from(document.querySelectorAll(".slider-neighborhoods__content-wrapper")),
-      contentColumn = document.querySelector(".slider-neighborhoods__content-column"),
-      content = Array.from(document.querySelectorAll(".slider-neighborhoods__content")),
       iconArr = document.querySelectorAll(".map-neighborhoods__icon-neighborhood"),
       tooltipContainer = document.querySelector(".map-neighborhoods__tooltip"),
       tooltipContent = document.getElementById("tooltip-content"),
       closeContainer = document.getElementById("tooltip-close"),
       nextArrow = document.getElementById("next"),
       prevArrow = document.getElementById("previous"),
-      paginationIndicator = document.getElementById("pagination-indicator"),
-      rktHotScore = document.getElementById("rkt-hot-score"),
-      rktHotScoreText = document.getElementById("rkt-hot-score-text");
-  var loc = window.location.pathname;
-  var locArray = loc.split("/");
-  var currentNeighborhood = locArray[locArray.length - 2];
+      emptyState = document.getElementById("empty-state"),
+      paginationIndicator = document.getElementById("pagination-indicator");
   var debounceLastTimeout = null,
-      sectionActive = false,
-      maxTrackLength; // * Build slide array of objects *
+      sectionActive = false; // * Build slide array of objects *
 
-  var allSlides = slides.map(function (el, i) {
+  var allSlides = contentWrapper.map(function (el, i) {
     return {
       name: el.dataset.name,
       neighborhood: el.dataset.neighborhood,
@@ -63,17 +158,27 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       category: el.dataset.category
     };
   });
+  allSlides.forEach(function (slide) {
+    slide.elem.querySelector('[id^="transit-score-"]').innerHTML = slide.transitscore;
+    slide.elem.querySelector('[id^="walk-score-"]').innerHTML = slide.walkscore; // slide.elem.querySelector('[id^="weather-score-"]').innerHTML = slide.weather
+
+    slide.elem.querySelector('[id^="single-median-price-display-"]').innerHTML = slide.HJISingleMonthly.result.measurements.salePrice.median ? _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterNoDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median) : 'no house data';
+    slide.elem.querySelector('[id^="single-sq-ft-price-display-"]').innerHTML = slide.HJISingleMonthly.result.measurements.salePrice.median ? _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median / slide.HJISingleMonthly.result.measurements.size.median) : 'no house data';
+    slide.elem.querySelector('[id^="condo-median-price-display-"]').innerHTML = slide.HJICondoMonthly.result.measurements.salePrice.median ? _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterNoDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median) : 'no condo data';
+    slide.elem.querySelector('[id^="condo-sq-ft-price-display-"]').innerHTML = slide.HJICondoMonthly.result.measurements.salePrice.median ? _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median / slide.HJICondoMonthly.result.measurements.size.median) : 'no condo data';
+  }); // Update content on slide 
+  // run through all the slides, 
+  // swap the child's inner html
+  // * filter and index slides *
+
   var slidesArr = allSlides.filter(function (slide) {
-    return slide.category === "active";
+    return slide.category === "active" || slide.category === "coming-soon";
   });
   slidesArr.forEach(function (slide, i) {
     slide.position = i;
-  });
-  console.log(allSlides); // TODO find max length and min length and set up a table/ list of them
+  }); // * sets slide to currently selected *
 
-  maxTrackLength = document.querySelector(".slider-neighborhoods__slide").clientWidth * slidesArr.length; // * move slides *
-
-  var changeSlide = function changeSlide(el, pos) {
+  var setSlide = function setSlide(el, pos) {
     slideWrapper.style.transform = "translate3d(".concat(el.clientWidth * -pos - 16, "px, 0, 0)");
     slidesArr.forEach(function (slide) {
       if (slide.position === pos) {
@@ -84,9 +189,188 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     });
     paginationIndicator.style.width = "".concat(pos / slidesArr.length * 100, "%");
     sectionActive ? closeToolTip() : null;
-  }; // finds the min and max of condos and single
-  // initializes min and max
+  }; // * set the active content slide by adding active class *
 
+
+  var setContent = function setContent(i) {
+    emptyState.style.opacity = 0;
+    contentWrapper.forEach(function (el) {
+      +el.dataset.index === i ? el.classList.add("slider-neighborhoods__content-wrapper--active") : el.classList.remove("slider-neighborhoods__content-wrapper--active");
+    });
+  }; // * set the highlight on the neighborhood map *
+
+
+  var setHighlight = function setHighlight(el) {
+    iconArr.forEach(function (icon) {
+      if (icon.dataset.name !== el.neighborhood) {
+        icon.classList.add("map-neighborhoods__icon-neighborhood--deactive");
+        icon.classList.remove("map-neighborhoods__icon-neighborhood--active");
+      } else {
+        icon.classList.add("map-neighborhoods__icon-neighborhood--active");
+        icon.classList.remove("map-neighborhoods__icon-neighborhood--deactive");
+      }
+    });
+  }; // * set map, content, and slide when the neighborhood map icon is clicked *
+
+
+  var setMapIcon = function setMapIcon(targetEl) {
+    slidesArr.forEach(function (el) {
+      if (el.neighborhood === targetEl.dataset.name) {
+        setSlide(el.elem, el.position);
+        setContent(el.position); // active map icon
+
+        targetEl.classList.add("map-neighborhoods__icon-neighborhood--active");
+      }
+    });
+  }; // * Add event listener to all slides *
+
+
+  slidesArr.forEach(function (el, i) {
+    el.elem.addEventListener("click", function () {
+      setHighlight(el);
+      setContent(el.position);
+      setSlide(el.elem, el.position);
+    });
+  }); // * helper function for the neighborhood map
+
+  var activateNeighborhoodOpacity = function activateNeighborhoodOpacity(el) {
+    var activeEl = allSlides.find(function (elem) {
+      return elem.neighborhood === el.dataset.name;
+    });
+
+    if (activeEl) {
+      el.classList.add("map-neighborhoods__icon-neighborhood--matched");
+    }
+  }; // * add event listeners and activate neighborhood map opacity *
+
+
+  iconArr.forEach(function (el) {
+    activateNeighborhoodOpacity(el);
+    el.addEventListener("click", function () {
+      closeToolTip();
+      setHighlight(el);
+      setMapIcon(el);
+    }); // el.addEventListener("mouseenter", (event) => {
+    //   if (value === "single median sale price") {
+    //     closeToolTip();
+    //     openTooltip(event, el);
+    //     tooltipContainer.style.pointerEvents = "none";
+    //     closeContainer.style.display = "none";
+    //   } else {
+    //     tooltipContainer.style.pointerEvents = "auto";
+    //     closeContainer.style.display = "block";
+    //   }
+    // });
+  });
+
+  var closeToolTip = function closeToolTip() {
+    if (sectionActive) {
+      tooltipContainer.style.opacity = 0;
+      tooltipContainer.style.pointerEvents = "auto";
+      sectionActive.classList.add("map-neighborhoods__icon-neighborhood--matched");
+      sectionActive = false;
+    }
+  };
+
+  var openTooltip = function openTooltip(event, el) {
+    var targetEl = allSlides.find(function (elem) {
+      return elem.neighborhood === el.dataset.name;
+    });
+    var mapContent = "";
+
+    if (!sectionActive) {
+      // add tooltip information
+      mapContent += "<div class='map-neighborhoods__tooltip-title'>".concat(targetEl.name, "</div>"); // Create our number formatter.
+
+      if (targetEl.HJICondoMonthly) {
+        if (targetEl.HJICondoMonthly.result.measurements) {
+          // console.log(targetEl.HJISingleMonthly.result);
+          // console.log(targetEl.HJICondoMonthly.result);
+          if (targetEl.HJISingleMonthly.result.measurements.salePrice.median != 0) {
+            mapContent += "<div class='map-neighborhoods__tooltip-info'>House Median Price: ".concat(_USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterNoDec.format(targetEl.HJISingleMonthly.result.measurements.salePrice.median), "<br> Median $/SqFt: ").concat(_USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterDec.format(targetEl.HJISingleMonthly.result.measurements.salePrice.median / targetEl.HJISingleMonthly.result.measurements.size.median), "/sf</div>");
+          }
+
+          if (targetEl.HJICondoMonthly.result.measurements.salePrice.median != 0) mapContent += "<div class='map-neighborhoods__tooltip-info'>2BR/2BA Condo Median Price: ".concat(_USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterNoDec.format(targetEl.HJICondoMonthly.result.measurements.salePrice.median), "<br> Median $/SqFt: ").concat(_USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterDec.format(targetEl.HJICondoMonthly.result.measurements.salePrice.median / targetEl.HJICondoMonthly.result.measurements.size.median), "/sf</div>");
+          mapContent += "<p style='font-size:0.75em;'>(click on neighborhood to learn more below)<p>";
+        }
+      } // append tooltip information
+
+
+      tooltipContent.innerHTML = mapContent; // show tooltip info window
+
+      tooltipContainer.style.opacity = 1;
+      tooltipContainer.style.pointerEvents = "no"; // keep info window on screen (no overflow)
+
+      if (event.clientY - 110 < tooltipContainer.clientHeight + 32) {
+        tooltipContainer.style.top = "".concat(event.pageY, "px");
+      } else {
+        tooltipContainer.style.top = "".concat(event.pageY - tooltipContainer.clientHeight - 5, "px");
+      }
+
+      if (window.innerWidth < 601) {
+        tooltipContainer.style.left = "50%";
+        tooltipContainer.style.transform = "translateX(-50%)";
+      } else if (event.clientX < tooltipContainer.clientWidth / 2 + 32) {
+        tooltipContainer.style.left = "".concat(event.pageX + 16, "px");
+      } else if (window.innerWidth - event.pageX < tooltipContainer.clientWidth / 2 + 32) {
+        tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth, "px");
+      } else {
+        tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth / 2, "px");
+      }
+
+      iconArr.forEach(function (icon) {
+        if (icon.dataset.name !== el.dataset.name) {
+          icon.classList.add("map-neighborhoods__icon-neighborhood--deactive");
+        } else {
+          icon.classList.remove("map-neighborhoods__icon-neighborhood--deactive");
+          icon.classList.remove("map-neighborhoods__icon-neighborhood--matched");
+        }
+      });
+      sectionActive = el;
+    }
+  }; // go to the next slide
+
+
+  var toNextSlide = function toNextSlide() {
+    var currElem = document.querySelector(".slider-neighborhoods__slide--curr"),
+        currSlide = slidesArr.find(function (el) {
+      return el.name === currElem.dataset.name;
+    }),
+        nextSlide = slidesArr.find(function (el) {
+      return el.position === currSlide.position + 1;
+    });
+
+    if (nextSlide) {
+      setHighlight(nextSlide);
+      setSlide(nextSlide.elem, nextSlide.position);
+      setContent(nextSlide.position);
+    }
+  }; // go to the previous slide
+
+
+  var toPrevSlide = function toPrevSlide() {
+    var currElem = document.querySelector(".slider-neighborhoods__slide--curr"),
+        currSlide = slidesArr.find(function (el) {
+      return el.name === currElem.dataset.name;
+    }),
+        prevSlide = slidesArr.find(function (el) {
+      return el.position === currSlide.position - 1;
+    });
+
+    if (prevSlide) {
+      setHighlight(prevSlide);
+      setSlide(prevSlide.elem, prevSlide.position);
+      setContent(prevSlide.position);
+    }
+  };
+
+  nextArrow.addEventListener("click", function (e) {
+    toNextSlide();
+  });
+  prevArrow.addEventListener("click", function (e) {
+    toPrevSlide();
+  }); // finds the min and max of condos and single
+  // initializes min and max
 
   var minMedianSingle = allSlides[1].HJISingleMonthly.result.measurements.salePrice.median;
   var maxMedianSingle = allSlides[0].HJISingleMonthly.result.measurements.salePrice.median;
@@ -106,45 +390,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
         if (slide.HJICondoMonthly.result.measurements.salePrice.median > maxMedianCondo) maxMedianCondo = slide.HJICondoMonthly.result.measurements.salePrice.median;
       }
     }
-  }); // initializes min and max
-
-  var minHotScoreHouse = calculateHotScore(allSlides[1].HJISingleMonthly.result.measurements);
-  var maxHotScoreHouse = calculateHotScore(allSlides[0].HJISingleMonthly.result.measurements);
-  var minHotScoreCondo = calculateHotScore(allSlides[0].HJICondoMonthly.result.measurements);
-  var maxHotScoreCondo = calculateHotScore(allSlides[0].HJICondoMonthly.result.measurements);
-
-  function calculateHotScore(measurements) {
-    if (measurements.salePrice.average != 0 && measurements.listPrice.average != 0 && measurements.daysOnMarket.median != 0) {
-      return measurements.salePrice.average / measurements.listPrice.average / measurements.daysOnMarket.median * 1000;
-    }
-  }
-
-  allSlides.forEach(function (slide) {
-    if (slide.HJISingleMonthly.result) {
-      if (slide.HJISingleMonthly.result.count != 0) {
-        if (calculateHotScore(slide.HJISingleMonthly.result.measurements) != 0) {
-          if (calculateHotScore(slide.HJISingleMonthly.result.measurements) < minHotScoreHouse) minHotScoreHouse = calculateHotScore(slide.HJISingleMonthly.result.measurements);
-          if (calculateHotScore(slide.HJISingleMonthly.result.measurements) > maxHotScoreHouse) maxHotScoreHouse = calculateHotScore(slide.HJISingleMonthly.result.measurements);
-        }
-      }
-    }
-
-    if (slide.HJISingleMonthly.result) {
-      if (slide.HJICondoMonthly.result.count != 0) {
-        if (calculateHotScore(slide.HJICondoMonthly.result.measurements) != 0) {
-          if (calculateHotScore(slide.HJICondoMonthly.result.measurements) < minHotScoreCondo) minHotScoreCondo = calculateHotScore(slide.HJICondoMonthly.result.measurements);
-          if (calculateHotScore(slide.HJICondoMonthly.result.measurements) > maxHotScoreCondo) maxHotScoreCondo = calculateHotScore(slide.HJICondoMonthly.result.measurements);
-        }
-      }
-    }
-  });
-  console.log(minHotScoreHouse);
-  console.log(maxHotScoreHouse);
-  console.log(minHotScoreCondo);
-  console.log(maxHotScoreCondo);
-  var minHotScore = minHotScoreCondo < minHotScoreHouse ? minHotScoreCondo : minHotScoreHouse;
-  var maxHotScore = maxHotScoreCondo > maxHotScoreHouse ? maxHotScoreCondo : maxHotScoreHouse;
-  console.log(minHotScore, maxHotScore); // normalize data to 0-1 range
+  }); // normalize data to 0-1 range
 
   function scaleRange(x, min, max) {
     // console.log((x - min) / (max - min))
@@ -152,8 +398,6 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }
 
   var weatherPallette = ["#365060", "#196C55", "#447211", "#8954BE", "#8D3C8E", "#6C190D"];
-  var weatherValueArr = ["foggy with heavy winds", "with some fog and light winds", "a mixture of foggy and clear days, light winds", "with some fog and light winds", "clear skies and heavy winds", "clear skies and light winds"];
-  var weatherValueArrPivot = ["cold", "cool to moderate", "moderate to hot"];
   var weatherValues = [{
     temperature: "cold:",
     weatherGroup: [{
@@ -183,7 +427,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     }]
   }];
 
-  function colorWeather(weather, weatherPallette, weatherValueArr) {
+  function colorWeather(weather, weatherPallette) {
     switch (weather) {
       case "cold & foggy with heavy winds":
         return weatherPallette[0];
@@ -241,7 +485,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
             max = maxMedianSingle;
             domain = slide.HJISingleMonthly.result.measurements.salePrice.median;
             color = "hsl(0, 41%, ".concat(Math.abs(scaleRange(domain, min, max) * 50 - 50), "%)");
-            updateLegendGradientScale(legend, "hsl(0,41%,50%)", "hsl(0,41%,0%)", USDFormatterNoDec.format(min), USDFormatterNoDec.format(max)); // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
+            updateLegendGradientScale(legend, "hsl(0,41%,50%)", "hsl(0,41%,0%)", _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterNoDec.format(min), _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterNoDec.format(max)); // color = `hsl(${scaleRange(domain, min, max) * 255}, 41%, 50%)`
             // color = `hsl(0, 41%, ${Math.abs((scaleRange(domain, min, max) * 100)-100)}%)`
           } else if (value == "transit score" && !inactiveNeighborhoods.includes(icon.dataset.name)) {
             domain = slide.transitscore;
@@ -300,12 +544,11 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
         });
       });
     }
-  } // call transit score
-
+  }
 
   colorIconArr("transit score");
   var filtersArr = Array.from(document.querySelectorAll(".slider-neighborhoods__filter"));
-  var value = 'transit score';
+  var value = "transit score";
   filtersArr.forEach(function (el) {
     el.addEventListener("click", function () {
       if (!el.classList.contains("slider-neighborhoods__filter--active")) {
@@ -327,301 +570,10 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       closeToolTip();
       colorIconArr(value);
     });
-  });
-  console.log(value); // * set the correct slide active on first load *
+  }); // console.log(value);
+  // * set the correct slide active on first load *
 
-  changeSlide(slidesArr[0].elem, 0); // * set height of column to be the height of largest content *
-
-  var setContentHeight = function setContentHeight() {
-    var currSlide = document.querySelector(".slider-neighborhoods__content-wrapper--active").children[0],
-        contentContainer = document.querySelector(".slider-neighborhoods__content-container");
-    contentContainer.style.height = "".concat(currSlide.scrollHeight + 18, "px");
-  }; // * change the active content slide by adding active class *
-
-
-  var changeContent = function changeContent(i) {
-    contentWrapper.forEach(function (el) {
-      +el.dataset.index === i ? el.classList.add("slider-neighborhoods__content-wrapper--active") : el.classList.remove("slider-neighborhoods__content-wrapper--active"); // not sure if this is working.
-    });
-    setContentHeight();
-  }; // * set the correct content active on first load *
-
-
-  changeContent(0);
-
-  var highlight = function highlight(el) {
-    iconArr.forEach(function (icon) {
-      if (icon.dataset.name !== el.neighborhood) {
-        icon.classList.add("map-neighborhoods__icon-neighborhood--deactive");
-      } else {
-        icon.classList.remove("map-neighborhoods__icon-neighborhood--deactive");
-      }
-    });
-  }; // * Add event listener to all slides *
-
-
-  slidesArr.forEach(function (el, i) {
-    el.elem.addEventListener("click", function () {
-      highlight(el);
-      changeSlide(el.elem, el.position);
-      changeContent(el.position);
-    });
-  }); // * change content and slide when neigborhood in map clicked *
-
-  var mapSelectNeighborhood = function mapSelectNeighborhood(targetEl) {
-    var slider = document.querySelector(".slider-neighborhoods__slider"),
-        contentContainer = document.querySelector(".slider-neighborhoods__content-container");
-    iconArr.forEach(function (icon) {
-      return icon.classList.contains("map-neighborhoods__icon-neighborhood--active") ? icon.classList.remove("map-neighborhoods__icon-neighborhood--active") : null;
-    });
-    var activeElem = allSlides.find(function (el) {
-      return el.neighborhood === targetEl.dataset.name;
-    });
-
-    if (activeElem.category === "active" && activeElem.neighborhood !== currentNeighborhood) {
-      slidesArr.forEach(function (el) {
-        if (el.neighborhood === targetEl.dataset.name) {
-          changeSlide(el.elem, el.position);
-          changeContent(el.position);
-          targetEl.classList.add("map-neighborhoods__icon-neighborhood--active");
-        }
-      });
-    } else {
-      contentContainer.style.height = "0px";
-      allSlides.forEach(function (el) {
-        return el.elem.classList.remove("slider-neighborhoods__slide--curr");
-      });
-    }
-  };
-
-  var closeToolTip = function closeToolTip() {
-    if (sectionActive) {
-      tooltipContainer.style.opacity = 0;
-      tooltipContainer.style.pointerEvents = "auto";
-      sectionActive.classList.add("map-neighborhoods__icon-neighborhood--matched");
-      sectionActive = false;
-    }
-  };
-
-  var openTooltip = function openTooltip(event, el) {
-    var targetEl = allSlides.find(function (elem) {
-      return elem.neighborhood === el.dataset.name;
-    });
-    var mapContent = "";
-
-    if (!sectionActive) {
-      // add tooltip information
-      mapContent += "<div class='map-neighborhoods__tooltip-title'>".concat(targetEl.name, "</div>");
-
-      if (targetEl.mapinfo) {
-        if (targetEl.mapinfo.information) {
-          targetEl.mapinfo.information.forEach(function (info) {
-            mapContent += "<div class='map-neighborhoods__tooltip-info'>".concat(info.text, "</div>");
-          });
-        }
-      } // Create our number formatter.
-
-
-      if (targetEl.HJICondoMonthly) {
-        if (targetEl.HJICondoMonthly.result.measurements) {
-          // console.log(targetEl.HJISingleMonthly.result);
-          // console.log(targetEl.HJICondoMonthly.result);
-          if (targetEl.HJISingleMonthly.result.measurements.salePrice.median != 0) {
-            mapContent += "<div class='map-neighborhoods__tooltip-info'>House Median Price: ".concat(USDFormatterNoDec.format(targetEl.HJISingleMonthly.result.measurements.salePrice.median), "<br> Median $/SqFt: ").concat(USDFormatterDec.format(targetEl.HJISingleMonthly.result.measurements.salePrice.median / targetEl.HJISingleMonthly.result.measurements.size.median), "/sf</div>");
-          }
-
-          if (targetEl.HJICondoMonthly.result.measurements.salePrice.median != 0) mapContent += "<div class='map-neighborhoods__tooltip-info'>2BR/2BA Condo Median Price: ".concat(USDFormatterNoDec.format(targetEl.HJICondoMonthly.result.measurements.salePrice.median), "<br> Median $/SqFt: ").concat(USDFormatterDec.format(targetEl.HJICondoMonthly.result.measurements.salePrice.median / targetEl.HJICondoMonthly.result.measurements.size.median), "/sf</div>");
-          mapContent += "<p style='font-size:0.75em;'>(click on neighborhood to learn more below)<p>";
-        }
-      } // append tooltip information
-
-
-      tooltipContent.innerHTML = mapContent; // show tooltip info window
-
-      tooltipContainer.style.opacity = 1;
-      tooltipContainer.style.pointerEvents = "no"; // keep info window on screen (no overflow)
-
-      if (event.clientY - 110 < tooltipContainer.clientHeight + 32) {
-        tooltipContainer.style.top = "".concat(event.pageY, "px");
-      } else {
-        tooltipContainer.style.top = "".concat(event.pageY - tooltipContainer.clientHeight - 5, "px");
-      }
-
-      if (window.innerWidth < 601) {
-        tooltipContainer.style.left = "50%";
-        tooltipContainer.style.transform = "translateX(-50%)";
-      } else if (event.clientX < tooltipContainer.clientWidth / 2 + 32) {
-        tooltipContainer.style.left = "".concat(event.pageX + 16, "px");
-      } else if (window.innerWidth - event.pageX < tooltipContainer.clientWidth / 2 + 32) {
-        tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth, "px");
-      } else {
-        tooltipContainer.style.left = "".concat(event.pageX - tooltipContainer.clientWidth / 2, "px");
-      }
-
-      iconArr.forEach(function (icon) {
-        if (icon.dataset.name !== el.dataset.name) {
-          icon.classList.add("map-neighborhoods__icon-neighborhood--deactive");
-        } else {
-          icon.classList.remove("map-neighborhoods__icon-neighborhood--deactive");
-          icon.classList.remove("map-neighborhoods__icon-neighborhood--matched");
-        }
-      });
-      sectionActive = el;
-    }
-  }; // close tooltip
-
-
-  closeContainer.addEventListener("click", function () {
-    closeToolTip();
-  }); // * add event listener to all map neighborhoods *
-
-  iconArr.forEach(function (el) {
-    var activeEl = allSlides.find(function (elem) {
-      return elem.neighborhood === el.dataset.name;
-    });
-
-    if (activeEl) {
-      el.classList.add("map-neighborhoods__icon-neighborhood--matched");
-    }
-
-    el.addEventListener("click", function (event) {
-      mapSelectNeighborhood(el);
-      closeToolTip();
-      openTooltip(event, el);
-    });
-    el.addEventListener("mouseenter", function (event) {
-      if (value === 'single median sale price') {
-        closeToolTip();
-        openTooltip(event, el);
-        tooltipContainer.style.pointerEvents = "none";
-        closeContainer.style.display = "none";
-      } else {
-        tooltipContainer.style.pointerEvents = "auto";
-        closeContainer.style.display = "block";
-      }
-    });
-  }); // debounce function
-
-  var debounce = function debounce(func, args, wait, immediate) {
-    var later = function later() {
-      debounceLastTimeout = null;
-
-      if (!immediate) {
-        func(args);
-      }
-    };
-
-    var callNow = immediate && !debounceLastTimeout;
-    clearTimeout(debounceLastTimeout);
-    debounceLastTimeout = setTimeout(later, wait);
-
-    if (callNow) {
-      func(args);
-    }
-  }; // resets the slide transform
-
-
-  var reset = function reset() {
-    var currElem = document.querySelector(".slider-neighborhoods__slide--curr"),
-        currSlide = slidesArr.find(function (el) {
-      return el.name === currElem.dataset.name;
-    });
-    changeSlide(currSlide.elem, currSlide.position);
-    closeToolTip();
-    setContentHeight();
-  }; // watch screen resize to reset slide transform
-
-
-  window.addEventListener("resize", function () {
-    debounce(reset, null, 500);
-  }); // go to the next slide
-
-  var toNextSlide = function toNextSlide() {
-    var currElem = document.querySelector(".slider-neighborhoods__slide--curr"),
-        currSlide = slidesArr.find(function (el) {
-      return el.name === currElem.dataset.name;
-    }),
-        nextSlide = slidesArr.find(function (el) {
-      return el.position === currSlide.position + 1;
-    });
-
-    if (nextSlide) {
-      highlight(nextSlide);
-      changeSlide(nextSlide.elem, nextSlide.position);
-      changeContent(nextSlide.position);
-    }
-  }; // go to the previous slide
-
-
-  var toPrevSlide = function toPrevSlide() {
-    var currElem = document.querySelector(".slider-neighborhoods__slide--curr"),
-        currSlide = slidesArr.find(function (el) {
-      return el.name === currElem.dataset.name;
-    }),
-        prevSlide = slidesArr.find(function (el) {
-      return el.position === currSlide.position - 1;
-    });
-
-    if (prevSlide) {
-      highlight(prevSlide);
-      changeSlide(prevSlide.elem, prevSlide.position);
-      changeContent(prevSlide.position);
-    }
-  };
-
-  var swipedir,
-      startY,
-      distY,
-      startX,
-      distX,
-      threshold = 1,
-      allowedTime = 300,
-      elapsedTime,
-      startTime;
-
-  var handleSwipe = function handleSwipe(swipedir) {
-    if (swipedir === "left") {
-      // debounce(toNextSlide, null, 500);
-      toNextSlide();
-    }
-
-    if (swipedir === "right") {
-      // debounce(toPrevSlide, null, 500);
-      toPrevSlide();
-    }
-  };
-
-  var sliderContainer = document.getElementById("slider-container");
-  nextArrow.addEventListener("click", function (e) {
-    toNextSlide();
-  });
-  prevArrow.addEventListener("click", function (e) {
-    toPrevSlide();
-  });
-  sliderContainer.addEventListener("touchstart", function (e) {
-    var touchObj = e.changedTouches[0];
-    swipedir = "none";
-    distY = 0;
-    distX = 0;
-    startY = touchObj.pageY;
-    startX = touchObj.pageX;
-    startTime = new Date().getTime();
-  });
-  sliderContainer.addEventListener("touchmove", function (e) {
-    e.preventDefault();
-  });
-  sliderContainer.addEventListener("touchend", function (e) {
-    var touchObj = e.changedTouches[0];
-    distY = touchObj.pageY - startY;
-    distX = touchObj.pageX - startX;
-    elapsedTime = new Date().getTime() - startTime;
-
-    if (elapsedTime <= allowedTime && Math.abs(distX) > threshold && Math.abs(distY) <= 100) {
-      swipedir = distX < 0 ? "left" : "right";
-    }
-
-    handleSwipe(swipedir);
-  });
+  setSlide(slidesArr[0].elem, 0);
 };
 
 /***/ })
