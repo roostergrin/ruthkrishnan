@@ -67,9 +67,9 @@ export const sliderNeighborhoods = () => {
 
   // * sets slide to currently selected *
   const setSlide = (el, pos) => {
-    slideWrapper.style.transform = `translate3d(${
-      el.clientWidth * -pos - 16
-    }px, 0, 0)`;
+    // slideWrapper.style.transform = `translate3d(${
+    //   el.clientWidth * -pos - 16
+    // }px, 0, 0)`;
 
     slidesArr.forEach((slide) => {
       if (slide.position === pos) {

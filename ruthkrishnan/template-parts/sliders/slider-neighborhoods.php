@@ -39,12 +39,14 @@ function truncate($text, $chars = 25)
       <div id="tooltip-content" class="map-neighborhoods__tooltip-content"></div>
     </div>
     <div class="map-neighborhoods__container">
-      <div id="map-neighborhoods__wrapper" class="map-neighborhoods__column">
+      <div class="map-neighborhoods__column--map">
         <div class="map-neighborhoods__zoom-container">
           <button id="map-neighborhoods__zoom-in" class="map-neighborhoods__zoom">+</button>
           <button id="map-neighborhoods__zoom-out" class="map-neighborhoods__zoom">–</button>
         </div>
-        <?php get_template_part('icons/map', null, array('class' => 'map-neighborhoods__icon')); ?>
+        <div id="map-neighborhoods__wrapper" class="map-neighborhoods__wrapper">
+          <?php get_template_part('icons/map', null, array('class' => 'map-neighborhoods__icon')); ?>
+        </div>
         <p class="map-neighborhoods__citation">This data was pulled from MLS year to date</p>
       </div>
       <div class="map-neighborhoods__column slider-neighborhoods__slider">
@@ -60,7 +62,7 @@ function truncate($text, $chars = 25)
         $query = new WP_Query($args); ?>
 
         <!-- Loops through posts and displays the neighborhood images -->
-        <div id="slider-container" class="slider-neighborhoods__slider-container">
+        <!-- <div id="slider-container" class="slider-neighborhoods__slider-container">
           <div class="slider-neighborhoods__track">
             <?php if ($query->have_posts()) :
               while ($query->have_posts()) : $query->the_post();
@@ -81,7 +83,7 @@ function truncate($text, $chars = 25)
             <?php endwhile;
             endif; ?>
           </div>
-        </div>
+        </div> -->
         <!-- Loops through the posts and displays neighborhood descriptions -->
         <div class="slider-neighborhoods__content-container">
           <!-- <div class="slider-neighborhoods__content-fade"></div> -->

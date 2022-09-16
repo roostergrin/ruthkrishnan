@@ -47,11 +47,13 @@ export const mapZoom = () => {
   function handleZoom(control) {
     if (control === "increase") {
       const width = +container.clientWidth;
-      if (width < 1500) container.style.width = `${width * 1.2}px`;
+      if (width < 1500) container.style.width = `${width + 150}px`;
 
     } else {
+      // TODO: on mobile screens reset the width
       const width = +container.clientWidth;
-      if ( width > 500) container.style.width = `${width * 0.8}px`;
+      // if ( width > 550) 
+      container.style.width = `${width - 150}px`;
     }
   };
 };

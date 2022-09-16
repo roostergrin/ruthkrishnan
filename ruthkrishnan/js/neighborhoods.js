@@ -101,11 +101,13 @@ var mapZoom = function mapZoom() {
   function handleZoom(control) {
     if (control === "increase") {
       var width = +container.clientWidth;
-      if (width < 1500) container.style.width = "".concat(width * 1.2, "px");
+      if (width < 1500) container.style.width = "".concat(width + 150, "px");
     } else {
-      var _width = +container.clientWidth;
+      // TODO: on mobile screens reset the width
+      var _width = +container.clientWidth; // if ( width > 550) 
 
-      if (_width > 500) container.style.width = "".concat(_width * 0.8, "px");
+
+      container.style.width = "".concat(_width - 150, "px");
     }
   }
 
@@ -179,7 +181,9 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }); // * sets slide to currently selected *
 
   var setSlide = function setSlide(el, pos) {
-    slideWrapper.style.transform = "translate3d(".concat(el.clientWidth * -pos - 16, "px, 0, 0)");
+    // slideWrapper.style.transform = `translate3d(${
+    //   el.clientWidth * -pos - 16
+    // }px, 0, 0)`;
     slidesArr.forEach(function (slide) {
       if (slide.position === pos) {
         slide.elem.classList.add("slider-neighborhoods__slide--curr");
