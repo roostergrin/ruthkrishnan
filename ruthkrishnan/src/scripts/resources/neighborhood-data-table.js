@@ -1,7 +1,6 @@
 export const dataTable = () => {
+  const neighborhoodDataTable = document.getElementById("neighborhood-data-table");
   const tableElement = document.getElementById("wrapper");
-  const rktHotScore = document.getElementById("rkt-hot-score");
-  const rktHotScoreText = document.getElementById("rkt-hot-score-text");
   const residenceTypeElement = document.getElementById("residenceType");
   const single = JSON.parse(tableElement.dataset.hjisingleyearly);
   const condo = JSON.parse(tableElement.dataset.hjicondoyearly);
@@ -52,7 +51,11 @@ export const dataTable = () => {
   }
   
   const residenceType = condo.result.count > single.result.count ? condo : single
+  // updates span content to fit the correct residence type, condo or single
   residenceTypeElement.innerHTML = residenceType.residenceTypeName
+  // adds a class to the table to update styling if condo or single
+  neighborhoodDataTable.classList.add(residenceType.residenceTypeName);
+  
   residenceType.result.grouping.groups.forEach((year) => {
     salePriceAvg.push(
       USDFormatterNoDec.format(year.measurements.salePrice.average)

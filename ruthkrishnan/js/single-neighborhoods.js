@@ -513,9 +513,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "dataTable": () => (/* binding */ dataTable)
 /* harmony export */ });
 var dataTable = function dataTable() {
+  var neighborhoodDataTable = document.getElementById("neighborhood-data-table");
   var tableElement = document.getElementById("wrapper");
-  var rktHotScore = document.getElementById("rkt-hot-score");
-  var rktHotScoreText = document.getElementById("rkt-hot-score-text");
   var residenceTypeElement = document.getElementById("residenceType");
   var single = JSON.parse(tableElement.dataset.hjisingleyearly);
   var condo = JSON.parse(tableElement.dataset.hjicondoyearly);
@@ -554,8 +553,11 @@ var dataTable = function dataTable() {
     return (x - min) / (max - min);
   }
 
-  var residenceType = condo.result.count > single.result.count ? condo : single;
-  residenceTypeElement.innerHTML = residenceType.residenceTypeName;
+  var residenceType = condo.result.count > single.result.count ? condo : single; // updates span content to fit the correct residence type, condo or single
+
+  residenceTypeElement.innerHTML = residenceType.residenceTypeName; // adds a class to the table to update styling if condo or single
+
+  neighborhoodDataTable.classList.add(residenceType.residenceTypeName);
   residenceType.result.grouping.groups.forEach(function (year) {
     salePriceAvg.push(USDFormatterNoDec.format(year.measurements.salePrice.average));
     salePriceMedian.push(USDFormatterNoDec.format(year.measurements.salePrice.median));

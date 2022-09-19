@@ -89,7 +89,11 @@ function truncate($text, $chars = 25)
           <!-- <div class="slider-neighborhoods__content-fade"></div> -->
           <div class="slider-neighborhoods__content-column">
             <div id="empty-state" class="slider-neighborhoods__empty-state">
+            <?php if(is_page('neighborhoods') || is_page('buy') || is_page('what-costs-how-much-where-in-san-francisco')): ?>
               <p class="slider-neighborhoods__empty-state-content"><?php echo get_field('neighborhoods_empty_state_text', 35); ?></p>
+            <?php else : ?>
+              <p class="slider-neighborhoods__empty-state-content"><?php echo get_field('single_neighborhood_empty_state_text', 35); ?></p>
+            <?php endif; ?>
             </div>
             <?php
             $active_args = array(

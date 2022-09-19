@@ -26,12 +26,16 @@
     scrollbar-width: none
 
   &__column
+    @include desktop
+      height: unset
+    @include phone-land-lg
+      width: 50% !important
     @include col(6)
     position: relative
     height: rem-calc(500)
-    @include phone-land-lg
-      width: 50% !important
     &--map
+      @include desktop
+        height: unset
       @include tablet
         height: 90vw
       @include phone-land-lg

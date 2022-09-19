@@ -183,6 +183,22 @@ get_header(); ?>
 			</div>
 			<!-- END CTA Text & Button Template Part -->
 
+			
+			<!-- Photo Gallery Template Part -->
+			<?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
+			<!-- END Photo Gallery Template Part -->
+
+			<div class="single-neighborhoods-intro">
+				<div class="single-neighborhoods-intro__container">
+					<div class="single-neighborhoods-intro__column">
+						<h2 class="single-neighborhoods-intro__title"><?php echo get_field('neighborhoods_intro_title', 35); ?></h2>
+						<div class="single-neighborhoods-intro__text"><?php echo get_field('neighborhoods_intro_text', 35); ?></div>
+					</div>
+				</div>
+			</div>
+			<!-- Slider Template Part -->
+			<?php get_template_part('template-parts/sliders/slider-neighborhoods'); ?>
+			<!-- END Slider Template Part -->
 			<div class="resources-links">
 				<div class="resources-links__container">
 					<img width="1280" height="572" src="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg" class="resources-links__background entered lazyloaded" alt="Neighborhoods" data-lazy-srcset="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg 1280w,https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg-768x343.jpg 768w" data-lazy-sizes="(max-width: 1280px) 100vw, 1280px" data-lazy-src="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg" data-ll-status="loaded" sizes="(max-width: 1280px) 100vw, 1280px" srcset="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg 1280w,https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg-768x343.jpg 768w"><noscript><img width="1280" height="572" src="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg" class="resources-links__background" alt="Neighborhoods" srcset="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg 1280w,https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg-768x343.jpg 768w" sizes="(max-width: 1280px) 100vw, 1280px" /></noscript>
@@ -275,22 +291,6 @@ get_header(); ?>
 					</div>
 				</div>
 			</div>
-
-			<!-- Photo Gallery Template Part -->
-			<?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
-			<!-- END Photo Gallery Template Part -->
-
-			<div class="single-neighborhoods-intro">
-				<div class="single-neighborhoods-intro__container">
-					<div class="single-neighborhoods-intro__column">
-						<h2 class="single-neighborhoods-intro__title"><?php echo get_field('neighborhoods_intro_title', 35); ?></h2>
-						<div class="single-neighborhoods-intro__text"><?php echo get_field('neighborhoods_intro_text', 35); ?></div>
-					</div>
-				</div>
-			</div>
-			<!-- Slider Template Part -->
-			<?php get_template_part('template-parts/sliders/slider-neighborhoods'); ?>
-			<!-- END Slider Template Part -->
 
 	<?php endwhile;
 	endif;
