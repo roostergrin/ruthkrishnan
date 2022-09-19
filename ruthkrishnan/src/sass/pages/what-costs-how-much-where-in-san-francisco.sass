@@ -1,0 +1,179 @@
+@import '../local/index.sass'
+@import '../templates/blog-recent.sass'
+@import '../templates/single-posts-map.sass'
+
+/* -----------------------
+    Blog Posts Styles
+   ----------------------- */
+
+.post-blog
+
+  &__container
+    @include container
+
+  &__column
+    @include col(8)
+    @include col--offset(2)
+    @include tablet-lg
+      margin: 0
+      width: 100%
+  
+  &__content
+    @extend %section-padding-top
+  
+    p, h1, h2, h3, h4, h5, h6
+      margin: 1rem 0
+
+    a
+      @include hover-supported
+        color: $c4
+      transition: color .185s ease
+      color: $c3
+      
+    img
+      width: 100%
+      height: auto
+
+    iframe
+      @include desktop
+        height: 30vw
+      @include tablet
+        height: 55vw
+      width: 100%
+      height: rem-calc(400)
+
+  &__infobar
+    @extend %section-padding
+    @include nexus
+      flex-wrap: wrap
+      padding-right: 1rem
+      padding-left: 1rem
+    display: flex
+    position: relative
+    align-items: center
+    justify-content: space-between
+    background: $c2
+    padding-right: rem-calc(48.5)
+    padding-left: rem-calc(48.5)
+    width: 100%
+    font-weight: 400
+
+    &-column
+      @include nexus
+        width: auto
+      position: relative
+
+    &-icon
+      margin-right: rem-calc(8)
+      width: 1rem
+
+      &--right
+        @include nexus
+          display: none
+
+    &-share
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      cursor: pointer
+    
+    &-share-popup
+      @include nexus
+        left: -1rem
+      position: absolute
+      top: calc(100% + .5rem)
+      left: rem-calc(-48.5)
+      transition: opacity .25s ease
+      background: $c2
+      opacity: 0
+      z-index: 6
+      border: 1px solid $black
+      padding: 1rem rem-calc(46)
+      pointer-events: none
+
+      &--active
+        opacity: 1
+        pointer-events: auto
+
+    &-copy
+      display: flex
+
+      &-input
+        border: 1px solid $gray
+        border-radius: rem-calc(5) 0 0 rem-calc(5)
+        padding: rem-calc(6)
+
+        &:focus
+          outline: none
+
+      &-button
+        @include hover-supported
+          background: darken(#e1e1e1, 10%)
+        position: relative
+        transition: background .5s ease
+        background: #e1e1e1
+        border: 1px solid $gray
+        border-left: none
+        border-radius: 0 rem-calc(5) rem-calc(5) 0
+        cursor: pointer
+        width: 2rem
+
+      &-icon
+        @extend %centered
+      
+    &-social
+      margin-top: 1rem
+
+      .heateor_sss_sharing_ul
+        display: flex
+        justify-content: space-evenly
+
+    &-date
+      @include nexus
+        text-align: right
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      text-align: center
+    
+    &-categories
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      
+    &-category
+      @include hover-supported
+        color: $c3
+      transition: color .15s ease
+
+  &__navigation
+    @extend %section-padding-bottom
+    display: flex
+    justify-content: space-between
+
+    &--justify-end
+      justify-content: flex-end
+
+    &-prev
+      @extend %button-text
+      @include col(2)
+      @include button($c3, $c3)
+      @include tablet-lg
+        width: calc(100% / 4)
+      @include tablet
+        padding: rem-calc(14) 2rem rem-calc(12)
+      @include nexus
+        width: 45%
+      padding: rem-calc(14) 2rem rem-calc(12)
+    
+    &-next
+      @extend %button-text
+      @include col(2)
+      @include button-solid($c3, $white, $c6)
+      @include tablet-lg
+        width: calc(100% / 4)
+      @include tablet
+        padding: rem-calc(14) 2rem rem-calc(12)
+      @include nexus
+        width: 45%
+      text-align: center

@@ -56,12 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
   copyButton.addEventListener('click', copyText);
   // copyButton.addEventListener('keyup', copyText);
 
-  // Map InfoWindow------------------------------------------------
-  console.log("yea science")
-  if (document.querySelector('#map-neighborhoods__wrapper')) {
-    import('../resources/slider-neighborhoods').then(sliderNeighborhoods => sliderNeighborhoods.sliderNeighborhoods())
-  }
-
   function formatNumber(num) {
     return (
       "<strong>$" +
