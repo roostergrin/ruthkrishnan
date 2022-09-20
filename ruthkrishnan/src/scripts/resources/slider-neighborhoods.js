@@ -423,7 +423,8 @@ export const sliderNeighborhoods = () => {
     </div>`;
   }
   function updateLegendPunctuatedScale(legend, palletteArr) {
-    let legendTemplate = `<div class="slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated">`;
+    let legendTemplate = `<div id="weather-see-more" class="listings-single__features-see-more"><span id="see-more-text" class="listings-single__features-see-more-btn">see more</span></div>
+    <div id="weather-content" class="slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated">`;
     weatherValues.forEach((weather, i) => {
       legendTemplate += `
       <div style="display: flex; gap: 1rem; flex-direction: column;" class="slider-neighborhoods__legend-box-container">
@@ -440,6 +441,21 @@ export const sliderNeighborhoods = () => {
     });
     legendTemplate += "</div>";
     legend.innerHTML = legendTemplate;
+    let seeMore = document.getElementById("weather-see-more");
+    let seeMoreText = document.getElementById("see-more-text");
+    let weatherContent = document.getElementById("weather-content");
+    let active = true
+    seeMore.addEventListener("click", ()=> {
+      if(active) {
+        seeMoreText.innerHTML = "see less"
+        weatherContent.style.display = "block"
+        active = false
+      } else {
+        seeMoreText.innerHTML = "see more"
+        weatherContent.style.display = "none"
+        active = true
+      }
+    })
   }
   function colorIconArr(value) {
     let legend = document.getElementById("legend");

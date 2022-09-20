@@ -4,15 +4,17 @@
 
 .slider-neighborhoods
   @extend %section-margins
-  overflow: hidden
   
   &__score
     width: 33%
     &-content
       font-weight: 700
       line-height: 1.2
+      // the importants are for the blog post
+      margin: 0 !important
     &-label
       line-height: 1.2
+      margin: 0 !important
     &-row
       @include phone-lg
         padding-bottom: 0
@@ -33,16 +35,19 @@
       font-size: rem-calc(18)
       font-weight: 500
       width: 100%
+      margin: 0 !important
     &-content
       font-weight: 700
       line-height: 1.2
+      margin: 0 !important
     &-label
       line-height: 1.2
+      margin: 0 !important
     &-row
       display: flex
       flex-wrap: wrap
-      margin-top: 0.75rem
-      margin-bottom: 0.75rem
+      margin-top: 0.75rem !important
+      margin-bottom: 0.75rem !important
 
   &__description
     @include tablet-lg
@@ -118,8 +123,8 @@
   &__filter
     @extend %button-text
     @include hover-supported
-      background: $c3
-      color: $white
+      background: $c3 !important
+      color: $white !important
     @include nexus
       margin: 0
       padding: rem-calc(12) 0 rem-calc(10)
@@ -153,31 +158,35 @@
           height: .5rem
           content: ''
       position: relative
-      background: $c3
-      color: $white
+      background: $c3 !important
+      color: $white !important
 
   &__legend
     &-container
+      @include tablet
+        justify-content: center
       @include container
     &-content
       @include col(6)
       @include col--offset(3)
       margin-bottom: 1rem
       &--punctuated
+        @include tablet
+          display: none
         display: flex
         flex-wrap: wrap
         margin-bottom: 1rem
-        @include col (8)
-        @include col--offset (2)
-        @include desktop
-          @include col(8)
-          @include col--offset(2)
+        @include col (10)
+        @include col--offset (1)
+      
     &-boxes-container
       display: flex
     &-box
       width: 100%
       height: 1rem
       &-container
+        @include tablet
+          margin-bottom: 1.5rem
         @include col(4)
       &--filled
         background-color: black
@@ -188,6 +197,11 @@
       justify-content: space-between
     &-text
       font-size: 1rem
+  
+  &__weather-legend
+    display: none
+    &--active
+      display: block
 
   &__slider
     @include laptop-lg
@@ -291,6 +305,7 @@
     // -ms-overflow-style: none
     // scrollbar-width: none
 
+
     &::-webkit-scrollbar
       display: none
 
@@ -300,14 +315,26 @@
 
     &-title
       line-height: 1
-      margin-bottom: 1rem
+      margin: 0 0 1rem 0 !important
 
     &-description
-      margin-bottom: 1rem
+      margin: 0 0 1rem 0 !important
 
     &-link
       @extend %button-text
-      @include button-solid($c3, $white, $c6)
+      @include hover-supported
+        border-color: $c6 !important
+        background: $c6 !important
+        color: $white !important
+      display: inline-block
+      position: relative
+      transition: all .2s ease
+      border: rem-calc(1) solid $c3 !important
+      background: $c3 !important
+      cursor: pointer
+      padding: rem-calc(14) 2rem rem-calc(12)
+      text-transform: lowercase
+      color: $white !important
 
     &-icons
       @include tablet
@@ -338,3 +365,35 @@
     &-icon-text
       @extend %h4
       text-transform: uppercase 
+
+.listings-single__features
+  &-see-more
+    @include tablet
+      display: block
+    display: none
+    text-align: center
+    margin-bottom: 1rem
+
+  &-see-more-btn
+    position: relative
+    transition: color .2s ease
+    padding-bottom: 4px
+    cursor: pointer
+    color: $c3
+
+    &::after
+      position: absolute
+      bottom: 0
+      left: 0
+      transition: background .2s ease,
+      background: $c3
+      width: 100%
+      height: 2px
+      content: ''
+
+    @include hover-supported
+      color: $c6
+      font-weight: 600
+
+      &::after
+        background: $c6

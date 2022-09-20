@@ -526,12 +526,27 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }
 
   function updateLegendPunctuatedScale(legend, palletteArr) {
-    var legendTemplate = "<div class=\"slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated\">";
+    var legendTemplate = "<div id=\"weather-see-more\" class=\"listings-single__features-see-more\"><span id=\"see-more-text\" class=\"listings-single__features-see-more-btn\">see more</span></div>\n    <div id=\"weather-content\" class=\"slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated\">";
     weatherValues.forEach(function (weather, i) {
       legendTemplate += "\n      <div style=\"display: flex; gap: 1rem; flex-direction: column;\" class=\"slider-neighborhoods__legend-box-container\">\n        <p>".concat(weather.temperature, "</p>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n        <div style=\"background: ").concat(weather.weatherGroup[0].color, "; min-width: 2rem; min-height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n        <p style=\"padding-left: 0.5rem;\" class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[0].fogWind, "</p>\n      </div>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n          <div style=\"background: ").concat(weather.weatherGroup[1].color, "; min-width: 2rem; min-height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n          <p style=\"padding-left: 0.5rem;\"class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[1].fogWind, "</p>\n      </div>\n    </div>");
     });
     legendTemplate += "</div>";
     legend.innerHTML = legendTemplate;
+    var seeMore = document.getElementById("weather-see-more");
+    var seeMoreText = document.getElementById("see-more-text");
+    var weatherContent = document.getElementById("weather-content");
+    var active = true;
+    seeMore.addEventListener("click", function () {
+      if (active) {
+        seeMoreText.innerHTML = "see less";
+        weatherContent.style.display = "block";
+        active = false;
+      } else {
+        seeMoreText.innerHTML = "see more";
+        weatherContent.style.display = "none";
+        active = true;
+      }
+    });
   }
 
   function colorIconArr(value) {

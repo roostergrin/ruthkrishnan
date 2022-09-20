@@ -20,8 +20,7 @@ function truncate($text, $chars = 25)
 }
 ?>
 
-<div class="slider-neighborhoods">
-
+<div id="xyz-php-code-slider-neighborhoods" class="slider-neighborhoods">
   <div class="slider-neighborhoods__filters-container">
     <div class="slider-neighborhoods__filters">
       <!-- <a data-filter='single median sale price' tabindex="0" role="button" class="slider-neighborhoods__filter slider-neighborhoods__filter--active">Median Sale Price this month</a> -->

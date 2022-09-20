@@ -47,5 +47,3 @@ mix
 .js('src/scripts/pages/marketing.js', 'js/')
 .sass('src/sass/pages/404.sass', 'styles/')
 .js('src/scripts/pages/404.js', 'js/')
-.sass('src/sass/pages/what-costs-how-much-where-in-san-francisco.sass', 'styles/')
-.js('src/scripts/pages/what-costs-how-much-where-in-san-francisco.js', 'js/')
