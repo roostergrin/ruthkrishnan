@@ -1,0 +1,119 @@
+/* ----------------------------
+    Get In Touch Form Styles
+  ----------------------------- */
+
+.form-off-market
+  @extend %section-padding-large
+  position: relative
+
+  &__background
+    @extend %absolute
+    object-fit: cover
+    z-index: -1
+
+  &__container
+    @include container
+
+  &__info
+    @include col(3)
+    @include tablet
+      display: flex
+      flex-direction: column
+      align-items: center
+      margin-bottom: rem-calc(24)
+
+  &__text
+    @include tablet
+      text-align: center
+    margin: 1rem 0
+    width: 66.7%
+
+  &__address
+    @include tablet
+      text-align: center
+    margin-top: 1rem
+
+  &__form-column
+    @include col(8)
+    background: $white
+    border: 2px solid $black
+
+  &__form-container
+    @extend %section-padding
+    margin: auto
+    width: 75%
+
+  &__form
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+  &__form-group
+    position: relative
+    margin-bottom: 2rem
+    width: 100%
+
+    &--half
+      @include tablet
+        width: 100%
+      width: calc(50% - 15px)
+
+    &--radio
+      display: flex
+      flex-wrap: wrap
+      gap: 1rem
+      color: $black
+      opacity: 1
+      font-weight: 400
+
+  &__label
+    @extend %absolute
+    display: none
+    top: rem-calc(4)
+    left: rem-calc(4)
+
+    &--radio
+      display: unset
+
+  &__input
+    border-radius: 0
+    border-bottom: 2px solid $black
+    padding: rem-calc(12) 0
+    width: 100%
+    -webkit-appearance: none
+
+    &:focus-visible
+      outline: none
+
+    &::placeholder
+      color: $black
+      opacity: 1
+
+  &__validation-message
+    transition: opacity .5s ease
+    opacity: 0
+    color: red
+
+  &__textarea
+    position: relative
+    border-radius: 0
+    border-bottom: 2px solid $black
+    width: 100%
+    -webkit-appearance: none
+
+    &:focus-visible
+      outline: none
+
+    &::placeholder
+      position: absolute
+      bottom: 1rem
+      left: 0
+      color: $black
+      opacity: 1
+
+  &__submit
+    @extend %button-text
+    @include button-solid($c3, $white, $c6)
+    border-radius: 0
+    font-weight: 500
+    -webkit-appearance: none

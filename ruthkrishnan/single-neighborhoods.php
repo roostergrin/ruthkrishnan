@@ -96,16 +96,16 @@ get_header(); ?>
 												if($walk_score <=100) {
 													$walk_score_result = "walker's paradise, daily errands do not require a car";
 												}
-												else if($walk_score <= 89) {
+												if($walk_score <= 89) {
 													$walk_score_result = "very walkable, most errands can be accomplished on foot";
 												}
-												else if($walk_score <= 69) {
+												if($walk_score <= 69) {
 													$walk_score_result = "somewhat Walkable, some errands can be accomplished on foot";
 												}
-												else if($walk_score <= 49) {
+												if($walk_score <= 49) {
 													$walk_score_result = "car dependent, most errands require a car";
 												}
-												else if($walk_score <= 24) {
+												if($walk_score <= 24) {
 													$walk_score_result = "car dependent, almost all errands require a car";
 												}
 												$weather = get_field('weather');
@@ -146,16 +146,16 @@ get_header(); ?>
 												if($transit_score <=100) {
 													$transit_score_result = "rider's paradise, world-class public transportation";
 												}
-												else if($transit_score <= 89) {
+												if($transit_score <= 89) {
 													$transit_score_result = "excellent transit, transit is convenient for most trips";
 												}
-												else if($transit_score <= 69) {
+												if($transit_score <= 69) {
 													$transit_score_result = "good transit, many nearby public transportation options";
 												}
-												else if($transit_score <= 49) {
+												if($transit_score <= 49) {
 													$transit_score_result = "some transit, a few nearby public transportation options";
 												}
-												else if($transit_score <= 24) {
+												if($transit_score <= 24) {
 													$transit_score_result = "minimal transit, it is possible to get on a bus";
 												}
 											?>
