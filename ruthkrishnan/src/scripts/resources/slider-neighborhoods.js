@@ -47,10 +47,12 @@ export const sliderNeighborhoods = () => {
     slide.elem.querySelector('[id^="transit-score-"]').innerHTML = slide.transitscore
     slide.elem.querySelector('[id^="walk-score-"]').innerHTML = slide.walkscore
     // slide.elem.querySelector('[id^="weather-score-"]').innerHTML = slide.weather
-    slide.elem.querySelector('[id^="single-median-price-display-"]').innerHTML = slide.HJISingleMonthly.result.measurements.salePrice.median ? USDFormatterNoDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median) : 'no house data'
-    slide.elem.querySelector('[id^="single-sq-ft-price-display-"]').innerHTML = slide.HJISingleMonthly.result.measurements.salePrice.median ? USDFormatterDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median /slide.HJISingleMonthly.result.measurements.size.median) : 'no house data'
-    slide.elem.querySelector('[id^="condo-median-price-display-"]').innerHTML = slide.HJICondoMonthly.result.measurements.salePrice.median ? USDFormatterNoDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median) : 'no condo data'
-    slide.elem.querySelector('[id^="condo-sq-ft-price-display-"]').innerHTML = slide.HJICondoMonthly.result.measurements.salePrice.median ? USDFormatterDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median /slide.HJICondoMonthly.result.measurements.size.median) : 'no condo data'
+    if(slide.HJICondoMonthly || slide.HJISingleMonthly){
+      slide.elem.querySelector('[id^="single-median-price-display-"]').innerHTML = slide.HJISingleMonthly.result.measurements.salePrice.median ? USDFormatterNoDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median) : 'no house data'
+      slide.elem.querySelector('[id^="single-sq-ft-price-display-"]').innerHTML = slide.HJISingleMonthly.result.measurements.salePrice.median ? USDFormatterDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median /slide.HJISingleMonthly.result.measurements.size.median) : 'no house data'
+      slide.elem.querySelector('[id^="condo-median-price-display-"]').innerHTML = slide.HJICondoMonthly.result.measurements.salePrice.median ? USDFormatterNoDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median) : 'no condo data'
+      slide.elem.querySelector('[id^="condo-sq-ft-price-display-"]').innerHTML = slide.HJICondoMonthly.result.measurements.salePrice.median ? USDFormatterDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median /slide.HJICondoMonthly.result.measurements.size.median) : 'no condo data'
+    }
   })
   
   // Update content on slide 
