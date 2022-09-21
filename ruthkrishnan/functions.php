@@ -177,7 +177,7 @@ function update_cta_button_text() {
     update_field($ACF_group_field, $value, $neighborhood_post_id_wp);
   }
 
-  // /wp-admin/admin-ajax.php?action=add_transit_score
+  // at the top
 }
 function add_transit_score() {
   $neighborhoods_transit_score= [

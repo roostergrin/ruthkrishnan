@@ -171,12 +171,12 @@ function truncate($text, $chars = 25)
           <div id="previous" class="slider-neighborhoods__previous-wrapper">
             <?php get_template_part('icons/arrow', null, array('class' => 'slider-neighborhoods__previous-arrow')); ?>
           </div>
-          <div id="next" class="slider-neighborhoods__next-wrapper">
-            <?php get_template_part('icons/arrow', null, array('class' => 'slider-neighborhoods__next-arrow')); ?>
-          </div>
           <div class="slider-neighborhoods__pagination-container">
             <div class="slider-neighborhoods__pagination-line"></div>
             <div id="pagination-indicator" class="slider-neighborhoods__pagination-indicator"></div>
+          </div>
+          <div id="next" class="slider-neighborhoods__next-wrapper">
+            <?php get_template_part('icons/arrow', null, array('class' => 'slider-neighborhoods__next-arrow')); ?>
           </div>
         </div>
       </div>
