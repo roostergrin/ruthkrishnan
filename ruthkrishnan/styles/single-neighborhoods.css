@@ -1027,7 +1027,7 @@ th[data-column-id=dataLabel] {
 }
 @media screen and (min-width: 1750px) {
   .map-neighborhoods__column {
-    height: unset;
+    height: 37.5rem;
   }
 }
 @media screen and (max-width: 900px) and (max-height: 480px) {
@@ -1049,7 +1049,7 @@ th[data-column-id=dataLabel] {
 }
 @media screen and (min-width: 1750px) {
   .map-neighborhoods__column--map {
-    height: unset;
+    height: 37.5rem;
   }
 }
 @media screen and (max-width: 768px) {
