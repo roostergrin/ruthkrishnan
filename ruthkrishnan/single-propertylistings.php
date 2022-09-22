@@ -175,7 +175,7 @@ get_header(); ?>
 							<div class="listings-single__features-list"><?php echo get_field('features'); ?></div>
 							<div class="listings-single__features-overlay"></div>
 						</div>
-						<div class="listings-single__features-see-more"><span class="listings-single__features-see-more-btn">see more</span></div>
+						<div class="listings-single__features-see-more"><span class="listings-single__features-see-more-btn">show legend</span></div>
 					</div>
 				</div>
 				<?php endif; ?>

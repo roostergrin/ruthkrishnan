@@ -24,10 +24,10 @@ function truncate($text, $chars = 25)
   <div class="slider-neighborhoods__filters-container">
     <div class="slider-neighborhoods__filters">
       <!-- <a data-filter='single median sale price' tabindex="0" role="button" class="slider-neighborhoods__filter slider-neighborhoods__filter--active">Median Sale Price this month</a> -->
-      <a data-filter='transit score' tabindex="0" role="button" class="slider-neighborhoods__filter slider-neighborhoods__filter--active">Transit score</a>
-      <a data-filter='walk score' tabindex="0" role="button" class="slider-neighborhoods__filter">Walk score</a>
-      <a data-filter='weather' tabindex="0" role="button" class="slider-neighborhoods__filter">Weather</a>
-      <a data-filter='single median sale price' tabindex="0" role="button" class="slider-neighborhoods__filter">median sale price</a>
+      <button data-filter='transit score' tabindex="0" role="button" class="slider-neighborhoods__filter slider-neighborhoods__filter--active">Transit score</button>
+      <button data-filter='walk score' tabindex="0" role="button" class="slider-neighborhoods__filter">Walk score</button>
+      <button data-filter='weather' tabindex="0" role="button" class="slider-neighborhoods__filter">Weather</button>
+      <button data-filter='single median sale price' tabindex="0" role="button" class="slider-neighborhoods__filter">median sale price</button>
     </div>
   </div>
   <div id="legend" class="slider-neighborhoods__legend-container">
@@ -157,7 +157,7 @@ function truncate($text, $chars = 25)
                       </p>
                     </div>
                     <?php if (get_field('description') !== '') : ?>
-                      <a class="slider-neighborhoods__content-link" href="/neighborhoods/<?php echo get_post()->post_name; ?>" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood">Learn More</a>
+                      <a tabindex="-1" class="slider-neighborhoods__content-link" href="/neighborhoods/<?php echo get_post()->post_name; ?>" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood" >Learn More</a>
                     <?php else : ?>
                       <p class="slider-neighborhoods__coming-soon">Coming Soon</p>
                     <?php endif; ?>
@@ -168,16 +168,16 @@ function truncate($text, $chars = 25)
           </div>
         </div>
         <div class="slider-neighborhoods__carousel-controls-container">
-          <div id="previous" class="slider-neighborhoods__previous-wrapper">
+          <button id="previous" class="slider-neighborhoods__previous-wrapper">
             <?php get_template_part('icons/arrow', null, array('class' => 'slider-neighborhoods__previous-arrow')); ?>
-          </div>
+          </button>
           <div class="slider-neighborhoods__pagination-container">
             <div class="slider-neighborhoods__pagination-line"></div>
             <div id="pagination-indicator" class="slider-neighborhoods__pagination-indicator"></div>
           </div>
-          <div id="next" class="slider-neighborhoods__next-wrapper">
+          <button id="next" class="slider-neighborhoods__next-wrapper">
             <?php get_template_part('icons/arrow', null, array('class' => 'slider-neighborhoods__next-arrow')); ?>
-          </div>
+          </button>
         </div>
       </div>
     </div>

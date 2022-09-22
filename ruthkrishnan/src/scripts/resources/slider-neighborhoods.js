@@ -90,9 +90,18 @@ export const sliderNeighborhoods = () => {
   const setContent = (i) => {
     emptyState.style.opacity = 0
     contentWrapper.forEach((el) => {
-      +el.dataset.index === i
-        ? el.classList.add("slider-neighborhoods__content-wrapper--active")
-        : el.classList.remove("slider-neighborhoods__content-wrapper--active");
+      if (+el.dataset.index === i) {
+        el.classList.add("slider-neighborhoods__content-wrapper--active")
+        console.log(el)
+        if(el.querySelector(".slider-neighborhoods__content-link")) {
+          el.querySelector(".slider-neighborhoods__content-link").tabIndex = "0"
+        }
+      } else {
+        el.classList.remove("slider-neighborhoods__content-wrapper--active");
+        if(el.querySelector(".slider-neighborhoods__content-link")) {
+          el.querySelector(".slider-neighborhoods__content-link").tabIndex = "-1"
+        }
+      }
     });
   };
 
@@ -425,7 +434,7 @@ export const sliderNeighborhoods = () => {
     </div>`;
   }
   function updateLegendPunctuatedScale(legend, palletteArr) {
-    let legendTemplate = `<div id="weather-see-more" class="listings-single__features-see-more"><span id="see-more-text" class="listings-single__features-see-more-btn">see more</span></div>
+    let legendTemplate = `<div id="weather-see-more" class="listings-single__features-see-more"><span id="see-more-text" class="listings-single__features-see-more-btn">show legend</span></div>
     <div id="weather-content" class="slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated">`;
     weatherValues.forEach((weather, i) => {
       legendTemplate += `
@@ -443,18 +452,18 @@ export const sliderNeighborhoods = () => {
     });
     legendTemplate += "</div>";
     legend.innerHTML = legendTemplate;
+    let weatherContent = document.getElementById("weather-content");
     let seeMore = document.getElementById("weather-see-more");
     let seeMoreText = document.getElementById("see-more-text");
-    let weatherContent = document.getElementById("weather-content");
     let active = true
     seeMore.addEventListener("click", ()=> {
       if(active) {
-        seeMoreText.innerHTML = "see less"
-        weatherContent.style.display = "block"
+        seeMoreText.innerHTML = "hide legend"
+        weatherContent.style.maxHeight = "500px"
         active = false
       } else {
-        seeMoreText.innerHTML = "see more"
-        weatherContent.style.display = "none"
+        seeMoreText.innerHTML = "show legend"
+        weatherContent.style.maxHeight = "0px"
         active = true
       }
     })
@@ -589,17 +598,6 @@ export const sliderNeighborhoods = () => {
 
   filtersArr.forEach((el) => {
     el.addEventListener("click", () => {
-      if (!el.classList.contains("slider-neighborhoods__filter--active")) {
-        document
-          .querySelector(".slider-neighborhoods__filter--active")
-          .classList.remove("slider-neighborhoods__filter--active");
-        el.classList.add("slider-neighborhoods__filter--active");
-      }
-      value = el.dataset.filter;
-      closeToolTip();
-      colorIconArr(value);
-    });
-    el.addEventListener("keyup", () => {
       if (!el.classList.contains("slider-neighborhoods__filter--active")) {
         document
           .querySelector(".slider-neighborhoods__filter--active")

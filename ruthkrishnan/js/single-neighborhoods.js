@@ -761,7 +761,20 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   var setContent = function setContent(i) {
     emptyState.style.opacity = 0;
     contentWrapper.forEach(function (el) {
-      +el.dataset.index === i ? el.classList.add("slider-neighborhoods__content-wrapper--active") : el.classList.remove("slider-neighborhoods__content-wrapper--active");
+      if (+el.dataset.index === i) {
+        el.classList.add("slider-neighborhoods__content-wrapper--active");
+        console.log(el);
+
+        if (el.querySelector(".slider-neighborhoods__content-link")) {
+          el.querySelector(".slider-neighborhoods__content-link").tabIndex = "0";
+        }
+      } else {
+        el.classList.remove("slider-neighborhoods__content-wrapper--active");
+
+        if (el.querySelector(".slider-neighborhoods__content-link")) {
+          el.querySelector(".slider-neighborhoods__content-link").tabIndex = "-1";
+        }
+      }
     });
   }; // * set the highlight on the neighborhood map *
 
@@ -1023,24 +1036,24 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }
 
   function updateLegendPunctuatedScale(legend, palletteArr) {
-    var legendTemplate = "<div id=\"weather-see-more\" class=\"listings-single__features-see-more\"><span id=\"see-more-text\" class=\"listings-single__features-see-more-btn\">see more</span></div>\n    <div id=\"weather-content\" class=\"slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated\">";
+    var legendTemplate = "<div id=\"weather-see-more\" class=\"listings-single__features-see-more\"><span id=\"see-more-text\" class=\"listings-single__features-see-more-btn\">show legend</span></div>\n    <div id=\"weather-content\" class=\"slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated\">";
     weatherValues.forEach(function (weather, i) {
       legendTemplate += "\n      <div style=\"display: flex; gap: 1rem; flex-direction: column;\" class=\"slider-neighborhoods__legend-box-container\">\n        <p>".concat(weather.temperature, "</p>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n        <div style=\"background: ").concat(weather.weatherGroup[0].color, "; min-width: 2rem; min-height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n        <p style=\"padding-left: 0.5rem;\" class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[0].fogWind, "</p>\n      </div>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n          <div style=\"background: ").concat(weather.weatherGroup[1].color, "; min-width: 2rem; min-height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n          <p style=\"padding-left: 0.5rem;\"class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[1].fogWind, "</p>\n      </div>\n    </div>");
     });
     legendTemplate += "</div>";
     legend.innerHTML = legendTemplate;
+    var weatherContent = document.getElementById("weather-content");
     var seeMore = document.getElementById("weather-see-more");
     var seeMoreText = document.getElementById("see-more-text");
-    var weatherContent = document.getElementById("weather-content");
     var active = true;
     seeMore.addEventListener("click", function () {
       if (active) {
-        seeMoreText.innerHTML = "see less";
-        weatherContent.style.display = "block";
+        seeMoreText.innerHTML = "hide legend";
+        weatherContent.style.maxHeight = "500px";
         active = false;
       } else {
-        seeMoreText.innerHTML = "see more";
-        weatherContent.style.display = "none";
+        seeMoreText.innerHTML = "show legend";
+        weatherContent.style.maxHeight = "0px";
         active = true;
       }
     });
@@ -1132,16 +1145,6 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   var value = "transit score";
   filtersArr.forEach(function (el) {
     el.addEventListener("click", function () {
-      if (!el.classList.contains("slider-neighborhoods__filter--active")) {
-        document.querySelector(".slider-neighborhoods__filter--active").classList.remove("slider-neighborhoods__filter--active");
-        el.classList.add("slider-neighborhoods__filter--active");
-      }
-
-      value = el.dataset.filter;
-      closeToolTip();
-      colorIconArr(value);
-    });
-    el.addEventListener("keyup", function () {
       if (!el.classList.contains("slider-neighborhoods__filter--active")) {
         document.querySelector(".slider-neighborhoods__filter--active").classList.remove("slider-neighborhoods__filter--active");
         el.classList.add("slider-neighborhoods__filter--active");

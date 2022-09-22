@@ -88,6 +88,7 @@
       &-container
         @include tablet
           order: -1
+          padding-top: 1rem
         display: flex
     &-progress
       width: 100%
@@ -99,11 +100,15 @@
       justify-content: center
       transform: scale(-0.5)
       cursor: pointer
+      background-color: rgba(0,0,0,0)
+      border: none
   &__next
     &-wrapper
       display: flex
       transform: scale(0.5)
       cursor: pointer
+      background-color: rgba(0,0,0,0)
+      border: none
   
   &__filters-container
     @include container
@@ -141,22 +146,23 @@
     padding: rem-calc(14) 2rem rem-calc(12)
     min-width: rem-calc(172)
     text-align: center
+    background: $white !important
     color: $c3
 
     &--active
       @include nexus
         background: none
         color: $c6
-        &:after
-          position: absolute
-          bottom: -.25rem
-          left: 50%
-          transform: translate(-50%)
-          border-radius: 50%
-          background: $c6
-          width: .5rem
-          height: .5rem
-          content: ''
+        // &:after
+        //   position: absolute
+        //   bottom: -.25rem
+        //   left: 50%
+        //   transform: translate(-50%)
+        //   border-radius: 50%
+        //   background: $c6
+        //   width: .5rem
+        //   height: .5rem
+        //   content: ''
       position: relative
       background: $c3 !important
       color: $white !important
@@ -172,7 +178,9 @@
       margin-bottom: 1rem
       &--punctuated
         @include tablet
-          display: none
+          max-height: 0
+          overflow: hidden
+          transition: max-height 0.5s ease-out
         display: flex
         flex-wrap: wrap
         margin-bottom: 1rem
