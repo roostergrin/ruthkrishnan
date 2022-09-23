@@ -189,7 +189,7 @@ get_header(); ?>
 					<h2 class="resources-links__title">Buyers Resources</h2>
 					<div class="resources-links__links">
 
-						<a href="/blog/buying-a-home/" class="resources-links__link-container" style="height: 78px;">
+					<a href="/blog/buying-a-home/" class="resources-links__link-container" style="height: 78px;">
 							<div class="resources-links__link-text-container">
 								<div class="resources-links__link-background"></div>
 								<p class="resources-links__link-text">Homebuyer resources</p>
@@ -203,10 +203,10 @@ get_header(); ?>
 						</a>
 
 
-						<a href="/home-buying-process-in-detail/" class="resources-links__link-container" style="height: 78px;">
+						<a href="/hire-an-agent-before-you-go-to-an-open-house/" class="resources-links__link-container" style="height: 78px;">
 							<div class="resources-links__link-text-container">
 								<div class="resources-links__link-background"></div>
-								<p class="resources-links__link-text">Home buying process in detail</p>
+								<p class="resources-links__link-text">Why hire an agent before going to an open house</p>
 							</div>
 							<div class="resources-links__icon-container">
 
@@ -245,10 +245,10 @@ get_header(); ?>
 						</a>
 
 
-						<a href="/the-home-search/" class="resources-links__link-container" style="height: 78px;">
+						<a href="/what-is-liquefaction/" class="resources-links__link-container" style="height: 78px;">
 							<div class="resources-links__link-text-container">
 								<div class="resources-links__link-background"></div>
-								<p class="resources-links__link-text">Best time to buy a home</p>
+								<p class="resources-links__link-text">What is liquefaction</p>
 							</div>
 							<div class="resources-links__icon-container">
 
@@ -259,10 +259,10 @@ get_header(); ?>
 						</a>
 
 
-						<a href="/will-all-cash-offer-save-me-money-when-buying-a-home/" class="resources-links__link-container" style="height: 78px;">
+						<a href="/san-francisco-microclimates-and-impact-on-home-prices/" class="resources-links__link-container" style="height: 78px;">
 							<div class="resources-links__link-text-container">
 								<div class="resources-links__link-background"></div>
-								<p class="resources-links__link-text">Benefits of all cash offers</p>
+								<p class="resources-links__link-text">Microclimates and impact on home prices</p>
 							</div>
 							<div class="resources-links__icon-container">
 
