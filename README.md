@@ -103,3 +103,18 @@ You may need to clear the WP Rocket cache to see the changes.
 
 View the video recordings of the site walkthrough <a href='https://drive.google.com/drive/u/0/folders/18lVADrXvLo0Hez04yavBkco2F6NdFrPi' target='_blank'>here</a>.
 
+# Updating your local
+
+## git
+
+`git pull` ought to do it
+
+## db
+
+Turn on the MAMP server and go to phpmyadmin.
+
+Find the databases tab.
+
+Check the box next to the rk db, then click 'drop / ok'.
+
+Now go back to 'setting up a local' and follow all the db steps.
