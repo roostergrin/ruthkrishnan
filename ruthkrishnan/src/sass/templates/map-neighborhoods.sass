@@ -30,9 +30,11 @@
       height: rem-calc(600)
     @include phone-land-lg
       width: 50% !important
+    @include phone-lg
+      min-height: rem-calc(600)
     @include col(6)
     position: relative
-    height: rem-calc(500)
+    min-height: rem-calc(500)
     &--map
       @include desktop
         height: rem-calc(600)

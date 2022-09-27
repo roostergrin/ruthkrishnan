@@ -791,7 +791,7 @@
 .slider-neighborhoods__slider {
   transition: height 0.3s ease;
   padding: 0 2rem;
-  overflow: hidden;
+  overflow: auto;
   flex-direction: column;
   display: flex;
   justify-content: space-between;
@@ -1060,7 +1060,7 @@
   padding: 0 calc(30px / 2);
   width: calc((6 / 12) * 100%);
   position: relative;
-  height: 31.25rem;
+  min-height: 31.25rem;
 }
 @media screen and (min-width: 1750px) {
   .map-neighborhoods__column {
@@ -1070,6 +1070,11 @@
 @media screen and (max-width: 900px) and (max-height: 480px) {
   .map-neighborhoods__column {
     width: 50% !important;
+  }
+}
+@media screen and (max-width: 480px) {
+  .map-neighborhoods__column {
+    min-height: 37.5rem;
   }
 }
 @media screen and (max-width: 768px) {
