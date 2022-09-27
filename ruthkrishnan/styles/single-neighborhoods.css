@@ -1228,7 +1228,13 @@ th[data-column-id=dataLabel] {
   width: 100%;
   max-width: calc(1146px + 64px);
   max-width: calc(1146px - 30px);
+  margin-bottom: 3rem;
   background: #F4F0F0;
+}
+@media screen and (max-width: 600px) {
+  .single-neighborhoods-chart__container {
+    margin-bottom: 2rem;
+  }
 }
 @media screen and (min-width: 1750px) {
   .single-neighborhoods-chart__container {
@@ -1351,7 +1357,7 @@ th[data-column-id=dataLabel] {
   width: 100%;
   max-width: calc(1146px + 64px);
   flex-wrap: nowrap;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 @media screen and (min-width: 1750px) {
   .single-neighborhoods-chart__filters-container {

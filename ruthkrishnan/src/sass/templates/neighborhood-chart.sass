@@ -6,8 +6,11 @@
   // @extend %section-padding
 
   &__container
+    @include nexus 
+      margin-bottom: 2rem
     @include container
     @include container--color
+    margin-bottom: 3rem
     background: $c2
 
   &__info
@@ -49,7 +52,7 @@
   &__filters-container
     @include container
     flex-wrap: nowrap
-    margin-top: 3rem
+    margin-top: 2rem
     @include laptop-sm
       flex-direction: column
 
