@@ -620,7 +620,7 @@ th[data-column-id=dataLabel] {
     padding: 0.75rem 0 0.625rem;
     width: 30%;
     min-width: 0;
-    border: none;
+    min-height: 3.75rem;
     width: unset;
   }
 }
@@ -1403,17 +1403,17 @@ th[data-column-id=dataLabel] {
     color: #fff;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .single-neighborhoods-chart__filter {
     border: 1px solid #AF5B5B;
     padding: 1em;
     margin: auto calc(30px / 4);
+    min-height: 4rem;
   }
 }
 @media screen and (max-width: 370px) {
   .single-neighborhoods-chart__filter {
-    border: none;
-    width: unset;
+    min-height: 5.25rem;
   }
 }
 .single-neighborhoods-chart__filter--active {
@@ -1425,17 +1425,6 @@ th[data-column-id=dataLabel] {
   .single-neighborhoods-chart__filter--active {
     background: none;
     color: #963636;
-  }
-  .single-neighborhoods-chart__filter--active:after {
-    position: absolute;
-    bottom: -0.45rem;
-    left: 50%;
-    transform: translate(-50%);
-    border-radius: 50%;
-    background: #963636;
-    width: 0.5rem;
-    height: 0.5rem;
-    content: "";
   }
 }
 

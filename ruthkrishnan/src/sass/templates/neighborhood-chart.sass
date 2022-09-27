@@ -67,13 +67,13 @@
     @include hover-supported
       background: $c3
       color: $white
-    @include phone-lg
+    @include nexus
       border: 1px solid $c3  
       padding: 1em
       margin: auto calc(#{$gutter} / 4)
+      min-height: rem-calc(64)
     @include phone
-      border: none
-      width: unset
+      min-height: rem-calc(84)
     transition: background .2s ease, color .2s ease
     margin: auto calc(#{$gutter} / 2)
     border: 2px solid $c3
@@ -89,16 +89,6 @@
       @include phone
         background: none
         color: $c6
-        &:after
-          position: absolute
-          bottom: -.45rem
-          left: 50%
-          transform: translate(-50%)
-          border-radius: 50%
-          background: $c6
-          width: .5rem
-          height: .5rem
-          content: ''
       position: relative
       background: $c3
       color: $white
