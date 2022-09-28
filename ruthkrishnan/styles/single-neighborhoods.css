@@ -2222,15 +2222,8 @@ hr {
   margin: auto 1px;
 }
 
-@media screen and (min-width: 1750px) {
-  .single-neighborhoods-intro {
-    padding: 5rem 0 0;
-  }
-}
-@media screen and (max-width: 600px) {
-  .single-neighborhoods-intro {
-    padding: 2rem 0 0;
-  }
+.single-neighborhoods-intro {
+  padding-top: 3.5rem;
 }
 .single-neighborhoods-intro__container {
   display: flex;
@@ -2240,7 +2233,6 @@ hr {
   padding: 0 calc((64px / 2) - 15px);
   width: 100%;
   max-width: calc(1146px + 64px);
-  padding-top: 2rem;
 }
 @media screen and (min-width: 1750px) {
   .single-neighborhoods-intro__container {
