@@ -4,7 +4,57 @@
 
 .slider-neighborhoods
   @extend %section-margins
-  overflow: hidden
+  
+  &__score
+    width: 33%
+    &-content
+      font-weight: 700
+      line-height: 1.2
+      // the importants are for the blog post
+      margin: 0 !important
+    &-label
+      line-height: 1.2
+      margin: 0 !important
+    &-row
+      @include phone-lg
+        padding-bottom: 0
+      display: flex
+      padding-bottom: 0.75rem
+      border-bottom: 2px solid $c4
+
+  &__price
+    width: 50%
+    &-heading
+      @include desktop
+        font-size: rem-calc(20)
+      @include phone
+        font-size: rem-calc(14)
+        line-height: 1
+      line-height: 1.3333
+      letter-spacing: rem-calc(1.5)
+      font-size: rem-calc(18)
+      font-weight: 500
+      width: 100%
+      margin: 0 !important
+    &-content
+      font-weight: 700
+      line-height: 1.2
+      margin: 0 !important
+    &-label
+      line-height: 1.2
+      margin: 0 !important
+    &-row
+      display: flex
+      flex-wrap: wrap
+      margin-top: 0.75rem !important
+      margin-bottom: 0.75rem !important
+
+  &__description
+    @include tablet-lg
+      font-size: rem-calc(14)
+    padding-top: 0.75rem
+    border-top: 2px solid $c4
+
   &__pagination
     &-container
       display: flex
@@ -25,11 +75,21 @@
       background: $c3
       height: 6px
 
+  &__empty-state
+    display: flex
+    justify-content: center
+    align-items: center
+    min-height: rem-calc(450)
+    // height: 200vw
+    &-content
+      @extend %h3
   &__carousel
     &-controls
       &-container
+        @include tablet
+          order: -1
+          padding-top: 1rem
         display: flex
-        margin-top: 1rem
     &-progress
       width: 100%
       height: 20px
@@ -40,11 +100,15 @@
       justify-content: center
       transform: scale(-0.5)
       cursor: pointer
+      background-color: rgba(0,0,0,0)
+      border: none
   &__next
     &-wrapper
       display: flex
       transform: scale(0.5)
       cursor: pointer
+      background-color: rgba(0,0,0,0)
+      border: none
   
   &__filters-container
     @include container
@@ -64,14 +128,15 @@
   &__filter
     @extend %button-text
     @include hover-supported
-      background: $c3
-      color: $white
+      background: $c3 !important
+      color: $white !important
     @include nexus
       margin: 0
       padding: rem-calc(12) 0 rem-calc(10)
       width: 30%
       min-width: 0
-      border: none
+      min-height: rem-calc(60)
+      // border: none
       width: unset
     @include laptop-sm
       width: 45%
@@ -82,48 +147,55 @@
     padding: rem-calc(14) 2rem rem-calc(12)
     min-width: rem-calc(172)
     text-align: center
+    background: $white !important
     color: $c3
 
     &--active
       @include nexus
         background: none
         color: $c6
-        &:after
-          position: absolute
-          bottom: -.25rem
-          left: 50%
-          transform: translate(-50%)
-          border-radius: 50%
-          background: $c6
-          width: .5rem
-          height: .5rem
-          content: ''
+        // &:after
+        //   position: absolute
+        //   bottom: -.25rem
+        //   left: 50%
+        //   transform: translate(-50%)
+        //   border-radius: 50%
+        //   background: $c6
+        //   width: .5rem
+        //   height: .5rem
+        //   content: ''
       position: relative
-      background: $c3
-      color: $white
+      background: $c3 !important
+      color: $white !important
 
   &__legend
     &-container
+      @include tablet
+        justify-content: center
       @include container
     &-content
       @include col(6)
       @include col--offset(3)
       margin-bottom: 1rem
       &--punctuated
+        @include tablet
+          max-height: 0
+          overflow: hidden
+          transition: max-height 0.5s ease-out
         display: flex
         flex-wrap: wrap
         margin-bottom: 1rem
-        @include col (8)
-        @include col--offset (2)
-        @include desktop
-          @include col(8)
-          @include col--offset(2)
+        @include col (10)
+        @include col--offset (1)
+      
     &-boxes-container
       display: flex
     &-box
       width: 100%
       height: 1rem
       &-container
+        @include tablet
+          margin-bottom: 1.5rem
         @include col(4)
       &--filled
         background-color: black
@@ -134,15 +206,24 @@
       justify-content: space-between
     &-text
       font-size: 1rem
+  
+  &__weather-legend
+    display: none
+    &--active
+      display: block
 
   &__slider
     @include laptop-lg
       padding: 0
     @include phone-lg
       padding: 0
+      justify-content: flex-start
     transition: height .3s ease
     padding: 0 2rem
-    overflow: hidden
+    overflow: auto
+    flex-direction: column
+    display: flex
+    justify-content: space-between
     
   &__slider-container
     @include container
@@ -157,49 +238,51 @@
     transition: transform .5s ease
     width: 100%
 
-  &__slide
-    @include col(4)
-    @include desktop
-      min-width: calc((4 / 12) * #{$max-width})
-      height: calc(((4 / 12) * #{$max-width}) - 2rem)
-    @include tablet
-      padding: 0 1rem
-      min-width: 60vw
-      height: calc(60vw - 2rem)
-    @include phone-lg
-      padding: 0 1rem
-      min-width: 80vw
-      height: calc(80vw - 2rem)
-    position: relative
-    transition: opacity .5s ease
-    opacity: .32
-    cursor: pointer
-    padding: 0 1rem
-    min-width: calc((4 / 12) * #{$width})
-    height: calc(((4 / 12) * #{$width}) - 2rem)
+  // &__slide
+  //   @include col(4)
+  //   @include desktop
+  //     min-width: calc((4 / 12) * #{$max-width})
+  //     height: calc(((4 / 12) * #{$max-width}) - 2rem)
+  //   @include tablet
+  //     padding: 0 1rem
+  //     min-width: 60vw
+  //     height: calc(60vw - 2rem)
+  //   @include phone-lg
+  //     padding: 0 1rem
+  //     min-width: 80vw
+  //     height: calc(80vw - 2rem)
+  //   position: relative
+  //   transition: opacity .5s ease
+  //   opacity: .32
+  //   cursor: pointer
+  //   padding: 0 1rem
+  //   min-width: calc((4 / 12) * #{$width})
+  //   height: calc(((4 / 12) * #{$width}) - 2rem)
 
-    &--curr
-      opacity: 1
-      z-index: 1
+  //   &--curr
+  //     opacity: 1
+  //     z-index: 1
 
-  &__image-container
-    position: relative
-    background: $gray
-    width: 100%
-    height: 100%
+  // &__image-container
+  //   position: relative
+  //   background: $gray
+  //   width: 100%
+  //   height: 100%
 
-  &__image
-    @extend %absolute
-    transition: filter .5s ease
-    object-fit: cover
-    filter: grayscale(100%)
+  // &__image
+  //   @extend %absolute
+  //   transition: filter .5s ease
+  //   object-fit: cover
+  //   filter: grayscale(100%)
 
-    .slider-neighborhoods__slide--curr &
-      filter: grayscale(0%)
+  //   .slider-neighborhoods__slide--curr &
+  //     filter: grayscale(0%)
 
   &__content-container
     @include container
+    height: 100%
     flex-direction: column
+    // overflow: hidden
 
   &__content-fade
     position: absolute
@@ -210,11 +293,6 @@
     z-index: 3
     width: 100%
     height: 5rem
-
-  &__content-column
-    @include col(9)
-    @include col--offset(1)
-    position: relative
 
   &__content-wrapper
     @extend %absolute
@@ -228,30 +306,44 @@
       pointer-events: auto
 
   &__content
-    @include desktop
-      padding-top: 2.5rem
-    @include nexus
-      padding-top: 0
-    padding-top: 2rem
-    -ms-overflow-style: none
-    scrollbar-width: none
+    // @include desktop
+    //   padding-top: 2.5rem
+    // @include nexus
+    //   padding-top: 0
+    // padding-top: 2rem
+    // -ms-overflow-style: none
+    // scrollbar-width: none
+
 
     &::-webkit-scrollbar
       display: none
 
     &-container
+      height: rem-calc(450)
       transition: height .5s ease
 
     &-title
       line-height: 1
-      margin: 1rem 0
+      margin: 0 0 1rem 0 !important
 
     &-description
-      margin-bottom: 1rem
+      margin: 0 0 1rem 0 !important
 
     &-link
       @extend %button-text
-      @include button-solid($c3, $white, $c6)
+      @include hover-supported
+        border-color: $c6 !important
+        background: $c6 !important
+        color: $white !important
+      display: inline-block
+      position: relative
+      transition: all .2s ease
+      border: rem-calc(1) solid $c3 !important
+      background: $c3 !important
+      cursor: pointer
+      padding: rem-calc(14) 2rem rem-calc(12)
+      text-transform: lowercase
+      color: $white !important
 
     &-icons
       @include tablet
@@ -282,3 +374,35 @@
     &-icon-text
       @extend %h4
       text-transform: uppercase 
+
+.listings-single__features
+  &-see-more
+    @include tablet
+      display: block
+    display: none
+    text-align: center
+    margin-bottom: 1rem
+
+  &-see-more-btn
+    position: relative
+    transition: color .2s ease
+    padding-bottom: 4px
+    cursor: pointer
+    color: $c3
+
+    &::after
+      position: absolute
+      bottom: 0
+      left: 0
+      transition: background .2s ease,
+      background: $c3
+      width: 100%
+      height: 2px
+      content: ''
+
+    @include hover-supported
+      color: $c6
+      font-weight: 600
+
+      &::after
+        background: $c6

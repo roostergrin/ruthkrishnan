@@ -1,6 +1,5 @@
-/******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
+"use strict";
+(self["webpackChunkruthkrishnan"] = self["webpackChunkruthkrishnan"] || []).push([["src_scripts_resources_slider-neighborhoods_js"],{
 
 /***/ "./src/scripts/resources/USDFormat.js":
 /*!********************************************!*\
@@ -164,12 +163,10 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     slide.elem.querySelector('[id^="transit-score-"]').innerHTML = slide.transitscore;
     slide.elem.querySelector('[id^="walk-score-"]').innerHTML = slide.walkscore; // slide.elem.querySelector('[id^="weather-score-"]').innerHTML = slide.weather
 
-    if (slide.HJICondoMonthly || slide.HJISingleMonthly) {
-      slide.elem.querySelector('[id^="single-median-price-display-"]').innerHTML = slide.HJISingleMonthly.result.measurements.salePrice.median ? _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterNoDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median) : 'no house data';
-      slide.elem.querySelector('[id^="single-sq-ft-price-display-"]').innerHTML = slide.HJISingleMonthly.result.measurements.salePrice.median ? _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median / slide.HJISingleMonthly.result.measurements.size.median) : 'no house data';
-      slide.elem.querySelector('[id^="condo-median-price-display-"]').innerHTML = slide.HJICondoMonthly.result.measurements.salePrice.median ? _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterNoDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median) : 'no condo data';
-      slide.elem.querySelector('[id^="condo-sq-ft-price-display-"]').innerHTML = slide.HJICondoMonthly.result.measurements.salePrice.median ? _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median / slide.HJICondoMonthly.result.measurements.size.median) : 'no condo data';
-    }
+    slide.elem.querySelector('[id^="single-median-price-display-"]').innerHTML = slide.HJISingleMonthly.result.measurements.salePrice.median ? _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterNoDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median) : 'no house data';
+    slide.elem.querySelector('[id^="single-sq-ft-price-display-"]').innerHTML = slide.HJISingleMonthly.result.measurements.salePrice.median ? _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median / slide.HJISingleMonthly.result.measurements.size.median) : 'no house data';
+    slide.elem.querySelector('[id^="condo-median-price-display-"]').innerHTML = slide.HJICondoMonthly.result.measurements.salePrice.median ? _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterNoDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median) : 'no condo data';
+    slide.elem.querySelector('[id^="condo-sq-ft-price-display-"]').innerHTML = slide.HJICondoMonthly.result.measurements.salePrice.median ? _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median / slide.HJICondoMonthly.result.measurements.size.median) : 'no condo data';
   }); // Update content on slide 
   // run through all the slides, 
   // swap the child's inner html
@@ -201,20 +198,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   var setContent = function setContent(i) {
     emptyState.style.opacity = 0;
     contentWrapper.forEach(function (el) {
-      if (+el.dataset.index === i) {
-        el.classList.add("slider-neighborhoods__content-wrapper--active");
-        console.log(el);
-
-        if (el.querySelector(".slider-neighborhoods__content-link")) {
-          el.querySelector(".slider-neighborhoods__content-link").tabIndex = "0";
-        }
-      } else {
-        el.classList.remove("slider-neighborhoods__content-wrapper--active");
-
-        if (el.querySelector(".slider-neighborhoods__content-link")) {
-          el.querySelector(".slider-neighborhoods__content-link").tabIndex = "-1";
-        }
-      }
+      +el.dataset.index === i ? el.classList.add("slider-neighborhoods__content-wrapper--active") : el.classList.remove("slider-neighborhoods__content-wrapper--active");
     });
   }; // * set the highlight on the neighborhood map *
 
@@ -476,27 +460,12 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   }
 
   function updateLegendPunctuatedScale(legend, palletteArr) {
-    var legendTemplate = "<div id=\"weather-see-more\" class=\"listings-single__features-see-more\"><span id=\"see-more-text\" class=\"listings-single__features-see-more-btn\">show legend</span></div>\n    <div id=\"weather-content\" class=\"slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated\">";
+    var legendTemplate = "<div class=\"slider-neighborhoods__legend-content slider-neighborhoods__legend-content--punctuated\">";
     weatherValues.forEach(function (weather, i) {
       legendTemplate += "\n      <div style=\"display: flex; gap: 1rem; flex-direction: column;\" class=\"slider-neighborhoods__legend-box-container\">\n        <p>".concat(weather.temperature, "</p>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n        <div style=\"background: ").concat(weather.weatherGroup[0].color, "; min-width: 2rem; min-height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n        <p style=\"padding-left: 0.5rem;\" class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[0].fogWind, "</p>\n      </div>\n      <div class=\"slider-neighborhoods__legend-boxes-container\">\n          <div style=\"background: ").concat(weather.weatherGroup[1].color, "; min-width: 2rem; min-height: 2rem;\" class=\"slider-neighborhoods__legend-box--filled\"></div>\n          <p style=\"padding-left: 0.5rem;\"class=\"slider-neighborhoods__legend-text\">").concat(weather.weatherGroup[1].fogWind, "</p>\n      </div>\n    </div>");
     });
     legendTemplate += "</div>";
     legend.innerHTML = legendTemplate;
-    var weatherContent = document.getElementById("weather-content");
-    var seeMore = document.getElementById("weather-see-more");
-    var seeMoreText = document.getElementById("see-more-text");
-    var active = true;
-    seeMore.addEventListener("click", function () {
-      if (active) {
-        seeMoreText.innerHTML = "hide legend";
-        weatherContent.style.maxHeight = "500px";
-        active = false;
-      } else {
-        seeMoreText.innerHTML = "show legend";
-        weatherContent.style.maxHeight = "0px";
-        active = true;
-      }
-    });
   }
 
   function colorIconArr(value) {
@@ -594,6 +563,16 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       closeToolTip();
       colorIconArr(value);
     });
+    el.addEventListener("keyup", function () {
+      if (!el.classList.contains("slider-neighborhoods__filter--active")) {
+        document.querySelector(".slider-neighborhoods__filter--active").classList.remove("slider-neighborhoods__filter--active");
+        el.classList.add("slider-neighborhoods__filter--active");
+      }
+
+      value = el.dataset.filter;
+      closeToolTip();
+      colorIconArr(value);
+    });
   }); // console.log(value);
   // * set the correct slide active on first load *
 
@@ -602,75 +581,4 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
 
 /***/ })
 
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-/*!********************************************!*\
-  !*** ./src/scripts/pages/neighborhoods.js ***!
-  \********************************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _resources_slider_neighborhoods__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/slider-neighborhoods */ "./src/scripts/resources/slider-neighborhoods.js");
-
-document.addEventListener('DOMContentLoaded', function () {
-  (0,_resources_slider_neighborhoods__WEBPACK_IMPORTED_MODULE_0__.sliderNeighborhoods)();
-});
-})();
-
-/******/ })()
-;
+}]);

@@ -14,7 +14,7 @@
 <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
 
 <?php if (!empty(get_field('single_yearly'))) : ?>
-  <div class="neighborhood-data-table">
+  <div id="neighborhood-data-table" class="neighborhood-data-table">
     <div class="neighborhood-data-table__background" aria-hidden='true'>
       <img src="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg.webp" class="neighborhood-data-table__background-image entered lazyloaded" alt="Neighborhoods" data-lazy-srcset="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg.webp 1280w,https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg-768x343.jpg.webp 768w" data-lazy-sizes="(max-width: 1280px) 100vw, 1280px" data-lazy-src="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg.webp" data-ll-status="loaded" sizes="(max-width: 1280px) 100vw, 1280px" srcset="https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg.jpg.webp 1280w,https://d1nkwan2sp5tun.cloudfront.net/wp-content/uploads/2021/06/10-column-bg-768x343.jpg.webp 768w">
     </div>

@@ -239,16 +239,16 @@ template {
   }
 }
 
-.testimonials-section, .photo-gallery--2, .photo-gallery, .form-subscribe {
+.photo-gallery--2, .photo-gallery, .form-subscribe {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .testimonials-section, .photo-gallery--2, .photo-gallery, .form-subscribe {
+  .photo-gallery--2, .photo-gallery, .form-subscribe {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .testimonials-section, .photo-gallery--2, .photo-gallery, .form-subscribe {
+  .photo-gallery--2, .photo-gallery, .form-subscribe {
     padding: 1rem 0;
   }
 }
@@ -1590,6 +1590,10 @@ p, li, h2, h3, h4, h5 {
 /* -----------------------
  * Testimonials Template Styles
  * ----------------------- */
+.testimonials-section {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
 .testimonials-section__container {
   display: flex;
   position: relative;
@@ -1908,16 +1912,16 @@ p, li, h2, h3, h4, h5 {
   }
 }
 
-.form-subscribe, .photo-gallery, .photo-gallery--2, .testimonials-section {
+.form-subscribe, .photo-gallery, .photo-gallery--2 {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .form-subscribe, .photo-gallery, .photo-gallery--2, .testimonials-section {
+  .form-subscribe, .photo-gallery, .photo-gallery--2 {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .form-subscribe, .photo-gallery, .photo-gallery--2, .testimonials-section {
+  .form-subscribe, .photo-gallery, .photo-gallery--2 {
     padding: 1rem 0;
   }
 }

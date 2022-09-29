@@ -87,17 +87,9 @@ get_header(); ?>
       wp_reset_query();
     ?>
 
-    <div class="buy-neighborhood__tooltip">
-      <div id="tooltip-content" class="buy-neighborhood__tooltip-content"></div>
-      <div id="tooltip-close" class="buy-neighborhood__tooltip-close"></div>
-    </div>
-    <div class="buy-neighborhood__container">
-      <div class="buy-neighborhood__background"></div>
-      <h2 class="buy-neighborhood__title"><?php echo get_field('buy_neighborhood_title'); ?></h2>
-      <div class="buy-neighborhood__map-container">
-        <?php get_template_part('icons/map', null, array( 'class' => 'buy-neighborhood__map')); ?>
-      </div>
-    </div>
+    <!-- Slider Template Part -->
+			<?php get_template_part('template-parts/sliders/slider-neighborhoods'); ?>
+    <!-- END Slider Template Part -->
   </div>
   <!-- END Buy Neighborhood Section -->
 

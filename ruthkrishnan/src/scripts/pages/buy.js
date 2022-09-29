@@ -1,5 +1,7 @@
 import { resourcesLinks } from '../resources/resources-links'
 import { sliderVideo } from '../resources/slider-video'
+import { sliderNeighborhoods } from '../resources/slider-neighborhoods'
+
 
 document.addEventListener('DOMContentLoaded', function () {
   const playButton = document.querySelector('.buy-welcome__play-btn'),
@@ -14,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let debounceLastTimeout = null;
 
+  sliderNeighborhoods();
   // External Scripts
   resourcesLinks();
   sliderVideo();

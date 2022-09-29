@@ -6,6 +6,7 @@
   position: relative
   height:100%
   padding: 2rem 0 
+  margin: 2rem 0 
   &__container
     @include container
     flex-direction: column
@@ -20,7 +21,7 @@
   &__wrapper
     width: 100%
     overflow-x: auto
-    background-color: $c1
+    background-color: $c2
     padding: 2rem 1rem 3rem
     &::-webkit-scrollbar-track 
       background-color: black
@@ -51,10 +52,18 @@
       height: 100%
       width: 100%
 
+.Home
+  & .neighborhood-data-table__wrapper
+    background-color: $c1
+  & .gridjs-table
+    color: $c2
+  & th,td
+    border-bottom: 1px solid $c2
+
 .gridjs
   &-wrapper
   &-table
-    color: $c2
+    color: $c1
     border-collapse: collapse
     @include col(10)
     @include col--offset(1)
@@ -63,11 +72,11 @@
   &-tbody
 
 th,td
-  border-bottom: 1px solid $c2
-  backgorund-color: red
+  border-bottom: 1px solid $c1
   padding: 1rem 1rem 0.75rem
   font-weight: normal
   white-space: nowrap
+
 
 tr:last-child>td
   border-bottom: none

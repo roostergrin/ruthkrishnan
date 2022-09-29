@@ -53,6 +53,9 @@ add_action('wp_ajax_add_transit_score', 'add_transit_score');
 add_action('wp_ajax_nopriv_add_walk_score', 'add_walk_score');
 add_action('wp_ajax_add_walk_score', 'add_walk_score');
 
+add_action('wp_ajax_nopriv_update_cta_button_text', 'update_cta_button_text');
+add_action('wp_ajax_update_cta_button_text', 'update_cta_button_text');
+
 add_action('wp_ajax_nopriv_update_scores', 'update_scores');
 add_action('wp_ajax_update_scores', 'update_scores');
 
@@ -64,6 +67,118 @@ function update_scores() {
   add_walk_score();
 }
 
+function update_cta_button_text() {
+  // /wp-admin/admin-ajax.php?action=update_cta_button_text
+  $neighborhoods_transit_score= [
+    // 'neighborhood_slug' =>'transit score',
+    'outer-parkside' =>'schedule time to talk',
+    'parkside' =>'schedule time to talk',
+    'inner-parkside' =>'schedule time to talk',
+    'pine-lake-park' =>'schedule time to talk',
+    'merced-manor' =>'schedule time to talk',
+    'stonestown' =>'schedule time to talk',
+    'lakeside' =>'schedule time to talk',
+    'balboa-terrace' =>'schedule time to talk',
+    'st-francis-wood' =>'schedule time to talk',
+    'ingleside-terrace' =>'schedule time to talk',
+    'merced-heights' =>'schedule time to talk',
+    'lake-shore' =>'schedule time to talk',
+    'sherwood-forest' =>'schedule time to talk',
+    'ingleside-heights' =>'schedule time to talk',
+    'richmond-central-outer' =>'schedule time to talk',
+    'lincoln-park' =>'schedule time to talk',
+    'sea-cliff' =>'schedule time to talk',
+    'lake-street' =>'schedule time to talk',
+    'richmond-inner' =>'schedule time to talk',
+    'golden-gate-heights' =>'schedule time to talk',
+    'west-portal' =>'schedule time to talk',
+    'forest-hills-extensions' =>'schedule time to talk',
+    'forest-hill' =>'schedule time to talk',
+    'forest-knolls' =>'schedule time to talk',
+    'sunset-central-outer' =>'schedule time to talk',
+    'golden-gate-park' =>'schedule time to talk',
+    'cole-valley' =>'schedule time to talk',
+    'midtown-terrace' =>'schedule time to talk',
+    'twin-peaks' =>'schedule time to talk',
+    'diamond-heights' =>'schedule time to talk',
+    'miraloma-park' =>'schedule time to talk',
+    'sunnyside' =>'schedule time to talk',
+    'westwood-park' =>'schedule time to talk',
+    'ingleside' =>'schedule time to talk',
+    'oceanview' =>'schedule time to talk',
+    'mission-central-outer' =>'schedule time to talk',
+    'mission-terrace' =>'schedule time to talk',
+    'glen-park' =>'schedule time to talk',
+    'noe-valley' =>'schedule time to talk',
+    'mount-davidson-manor' =>'schedule time to talk',
+    'monterey-heights' =>'schedule time to talk',
+    'westwood-highlands' =>'schedule time to talk',
+    'corona-heights' =>'schedule time to talk',
+    'duboce-triangle' =>'schedule time to talk',
+    'haight-ashbury' =>'schedule time to talk',
+    'nopa' =>'schedule time to talk',
+    'lone-mountain' =>'schedule time to talk',
+    'jordan-park-laurel-heights' =>'schedule time to talk',
+    'presidio-heights' =>'schedule time to talk',
+    'anza-vista' =>'schedule time to talk',
+    'clarendon-heights' =>'schedule time to talk',
+    'castro-eureka-valley' =>'schedule time to talk',
+    'alamo-square' =>'schedule time to talk',
+    'western-addition' =>'schedule time to talk',
+    'lower-pacific-heights' =>'schedule time to talk',
+    'tenderloin' =>'schedule time to talk',
+    'van-ness-civic-center' =>'schedule time to talk',
+    'ashbury-buena-vista' =>'schedule time to talk',
+    'hayes-valley' =>'schedule time to talk',
+    'mission-dolores' =>'schedule time to talk',
+    'mission-inner' =>'schedule time to talk',
+    'bernal-heights' =>'schedule time to talk',
+    'crocker-amazon' =>'schedule time to talk',
+    'excelsior' =>'schedule time to talk',
+    'portola' =>'schedule time to talk',
+    'visitacion-valley' =>'schedule time to talk',
+    'bayview-heights' =>'schedule time to talk',
+    'little-hollywood' =>'schedule time to talk',
+    'candlestick-point' =>'schedule time to talk',
+    'silver-terrace' =>'schedule time to talk',
+    'bayview' =>'schedule time to talk',
+    'hunters-point' =>'schedule time to talk',
+    'dogpatch' =>'schedule time to talk',
+    'soma' =>'schedule time to talk',
+    'potrero-hill' =>'schedule time to talk',
+    'mission-bay' =>'schedule time to talk',
+    'yerba-buena' =>'schedule time to talk',
+    'south-beach' =>'schedule time to talk',
+    'financial-district' =>'schedule time to talk',
+    'north-beach' =>'schedule time to talk',
+    'telegraph-hill' =>'schedule time to talk',
+    'north-waterfront' =>'schedule time to talk',
+    'downtown' =>'schedule time to talk',
+    'pacific-heights' =>'schedule time to talk',
+    'nob-hill' =>'schedule time to talk',
+    'cow-hollow' =>'schedule time to talk',
+    'russian-hill' =>'schedule time to talk',
+    'marina' =>'schedule time to talk',
+    'presidio' =>'schedule time to talk',
+  ];
+  
+  $ACF_group_field = "single_neighborhoods_cta";
+  
+  foreach($neighborhoods_transit_score as $neighborhood_slug => $transit_score) {
+    // echo $transit_score;
+    // echo $neighborhood_slug;
+    $value = array("button_text" => "$transit_score");
+    $neighborhood_post_id_wp = get_page_by_path($neighborhood_slug, 'OBJECT', 'neighborhoods');
+    echo $neighborhood_slug;
+    echo "\n";
+    echo $value;
+    echo " ";
+    echo $ACF_field;
+    update_field($ACF_group_field, $value, $neighborhood_post_id_wp);
+  }
+
+  // at the top
+}
 function add_transit_score() {
   $neighborhoods_transit_score= [
     // 'neighborhood_slug' =>'transit score',
