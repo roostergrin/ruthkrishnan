@@ -575,9 +575,9 @@ var dataTable = function dataTable() {
     //   ) * 100).toFixed(0)
     // );
   });
-  console.log(data);
+  var currentYear = new Date().getFullYear();
   new gridjs.Grid({
-    columns: ["dataLabel", "2019", "2020", "2021", "2022"],
+    columns: ["dataLabel", (currentYear - 3).toString(), (currentYear - 2).toString(), (currentYear - 1).toString(), currentYear.toString()],
     data: data
   }).render(tableElement); // let rktHotScoreValue = competeScore[competeScore.length - 1];
   // rktHotScore.innerHTML = rktHotScoreValue;
