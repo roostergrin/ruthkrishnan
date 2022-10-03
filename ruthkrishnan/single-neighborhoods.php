@@ -188,14 +188,6 @@ get_header(); ?>
 			<?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
 			<!-- END Photo Gallery Template Part -->
 
-			<div class="single-neighborhoods-intro">
-				<div class="single-neighborhoods-intro__container">
-					<div class="single-neighborhoods-intro__column">
-						<h2 class="single-neighborhoods-intro__title"><?php echo get_field('neighborhoods_intro_title', 35); ?></h2>
-						<div class="single-neighborhoods-intro__text"><?php echo get_field('neighborhoods_intro_text', 35); ?></div>
-					</div>
-				</div>
-			</div>
 			<!-- Slider Template Part -->
 			<?php get_template_part('template-parts/sliders/slider-neighborhoods'); ?>
 			<!-- END Slider Template Part -->
