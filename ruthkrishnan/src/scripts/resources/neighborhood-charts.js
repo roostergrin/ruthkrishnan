@@ -13,12 +13,13 @@ export const neighborhoodCharts = () => {
 
   const condo = JSON.parse(data[0].dataset.neighborhoodhjicondo);
   const single = JSON.parse(data[0].dataset.neighborhoodhjisingle);
-
+  console.log(condo.result.grouping.groups)
+  console.log(single.result.grouping.groups)
   function timeConverter(UNIX_timestamp) {
     var timestampDate = new Date(UNIX_timestamp * 1000);
-    var year = timestampDate.getFullYear();
+    var year = timestampDate.getFullYear(); 
     var month = timestampDate.getMonth();
-    console.log(year,month)
+    console.log(timestampDate, year,month)
     var quarter;
     if (month === 2) {
       quarter = "Q1";

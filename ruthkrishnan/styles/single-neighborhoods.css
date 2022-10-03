@@ -413,9 +413,6 @@ th[data-column-id=dataLabel] {
 
 .single-neighborhoods-intro {
   padding-top: 2rem;
-  /* -------------------------------------------
-  * Slider Neighborhoods Template Styles
-  * ------------------------------------------- */
 }
 .single-neighborhoods-intro__container {
   display: flex;
@@ -467,6 +464,26 @@ th[data-column-id=dataLabel] {
 @media screen and (min-width: 1750px) {
   .single-neighborhoods-intro__text {
     width: 95%;
+  }
+}
+
+.post-blog__content .single-neighborhoods-intro__column {
+  padding: 0 calc(30px / 2);
+  width: calc((12 / 12) * 100%);
+  margin-left: calc((0 / 12) * 100%);
+  /* -------------------------------------------
+  * Slider Neighborhoods Template Styles
+  * ------------------------------------------- */
+}
+@media screen and (max-width: 768px) {
+  .post-blog__content .single-neighborhoods-intro__column {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .post-blog__content .single-neighborhoods-intro__column {
+    margin-left: 0;
   }
 }
 
@@ -2276,60 +2293,4 @@ hr {
 }
 .key-pairs svg {
   margin: auto 1px;
-}
-
-.single-neighborhoods-intro {
-  padding-top: 2rem;
-}
-.single-neighborhoods-intro__container {
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  padding: 0 calc((64px / 2) - 15px);
-  width: 100%;
-  max-width: calc(1146px + 64px);
-}
-@media screen and (min-width: 1750px) {
-  .single-neighborhoods-intro__container {
-    max-width: 1528px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .single-neighborhoods-intro__container {
-    padding: 0 2rem;
-  }
-}
-@media screen and (max-width: 480px) {
-  .single-neighborhoods-intro__container {
-    padding: 0 1rem;
-  }
-}
-.single-neighborhoods-intro__column {
-  padding: 0 calc(30px / 2);
-  width: calc((8 / 12) * 100%);
-  margin-left: calc((2 / 12) * 100%);
-  text-align: center;
-}
-@media screen and (max-width: 768px) {
-  .single-neighborhoods-intro__column {
-    padding: 0;
-    width: 100%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .single-neighborhoods-intro__column {
-    margin-left: 0;
-  }
-}
-.single-neighborhoods-intro__title {
-  margin-bottom: 1rem;
-}
-.single-neighborhoods-intro__text {
-  width: 100%;
-}
-@media screen and (min-width: 1750px) {
-  .single-neighborhoods-intro__text {
-    width: 95%;
-  }
 }

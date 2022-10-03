@@ -669,7 +669,7 @@ function get_neighborhood_data_from_api()
       $results = wp_remote_retrieve_body(wp_remote_get('https://slipstream.homejunction.com/ws/sales/statistics/measure?market=SFAR&polygon=$' . $hji_id . $API_parameter, $args));
       // $results = json_decode($results);
       // $results = json_encode($results);
-      file_put_contents($file, 'Current field: ' . $ACF_field .', '. $API_parameter ."\n\n Current Neighborhood:". $neighborhood_slug .', '. $hji_id .', '. "\n\n", FILE_APPEND);
+      file_put_contents($file, 'Current field: ' . $ACF_field .', '. $API_parameter ."\n Current Neighborhood:". $neighborhood_slug .', '. $hji_id .', '. "\n" . $results . "\n\n", FILE_APPEND);
       $neighborhood_post_id_wp = get_page_by_path($neighborhood_slug, 'OBJECT', 'neighborhoods');
       update_field($ACF_field, $results, $neighborhood_post_id_wp);
     }

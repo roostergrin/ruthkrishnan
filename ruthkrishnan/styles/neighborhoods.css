@@ -119,9 +119,6 @@
 
 .single-neighborhoods-intro {
   padding-top: 2rem;
-  /* -------------------------------------------
-  * Slider Neighborhoods Template Styles
-  * ------------------------------------------- */
 }
 .single-neighborhoods-intro__container {
   display: flex;
@@ -173,6 +170,26 @@
 @media screen and (min-width: 1750px) {
   .single-neighborhoods-intro__text {
     width: 95%;
+  }
+}
+
+.post-blog__content .single-neighborhoods-intro__column {
+  padding: 0 calc(30px / 2);
+  width: calc((12 / 12) * 100%);
+  margin-left: calc((0 / 12) * 100%);
+  /* -------------------------------------------
+  * Slider Neighborhoods Template Styles
+  * ------------------------------------------- */
+}
+@media screen and (max-width: 768px) {
+  .post-blog__content .single-neighborhoods-intro__column {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .post-blog__content .single-neighborhoods-intro__column {
+    margin-left: 0;
   }
 }
 
