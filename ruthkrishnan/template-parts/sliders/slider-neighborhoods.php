@@ -19,7 +19,14 @@ function truncate($text, $chars = 25)
   return $text;
 }
 ?>
-
+<div class="single-neighborhoods-intro">
+  <div class="single-neighborhoods-intro__container">
+    <div class="single-neighborhoods-intro__column">
+      <h2 class="single-neighborhoods-intro__title"><?php echo get_field('neighborhoods_intro_title', 35); ?></h2>
+      <div class="single-neighborhoods-intro__text"><?php echo get_field('neighborhoods_intro_text', 35); ?></div>
+    </div>
+  </div>
+</div>
 <div id="xyz-php-code-slider-neighborhoods" class="slider-neighborhoods">
   <div class="slider-neighborhoods__filters-container">
     <div class="slider-neighborhoods__filters">
@@ -88,11 +95,11 @@ function truncate($text, $chars = 25)
           <!-- <div class="slider-neighborhoods__content-fade"></div> -->
           <div class="slider-neighborhoods__content-column">
             <div id="empty-state" class="slider-neighborhoods__empty-state">
-            <?php if(is_page('neighborhoods') || is_page('buy') || is_page('what-costs-how-much-where-in-san-francisco')): ?>
-              <p class="slider-neighborhoods__empty-state-content"><?php echo get_field('neighborhoods_empty_state_text', 35); ?></p>
-            <?php else : ?>
-              <p class="slider-neighborhoods__empty-state-content"><?php echo get_field('single_neighborhood_empty_state_text', 35); ?></p>
-            <?php endif; ?>
+              <?php if (is_page('neighborhoods') || is_page('buy') || is_page('what-costs-how-much-where-in-san-francisco')) : ?>
+                <p class="slider-neighborhoods__empty-state-content"><?php echo get_field('neighborhoods_empty_state_text', 35); ?></p>
+              <?php else : ?>
+                <p class="slider-neighborhoods__empty-state-content"><?php echo get_field('single_neighborhood_empty_state_text', 35); ?></p>
+              <?php endif; ?>
             </div>
             <?php
             $active_args = array(
@@ -157,7 +164,7 @@ function truncate($text, $chars = 25)
                       </p>
                     </div>
                     <?php if (get_field('description') !== '') : ?>
-                      <a tabindex="-1" class="slider-neighborhoods__content-link" href="/neighborhoods/<?php echo get_post()->post_name; ?>" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood" >Learn More</a>
+                      <a tabindex="-1" class="slider-neighborhoods__content-link" href="/neighborhoods/<?php echo get_post()->post_name; ?>" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood">Learn More</a>
                     <?php else : ?>
                       <p class="slider-neighborhoods__coming-soon">Coming Soon</p>
                     <?php endif; ?>

@@ -14,14 +14,6 @@ get_header(); ?>
   <!-- END Site Hero Template Part -->
   
   <!-- Neighborhoods Intro Section -->
-  <div class="neighborhoods-intro">
-    <div class="neighborhoods-intro__container">
-      <div class="neighborhoods-intro__column">
-        <h2 class="neighborhoods-intro__title"><?php echo get_field('neighborhoods_intro_title'); ?></h2>
-        <div class="neighborhoods-intro__text"><?php echo get_field('neighborhoods_intro_text'); ?></div>
-      </div>
-    </div>
-  </div>
   <!-- END Neighborhoods Intro Section -->
 
   <!-- Slider Neighborhoodss Template Part -->
