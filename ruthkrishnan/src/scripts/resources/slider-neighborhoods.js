@@ -69,6 +69,7 @@ export const sliderNeighborhoods = () => {
   // Update content on slide 
   // run through all the slides, 
   // swap the child's inner html
+
   
   // * filter and index slides *
   const slidesArr = allSlides.filter(
