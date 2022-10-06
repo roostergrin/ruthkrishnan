@@ -633,7 +633,7 @@ function get_neighborhood_data_from_api()
   $four_year_date = date_create($date);
   $one_year_date = date_create($date);
   $four_year_date = date_sub($four_year_date,date_interval_create_from_date_string("4 years"));
-  $one_year_date = date_sub($one_year_date,date_interval_create_from_date_string("1 year"));
+  $one_year_date = date_sub($one_year_date,date_interval_create_from_date_string("90 days"));
 
   $four_year_date_range = $four_year_date->format('m/d/Y') . ':' . $date;
   $one_year_date_range = $one_year_date->format('m/d/Y') . ':' . $date;
@@ -645,14 +645,14 @@ function get_neighborhood_data_from_api()
     // single data
 
     // TODO: set up dates programmatically
-    'single_data' => '&propertyType=single&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(quarter)',
-    // condo data
-    'condo_data' => '&propertyType=condo&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(quarter)',
+    // 'single_data' => '&propertyType=single&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(quarter)',
+    // // condo data
+    // 'condo_data' => '&propertyType=condo&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(quarter)',
 
-    // single year
-    'single_yearly' => '&propertyType=single&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(year)',
-    // condo year
-    'condo_yearly' => '&propertyType=condo&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(year)',
+    // // single year
+    // 'single_yearly' => '&propertyType=single&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(year)',
+    // // condo year
+    // 'condo_yearly' => '&propertyType=condo&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(year)',
 
     // single monthly
     'single_last_month' => '&propertyType=single&listingDate=' . $one_year_date_range . '&measurements=salePrice,listPrice,size,daysOnMarket',
