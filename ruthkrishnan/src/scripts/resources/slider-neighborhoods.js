@@ -48,10 +48,21 @@ export const sliderNeighborhoods = () => {
     slide.elem.querySelector('[id^="walk-score-"]').innerHTML = slide.walkscore
     // slide.elem.querySelector('[id^="weather-score-"]').innerHTML = slide.weather
     if(slide.HJICondoMonthly || slide.HJISingleMonthly){
-      slide.elem.querySelector('[id^="single-median-price-display-"]').innerHTML = slide.HJISingleMonthly.result.measurements.salePrice.median ? USDFormatterNoDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median) : 'no house data'
-      slide.elem.querySelector('[id^="single-sq-ft-price-display-"]').innerHTML = slide.HJISingleMonthly.result.measurements.salePrice.median ? USDFormatterDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median /slide.HJISingleMonthly.result.measurements.size.median) : 'no house data'
-      slide.elem.querySelector('[id^="condo-median-price-display-"]').innerHTML = slide.HJICondoMonthly.result.measurements.salePrice.median ? USDFormatterNoDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median) : 'no condo data'
-      slide.elem.querySelector('[id^="condo-sq-ft-price-display-"]').innerHTML = slide.HJICondoMonthly.result.measurements.salePrice.median ? USDFormatterDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median /slide.HJICondoMonthly.result.measurements.size.median) : 'no condo data'
+      if (!slide.HJISingleMonthly.result.measurements.salePrice.median) {
+        // console.log(slide.elem.querySelector('#house-display').innerHTML)
+        slide.elem.querySelector('#house-display').innerHTML = "<b>no house data available for the last 90 days</b>"
+        // slide.elem.querySelector('#house-display').innerHTML = "no house data available for the last 90 days"
+      } else {
+        slide.elem.querySelector('[id^="single-median-price-display-"]').innerHTML = USDFormatterNoDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median) 
+        slide.elem.querySelector('[id^="single-sq-ft-price-display-"]').innerHTML = USDFormatterDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median /slide.HJISingleMonthly.result.measurements.size.median) 
+      }
+      if (!slide.HJICondoMonthly.result.measurements.salePrice.median) {
+        // console.log(slide.elem.querySelector('#condo-display').innerHTML)
+        slide.elem.querySelector('#condo-display').innerHTML = "<b>no condo data available for the last 90 days</b>"
+      } else {
+        slide.elem.querySelector('[id^="condo-median-price-display-"]').innerHTML = USDFormatterNoDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median)
+        slide.elem.querySelector('[id^="condo-sq-ft-price-display-"]').innerHTML = USDFormatterDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median /slide.HJICondoMonthly.result.measurements.size.median)
+      }
     }
   })
   
