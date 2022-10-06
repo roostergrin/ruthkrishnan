@@ -139,24 +139,28 @@ function truncate($text, $chars = 25)
                       </div>
                       <div class="slider-neighborhoods__price-row">
                         <p class="slider-neighborhoods__price-heading">House</p>
-                        <div class="slider-neighborhoods__price">
-                          <p id="single-median-price-display-<?php echo $active_query->current_post; ?>" class="slider-neighborhoods__price-content">$5,555,555</p>
-                          <p class="slider-neighborhoods__price-label">median sale price</p>
-                        </div>
-                        <div class="slider-neighborhoods__price-sq-ft">
-                          <p id="single-sq-ft-price-display-<?php echo $active_query->current_post; ?>" class="slider-neighborhoods__price-content">$5,555.23</p>
-                          <p class="slider-neighborhoods__price-label">price to sq footage</p>
+                        <div id="house-display" class="slider-neighborhoods__house-display-container">
+                          <div class="slider-neighborhoods__price">
+                            <p id="single-median-price-display-<?php echo $active_query->current_post; ?>" class="slider-neighborhoods__price-content">$5,555,555</p>
+                            <p class="slider-neighborhoods__price-label">median sale price</p>
+                          </div>
+                          <div class="slider-neighborhoods__price-sq-ft">
+                            <p id="single-sq-ft-price-display-<?php echo $active_query->current_post; ?>" class="slider-neighborhoods__price-content">$5,555.23</p>
+                            <p class="slider-neighborhoods__price-label">price to sq footage</p>
+                          </div>
                         </div>
                       </div>
-                      <div class="slider-neighborhoods__price-row">
+                      <div class="slider-neighborhoods__price-row" >
                         <p class="slider-neighborhoods__price-heading">2BR/2BA Condo</p>
-                        <div class="slider-neighborhoods__price">
-                          <p id="condo-median-price-display-<?php echo $active_query->current_post; ?>" class="slider-neighborhoods__price-content">$c5,555,555</p>
-                          <p class="slider-neighborhoods__price-label">median sale price</p>
-                        </div>
-                        <div class="slider-neighborhoods__price-sq-ft">
-                          <p id="condo-sq-ft-price-display-<?php echo $active_query->current_post; ?>" class="slider-neighborhoods__price-content">$c5,555.23</p>
-                          <p class="slider-neighborhoods__price-label">price to sq footage</p>
+                        <div id="condo-display" class="slider-neighborhoods__house-display-container">
+                          <div class="slider-neighborhoods__price">
+                            <p id="condo-median-price-display-<?php echo $active_query->current_post; ?>" class="slider-neighborhoods__price-content">$c5,555,555</p>
+                            <p class="slider-neighborhoods__price-label">median sale price</p>
+                          </div>
+                          <div class="slider-neighborhoods__price-sq-ft">
+                            <p id="condo-sq-ft-price-display-<?php echo $active_query->current_post; ?>" class="slider-neighborhoods__price-content">$c5,555.23</p>
+                            <p class="slider-neighborhoods__price-label">price to sq footage</p>
+                          </div>
                         </div>
                       </div>
                       <p class="slider-neighborhoods__description">

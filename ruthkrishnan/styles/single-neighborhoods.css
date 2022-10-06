@@ -487,6 +487,10 @@ th[data-column-id=dataLabel] {
   }
 }
 
+.slider-neighborhoods__house-display-container {
+  display: flex;
+  width: 100%;
+}
 .slider-neighborhoods__score {
   width: 33%;
 }
