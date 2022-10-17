@@ -581,7 +581,9 @@ function get_neighborhood_data_from_api()
     'presidio-heights' =>'a6087ad901b05fd96680fa66ba58fbbb',
     'anza-vista' =>'5c142096d2824acd020d9d23c9ed7b15',
     'clarendon-heights' =>'ca1c97a1a267579623d09d97d3869cb8',
-    'castro-eureka-valley' =>'5465e768eba289e29968bc9a862023ba',
+    // castro eureka is a level 3 but we are using level 2 of eureka-valley
+    // 'castro-eureka-valley' =>'5465e768eba289e29968bc9a862023ba',
+    'castro-eureka-valley' => 'e7e19649ba3705c41e1702d518053968',
     'alamo-square' =>'513677bd98d7e92c42d067529cecfae9',
     'western-addition' =>'67226b68206c7bbe7ad15a151a8ca253',
     'lower-pacific-heights' =>'e19cd5f405a9bda13b81f13b00315afa',
@@ -610,7 +612,7 @@ function get_neighborhood_data_from_api()
     'mission-bay' =>'be51a2f797d30662f94381cb51b42094',
     'yerba-buena' =>'44d2fd34565e25cc00b25cfd8d5c80c9',
     'south-beach' =>'23531852cde1155f0e020d68e3b5bfe4',
-    'financial-district' =>'40372df140deabb14cd11c8f0624ce3d',
+    'financial-district' =>'40372df140deabb14cd11c8f0624ce3d,$5c818ac70fdea326d3e696f5389716f4',
     'north-beach' =>'8c957379b7f82065c3b24022b38cd44c',
     'telegraph-hill' =>'e7cca730c9f3e2305d0fd8cb33116fce',
     'north-waterfront' =>'c0dd9c55f0564a9c1dc3f2fc671b3e7b',
@@ -646,18 +648,18 @@ function get_neighborhood_data_from_api()
 
     // TODO: set up dates programmatically
     // 'single_data' => '&propertyType=single&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(quarter)',
-    // // condo data
+    // // // condo data
     // 'condo_data' => '&propertyType=condo&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(quarter)',
 
-    // // single year
+    // // // single year
     // 'single_yearly' => '&propertyType=single&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(year)',
-    // // condo year
+    // // // condo year
     // 'condo_yearly' => '&propertyType=condo&listingDate=' . $four_year_date_range . '&measurements=listPrice,salePrice,daysOnMarket,size&groups=saleDate:interval(year)',
 
     // single monthly
-    'single_last_month' => '&propertyType=single&listingDate=' . $one_year_date_range . '&measurements=salePrice,listPrice,size,daysOnMarket',
+    'single_last_month' => '&propertyType=single&listingDate=' . '07/11/2022:10/11/2022' . '&measurements=salePrice,listPrice,size,daysOnMarket',
     // condo 2br 2ba data monthly
-    'condo2br2b_data' => '&propertyType=condo&baths=2&beds=2&listingDate=' . $one_year_date_range . '&measurements=salePrice,listPrice,size,daysOnMarket',
+    'condo2br2b_data' => '&propertyType=condo&baths=2&beds=2&listingDate=' . '07/11/2022:10/11/2022' . '&measurements=salePrice,listPrice,size,daysOnMarket',
 
   ];
 
