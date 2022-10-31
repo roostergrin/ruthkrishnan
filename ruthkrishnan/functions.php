@@ -35,11 +35,11 @@ include_once(get_template_directory() . '/email.php');
 include_once(get_template_directory() . '/functions/custom-taxonomies.php');
 include_once(get_template_directory() . '/functions/custom-post.php');
 
-if (!wp_next_scheduled('update_neighborhoods_data')) {
-  wp_schedule_event(time(), 'daily', 'get_neighborhood_data_from_api');
+if (!wp_next_scheduled('wp_ajax_nopriv_get_neighborhood_data_from_api')) {
+  wp_schedule_event(time(), 'daily', 'wp_ajax_nopriv_get_neighborhood_data_from_api');
 }
-if (!wp_next_scheduled('update_neighborhoods_monthly_data')) {
-  wp_schedule_event(time(), 'twicedaily', 'get_neighborhood_data_monthly_from_api');
+if (!wp_next_scheduled('wp_ajax_nopriv_get_neighborhood_data_monthly_from_api')) {
+  wp_schedule_event(time(), 'twicedaily', 'wp_ajax_nopriv_get_neighborhood_data_monthly_from_api');
 }
 
 add_action('wp_ajax_nopriv_get_neighborhood_data_from_api', 'get_neighborhood_data_from_api');
