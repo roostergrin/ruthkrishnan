@@ -53,7 +53,7 @@ function truncate($text, $chars = 25)
         <div id="map-neighborhoods__wrapper" class="map-neighborhoods__wrapper">
           <?php get_template_part('icons/map', null, array('class' => 'map-neighborhoods__icon')); ?>
         </div>
-        <p class="map-neighborhoods__citation">This data was pulled from MLS year to date</p>
+        <p class="map-neighborhoods__citation">Rolling 6 months of data is pulled from MLS weekly</p>
       </div>
       <div class="map-neighborhoods__column slider-neighborhoods__slider">
         <?php
