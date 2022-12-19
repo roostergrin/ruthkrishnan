@@ -164,8 +164,6 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     slide.elem.querySelector('[id^="transit-score-"]').innerHTML = slide.transitscore;
     slide.elem.querySelector('[id^="walk-score-"]').innerHTML = slide.walkscore; // slide.elem.querySelector('[id^="weather-score-"]').innerHTML = slide.weather
 
-    console.log('beep-boop');
-
     if (slide.HJICondoMonthly || slide.HJISingleMonthly) {
       if (!slide.HJISingleMonthly.result.measurements.salePrice.median || slide.HJISingleMonthly.result.measurements.salePrice.median == '0') {
         // console.log(slide.elem.querySelector('#house-display').innerHTML)

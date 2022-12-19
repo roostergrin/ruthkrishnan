@@ -555,7 +555,8 @@ var dataTable = function dataTable() {
     return (x - min) / (max - min);
   }
 
-  var residenceType = condo.result.count > single.result.count ? condo : single; // updates span content to fit the correct residence type, condo or single
+  var residenceType = single.result.count > 0 ? single : condo;
+  console.log('residenceType', residenceType); // updates span content to fit the correct residence type, condo or single
 
   residenceTypeElement.innerHTML = residenceType.residenceTypeName; // adds a class to the table to update styling if condo or single
 
@@ -725,8 +726,6 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
   allSlides.forEach(function (slide) {
     slide.elem.querySelector('[id^="transit-score-"]').innerHTML = slide.transitscore;
     slide.elem.querySelector('[id^="walk-score-"]').innerHTML = slide.walkscore; // slide.elem.querySelector('[id^="weather-score-"]').innerHTML = slide.weather
-
-    console.log('beep-boop');
 
     if (slide.HJICondoMonthly || slide.HJISingleMonthly) {
       if (!slide.HJISingleMonthly.result.measurements.salePrice.median || slide.HJISingleMonthly.result.measurements.salePrice.median == '0') {
