@@ -50,7 +50,8 @@ export const dataTable = () => {
     return (x - min) / (max - min);
   }
   
-  const residenceType = condo.result.count > single.result.count ? condo : single
+  const residenceType = single.result.count > 0 ? single : condo
+  console.log('residenceType', residenceType)
   // updates span content to fit the correct residence type, condo or single
   residenceTypeElement.innerHTML = residenceType.residenceTypeName
   // adds a class to the table to update styling if condo or single
