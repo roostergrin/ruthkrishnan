@@ -8,17 +8,21 @@
 get_header(); ?>
 
 <div class="page-neighborhoods">
-  
+
   <!-- Site Hero Template Part -->
   <?php get_template_part('template-parts/hero/site-hero'); ?>
   <!-- END Site Hero Template Part -->
-  
+
   <!-- Neighborhoods Intro Section -->
   <!-- END Neighborhoods Intro Section -->
 
   <!-- Slider Neighborhoodss Template Part -->
   <?php get_template_part('template-parts/sliders/slider-neighborhoods'); ?>
   <!-- END Slider Neighborhoods Template Part -->
+
+  <!-- Resources Links Template Part -->
+  <?php get_template_part('template-parts/resources-links/resources-links'); ?>
+  <!-- END Resources Links Template Part -->
 
   <!-- Testimonials Template Part -->
   <?php get_template_part('template-parts/testimonials/testimonials'); ?>
