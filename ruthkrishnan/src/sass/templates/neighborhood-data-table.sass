@@ -7,6 +7,7 @@
   height:100%
   padding: 2rem 0 
   margin: 2rem 0 
+  transition: .2s ease
   &__container
     @include container
     flex-direction: column
@@ -36,7 +37,6 @@
       right: 0
       display: block
     display: none
-
   &__background
     @extend %absolute
     @include desktop
@@ -51,7 +51,37 @@
     img
       height: 100%
       width: 100%
-
+  &__table--hidden
+    display: none
+  &__toggle-container
+    display: flex
+    gap: 1rem
+    margin-bottom: 1.5rem
+  &__toggle
+    border: none
+    background-color: rgba(0,0,0, 0)
+    text-decoration: underline
+    position: relative
+    cursor: pointer
+    &:after
+      @include desktop
+        width: rem-calc(6)
+        height: rem-calc(6)
+      position: absolute
+      bottom: -.85rem
+      left: 50%
+      transform: translate(-50%)
+      transition: background .4s ease, opacity .2s ease
+      opacity: 0
+      border-radius: 50%
+      background: $black
+      width: 4px
+      height: 4px
+      content: ''
+    &--active
+      -webkit-text-stroke-width: 0.75px
+      &:after
+        opacity: 1
 .Home
   & .neighborhood-data-table__wrapper
     background-color: $c1
@@ -59,7 +89,7 @@
     color: $c2
   & th,td
     border-bottom: 1px solid $c2
-
+  
 .gridjs
   &-wrapper
   &-table
