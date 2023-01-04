@@ -517,21 +517,30 @@ __webpack_require__.r(__webpack_exports__);
 var dataTable = function dataTable() {
   var neighborhoodDataTable = document.getElementById("neighborhood-data-table");
   var tableElement = document.getElementById("wrapper");
+  var condoTableElement = document.getElementById("condo");
   var residenceTypeElement = document.getElementById("residenceType");
+  var homeToggle = document.getElementById("homeToggle");
+  var condoToggle = document.getElementById("condoToggle");
   var single = JSON.parse(tableElement.dataset.hjisingleyearly);
   var condo = JSON.parse(tableElement.dataset.hjicondoyearly);
   condo.residenceTypeName = 'Condo';
   single.residenceTypeName = 'Home';
-  var salePriceAvg = ["Average Sale Price"];
-  var salePriceMedian = ["Median Sale Price"];
-  var salePriceLow = ["Lowest Sale Price"];
-  var salePriceHigh = ["Highest Sale Price"];
-  var salePriceToSqFt = ["Sale Price per sq ft"];
-  var saleToListPrice = ["Sale to List Price Percent"];
-  var daysOnMarketMedian = ["Days on Market"]; // let competeScore = ["RKT Hot Score"];
-
-  var data = [salePriceAvg, salePriceMedian, salePriceLow, salePriceHigh, salePriceToSqFt, saleToListPrice, daysOnMarketMedian // competeScore,
-  ];
+  var singleSalePriceAvg = ["Average Sale Price"];
+  var singleSalePriceMedian = ["Median Sale Price"];
+  var singleSalePriceLow = ["Lowest Sale Price"];
+  var singleSalePriceHigh = ["Highest Sale Price"];
+  var singleSalePriceToSqFt = ["Sale Price per sq ft"];
+  var singleSaleToListPrice = ["Sale to List Price Percent"];
+  var singleDaysOnMarketMedian = ["Days on Market"];
+  var condoSalePriceAvg = ["Average Sale Price"];
+  var condoSalePriceMedian = ["Median Sale Price"];
+  var condoSalePriceLow = ["Lowest Sale Price"];
+  var condoSalePriceHigh = ["Highest Sale Price"];
+  var condoSalePriceToSqFt = ["Sale Price per sq ft"];
+  var condoSaleToListPrice = ["Sale to List Price Percent"];
+  var condoDaysOnMarketMedian = ["Days on Market"];
+  var singleData = [singleSalePriceAvg, singleSalePriceMedian, singleSalePriceLow, singleSalePriceHigh, singleSalePriceToSqFt, singleSaleToListPrice, singleDaysOnMarketMedian];
+  var condoData = [condoSalePriceAvg, condoSalePriceMedian, condoSalePriceLow, condoSalePriceHigh, condoSalePriceToSqFt, condoSaleToListPrice, condoDaysOnMarketMedian];
   var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -555,19 +564,57 @@ var dataTable = function dataTable() {
     return (x - min) / (max - min);
   }
 
-  var residenceType = single.result.count > 0 ? single : condo; // updates span content to fit the correct residence type, condo or single
+  var missingSingle = single.result.count == 0;
+  var missingCondo = condo.result.count == 0;
+  console.log('single ', single.result.count);
+  console.log('condo ', condo.result.count);
 
-  residenceTypeElement.innerHTML = residenceType.residenceTypeName; // adds a class to the table to update styling if condo or single
+  if (missingSingle) {
+    tableElement.classList.add('neighborhood-data-table__table--hidden');
+  }
 
-  neighborhoodDataTable.classList.add(residenceType.residenceTypeName);
-  residenceType.result.grouping.groups.forEach(function (year) {
-    salePriceAvg.push(USDFormatterNoDec.format(year.measurements.salePrice.average));
-    salePriceMedian.push(USDFormatterNoDec.format(year.measurements.salePrice.median));
-    salePriceLow.push(USDFormatterNoDec.format(year.measurements.salePrice.low));
-    salePriceHigh.push(USDFormatterNoDec.format(year.measurements.salePrice.high));
-    daysOnMarketMedian.push(year.measurements.daysOnMarket.average.toFixed(0));
-    salePriceToSqFt.push(USDFormatterDec.format(year.measurements.salePrice.average / year.measurements.size.average) + "/sq.ft");
-    saleToListPrice.push((year.measurements.salePrice.average / year.measurements.listPrice.average * 100).toFixed(2) + "%"); // competeScore.push(
+  if (missingCondo) {
+    condoTableElement.classList.add('neighborhood-data-table__table--hidden');
+  } else {
+    if (missingSingle) {
+      condoTableElement.classList.remove('neighborhood-data-table__table--hidden');
+      residenceTypeElement.innerHTML = "Condo";
+    }
+  }
+
+  if (missingSingle || missingCondo) {
+    condoToggle.style = "display:none;";
+    homeToggle.style = "display:none;";
+  }
+
+  var currentYear = new Date().getFullYear() - 1;
+
+  function timeConverter(UNIX_timestamp) {
+    var timestampDate = new Date(UNIX_timestamp * 1000);
+    var year = timestampDate.getFullYear();
+    return year;
+  }
+
+  console.log(single.result);
+  single.result.grouping.groups.forEach(function (year, i) {
+    console.log(currentYear - timeConverter(year.value), single.result.grouping.groups.length - i);
+    console.log(timeConverter(year.value), currentYear);
+    singleSalePriceAvg.push(USDFormatterNoDec.format(year.measurements.salePrice.average));
+    singleSalePriceMedian.push(USDFormatterNoDec.format(year.measurements.salePrice.median));
+    singleSalePriceLow.push(USDFormatterNoDec.format(year.measurements.salePrice.low));
+    singleSalePriceHigh.push(USDFormatterNoDec.format(year.measurements.salePrice.high));
+    singleDaysOnMarketMedian.push(year.measurements.daysOnMarket.average.toFixed(0));
+    singleSalePriceToSqFt.push(USDFormatterDec.format(year.measurements.salePrice.average / year.measurements.size.average) + "/sq.ft");
+    singleSaleToListPrice.push((year.measurements.salePrice.average / year.measurements.listPrice.average * 100).toFixed(2) + "%");
+  });
+  condo.result.grouping.groups.forEach(function (year) {
+    condoSalePriceAvg.push(USDFormatterNoDec.format(year.measurements.salePrice.average));
+    condoSalePriceMedian.push(USDFormatterNoDec.format(year.measurements.salePrice.median));
+    condoSalePriceLow.push(USDFormatterNoDec.format(year.measurements.salePrice.low));
+    condoSalePriceHigh.push(USDFormatterNoDec.format(year.measurements.salePrice.high));
+    condoDaysOnMarketMedian.push(year.measurements.daysOnMarket.average.toFixed(0));
+    condoSalePriceToSqFt.push(USDFormatterDec.format(year.measurements.salePrice.average / year.measurements.size.average) + "/sq.ft");
+    condoSaleToListPrice.push((year.measurements.salePrice.average / year.measurements.listPrice.average * 100).toFixed(2) + "%"); // competeScore.push(
     //   (scaleRange(
     //     year.measurements.salePrice.average /
     //       year.measurements.listPrice.average /
@@ -577,30 +624,34 @@ var dataTable = function dataTable() {
     //   ) * 100).toFixed(0)
     // );
   });
-  var currentYear = new Date().getFullYear();
   new gridjs.Grid({
     columns: ["dataLabel", (currentYear - 3).toString(), (currentYear - 2).toString(), (currentYear - 1).toString(), currentYear.toString()],
-    data: data
-  }).render(tableElement); // let rktHotScoreValue = competeScore[competeScore.length - 1];
-  // rktHotScore.innerHTML = rktHotScoreValue;
-  // let rktHotScoreTextValue;
-  // if (rktHotScoreValue <= 100) {
-  //   rktHotScoreTextValue = "most homes sell over list price with very few days on market";
-  //   console.log(rktHotScoreTextValue);
-  // }
-  // if (rktHotScoreValue <= 90) {
-  //   rktHotScoreTextValue = "many homes sell over list price with few days on market";
-  //   console.log(rktHotScoreTextValue);
-  // }
-  // if (rktHotScoreValue <= 70) {
-  //   rktHotScoreTextValue = "some homes sell over list price but may takes weeks to sell";
-  //   console.log(rktHotScoreTextValue);
-  // }
-  // if (rktHotScoreValue <= 30) {
-  //   rktHotScoreTextValue = "few homes sell over list price and can take months to sell";
-  //   console.log(rktHotScoreTextValue);
-  // }
-  // rktHotScoreText.innerHTML = rktHotScoreTextValue;
+    data: singleData
+  }).render(tableElement);
+  new gridjs.Grid({
+    columns: ["dataLabel", (currentYear - 3).toString(), (currentYear - 2).toString(), (currentYear - 1).toString(), currentYear.toString()],
+    data: condoData
+  }).render(condoTableElement);
+  homeToggle.addEventListener("click", function () {
+    console.log("home");
+    homeToggle.classList.add('neighborhood-data-table__toggle--active');
+    condoToggle.classList.remove('neighborhood-data-table__toggle--active');
+    condoTableElement.classList.add('neighborhood-data-table__table--hidden');
+    tableElement.classList.remove('neighborhood-data-table__table--hidden'); // updates span content to fit the correct residence type, condo or single
+
+    residenceTypeElement.innerHTML = "Home"; // adds a class to the table to update styling if condo or single
+    // neighborhoodDataTable.classList.add("Home");
+    // neighborhoodDataTable.classList.remove("Condo");
+  });
+  condoToggle.addEventListener("click", function () {
+    console.log("condo");
+    condoToggle.classList.add('neighborhood-data-table__toggle--active');
+    homeToggle.classList.remove('neighborhood-data-table__toggle--active');
+    tableElement.classList.add('neighborhood-data-table__table--hidden');
+    condoTableElement.classList.remove('neighborhood-data-table__table--hidden'); // updates span content to fit the correct residence type, condo or single
+
+    residenceTypeElement.innerHTML = "Condo";
+  });
 };
 
 /***/ }),
