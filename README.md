@@ -118,3 +118,21 @@ Find the databases tab.
 Check the box next to the rk db, then click 'drop / ok'.
 
 Now go back to 'setting up a local' and follow all the db steps.
+
+## Troubleshooting
+
+If you get this error:
+
+1 errors were found during analysis.
+
+Missing expression. (near "ON" at position 25)
+
+Create a file in /Application/MAMP/conf/
+Name it my.cnf
+Copy and paste this into the my.cnf file
+
+# The MySQL server
+[mysqld]
+max_allowed_packet = 64M
+
+Save the file and restart the server
