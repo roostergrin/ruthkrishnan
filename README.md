@@ -127,9 +127,9 @@ If you get this error:
 
 Missing expression. (near "ON" at position 25)
 
-Create a file in /Application/MAMP/conf/
-Name it my.cnf
-Copy and paste this into the my.cnf file
+Create a file in /Application/MAMP/conf/ <br />
+Name it my.cnf <br />
+Copy and paste this into the my.cnf file <br />
 
 \[mysqld\] <br />
 max_allowed_packet = 64M
