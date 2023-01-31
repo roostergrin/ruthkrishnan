@@ -131,7 +131,6 @@ Create a file in /Application/MAMP/conf/
 Name it my.cnf
 Copy and paste this into the my.cnf file
 
-# The MySQL server
 [mysqld]
 max_allowed_packet = 64M
 
