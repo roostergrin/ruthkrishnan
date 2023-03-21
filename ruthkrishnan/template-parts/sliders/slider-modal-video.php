@@ -61,7 +61,7 @@
         </div>
       </div>
     </div>
-    <a href="/neighborhoods/">more neighborhood data and videos</a>
+    <a class="slider-modal-video__button" href="/neighborhoods/">more neighborhood data and videos</a>
     <div class="slider-modal-video__video-modal">
       <div class="slider-modal-video__modal-overlay"></div>
       <div class="slider-modal-video__modal-container">
