@@ -24,7 +24,7 @@
                 <div class='slider-video__slide' data-index='<?php echo $key; ?>'>
                     <div class='slider-video__slide-container'>
                         <div class='slider-video__slide-image-container'>
-                            <iframe class='slider-video__video' 
+                            <iframe class='slider-video__video'
                                 title='talks videos' frameborder='0'
                                 data-src='<?php echo $video; ?>'
                                 allow='autoplay; fullscreen; picture-in-picture'>

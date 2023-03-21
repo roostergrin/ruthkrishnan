@@ -1,5 +1,6 @@
 @import '../local/index.sass'
 @import '../templates/home-hero.sass'
+@import '../templates/slider-modal-video.sass'
 @import '../templates/form-get-in-touch.sass'
 @import '../templates/card-links.sass'
 @import '../templates/cta-text-btn.sass'
@@ -129,7 +130,7 @@
     &--active
       opacity: 1
       pointer-events: auto
-  
+
   &__no-modal-video
     @extend %absolute
 
@@ -273,7 +274,7 @@
     @include container
     padding: 0
     justify-content: center
-  
+
   &__column
     @include col(6)
     text-align: center
@@ -289,7 +290,7 @@
 
   &__container
     @include container
-  
+
   &__title
     margin: auto
     text-align: center
@@ -301,7 +302,7 @@
       justify-content: space-between
     display: flex
     flex-wrap: wrap
-  
+
   &__card
     @include col(4)
     @include tablet-lg
@@ -327,7 +328,7 @@
       background: $black
       padding: rem-calc(27)
       height: rem-calc(200)
-    
+
     &-circle
       @include nexus
         border: 2px solid $black
@@ -395,7 +396,7 @@
       width: 95%
     color: $white
     text-align: center
-  
+
 
 /* ----------------------------
     Home Real Estate Styles
@@ -417,5 +418,5 @@
   @include desktop
     padding-top: 0
   @include nexus
-    padding-top: 0 
-  padding-top: 0 
+    padding-top: 0
+  padding-top: 0

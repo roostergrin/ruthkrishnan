@@ -12,7 +12,7 @@
 
   &__title
     margin-bottom: 1rem
-  
+
   &__text
     @include desktop
       width: 95%
@@ -95,7 +95,7 @@
       background: $c7
       width: 100%
       height: 5px
-    &-indicator  
+    &-indicator
       transition: width .3s cubic-bezier(.34,.01,.26,1.04)
       z-index: 1
       background: $c3
@@ -135,7 +135,7 @@
       cursor: pointer
       background-color: rgba(0,0,0,0)
       border: none
-  
+
   &__filters-container
     @include container
     justify-content: center
@@ -213,7 +213,7 @@
         margin-bottom: 1rem
         @include col (10)
         @include col--offset (1)
-      
+
     &-boxes-container
       display: flex
     &-box
@@ -232,7 +232,7 @@
       justify-content: space-between
     &-text
       font-size: 1rem
-  
+
   &__weather-legend
     display: none
     &--active
@@ -250,7 +250,7 @@
     flex-direction: column
     display: flex
     justify-content: space-between
-    
+
   &__slider-container
     @include container
 
@@ -388,7 +388,7 @@
       margin: 2rem 2rem 0
       max-width: rem-calc(120)
       text-align: center
-    
+
       &:first-of-type
         @include tablet
           margin-left: 2rem
@@ -396,10 +396,10 @@
 
     &-icon
       margin-bottom: .5rem
-    
+
     &-icon-text
       @extend %h4
-      text-transform: uppercase 
+      text-transform: uppercase
 
 .listings-single__features
   &-see-more
@@ -432,3 +432,63 @@
 
       &::after
         background: $c6
+
+.home-welcome
+  &__video-modal
+    position: fixed
+    top: 0
+    left: 0
+    transition: opacity .3s ease
+    opacity: 0
+    z-index: 9999
+    width: 100%
+    height: 100%
+    pointer-events: none
+
+    &--open
+      opacity: 1
+      pointer-events: all
+
+  &__modal-overlay
+    @extend %absolute
+    background: rgba($black, .6)
+
+  &__modal-container
+    @extend %centered
+    @include tablet
+      width: 95vw
+      height: calc(95vw * .5625)
+    @include phone-lg
+      height: 60vw
+    width: 70vw
+    height: calc(70vw * .5625)
+
+  &__video
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: auto
+    overflow: hidden
+
+    @supports (object-fit: cover)
+      height: 100%
+      object-fit: cover
+
+  &__close-btn
+    @include hover-supported
+      color: $c4
+    position: absolute
+    top: -.125rem
+    right: 0
+    transition: color .2s ease
+    background-color: transparent
+    border-style: none
+    z-index: 2
+    cursor: pointer
+    // width: 2rem
+    // height: 2rem
+    color: $white
+
+  &__component-title
+    color: $white
