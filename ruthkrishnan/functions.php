@@ -851,7 +851,7 @@ function get_neighborhood_data_monthly_from_api()
       update_field($ACF_field, $results, $neighborhood_post_id_wp);
     }
   }
-  // http://localhost:8888/wp-admin/admin-ajax.php?action=get_get_neighborhood_data_monthly_from_api
+  // http://localhost:8888/wp-admin/admin-ajax.php?action=get_neighborhood_data_monthly_from_api
 }
 
 // remove wysiwyg editors -------------------------

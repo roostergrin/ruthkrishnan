@@ -1,30 +1,49 @@
 export const dataTable = () => {
   const neighborhoodDataTable = document.getElementById("neighborhood-data-table");
   const tableElement = document.getElementById("wrapper");
+  const condoTableElement = document.getElementById("condo");
   const residenceTypeElement = document.getElementById("residenceType");
+  const homeToggle = document.getElementById("homeToggle");
+  const condoToggle = document.getElementById("condoToggle");
   const single = JSON.parse(tableElement.dataset.hjisingleyearly);
   const condo = JSON.parse(tableElement.dataset.hjicondoyearly);
   condo.residenceTypeName = 'Condo'
   single.residenceTypeName = 'Home'
-  
-  let salePriceAvg = ["Average Sale Price"];
-  let salePriceMedian = ["Median Sale Price"];
-  let salePriceLow = ["Lowest Sale Price"];
-  let salePriceHigh = ["Highest Sale Price"];
-  let salePriceToSqFt = ["Sale Price per sq ft"];
-  let saleToListPrice = ["Sale to List Price Percent"];
-  let daysOnMarketMedian = ["Days on Market"];
-  // let competeScore = ["RKT Hot Score"];
 
-  let data = [
-    salePriceAvg,
-    salePriceMedian,
-    salePriceLow,
-    salePriceHigh,
-    salePriceToSqFt,
-    saleToListPrice,
-    daysOnMarketMedian,
-    // competeScore,
+  let singleSalePriceAvg = ["Average Sale Price"];
+  let singleSalePriceMedian = ["Median Sale Price"];
+  let singleSalePriceLow = ["Lowest Sale Price"];
+  let singleSalePriceHigh = ["Highest Sale Price"];
+  let singleSalePriceToSqFt = ["Sale Price per sq ft"];
+  let singleSaleToListPrice = ["Sale to List Price Percent"];
+  let singleDaysOnMarketMedian = ["Days on Market"];
+
+  let condoSalePriceAvg = ["Average Sale Price"];
+  let condoSalePriceMedian = ["Median Sale Price"];
+  let condoSalePriceLow = ["Lowest Sale Price"];
+  let condoSalePriceHigh = ["Highest Sale Price"];
+  let condoSalePriceToSqFt = ["Sale Price per sq ft"];
+  let condoSaleToListPrice = ["Sale to List Price Percent"];
+  let condoDaysOnMarketMedian = ["Days on Market"];
+
+  let singleData = [
+    singleSalePriceAvg,
+    singleSalePriceMedian,
+    singleSalePriceLow,
+    singleSalePriceHigh,
+    singleSalePriceToSqFt,
+    singleSaleToListPrice,
+    singleDaysOnMarketMedian,
+  ];
+
+  let condoData = [
+    condoSalePriceAvg,
+    condoSalePriceMedian,
+    condoSalePriceLow,
+    condoSalePriceHigh,
+    condoSalePriceToSqFt,
+    condoSaleToListPrice,
+    condoDaysOnMarketMedian,
   ];
 
   var USDFormatterNoDec = new Intl.NumberFormat("en-US", {
@@ -50,32 +69,85 @@ export const dataTable = () => {
     return (x - min) / (max - min);
   }
   
-  const residenceType = single.result.count > 0 ? single : condo
-  // updates span content to fit the correct residence type, condo or single
-  residenceTypeElement.innerHTML = residenceType.residenceTypeName
-  // adds a class to the table to update styling if condo or single
-  neighborhoodDataTable.classList.add(residenceType.residenceTypeName);
+  const missingSingle = single.result.count == 0 
+  const missingCondo = condo.result.count == 0 
+  console.log('single ', single.result.count)
+  console.log('condo ', condo.result.count)
+  if (missingSingle) {
+    tableElement.classList.add('neighborhood-data-table__table--hidden')
+  }
+  if (missingCondo) {
+    condoTableElement.classList.add('neighborhood-data-table__table--hidden')
+  } else {
+    if (missingSingle) {
+      condoTableElement.classList.remove('neighborhood-data-table__table--hidden')
+      residenceTypeElement.innerHTML = "Condo"
+    }
+  }
+  if (missingSingle || missingCondo) {
+    condoToggle.style="display:none;"
+    homeToggle.style="display:none;"
+  }
   
-  residenceType.result.grouping.groups.forEach((year) => {
-    salePriceAvg.push(
+  let currentYear = new Date().getFullYear() - 1
+
+  function timeConverter(UNIX_timestamp) {
+    var timestampDate = new Date(UNIX_timestamp * 1000);
+    var year = timestampDate.getFullYear();
+    return year
+  }
+
+  console.log(single.result)
+  single.result.grouping.groups.forEach((year, i) => {
+    console.log((currentYear - timeConverter(year.value)), (single.result.grouping.groups.length - i))
+    console.log(timeConverter(year.value), currentYear)
+    singleSalePriceAvg.push(
       USDFormatterNoDec.format(year.measurements.salePrice.average)
     );
-    salePriceMedian.push(
+    singleSalePriceMedian.push(
       USDFormatterNoDec.format(year.measurements.salePrice.median)
     );
-    salePriceLow.push(
+    singleSalePriceLow.push(
       USDFormatterNoDec.format(year.measurements.salePrice.low)
     );
-    salePriceHigh.push(
+    singleSalePriceHigh.push(
       USDFormatterNoDec.format(year.measurements.salePrice.high)
     );
-    daysOnMarketMedian.push(year.measurements.daysOnMarket.average.toFixed(0));
-    salePriceToSqFt.push(
+    singleDaysOnMarketMedian.push(year.measurements.daysOnMarket.average.toFixed(0));
+    singleSalePriceToSqFt.push(
       USDFormatterDec.format(
         year.measurements.salePrice.average / year.measurements.size.average
       ) + "/sq.ft"
     );
-    saleToListPrice.push(
+    singleSaleToListPrice.push(
+      (
+        (year.measurements.salePrice.average /
+          year.measurements.listPrice.average) *
+        100
+      ).toFixed(2) + "%"
+    );
+  })
+
+  condo.result.grouping.groups.forEach((year) => {
+    condoSalePriceAvg.push(
+      USDFormatterNoDec.format(year.measurements.salePrice.average)
+    );
+    condoSalePriceMedian.push(
+      USDFormatterNoDec.format(year.measurements.salePrice.median)
+    );
+    condoSalePriceLow.push(
+      USDFormatterNoDec.format(year.measurements.salePrice.low)
+    );
+    condoSalePriceHigh.push(
+      USDFormatterNoDec.format(year.measurements.salePrice.high)
+    );
+    condoDaysOnMarketMedian.push(year.measurements.daysOnMarket.average.toFixed(0));
+    condoSalePriceToSqFt.push(
+      USDFormatterDec.format(
+        year.measurements.salePrice.average / year.measurements.size.average
+      ) + "/sq.ft"
+    );
+    condoSaleToListPrice.push(
       (
         (year.measurements.salePrice.average /
           year.measurements.listPrice.average) *
@@ -93,31 +165,38 @@ export const dataTable = () => {
     // );
   });
 
-  let currentYear = new Date().getFullYear()
+
+  
   new gridjs.Grid({
     columns: ["dataLabel", (currentYear - 3).toString(), (currentYear - 2).toString(), (currentYear - 1).toString(), (currentYear).toString()],
-    data: data,
+    data: singleData,
   }).render(tableElement);
+  
+  new gridjs.Grid({
+    columns: ["dataLabel", (currentYear - 3).toString(), (currentYear - 2).toString(), (currentYear - 1).toString(), (currentYear).toString()],
+    data: condoData,
+  }).render(condoTableElement);
 
-  // let rktHotScoreValue = competeScore[competeScore.length - 1];
-  // rktHotScore.innerHTML = rktHotScoreValue;
-
-  // let rktHotScoreTextValue;
-  // if (rktHotScoreValue <= 100) {
-  //   rktHotScoreTextValue = "most homes sell over list price with very few days on market";
-  //   console.log(rktHotScoreTextValue);
-  // }
-  // if (rktHotScoreValue <= 90) {
-  //   rktHotScoreTextValue = "many homes sell over list price with few days on market";
-  //   console.log(rktHotScoreTextValue);
-  // }
-  // if (rktHotScoreValue <= 70) {
-  //   rktHotScoreTextValue = "some homes sell over list price but may takes weeks to sell";
-  //   console.log(rktHotScoreTextValue);
-  // }
-  // if (rktHotScoreValue <= 30) {
-  //   rktHotScoreTextValue = "few homes sell over list price and can take months to sell";
-  //   console.log(rktHotScoreTextValue);
-  // }
-  // rktHotScoreText.innerHTML = rktHotScoreTextValue;
-};
+  homeToggle.addEventListener("click", () => {
+    console.log("home")
+    homeToggle.classList.add('neighborhood-data-table__toggle--active')
+    condoToggle.classList.remove('neighborhood-data-table__toggle--active')
+    condoTableElement.classList.add('neighborhood-data-table__table--hidden')
+    tableElement.classList.remove('neighborhood-data-table__table--hidden')
+    // updates span content to fit the correct residence type, condo or single
+    residenceTypeElement.innerHTML = "Home"
+    // adds a class to the table to update styling if condo or single
+    // neighborhoodDataTable.classList.add("Home");
+    // neighborhoodDataTable.classList.remove("Condo");
+  })
+  
+  condoToggle.addEventListener("click", () => {
+    console.log("condo")
+    condoToggle.classList.add('neighborhood-data-table__toggle--active')
+    homeToggle.classList.remove('neighborhood-data-table__toggle--active')
+    tableElement.classList.add('neighborhood-data-table__table--hidden')
+    condoTableElement.classList.remove('neighborhood-data-table__table--hidden')
+    // updates span content to fit the correct residence type, condo or single
+    residenceTypeElement.innerHTML = "Condo"
+  })
+}

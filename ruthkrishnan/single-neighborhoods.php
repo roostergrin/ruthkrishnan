@@ -167,7 +167,15 @@ get_header(); ?>
 					</div>
 				</div>
 			</section>
+			<!-- END Home Stats Section -->
+			<!-- Data Table Template Part -->
+			<?php get_template_part('template-parts/neighborhood-data-table/neighborhood-data-table'); ?>
+			<!-- END Data Table Template Part -->
 
+
+			<!-- Graph Section -->
+			<?php get_template_part('template-parts/neighborhood-chart/neighborhood-chart'); ?>
+			<!-- END Graph Section -->
 
 			<!-- CTA Text & Button Template Part -->
 			<div class="single-neighborhoods-cta">
@@ -175,7 +183,7 @@ get_header(); ?>
 			</div>
 			<!-- END CTA Text & Button Template Part -->
 
-
+			
 			<!-- Photo Gallery Template Part -->
 			<?php get_template_part('template-parts/photo-gallery/photo-gallery'); ?>
 			<!-- END Photo Gallery Template Part -->

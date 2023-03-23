@@ -269,6 +269,7 @@
   height: 100%;
   padding: 2rem 0;
   margin: 2rem 0;
+  transition: 0.2s ease;
 }
 .neighborhood-data-table__container {
   display: flex;
@@ -349,6 +350,46 @@
 .neighborhood-data-table__background img {
   height: 100%;
   width: 100%;
+}
+.neighborhood-data-table__table--hidden {
+  display: none;
+}
+.neighborhood-data-table__toggle-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.neighborhood-data-table__toggle {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  text-decoration: underline;
+  position: relative;
+  cursor: pointer;
+}
+.neighborhood-data-table__toggle:after {
+  position: absolute;
+  bottom: -0.85rem;
+  left: 50%;
+  transform: translate(-50%);
+  transition: background 0.4s ease, opacity 0.2s ease;
+  opacity: 0;
+  border-radius: 50%;
+  background: #000;
+  width: 4px;
+  height: 4px;
+  content: "";
+}
+@media screen and (min-width: 1750px) {
+  .neighborhood-data-table__toggle:after {
+    width: 0.375rem;
+    height: 0.375rem;
+  }
+}
+.neighborhood-data-table__toggle--active {
+  -webkit-text-stroke-width: 0.75px;
+}
+.neighborhood-data-table__toggle--active:after {
+  opacity: 1;
 }
 
 .Home .neighborhood-data-table__wrapper {
