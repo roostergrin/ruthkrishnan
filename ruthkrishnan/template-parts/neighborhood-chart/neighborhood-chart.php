@@ -54,10 +54,12 @@
         <hr />
       </div>
     </div>
-    <div class="single-neighborhoods-chart__graph-container">
-      <canvas id="neighborhoodChart">
-        <div id="quarterlyTable"></div>
-      </canvas>
-    </div>
+    <?php if (!empty(get_field('single_data')) && !empty(get_field('condo_data'))) : ?>
+      <div class="single-neighborhoods-chart__graph-container">
+        <canvas id="neighborhoodChart">
+          <div id="quarterlyTable"></div>
+        </canvas>
+      </div>
+    <?php endif; ?>
   </div>
 </div>
