@@ -54,7 +54,7 @@
         <hr />
       </div>
     </div>
-    <?php if (!empty(get_field('single_data')) && !empty(get_field('condo_data'))) : ?>
+    <?php if (!empty(get_field('single_data')) || !empty(get_field('condo_data'))) : ?>
       <div class="single-neighborhoods-chart__graph-container">
         <canvas id="neighborhoodChart">
           <div id="quarterlyTable"></div>
