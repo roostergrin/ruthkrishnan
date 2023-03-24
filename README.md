@@ -8,7 +8,7 @@ To get started, it is best to set up a local development environment. Since this
 
 __Step 1:__ Download and install MAMP <a href='https://www.mamp.info/en/downloads/' target='_blank'>here</a>.
 
-__Step 2:__ Go to RoosterGrinTrestles (<a href='https://52.12.152.11:8443/' target='_blank'>52.12.152.11</a>) server on plesk and navigate to the <strong>ruthkrishnan.com</strong> domain, then go to the File Manager.
+__Step 2:__ Go to the dedicated server on plesk and navigate to the <strong>ruthkrishnan.com</strong> domain, then go to the File Manager.
 
 __Step 3:__ In the File Manager, download the following the file __rk_local.zip__ This is a zip copy of all files on the server. If this file does not exists, select all files on the live server and click on "add to archive" to make a new zip copy of all the files. Note rk_local.zip is several GB and will take a few minutes to download.
 
