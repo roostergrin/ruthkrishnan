@@ -12,7 +12,7 @@
 <div class="listings-neighborhood">
   <h2 class="listings-neighborhood__title">The Neighborhood</h2>
 
-  <?php
+  <?php 
     $neighborhood = get_field('neighborhood');
     $is_custom_gallery = in_array('custom_photo_gallery', get_field('custom_neighborhood_sections'));
     $images = $is_custom_gallery ? get_field('neighborhood_photo_gallery') : get_field('photo_gallery', $neighborhood->ID);
@@ -30,10 +30,10 @@
               <?php endforeach; ?>
 
 
-            <div class="listings-neighborhood__photo-gallery-prev" aria-label='Previous Slide'>
+            <div class="listings-neighborhood__photo-gallery-prev" aria-label='Previous Slide'> 
               <?php get_template_part('icons/arrow', null, array( 'class' => 'listings-neighborhood__photo-gallery-icon listings-neighborhood__photo-gallery-icon--prev' )); ?>
             </div>
-            <div class="listings-neighborhood__photo-gallery-next" aria-label='Next Slide'>
+            <div class="listings-neighborhood__photo-gallery-next" aria-label='Next Slide'> 
               <?php get_template_part('icons/arrow', null, array( 'class' => 'listings-neighborhood__photo-gallery-icon listings-neighborhood__photo-gallery-icon--next' )); ?>
             </div>
           </div>
@@ -51,8 +51,12 @@
 
       </div>
     <?php endif; ?>
-
-
+  
+  <?php 
+    $address_1 = get_field('address_1');
+    $city_state = get_field('city_and_state');
+  ?>
+  <div class='listings-neighborhood__map' id='gmapnd' data-address="<?php echo $address_1 . ' ' . $city_state; ?>"></div>
 
 
 </div>

@@ -60,16 +60,16 @@
   }
 }
 
-.listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title--2, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .card-links__cards, .card-links, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-map__title, .listings-neighborhood__title {
+.listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title--2, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .card-links__cards, .card-links, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
   padding: 2rem 0;
 }
 @media screen and (min-width: 1750px) {
-  .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title--2, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .card-links__cards, .card-links, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-map__title, .listings-neighborhood__title {
+  .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title--2, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .card-links__cards, .card-links, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
     padding: 2.5rem 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title--2, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .card-links__cards, .card-links, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-map__title, .listings-neighborhood__title {
+  .listings-single__about-neighborhood-description, .listings-single__about-neighborhood, .listings-single__features-title--2, .listings-single__features-title, .listings-single__about-home-column, .listings-single__tour-title, .card-links__cards, .card-links, .listings-covid__text, .listings-covid__rule, .form-get-in-touch__form-container, .listings-neighborhood__title {
     padding: 1rem 0;
   }
 }
@@ -88,16 +88,16 @@
   }
 }
 
-.listings-single__features-container--2, .listings-single__features-container, .listings-single__intro-text, .listings-map, .listings-neighborhood {
+.listings-single__features-container--2, .listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
   padding: 2rem 0 4rem;
 }
 @media screen and (min-width: 1750px) {
-  .listings-single__features-container--2, .listings-single__features-container, .listings-single__intro-text, .listings-map, .listings-neighborhood {
+  .listings-single__features-container--2, .listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
     padding: 2.5rem 0 5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .listings-single__features-container--2, .listings-single__features-container, .listings-single__intro-text, .listings-map, .listings-neighborhood {
+  .listings-single__features-container--2, .listings-single__features-container, .listings-single__intro-text, .listings-neighborhood {
     padding: 1rem 0 2rem;
   }
 }
@@ -478,53 +478,6 @@
 }
 @media screen and (max-width: 480px) {
   .listings-neighborhood__map {
-    margin: auto 1rem;
-  }
-}
-
-/* -------------------------------
- *  Listings Neighborhood Styles
- * ------------------------------- */
-.listings-map {
-  display: flex;
-  flex-wrap: wrap;
-  background: #F4F0F0;
-  width: 100%;
-}
-.listings-map__title {
-  width: 100%;
-  text-align: center;
-}
-.listings-map__map {
-  padding: 0 calc(30px / 2);
-  width: calc((10 / 12) * 100%);
-  margin-left: calc((1 / 12) * 100%);
-  margin: 0 auto;
-  height: 22.75rem;
-}
-@media screen and (max-width: 768px) {
-  .listings-map__map {
-    padding: 0;
-    width: 100%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .listings-map__map {
-    margin-left: 0;
-  }
-}
-@media screen and (min-width: 1750px) {
-  .listings-map__map {
-    height: 31.25rem;
-  }
-}
-@media screen and (max-width: 768px) {
-  .listings-map__map {
-    margin: auto 2rem;
-  }
-}
-@media screen and (max-width: 480px) {
-  .listings-map__map {
     margin: auto 1rem;
   }
 }

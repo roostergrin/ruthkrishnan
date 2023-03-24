@@ -1,7 +1,6 @@
 @import '../local/index.sass'
 @import '../templates/listings-hero.sass'
 @import '../templates/listings-neighborhood.sass'
-@import '../templates/listings-map.sass'
 @import '../templates/form-get-in-touch.sass'
 @import '../templates/listings-covid-rules.sass'
 @import '../templates/card-links.sass'
@@ -36,7 +35,7 @@
     @extend %section-padding-top
     text-align: center
     width: 100%
-
+  
   &__title
     @extend %h2
     width: 100%
@@ -50,7 +49,7 @@
         margin-bottom: rem-calc(8)
 
 
-    &-price
+    &-price  
       &::before
         @include nexus
           display: none
@@ -104,7 +103,7 @@
     @include col(10)
     @include col--offset(1)
     background: $c2
-
+  
     &-container
       @extend %section-padding-top
       text-align: center
@@ -112,7 +111,7 @@
     &-title
       @include nexus
         margin-bottom: 1rem
-
+    
     &-icons
       display: flex
       flex-wrap: wrap
@@ -131,15 +130,15 @@
       align-items: center
       justify-content: space-between
       width: 20%
-
+    
     &-icon
       @include tablet-lg
         margin-bottom: 0
-        width: 35%
+        width: 35% 
       @include nexus
         width: 25%
       margin-bottom: rem-calc(24)
-
+    
     &-icon-number
       @extend %h2
       font-weight: 700
@@ -147,7 +146,7 @@
     &-icon-text
       @extend %h4
       text-transform: uppercase
-
+      
   //  -------------------------
   //      Features Styles
   //  -------------------------
@@ -156,7 +155,7 @@
 
     &-container
       @extend %section-padding-bottom
-
+    
     &-title
       @extend %section-padding
       text-align: center
@@ -171,10 +170,10 @@
 
       ul
         margin: 0 0 1rem 0
-
+      
       p:not(:last-of-type)
         margin-bottom: 1rem
-
+    
     &-overlay
       position: absolute
       bottom: 0
@@ -220,7 +219,7 @@
 
     &-container--2
       @extend %section-padding-bottom
-
+    
     &-title--2
       @extend %section-padding
       text-align: center
@@ -235,10 +234,10 @@
 
       ul
         margin: 0 0 1rem 0
-
+      
       p:not(:last-of-type)
         margin-bottom: 1rem
-
+    
     &-overlay--2
       position: absolute
       bottom: 0
@@ -298,7 +297,7 @@
 
       p:not(:last-of-type)
         margin-bottom: 1rem
-
+  
   //  -----------------------
   //    Floor Plan Styles
   //  -----------------------
@@ -311,7 +310,7 @@
     &-image
       width: 100%
       height: auto
-
+    
     &-text
       @include desktop
         padding-top: 2.5rem
@@ -325,7 +324,7 @@
 
       p:not(:last-of-type)
         margin-bottom: 1rem
-
+      
       a
         @include hover-supported
           opacity: .7
@@ -345,7 +344,7 @@
 
     &-column
       @include col(12)
-
+    
     &-content
       @extend %section-padding-large
       @include tablet-lg
@@ -389,7 +388,7 @@
       display: none
       top: rem-calc(4)
       left: rem-calc(4)
-
+    
     &-input
       background: $c1
       border-radius: 0
@@ -412,11 +411,11 @@
       border-radius: 0
       font-weight: 500
       -webkit-appearance: none
-
+    
   //  ----------------------------
   //    Card Links Styles
   //  ----------------------------
-
+  
   &__card-links
     @include desktop
       padding-top: 2.5rem
