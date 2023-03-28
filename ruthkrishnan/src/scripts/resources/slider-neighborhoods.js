@@ -48,23 +48,26 @@ export const sliderNeighborhoods = () => {
     slide.elem.querySelector('[id^="transit-score-"]').innerHTML = slide.transitscore
     slide.elem.querySelector('[id^="walk-score-"]').innerHTML = slide.walkscore
     // slide.elem.querySelector('[id^="weather-score-"]').innerHTML = slide.weather
-    if(slide.HJICondoMonthly || slide.HJISingleMonthly){
-      if (!slide.HJISingleMonthly.result.measurements.salePrice.median || slide.HJISingleMonthly.result.measurements.salePrice.median == '0') {
-        // console.log(slide.elem.querySelector('#house-display').innerHTML)
-        slide.elem.querySelector('#house-display').innerHTML = "<b>no house data available for the last 6 months</b>"
-        // slide.elem.querySelector('#house-display').innerHTML = "no house data available for the last 6 months"
-      } else {
-        slide.elem.querySelector('[id^="single-median-price-display-"]').innerHTML = USDFormatterNoDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median)
-        slide.elem.querySelector('[id^="single-sq-ft-price-display-"]').innerHTML = USDFormatterDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median /slide.HJISingleMonthly.result.measurements.size.median)
+
+      if(slide.HJISingleMonthly){
+        if (!slide.HJISingleMonthly.result.measurements.salePrice.median || slide.HJISingleMonthly.result.measurements.salePrice.median == '0') {
+          // console.log(slide.elem.querySelector('#house-display').innerHTML)
+          slide.elem.querySelector('#house-display').innerHTML = "<b>no house data available for the last 6 months</b>"
+          // slide.elem.querySelector('#house-display').innerHTML = "no house data available for the last 6 months"
+        } else {
+          slide.elem.querySelector('[id^="single-median-price-display-"]').innerHTML = USDFormatterNoDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median)
+          slide.elem.querySelector('[id^="single-sq-ft-price-display-"]').innerHTML = USDFormatterDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median /slide.HJISingleMonthly.result.measurements.size.median)
+        }
       }
-      if (!slide.HJICondoMonthly.result.measurements.salePrice.median || slide.HJICondoMonthly.result.measurements.salePrice.median == '0') {
-        // console.log(slide.elem.querySelector('#condo-display').innerHTML)
-        slide.elem.querySelector('#condo-display').innerHTML = "<b>no condo data available for the last 6 months</b>"
-      } else {
-        slide.elem.querySelector('[id^="condo-median-price-display-"]').innerHTML = USDFormatterNoDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median)
-        slide.elem.querySelector('[id^="condo-sq-ft-price-display-"]').innerHTML = USDFormatterDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median /slide.HJICondoMonthly.result.measurements.size.median)
+      if(slide.HJICondoMonthly){
+        if (!slide.HJICondoMonthly.result.measurements.salePrice.median || slide.HJICondoMonthly.result.measurements.salePrice.median == '0') {
+          // console.log(slide.elem.querySelector('#condo-display').innerHTML)
+          slide.elem.querySelector('#condo-display').innerHTML = "<b>no condo data available for the last 6 months</b>"
+        } else {
+          slide.elem.querySelector('[id^="condo-median-price-display-"]').innerHTML = USDFormatterNoDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median)
+          slide.elem.querySelector('[id^="condo-sq-ft-price-display-"]').innerHTML = USDFormatterDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median /slide.HJICondoMonthly.result.measurements.size.median)
+        }
       }
-    }
   })
 
   // Update content on slide
