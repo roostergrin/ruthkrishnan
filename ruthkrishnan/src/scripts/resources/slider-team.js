@@ -15,6 +15,10 @@ export const sliderTeam = () => {
     introSection = document.querySelector('.slider-team__intro'),
     imagesContainer = document.querySelector('.slider-team__images');
 
+    if (!background || !introSection || !imagesContainer) {
+      return;
+    }
+
     background.style.height = `${introSection.clientHeight + (imagesContainer.clientHeight / 2)}px`
   }
 
@@ -23,6 +27,9 @@ export const sliderTeam = () => {
    // changes the active slide
   const changeImageSlide = (pos) => {
     const slideWrapper = document.querySelector('.slider-team__images');
+    if (!slideWrapper) {
+      return;
+    }
 
     slideWrapper.style.transform = `translate3d(${(imagesArr[pos].elem.clientWidth * -pos) - 16}px, 0, 0)`
 
