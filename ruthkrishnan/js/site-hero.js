@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
   var siteHero = function siteHero() {
     var el = document.querySelector('.hero-template__wrapper'),
         img = document.querySelector('.hero-template__background');
+
+    if (!el || !img) {
+      return;
+    }
+
     img.style.objectPosition = el.dataset.positionX + ' ' + el.dataset.positionY;
 
     var onScroll = function onScroll() {

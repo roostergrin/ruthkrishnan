@@ -482,6 +482,11 @@ var testimonials = function testimonials() {
         contentWrapper = document.querySelector('.testimonials-section__content-wrapper'),
         prevArrow = document.querySelector('.testimonials-section__nav--prev'),
         nextArrow = document.querySelector('.testimonials-section__nav--next');
+
+    if (!imageSlide || !contentSlide || !sliderLength || !dot || !content || !contentWrapper || !prevArrow || !nextArrow) {
+      return;
+    }
+
     var currSlide = 0,
         maxHeight = Math.max.apply(Math, _toConsumableArray(content.map(function (el) {
       return el.clientHeight;

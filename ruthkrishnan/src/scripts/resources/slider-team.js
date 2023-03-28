@@ -2,18 +2,22 @@ export const sliderTeam = () => {
   const memberInfoSlides = Array.from(document.querySelectorAll('.slider-team__member-slide')),
         imageSlides = Array.from(document.querySelectorAll('.slider-team__images-slide')),
         imagesArr = imageSlides.map((el) => ({ position: +el.dataset.index - 1, elem: el }));
-  
+
   let debounceLastTimeout = null;
+
+  if (!memberInfoSlides || !imageSlides || !imagesArr || memberInfoSlides.length==0) {
+    return;
+  }
 
   // resize background image height
   const resizeBackgroundHeight = () => {
     const background = document.querySelector('.slider-team__background'),
     introSection = document.querySelector('.slider-team__intro'),
     imagesContainer = document.querySelector('.slider-team__images');
-    
+
     background.style.height = `${introSection.clientHeight + (imagesContainer.clientHeight / 2)}px`
   }
-  
+
   resizeBackgroundHeight();
 
    // changes the active slide
@@ -21,7 +25,7 @@ export const sliderTeam = () => {
     const slideWrapper = document.querySelector('.slider-team__images');
 
     slideWrapper.style.transform = `translate3d(${(imagesArr[pos].elem.clientWidth * -pos) - 16}px, 0, 0)`
-    
+
     imagesArr.forEach((slide) => {
       if (slide.position === pos) {
         slide.elem.classList.add('slider-team__images-slide--active');
@@ -38,7 +42,7 @@ export const sliderTeam = () => {
   const setInfoHeight = () => {
     const memberInfoContainer = document.querySelector('.slider-team__members-container'),
           activeSlide = document.querySelector('.slider-team__member-slide--active');
-        
+
     memberInfoContainer.style.height = `${activeSlide.scrollHeight}px`
 
     // const memberHeights = memberInfoSlides.map(slide => slide.scrollHeight);
@@ -46,7 +50,7 @@ export const sliderTeam = () => {
 
     // memberInfoContainer.style.height = maxHeight + 'px';
   }
-  
+
   // changes the active info slide
   const changeInfoSlide = (pos) => {
     memberInfoSlides.forEach((slide) => {
@@ -69,7 +73,7 @@ export const sliderTeam = () => {
         func(args)
       }
     };
-    
+
     const callNow = immediate && !debounceLastTimeout
     clearTimeout(debounceLastTimeout)
     debounceLastTimeout = setTimeout(later, wait)
@@ -98,7 +102,7 @@ export const sliderTeam = () => {
     resetImageSlide();
   }
 
-  // window resize event listener 
+  // window resize event listener
   window.addEventListener('resize', () => {
     debounce(resets, null, 300);
   })
@@ -108,18 +112,18 @@ export const sliderTeam = () => {
 
       const currSlide = document.querySelector('.slider-team__images-slide--active'),
             nextSlide = imagesArr.find(el => el.position === +currSlide.dataset.index);
-      
+
       if (nextSlide) {
         changeImageSlide(nextSlide.position);
         changeInfoSlide(nextSlide.position);
       }
     }
-  
+
     // go to the previous slide
     const toPrevSlide = () => {
       const currSlide = document.querySelector('.slider-team__images-slide--active'),
             prevSlide = imagesArr.find(el => el.position === currSlide.dataset.index - 2);
-  
+
       if (prevSlide) {
         changeImageSlide(prevSlide.position);
         changeInfoSlide(prevSlide.position);
@@ -161,7 +165,7 @@ export const sliderTeam = () => {
     distY  = touchObj.pageY - startY;
     distX  = touchObj.pageX - startX;
     elapsedTime = new Date().getTime() - startTime;
-  
+
     if (elapsedTime <= allowedTime && Math.abs(distX) > threshold && Math.abs(distY) <= 100) {
       swipedir = (distX < 0) ? 'left' : 'right';
     }

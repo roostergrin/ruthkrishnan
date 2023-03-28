@@ -1,10 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   const siteHero = () => {
-    
+
     const el = document.querySelector('.hero-template__wrapper'),
           img = document.querySelector('.hero-template__background');
 
+    if (!el || !img) {
+      return;
+    }
     img.style.objectPosition = el.dataset.positionX + ' ' + el.dataset.positionY
 
     const onScroll = () => {

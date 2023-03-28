@@ -190,7 +190,12 @@ var sliderTeam = function sliderTeam() {
       elem: el
     };
   });
-  var debounceLastTimeout = null; // resize background image height
+  var debounceLastTimeout = null;
+
+  if (!memberInfoSlides || !imageSlides || !imagesArr || memberInfoSlides.length == 0) {
+    return;
+  } // resize background image height
+
 
   var resizeBackgroundHeight = function resizeBackgroundHeight() {
     var background = document.querySelector('.slider-team__background'),
@@ -272,7 +277,7 @@ var sliderTeam = function sliderTeam() {
     resizeBackgroundHeight();
     setInfoHeight();
     resetImageSlide();
-  }; // window resize event listener 
+  }; // window resize event listener
 
 
   window.addEventListener('resize', function () {

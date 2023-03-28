@@ -8,17 +8,20 @@ export const testimonials = () => {
           contentWrapper = document.querySelector('.testimonials-section__content-wrapper'),
           prevArrow = document.querySelector('.testimonials-section__nav--prev'),
           nextArrow = document.querySelector('.testimonials-section__nav--next');
-  
+
+  if (!imageSlide || !contentSlide || !sliderLength || !dot || !content || !contentWrapper || !prevArrow || !nextArrow) {
+    return;
+  }
     let currSlide = 0,
         maxHeight = Math.max(...content.map(el => el.clientHeight));
-  
+
     contentWrapper.style.height = maxHeight + 'px';
-    
+
     window.addEventListener('resize', () => {
       maxHeight = Math.max(...content.map(el => el.clientHeight));
       contentWrapper.style.height = maxHeight + 'px';
     })
-  
+
     const setSlide = () => {
       imageSlide.forEach( function(image) {
         currSlide === +image.dataset.imageIndex - 1 ? image.classList.add('testimonials-section__image-slide--active') : image.classList.remove('testimonials-section__image-slide--active')
@@ -41,15 +44,15 @@ export const testimonials = () => {
         currSlide === +content.dataset.contentIndex - 1 ? content.setAttribute('tabindex', 0) : content.setAttribute('tabindex', -1)
       });
     };
-  
+
     setSlide();
     hideSlides();
-  
+
     // const autoSlide = setInterval(() => {
     //   currSlide === sliderLength - 1 ? currSlide = 0 : currSlide++
     //   setSlide();
     // }, 12000)
-  
+
     const goToSlide = (val) => {
       // clearInterval(autoSlide)
       currSlide = val
@@ -75,7 +78,7 @@ export const testimonials = () => {
     prevArrow.addEventListener('keyup', toPrevSlide);
     nextArrow.addEventListener('click', toNextSlide);
     nextArrow.addEventListener('keyup', toNextSlide);
-  
+
     dot.forEach( (dot, i) => {
       dot.addEventListener('click', () => { goToSlide(i) });
       dot.addEventListener('keyup', () => { goToSlide(i) });
