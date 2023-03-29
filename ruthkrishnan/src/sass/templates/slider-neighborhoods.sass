@@ -449,6 +449,25 @@
       opacity: 1
       pointer-events: all
 
+  &__button
+    display: flex
+    position: absolute
+    bottom: 0
+    left: 50%
+    transform: translateX(-50%)
+    transition: background 0.2s ease
+    background: #AF5B5B
+    cursor: pointer
+    padding: 0.875rem 2rem 0.75rem
+    text-transform: lowercase
+    color: #fff
+    max-width: 370px
+    justify-content: center
+    margin: auto
+    margin-bottom: 2.5%
+    @include desktop
+      margin-bottom: 5%
+
   &__modal-overlay
     @extend %absolute
     background: rgba($black, .6)
@@ -492,3 +511,6 @@
 
   &__component-title
     color: $white
+
+  section
+    position: relative

@@ -218,6 +218,19 @@
     margin-bottom: 2rem;
   }
 }
+.slider-modal-video__button {
+  display: flex;
+  position: relative;
+  transition: background 0.2s ease;
+  background: #AF5B5B;
+  cursor: pointer;
+  padding: 0.875rem 2rem 0.75rem;
+  text-transform: lowercase;
+  color: #fff;
+  max-width: 370px;
+  justify-content: center;
+  margin: auto;
+}
 .slider-modal-video__background {
   left: 50%;
   transform: translateX(-50%);
