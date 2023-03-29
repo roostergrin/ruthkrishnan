@@ -1090,6 +1090,28 @@
   opacity: 1;
   pointer-events: all;
 }
+.home-welcome__button {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: background 0.2s ease;
+  background: #AF5B5B;
+  cursor: pointer;
+  padding: 0.875rem 2rem 0.75rem;
+  text-transform: lowercase;
+  color: #fff;
+  max-width: 370px;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 2.5%;
+}
+@media screen and (min-width: 1750px) {
+  .home-welcome__button {
+    margin-bottom: 5%;
+  }
+}
 .home-welcome__modal-overlay {
   background: rgba(0, 0, 0, 0.6);
 }
@@ -1141,6 +1163,9 @@
 }
 .home-welcome__component-title {
   color: #fff;
+}
+.home-welcome section {
+  position: relative;
 }
 
 /* -------------------------------------------
