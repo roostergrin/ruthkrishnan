@@ -1,5 +1,6 @@
 @import '../local/index.sass'
 @import '../templates/slider-team.sass'
+@import '../templates/slider-agent.sass'
 @import '../templates/about-ruth-krishnan.sass'
 @import '../templates/about-logos.sass'
 
@@ -7,7 +8,7 @@
     About Page Styles
   ----------------------- */
 .page-about
-  position: relative 
+  position: relative
 
 /* -----------------------
     About Video Styles
@@ -25,7 +26,7 @@
     @include phone-lg
       padding: 0 1rem
     max-width: $width
-  
+
   &__video-container
     @include laptop
       height: calc(80vw * .5625)
@@ -50,7 +51,7 @@
     &--hidden
       opacity: 0
       pointer-events: none
-  
+
   &__video
     @extend %absolute
     transition: opacity .5s ease
@@ -83,7 +84,7 @@
   &__content
     @include col(8)
     @include col--offset(2)
-    
+
   &__text
     @include desktop
       padding-top: 2.5rem
@@ -168,7 +169,7 @@
     display: flex
     flex-wrap: wrap
     width: 100%
-  
+
   &__card
     @include col(3)
     @include tablet-md
@@ -207,7 +208,7 @@
     padding: 0
     max-width: $width
     color: $white
-  
+
   &__title
     @include desktop
       padding-top: 5rem

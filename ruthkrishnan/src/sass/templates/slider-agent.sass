@@ -1,0 +1,134 @@
+/* --------------------------------
+    Slider Team Template Styles
+   -------------------------------- */
+
+.slider-agent
+  position: relative
+  overflow: hidden
+
+  &__background
+    @extend %absolute
+    @include desktop
+      max-width: calc(#{$max-width} + #{$gutter})
+    left: 50%
+    transform: translateX(-50%)
+    z-index: -1
+    background: $c2
+    max-width: calc(#{$width} + #{$outside-gutter})
+    height: 80%
+
+    &-image
+      @extend %absolute
+      object-fit: cover
+
+  &__container
+    @include container
+    @include desktop
+      max-width: calc(#{$max-width} - #{$outside-gutter})
+    @include max-width (1250px)
+      max-width: calc(100vw - 3rem)
+    @include tablet-md
+      padding: 0 2rem
+      max-width: 100%
+    @include phone-lg
+      padding: 0 1rem
+    padding: 0
+    max-width: $width
+    justify-content: center
+
+  &__intro
+    @include col(10)
+
+  &__intro-column
+    @extend %section-padding
+    @include desktop
+      padding-bottom: rem-calc(24)
+    @include nexus
+      padding-top: 2rem
+    padding-bottom: rem-calc(24)
+
+  &__title
+    margin-bottom: 1rem
+    text-align: center
+
+  &__text
+    p:not(:last-of-type)
+      margin-bottom: 1em
+
+  &__images
+    // @include laptop
+    //   margin-left: calc((2 / 12) * #{$width})
+    // @include tablet-md
+    //   margin-left: calc((1 / 12) * #{$width})
+    // @include tablet
+    //   margin-left: 0
+    display: flex
+    position: relative
+    transition: transform .5s ease
+    width: 100%
+
+  &__images-slide
+    @include col(4)
+    @include desktop
+      min-width: calc((4 / 12) * #{$max-width - ($outside-gutter / 2)})
+      height: calc(((4 / 12) * #{$max-width}) - 2rem)
+    @include tablet
+      padding: 0 1rem
+      min-width: 60vw
+      height: calc(60vw - 2rem)
+    @include phone-lg
+      padding: 0 1rem
+      min-width: 80vw
+      height: calc(80vw - 2rem)
+    display: flex
+    margin: auto
+    position: relative
+    transition: filter .5s ease
+    cursor: pointer
+    padding: 0 1rem
+    min-width: calc((4 / 12) * #{$width})
+    height: calc(((4 / 12) * #{$width}) - 2rem)
+    filter: blur(.5px) grayscale(100%) contrast(50%) brightness(1.5)
+
+    &--active
+      z-index: 1
+      filter: blur(0) grayscale(0) contrast(1) brightness(1)
+
+  &__images-container
+    position: relative
+    background: $gray
+    width: 100%
+    height: 100%
+
+  &__image
+    @extend %absolute
+    transition: filter .5s ease
+    object-fit: cover
+    // filter: grayscale(100%)
+
+  &__members-info
+    @include col(10)
+
+  &__members-container
+    @extend %section-margins
+    position: relative
+    transition: height .5s ease
+
+  &__member-slide
+    @extend %absolute
+    transition: opacity .5s ease
+    opacity: 0
+    pointer-events: none
+    height: auto
+
+    &--active
+      opacity: 1
+      pointer-events: auto
+
+  &__name
+    @include nexus
+      padding-bottom: 1rem
+    padding-bottom: rem-calc(24)
+
+  &__bio
+    @extend %wysiwyg-styles

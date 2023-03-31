@@ -33,7 +33,7 @@ get_header(); ?>
       </div>
       <div class="about-video__links">
         <?php if ( have_rows('about_video_links') ) :
-          while ( have_rows('about_video_links') ) : the_row(); 
+          while ( have_rows('about_video_links') ) : the_row();
 
             $text = get_sub_field('text');
             $link = get_sub_field('link'); ?>
@@ -41,7 +41,7 @@ get_header(); ?>
             <div class="about-video__link-container">
               <a href="<?php echo $link; ?>" class="about-video__link"><?php echo $text; ?></a>
             </div>
-          
+
           <?php endwhile;
         endif; ?>
       </div>
@@ -50,11 +50,19 @@ get_header(); ?>
 
   <!-- END About Video Section -->
 
+  <?php if ( is_page(29) ) { ?>
   <!-- About Team Slider Template Part -->
   <div id="meet-our-team">
     <?php get_template_part('template-parts/sliders/slider-team'); ?>
   </div>
   <!-- END About Team Slider Template Part -->
+  <?php } else { ?>
+    <!-- Alternative Component Template Part -->
+    <div id="alternative-component">
+    <?php get_template_part('template-parts/sliders/slider-agent'); ?>
+    </div>
+    <!-- END Alternative Component Template Part -->
+  <?php } ?>
 
   <!-- About Our Promise Section -->
   <div class="about-promise">
@@ -74,7 +82,7 @@ get_header(); ?>
               <h3 class="about-promise__card-title"><?php echo $title; ?></h3>
               <div class="about-promise__card-text"><?php echo $text; ?></div>
             </div>
-        
+
           <?php endwhile;
         endif; ?>
       </div>
