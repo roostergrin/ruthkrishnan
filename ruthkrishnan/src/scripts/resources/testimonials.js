@@ -9,9 +9,6 @@ export const testimonials = () => {
           prevArrow = document.querySelector('.testimonials-section__nav--prev'),
           nextArrow = document.querySelector('.testimonials-section__nav--next');
 
-  if (!imageSlide || !contentSlide || !sliderLength || !dot || !content || !contentWrapper || !prevArrow || !nextArrow) {
-    return;
-  }
     let currSlide = 0,
         maxHeight = Math.max(...content.map(el => el.clientHeight));
 

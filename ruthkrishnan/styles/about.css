@@ -154,6 +154,17 @@
   position: relative;
   overflow: hidden;
 }
+.slider-team a {
+  display: inline-block;
+  position: relative;
+  transition: color 0.2s ease, text-stroke 0.2s ease;
+  color: #AF5B5B;
+}
+@media screen and (max-width: 880px) {
+  .slider-team a {
+    margin: 0 0.5rem;
+  }
+}
 .slider-team__background {
   left: 50%;
   transform: translateX(-50%);
@@ -515,6 +526,8 @@
   transition: filter 0.5s ease;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: 50% 30%;
+     object-position: 50% 30%;
 }
 .slider-agent__members-info {
   padding: 0 calc(30px / 2);
