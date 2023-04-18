@@ -57,7 +57,9 @@ get_header(); ?>
     <!-- END Home Welcome Section -->
 
     <!-- Take a Look at Our Neighborhood Videos Section -->
-    <?php get_template_part('template-parts/sliders/slider-modal-video'); ?>
+    <?php global $post;
+		$page_id = 25;
+		get_template_part('template-parts/sliders/slider-modal-video', null, array('page_id' => 25)); ?>
     <!-- END Take a Look at Our Neighborhood Videos Section -->
 
     <!-- Home Committed Section -->

@@ -127,7 +127,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "modalVideoLink": () => (/* binding */ modalVideoLink)
 /* harmony export */ });
 var modalVideoLink = function modalVideoLink() {
-  console.log("is this working???");
   var welcomeVideo = document.querySelector('.home-welcome__video'),
       // tabletVideoContainer = document.querySelector('.home-welcome__no-modal-video-container'),
   // tabletVideo = document.querySelector('.home-welcome__no-modal-video'),
@@ -177,8 +176,6 @@ var modalVideoLink = function modalVideoLink() {
 
 
   var playVideo = function playVideo() {
-    console.log("is this working???");
-
     if (window.innerWidth > 880) {
       resetVideoModal();
       playBtn.addEventListener('click', openModal);
