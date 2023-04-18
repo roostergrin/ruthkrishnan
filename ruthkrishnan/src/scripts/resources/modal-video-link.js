@@ -1,6 +1,6 @@
 export const modalVideoLink = () => {
 
-  console.log("is this working???")
+
   const welcomeVideo = document.querySelector('.home-welcome__video'),
         // tabletVideoContainer = document.querySelector('.home-welcome__no-modal-video-container'),
         // tabletVideo = document.querySelector('.home-welcome__no-modal-video'),
@@ -55,7 +55,6 @@ export const modalVideoLink = () => {
   // }
 
   const playVideo = () => {
-    console.log("is this working???")
     if (window.innerWidth > 880) {
       resetVideoModal();
       playBtn.addEventListener('click', openModal);
