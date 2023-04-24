@@ -56,11 +56,7 @@ get_header(); ?>
     </section>
     <!-- END Home Welcome Section -->
 
-    <!-- Take a Look at Our Neighborhood Videos Section -->
-    <?php global $post;
-		$page_id = 25;
-		get_template_part('template-parts/sliders/slider-modal-video', null, array('page_id' => 25)); ?>
-    <!-- END Take a Look at Our Neighborhood Videos Section -->
+
 
     <!-- Home Committed Section -->
     <section class="home-committed">
@@ -107,6 +103,12 @@ get_header(); ?>
       </div>
     </section>
     <!-- END Home Stats Section -->
+
+    <!-- Take a Look at Our Neighborhood Videos Section -->
+    <?php global $post;
+		  $page_id = 25;
+		  get_template_part('template-parts/sliders/slider-modal-video', null, array('page_id' => 25)); ?>
+    <!-- END Take a Look at Our Neighborhood Videos Section -->
 
     <!-- CTA Text & Button Template Part -->
     <section class="home-ready-buy-sell-cta">
