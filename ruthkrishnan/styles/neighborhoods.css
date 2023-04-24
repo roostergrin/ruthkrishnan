@@ -1733,7 +1733,7 @@
 .slider-modal-video__button {
   display: flex;
   position: absolute;
-  bottom: 0;
+  bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
   transition: background 0.2s ease;
@@ -1745,17 +1745,10 @@
   max-width: 370px;
   justify-content: center;
   margin: auto;
-  margin-bottom: 2.5%;
-}
-@media screen and (min-width: 1750px) {
-  .slider-modal-video__button {
-    margin-bottom: 5%;
-  }
 }
 .slider-modal-video__neighborhood-button {
   display: flex;
   position: relative;
-  transform: translateX(-50%);
   transition: background 0.2s ease;
   background: #AF5B5B;
   cursor: pointer;
@@ -1766,7 +1759,6 @@
   justify-content: center;
   margin: auto;
   margin-bottom: 2.5%;
-  margin-left: 50%;
 }
 
 /* ------------------------

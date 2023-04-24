@@ -68,8 +68,9 @@
       <div class="slider-modal-video__modal-container">
         <div class="slider-modal-video__close-btn">close</div>
         <iframe class="slider-modal-video__video" title="talks videos" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+        <a class="slider-modal-video__button" id="neighborhoods_button" href="#" aria-label="">Learn More</a>
       </div>
-      <a class="slider-modal-video__button" id="neighborhoods_button" href="#" aria-label="">Learn More</a>
+      <!-- <a class="slider-modal-video__button" id="neighborhoods_button" href="#" aria-label="">Learn More</a> -->
     </div>
   <?php endif; ?>
   <!-- END Slider Modal Video -->
