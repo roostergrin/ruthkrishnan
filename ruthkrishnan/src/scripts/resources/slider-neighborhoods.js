@@ -1,9 +1,10 @@
 import { USDFormatterNoDec, USDFormatterDec } from "./USDFormat.js";
 import { mapZoom } from '../resources/map-icon'
+import { modalVideoLink } from '../resources/modal-video-link'
 
 export const sliderNeighborhoods = () => {
+  modalVideoLink()
   mapZoom()
-  
   const slides = Array.from(
       document.querySelectorAll(".slider-neighborhoods__slide")
     ),
@@ -53,8 +54,8 @@ export const sliderNeighborhoods = () => {
         slide.elem.querySelector('#house-display').innerHTML = "<b>no house data available for the last 6 months</b>"
         // slide.elem.querySelector('#house-display').innerHTML = "no house data available for the last 6 months"
       } else {
-        slide.elem.querySelector('[id^="single-median-price-display-"]').innerHTML = USDFormatterNoDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median) 
-        slide.elem.querySelector('[id^="single-sq-ft-price-display-"]').innerHTML = USDFormatterDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median /slide.HJISingleMonthly.result.measurements.size.median) 
+        slide.elem.querySelector('[id^="single-median-price-display-"]').innerHTML = USDFormatterNoDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median)
+        slide.elem.querySelector('[id^="single-sq-ft-price-display-"]').innerHTML = USDFormatterDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median /slide.HJISingleMonthly.result.measurements.size.median)
       }
       if (!slide.HJICondoMonthly.result.measurements.salePrice.median || slide.HJICondoMonthly.result.measurements.salePrice.median == '0') {
         // console.log(slide.elem.querySelector('#condo-display').innerHTML)
@@ -65,12 +66,12 @@ export const sliderNeighborhoods = () => {
       }
     }
   })
-  
-  // Update content on slide 
-  // run through all the slides, 
+
+  // Update content on slide
+  // run through all the slides,
   // swap the child's inner html
 
-  
+
   // * filter and index slides *
   const slidesArr = allSlides.filter(
     (slide) => slide.category === "active" || slide.category === "coming-soon"

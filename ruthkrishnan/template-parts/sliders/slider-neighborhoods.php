@@ -172,6 +172,21 @@ function truncate($text, $chars = 25)
                     <?php else : ?>
                       <p class="slider-neighborhoods__coming-soon">Coming Soon</p>
                     <?php endif; ?>
+                    <!-- NEW BUTTON TESTING -->
+                    <?php if (get_field('description') !== '' &&  !empty(get_field('youtube_video'))): ?>
+                      <a tabindex="-1" class="slider-neighborhoods__content-link home-welcome__image-container" href="#" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood">video tour</a>
+                    <section class="home-welcome__video-modal">
+                      <div class="home-welcome__modal-overlay"></div>
+                      <div class="home-welcome__modal-container">
+                        <button class="home-welcome__close-btn" aria-label="close" tabindex="0">close</button>
+                        <?php if ( !empty(get_field('youtube_video'))): ?>
+                          <iframe title="Ruth Krishnan Welcome Video" class="home-welcome__video" data-src="<?php echo get_field('youtube_video') ?>?title=0&byline=0&portrait=0&autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture">
+                        </iframe>
+                        <?php endif; ?>
+                      </div>
+                    </section>
+                    <?php endif; ?>
+                      <!-- END NEW BUTTON TESTING -->
                   </div>
                 </div>
               <?php endwhile; ?>
@@ -194,3 +209,4 @@ function truncate($text, $chars = 25)
     </div>
   </div>
 </div>
+
