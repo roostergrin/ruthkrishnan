@@ -116,6 +116,106 @@ var mapZoom = function mapZoom() {
 
 /***/ }),
 
+/***/ "./src/scripts/resources/modal-video-link.js":
+/*!***************************************************!*\
+  !*** ./src/scripts/resources/modal-video-link.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "modalVideoLink": () => (/* binding */ modalVideoLink)
+/* harmony export */ });
+var modalVideoLink = function modalVideoLink() {
+  console.log("is this working???");
+  var welcomeVideo = document.querySelector('.home-welcome__video'),
+      // tabletVideoContainer = document.querySelector('.home-welcome__no-modal-video-container'),
+  // tabletVideo = document.querySelector('.home-welcome__no-modal-video'),
+  videoModal = document.querySelector('.home-welcome__video-modal'),
+      playBtn = document.querySelector('.home-welcome__image-container'),
+      videoThumbnail = document.querySelector('.home-welcome__thumbnail'),
+      closeBtn = document.querySelector('.home-welcome__close-btn'),
+      overlay = document.querySelector('.home-welcome__modal-overlay');
+  var debounceLastTimeout = null,
+      tabletVideoActive = false; // homeHero();
+  // Home Welcome
+
+  var openModal = function openModal() {
+    videoModal.classList.add('home-welcome__video-modal--open');
+    setTimeout(function () {
+      welcomeVideo.src = welcomeVideo.dataset.src;
+    }, 250);
+  };
+
+  var closeModal = function closeModal() {
+    videoModal.classList.remove('home-welcome__video-modal--open');
+    welcomeVideo.src = '';
+  };
+
+  var resetVideoModal = function resetVideoModal() {
+    closeModal(); // tabletCloseVideo();
+
+    playBtn.removeEventListener('click', openModal);
+    overlay.removeEventListener('click', closeModal);
+    closeBtn.removeEventListener('click', closeModal);
+  }; // const tabletPlayVideo = () => {
+  //   if (!tabletVideoActive) {
+  //     tabletVideo.src = tabletVideo.dataset.src;
+  //     document.querySelector('.home-welcome__play-btn').classList.add('home-welcome__play-btn--hidden');
+  //     videoThumbnail.classList.add('home-welcome__thumbnail--hidden');
+  //     // tabletVideoContainer.classList.add('home-welcome__no-modal-video-container--active');
+  //     // tabletVideoActive = true;
+  //   }
+  // }
+  // const tabletCloseVideo = () => {
+  //   tabletVideoActive = false;
+  //   // tabletVideo.src = '';
+  //   playBtn.classList.remove('home-welcome__play-btn--hidden');
+  //   videoThumbnail.classList.remove('home-welcome__thumbnail--hidden');
+  //   // tabletVideoContainer.classList.remove('home-welcome__no-modal-video-container--active');
+  // }
+
+
+  var playVideo = function playVideo() {
+    console.log("is this working???");
+
+    if (window.innerWidth > 880) {
+      resetVideoModal();
+      playBtn.addEventListener('click', openModal);
+      overlay.addEventListener('click', closeModal);
+      closeBtn.addEventListener('click', closeModal);
+    } else {
+      playBtn.addEventListener('click', tabletPlayVideo);
+    }
+  };
+
+  playVideo(); // debounce function
+
+  var debounce = function debounce(func, args, wait, immediate) {
+    var later = function later() {
+      debounceLastTimeout = null;
+
+      if (!immediate) {
+        func(args);
+      }
+    };
+
+    var callNow = immediate && !debounceLastTimeout;
+    clearTimeout(debounceLastTimeout);
+    debounceLastTimeout = setTimeout(later, wait);
+
+    if (callNow) {
+      func(args);
+    }
+  };
+
+  window.addEventListener('resize', function () {
+    debounce(playVideo, null, 300);
+  });
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/slider-neighborhoods.js":
 /*!*******************************************************!*\
   !*** ./src/scripts/resources/slider-neighborhoods.js ***!
@@ -128,9 +228,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./USDFormat.js */ "./src/scripts/resources/USDFormat.js");
 /* harmony import */ var _resources_map_icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/map-icon */ "./src/scripts/resources/map-icon.js");
+/* harmony import */ var _resources_modal_video_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../resources/modal-video-link */ "./src/scripts/resources/modal-video-link.js");
+
 
 
 var sliderNeighborhoods = function sliderNeighborhoods() {
+  (0,_resources_modal_video_link__WEBPACK_IMPORTED_MODULE_2__.modalVideoLink)();
   (0,_resources_map_icon__WEBPACK_IMPORTED_MODULE_1__.mapZoom)();
   var slides = Array.from(document.querySelectorAll(".slider-neighborhoods__slide")),
       // contents = Array.from( document.querySelectorAll(".slider-neighborhoods__content-wrapper"))
@@ -181,8 +284,8 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
         slide.elem.querySelector('[id^="condo-sq-ft-price-display-"]').innerHTML = _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterDec.format(slide.HJICondoMonthly.result.measurements.salePrice.median / slide.HJICondoMonthly.result.measurements.size.median);
       }
     }
-  }); // Update content on slide 
-  // run through all the slides, 
+  }); // Update content on slide
+  // run through all the slides,
   // swap the child's inner html
   // * filter and index slides *
 

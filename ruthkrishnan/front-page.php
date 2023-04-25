@@ -56,6 +56,10 @@ get_header(); ?>
     </section>
     <!-- END Home Welcome Section -->
 
+    <!-- Take a Look at Our Neighborhood Videos Section -->
+    <?php get_template_part('template-parts/sliders/slider-modal-video'); ?>
+    <!-- END Take a Look at Our Neighborhood Videos Section -->
+
     <!-- Home Committed Section -->
     <section class="home-committed">
       <div class="home-committed__background">
@@ -82,7 +86,7 @@ get_header(); ?>
         <div class="home-stats__cards">
           <?php if ( have_rows('home_stats_cards') ) :
             while ( have_rows('home_stats_cards') ) : the_row();
-              
+
               $title = get_sub_field('title');
               $text = get_sub_field('text'); ?>
 
@@ -94,7 +98,7 @@ get_header(); ?>
                   <div class="home-stats__card-text"><?php echo $text; ?></div>
                 </div>
               </div>
-            
+
             <?php endwhile;
           endif; ?>
         </div>
@@ -127,7 +131,7 @@ get_header(); ?>
       <?php get_template_part('template-parts/card-links/card-links', null, array( 'acf_group' => 'home_real_estate')); ?>
     </section>
     <!-- END Card Links Template Part (Real Estate Section) -->
-    
+
     <!-- CTA Text & Button Template Part -->
     <section class="home-educate-realestate-cta">
       <?php get_template_part('template-parts/cta/cta-text-btn', null, array( 'acf_group' => 'educate_about_real_estate' )); ?>
