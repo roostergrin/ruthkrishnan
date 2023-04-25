@@ -274,12 +274,8 @@ var sliderModalVideo = function sliderModalVideo() {
         videoModalContainer = document.querySelector('.slider-modal-video__video-modal'),
         videoModal = document.querySelector('.slider-modal-video__video'),
         modalOverlay = document.querySelector('.slider-modal-video__modal-overlay'),
-<<<<<<< HEAD
-        modalCloseBtn = document.querySelector('.slider-modal-video__close-btn');
-=======
         modalCloseBtn = document.querySelector('.slider-modal-video__close-btn'),
         neighborhoodLink = document.getElementById("neighborhoods_button");
->>>>>>> sebastian-updates-new
 
     var closeModal = function closeModal() {
       videoModalContainer.classList.remove('slider-modal-video__video-modal--open');
@@ -291,11 +287,8 @@ var sliderModalVideo = function sliderModalVideo() {
         videoModalContainer.classList.add('slider-modal-video__video-modal--open');
         setTimeout(function () {
           videoModal.src = slidesArr[i].dataset.video + '?title=0&byline=0&portrait&autoplay=1';
-<<<<<<< HEAD
-=======
           neighborhoodLink.href = slidesArr[i].dataset.path;
           neighborhoodLink.ariaLabel = 'learn more about ' + slidesArr[i].dataset.title + ' neighborhood';
->>>>>>> sebastian-updates-new
         }, 250);
       });
     });
@@ -355,7 +348,7 @@ var sliderModalVideo = function sliderModalVideo() {
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -369,14 +362,14 @@ var sliderModalVideo = function sliderModalVideo() {
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -389,12 +382,12 @@ var sliderModalVideo = function sliderModalVideo() {
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -405,7 +398,7 @@ var sliderModalVideo = function sliderModalVideo() {
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.

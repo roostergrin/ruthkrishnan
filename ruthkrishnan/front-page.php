@@ -56,13 +56,6 @@ get_header(); ?>
     </section>
     <!-- END Home Welcome Section -->
 
-<<<<<<< HEAD
-    <!-- Take a Look at Our Neighborhood Videos Section -->
-    <?php get_template_part('template-parts/sliders/slider-modal-video'); ?>
-    <!-- END Take a Look at Our Neighborhood Videos Section -->
-=======
-
->>>>>>> sebastian-updates-new
 
     <!-- Home Committed Section -->
     <section class="home-committed">
