@@ -39,8 +39,6 @@
                   <div class="slider-modal-video__slide-title"><?php echo $title; ?></div>
                 </div>
               </div>
-
-
             <?php endforeach; ?>
 
           </div>
