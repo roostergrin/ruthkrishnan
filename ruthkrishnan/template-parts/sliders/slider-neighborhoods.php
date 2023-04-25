@@ -184,6 +184,7 @@ function truncate($text, $chars = 25)
                         </iframe>
                         <?php endif; ?>
                       </div>
+                      <a class="home-welcome__button" href="/neighborhoods/<?php echo get_post()->post_name; ?>" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood">Learn More</a>
                     </section>
                     <?php endif; ?>
                       <!-- END NEW BUTTON TESTING -->

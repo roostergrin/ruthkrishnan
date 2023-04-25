@@ -5,7 +5,8 @@
  * @subpackage ruthkrishnan
  * @version 1.0
  */
-get_header(); ?>
+get_header();
+?>
 
 <div class="page-neighborhoods">
 
@@ -19,6 +20,14 @@ get_header(); ?>
   <!-- Slider Neighborhoodss Template Part -->
   <?php get_template_part('template-parts/sliders/slider-neighborhoods'); ?>
   <!-- END Slider Neighborhoods Template Part -->
+
+	<!-- NEW SECTION -->
+	<?php
+		global $post;
+		$page_id = $post->ID;
+		get_template_part('template-parts/sliders/slider-modal-video', null, array('page_id' => 35));
+		?>
+	<!-- END NEW SECTION -->
 
   <!-- Resources Links Template Part -->
   <div class="resources-links">

@@ -9,8 +9,9 @@
 
 ?>
  <!-- Slider Modal Video -->
- <?php if ( !empty(get_field('talks_video_slider_videos')) ) :
-    $background_image = get_field('background');
+ <?php if (!empty(get_field('talks_video_slider_videos', $args['page_id']))) :
+    $background_image = get_field('background', $args['page_id']);
+    $paths = array();
     ?>
     <div class="slider-modal-video">
       <div class="slider-modal-video__background">
@@ -18,15 +19,15 @@
       </div>
       <div class="slider-modal-video__container">
         <div class="slider-modal-video__column">
-          <h2 class="slider-modal-video__title"><?php echo get_field('talks_video_slider_title'); ?></h2>
+          <h2 class="slider-modal-video__title"><?php echo get_field('talks_video_slider_title', $args['page_id']); ?></h2>
           <div class="slider-modal-video__slides">
 
-            <?php foreach (get_field('talks_video_slider_videos') as $key=>$slide) :
+            <?php foreach (get_field('talks_video_slider_videos', $args['page_id']) as $key=>$slide) :
               $video = $slide['video_src'];
               $thumbnail = wp_get_attachment_image($slide['video_thumbnail'], 'medium_large', false, [ 'class' => 'slider-modal-video__slide-image' ]);
-              $title = $slide['video_title']; ?>
-
-              <div class="slider-modal-video__slide" data-video="<?php echo $video; ?>">
+              $title = $slide['video_title'];
+              $path = $slide['video_path']; ?>
+              <div class="slider-modal-video__slide" data-video="<?php echo $video; ?>" data-path="<?php echo $path; ?>" data-title="<?php echo $title; ?>">
                 <div class="slider-modal-video__slide-container">
                   <div class="slider-modal-video__slide-image-container">
                     <?php echo $thumbnail; ?>
@@ -38,7 +39,7 @@
                   <div class="slider-modal-video__slide-title"><?php echo $title; ?></div>
                 </div>
               </div>
-              <!-- <?php print_r($slide['video_src']); ?> -->
+
 
             <?php endforeach; ?>
 
@@ -52,7 +53,7 @@
           </div>
 
           <div class='slider-modal-video__indicators'>
-            <?php $slides = get_field('talks_video_slider_videos');
+            <?php $slides = get_field('talks_video_slider_videos', $args['page_id']);
               foreach ($slides as $key=>$dot) : ?>
                   <div class="slider-modal-video__dot" data-index='<?php echo $key; ?>'></div>
               <?php endforeach;
@@ -61,13 +62,17 @@
         </div>
       </div>
     </div>
-    <a href="/neighborhoods/">more neighborhood data and videos</a>
+    <?php if (!is_page(35)): ?>
+      <a class="slider-modal-video__neighborhood-button" href="/neighborhoods/">more neighborhood data and videos</a>
+    <?php endif; ?>
     <div class="slider-modal-video__video-modal">
       <div class="slider-modal-video__modal-overlay"></div>
       <div class="slider-modal-video__modal-container">
         <div class="slider-modal-video__close-btn">close</div>
         <iframe class="slider-modal-video__video" title="talks videos" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+        <a class="slider-modal-video__button" id="neighborhoods_button" href="#" aria-label="">Learn More</a>
       </div>
+      <!-- <a class="slider-modal-video__button" id="neighborhoods_button" href="#" aria-label="">Learn More</a> -->
     </div>
   <?php endif; ?>
   <!-- END Slider Modal Video -->

@@ -127,7 +127,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "modalVideoLink": () => (/* binding */ modalVideoLink)
 /* harmony export */ });
 var modalVideoLink = function modalVideoLink() {
+<<<<<<< HEAD
   console.log("is this working???");
+=======
+>>>>>>> sebastian-updates-new
   var welcomeVideo = document.querySelector('.home-welcome__video'),
       // tabletVideoContainer = document.querySelector('.home-welcome__no-modal-video-container'),
   // tabletVideo = document.querySelector('.home-welcome__no-modal-video'),
@@ -177,8 +180,11 @@ var modalVideoLink = function modalVideoLink() {
 
 
   var playVideo = function playVideo() {
+<<<<<<< HEAD
     console.log("is this working???");
 
+=======
+>>>>>>> sebastian-updates-new
     if (window.innerWidth > 880) {
       resetVideoModal();
       playBtn.addEventListener('click', openModal);
@@ -880,7 +886,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     slide.elem.querySelector('[id^="transit-score-"]').innerHTML = slide.transitscore;
     slide.elem.querySelector('[id^="walk-score-"]').innerHTML = slide.walkscore; // slide.elem.querySelector('[id^="weather-score-"]').innerHTML = slide.weather
 
-    if (slide.HJICondoMonthly || slide.HJISingleMonthly) {
+    if (slide.HJISingleMonthly) {
       if (!slide.HJISingleMonthly.result.measurements.salePrice.median || slide.HJISingleMonthly.result.measurements.salePrice.median == '0') {
         // console.log(slide.elem.querySelector('#house-display').innerHTML)
         slide.elem.querySelector('#house-display').innerHTML = "<b>no house data available for the last 6 months</b>"; // slide.elem.querySelector('#house-display').innerHTML = "no house data available for the last 6 months"
@@ -888,7 +894,9 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
         slide.elem.querySelector('[id^="single-median-price-display-"]').innerHTML = _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterNoDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median);
         slide.elem.querySelector('[id^="single-sq-ft-price-display-"]').innerHTML = _USDFormat_js__WEBPACK_IMPORTED_MODULE_0__.USDFormatterDec.format(slide.HJISingleMonthly.result.measurements.salePrice.median / slide.HJISingleMonthly.result.measurements.size.median);
       }
+    }
 
+    if (slide.HJICondoMonthly) {
       if (!slide.HJICondoMonthly.result.measurements.salePrice.median || slide.HJICondoMonthly.result.measurements.salePrice.median == '0') {
         // console.log(slide.elem.querySelector('#condo-display').innerHTML)
         slide.elem.querySelector('#condo-display').innerHTML = "<b>no condo data available for the last 6 months</b>";
