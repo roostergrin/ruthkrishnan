@@ -1093,7 +1093,7 @@
 .home-welcome__button {
   display: flex;
   position: absolute;
-  bottom: 0;
+  bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
   transition: background 0.2s ease;
@@ -1105,12 +1105,6 @@
   max-width: 370px;
   justify-content: center;
   margin: auto;
-  margin-bottom: 2.5%;
-}
-@media screen and (min-width: 1750px) {
-  .home-welcome__button {
-    margin-bottom: 5%;
-  }
 }
 .home-welcome__modal-overlay {
   background: rgba(0, 0, 0, 0.6);

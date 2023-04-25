@@ -183,8 +183,9 @@ function truncate($text, $chars = 25)
                           <iframe title="Ruth Krishnan Welcome Video" class="home-welcome__video" data-src="<?php echo get_field('youtube_video') ?>?title=0&byline=0&portrait=0&autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture">
                         </iframe>
                         <?php endif; ?>
+                        <a class="home-welcome__button" href="/neighborhoods/<?php echo get_post()->post_name; ?>" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood">Learn More</a>
                       </div>
-                      <a class="home-welcome__button" href="/neighborhoods/<?php echo get_post()->post_name; ?>" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood">Learn More</a>
+
                     </section>
                     <?php endif; ?>
                       <!-- END NEW BUTTON TESTING -->
