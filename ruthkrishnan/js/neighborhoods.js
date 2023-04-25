@@ -531,7 +531,8 @@ var sliderModalVideo = function sliderModalVideo() {
         videoModalContainer = document.querySelector('.slider-modal-video__video-modal'),
         videoModal = document.querySelector('.slider-modal-video__video'),
         modalOverlay = document.querySelector('.slider-modal-video__modal-overlay'),
-        modalCloseBtn = document.querySelector('.slider-modal-video__close-btn');
+        modalCloseBtn = document.querySelector('.slider-modal-video__close-btn'),
+        neighborhoodLink = document.getElementById("neighborhoods_button");
 
     var closeModal = function closeModal() {
       videoModalContainer.classList.remove('slider-modal-video__video-modal--open');
@@ -543,6 +544,8 @@ var sliderModalVideo = function sliderModalVideo() {
         videoModalContainer.classList.add('slider-modal-video__video-modal--open');
         setTimeout(function () {
           videoModal.src = slidesArr[i].dataset.video + '?title=0&byline=0&portrait&autoplay=1';
+          neighborhoodLink.href = slidesArr[i].dataset.path;
+          neighborhoodLink.ariaLabel = 'learn more about ' + slidesArr[i].dataset.title + ' neighborhood';
         }, 250);
       });
     });
