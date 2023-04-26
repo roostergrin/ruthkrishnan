@@ -1376,6 +1376,8 @@
 
 .slider-modal-video {
   position: relative;
+  margin-top: 4rem;
+  margin-bottom: 0;
 }
 @media screen and (max-width: 1250px) {
   .slider-modal-video {
@@ -1752,7 +1754,6 @@
   max-width: 370px;
   justify-content: center;
   margin: auto;
-  margin-bottom: 2.5%;
 }
 
 /* ------------------------

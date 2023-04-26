@@ -206,6 +206,8 @@
 
 .slider-modal-video {
   position: relative;
+  margin-top: 4rem;
+  margin-bottom: 0;
 }
 @media screen and (max-width: 1250px) {
   .slider-modal-video {
@@ -582,7 +584,6 @@
   max-width: 370px;
   justify-content: center;
   margin: auto;
-  margin-bottom: 2.5%;
 }
 
 /* ----------------------------
@@ -1592,6 +1593,10 @@
 /* ---------------------------------
  *  Ready to sell or buy CTA Styles
  * --------------------------------- */
+.home-ready-buy-sell-cta {
+  padding-top: 4rem;
+}
+
 /* ------------------------------
  *  Home Handle Listing Styles
  * ------------------------------ */
