@@ -1,8 +1,8 @@
 export const modalVideoLink = () => {
 
   const welcomeVideo = document.querySelector('.home-welcome__video'),
-        // tabletVideoContainer = document.querySelector('.home-welcome__no-modal-video-container'),
-        // tabletVideo = document.querySelector('.home-welcome__no-modal-video'),
+        tabletVideoContainer = document.querySelector('.home-welcome__no-modal-video-container'),
+        tabletVideo = document.querySelector('.home-welcome__no-modal-video'),
         videoModal = document.querySelector('.home-welcome__video-modal'),
         playBtn = document.querySelector('.home-welcome__image-container'),
         videoThumbnail = document.querySelector('.home-welcome__thumbnail'),
@@ -35,15 +35,15 @@ export const modalVideoLink = () => {
     closeBtn.removeEventListener('click', closeModal);
   }
 
-  // const tabletPlayVideo = () => {
-  //   if (!tabletVideoActive) {
-  //     tabletVideo.src = tabletVideo.dataset.src;
-  //     document.querySelector('.home-welcome__play-btn').classList.add('home-welcome__play-btn--hidden');
-  //     videoThumbnail.classList.add('home-welcome__thumbnail--hidden');
-  //     // tabletVideoContainer.classList.add('home-welcome__no-modal-video-container--active');
-  //     // tabletVideoActive = true;
-  //   }
-  // }
+  const tabletPlayVideo = () => {
+    if (!tabletVideoActive) {
+      tabletVideo.src = tabletVideo.dataset.src;
+      document.querySelector('.home-welcome__play-btn').classList.add('home-welcome__play-btn--hidden');
+      videoThumbnail.classList.add('home-welcome__thumbnail--hidden');
+      // tabletVideoContainer.classList.add('home-welcome__no-modal-video-container--active');
+      // tabletVideoActive = true;
+    }
+  }
 
   // const tabletCloseVideo = () => {
   //   tabletVideoActive = false;
@@ -54,14 +54,14 @@ export const modalVideoLink = () => {
   // }
 
   const playVideo = () => {
-    if (window.innerWidth > 880) {
+    // if (window.innerWidth > 880) {
       resetVideoModal();
       playBtn.addEventListener('click', openModal);
       overlay.addEventListener('click', closeModal);
       closeBtn.addEventListener('click', closeModal);
-    } else {
-      playBtn.addEventListener('click', tabletPlayVideo);
-    }
+    // } else {
+    //   playBtn.addEventListener('click', tabletPlayVideo);
+    // }
 
   }
   playVideo();

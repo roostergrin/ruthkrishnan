@@ -128,9 +128,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var modalVideoLink = function modalVideoLink() {
   var welcomeVideo = document.querySelector('.home-welcome__video'),
-      // tabletVideoContainer = document.querySelector('.home-welcome__no-modal-video-container'),
-  // tabletVideo = document.querySelector('.home-welcome__no-modal-video'),
-  videoModal = document.querySelector('.home-welcome__video-modal'),
+      tabletVideoContainer = document.querySelector('.home-welcome__no-modal-video-container'),
+      tabletVideo = document.querySelector('.home-welcome__no-modal-video'),
+      videoModal = document.querySelector('.home-welcome__video-modal'),
       playBtn = document.querySelector('.home-welcome__image-container'),
       videoThumbnail = document.querySelector('.home-welcome__thumbnail'),
       closeBtn = document.querySelector('.home-welcome__close-btn'),
@@ -157,16 +157,16 @@ var modalVideoLink = function modalVideoLink() {
     playBtn.removeEventListener('click', openModal);
     overlay.removeEventListener('click', closeModal);
     closeBtn.removeEventListener('click', closeModal);
-  }; // const tabletPlayVideo = () => {
-  //   if (!tabletVideoActive) {
-  //     tabletVideo.src = tabletVideo.dataset.src;
-  //     document.querySelector('.home-welcome__play-btn').classList.add('home-welcome__play-btn--hidden');
-  //     videoThumbnail.classList.add('home-welcome__thumbnail--hidden');
-  //     // tabletVideoContainer.classList.add('home-welcome__no-modal-video-container--active');
-  //     // tabletVideoActive = true;
-  //   }
-  // }
-  // const tabletCloseVideo = () => {
+  };
+
+  var tabletPlayVideo = function tabletPlayVideo() {
+    if (!tabletVideoActive) {
+      tabletVideo.src = tabletVideo.dataset.src;
+      document.querySelector('.home-welcome__play-btn').classList.add('home-welcome__play-btn--hidden');
+      videoThumbnail.classList.add('home-welcome__thumbnail--hidden'); // tabletVideoContainer.classList.add('home-welcome__no-modal-video-container--active');
+      // tabletVideoActive = true;
+    }
+  }; // const tabletCloseVideo = () => {
   //   tabletVideoActive = false;
   //   // tabletVideo.src = '';
   //   playBtn.classList.remove('home-welcome__play-btn--hidden');
@@ -176,14 +176,13 @@ var modalVideoLink = function modalVideoLink() {
 
 
   var playVideo = function playVideo() {
-    if (window.innerWidth > 880) {
-      resetVideoModal();
-      playBtn.addEventListener('click', openModal);
-      overlay.addEventListener('click', closeModal);
-      closeBtn.addEventListener('click', closeModal);
-    } else {
-      playBtn.addEventListener('click', tabletPlayVideo);
-    }
+    // if (window.innerWidth > 880) {
+    resetVideoModal();
+    playBtn.addEventListener('click', openModal);
+    overlay.addEventListener('click', closeModal);
+    closeBtn.addEventListener('click', closeModal); // } else {
+    //   playBtn.addEventListener('click', tabletPlayVideo);
+    // }
   };
 
   playVideo(); // debounce function
