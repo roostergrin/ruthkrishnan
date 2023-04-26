@@ -25,7 +25,7 @@
     z-index: -1
     max-width: calc(#{$width} + #{$outside-gutter})
     height: 60%
-    
+
     &-image
       @extend %absolute
       @include nexus
@@ -76,12 +76,12 @@
     text-align: center
 
     @include hover-supported
-      & .card-links__card-image 
+      & .card-links__card-image
         transform: scale(1.1)
 
       & .card-links__card-overlay
         opacity: .46
-  
+
     &-container
       display: flex
       position: relative
@@ -97,7 +97,7 @@
       background: $black
       opacity: .26
       z-index: -1
-    
+
     &-image
       @extend %absolute
       transition: transform .5s ease
@@ -112,3 +112,5 @@
       font-weight: 700
       text-transform: uppercase
       color: $white
+      display: flex
+      justify-content: center
