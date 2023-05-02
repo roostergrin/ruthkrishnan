@@ -100,6 +100,10 @@ get_header(); ?>
   <?php get_template_part('template-parts/testimonials/testimonials'); ?>
   <!-- END Testimonials Template Part -->
 
+  <!-- Video Tesimonial Template -->
+  <?php get_template_part('template-parts/sliders/slider-video'); ?>
+  <!-- END Video Tesimonial Template -->
+
   <!-- Process Steps Template Part -->
   <?php get_template_part('template-parts/process-steps/process-steps'); ?>
   <!-- END Process Steps Template Part -->

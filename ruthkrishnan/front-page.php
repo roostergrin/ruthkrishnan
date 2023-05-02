@@ -121,6 +121,10 @@ get_header(); ?>
     </section>
     <!-- END Testimonials Section Template Part -->
 
+    <!-- Video Tesimonial Template -->
+    <?php get_template_part('template-parts/sliders/slider-video'); ?>
+    <!-- END Video Tesimonial Template -->
+
     <!-- Home Handle Listings -->
     <section class="home-handle-listing">
       <div class="home-handle-listing__container">

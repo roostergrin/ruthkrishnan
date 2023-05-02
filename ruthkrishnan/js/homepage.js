@@ -342,6 +342,116 @@ var sliderModalVideo = function sliderModalVideo() {
   });
 };
 
+/***/ }),
+
+/***/ "./src/scripts/resources/slider-video.js":
+/*!***********************************************!*\
+  !*** ./src/scripts/resources/slider-video.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "sliderVideo": () => (/* binding */ sliderVideo)
+/* harmony export */ });
+var sliderVideo = function sliderVideo() {
+  // Play Video ------------------------------------------------------------------------
+  var videoSlides = Array.from(document.querySelectorAll(".slider-video__slide")),
+      slideThumbnails = Array.from(document.querySelectorAll(".slider-video__slide-image")),
+      playButtons = Array.from(document.querySelectorAll(".slider-video__slide-play-btn")),
+      prevBtn = document.querySelector(".slider-video__prev"),
+      nextBtn = document.querySelector(".slider-video__next"),
+      dots = Array.from(document.querySelectorAll(".slider-video__dot"));
+  var currSlide = 0;
+
+  var resetSlides = function resetSlides() {
+    videoSlides.forEach(function (slide) {
+      var video = slide.querySelector(".slider-video__video"),
+          thumbnail = slide.querySelector(".slider-video__slide-image"),
+          playBtn = slide.querySelector(".slider-video__slide-play-btn");
+
+      if (video.src) {
+        video.src = "";
+      }
+
+      thumbnail.classList.remove("slider-video__slide-image--hidden");
+      playBtn.classList.remove("slider-video__slide-play-btn--hidden");
+    });
+  };
+
+  var setSlideActive = function setSlideActive() {
+    // add/remove classes from slides
+    videoSlides.forEach(function (slide) {
+      // "+" converts to a number type
+      if (+slide.dataset.index === currSlide) {
+        slide.classList.add("slider-video__slide--active");
+        slide.classList.remove("slider-video__slide--hidden");
+      } else {
+        slide.classList.remove("slider-video__slide--active");
+        slide.classList.add("slider-video__slide--hidden");
+      }
+    }); // add/remove classes from indicators
+
+    dots.forEach(function (dot) {
+      console.log("dot", dot.dataset.target);
+
+      if (+dot.dataset.target === currSlide) {
+        dot.classList.add("slider-video__dot--active");
+        dot.classList.remove("slider-video__dot--hidden");
+      } else {
+        dot.classList.add("slider-video__dot--hidden");
+        dot.classList.remove("slider-video__dot--active");
+      }
+    });
+    resetSlides();
+  };
+
+  setSlideActive();
+
+  var handleSlideChange = function handleSlideChange(target) {
+    if (target === "prev") {
+      currSlide !== 0 ? currSlide-- : currSlide = videoSlides.length - 1;
+    } else if (target === "next") {
+      currSlide !== videoSlides.length - 1 ? currSlide++ : currSlide = 0;
+    } else if (typeof target === "number") {
+      currSlide = target;
+    }
+
+    setSlideActive();
+  };
+
+  prevBtn.addEventListener("click", function () {
+    handleSlideChange("prev");
+  });
+  nextBtn.addEventListener("click", function () {
+    handleSlideChange("next");
+  });
+  dots.forEach(function (dot) {
+    dot.addEventListener("click", function () {
+      handleSlideChange(+dot.dataset.target);
+    });
+  });
+  slideThumbnails.forEach(function (thumbnail) {
+    thumbnail.addEventListener("click", function (event) {
+      var video = thumbnail.parentElement.querySelector(".slider-video__video"),
+          playBtn = thumbnail.parentElement.querySelector(".slider-video__slide-play-btn");
+      video.src = video.dataset.src;
+      thumbnail.classList.add("slider-video__slide-image--hidden");
+      playBtn.classList.add("slider-video__slide-play-btn--hidden");
+    });
+  });
+  playButtons.forEach(function (btn) {
+    console.log("btn", btn);
+    btn.addEventListener("click", function (event) {
+      var video = btn.parentElement.querySelector(".slider-video__video"),
+          thumbnail = btn.parentElement.querySelector(".slider-video__slide-image");
+      video.src = video.dataset.src;
+      thumbnail.classList.add("slider-video__slide-image--hidden");
+      btn.classList.add("slider-video__slide-play-btn--hidden");
+    });
+  });
+};
+
 /***/ })
 
 /******/ 	});
@@ -408,7 +518,9 @@ var __webpack_exports__ = {};
   \***************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_home_hero_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/home-hero.js */ "./src/scripts/resources/home-hero.js");
-/* harmony import */ var _resources_slider_modal_video_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/slider-modal-video.js */ "./src/scripts/resources/slider-modal-video.js");
+/* harmony import */ var _resources_slider_video__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/slider-video */ "./src/scripts/resources/slider-video.js");
+/* harmony import */ var _resources_slider_modal_video_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../resources/slider-modal-video.js */ "./src/scripts/resources/slider-modal-video.js");
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -422,7 +534,8 @@ document.addEventListener('DOMContentLoaded', function () {
       overlay = document.querySelector('.home-welcome__modal-overlay');
   var debounceLastTimeout = null,
       tabletVideoActive = false;
-  (0,_resources_home_hero_js__WEBPACK_IMPORTED_MODULE_0__.homeHero)(); // Home Welcome
+  (0,_resources_home_hero_js__WEBPACK_IMPORTED_MODULE_0__.homeHero)();
+  (0,_resources_slider_video__WEBPACK_IMPORTED_MODULE_1__.sliderVideo)(); // Home Welcome
 
   var openModal = function openModal() {
     videoModal.classList.add('home-welcome__video-modal--open');
@@ -497,7 +610,7 @@ document.addEventListener('DOMContentLoaded', function () {
     debounce(playVideo, null, 300);
   });
 });
-(0,_resources_slider_modal_video_js__WEBPACK_IMPORTED_MODULE_1__.sliderModalVideo)(); // document.addEventListener('DOMContentLoaded', function () {
+(0,_resources_slider_modal_video_js__WEBPACK_IMPORTED_MODULE_2__.sliderModalVideo)(); // document.addEventListener('DOMContentLoaded', function () {
 //   // const playButton = document.querySelector('.talks-intro__play-btn'),
 //   //       thumbnail = document.querySelector('.talks-intro__thumbnail'),
 //   //       video = document.querySelector('.talks-intro__video'),

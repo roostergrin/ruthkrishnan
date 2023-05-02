@@ -1,4 +1,5 @@
 import { homeHero } from '../resources/home-hero.js'
+import { sliderVideo } from '../resources/slider-video'
 import { sliderModalVideo } from '../resources/slider-modal-video.js'
 
 
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
       tabletVideoActive = false;
 
   homeHero();
+  sliderVideo();
 
   // Home Welcome
   const openModal = () => {

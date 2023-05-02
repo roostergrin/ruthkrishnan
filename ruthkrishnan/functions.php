@@ -168,9 +168,9 @@ function update_cta_button_text() {
     'marina' =>'schedule time to talk',
     'presidio' =>'schedule time to talk',
   ];
-  
+
   $ACF_group_field = "single_neighborhoods_cta";
-  
+
   foreach($neighborhoods_transit_score as $neighborhood_slug => $transit_score) {
     // echo $transit_score;
     // echo $neighborhood_slug;
@@ -1050,6 +1050,11 @@ function theme_enqueue_scripts()
   if (is_single() && get_post_type() === 'neighborhoods') {
     wp_register_script('single-neighborhoods', get_template_directory_uri() . '/js/single-neighborhoods.js', array(), '', true);
     wp_enqueue_script('single-neighborhoods');
+  }
+
+  if (is_page_template('page-contact.php')) {
+    wp_register_script('contact', get_template_directory_uri() . '/js/contact.js', array(), '', true);
+    wp_enqueue_script('contact');
   }
 
   if (is_page_template('page-talks.php')) {
