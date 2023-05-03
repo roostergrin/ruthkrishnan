@@ -26,7 +26,7 @@
                         <div class='slider-video__slide-image-container'>
                             <iframe class='slider-video__video'
                                 title='talks videos' frameborder='0'
-                                data-src='<?php echo $video; ?>'
+                                data-src='<?php echo $video; ?>?title=0&byline=0&portrait=0&autoplay=1'
                                 allow='autoplay; fullscreen; picture-in-picture'>
                             </iframe>
                             <?php echo wp_get_attachment_image($thumbnail, 'full', false, [ 'class' => 'slider-video__slide-image']); ?>
