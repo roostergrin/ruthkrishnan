@@ -48,14 +48,14 @@
   height: 100%;
 }
 
-.cta-text-btn__btn, .slider-neighborhoods__content-link, .slider-neighborhoods__filter {
+.cta-text-btn__btn, .modal-video-link__video-tour, .slider-neighborhoods__content-link, .slider-neighborhoods__filter {
   text-transform: lowercase;
   line-height: 1.15;
   letter-spacing: 0.01541875rem;
   font-size: 0.875rem;
 }
 @media screen and (min-width: 1750px) {
-  .cta-text-btn__btn, .slider-neighborhoods__content-link, .slider-neighborhoods__filter {
+  .cta-text-btn__btn, .modal-video-link__video-tour, .slider-neighborhoods__content-link, .slider-neighborhoods__filter {
     font-size: 1rem;
   }
 }
@@ -1005,6 +1005,14 @@
   color: #fff !important;
   text-decoration: underline;
   font-weight: 500;
+  font-size: 0.875rem;
+}
+@media not all and (pointer: coarse) {
+  .modal-video-link__video-tour:hover {
+    border-color: #963636 !important;
+    background: #963636 !important;
+    color: #fff !important;
+  }
 }
 .modal-video-link__modal-overlay {
   background: rgba(0, 0, 0, 0.6);

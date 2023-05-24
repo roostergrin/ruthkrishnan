@@ -177,13 +177,13 @@ function truncate($text, $chars = 25)
                     <?php endif; ?>
                     <!-- Video Tour -->
                     <?php if (get_field('description') !== '' &&  !empty(get_field('neighborhood_video'))): ?>
-                      <button class="modal-video-link__video-tour" data-path="<?php echo $path; ?>" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood">video tour</button>
+                      <button class="modal-video-link__video-tour" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood">video tour</button>
                     <section class="modal-video-link__video-modal">
                       <div class="modal-video-link__modal-overlay"></div>
                       <div class="modal-video-link__modal-container">
                         <button class="modal-video-link__close-btn" aria-label="close" tabindex="0">close</button>
                         <?php if ( !empty(get_field('neighborhood_video'))): ?>
-                          <iframe title="Ruth Krishnan Welcome Video" class="modal-video-link__video" data-src="<?php echo get_field('neighborhood_video') ?>?title=0&byline=0&portrait=0&autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture">
+                          <iframe title="Ruth Krishnan Welcome Video" class="modal-video-link__video" data-src="<?php echo $path; ?>" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture">
                         </iframe>
                         <?php endif; ?>
                         <a class="modal-video-link__button" href="/neighborhoods/<?php echo get_post()->post_name; ?>" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood">Learn More</a>

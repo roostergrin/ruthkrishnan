@@ -484,6 +484,12 @@
     color: #fff !important
     text-decoration: underline
     font-weight: 500
+    font-size: .875rem
+    @extend %button-text
+    @include hover-supported
+      border-color: $c6 !important
+      background: $c6 !important
+      color: $white !important
 
   &__modal-overlay
     @extend %absolute

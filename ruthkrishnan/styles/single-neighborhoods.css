@@ -48,14 +48,14 @@
   height: 100%;
 }
 
-.single-neighborhoods-chart__filter, .slider-neighborhoods__content-link, .slider-neighborhoods__filter, .cta-text-btn__btn {
+.single-neighborhoods-chart__filter, .modal-video-link__video-tour, .slider-neighborhoods__content-link, .slider-neighborhoods__filter, .cta-text-btn__btn {
   text-transform: lowercase;
   line-height: 1.15;
   letter-spacing: 0.01541875rem;
   font-size: 0.875rem;
 }
 @media screen and (min-width: 1750px) {
-  .single-neighborhoods-chart__filter, .slider-neighborhoods__content-link, .slider-neighborhoods__filter, .cta-text-btn__btn {
+  .single-neighborhoods-chart__filter, .modal-video-link__video-tour, .slider-neighborhoods__content-link, .slider-neighborhoods__filter, .cta-text-btn__btn {
     font-size: 1rem;
   }
 }
@@ -1113,6 +1113,14 @@ th[data-column-id=dataLabel] {
   color: #fff !important;
   text-decoration: underline;
   font-weight: 500;
+  font-size: 0.875rem;
+}
+@media not all and (pointer: coarse) {
+  .modal-video-link__video-tour:hover {
+    border-color: #963636 !important;
+    background: #963636 !important;
+    color: #fff !important;
+  }
 }
 .modal-video-link__modal-overlay {
   background: rgba(0, 0, 0, 0.6);
@@ -1752,14 +1760,14 @@ th[data-column-id=dataLabel] {
   width: 100%;
   height: 100%;
 }
-.keys .cta-text-btn__btn, .keys .slider-neighborhoods__filter, .keys .slider-neighborhoods__content-link, .keys .single-neighborhoods-chart__filter {
+.keys .cta-text-btn__btn, .keys .slider-neighborhoods__filter, .keys .slider-neighborhoods__content-link, .keys .modal-video-link__video-tour, .keys .single-neighborhoods-chart__filter {
   text-transform: lowercase;
   line-height: 1.15;
   letter-spacing: 0.01541875rem;
   font-size: 0.875rem;
 }
 @media screen and (min-width: 1750px) {
-  .keys .cta-text-btn__btn, .keys .slider-neighborhoods__filter, .keys .slider-neighborhoods__content-link, .keys .single-neighborhoods-chart__filter {
+  .keys .cta-text-btn__btn, .keys .slider-neighborhoods__filter, .keys .slider-neighborhoods__content-link, .keys .modal-video-link__video-tour, .keys .single-neighborhoods-chart__filter {
     font-size: 1rem;
   }
 }
