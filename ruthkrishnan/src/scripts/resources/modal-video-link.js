@@ -1,67 +1,37 @@
 export const modalVideoLink = () => {
 
-  const welcomeVideo = document.querySelector('.home-welcome__video'),
-        tabletVideoContainer = document.querySelector('.home-welcome__no-modal-video-container'),
-        tabletVideo = document.querySelector('.home-welcome__no-modal-video'),
-        videoModal = document.querySelector('.home-welcome__video-modal'),
-        playBtn = document.querySelector('.home-welcome__image-container'),
-        videoThumbnail = document.querySelector('.home-welcome__thumbnail'),
-        closeBtn = document.querySelector('.home-welcome__close-btn'),
-        overlay = document.querySelector('.home-welcome__modal-overlay');
+  const welcomeVideo = document.querySelector('.modal-video-link__video'),
+        videoModal = document.querySelector('.modal-video-link__video-modal'),
+        playBtn = document.querySelector('.modal-video-link__video-tour'),
+        closeBtn = document.querySelector('.modal-video-link__close-btn'),
+        overlay = document.querySelector('.modal-video-link__modal-overlay');
 
-  let debounceLastTimeout = null,
-      tabletVideoActive = false;
+  let debounceLastTimeout = null;
 
-  // homeHero();
-
-  // Home Welcome
   const openModal = () => {
-    videoModal.classList.add('home-welcome__video-modal--open')
+    videoModal.classList.add('modal-video-link__video-modal--open')
     setTimeout(() => {
       welcomeVideo.src = welcomeVideo.dataset.src
     }, 250)
   };
 
   const closeModal = () => {
-    videoModal.classList.remove('home-welcome__video-modal--open')
+    videoModal.classList.remove('modal-video-link__video-modal--open')
     welcomeVideo.src = ''
   };
 
   const resetVideoModal = () => {
     closeModal();
-    // tabletCloseVideo();
     playBtn.removeEventListener('click', openModal);
     overlay.removeEventListener('click', closeModal);
     closeBtn.removeEventListener('click', closeModal);
   }
 
-  const tabletPlayVideo = () => {
-    if (!tabletVideoActive) {
-      tabletVideo.src = tabletVideo.dataset.src;
-      document.querySelector('.home-welcome__play-btn').classList.add('home-welcome__play-btn--hidden');
-      videoThumbnail.classList.add('home-welcome__thumbnail--hidden');
-      // tabletVideoContainer.classList.add('home-welcome__no-modal-video-container--active');
-      // tabletVideoActive = true;
-    }
-  }
-
-  // const tabletCloseVideo = () => {
-  //   tabletVideoActive = false;
-  //   // tabletVideo.src = '';
-  //   playBtn.classList.remove('home-welcome__play-btn--hidden');
-  //   videoThumbnail.classList.remove('home-welcome__thumbnail--hidden');
-  //   // tabletVideoContainer.classList.remove('home-welcome__no-modal-video-container--active');
-  // }
-
   const playVideo = () => {
-    // if (window.innerWidth > 880) {
       resetVideoModal();
       playBtn.addEventListener('click', openModal);
       overlay.addEventListener('click', closeModal);
       closeBtn.addEventListener('click', closeModal);
-    // } else {
-    //   playBtn.addEventListener('click', tabletPlayVideo);
-    // }
 
   }
   playVideo();

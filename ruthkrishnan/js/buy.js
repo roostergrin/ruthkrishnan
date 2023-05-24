@@ -127,62 +127,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "modalVideoLink": () => (/* binding */ modalVideoLink)
 /* harmony export */ });
 var modalVideoLink = function modalVideoLink() {
-  var welcomeVideo = document.querySelector('.home-welcome__video'),
-      tabletVideoContainer = document.querySelector('.home-welcome__no-modal-video-container'),
-      tabletVideo = document.querySelector('.home-welcome__no-modal-video'),
-      videoModal = document.querySelector('.home-welcome__video-modal'),
-      playBtn = document.querySelector('.home-welcome__image-container'),
-      videoThumbnail = document.querySelector('.home-welcome__thumbnail'),
-      closeBtn = document.querySelector('.home-welcome__close-btn'),
-      overlay = document.querySelector('.home-welcome__modal-overlay');
-  var debounceLastTimeout = null,
-      tabletVideoActive = false; // homeHero();
-  // Home Welcome
+  var welcomeVideo = document.querySelector('.modal-video-link__video'),
+      videoModal = document.querySelector('.modal-video-link__video-modal'),
+      playBtn = document.querySelector('.modal-video-link__video-tour'),
+      closeBtn = document.querySelector('.modal-video-link__close-btn'),
+      overlay = document.querySelector('.modal-video-link__modal-overlay');
+  var debounceLastTimeout = null;
 
   var openModal = function openModal() {
-    videoModal.classList.add('home-welcome__video-modal--open');
+    videoModal.classList.add('modal-video-link__video-modal--open');
     setTimeout(function () {
       welcomeVideo.src = welcomeVideo.dataset.src;
     }, 250);
   };
 
   var closeModal = function closeModal() {
-    videoModal.classList.remove('home-welcome__video-modal--open');
+    videoModal.classList.remove('modal-video-link__video-modal--open');
     welcomeVideo.src = '';
   };
 
   var resetVideoModal = function resetVideoModal() {
-    closeModal(); // tabletCloseVideo();
-
+    closeModal();
     playBtn.removeEventListener('click', openModal);
     overlay.removeEventListener('click', closeModal);
     closeBtn.removeEventListener('click', closeModal);
   };
 
-  var tabletPlayVideo = function tabletPlayVideo() {
-    if (!tabletVideoActive) {
-      tabletVideo.src = tabletVideo.dataset.src;
-      document.querySelector('.home-welcome__play-btn').classList.add('home-welcome__play-btn--hidden');
-      videoThumbnail.classList.add('home-welcome__thumbnail--hidden'); // tabletVideoContainer.classList.add('home-welcome__no-modal-video-container--active');
-      // tabletVideoActive = true;
-    }
-  }; // const tabletCloseVideo = () => {
-  //   tabletVideoActive = false;
-  //   // tabletVideo.src = '';
-  //   playBtn.classList.remove('home-welcome__play-btn--hidden');
-  //   videoThumbnail.classList.remove('home-welcome__thumbnail--hidden');
-  //   // tabletVideoContainer.classList.remove('home-welcome__no-modal-video-container--active');
-  // }
-
-
   var playVideo = function playVideo() {
-    // if (window.innerWidth > 880) {
     resetVideoModal();
     playBtn.addEventListener('click', openModal);
     overlay.addEventListener('click', closeModal);
-    closeBtn.addEventListener('click', closeModal); // } else {
-    //   playBtn.addEventListener('click', tabletPlayVideo);
-    // }
+    closeBtn.addEventListener('click', closeModal);
   };
 
   playVideo(); // debounce function
