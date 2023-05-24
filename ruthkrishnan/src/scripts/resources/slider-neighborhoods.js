@@ -108,7 +108,7 @@ export const sliderNeighborhoods = () => {
     contentWrapper.forEach((el) => {
       if (+el.dataset.index === i) {
         el.classList.add("slider-neighborhoods__content-wrapper--active")
-        console.log(el)
+        // console.log(el)
         if(el.querySelector(".slider-neighborhoods__content-link")) {
           el.querySelector(".slider-neighborhoods__content-link").tabIndex = "0"
         }
