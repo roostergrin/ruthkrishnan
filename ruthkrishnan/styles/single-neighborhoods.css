@@ -1109,11 +1109,11 @@ th[data-column-id=dataLabel] {
   max-width: 370px;
   justify-content: center;
   margin: auto;
-  border: none;
   color: #fff !important;
   text-decoration: underline;
   font-weight: 500;
   font-size: 0.875rem;
+  border: 0.0625rem solid #AF5B5B !important;
 }
 @media not all and (pointer: coarse) {
   .modal-video-link__video-tour:hover {

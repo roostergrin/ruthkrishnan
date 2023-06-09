@@ -127,40 +127,62 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "modalVideoLink": () => (/* binding */ modalVideoLink)
 /* harmony export */ });
 var modalVideoLink = function modalVideoLink() {
-  var welcomeVideo = document.querySelector('.modal-video-link__video'),
-      videoModal = document.querySelector('.modal-video-link__video-modal'),
-      playBtn = document.querySelector('.modal-video-link__video-tour'),
-      closeBtn = document.querySelector('.modal-video-link__close-btn'),
-      overlay = document.querySelector('.modal-video-link__modal-overlay');
+  var welcomeVideoArray = document.querySelectorAll('.modal-video-link__video'),
+      videoModalArray = document.querySelectorAll('.modal-video-link__video-modal'),
+      playBtnArray = document.querySelectorAll('.modal-video-link__video-tour'),
+      closeBtnArray = document.querySelectorAll('.modal-video-link__close-btn'),
+      overlayArray = document.querySelectorAll('.modal-video-link__modal-overlay');
   var debounceLastTimeout = null;
 
-  var openModal = function openModal() {
-    videoModal.classList.add('modal-video-link__video-modal--open');
-    setTimeout(function () {
-      welcomeVideo.src = welcomeVideo.dataset.src;
-    }, 250);
+  var buildMap = function buildMap(keys, values) {
+    var map = new Map();
+
+    for (var i = 0; i < keys.length; i++) {
+      map.set(keys[i].dataset.post, values[i]);
+    }
+
+    ;
+    return map;
   };
 
-  var closeModal = function closeModal() {
-    videoModal.classList.remove('modal-video-link__video-modal--open');
-    welcomeVideo.src = '';
+  var videoBtnArray = buildMap(playBtnArray, welcomeVideoArray);
+  var modalArray = buildMap(playBtnArray, videoModalArray);
+
+  var openModal = function openModal(event) {
+    modalArray.get(event.srcElement.dataset.post).classList.add('modal-video-link__video-modal--open');
+    videoBtnArray.get(event.srcElement.dataset.post).src = videoBtnArray.get(event.srcElement.dataset.post).dataset.src;
   };
 
-  var resetVideoModal = function resetVideoModal() {
-    closeModal();
+  var closeModal = function closeModal(event) {
+    modalArray.get(event.srcElement.dataset.post).classList.remove('modal-video-link__video-modal--open');
+    videoBtnArray.get(event.srcElement.dataset.post).src = '';
+  };
+
+  var resetVideoModal = function resetVideoModal(playBtn, closeBtn, overlay) {
+    // console.log('>>>>>>\nevent\n', playBtn.getEventListeners())
     playBtn.removeEventListener('click', openModal);
     overlay.removeEventListener('click', closeModal);
     closeBtn.removeEventListener('click', closeModal);
   };
 
-  var playVideo = function playVideo() {
-    resetVideoModal();
+  var playVideo = function playVideo(playBtn, closeBtn, overlay) {
+    resetVideoModal(playBtn, closeBtn, overlay);
     playBtn.addEventListener('click', openModal);
     overlay.addEventListener('click', closeModal);
     closeBtn.addEventListener('click', closeModal);
   };
 
-  playVideo(); // debounce function
+  for (var i = 0; i < playBtnArray.length; i++) {
+    var playID = playBtnArray[i].id,
+        closeID = closeBtnArray[i].id,
+        overlayID = overlayArray[i].id;
+    var playBtn = document.getElementById(playID),
+        closeBtn = document.getElementById(closeID),
+        overlay = document.getElementById(overlayID);
+    ;
+    playVideo(playBtn, closeBtn, overlay);
+  } // debounce function
+
 
   var debounce = function debounce(func, args, wait, immediate) {
     var later = function later() {
@@ -902,8 +924,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
     emptyState.style.opacity = 0;
     contentWrapper.forEach(function (el) {
       if (+el.dataset.index === i) {
-        el.classList.add("slider-neighborhoods__content-wrapper--active");
-        console.log(el);
+        el.classList.add("slider-neighborhoods__content-wrapper--active"); // console.log(el)
 
         if (el.querySelector(".slider-neighborhoods__content-link")) {
           el.querySelector(".slider-neighborhoods__content-link").tabIndex = "0";
@@ -1048,6 +1069,7 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       sectionActive = el;
     }
   }; // go to the next slide
+  //ADD LOGIC HERE TO ALSO CHANGE VIDEO TOUR BUTTON SRC???
 
 
   var toNextSlide = function toNextSlide() {

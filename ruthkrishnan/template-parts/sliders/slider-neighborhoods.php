@@ -117,11 +117,13 @@ function truncate($text, $chars = 25)
               )
             );
             $active_query = new WP_Query($active_args); ?>
-            <?php if ($active_query->have_posts()) :
+            <?php $button_id = 0;
+              if ($active_query->have_posts()) :
               while ($active_query->have_posts()) :
+              $button_id++;
               $active_query->the_post();
               $post_id = get_the_ID(); // Get the current post's ID
-              $path = get_field('neighborhood_video'); ?>
+              $path = get_field('neighborhood_video');?>
                 <div class="slider-neighborhoods__content-wrapper" data-index='<?php echo $active_query->current_post; ?>' data-name='<?php echo the_title(); ?>' data-mapinfo='<?php echo json_encode(get_field("map_info_window")); ?>' data-hjisinglemonthly='<?php echo get_field("single_last_month"); ?>' data-hjicondomonthly='<?php echo get_field("condo2br2b_data"); ?>' data-walkscore='<?php echo get_field("walk_score"); ?>' data-transitscore='<?php echo get_field("transit_score"); ?>' data-weather='<?php echo get_field("weather"); ?>' data-neighborhood='<?php echo get_post()->post_name; ?>' data-category='<?php echo $category ?>'>
                   <div class="slider-neighborhoods__content">
                     <h3 class="slider-neighborhoods__content-title"><?php echo the_title(); ?></h3>
@@ -177,13 +179,14 @@ function truncate($text, $chars = 25)
                     <?php endif; ?>
                     <!-- Video Tour -->
                     <?php if (get_field('description') !== '' &&  !empty(get_field('neighborhood_video'))): ?>
-                      <button class="modal-video-link__video-tour" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood">video tour</button>
-                    <section class="modal-video-link__video-modal">
-                      <div class="modal-video-link__modal-overlay"></div>
+                      <button class="modal-video-link__video-tour" data-post="<?php echo $post_id ?>" id="video_tour_button_<?php echo $button_id ?>" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood">video tour</button>
+                    <!-- Move section out of while loop? or make array to handle all overlays and containers? -->
+                      <section class="modal-video-link__video-modal">
+                      <div class="modal-video-link__modal-overlay" id="overlay_<?php echo $button_id ?>" data-post="<?php echo $post_id ?>"></div>
                       <div class="modal-video-link__modal-container">
-                        <button class="modal-video-link__close-btn" aria-label="close" tabindex="0">close</button>
+                        <button class="modal-video-link__close-btn" id="close-btn_<?php echo $button_id ?>" data-post="<?php echo $post_id ?>" aria-label="close" tabindex="0">close</button>
                         <?php if ( !empty(get_field('neighborhood_video'))): ?>
-                          <iframe title="Ruth Krishnan Welcome Video" class="modal-video-link__video" data-src="<?php echo $path; ?>" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture">
+                          <iframe title="Ruth Krishnan Welcome Video" class="modal-video-link__video" data-post="<?php echo $post_id ?>" data-src="<?php echo $path; ?>" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture">
                         </iframe>
                         <?php endif; ?>
                         <a class="modal-video-link__button" href="/neighborhoods/<?php echo get_post()->post_name; ?>" aria-label="learn more about <?php echo get_post()->post_name; ?> neighborhood">Learn More</a>

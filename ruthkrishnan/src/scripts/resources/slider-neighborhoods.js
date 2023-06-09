@@ -289,6 +289,7 @@ export const sliderNeighborhoods = () => {
   };
 
   // go to the next slide
+  //ADD LOGIC HERE TO ALSO CHANGE VIDEO TOUR BUTTON SRC???
   const toNextSlide = () => {
     const currElem = document.querySelector(
         ".slider-neighborhoods__slide--curr"
