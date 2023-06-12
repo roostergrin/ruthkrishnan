@@ -159,7 +159,6 @@ var modalVideoLink = function modalVideoLink() {
   };
 
   var resetVideoModal = function resetVideoModal(playBtn, closeBtn, overlay) {
-    // console.log('>>>>>>\nevent\n', playBtn.getEventListeners())
     playBtn.removeEventListener('click', openModal);
     overlay.removeEventListener('click', closeModal);
     closeBtn.removeEventListener('click', closeModal);
