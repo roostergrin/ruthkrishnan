@@ -633,6 +633,18 @@ document.addEventListener('DOMContentLoaded', function () {
       thumbnails = document.querySelectorAll('.about-video__thumbnail'),
       videos = document.querySelectorAll('.about-video__video'); // external scripts
 
+  (0,_resources_slider_team__WEBPACK_IMPORTED_MODULE_0__.sliderTeam)();
+  (0,_resources_slider_agent__WEBPACK_IMPORTED_MODULE_3__.sliderAgent)();
+  (0,_resources_about_ruth_krishnan__WEBPACK_IMPORTED_MODULE_1__.aboutRuth)();
+  (0,_resources_about_logos__WEBPACK_IMPORTED_MODULE_2__.aboutLogos)(); // video.addEventListener('loadeddata', () => {
+  // })
+  // playButton.addEventListener('click', () => {
+  //   video.src = video.dataset.src;
+  //   playButton.classList.add('about-video__play-btn--hidden');
+  //   thumbnail.classList.add('about-video__thumbnail--hidden');
+  //   video.classList.add('about-video__video--active');
+  // })
+
   videos.forEach(function (video, index) {
     playButtons[index].addEventListener('click', function () {
       video.src = video.dataset.src;
@@ -641,18 +653,6 @@ document.addEventListener('DOMContentLoaded', function () {
       video.classList.add('about-video__video--active');
     });
   });
-
-  (0,_resources_slider_team__WEBPACK_IMPORTED_MODULE_0__.sliderTeam)();
-  (0,_resources_slider_agent__WEBPACK_IMPORTED_MODULE_3__.sliderAgent)();
-  (0,_resources_about_ruth_krishnan__WEBPACK_IMPORTED_MODULE_1__.aboutRuth)();
-  (0,_resources_about_logos__WEBPACK_IMPORTED_MODULE_2__.aboutLogos)();
-  // video.addEventListener('loadeddata', function () {});
-  // playButton.addEventListener('click', function () {
-  //   video.src = video.dataset.src;
-  //   playButton.classList.add('about-video__play-btn--hidden');
-  //   thumbnail.classList.add('about-video__thumbnail--hidden');
-  //   video.classList.add('about-video__video--active');
-  // });
 });
 })();
 
