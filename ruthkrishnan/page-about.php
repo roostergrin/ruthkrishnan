@@ -24,7 +24,7 @@ get_header(); ?>
       <div class="about-video__container">
         <div class="about-video__video-container">
           <iframe title="About Ruth Krishnan Video" class="about-video__video" data-src="<?php echo get_field('about_video_src_2') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
-          <?php echo wp_get_attachment_image(get_field('about_video_thumbnail'), 'full', false, [ 'class' => 'about-video__thumbnail' ]); ?>
+          <?php echo wp_get_attachment_image(get_field('about_video_thumbnail_2'), 'full', false, [ 'class' => 'about-video__thumbnail' ]); ?>
           <div class="about-video__play-btn">
             <?php get_template_part('icons/play', null, array('class' => 'about-video__icon')); ?>
           </div>

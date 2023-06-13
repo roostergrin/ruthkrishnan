@@ -561,7 +561,7 @@ var sliderTeam = function sliderTeam() {
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -575,14 +575,14 @@ var sliderTeam = function sliderTeam() {
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -595,12 +595,12 @@ var sliderTeam = function sliderTeam() {
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -611,7 +611,7 @@ var sliderTeam = function sliderTeam() {
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -629,21 +629,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  var playButton = document.querySelector('.about-video__play-btn'),
-      thumbnail = document.querySelector('.about-video__thumbnail'),
-      video = document.querySelector('.about-video__video'); // external scripts
+  var playButtons = document.querySelectorAll('.about-video__play-btn'),
+      thumbnails = document.querySelectorAll('.about-video__thumbnail'),
+      videos = document.querySelectorAll('.about-video__video'); // external scripts
+
+  videos.forEach(function (video, index) {
+    playButtons[index].addEventListener('click', function () {
+      video.src = video.dataset.src;
+      playButtons[index].classList.add('about-video__play-btn--hidden');
+      thumbnails[index].classList.add('about-video__thumbnail--hidden');
+      video.classList.add('about-video__video--active');
+    });
+  });
 
   (0,_resources_slider_team__WEBPACK_IMPORTED_MODULE_0__.sliderTeam)();
   (0,_resources_slider_agent__WEBPACK_IMPORTED_MODULE_3__.sliderAgent)();
   (0,_resources_about_ruth_krishnan__WEBPACK_IMPORTED_MODULE_1__.aboutRuth)();
   (0,_resources_about_logos__WEBPACK_IMPORTED_MODULE_2__.aboutLogos)();
-  video.addEventListener('loadeddata', function () {});
-  playButton.addEventListener('click', function () {
-    video.src = video.dataset.src;
-    playButton.classList.add('about-video__play-btn--hidden');
-    thumbnail.classList.add('about-video__thumbnail--hidden');
-    video.classList.add('about-video__video--active');
-  });
+  // video.addEventListener('loadeddata', function () {});
+  // playButton.addEventListener('click', function () {
+  //   video.src = video.dataset.src;
+  //   playButton.classList.add('about-video__play-btn--hidden');
+  //   thumbnail.classList.add('about-video__thumbnail--hidden');
+  //   video.classList.add('about-video__video--active');
+  // });
 });
 })();
 
