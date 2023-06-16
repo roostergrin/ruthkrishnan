@@ -27,6 +27,7 @@
       <div class="blog-navigation-mobile__category <?php if ($active_slug === 'webinars') : echo 'blog-navigation-mobile__category--active'; endif; ?>">Webinars</div>
       <div class="blog-navigation-mobile__category <?php if ($active_slug === 'success-stories') : echo 'blog-navigation-mobile__category--active'; endif; ?>">Success Stories</div>
       <div class="blog-navigation-mobile__category <?php if ($active_slug === 'homeowner') : echo 'blog-navigation-mobile__category--active'; endif; ?>">Homeowner</div>
+      <div class="blog-navigation-mobile__category <?php if ($active_slug === 'living-in-san-francisco') : echo 'blog-navigation-mobile__category--active'; endif; ?>">Living in San Francisco</div>
     </div>
 
     <div class="blog-navigation-mobile__archive">Most Recent</div>
@@ -50,6 +51,7 @@
         <div class="blog-navigation-mobile__category <?php if ($active_slug === 'webinars') : echo 'blog-navigation-mobile__category--active'; endif; ?>">Webinars</div>
         <div class="blog-navigation-mobile__category <?php if ($active_slug === 'success-stories') : echo 'blog-navigation-mobile__category--active'; endif; ?>">Success Stories</div>
         <div class="blog-navigation-mobile__category <?php if ($active_slug === 'homeowner') : echo 'blog-navigation-mobile__category--active'; endif; ?>">Homeowner</div>
+        <div class="blog-navigation-mobile__category <?php if ($active_slug === 'living-in-san-francisco') : echo 'blog-navigation-mobile__category--active'; endif; ?>">Living in San Francisco</div>
       </div>
 
       <div class="blog-navigation-mobile__archive">Most Recent</div>
@@ -60,7 +62,7 @@
       </div>
     </div>
   </div>
-  
+
   <div id="blog-filter-popup" class="blog-navigation-mobile__popup">
     <div class="blog-navigation-mobile__popup-overlay"></div>
     <div class="blog-navigation-mobile__popup-container">
@@ -79,6 +81,7 @@
           <a href="/blog/webinars" class="blog-navigation-mobile__popup-category <?php if ($active_slug === 'webinars') : echo 'blog-navigation-mobile__popup-category--active'; endif; ?>">Webinars</a>
           <a href="/blog/success-stories" class="blog-navigation-mobile__popup-category <?php if ($active_slug === 'success-stories') : echo 'blog-navigation-mobile__popup-category--active'; endif; ?>">Success Stories</a>
           <a href="/blog/homeowner" class="blog-navigation-mobile__popup-category <?php if ($active_slug === 'homeowner') : echo 'blog-navigation-mobile__popup-category--active'; endif; ?>">Homeowner</a>
+          <a href="/blog/living-in-san-francisco" class="blog-navigation-mobile__popup-category <?php if ($active_slug === 'living-in-san-francisco') : echo 'blog-navigation-mobile__popup-category--active'; endif; ?>">Living in San Francisco</a>
         </div>
       </div>
 

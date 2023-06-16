@@ -9,7 +9,7 @@
 
 ?>
 
-<?php 
+<?php
   global $post;
   $active_slug = $post->post_name;
 ?>
@@ -27,6 +27,7 @@
       <a href="/blog/webinars" class="blog-navigation__category <?php if ($active_slug === 'webinars') : echo 'blog-navigation__category--active'; endif; ?>">Webinars</a>
       <a href="/blog/success-stories" class="blog-navigation__category <?php if ($active_slug === 'success-stories') : echo 'blog-navigation__category--active'; endif; ?>">Success Stories</a>
       <a href="/blog/homeowner" class="blog-navigation__category <?php if ($active_slug === 'homeowner') : echo 'blog-navigation__category--active'; endif; ?>">Homeowner</a>
+      <a href="/blog/living-in-san-francisco" class="blog-navigation__category <?php if ($active_slug === 'living-in-san-francisco') : echo 'blog-navigation__category--active'; endif; ?>">Living in San Francisco</a>
     </div>
 
   </div>
