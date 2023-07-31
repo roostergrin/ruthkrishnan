@@ -144,10 +144,15 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  flex-wrap: wrap;
 }
 .blog-navigation__category {
   position: relative;
   transition: text-stroke 0.5s ease;
+  width: 17%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 @media not all and (pointer: coarse) {
   .blog-navigation__category:hover {

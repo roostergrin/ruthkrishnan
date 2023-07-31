@@ -17,7 +17,7 @@
 <div class="blog-navigation">
   <div class="blog-navigation__categories-container">
     <div class="blog-navigation__categories">
-      <a href="/blog" class="blog-navigation__category <?php if ($active_slug === 'blog') : echo 'blog-navigation__category--active'; endif; ?>">All</a>
+      <a href="/blog" style = 'width: 100%' class="blog-navigation__category <?php if ($active_slug === 'blog') : echo 'blog-navigation__category--active'; endif; ?>">All</a>
       <a href="/blog/market-updates" class="blog-navigation__category <?php if ($active_slug === 'market-updates') : echo 'blog-navigation__category--active'; endif; ?>">Market Updates</a>
       <a href="/blog/housing-market" class="blog-navigation__category <?php if ($active_slug === 'housing-market') : echo 'blog-navigation__category--active'; endif; ?>">Housing Market</a>
       <a href="/blog/selling-a-home" class="blog-navigation__category <?php if ($active_slug === 'selling-a-home') : echo 'blog-navigation__category--active'; endif; ?>">Selling a Home</a>

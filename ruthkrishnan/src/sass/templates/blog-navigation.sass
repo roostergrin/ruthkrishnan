@@ -13,6 +13,7 @@
     display: flex
     justify-content: space-between
     width: 100%
+    flex-wrap: wrap
 
   &__category
     @include hover-supported
@@ -21,6 +22,10 @@
         opacity: 1
     position: relative
     transition: text-stroke .5s ease
+    width: 17%
+    margin: auto
+    text-align: center
+    margin-bottom: 1rem
 
     &::after
       position: absolute
@@ -34,10 +39,10 @@
       width: rem-calc(5)
       height: rem-calc(5)
       content: ''
-  
+
     &--active
       position: relative
       font-weight: 700
-    
+
       &::after
         opacity: 1
