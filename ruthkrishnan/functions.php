@@ -1,23 +1,27 @@
 <?php
 
-add_action('wpseo_add_opengraph_additional_images', 'add_images');
+add_filter('rank_math/opengraph/facebook/image', 'rank_math_add_custom_og_images');
+add_filter('rank_math/opengraph/twitter/image', 'rank_math_add_custom_og_images');
 
-function add_images($object)
-{
-  if (!is_page_template('page-privacy.php')) {
-    if (!$object->has_images()) {
-      if (have_rows('background_image')) :
-        while (have_rows('background_image')) : the_row();
-          $image = get_sub_field('image');
+function rank_math_add_custom_og_images($image) {
+    // Check if it's not the privacy page template.
+    if (!is_page_template('page-privacy.php')) {
 
-          if (!empty($image)) :
-            $imageUrl = wp_get_attachment_image_src($image, $size = 'full')[0];
-            $object->add_image($imageUrl);
-          endif;
-        endwhile;
-      endif;
+        // Check if the current image is empty.
+        if (empty($image) && have_rows('background_image')) {
+            while (have_rows('background_image')) : the_row();
+                $acf_image = get_sub_field('image');
+
+                if (!empty($acf_image)) :
+                    $image = wp_get_attachment_image_src($acf_image, $size = 'full')[0];
+                    // Break the loop once you get the first valid image.
+                    break;
+                endif;
+
+            endwhile;
+        }
     }
-  }
+    return $image;
 }
 
 
