@@ -49,13 +49,19 @@ function truncate($text, $chars = 25)
         <div class="map-neighborhoods__zoom-container">
           <button id="map-neighborhoods__zoom-in" class="map-neighborhoods__zoom">+</button>
           <button id="map-neighborhoods__zoom-out" class="map-neighborhoods__zoom">–</button>
+          <button id="map-neighborhoods__zoom-frame" class="map-neighborhoods__zoom">🔍</button>
         </div>
         <div id="map-neighborhoods__wrapper" class="map-neighborhoods__wrapper">
           <?php get_template_part('icons/map', null, array('class' => 'map-neighborhoods__icon')); ?>
         </div>
         <p class="map-neighborhoods__citation">Rolling 6 months of data is pulled from MLS weekly</p>
       </div>
-      <div class="map-neighborhoods__column slider-neighborhoods__slider">
+      <div id="map-neighborhoods__column--map--zoom" class="map-neighborhoods__column--map--zoom">
+        <div id="map-neighborhoods__wrapper--zoom" class="map-neighborhoods__wrapper--zoom">
+          <?php get_template_part('icons/map', null, array('class' => 'map-neighborhoods__icon')); ?>
+        </div>
+      </div>
+      <div id="map-neighborhoods__column" class="map-neighborhoods__column slider-neighborhoods__slider">
         <?php
         $args = array(
           'post_type' => 'neighborhoods',

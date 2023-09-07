@@ -1290,6 +1290,16 @@ th[data-column-id=dataLabel] {
     width: 100%;
   }
 }
+.map-neighborhoods__column--map--zoom {
+  display: none;
+  overflow: hidden;
+  width: 47%;
+}
+@media screen and (max-width: 768px) {
+  .map-neighborhoods__column--map--zoom {
+    width: 100%;
+  }
+}
 .map-neighborhoods__wrapper {
   overflow: scroll;
   height: calc(100% - 20px);
@@ -1310,6 +1320,10 @@ th[data-column-id=dataLabel] {
 }
 .map-neighborhoods__wrapper::-webkit-scrollbar {
   display: none;
+}
+.map-neighborhoods__wrapper--zoom {
+  transform: scale(7);
+  transform-origin: 50% 50%;
 }
 .map-neighborhoods__tooltip {
   position: absolute;
@@ -1428,6 +1442,13 @@ th[data-column-id=dataLabel] {
   .map-neighborhoods .map-neighborhoods__icon-neighborhood--matched.map-neighborhoods__icon-neighborhood--deactive:hover {
     opacity: 0.5;
   }
+}
+.map-neighborhoods__img-zoom-lens {
+  display: none;
+  position: absolute;
+  border: 3px solid #d4d4d4;
+  width: 60px;
+  height: 60px;
 }
 
 /* -----------------------
