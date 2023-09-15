@@ -48,9 +48,7 @@ var mapZoom = function mapZoom() {
       zoomFrameBtn = document.getElementById("map-neighborhoods__zoom-frame"),
       wrapper = document.getElementById("map-neighborhoods__wrapper"),
       wrapperZoom = document.getElementById("map-neighborhoods__wrapper--zoom"),
-      // wrapperHeight = wrapper.clientHeight,
-  // wrapperWidth = wrapper.clientWidth,
-  lens = document.createElement("DIV"),
+      lens = document.createElement("DIV"),
       container = Array.from(document.getElementsByClassName("map-neighborhoods__icon"))[0],
       panScrollStartX = null,
       panScrollStartY = null,
@@ -58,13 +56,13 @@ var mapZoom = function mapZoom() {
       panStartX = null,
       panStartY = null,
       zoomFrameToggle = false;
+  lens.id = "map-neghborhoods__lens-class";
   var cx, cy;
   lens.setAttribute("class", "map-neighborhoods__img-zoom-lens");
   wrapper.parentElement.insertBefore(lens, wrapper);
   cx = wrapperZoom.offsetWidth / lens.offsetWidth;
   cy = wrapperZoom.offsetHeight / lens.offsetHeight;
-  wrapper.addEventListener("mousedown", handlePanScrollMouseDown); // wrapperZoom.addEventListener("mousedown", handlePanScrollMouseDown);
-
+  wrapper.addEventListener("mousedown", handlePanScrollMouseDown);
   window.addEventListener("mousemove", handlePanScrollMouseMove);
   window.addEventListener("mouseup", handlePanScrollMouseUp);
   zoomInBtn.addEventListener("click", function () {
@@ -76,44 +74,26 @@ var mapZoom = function mapZoom() {
   zoomFrameBtn.addEventListener("click", handleZoomFrame);
 
   function handleZoomFrame(event) {
-    console.log(">>>Testing zoom button");
-    console.log(">>>zoomFrameToggle before: ", zoomFrameToggle);
-
-    if (!zoomFrameToggle) {
+    if (document.getElementById("map-neighborhoods__column").dataset.zoomToggle !== "True") {
       zoomFrameToggle = true;
       document.getElementById("map-neighborhoods__column").style.display = "none";
-      document.getElementById("map-neighborhoods__column--map--zoom").style.display = "block"; // wrapper.addEventListener("mousemove", handleZoomFrameMouse);
-
+      document.getElementById("map-neighborhoods__column--map--zoom").style.display = "block";
       lens.addEventListener("mousemove", moveLens);
       wrapper.addEventListener("mousemove", moveLens);
-      /* And also for touch screens: */
-
       lens.addEventListener("touchmove", moveLens);
       wrapper.addEventListener("touchmove", moveLens);
       lens.style.display = "block";
+      document.getElementById("map-neighborhoods__column").dataset.zoomToggle = "True";
     } else {
       zoomFrameToggle = false;
       document.getElementById("map-neighborhoods__column").style.display = "flex";
       document.getElementById("map-neighborhoods__column--map--zoom").style.display = "none";
       lens.style.display = "none";
+      document.getElementById("map-neighborhoods__column").dataset.zoomToggle = "False";
     }
-
-    console.log(">>>zoomFrameToggle after: ", zoomFrameToggle);
   }
 
-  ; // function handleZoomFrameMouse(event) {
-  //   console.log(">>>>>>>> event.clientX: ", event.clientX)
-  //   console.log(">>>>>>>> event.clientY: ", event.clientY)
-  //   // console.log(">>>>>>>> wrapperHeight: ", wrapperHeight) (580px)
-  //   // console.log(">>>>>>>> wrapperWidth: ", wrapperWidth) (685px)
-  //   const posX = event.clientX;
-  //   const posY = event.clientY;
-  //   const transformX = ((posX - 420) / 700) * 100
-  //   const transformY = ((posY - 450) / 580) * 100
-  //   console.log(">>>>>>>> transformX: ", transformX, "%")
-  //   console.log(">>>>>>>> transformY: ", transformY, "%")
-  //   wrapperZoom.style.transformOrigin = transformX + "% " + transformY + "%"
-  // }
+  ;
 
   function getCursorPos(e) {
     var a,
@@ -140,8 +120,8 @@ var mapZoom = function mapZoom() {
   function moveLens(e) {
     var pos, x, y;
     /* Prevent any other actions that may occur when moving over the image */
+    // e.preventDefault();
 
-    e.preventDefault();
     /* Get the cursor's x and y positions: */
 
     pos = getCursorPos(e);
@@ -172,16 +152,9 @@ var mapZoom = function mapZoom() {
     lens.style.left = x + "px";
     lens.style.top = y + "px";
     /* Display what the lens "sees": */
-    // wrapperZoom.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
-    // console.log(">>>>>>>>>>>>>> x * cx: ", (x * cx), " y * cy: ", (y * cy))
 
-    console.log(">>>>>>>>>>>>>>>>>> x: ", x, " max x: ", wrapper.offsetWidth);
-    console.log(">>>>>>>>>>>>>>>>>> y: ", y, " max y: ", wrapper.offsetHeight);
     var xperc = x / (wrapper.offsetWidth - 40) * 100;
     var yperc = y / (wrapper.offsetHeight - 80) * 100;
-    console.log(">>>>>>>>>>>>>>>>>> x%: ", xperc, " y%: ", yperc);
-    console.log(">>>>>>>>>>>>>>>>>> max width:", wrapper.offsetWidth);
-    console.log(">>>>>>>>>>>>>>>>>> max height:", wrapper.offsetHeight);
     wrapperZoom.style.transformOrigin = xperc + "% " + yperc + "%";
   }
 
@@ -887,6 +860,10 @@ var sliderNeighborhoods = function sliderNeighborhoods() {
       closeToolTip();
       setHighlight(el);
       setMapIcon(el);
+      document.getElementById("map-neighborhoods__column").style.display = "flex";
+      document.getElementById("map-neighborhoods__column--map--zoom").style.display = "none";
+      document.getElementById("map-neghborhoods__lens-class").style.display = "none";
+      document.getElementById("map-neighborhoods__column").dataset.zoomToggle = "False";
     }); // el.addEventListener("mouseenter", (event) => {
     //   if (value === "single median sale price") {
     //     closeToolTip();

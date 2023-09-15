@@ -1303,10 +1303,23 @@
   display: none;
   overflow: hidden;
   width: 47%;
+  height: 580px;
+}
+@media screen and (max-width: 1750px) {
+  .map-neighborhoods__column--map--zoom {
+    height: 450px;
+  }
+}
+@media screen and (max-width: 1020px) {
+  .map-neighborhoods__column--map--zoom {
+    margin-top: 6vw;
+    height: calc(100% - 20px);
+  }
 }
 @media screen and (max-width: 768px) {
   .map-neighborhoods__column--map--zoom {
     width: 100%;
+    height: 580px;
   }
 }
 .map-neighborhoods__wrapper {
@@ -1458,6 +1471,7 @@
   border: 3px solid #d4d4d4;
   width: 60px;
   height: 60px;
+  pointer-events: none;
 }
 
 /* -----------------------

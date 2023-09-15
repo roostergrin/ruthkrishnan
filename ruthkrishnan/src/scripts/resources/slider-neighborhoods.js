@@ -172,6 +172,10 @@ export const sliderNeighborhoods = () => {
       closeToolTip();
       setHighlight(el);
       setMapIcon(el);
+      document.getElementById("map-neighborhoods__column").style.display = "flex";
+      document.getElementById("map-neighborhoods__column--map--zoom").style.display = "none";
+      document.getElementById("map-neghborhoods__lens-class").style.display = "none";
+      document.getElementById("map-neighborhoods__column").dataset.zoomToggle = "False";
     });
 
     // el.addEventListener("mouseenter", (event) => {
