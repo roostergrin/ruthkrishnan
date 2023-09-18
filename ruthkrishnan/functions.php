@@ -1103,14 +1103,14 @@ add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 // Google Maps ACF
 function my_acf_init()
 {
-  acf_update_setting('google_api_key', 'AIzaSyBiifcKk2OyOUEMprGC7VFm92OeRq5ZKWo');
+  acf_update_setting('google_api_key', 'AIzaSyCGCGjrDbw-R52KyQpFQh_-06X7TcOJtww');
 }
 add_action('acf/init', 'my_acf_init');
 
 function google_maps_scripts()
 {
   if (!is_admin()) {
-    wp_register_script('googlemapsapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBiifcKk2OyOUEMprGC7VFm92OeRq5ZKWo', array(), '', true);
+    wp_register_script('googlemapsapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCGCGjrDbw-R52KyQpFQh_-06X7TcOJtww', array(), '', true);
     wp_enqueue_script('googlemapsapi');
   }
 }
