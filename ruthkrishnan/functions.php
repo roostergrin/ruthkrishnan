@@ -961,6 +961,10 @@ function theme_enqueue_styles()
     wp_enqueue_style('marketing', get_template_directory_uri() . '/styles/marketing.css');
   }
 
+  if (is_page_template('page-survey.php')) {
+    wp_enqueue_style('survey', get_template_directory_uri() . '/styles/marketing.css');
+  }
+
   if (is_404()) {
     wp_enqueue_style('404', get_template_directory_uri() . '/styles/404.css');
   }
@@ -1089,6 +1093,11 @@ function theme_enqueue_scripts()
   if (is_page_template('page-marketing.php')) {
     wp_register_script('marketing', get_template_directory_uri() . '/js/marketing.js', array(), '', true);
     wp_enqueue_script('marketing');
+  }
+
+  if (is_page_template('page-survey.php')) {
+    wp_register_script('marketing', get_template_directory_uri() . '/js/marketing.js', array(), '', true);
+    wp_enqueue_script('survey');
   }
 
   if (is_404()) {
