@@ -479,6 +479,16 @@
 .form-off-market__label--radio {
   display: unset;
 }
+.form-off-market__select {
+  border-radius: 0;
+  border-bottom: 2px solid #000;
+  padding: 0.75rem 0;
+  width: 100%;
+  -webkit-appearance: none;
+}
+.form-off-market__select:focus-visible {
+  outline: none;
+}
 .form-off-market__input {
   border-radius: 0;
   border-bottom: 2px solid #000;

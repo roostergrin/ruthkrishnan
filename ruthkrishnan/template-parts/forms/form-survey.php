@@ -66,7 +66,8 @@
 
                 <div class="form-off-market__form-group">
                   <label for="buying" class="form-off-market__label">Are you interested in buying, selling or leasing?</label>
-                  <select name="buying" id="buying" placeholder="Select one *" class="form-off-market__input">
+                  <select name="buying" id="buying" placeholder="Select one*" class="form-off-market__select">
+                    <option value="" selected disabled hidden>Are you interested in buying, selling or leasing?</option>
                     <option value="buying">buying</option>
                     <option value="selling">selling</option>
                     <option value="renting">renting</option>
@@ -76,7 +77,8 @@
 
                 <div class="form-off-market__form-group">
                   <label for="timeframe" class="form-off-market__label">When would you like to purchase or sell? Timeframe: Give us the best idea of when you’d like to move into your home.</label>
-                  <select name="timeframe" id="timeframe" placeholder="Select one *" class="form-off-market__input">
+                  <select name="timeframe" id="timeframe" placeholder="Select one *" class="form-off-market__select">
+                    <option value="" selected disabled hidden>When would you like to purchase or sell?</option>
                     <option value="ASAP">ASAP</option>
                     <option value="3-6 months">3-6 months</option>
                     <option value="6-12 months">6-12 months</option>
@@ -87,7 +89,8 @@
 
                 <div class="form-off-market__form-group">
                   <label for="lenders" class="form-off-market__label">Are you reapproved with a lender? We have recommendations if you need them.</label>
-                  <select name="lenders" id="lenders" placeholder="Select one *" class="form-off-market__input">
+                  <select name="lenders" id="lenders" placeholder="Select one *" class="form-off-market__select">
+                    <option value="" selected disabled hidden>Are you reapproved with a lender?</option>
                     <option value="No - Please connect me">No - Please connect me</option>
                     <option value="Yes - Pre Approval in hand">Yes - Pre Approval in hand</option>
                     <option value="Cash Buyer">Cash Buyer</option>
@@ -97,7 +100,8 @@
 
                 <div class="form-off-market__form-group">
                   <label for="budget" class="form-off-market__label">How much are you hoping to spend?</label>
-                  <select name="budget" id="budget" placeholder="Select one *" class="form-off-market__input">
+                  <select name="budget" id="budget" placeholder="Select one *" class="form-off-market__select">
+                  <option value="" selected disabled hidden>How much are you hoping to spend?</option>
                     <option value="$500K-$1M">$500K-$1M</option>
                     <option value="$1M-$2M">$1M-$2M</option>
                     <option value="$2M-$3M">$2M-$3M</option>
@@ -110,7 +114,7 @@
 
                 <div class="form-off-market__form-group">
                   <label for="location" class="form-off-market__label">What areas are you most interested in? Location: Please list any and all areas you think you’d be interested in learning more about. You don’t have to be certain.</label>
-                  <textarea name="location" id="location" rows="5" class="form-off-market__textarea" aria-label="message edit text"></textarea>
+                  <textarea name="location" id="location" rows="5" class="form-off-market__textarea" placeholder="Please list any and all areas you think you’d be interested in learning more about." aria-label="message edit text"></textarea>
                 </div>
                 <div class="g-recaptcha" data-sitekey="6Le3PoscAAAAAM0Nh_-v5lL7HLVZskI0pMyiO2fB"></div>
 
