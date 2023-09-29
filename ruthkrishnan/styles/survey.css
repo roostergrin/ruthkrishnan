@@ -378,6 +378,8 @@
   padding: 0 calc((64px / 2) - 15px);
   width: 100%;
   max-width: calc(1146px + 64px);
+  justify-content: center;
+  width: 100%;
 }
 @media screen and (min-width: 1750px) {
   .form-survey__container {
