@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Marketing Campaign
+ * Template Name: Survey
  * @package WordPress
  * @subpackage ruthkrishnan
  * @version 1.0
