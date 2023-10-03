@@ -137,12 +137,12 @@
                 </div>
 
                 <div class="form-survey__form-group">
-                  <label for="location" class="form-survey__label">What areas are you most interested in? Location: Please list any and all areas you think you’d be interested in learning more about. You don’t have to be certain.</label>
-                  <textarea name="location" id="location" rows="5" class="form-survey__textarea" placeholder="Please list any and all areas you think you’d be interested in learning more about." aria-label="List preferred locations edit text"></textarea>
+                  <legend class="form-survey__legend">What areas are you most interested in? Location: Please list any and all areas you think you’d be interested in learning more about. You don’t have to be certain.</legend>
+                  <textarea name="location" id="location" rows="5" class="form-survey__textarea" placeholder="Please list here" aria-label="List preferred locations edit text"></textarea>
                 </div>
 
                 <div class="form-survey__form-group">
-                  <label for="misc" class="form-survey__label">Is there anything else you'd like to tell us?</label>
+                  <legend class="form-survey__label">Is there anything else you'd like to tell us?</legend>
                   <textarea name="misc" id="misc" rows="5" class="form-survey__textarea" placeholder="personal or otherwise" aria-label="Any other information edit text"></textarea>
                 </div>
                 <div class="g-recaptcha" data-sitekey="6Le3PoscAAAAAM0Nh_-v5lL7HLVZskI0pMyiO2fB"></div>

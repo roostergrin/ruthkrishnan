@@ -433,6 +433,8 @@
 .form-survey__radio--grid {
   display: grid;
   grid-template-columns: auto auto auto;
+  justify-content: space-around;
+  width: 100%;
 }
 @media screen and (max-width: 480px) {
   .form-survey__radio--grid {
