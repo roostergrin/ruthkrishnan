@@ -423,6 +423,11 @@
     text-align: center;
   }
 }
+.form-survey__radio {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
 .form-survey__address {
   margin-top: 1rem;
 }
@@ -505,7 +510,7 @@
 }
 .form-survey__select {
   border-radius: 0;
-  border-bottom: 2px solid #000;
+  border: 2px solid #000;
   padding: 0.75rem;
   width: 100%;
   -webkit-appearance: none;
