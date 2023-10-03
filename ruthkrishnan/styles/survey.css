@@ -425,8 +425,10 @@
 }
 .form-survey__radio {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   justify-content: space-around;
-  width: 80%;
+  width: 100%;
 }
 .form-survey__address {
   margin-top: 1rem;
