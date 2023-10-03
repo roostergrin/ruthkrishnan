@@ -142,7 +142,7 @@
                 </div>
 
                 <div class="form-survey__form-group">
-                  <legend class="form-survey__label">Is there anything else you'd like to tell us?</legend>
+                  <legend class="form-survey__legend">Is there anything else you'd like to tell us?</legend>
                   <textarea name="misc" id="misc" rows="5" class="form-survey__textarea" placeholder="personal or otherwise" aria-label="Any other information edit text"></textarea>
                 </div>
                 <div class="g-recaptcha" data-sitekey="6Le3PoscAAAAAM0Nh_-v5lL7HLVZskI0pMyiO2fB"></div>
