@@ -430,6 +430,15 @@
   justify-content: space-around;
   width: 100%;
 }
+.form-survey__radio--grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+@media screen and (max-width: 480px) {
+  .form-survey__radio--grid {
+    grid-template-columns: auto auto;
+  }
+}
 .form-survey__address {
   margin-top: 1rem;
 }

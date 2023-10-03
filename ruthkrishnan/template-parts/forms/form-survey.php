@@ -108,7 +108,7 @@
                 <div class="form-survey__form-group form-survey__form-group--radio">
                   <legend class="form-survey__legend">How much are you hoping to spend?</legend>
                   <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
-                  <div class="form-survey__radio">
+                  <div class="form-survey__radio--grid">
                     <div class="form-survey__radio--group">
                       <input type="radio" name="500K" id="500K" value="$500K-$1M" checked>
                       <label for="500K" class="form-survey__label--radio">$500K-$1M</label>
