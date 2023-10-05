@@ -128,6 +128,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var formSurvey = function formSurvey() {
   var formElem = document.getElementById('survey-form');
+  console.log("Got element from the form survey");
 
   if (formElem) {
     var validateForm = function validateForm() {
