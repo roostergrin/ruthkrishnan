@@ -12,10 +12,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_navigation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./resources/navigation */ "./src/scripts/resources/navigation.js");
 /* harmony import */ var _resources_testimonials__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./resources/testimonials */ "./src/scripts/resources/testimonials.js");
 /* harmony import */ var _resources_form_get_in_touch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./resources/form-get-in-touch */ "./src/scripts/resources/form-get-in-touch.js");
-/* harmony import */ var _resources_form_survey__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./resources/form-survey */ "./src/scripts/resources/form-survey.js");
 
  // import { formSubscribe } from './resources/form-subscribe'
-
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
   (0,_resources_testimonials__WEBPACK_IMPORTED_MODULE_1__.testimonials)(); // formSubscribe();
 
   (0,_resources_form_get_in_touch__WEBPACK_IMPORTED_MODULE_2__.formGetInTouch)();
-  (0,_resources_form_survey__WEBPACK_IMPORTED_MODULE_3__.formSurvey)();
 });
 
 /***/ }),
@@ -99,105 +96,6 @@ var formGetInTouch = function formGetInTouch() {
         formElem.email.value = '';
         formElem.phone.value = '';
         formElem.message.value = '';
-        setTimeout(function () {
-          window.location.href = '/thank-you';
-        }, 150);
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    };
-
-    formElem.addEventListener('submit', function (event) {
-      event.preventDefault();
-      validateForm();
-    });
-  }
-};
-
-/***/ }),
-
-/***/ "./src/scripts/resources/form-survey.js":
-/*!**********************************************!*\
-  !*** ./src/scripts/resources/form-survey.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "formSurvey": () => (/* binding */ formSurvey)
-/* harmony export */ });
-var formSurvey = function formSurvey() {
-  var formElem = document.getElementById('survey-form');
-  console.log("Got element from the form survey");
-
-  if (formElem) {
-    var validateForm = function validateForm() {
-      var errorMessages = Array.from(document.querySelectorAll('.form-survey__validation-message')),
-          fullnameValidation = document.getElementById('fullname-validation'),
-          emailValidation = document.getElementById('email-validation'),
-          phoneValidation = document.getElementById('phone-validation');
-      var errorFields;
-      errorMessages.forEach(function (message) {
-        return message.style.opacity = 0;
-      });
-      errorFields = [];
-
-      if (!/^(?![\s.]+$)[a-zA-Z\s.]*$/.test(formElem.fullname.value) || formElem.fullname.value === '') {
-        errorFields.push('fullname');
-      }
-
-      if (formElem.email.value === '') {
-        errorFields.push('email');
-      }
-
-      if (!/^[0-9-+\s()]*$/.test(formElem.phone.value) || formElem.phone.value === '' || formElem.phone.value.length < 7) {
-        errorFields.push('phone');
-      }
-
-      if (errorFields.length > 0) {
-        console.log(errorFields);
-        errorFields.forEach(function (err) {
-          switch (err) {
-            case 'fullname':
-              fullnameValidation.style.opacity = 1;
-              break;
-
-            case 'email':
-              emailValidation.style.opacity = 1;
-              break;
-
-            case 'phone':
-              phoneValidation.style.opacity = 1;
-              break;
-          }
-        });
-      } else {
-        sendEmail();
-      }
-    };
-
-    var sendEmail = function sendEmail() {
-      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
-        fullname: formElem.fullname.value,
-        email: formElem.email.value,
-        phone: formElem.phone.value,
-        purchase: formElem.purchase.value,
-        timeframe: formElem.timeframe.value,
-        lender: formElem.lender.value,
-        budget: formElem.budget.value,
-        location: formElem.location.value,
-        misc: formElem.misc.value,
-        page: formElem.dataset.page
-      }).then(function (res) {
-        formElem.fullname.value = '';
-        formElem.email.value = '';
-        formElem.phone.value = '';
-        formElem.purchase.value = '';
-        formElem.timeframe.value = '';
-        formElem.lender.value = '';
-        formElem.budget.value = '';
-        formElem.location.value = '';
-        formElem.misc.value = '';
         setTimeout(function () {
           window.location.href = '/thank-you';
         }, 150);
