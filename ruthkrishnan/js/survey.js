@@ -14,7 +14,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var formSurvey = function formSurvey() {
   var formElem = document.getElementById('survey-form');
-  console.log("Got element from the form survey");
 
   if (formElem) {
     var validateForm = function validateForm() {
@@ -63,7 +62,6 @@ var formSurvey = function formSurvey() {
     };
 
     var sendEmail = function sendEmail() {
-      console.log(formElem.dataset);
       axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
@@ -168,7 +166,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_form_survey__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/form-survey */ "./src/scripts/resources/form-survey.js");
 
 document.addEventListener('DOMContentLoaded', function () {
-  console.log("On survey page");
   (0,_resources_form_survey__WEBPACK_IMPORTED_MODULE_0__.formSurvey)();
 });
 })();
