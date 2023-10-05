@@ -170,7 +170,6 @@ var formSurvey = function formSurvey() {
               break;
           }
         });
-        console.log("error with validation");
       } else {
         sendEmail();
       }
@@ -181,13 +180,23 @@ var formSurvey = function formSurvey() {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
-        message: formElem.message.value,
+        purchase: formElem.purchase.value,
+        timeframe: formElem.timeframe.value,
+        lender: formElem.lender.value,
+        budget: formElem.budget.value,
+        location: formElem.location.value,
+        misc: formElem.misc.value,
         page: formElem.dataset.page
       }).then(function (res) {
         formElem.fullname.value = '';
         formElem.email.value = '';
         formElem.phone.value = '';
-        formElem.message.value = '';
+        formElem.purchase.value = '';
+        formElem.timeframe.value = '';
+        formElem.lender.value = '';
+        formElem.budget.value = '';
+        formElem.location.value = '';
+        formElem.misc.value = '';
         setTimeout(function () {
           window.location.href = '/thank-you';
         }, 150);
