@@ -1,7 +1,6 @@
 export const formSurvey = () => {
 
   const formElem = document.getElementById('survey-form');
-  console.log("Got element from the form survey");
 
   if (formElem) {
     const validateForm = () => {
