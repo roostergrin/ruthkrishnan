@@ -26,7 +26,7 @@
           <div class="form-survey__form-column">
             <div class="form-survey__form-container">
               <form action="" class="form-survey__form" id="survey-form" data-page='<?php echo the_title(); ?>'>
-                <div class="form-survey__form-group">
+                <!-- <div class="form-survey__form-group">
                   <label for="fullname" class="form-survey__label">First and Last Name</label>
                   <input type="text" name="fullname" id="fullname" placeholder="First and Last Name*" class="form-survey__input">
                   <small class="form-survey__validation-message" id="fullname-validation">Please enter valid full name.</small>
@@ -46,7 +46,6 @@
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
                   <legend class="form-survey__legend">Are you interested in buying, selling or leasing?</legend>
-                  <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
                   <div class="form-survey__radio">
                     <div class="form-survey__radio--group">
                       <input type="radio" name="purchase" id="buying" value="buying" checked>
@@ -65,7 +64,6 @@
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
                   <legend class="form-survey__legend">When would you like to purchase or sell? Timeframe: Give us the best idea of when you’d like to move into your home.</legend>
-                  <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
                   <div class="form-survey__radio--grid-2">
                     <div class="form-survey__radio--group">
                       <input type="radio" name="timeframe" id="asap" value="ASAP" checked>
@@ -88,7 +86,6 @@
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
                   <legend class="form-survey__legend">Are you approved with a lender? We have recommendations if you need them.</legend>
-                  <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
                   <div class="form-survey__radio">
                     <div class="form-survey__radio--group">
                       <input type="radio" name="lender" id="no_lender" value="No - Please connect me" checked>
@@ -107,7 +104,6 @@
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
                   <legend class="form-survey__legend">How much are you hoping to spend?</legend>
-                  <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
                   <div class="form-survey__radio--grid">
                     <div class="form-survey__radio--group">
                       <input type="radio" name="budget" id="500K" value="$500K-$1M" checked>
@@ -145,7 +141,7 @@
                   <legend class="form-survey__legend">Is there anything else you'd like to tell us?</legend>
                   <textarea name="misc" id="misc" rows="5" class="form-survey__textarea" placeholder="personal or otherwise" aria-label="Any other information edit text"></textarea>
                 </div>
-                <div class="g-recaptcha" data-sitekey="6Le3PoscAAAAAM0Nh_-v5lL7HLVZskI0pMyiO2fB"></div>
+                <div class="g-recaptcha" data-sitekey="6Le3PoscAAAAAM0Nh_-v5lL7HLVZskI0pMyiO2fB"></div> -->
 
                 <input type="submit" value="send" class="form-survey__submit">
               </form>
