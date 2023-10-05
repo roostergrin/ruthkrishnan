@@ -167,7 +167,7 @@ function rg_serve_route_survey () {
 
   $data = json_decode(file_get_contents("php://input"), true);
   $from = 'no-reply@ruthkrishnan.com';
-  $to = 'priscilla@roostergrin.com';
+  $to = 'info@@ruthkrishnan.com';
   $subject = 'Ruth Krishnan Contact Form - ' . $data['page'] . ' Page';
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $message = '<!DOCTYPE html><html><body>';
@@ -186,7 +186,7 @@ function rg_serve_route_survey () {
   $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['purchase'] . '</h5></td></tr>';
   $message .= '</table><table style="width: 100%; text-align: left">';
   $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">When would you like to purchase or sell? Timeframe: Give us the best idea of when you’d like to move into your home.</p></th></tr>';
-  $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300;">' . $data['timeframe'] . '</h5></td></tr>';
+  $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['timeframe'] . '</h5></td></tr>';
   $message .= '</table><table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Are you approved with a lender? We have recommendations if you need them.</p></th></tr><tr>';
   $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['lender'] . '</h5></td></tr>';
   $message .= '</table><table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">How much are you hoping to spend?</p></th></tr><tr>';
