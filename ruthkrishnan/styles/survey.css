@@ -426,13 +426,14 @@
 .form-survey__radio {
   display: flex;
   flex-wrap: wrap;
-  grid-column-gap: 1rem;
+  grid-column-gap: 0.5rem;
   justify-content: space-around;
   width: 100%;
 }
 @media screen and (max-width: 480px) {
   .form-survey__radio {
     justify-content: flex-start;
+    grid-column-gap: 1rem;
   }
 }
 .form-survey__radio--grid {
@@ -450,7 +451,7 @@
 }
 .form-survey__radio--grid-2 {
   display: flex;
-  gap: 0.5rem;
+  grid-column-gap: 0.5rem;
   justify-content: space-around;
   width: 100%;
 }

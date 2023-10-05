@@ -149,7 +149,16 @@ function rg_serve_route_off_market () {
 
 // NEW DEVELOPMENTS FORM EMAILER ---------------------------------------
 
+// SURVEY FORM EMAILER ---------------------------------------
 
+// wp api custom endpoints
+add_action('rest_api_init', 'rg_register_routes_survey');
+function rg_register_routes_survey () {
+  register_rest_route('rg-mail/v1', 'form-survey', array(
+    'methods' => WP_REST_Server::CREATABLE,
+    'callback' => 'rg_serve_route_survey'
+  ));
+}
 // function for handling post request to new api route
 function rg_serve_route_survey () {
   require('wp-load.php');
