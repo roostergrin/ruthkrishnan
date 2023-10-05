@@ -41,7 +41,7 @@ get_header(); ?>
   <!-- END Off Market Form Template Part -->
 
   <!-- Testimonials Template Part -->
-  <?php get_template_part('template-parts/testimonials/testimonials'); ?>
+  <!-- <?php get_template_part('template-parts/testimonials/testimonials'); ?> -->
   <!-- END Testimonials Template Part -->
 
   <!-- END Off Market Form Template Part -->
