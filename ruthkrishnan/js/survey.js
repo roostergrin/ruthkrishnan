@@ -62,7 +62,7 @@ var formSurvey = function formSurvey() {
     };
 
     var sendEmail = function sendEmail() {
-      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-off-market', {
+      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
