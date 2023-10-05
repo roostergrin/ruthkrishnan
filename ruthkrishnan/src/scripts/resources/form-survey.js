@@ -46,6 +46,7 @@ export const formSurvey = () => {
     }
 
     const sendEmail = () => {
+      console.log(formElem.dataset);
       axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
