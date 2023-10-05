@@ -154,17 +154,18 @@ function rg_serve_route_off_market () {
 // wp api custom endpoints
 add_action('rest_api_init', 'rg_register_routes_survey');
 function rg_register_routes_survey () {
+  echo "<script>console.log('Debug Objects: before' );</script>";
   register_rest_route('rg-mail/v1', 'form-survey', array(
     'methods' => WP_REST_Server::CREATABLE,
     'callback' => 'rg_serve_route_survey'
   ));
+  echo "<script>console.log('Debug Objects: After' );</script>";
 }
 // function for handling post request to new api route
 function rg_serve_route_survey () {
   require('wp-load.php');
 
   global $wpdb;
-  echo "<script>console.log('Debug Objects: In email.php' );</script>";
 
   $data = json_decode(file_get_contents("php://input"), true);
   $from = 'no-reply@ruthkrishnan.com';
