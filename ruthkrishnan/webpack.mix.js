@@ -47,5 +47,6 @@ mix
 .sass('src/sass/pages/marketing.sass', 'styles/')
 .sass('src/sass/pages/survey.sass', 'styles/')
 .js('src/scripts/pages/marketing.js', 'js/')
+.js('src/scripts/pages/survey.js', 'js/')
 .sass('src/sass/pages/404.sass', 'styles/')
 .js('src/scripts/pages/404.js', 'js/')
