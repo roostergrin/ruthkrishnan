@@ -170,6 +170,7 @@ var formSurvey = function formSurvey() {
               break;
           }
         });
+        console.log("error with validation");
       } else {
         sendEmail();
       }

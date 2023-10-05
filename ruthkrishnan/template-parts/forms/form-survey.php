@@ -66,7 +66,7 @@
                 <div class="form-survey__form-group form-survey__form-group--radio">
                   <legend class="form-survey__legend">When would you like to purchase or sell? Timeframe: Give us the best idea of when you’d like to move into your home.</legend>
                   <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
-                  <div class="form-survey__radio">
+                  <div class="form-survey__radio--grid-2">
                     <div class="form-survey__radio--group">
                       <input type="radio" name="timeframe" id="asap" value="ASAP" checked>
                       <label for="asap" class="form-survey__label--radio">ASAP</label>

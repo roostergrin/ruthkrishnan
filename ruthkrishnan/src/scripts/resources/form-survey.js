@@ -39,6 +39,7 @@ export const formSurvey = () => {
               break;
           }
         })
+        console.log("error with validation")
       } else {
         sendEmail();
       }
