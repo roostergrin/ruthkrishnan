@@ -1096,7 +1096,7 @@ function theme_enqueue_scripts()
   }
 
   if (is_page_template('page-survey.php')) {
-    console.log("page is survey, about to load survey.js")
+    echo "<script>console.log('page is survey, about to load survey.js' );</script>";
     wp_register_script('survey', get_template_directory_uri() . '/js/survey.js', array(), '', true);
     wp_enqueue_script('survey');
   }
