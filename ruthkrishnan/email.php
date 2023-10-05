@@ -164,6 +164,7 @@ function rg_serve_route_survey () {
   require('wp-load.php');
 
   global $wpdb;
+  echo "<script>console.log('Debug Objects: In email.php' );</script>";
 
   $data = json_decode(file_get_contents("php://input"), true);
   $from = 'no-reply@ruthkrishnan.com';
