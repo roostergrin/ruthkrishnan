@@ -23,7 +23,7 @@ get_header(); ?>
       </div>
     </section>
     <!-- New Developments Single Video Section -->
-    <?php if ( !empty(get_field('new_developments_single_src')) ) : ?>
+    <!-- <?php if ( !empty(get_field('new_developments_single_src')) ) : ?>
       <div class="new-developments-single-video">
           <div class="new-developments-single-video__container">
             <div class="new-developments-single-video__column">
@@ -37,7 +37,10 @@ get_header(); ?>
             </div>
           </div>
       </div>
-    <?php endif; ?>
+    <?php endif; ?> -->
+    <?php global $post;
+		  $page_id = 37;
+		  get_template_part('template-parts/sliders/slider-modal-video', null, array('page_id' => 37)); ?>
     <section class="page-new-developments__gallery">
       <div class="page-new-developments__container">
 
@@ -62,9 +65,9 @@ get_header(); ?>
             $query = new WP_Query( $args );
             if ( $query->have_posts() ) :
               while ( $query->have_posts() ) : $query->the_post();
-                $category = get_the_terms(get_post()->ID, 'development-category'); 
+                $category = get_the_terms(get_post()->ID, 'development-category');
               ?>
-              
+
                 <div class='page-new-developments__development page-new-developments__development--<?php echo $category[0]->slug; ?>'>
                   <a class="page-new-developments__development-container" href="/new-developments/<?php echo get_post()->post_name; ?>">
                     <div class="page-new-developments__development-image-container">
@@ -107,7 +110,7 @@ get_header(); ?>
                     <?php endif; ?>
                   </a>
                 </div>
-                
+
               <?php endwhile;
             endif;
           ?>
