@@ -35,9 +35,15 @@ get_header(); ?>
   <!-- Marketing Campaign Optional Intro Section -->
 
   <!-- Off Market Form Template Part -->
-  <div class="page-survey__off-market" id="form">
-    <?php get_template_part('template-parts/forms/form-survey'); ?>
-  </div>
+  <?php if (get_the_ID() == 17315): ?>
+    <div class="page-survey__off-market" id="form">
+      <?php get_template_part('template-parts/forms/form-survey-open-house'); ?>
+    </div>
+  <?php else: ?>
+    <div class="page-survey__off-market" id="form">
+      <?php get_template_part('template-parts/forms/form-survey'); ?>
+    </div>
+  <?php endif; ?>
   <!-- END Off Market Form Template Part -->
 
   <!-- Testimonials Template Part -->
