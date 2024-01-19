@@ -25,7 +25,7 @@
         <div class="form-survey__container">
           <div class="form-survey__form-column">
             <div class="form-survey__form-container">
-              <form action="" class="form-survey__form" id="survey-form" data-page='<?php echo the_title(); ?>'>
+              <form action="" class="form-survey__form" id="open-house-form" data-page='<?php echo the_title(); ?>'>
                 <div class="form-survey__form-group">
                   <!-- TEST TEST -->
                   <label for="fullname" class="form-survey__label">First and Last Name</label>
@@ -46,43 +46,35 @@
                 </div>
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
-                  <legend class="form-survey__legend">Are you interested in buying, selling or leasing?</legend>
+                  <legend class="form-survey__legend">Which applies to you?</legend>
                   <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
                   <div class="form-survey__radio">
                     <div class="form-survey__radio--group">
                       <input type="radio" name="purchase" id="buying" value="buying" checked>
-                      <label for="buying" class="form-survey__label--radio">buying</label>
+                      <label for="buying" class="form-survey__label--radio">first time buyer</label>
                     </div>
                     <div class="form-survey__radio--group">
                       <input type="radio" name="purchase" id="selling" value="selling">
-                      <label for="selling" class="form-survey__label--radio">selling</label>
-                    </div>
-                    <div class="form-survey__radio--group">
-                      <input type="radio" name="purchase" id="renting" value="renting">
-                      <label for="renting" class="form-survey__label--radio">renting</label>
+                      <label for="selling" class="form-survey__label--radio">homeowner</label>
                     </div>
                   </div>
                 </div>
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
-                  <legend class="form-survey__legend">When would you like to purchase or sell? Timeframe: Give us the best idea of when you’d like to move into your home.</legend>
+                  <legend class="form-survey__legend">Interested in:</legend>
                   <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
                   <div class="form-survey__radio--grid-2">
                     <div class="form-survey__radio--group">
-                      <input type="radio" name="timeframe" id="asap" value="ASAP" checked>
-                      <label for="asap" class="form-survey__label--radio">ASAP</label>
+                      <input type="checkbox" name="timeframe" id="buying-home" value="buying home">
+                      <label for="buying-home" class="form-survey__label--radio">buying home</label>
                     </div>
                     <div class="form-survey__radio--group">
-                      <input type="radio" name="timeframe" id="3-6_months" value="3-6 months">
-                      <label for="3-6_months" class="form-survey__label--radio">3-6 months</label>
+                      <input type="checkbox" name="timeframe" id="selling-" value="selling home">
+                      <label for="selling-home" class="form-survey__label--radio">selling home</label>
                     </div>
                     <div class="form-survey__radio--group">
-                      <input type="radio" name="timeframe" id="6-12_months" value="6-12 months">
-                      <label for="6-12_months" class="form-survey__label--radio">6-12 months</label>
-                    </div>
-                    <div class="form-survey__radio--group">
-                      <input type="radio" name="timeframe" id="1+_year" value="1+ year">
-                      <label for="1+_year" class="form-survey__label--radio">1+ year</label>
+                      <input type="checkbox" name="timeframe" id="neither" value="neither">
+                      <label for="neither" class="form-survey__label--radio">neither</label>
                     </div>
                   </div>
                 </div>
