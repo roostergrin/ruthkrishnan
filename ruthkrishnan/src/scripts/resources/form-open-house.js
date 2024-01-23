@@ -45,7 +45,7 @@ export const formOpenHouse = () => {
     }
 
     const sendEmail = () => {
-      axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
+      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
