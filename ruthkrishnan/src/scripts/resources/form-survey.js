@@ -10,7 +10,7 @@ export const formSurvey = () => {
             phoneValidation = document.getElementById('phone-validation');
 
       let errorFields;
-      
+
       errorMessages.forEach(message => message.style.opacity = 0)
       errorFields = []
       if (!/^(?![\s.]+$)[a-zA-Z\s.]*$/.test(formElem.fullname.value) || formElem.fullname.value === '') {
@@ -45,7 +45,7 @@ export const formSurvey = () => {
     }
 
     const sendEmail = () => {
-      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
+      axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
@@ -73,11 +73,11 @@ export const formSurvey = () => {
       })
       .catch( (err) => { console.log(err) })
     }
-  
+
     formElem.addEventListener('submit', (event) => {
       event.preventDefault();
       validateForm();
     })
   }
-  
+
 }
