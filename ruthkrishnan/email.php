@@ -284,7 +284,7 @@ $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-
   $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300;">' . $data['consultation'] . '</h5></td></tr>';
   $message .= '</table><table style="width: 100%; text-align: left">';
   $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">May we add you to our mailing list?</p></th></tr>';
-  $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300;">' . $data['mailing'] . '</h5></td></tr></table></div></div></div>';
+  $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300;">' . $data['mailing'] . '</h5></td></tr>';
   $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Would you like disclosures for this property?</p></th></tr>';
   $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300;">' . $data['disclosure'] . '</h5></td></tr></table></div></div></div>';
   $message .= '<div class="container" style="padding: 0 32px 4rem 32px; max-width: 1440px; margin: 0 auto">';
