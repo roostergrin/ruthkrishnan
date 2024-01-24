@@ -231,7 +231,7 @@ function rg_serve_route_survey () {
 }
 
 
-// SURVEY FORM EMAILER ---------------------------------------
+// OPEN HOUSE FORM EMAILER ---------------------------------------
 
 // wp api custom endpoints
 add_action('rest_api_init', 'rg_register_routes_open_house');
