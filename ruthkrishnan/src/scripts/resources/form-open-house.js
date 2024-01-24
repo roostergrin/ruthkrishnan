@@ -45,12 +45,15 @@ export const formOpenHouse = () => {
     }
 
     const sendEmail = () => {
+      const interestElements = formElem.querySelectorAll('input[name="interest"]:checked');
+      const interests = Array.from(interestElements).map(checkbox => checkbox.value);
+
       axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-open-house', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
         purchase: formElem.purchase.value,
-        interest: formElem.interest.value,
+        interest: interests, // Send as an array
         agent: formElem.agent.value,
         neighbor: formElem.neighbor.value,
         consultation: formElem.consultation.value,
@@ -63,7 +66,7 @@ export const formOpenHouse = () => {
         formElem.email.value = '';
         formElem.phone.value = '';
         formElem.purchase.value = '';
-        formElem.interest.value = '';
+        interestElements.forEach(checkbox => checkbox.checked = false);
         formElem.agent.value = '';
         formElem.neighbor.value = '';
         formElem.consultation.value = '';

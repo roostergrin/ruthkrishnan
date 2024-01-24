@@ -268,7 +268,13 @@ function rg_serve_route_open_house () {
   $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['purchase'] . '</h5></td></tr>';
   $message .= '</table><table style="width: 100%; text-align: left">';
   $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Interested in:</p></th></tr>';
-  $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['interest'] . '</h5></td></tr>';
+  if (is_array($data['interest'])) {
+    $interests = implode(', ', $data['interest']); // Concatenate all interests with a comma
+  } else {
+      $interests = $data['interest']; // Fallback in case it's not an array
+  }
+
+$message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $interests . '</h5></td></tr>';
   $message .= '</table><table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Are you working with an Agent?</p></th></tr><tr>';
   $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['agent'] . '</h5></td></tr>';
   $message .= '</table><table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Are you a neighbor?</p></th></tr><tr>';

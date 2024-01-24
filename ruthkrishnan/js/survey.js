@@ -62,12 +62,17 @@ var formOpenHouse = function formOpenHouse() {
     };
 
     var sendEmail = function sendEmail() {
+      var interestElements = formElem.querySelectorAll('input[name="interest"]:checked');
+      var interests = Array.from(interestElements).map(function (checkbox) {
+        return checkbox.value;
+      });
       axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-open-house', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
         purchase: formElem.purchase.value,
-        interest: formElem.interest.value,
+        interest: interests,
+        // Send as an array
         agent: formElem.agent.value,
         neighbor: formElem.neighbor.value,
         consultation: formElem.consultation.value,
@@ -79,7 +84,9 @@ var formOpenHouse = function formOpenHouse() {
         formElem.email.value = '';
         formElem.phone.value = '';
         formElem.purchase.value = '';
-        formElem.interest.value = '';
+        interestElements.forEach(function (checkbox) {
+          return checkbox.checked = false;
+        });
         formElem.agent.value = '';
         formElem.neighbor.value = '';
         formElem.consultation.value = '';
