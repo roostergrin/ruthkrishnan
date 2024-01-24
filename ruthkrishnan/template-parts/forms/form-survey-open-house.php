@@ -49,19 +49,19 @@
                   <legend class="form-survey__legend">Which applies to you?</legend>
                   <div class="form-survey__radio">
                     <div class="form-survey__radio--group">
-                      <input type="radio" name="purchase" id="buying" value="buying" checked>
-                      <label for="buying" class="form-survey__label--radio">first time buyer</label>
+                      <input type="radio" name="purchase" id="first_time_buyer" value="first time buyer" checked>
+                      <label for="first_time_buyer" class="form-survey__label--radio">first time buyer</label>
                     </div>
                     <div class="form-survey__radio--group">
-                      <input type="radio" name="purchase" id="selling" value="selling">
-                      <label for="selling" class="form-survey__label--radio">homeowner</label>
+                      <input type="radio" name="purchase" id="homeowner" value="homeowner">
+                      <label for="homeowner" class="form-survey__label--radio">homeowner</label>
                     </div>
                   </div>
                 </div>
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
                   <legend class="form-survey__legend">Interested in:</legend>
-                  <div class="form-survey__radio--grid-2">
+                  <div class="form-survey__radio">
                     <div class="form-survey__radio--group">
                       <input type="checkbox" name="interest" id="buying_home" value="buying home">
                       <label for="buying_home" class="form-survey__label--radio">buying home</label>
@@ -93,7 +93,7 @@
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
                   <legend class="form-survey__legend">Are you a neighbor?</legend>
-                  <div class="form-survey__radio--grid">
+                  <div class="form-survey__radio">
                     <div class="form-survey__radio--group">
                       <input type="radio" name="neighbor" id="yes_neighbor" value="yes" checked>
                       <label for="yes_neighbor" class="form-survey__label--radio">yes</label>
@@ -107,7 +107,7 @@
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
                   <legend class="form-survey__legend">Are you interested in a Buyer/Seller consultation?</legend>
-                  <div class="form-survey__radio--grid">
+                  <div class="form-survey__radio">
                     <div class="form-survey__radio--group">
                       <input type="radio" name="consultation" id="yes_seller" value="yes seller consultation" checked>
                       <label for="yes_seller" class="form-survey__label--radio">yes seller consultation</label>
@@ -125,7 +125,7 @@
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
                   <legend class="form-survey__legend">May we add you to our mailing list?</legend>
-                  <div class="form-survey__radio--grid">
+                  <div class="form-survey__radio">
                     <div class="form-survey__radio--group">
                       <input type="radio" name="mailing" id="yes_mailing" value="yes" checked>
                       <label for="yes_mailing" class="form-survey__label--radio">yes</label>
@@ -139,7 +139,7 @@
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
                   <legend class="form-survey__legend">Would you like disclosures for this property?</legend>
-                  <div class="form-survey__radio--grid">
+                  <div class="form-survey__radio">
                     <div class="form-survey__radio--group">
                       <input type="radio" name="disclosure" id="yes_disclosures" value="yes" checked>
                       <label for="yes_disclosures" class="form-survey__label--radio">yes</label>
