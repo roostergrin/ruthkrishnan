@@ -47,7 +47,6 @@
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
                   <legend class="form-survey__legend">Which applies to you?</legend>
-                  <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
                   <div class="form-survey__radio">
                     <div class="form-survey__radio--group">
                       <input type="radio" name="purchase" id="buying" value="buying" checked>
@@ -62,84 +61,97 @@
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
                   <legend class="form-survey__legend">Interested in:</legend>
-                  <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
                   <div class="form-survey__radio--grid-2">
                     <div class="form-survey__radio--group">
-                      <input type="checkbox" name="timeframe" id="buying-home" value="buying home">
-                      <label for="buying-home" class="form-survey__label--radio">buying home</label>
+                      <input type="checkbox" name="interest" id="buying_home" value="buying home">
+                      <label for="buying_home" class="form-survey__label--radio">buying home</label>
                     </div>
                     <div class="form-survey__radio--group">
-                      <input type="checkbox" name="timeframe" id="selling-" value="selling home">
-                      <label for="selling-home" class="form-survey__label--radio">selling home</label>
+                      <input type="checkbox" name="interest" id="selling_home" value="selling home">
+                      <label for="selling_home" class="form-survey__label--radio">selling home</label>
                     </div>
                     <div class="form-survey__radio--group">
-                      <input type="checkbox" name="timeframe" id="neither" value="neither">
+                      <input type="checkbox" name="interest" id="neither" value="neither">
                       <label for="neither" class="form-survey__label--radio">neither</label>
                     </div>
                   </div>
                 </div>
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
-                  <legend class="form-survey__legend">Are you approved with a lender? We have recommendations if you need them.</legend>
-                  <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
+                  <legend class="form-survey__legend">Are you working with an Agent?</legend>
                   <div class="form-survey__radio">
                     <div class="form-survey__radio--group">
-                      <input type="radio" name="lender" id="no_lender" value="No - Please connect me" checked>
-                      <label for="no_lender" class="form-survey__label--radio">No - Please connect me</label>
+                      <input type="radio" name="agent" id="yes_lender" value="yes">
+                      <label for="yes_lender" class="form-survey__label--radio">yes</label>
                     </div>
                     <div class="form-survey__radio--group">
-                      <input type="radio" name="lender" id="yes_lender" value="Yes - Pre Approval in hand">
-                      <label for="yes_lender" class="form-survey__label--radio">Yes - Pre Approval in hand</label>
-                    </div>
-                    <div class="form-survey__radio--group">
-                      <input type="radio" name="lender" id="cash_buyer" value="Cash Buyers">
-                      <label for="cash_buyer" class="form-survey__label--radio">Cash Buyer</label>
+                      <input type="radio" name="agent" id="no_lender" value="no" checked>
+                      <label for="no_lender" class="form-survey__label--radio">no</label>
                     </div>
                   </div>
                 </div>
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
-                  <legend class="form-survey__legend">How much are you hoping to spend?</legend>
-                  <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
+                  <legend class="form-survey__legend">Are you a neighbor?</legend>
                   <div class="form-survey__radio--grid">
                     <div class="form-survey__radio--group">
-                      <input type="radio" name="budget" id="500K" value="$500K-$1M" checked>
-                      <label for="500K" class="form-survey__label--radio">$500K-$1M</label>
+                      <input type="radio" name="neighbor" id="yes_neighbor" value="yes" checked>
+                      <label for="yes_neighbor" class="form-survey__label--radio">yes</label>
                     </div>
                     <div class="form-survey__radio--group">
-                      <input type="radio" name="budget" id="1M" value="$1M-$2M">
-                      <label for="1M" class="form-survey__label--radio">$1M-$2M</label>
-                    </div>
-                    <div class="form-survey__radio--group">
-                      <input type="radio" name="budget" id="2M" value="$2M-$3M">
-                      <label for="2M" class="form-survey__label--radio">$2M-$3M</label>
-                    </div>
-                    <div class="form-survey__radio--group">
-                      <input type="radio" name="budget" id="3M" value="$3M-$4M">
-                      <label for="3M" class="form-survey__label--radio">$3M-$4M</label>
-                    </div>
-                    <div class="form-survey__radio--group">
-                      <input type="radio" name="budget" id="5M" value="$5M-$10M">
-                      <label for="5M" class="form-survey__label--radio">$5M-$10M</label>
-                    </div>
-                    <div class="form-survey__radio--group">
-                      <input type="radio" name="budget" id="10M" value="$10M+">
-                      <label for="10M" class="form-survey__label--radio">$10M+</label>
+                      <input type="radio" name="neighbor" id="no_neighbor" value="no">
+                      <label for="no_neighbor" class="form-survey__label--radio">no</label>
                     </div>
                   </div>
                 </div>
 
-                <div class="form-survey__form-group">
-                  <legend class="form-survey__legend">What areas are you most interested in? Location: Please list any and all areas you think you’d be interested in learning more about. You don’t have to be certain.</legend>
-                  <textarea name="location" id="location" rows="5" class="form-survey__textarea" placeholder="Please list here" aria-label="List preferred locations edit text"></textarea>
+                <div class="form-survey__form-group form-survey__form-group--radio">
+                  <legend class="form-survey__legend">Are you interested in a Buyer/Seller consultation?</legend>
+                  <div class="form-survey__radio--grid">
+                    <div class="form-survey__radio--group">
+                      <input type="radio" name="consultation" id="yes_seller" value="yes seller consultation" checked>
+                      <label for="yes_seller" class="form-survey__label--radio">yes seller consultation</label>
+                    </div>
+                    <div class="form-survey__radio--group">
+                      <input type="radio" name="consultation" id="yes_buyer" value="yes buyer consultation">
+                      <label for="yes_buyer" class="form-survey__label--radio">yes buyer consultation</label>
+                    </div>
+                    <div class="form-survey__radio--group">
+                      <input type="radio" name="consultation" id="neither" value="neither">
+                      <label for="neither" class="form-survey__label--radio">neither</label>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="form-survey__form-group">
-                  <legend class="form-survey__legend">Is there anything else you'd like to tell us?</legend>
-                  <textarea name="misc" id="misc" rows="5" class="form-survey__textarea" placeholder="Personal or otherwise" aria-label="Any other information edit text"></textarea>
+                <div class="form-survey__form-group form-survey__form-group--radio">
+                  <legend class="form-survey__legend">May we add you to our mailing list?</legend>
+                  <div class="form-survey__radio--grid">
+                    <div class="form-survey__radio--group">
+                      <input type="radio" name="mailing" id="yes_mailing" value="yes" checked>
+                      <label for="yes_mailing" class="form-survey__label--radio">yes</label>
+                    </div>
+                    <div class="form-survey__radio--group">
+                      <input type="radio" name="mailing" id="no_mailing" value="no">
+                      <label for="no_mailing" class="form-survey__label--radio">no</label>
+                    </div>
+                  </div>
                 </div>
+
+                <div class="form-survey__form-group form-survey__form-group--radio">
+                  <legend class="form-survey__legend">Would you like disclosures for this property?</legend>
+                  <div class="form-survey__radio--grid">
+                    <div class="form-survey__radio--group">
+                      <input type="radio" name="disclosure" id="yes_disclosures" value="yes" checked>
+                      <label for="yes_disclosures" class="form-survey__label--radio">yes</label>
+                    </div>
+                    <div class="form-survey__radio--group">
+                      <input type="radio" name="disclosure" id="no_disclosures" value="no">
+                      <label for="no_disclosures" class="form-survey__label--radio">no</label>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="g-recaptcha" data-sitekey="6Le3PoscAAAAAM0Nh_-v5lL7HLVZskI0pMyiO2fB"></div>
-
                 <input type="submit" value="send" class="form-survey__submit">
               </form>
             </div>

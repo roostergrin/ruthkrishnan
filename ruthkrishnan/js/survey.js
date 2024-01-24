@@ -62,27 +62,29 @@ var formOpenHouse = function formOpenHouse() {
     };
 
     var sendEmail = function sendEmail() {
-      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
+      axios.post('https:/dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
         purchase: formElem.purchase.value,
-        timeframe: formElem.timeframe.value,
-        lender: formElem.lender.value,
-        budget: formElem.budget.value,
-        location: formElem.location.value,
-        misc: formElem.misc.value,
+        interest: formElem.interest.value,
+        agent: formElem.agent.value,
+        neighbor: formElem.neighbor.value,
+        consultation: formElem.consultation.value,
+        mailing: formElem.mailing.value,
+        disclosure: formElem.disclosure.value,
         page: formElem.dataset.page
       }).then(function (res) {
         formElem.fullname.value = '';
         formElem.email.value = '';
         formElem.phone.value = '';
         formElem.purchase.value = '';
-        formElem.timeframe.value = '';
-        formElem.lender.value = '';
-        formElem.budget.value = '';
-        formElem.location.value = '';
-        formElem.misc.value = '';
+        formElem.interest.value = '';
+        formElem.agent.value = '';
+        formElem.neighbor.value = '';
+        formElem.consultation.value = '';
+        formElem.mailing.value = '';
+        formElem.disclosure.value = '';
         setTimeout(function () {
           window.location.href = '/thank-you';
         }, 150);
