@@ -62,7 +62,7 @@ var formOpenHouse = function formOpenHouse() {
     };
 
     var sendEmail = function sendEmail() {
-      axios.post('https:/dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
+      axios.post('https:/dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-open-house', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
