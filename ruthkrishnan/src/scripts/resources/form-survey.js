@@ -55,6 +55,7 @@ export const formSurvey = () => {
         budget: formElem.budget.value,
         location: formElem.location.value,
         misc: formElem.misc.value,
+        address: formElem.address.value,
         page: formElem.dataset.page
       })
       .then( (res) => {
@@ -67,6 +68,7 @@ export const formSurvey = () => {
         formElem.budget.value = '';
         formElem.location.value = '';
         formElem.misc.value = '';
+        formElem.address.value = '';
         setTimeout(() => {
           window.location.href = '/thank-you'
         }, 150);

@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
-                  <legend class="form-survey__legend">Are you interested in buying, selling or leasing?</legend>
+                  <legend class="form-survey__legend">Are you interested in buying or selling?</legend>
                   <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
                   <div class="form-survey__radio">
                     <div class="form-survey__radio--group">
@@ -57,14 +57,14 @@
                       <label for="selling" class="form-survey__label--radio">selling</label>
                     </div>
                     <div class="form-survey__radio--group">
-                      <input type="radio" name="purchase" id="renting" value="renting">
-                      <label for="renting" class="form-survey__label--radio">renting</label>
+                      <input type="radio" name="purchase" id="both" value="both">
+                      <label for="both" class="form-survey__label--radio">both</label>
                     </div>
                   </div>
                 </div>
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
-                  <legend class="form-survey__legend">When would you like to purchase or sell? Timeframe: Give us the best idea of when you’d like to move into your home.</legend>
+                  <legend class="form-survey__legend">When would you like to purchase or sell? Timeframe: Give us the best idea of when you’d like to move.</legend>
                   <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
                   <div class="form-survey__radio--grid-2">
                     <div class="form-survey__radio--group">
@@ -87,26 +87,7 @@
                 </div>
 
                 <div class="form-survey__form-group form-survey__form-group--radio">
-                  <legend class="form-survey__legend">Are you approved with a lender? We have recommendations if you need them.</legend>
-                  <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
-                  <div class="form-survey__radio">
-                    <div class="form-survey__radio--group">
-                      <input type="radio" name="lender" id="no_lender" value="No - Please connect me" checked>
-                      <label for="no_lender" class="form-survey__label--radio">No - Please connect me</label>
-                    </div>
-                    <div class="form-survey__radio--group">
-                      <input type="radio" name="lender" id="yes_lender" value="Yes - Pre Approval in hand">
-                      <label for="yes_lender" class="form-survey__label--radio">Yes - Pre Approval in hand</label>
-                    </div>
-                    <div class="form-survey__radio--group">
-                      <input type="radio" name="lender" id="cash_buyer" value="Cash Buyers">
-                      <label for="cash_buyer" class="form-survey__label--radio">Cash Buyer</label>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-survey__form-group form-survey__form-group--radio">
-                  <legend class="form-survey__legend">How much are you hoping to spend?</legend>
+                  <legend class="form-survey__legend">If you are buying a home how much are you hoping to spend?</legend>
                   <!-- <input type="text" name="agent" id="agent" placeholder="Would you like to schedule a call with an agent?*" class="form-survey__input"> -->
                   <div class="form-survey__radio--grid">
                     <div class="form-survey__radio--group">
@@ -139,6 +120,11 @@
                 <div class="form-survey__form-group">
                   <legend class="form-survey__legend">What areas are you most interested in? Location: Please list any and all areas you think you’d be interested in learning more about. You don’t have to be certain.</legend>
                   <textarea name="location" id="location" rows="5" class="form-survey__textarea" placeholder="Please list here" aria-label="List preferred locations edit text"></textarea>
+                </div>
+
+                <div class="form-survey__form-group">
+                  <legend class="form-survey__legend">If you are a selling a home please provide your address.</legend>
+                  <textarea name="address" id="address" rows="5" class="form-survey__textarea" placeholder="Please provide address here" aria-label="Provide address edit text"></textarea>
                 </div>
 
                 <div class="form-survey__form-group">
