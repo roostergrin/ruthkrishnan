@@ -251,7 +251,7 @@ function rg_serve_route_open_house () {
 
   $data = json_decode(file_get_contents("php://input"), true);
   $from = 'no-reply@ruthkrishnan.com';
-  $to = 'info@ruthkrishnan.com';
+  $to = 'sebastian@roostergrin.com';
   $subject = 'Ruth Krishnan Contact Form - ' . $data['page'] . ' Page';
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $message = '<!DOCTYPE html><html><body>';
@@ -288,7 +288,9 @@ $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-
   $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">May we add you to our mailing list?</p></th></tr>';
   $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300;">' . $data['mailing'] . '</h5></td></tr>';
   $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Would you like disclosures for this property?</p></th></tr>';
-  $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300;">' . $data['disclosure'] . '</h5></td></tr></table></div></div></div>';
+  $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300;">' . $data['disclosure'] . '</h5></td></tr>';
+  $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Is there anything else you\'d like to tell us?</p></th></tr>';
+  $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300;">' . $data['address'] . '</h5></td></tr></table></div></div></div>';
   $message .= '<div class="container" style="padding: 0 32px 4rem 32px; max-width: 1440px; margin: 0 auto">';
   $message .= '<p style="color: #3f3f3f;">This form was generated from <a href="https://ruthkrishnan.com" target="_blank" style="text-decoration: none">ruthkrishnan.com</a></p>';
   $message .= '</div></div></body></html>';

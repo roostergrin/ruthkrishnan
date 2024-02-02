@@ -48,7 +48,7 @@ export const formOpenHouse = () => {
       const interestElements = formElem.querySelectorAll('input[name="interest"]:checked');
       const interests = Array.from(interestElements).map(checkbox => checkbox.value);
 
-      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-open-house', {
+      axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-open-house', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
@@ -59,6 +59,7 @@ export const formOpenHouse = () => {
         consultation: formElem.consultation.value,
         mailing: formElem.mailing.value,
         disclosure: formElem.disclosure.value,
+        address: formElem.address.value,
         page: formElem.dataset.page
       })
       .then( (res) => {
@@ -72,6 +73,7 @@ export const formOpenHouse = () => {
         formElem.consultation.value = '';
         formElem.mailing.value = '';
         formElem.disclosure.value = '';
+        formElem.address.value = '';
         setTimeout(() => {
           window.location.href = '/thank-you'
         }, 150);

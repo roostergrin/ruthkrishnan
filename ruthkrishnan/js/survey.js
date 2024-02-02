@@ -66,7 +66,7 @@ var formOpenHouse = function formOpenHouse() {
       var interests = Array.from(interestElements).map(function (checkbox) {
         return checkbox.value;
       });
-      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-open-house', {
+      axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-open-house', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
@@ -78,6 +78,7 @@ var formOpenHouse = function formOpenHouse() {
         consultation: formElem.consultation.value,
         mailing: formElem.mailing.value,
         disclosure: formElem.disclosure.value,
+        address: formElem.address.value,
         page: formElem.dataset.page
       }).then(function (res) {
         formElem.fullname.value = '';
@@ -92,6 +93,7 @@ var formOpenHouse = function formOpenHouse() {
         formElem.consultation.value = '';
         formElem.mailing.value = '';
         formElem.disclosure.value = '';
+        formElem.address.value = '';
         setTimeout(function () {
           window.location.href = '/thank-you';
         }, 150);
@@ -169,7 +171,7 @@ var formSurvey = function formSurvey() {
     };
 
     var sendEmail = function sendEmail() {
-      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
+      axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,

@@ -151,6 +151,11 @@
                   </div>
                 </div>
 
+                <div class="form-survey__form-group">
+                  <legend class="form-survey__legend">What is the address of the open house you are at?</legend>
+                  <textarea name="address" id="address" rows="5" class="form-survey__textarea" placeholder="Please provide address here" aria-label="Address of open house edit text"></textarea>
+                </div>
+
                 <div class="g-recaptcha" data-sitekey="6Le3PoscAAAAAM0Nh_-v5lL7HLVZskI0pMyiO2fB"></div>
                 <input type="submit" value="send" class="form-survey__submit">
               </form>
