@@ -251,7 +251,7 @@ function rg_serve_route_open_house () {
 
   $data = json_decode(file_get_contents("php://input"), true);
   $from = 'no-reply@ruthkrishnan.com';
-  $to = 'sebastian@roostergrin.com';
+  $to = 'info@ruthkrishnan.com';
   $subject = 'Ruth Krishnan Contact Form - ' . $data['page'] . ' Page';
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $message = '<!DOCTYPE html><html><body>';

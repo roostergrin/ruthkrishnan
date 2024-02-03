@@ -66,7 +66,7 @@ var formOpenHouse = function formOpenHouse() {
       var interests = Array.from(interestElements).map(function (checkbox) {
         return checkbox.value;
       });
-      axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-open-house', {
+      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-open-house', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
@@ -171,7 +171,7 @@ var formSurvey = function formSurvey() {
     };
 
     var sendEmail = function sendEmail() {
-      axios.post('https://dev.ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
+      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-survey', {
         fullname: formElem.fullname.value,
         email: formElem.email.value,
         phone: formElem.phone.value,
