@@ -4,7 +4,7 @@ This is a traditional Wordpress site hosted on its own dedicated server, Rooster
 &nbsp;
 
 # Setting Up A Local Environment
-To get started, it is best to set up a local development environment. Since this is a traditional Wordpress site, we will get a local development environment set up by using MAMP. MAMP is a local server environment that will allow us to run a Wordpress site locally. All we need to do is download MAMP, all Wordpress site files, and the ruthkrishnan theme files. 
+To get started, it is best to set up a local development environment. Since this is a traditional Wordpress site, we will get a local development environment set up by using MAMP. MAMP is a local server environment that will allow us to run a Wordpress site locally. All we need to do is download MAMP, all Wordpress site files, and the ruthkrishnan theme files.
 
 __Step 1:__ Download and install MAMP <a href='https://www.mamp.info/en/downloads/' target='_blank'>here</a>.
 
@@ -14,7 +14,7 @@ __Step 3:__ In the File Manager, download the following the file __rk_local.zip_
 
 __Step 4:__ Now we can back out of the File Manager on Plesk and go to the databases. Here we will "Export Dump" for the __admin_ruthkrishnan__ database. Download the dump (we will use this later)
 
-__Step 5:__ Head over to the rk_local.zip file and unzip it onto your desktop and go into the unzipped "rk_local" directory. 
+__Step 5:__ Head over to the rk_local.zip file and unzip it onto your desktop and go into the unzipped "rk_local" directory.
 
 __Step 6:__ Navigate to wp-content and remove the "themes" directory. Then clone down this repository into the "wp-content" directory and rename the repository directory to "themes".
 
@@ -48,7 +48,7 @@ __Step 10:__ Inside the "admin_ruthkrishnan" database, go to the "Import" tab. C
 
 __Step 11:__ Now click on "admin_ruthkrishnan" in the sidebar on the left, and open the "wp_options" table. Here we will change the "option_value" for the "siteurl" and "home" to "http://localhost:8888"
 
-__Step 12:__ Navigate over to the Privileges Tab at the top of PHPMYADMIN. Check to see if there is a user with the name "admin_ruthkrishnan". If there isn't, create a user account and have all the credentials match the DB user name, password, and host (host should be "localhost") in your wp_config file located in the "rk_local" directory. 
+__Step 12:__ Navigate over to the Privileges Tab at the top of PHPMYADMIN. Check to see if there is a user with the name "admin_ruthkrishnan". If there isn't, create a user account and have all the credentials match the DB user name, password, and host (host should be "localhost") in your wp_config file located in the "rk_local" directory.
 
 __Step 13:__ Head back to the downloaded unzipped "rk_local" directory. Since this is only for a local environment, let's remove some plugins that we will not need (the following plugins are used to help with page load speeds and adds recaptcha. We only need these on the live site). Open the "rk_local" directory and navigate to "wp-content/plugins" and remove the following plugins:
 
@@ -85,7 +85,7 @@ If you haven't done so already, go into the theme directory (rk_local/wp-content
 
 Once you make changes to the sass/js files, you will need to compile it by running the command in your command line/terminal ```npx mix```. If you are making continuous changes, you can have laravel mix watch for changes and automatically compile sass/js files by running the command ```npx mix watch```.
 
-Laravel Mix outputs all the compiled sass to the /styles directory and all the js files to the /js directory. The location for the output files are configured in the "webpack.mix.js" file. 
+Laravel Mix outputs all the compiled sass to the /styles directory and all the js files to the /js directory. The location for the output files are configured in the "webpack.mix.js" file.
 
 &nbsp;
 
@@ -118,3 +118,20 @@ Find the databases tab.
 Check the box next to the rk db, then click 'drop / ok'.
 
 Now go back to 'setting up a local' and follow all the db steps.
+
+## Troubleshooting
+
+If you get this error:
+
+1 errors were found during analysis.
+
+Missing expression. (near "ON" at position 25)
+
+Create a file in /Application/MAMP/conf/ <br />
+Name it my.cnf <br />
+Copy and paste this into the my.cnf file <br />
+
+\[mysqld\] <br />
+max_allowed_packet = 64M
+
+Save the file and restart the server
