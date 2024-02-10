@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
   video.forEach((vid) => {
     vid.addEventListener('loadeddata', () => {
     })
-    console.log('>>>>>>>>>>\n', vid);
   })
 
   videoContainer.forEach((vid, i) => {
