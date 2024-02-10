@@ -300,10 +300,28 @@
               <?php get_template_part('template-parts/maps/newdevelopments-posts-map'); ?>
               <!-- END Google Maps Template Part -->
 
+               <!-- New Developments Single Neighborhood Video Section -->
+               <?php if ( !empty(get_field('neighborhood_video')) ) : ?>
+                <div class="new-developments-single-video">
+                    <div class="new-developments-single-video__container">
+                      <div class="new-developments-single-video__column">
+                        <div class="new-developments-single-video__video-container">
+                          <iframe title="New Developments Property Video" class="new-developments-single-video__video" data-src="<?php echo get_field('neighborhood_video') ?>?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+                          <?php echo wp_get_attachment_image(get_field('neighborhood_thumbnail'), 'full', false, [ 'class' => 'new-developments-single-video__thumbnail' ]); ?>
+                          <div class="new-developments-single-video__play-btn">
+                            <?php get_template_part('icons/play', null, array('class' => 'new-developments-single-video__icon')); ?>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              <?php endif; ?>
+              <!-- END New Developments Single Neighborhood Video Section -->
+
               <!-- New Dev Contact Form Template Part -->
               <?php get_template_part('template-parts/forms/form-new-dev'); ?>
               <!-- END New Dev Contact Form Template Part -->
-              
+
             </div> <!-- page-wrapper  -->
 
         <?php endwhile; ?>
