@@ -11,7 +11,7 @@ get_header(); ?>
 <div class="listings-single">
 	<?php get_template_part('template-parts/hero/listings-hero'); ?>
 
-	
+
 	<?php
 	if ( have_posts() ) :
 		while ( have_posts() ) : the_post(); ?>
@@ -50,8 +50,8 @@ get_header(); ?>
 						</h2>
 					</div>
 				<?php endif; ?>
-				
-				
+
+
 				<!-- Virtual Tour -->
 				<div class="listings-single__main-column">
 					<?php if ( get_field('virtual_tour_video') ) : ?>
@@ -62,7 +62,7 @@ get_header(); ?>
 									<?php echo get_field('optional_virtual_tour_title') ?>
 								<?php endif; ?>
 						</h2>
-								
+
 						<div class="listings-single__tour">
 							<iframe src="<?php echo get_field('virtual_tour_video') ?>" class="listings-single__tour-video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
 						</div>
@@ -98,12 +98,12 @@ get_header(); ?>
 					<h2 class="listings-single__about-home-title">About the Home</h2>
 					<div class="listings-single__about-home-icons">
 
-						
+
 						<?php
 						$icons_arr = get_field('about_home_icons');
 
 						if ( have_rows('about_the_home') && count($icons_arr) > 0 ) :
-							while ( have_rows('about_the_home') ) : the_row(); 
+							while ( have_rows('about_the_home') ) : the_row();
 								$bedrooms = get_sub_field('bedrooms');
 								$bathrooms = get_sub_field('bathrooms');
 								$square_feet = get_sub_field('square_feet');
@@ -165,7 +165,7 @@ get_header(); ?>
 				</div>
 				<?php endif; ?>
 				<!-- END About The Home -->
-				
+
 				<!-- Features -->
 				<?php if ( !empty(get_field('features')) ) : ?>
 				<div class="listings-single__features listings-single__main-column">
@@ -175,7 +175,7 @@ get_header(); ?>
 							<div class="listings-single__features-list"><?php echo get_field('features'); ?></div>
 							<div class="listings-single__features-overlay"></div>
 						</div>
-						<div class="listings-single__features-see-more"><span class="listings-single__features-see-more-btn">show legend</span></div>
+						<div class="listings-single__features-see-more"><span class="listings-single__features-see-more-btn">show more</span></div>
 					</div>
 				</div>
 				<?php endif; ?>
@@ -237,7 +237,7 @@ get_header(); ?>
 														<?php echo get_sub_field('optional_virtual_tour_title') ?>
 													<?php endif; ?>
 											</h2>
-													
+
 											<div class="listings-single__tour">
 												<iframe src="<?php echo get_sub_field('virtual_tour_video') ?>" class="listings-single__tour-video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
 											</div>
@@ -246,7 +246,7 @@ get_header(); ?>
 										<!-- Intro Text -->
 										<?php if ( get_sub_field('intro_text') ) : ?>
 											<div class="listings-single__intro-text"><?php echo get_sub_field('intro_text'); ?></div>
-											</div> 
+											</div>
 										<?php endif; ?>
 										<!-- END Intro Text -->
 										<!-- About the home -->
@@ -259,12 +259,12 @@ get_header(); ?>
 											<h2 class="listings-single__about-home-title">About the Home</h2>
 											<div class="listings-single__about-home-icons">
 
-												
+
 												<?php
 												$icons_arr = get_sub_field('about_home_icons');
 
 												if ( have_rows('about_the_home') && count($icons_arr) > 0 ) :
-													while ( have_rows('about_the_home') ) : the_row(); 
+													while ( have_rows('about_the_home') ) : the_row();
 														$bedrooms = get_sub_field('bedrooms');
 														$bathrooms = get_sub_field('bathrooms');
 														$square_feet = get_sub_field('square_feet');
@@ -326,7 +326,7 @@ get_header(); ?>
 										</div>
 										<?php endif; ?>
 										<!-- END About The Home -->
-										
+
 										<!-- Features -->
 										<?php if ( !empty(get_sub_field('features')) ) : ?>
 										<div class="listings-single__features--2 listings-single__main-column">
@@ -342,12 +342,12 @@ get_header(); ?>
 										<?php endif; ?>
 										<!-- Photo Gallery -->
 										<?php if ( !empty(get_sub_field('photo_gallery')) ) : ?>
-											<div class="photo-gallery--2">	
+											<div class="photo-gallery--2">
 												<div class="photo-gallery__container--2">
 													<h2 class="photo-gallery__title--2">
 														<?php if ( !empty(get_sub_field('photo_gallery_alternate_title')) ) :
 															echo get_sub_field('photo_gallery_alternate_title');
-														else : 
+														else :
 															echo 'Photo Gallery';
 														endif; ?>
 													</h2>
@@ -359,10 +359,10 @@ get_header(); ?>
 																	<?php echo wp_get_attachment_image($image, 'full', false, [ 'class' => 'photo-gallery__image--2']); ?>
 																</div>
 															<?php endforeach; ?>
-														<div class="photo-gallery__prev--2" aria-label='Previous Slide'> 
+														<div class="photo-gallery__prev--2" aria-label='Previous Slide'>
 															<?php get_template_part('icons/arrow', null, array( 'class' => 'photo-gallery__icon photo-gallery__icon--prev--2' )); ?>
 														</div>
-														<div class="photo-gallery__next--2" aria-label='Next Slide'> 
+														<div class="photo-gallery__next--2" aria-label='Next Slide'>
 															<?php get_template_part('icons/arrow', null, array( 'class' => 'photo-gallery__icon photo-gallery__icon--next--2' )); ?>
 														</div>
 													</div>
@@ -403,7 +403,7 @@ get_header(); ?>
               <h2 class="listings-single__about-neighborhood-title">About the Neighborhood</h2>
               <div class="listings-single__about-neighborhood-description">
 
-                <?php 
+                <?php
                   $neighborhood = get_field('neighborhood');
                   $custom_sections = get_field('custom_neighborhood_sections');
                 ?>
@@ -412,7 +412,7 @@ get_header(); ?>
                   echo get_field('about_the_neighborhood');
                 elseif ( $neighborhood ) :
                   echo get_field('description', $neighborhood->ID);
-                endif; ?> 
+                endif; ?>
 
               </div>
             </div>
@@ -420,12 +420,12 @@ get_header(); ?>
           <!-- END About the Neighborhood -->
 
           <!-- The Neighborhood -->
-          <?php 
+          <?php
             $custom_sections = get_field('custom_neighborhood_sections');
           ?>
           <?php if ( !in_array('no_photo_gallery', $custom_sections) ) :
             get_template_part('template-parts/listings/listings-neighborhood');
-          endif; ?> 
+          endif; ?>
           <!-- END The Neighborhood -->
         <?php endif; ?>
 
@@ -537,10 +537,10 @@ get_header(); ?>
 		</div>
 	</div>
 	<!-- END Exclusive Access Section -->
-	
+
 	<!-- Card Links Section -->
 	<?php if ( have_rows('listings_card_links', 'options') ) :
-		while ( have_rows('listings_card_links', 'options') ) : the_row(); 
+		while ( have_rows('listings_card_links', 'options') ) : the_row();
 
 
 			$background_image = get_sub_field('background');
@@ -555,8 +555,8 @@ get_header(); ?>
 						<div class="card-links__cards">
 
 							<?php if ( have_rows('cards') ) :
-								while ( have_rows('cards') ) : the_row(); 
-									
+								while ( have_rows('cards') ) : the_row();
+
 								$card_image = get_sub_field('image');
 								$card_link = get_sub_field('link');
 								$card_text = get_sub_field('text'); ?>
@@ -587,8 +587,8 @@ get_header(); ?>
 		<?php $homepage_ID = get_page_by_title('home')->ID; ?>
     <?php if ( have_rows('get_in_touch', $homepage_ID) ) :
       while ( have_rows('get_in_touch', $homepage_ID) ) : the_row();
-      $image = get_sub_field('background_image'); 
-      $title = get_sub_field('title'); 
+      $image = get_sub_field('background_image');
+      $title = get_sub_field('title');
       $text = get_sub_field('text');
 
       ?>
@@ -645,7 +645,7 @@ get_header(); ?>
                   <small class="form-get-in-touch__validation-message" id="property-validation">Please enter valid property.</small>
                 </div>
 
-								<?php 
+								<?php
 									$address_1 = get_field('address_1');
 									$city_state = get_field('city_and_state');
 									$zip = get_field('zip_code');
@@ -667,10 +667,10 @@ get_header(); ?>
             </div>
           </div>
         </div>
-      
+
       <?php endwhile;
     endif; ?>
-      
+
 	</section>
 	</div>
 	<!-- END Get in Touch Form -->

@@ -318,7 +318,6 @@ document.addEventListener('DOMContentLoaded', function () {
   (0,_resources_form_new_dev__WEBPACK_IMPORTED_MODULE_2__.formNewDev)();
   video.forEach(function (vid) {
     vid.addEventListener('loadeddata', function () {});
-    console.log('>>>>>>>>>>\n', vid);
   });
   videoContainer.forEach(function (vid, i) {
     vid.addEventListener('click', function () {
