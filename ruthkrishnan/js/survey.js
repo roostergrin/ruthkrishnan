@@ -2,6 +2,135 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/resources/form-agent-referral.js":
+/*!******************************************************!*\
+  !*** ./src/scripts/resources/form-agent-referral.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "formAgentReferral": () => (/* binding */ formAgentReferral)
+/* harmony export */ });
+var formAgentReferral = function formAgentReferral() {
+  var formElem = document.getElementById('agent-referral-form');
+  var buyerSellerOption = document.getElementById("buyer-seller-option");
+  var buyerForm = document.getElementById("buyer-form");
+  var sellerForm = document.getElementById("seller-form");
+
+  buyerSellerOption.onchange = function (event) {
+    var selectedOption = buyerSellerOption.options[buyerSellerOption.selectedIndex].text; // console.log(selectedOption);
+
+    if (selectedOption === "Buyer") {
+      buyerForm.style.display = "unset";
+      sellerForm.style.display = "none";
+    }
+
+    if (selectedOption === "Seller") {
+      sellerForm.style.display = "unset";
+      buyerForm.style.display = "none";
+    }
+  };
+
+  if (formElem) {
+    var validateForm = function validateForm() {
+      var errorMessages = Array.from(document.querySelectorAll('.form-survey__validation-message')),
+          fullnameValidation = document.getElementById('fullname-validation'),
+          emailValidation = document.getElementById('email-validation'),
+          // buyerSellerOption = document.getElementById("buyer-seller-option"),
+      phoneValidation = document.getElementById('phone-validation');
+      var errorFields; // console.log("TESTING");
+      // console.log(buyerSellerOption.options[buyerSellerOption.selectedIndex].text);
+
+      errorMessages.forEach(function (message) {
+        return message.style.opacity = 0;
+      });
+      errorFields = [];
+
+      if (!/^(?![\s.]+$)[a-zA-Z\s.]*$/.test(formElem.fullname.value) || formElem.fullname.value === '') {
+        errorFields.push('fullname');
+      }
+
+      if (formElem.email.value === '') {
+        errorFields.push('email');
+      }
+
+      if (!/^[0-9-+\s()]*$/.test(formElem.phone.value) || formElem.phone.value === '' || formElem.phone.value.length < 7) {
+        errorFields.push('phone');
+      }
+
+      if (errorFields.length > 0) {
+        console.log(errorFields);
+        errorFields.forEach(function (err) {
+          switch (err) {
+            case 'fullname':
+              fullnameValidation.style.opacity = 1;
+              break;
+
+            case 'email':
+              emailValidation.style.opacity = 1;
+              break;
+
+            case 'phone':
+              phoneValidation.style.opacity = 1;
+              break;
+          }
+        });
+      } else {
+        sendEmail();
+      }
+    };
+
+    var sendEmail = function sendEmail() {
+      var interestElements = formElem.querySelectorAll('input[name="interest"]:checked');
+      var interests = Array.from(interestElements).map(function (checkbox) {
+        return checkbox.value;
+      });
+      axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-agent-referral', {
+        fullname: formElem.fullname.value,
+        email: formElem.email.value,
+        phone: formElem.phone.value,
+        purchase: formElem.purchase.value,
+        interest: interests,
+        // Send as an array
+        agent: formElem.agent.value,
+        neighbor: formElem.neighbor.value,
+        consultation: formElem.consultation.value,
+        mailing: formElem.mailing.value,
+        disclosure: formElem.disclosure.value,
+        address: formElem.address.value,
+        page: formElem.dataset.page
+      }).then(function (res) {
+        formElem.fullname.value = '';
+        formElem.email.value = '';
+        formElem.phone.value = '';
+        formElem.purchase.value = '';
+        interestElements.forEach(function (checkbox) {
+          return checkbox.checked = false;
+        });
+        formElem.agent.value = '';
+        formElem.neighbor.value = '';
+        formElem.consultation.value = '';
+        formElem.mailing.value = '';
+        formElem.disclosure.value = '';
+        formElem.address.value = '';
+        setTimeout(function () {
+          window.location.href = '/thank-you';
+        }, 150);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    };
+
+    formElem.addEventListener('submit', function (event) {
+      event.preventDefault();
+      validateForm();
+    });
+  }
+};
+
+/***/ }),
+
 /***/ "./src/scripts/resources/form-open-house.js":
 /*!**************************************************!*\
   !*** ./src/scripts/resources/form-open-house.js ***!
@@ -276,11 +405,14 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_form_survey__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../resources/form-survey */ "./src/scripts/resources/form-survey.js");
 /* harmony import */ var _resources_form_open_house__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../resources/form-open-house */ "./src/scripts/resources/form-open-house.js");
+/* harmony import */ var _resources_form_agent_referral__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../resources/form-agent-referral */ "./src/scripts/resources/form-agent-referral.js");
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
   (0,_resources_form_survey__WEBPACK_IMPORTED_MODULE_0__.formSurvey)();
   (0,_resources_form_open_house__WEBPACK_IMPORTED_MODULE_1__.formOpenHouse)();
+  (0,_resources_form_agent_referral__WEBPACK_IMPORTED_MODULE_2__.formAgentReferral)();
 });
 })();
 

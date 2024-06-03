@@ -414,6 +414,25 @@
     margin-bottom: 1.5rem;
   }
 }
+.form-survey__dropdown {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.form-survey__dropdown-label {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.form-survey__buyer {
+  display: none;
+  width: 100%;
+}
+.form-survey__seller {
+  display: none;
+  width: 100%;
+}
 .form-survey__text {
   margin: 1rem 0;
   width: 66.7%;
