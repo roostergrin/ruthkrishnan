@@ -232,14 +232,14 @@ function rg_serve_route_survey () {
   }
 }
 
-// SURVEY FORM EMAILER ---------------------------------------
+// AGENT REFERRAL FORM EMAILER ---------------------------------------
 
 // wp api custom endpoints
 add_action('rest_api_init', 'rg_register_routes_agent');
 function rg_register_routes_agent () {
   register_rest_route('rg-mail/v1', 'form-agent-referral', array(
     'methods' => WP_REST_Server::CREATABLE,
-    'callback' => 'rg_serve_route_survey'
+    'callback' => 'rg_serve_route_agent'
   ));
 }
 // function for handling post request to new api route
@@ -259,29 +259,13 @@ function rg_serve_route_agent () {
   $message .= '<h1 style="font-size: 40px; margin: 0; text-align: center; width: 100%; color: #003b75;">Form Received!</h1></div></div>';
   $message .= '<div class="section" style="background-color: #fdfdfd;"><div class="container" style="padding: 4rem 32px 1rem 32px; max-width: 1440px; margin: 0 auto">';
   $message .= '<div class="card-holder" style="padding: 7px; background-color: #e6e6e6;"><div class="card-holder" style="padding: 2rem; background-color: white;">';
-  $message .= '<table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Full Name</p></th></tr><tr>';
-  $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['fullname'] . '</h5></td></tr>';
-  $message .= '</table><table style="width: 100%; text-align: left">';
-  $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">E-Mail</p></th><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Phone</p></th></tr><tr>';
-  $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['email'] . '</h5></td>';
-  $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">'. $data['phone'] . '</h5></td></tr>';
-  $message .= '</table><table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Are you interested in buying or selling?</p></th></tr><tr>';
-  $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['purchase'] . '</h5></td></tr>';
-  $message .= '</table><table style="width: 100%; text-align: left">';
-  $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">When would you like to purchase or sell? Timeframe: Give us the best idea of when you’d like to move.</p></th></tr>';
-  $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['timeframe'] . '</h5></td></tr>';
-  $message .= '</table><table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">If you are buying a home how much are you hoping to spend?</p></th></tr><tr>';
-  $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['budget'] . '</h5></td></tr>';
-  $message .= '</table><table style="width: 100%; text-align: left">';
-  $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">What areas are you most interested in? Location: Please list any and all areas you think you’d be interested in learning more about. You don’t have to be certain.</p></th></tr>';
-  $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300;">' . $data['location'] . '</h5></td></tr>';
-  $message .= '</table><table style="width: 100%; text-align: left">';
-  $message .= '</table><table style="width: 100%; text-align: left">';
-  $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">If you are a selling a home please provide your address.</p></th></tr>';
-  $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300;">' . $data['address'] . '</h5></td></tr>';
-  $message .= '</table><table style="width: 100%; text-align: left">';
-  $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Is there anything else you\'d like to tell us?</p></th></tr>';
-  $message .= '<tr><td style="font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300;">' . $data['misc'] . '</h5></td></tr></table></div></div></div>';
+  if ($data['formtype'] == 'buyer') {
+    $message .= '<table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Test - Buyer</p></th></tr>';
+  }
+  if ($data['formtype'] == 'seller')
+  {
+    $message .= '<table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Test - Seller</p></th></tr>';
+  }
   $message .= '<div class="container" style="padding: 0 32px 4rem 32px; max-width: 1440px; margin: 0 auto">';
   $message .= '<p style="color: #3f3f3f;">This form was generated from <a href="https://ruthkrishnan.com" target="_blank" style="text-decoration: none">ruthkrishnan.com</a></p>';
   $message .= '</div></div></body></html>';
