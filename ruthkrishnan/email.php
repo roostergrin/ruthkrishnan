@@ -251,7 +251,7 @@ function rg_serve_route_agent () {
   $data = json_decode(file_get_contents("php://input"), true);
   $from = 'no-reply@ruthkrishnan.com';
   $to = 'sebastian@roostergrin.com';
-  $subject = 'Ruth Krishnan Agent Referral Form - ' . $data['page'] . ' Page';
+  $subject = 'Ruth Krishnan - Agent Referral ' . $data['formtype'];
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $message = '<!DOCTYPE html><html><body>';
   $message .= '<div class="container" style="background-color: #ebf5ff; padding: 1.5rem 0;">';
@@ -259,12 +259,54 @@ function rg_serve_route_agent () {
   $message .= '<h1 style="font-size: 40px; margin: 0; text-align: center; width: 100%; color: #003b75;">Form Received!</h1></div></div>';
   $message .= '<div class="section" style="background-color: #fdfdfd;"><div class="container" style="padding: 4rem 32px 1rem 32px; max-width: 1440px; margin: 0 auto">';
   $message .= '<div class="card-holder" style="padding: 7px; background-color: #e6e6e6;"><div class="card-holder" style="padding: 2rem; background-color: white;">';
-  if ($data['formtype'] == 'buyer') {
-    $message .= '<table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Test - Buyer</p></th></tr>';
+  if ($data['formtype'] == 'Buyer') {
+    // What kind of home are you looking to buy?
+    $message .= '</table><table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">What kind of home are you looking to buy?</p></th></tr><tr>';
+    $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['homestyleBuy'] . '</h5></td></tr>';
+    $message .= '</table><table style="width: 100%; text-align: left">';
+    // Where are you looking to buy?
+    $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Where are you looking to buy?</p></th></tr>';
+    $message .= '<td style="width: 100%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['neighborhoodsBuy'] . '</h5></td>';
+    $message .= '</table><table style="width: 100%; text-align: left">';
+    // Have you been pre-approved for a mortgage yet?
+    $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Have you been pre-approved for a mortgage yet?</p></th></tr>';
+    $message .= '<td style="width: 100%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['mortgageBuy'] . '</h5></td>';
+    $message .= '</table><table style="width: 100%; text-align: left">';
+    // How soon are you looking to buy?
+    $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">How soon are you looking to buy?</p></th></tr>';
+    $message .= '<td style="width: 100%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['timelineBuy'] . '</h5></td>';
+    $message .= '</table><table style="width: 100%; text-align: left">';
+    // What is your full name?
+    $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">What is your full name?</p></th></tr>';
+    $message .= '<td style="width: 100%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['fullnameBuy'] . '</h5></td>';
+    $message .= '</table><table style="width: 100%; text-align: left">';
+    // What is your email?
+    $message .= '<tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">What is your email?</p></th></tr>';
+    $message .= '<td style="width: 100%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['emailBuy'] . '</h5></td>';
+    $message .= '</table><table style="width: 100%; text-align: left">';
   }
-  if ($data['formtype'] == 'seller')
+  if ($data['formtype'] == 'Seller')
   {
-    $message .= '<table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Test - Seller</p></th></tr>';
+    // How soon are you planning to sell?
+    $message .= '</table><table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">How soon are you planning to sell?</p></th></tr><tr>';
+    $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['timelineSell'] . '</h5></td></tr>';
+    $message .= '</table><table style="width: 100%; text-align: left">';
+    // Are you also looking to buy a home?
+    $message .= '</table><table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Are you also looking to buy a home?</p></th></tr><tr>';
+    $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['alsoBuy'] . '</h5></td></tr>';
+    $message .= '</table><table style="width: 100%; text-align: left">';
+    // Enter your name and property address
+    $message .= '</table><table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Enter your name and property address</p></th></tr><tr>';
+    $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['sellAddress'] . '</h5></td></tr>';
+    $message .= '</table><table style="width: 100%; text-align: left">';
+    // Email
+    $message .= '</table><table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Email</p></th></tr><tr>';
+    $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['sellEmail'] . '</h5></td></tr>';
+    $message .= '</table><table style="width: 100%; text-align: left">';
+    // Phone Number
+    $message .= '</table><table style="width: 100%; text-align: left"><tr><th><p style="font-size: 14px; margin-bottom: .5rem; color: #848484; font-weight: 300;">Phone Number</p></th></tr><tr>';
+    $message .= '<td style="width: 50%; font-size: 20px;"><h5 style="margin-top: 0; padding-top: 0; font-weight: 300; border-bottom: 1px solid #3f3f3f; margin-right: 10%;">' . $data['sellPhone'] . '</h5></td></tr>';
+    $message .= '</table><table style="width: 100%; text-align: left">';
   }
   $message .= '<div class="container" style="padding: 0 32px 4rem 32px; max-width: 1440px; margin: 0 auto">';
   $message .= '<p style="color: #3f3f3f;">This form was generated from <a href="https://ruthkrishnan.com" target="_blank" style="text-decoration: none">ruthkrishnan.com</a></p>';

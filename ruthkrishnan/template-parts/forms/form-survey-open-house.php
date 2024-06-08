@@ -27,7 +27,6 @@
             <div class="form-survey__form-container">
               <form action="" class="form-survey__form" id="open-house-form" data-page='<?php echo the_title(); ?>'>
                 <div class="form-survey__form-group">
-                  <!-- TEST TEST -->
                   <label for="fullname" class="form-survey__label">First and Last Name</label>
                   <input type="text" name="fullname" id="fullname" placeholder="First and Last Name*" class="form-survey__input">
                   <small class="form-survey__validation-message" id="fullname-validation">Please enter valid full name.</small>

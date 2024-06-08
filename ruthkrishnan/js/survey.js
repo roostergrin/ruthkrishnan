@@ -20,102 +20,126 @@ var formAgentReferral = function formAgentReferral() {
   var form = '';
 
   buyerSellerOption.onchange = function (event) {
-    var selectedOption = buyerSellerOption.options[buyerSellerOption.selectedIndex].text; // console.log(selectedOption);
+    var selectedOption = buyerSellerOption.options[buyerSellerOption.selectedIndex].text;
 
     if (selectedOption === "Buyer") {
-      form = 'buyer';
+      form = 'Buyer';
       buyerForm.style.display = "unset";
       sellerForm.style.display = "none";
     }
 
     if (selectedOption === "Seller") {
-      form = 'seller';
+      form = 'Seller';
       sellerForm.style.display = "unset";
       buyerForm.style.display = "none";
     }
   };
 
   if (formElem) {
-    // const validateForm = () => {
-    // const errorMessages = Array.from(document.querySelectorAll('.form-survey__validation-message')),
-    //       fullnameValidation = document.getElementById('fullname-validation'),
-    //       emailValidation = document.getElementById('email-validation'),
-    //       // buyerSellerOption = document.getElementById("buyer-seller-option"),
-    //       phoneValidation = document.getElementById('phone-validation');
-    // let errorFields;
-    // console.log("TESTING");
-    // console.log(buyerSellerOption.options[buyerSellerOption.selectedIndex].text);
-    // errorMessages.forEach(message => message.style.opacity = 0)
-    // errorFields = []
-    // if (!/^(?![\s.]+$)[a-zA-Z\s.]*$/.test(formElem.fullname.value) || formElem.fullname.value === '') {
-    //   errorFields.push('fullname')
-    // }
-    // if (formElem.email.value === '') {
-    //   errorFields.push('email')
-    // }
-    // if (!/^[0-9-+\s()]*$/.test(formElem.phone.value) || formElem.phone.value === '' || formElem.phone.value.length < 7) {
-    //   errorFields.push('phone')
-    // }
-    // if (errorFields.length > 0) {
-    //   console.log(errorFields)
-    //   errorFields.forEach((err) => {
-    //     switch (err) {
-    //       case 'fullname':
-    //         fullnameValidation.style.opacity = 1;
-    //         break;
-    //       case 'email':
-    //         emailValidation.style.opacity = 1;
-    //         break;
-    //       case 'phone':
-    //         phoneValidation.style.opacity = 1;
-    //         break;
-    //     }
-    //   })
-    // } else {
-    //   sendEmail();
-    // }
-    // sendEmail();
-    // }
+    var validateForm = function validateForm() {
+      var errorMessages = Array.from(document.querySelectorAll('.form-survey__validation-message')),
+          fullnameValidation = document.getElementById('fullnameBuy-validation'),
+          emailBuyValidation = document.getElementById('emailBuy-validation'),
+          emailSellValidation = document.getElementById('sellEmail-validation'),
+          phoneValidation = document.getElementById('sellPhone-validation');
+      var errorFields;
+      errorMessages.forEach(function (message) {
+        return message.style.opacity = 0;
+      });
+      errorFields = [];
+
+      if ((!/^(?![\s.]+$)[a-zA-Z\s.]*$/.test(formElem.fullnameBuy.value) || formElem.fullnameBuy.value === '') && form === "Buyer") {
+        errorFields.push('fullnameBuy');
+      }
+
+      if (formElem.emailBuy.value === '' && form === "Buyer") {
+        errorFields.push('emailBuy');
+      }
+
+      if (formElem.sellEmail.value === '' && form === "Seller") {
+        errorFields.push('sellEmail');
+      }
+
+      if ((!/^[0-9-+\s()]*$/.test(formElem.sellPhone.value) || formElem.sellPhone.value === '' || formElem.sellPhone.value.length < 7) && form === "Seller") {
+        errorFields.push('sellPhone');
+      }
+
+      if (errorFields.length > 0) {
+        console.log(errorFields);
+
+        if (form === "Buyer") {
+          errorFields.forEach(function (err) {
+            switch (err) {
+              case 'fullnameBuy':
+                fullnameValidation.style.opacity = 1;
+                break;
+
+              case 'emailBuy':
+                emailBuyValidation.style.opacity = 1;
+                break;
+            }
+          });
+        }
+
+        if (form === "Seller") {
+          errorFields.forEach(function (err) {
+            switch (err) {
+              case 'sellEmail':
+                emailSellValidation.style.opacity = 1;
+                break;
+
+              case 'sellPhone':
+                phoneValidation.style.opacity = 1;
+                break;
+            }
+          });
+        }
+      } else {
+        sendEmail();
+      }
+    };
+
     var sendEmail = function sendEmail() {
+      // For local, change this to http://localhost:8888/wp-json/rg-mail/v1/form-agent-referral
+      // For live, change this to https://ruthkrishnan.com/wp-json/rg-mail/v1/form-agent-referral
       axios.post('https://ruthkrishnan.com/wp-json/rg-mail/v1/form-agent-referral', {
-        // fullname: formElem.fullname.value,
-        // email: formElem.email.value,
-        // phone: formElem.phone.value,
-        // purchase: formElem.purchase.value,
-        // interest: interests, // Send as an array
-        // agent: formElem.agent.value,
-        // neighbor: formElem.neighbor.value,
-        // consultation: formElem.consultation.value,
-        // mailing: formElem.mailing.value,
-        // disclosure: formElem.disclosure.value,
-        // address: formElem.address.value,
-        // page: formElem.dataset.page,
+        homestyleBuy: formElem.homestyleBuy.value,
+        neighborhoodsBuy: formElem.neighborhoodsBuy.value,
+        mortgageBuy: formElem.mortgageBuy.value,
+        timelineBuy: formElem.timelineBuy.value,
+        fullnameBuy: formElem.fullnameBuy.value,
+        emailBuy: formElem.emailBuy.value,
+        timelineSell: formElem.timelineSell.value,
+        alsoBuy: formElem.alsoBuy.value,
+        sellAddress: formElem.sellAddress.value,
+        sellEmail: formElem.sellEmail.value,
+        sellPhone: formElem.sellPhone.value,
+        page: formElem.dataset.page,
         formtype: form
       }).then(function (res) {
-        // formElem.fullname.value = '';
-        // formElem.email.value = '';
-        // formElem.phone.value = '';
-        // formElem.purchase.value = '';
-        // interestElements.forEach(checkbox => checkbox.checked = false);
-        // formElem.agent.value = '';
-        // formElem.neighbor.value = '';
-        // formElem.consultation.value = '';
-        // formElem.mailing.value = '';
-        // formElem.disclosure.value = '';
-        // formElem.address.value = '';
+        formElem.homestyleBuy.value = '';
+        formElem.neighborhoodsBuy.value = '';
+        formElem.mortgageBuy.value = '';
+        formElem.timelineBuy.value = '';
+        formElem.fullnameBuy.value = '';
+        formElem.emailBuy.value = '';
+        formElem.timelineSell.value = '';
+        formElem.alsoBuy.value = '';
+        formElem.sellAddress.value = '';
+        formElem.sellEmail.value = '';
+        formElem.sellPhone.value = '';
         form = '';
         setTimeout(function () {
           window.location.href = '/thank-you';
-          console.log("testing function");
         }, 150);
       })["catch"](function (err) {
         console.log(err);
       });
     };
 
-    sendEmail();
     formElem.addEventListener('submit', function (event) {
-      event.preventDefault(); // validateForm();
+      event.preventDefault();
+      validateForm();
     });
   }
 };
