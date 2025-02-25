@@ -1,0 +1,40 @@
+/* --------------------------
+    About Welcome Styles
+  --------------------------- */
+
+.about-welcome
+  @extend %section-padding-large
+  padding-bottom: 0
+
+  &__container
+    @include container
+
+  &__title
+    @include col (12)
+    margin-bottom: 1rem
+    line-height: 1
+    text-align: center
+
+  &__content
+    @include col (8)
+    @include col--offset (2)
+
+  &__text
+    @include desktop
+      margin-bottom: 1.5rem
+    margin-bottom: 1rem
+
+  &__link
+    @extend %button-text
+    @include hover-supported
+      background: $c6
+    display: inline-block
+    position: relative
+    left: 50%
+    transform: translateX(-50%)
+    transition: background .2s ease
+    background: $c3
+    cursor: pointer
+    padding: rem-calc(14) 2rem rem-calc(12)
+    text-transform: lowercase
+    color: $white

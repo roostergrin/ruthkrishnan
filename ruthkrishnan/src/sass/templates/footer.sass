@@ -163,11 +163,10 @@
     @include nexus
       justify-content: center
     display: flex
+    flex-wrap: wrap
+    max-width: 170px
     margin-bottom: rem-calc(24)
-
-    &-link
-      &:not(:first-of-type)
-        margin-left: .5rem
+    gap: rem-calc(8)
 
     &-icon
       @include hover-supported
